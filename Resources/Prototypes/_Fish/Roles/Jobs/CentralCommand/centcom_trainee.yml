@@ -1,7 +1,7 @@
 - type: job
   id: CentCommTrainee
   name: job-name-centcomtr
-  description: job-description-centcomTrainee
+  description: job-description-centcomtrainee
   playTimeTracker: JobCentCommTrainee
   requirements:
   - !type:DiscordRoleRequirement

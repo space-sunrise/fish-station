@@ -10,7 +10,7 @@
     - Lawyer
     - NtrOfficer
 
-- type: department # Fihs-start
+- type: department # Surnise-Blueshield #Fish-start
   id: BlueShield
   name: department-Blueshield
   description: department-Blueshield-description
@@ -18,8 +18,9 @@
   roles:
    - BlueShieldEnsign
    - BlueShieldOfficer
+  #  - BlueShieldOperative
   primary: false
-  eight: 50 # Fihs-end
+  weight: 50 #Fish-end
 
 - type: department
   id: PlanetPrison
