@@ -1,8 +1,10 @@
-- type: job
-  id: BlueShieldEnsign
-  name: job-name-blueshield-ensign
-  description: job-description-blueshield-ensign
-  playTimeTracker: JobBlueShieldEnsign
+#Fish-start
+# - type: job
+#   id: BlueShieldEnsign
+#   name: job-name-blueshield-ensign
+#   description: job-description-blueshield-ensign
+#   playTimeTracker: JobBlueShieldEnsign
+#Fish-end
 #  requirements:
 #    - !type:DepartmentTimeRequirement
 #      department: BlueShield
