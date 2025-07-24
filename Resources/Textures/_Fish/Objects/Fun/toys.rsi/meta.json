@@ -1,0 +1,33 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by FishStation",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+      {
+        "name": "CE_vulpa_plushie"
+      },
+      {
+        "name": "CE_vulpa_plushie_inhand_right",
+        "directions": 4
+      },
+      {
+        "name": "CE_vulpa_plushie_inhand_left",
+        "directions": 4
+      },
+      {
+        "name": "Engie_xeno_plushie"
+      },
+      {
+        "name": "Engie_xeno_plushie_inhand_right",
+        "directions": 4
+      },
+      {
+        "name": "Engie_xeno_plushie_inhand_left",
+        "directions": 4
+      }
+      ]
+  }

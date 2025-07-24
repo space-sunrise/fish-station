@@ -1,0 +1,37 @@
+- type: entity
+  id: CE_vulpa_plushie
+  parent: BasePlushie
+  name: CE vulpa plushie
+  description: TEST
+  components:
+  - type: Sprite
+    sprite: _Fish/Objects/Fun/toys.rsi
+    state: CE_vulpa_plushie
+  - type: Clothing
+    quickEquip: false
+    sprite: _Fish/Objects/Fun/toys.rsi
+    equippedPrefix: CE vulpa plushie
+    slots:
+      - NECK
+  - type: Item
+    heldPrefix: CE vulpa plushie
+
+
+- type: entity
+  id: Engie_xeno_plushie
+  parent: BasePlushie
+  name: Engie xeno plushie
+  description: TEST
+  components:
+  - type: Sprite
+    sprite: _Fish/Objects/Fun/toys.rsi
+    state: Engie_xeno_plushie
+  - type: Clothing
+    quickEquip: false
+    sprite: _Fish/Objects/Fun/toys.rsi
+    equippedPrefix: Engie xeno plushie
+    slots:
+      - NECK
+  - type: Item
+    heldPrefix: Engie xeno plushie
+
