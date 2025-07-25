@@ -10,16 +10,16 @@
     - Lawyer
     - NtrOfficer
 
-#- type: department # Surnise-Blueshield
-#  id: BlueShield
-#  name: department-Blueshield
-#  description: department-Blueshield-description
-#  color: "#0f4e81"
-#  roles:
-#    - BlueShieldEnsign
-#    - BlueShieldOfficer
-#  primary: false
-#  weight: 50
+- type: department # Fihs-start
+  id: BlueShield
+  name: department-Blueshield
+  description: department-Blueshield-description
+  color: "#0f4e81"
+  roles:
+   - BlueShieldEnsign
+   - BlueShieldOfficer
+  primary: false
+  eight: 50 # Fihs-end
 
 - type: department
   id: PlanetPrison
@@ -44,6 +44,9 @@
   roles:
   - CentCommOperator
   - CentCommOfficial
+  - CentCommOfficer #Fish-edit
+  - CentCommTrainee #Fish-edit
+  - BlueShieldCentcom #Fish-edit
   weight: 120
 
 - type: department

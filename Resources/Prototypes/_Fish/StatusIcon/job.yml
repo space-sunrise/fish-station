@@ -1,0 +1,14 @@
+- type: jobIcon
+  id: JobIcon
+  abstract: true
+  priority: 1
+  locationPreference: Right
+  isShaded: true
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconNanotrasenTrainee
+  icon:
+    sprite: /Textures/_Fish/Interface/Misc/job_icons.rsi
+    state: NanotrasenTrainee
+  jobName: job-name-centcomoff

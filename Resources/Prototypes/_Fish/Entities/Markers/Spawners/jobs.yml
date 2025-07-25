@@ -1,0 +1,41 @@
+- type: entity
+  id: SpawnPointCentCommTrainee
+  parent: SpawnPointJobBase
+  name: Central Command Trainee
+  components:
+  - type: SpawnPoint
+    job_id: CentCommTrainee
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - state: centcom
+
+- type: entity
+  id: SpawnPointCentCommOfficer
+  parent: SpawnPointJobBase
+  name: Central Command Officer
+  components:
+  - type: SpawnPoint
+    job_id: CentCommOfficer
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - state: centcom
+
+- type: entity
+  id: SpawnPointBlueShieldCentcom
+  parent: SpawnPointJobBase
+  name: blue shield officer Centcom
+  components:
+  - type: SpawnPoint
+    job_id: BlueShieldCentcom
+  - type: Sprite
+    sprite: _Sunrise/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: blueshield
+      - state: jobicon
+
+    # BlueShieldOfficerCentcom

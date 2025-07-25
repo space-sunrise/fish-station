@@ -1,0 +1,39 @@
+- type: roleLoadout
+  id: JobCentCommTrainee
+  groups:
+  - CentCommOperatorJumpsuit
+  - CentCommOperatorHats
+  - CentCommTraineeOuterClothing
+  - Trinkets
+  - Survival
+  - GroupSpeciesBreathTool
+  - Bra
+  - Pants
+  - Socks
+
+- type: roleLoadout
+  id: JobCentCommOfficer
+  groups:
+  - CentCommOperatorJumpsuit
+  - CentCommOperatorHats
+  - CentCommTraineeOuterClothing
+  - Trinkets
+  - Survival
+  - GroupSpeciesBreathTool
+  - Bra
+  - Pants
+  - Socks
+
+- type: roleLoadout
+  id: JobBlueShieldCentcom
+  groups:
+  - BlueShieldJumpsuit
+  - BlueShieldBackpack
+  - BlueShieldBelt
+  - BlueShieldNeck
+  - Trinkets
+  - SurvivalSecurity
+  - GroupSpeciesBreathTool
+  - Bra
+  - Pants
+  - Socks

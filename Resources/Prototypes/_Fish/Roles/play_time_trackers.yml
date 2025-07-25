@@ -1,0 +1,8 @@
+- type: playTimeTracker
+  id: JobCentCommTrainee
+
+- type: playTimeTracker
+  id: JobCentCommOfficer
+
+- type: playTimeTracker
+  id: JobBlueShieldCentcom

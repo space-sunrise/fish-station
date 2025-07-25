@@ -1,0 +1,80 @@
+# - type: entity
+#   parent: Clothing
+#   id: IDCardStandard
+#   name: identification card
+#   description: A card necessary to access various areas aboard the station.
+#   abstract: true
+#   components:
+#   # Sunrise added start
+#   - type: EmitSoundOnPickup
+#     sound:
+#       path: /Audio/_Sunrise/Items/Handling/ID/pickup.ogg
+#   - type: EmitSoundOnDrop
+#     sound:
+#       path: /Audio/_Sunrise/Items/Handling/ID/drop.ogg
+#   - type: EmitSoundOnLand
+#     sound:
+#       path: /Audio/_Sunrise/Items/Handling/ID/drop.ogg
+#   # Sunrise added end
+#   - type: Sprite
+#     sprite: Objects/Misc/id_cards.rsi
+#   - type: Clothing
+#     slots:
+#     - idcard
+#     sprite: Objects/Misc/id_cards.rsi
+#   - type: Item
+#     size: Small
+#     heldPrefix: default
+#     storedRotation: -90
+#   - type: Access
+#   - type: IdCard
+#   - type: StationRecordKeyStorage
+#   - type: Tag
+#     tags:
+#     - DoorBumpOpener
+#     - WhitelistChameleon
+#     - WhitelistChameleonIdCard
+#   - type: StealTarget
+#     stealGroup: IDCard
+
+# - type: entity
+#   parent: IDCardStandard
+#   id: CentcomIDCard
+#   name: command officer ID card
+#   components:
+#   - type: Sprite
+#     layers:
+#     - state: centcom
+#     - state: idcentcom
+#   - type: Item
+#     heldPrefix: blue
+#   - type: PresetIdCard
+#     job: CentCommOfficial # Sunrise-Edit
+
+# - type: entity  # Sunrise-Start
+#   parent: IDCardStandard
+#   id: CentcomOperatorIDCard
+#   name: command operator ID card
+#   components:
+#   - type: Sprite
+#     layers:
+#     - state: centcom
+#     - state: idcentcom
+#   - type: Item
+#     heldPrefix: blue
+#   - type: PresetIdCard
+#     job: CentCommOperator # Sunrise-end
+
+# - type: entity  # Fish-Start
+#   parent: IDCardStandard
+#   id: CentcomTraineeIDCard
+#   name: command Trainee ID card
+#   components:
+#   - type: Sprite
+#     layers:
+#     - state: centcom
+#     - state: idcentcom
+#   - type: Item
+#     heldPrefix: blue
+#   - type: PresetIdCard
+#     job: CentCommTrainee # Fish-end

@@ -16,4 +16,7 @@
             prefixCreator: 'TG'
         - type: StationJobs
           availableJobs:
-            CentCommOperator: [ 1, 1 ]
+            # CentCommOfficial: [ 1, 1 ] # Fish-edit
+            CentCommOfficer: [ 3, 3 ] # Fish-edit
+            CentCommTrainee: [ 1, 1 ] # Fish-edit
+            BlueShieldCentcom: [ 2, 2 ] # Fish-edit

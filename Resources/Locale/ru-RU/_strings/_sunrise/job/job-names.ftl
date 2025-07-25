@@ -1,7 +1,10 @@
 job-name-magistrat = магистрат
 job-name-centcomop = оператор Центком
+job-name-centcomoff = офицер Центком
+job-name-centcomtr = стажер Центком
 job-name-blueshield-officer = офицер «Синий Щит»
 job-name-blueshield-ensign = лейтенант «Синий Щит»
+job-name-blueshield-officer-centcom = офицер «С.Щ.» Центком
 job-name-iaa = агент внутренних дел
 job-name-senior-engineer = ведущий инженер
 job-name-senior-researcher = ведущий учёный
@@ -42,6 +45,9 @@ job-name-ntrleader = Командир ИСН
 job-name-ntrofficer = Офицер ИСН
 job-name-usspcaptain = Капитан СССП
 # Перевод трекеров времени
+JobBlueShieldCentcom = офицер «Синий Щит» Центком
+jobCentCommOfficer = офицер Центком
+JobCentCommTrainee = стажер Центком
 JobCentCommOfficial = представитель Центком
 JobCentCommOperator = оператор Центком
 JobMagistrat = магистрат

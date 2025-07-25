@@ -1,0 +1,9 @@
+# - type: department # Fish-Blueshield
+#   id: BlueShieldCentcom
+#   name: department-Blueshield-Centcom
+#   description: department-Blueshield-description-Centcom
+#   color: "#0f4e81"
+#   roles:
+#    - BlueShieldOfficerCentcom
+#   primary: false
+#   weight: 50
