@@ -3,16 +3,7 @@
   name: ghost-theme-default
   color: "#fff8"
   sprite:
-    sprite: Mobs/Ghosts/ghost_human.rsi
-    state: animated
-
-- type: ghostTheme
-  id: Tortule
-  name: ghost-theme-tortule
-  color: "#fff8"
-  sponsorOnly: true
-  sprite:
-    sprite: _Sunrise/Mobs/Ghosts/ghost_premium.rsi
+    sprite: _Fish/Mobs/Ghosts/ghost_human.rsi #Fish-edit
     state: animated
 
 - type: ghostTheme

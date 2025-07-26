@@ -16,4 +16,4 @@
             prefixCreator: '-AHQ' #Fish-edit
         - type: StationJobs
           availableJobs:
-            # CentCommOperator: [ 1, 1 ] #Fish-edit
+            CentCommOperator: [ 1, 1 ] #Fish-edit
