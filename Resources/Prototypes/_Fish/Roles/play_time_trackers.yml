@@ -2,7 +2,19 @@
   id: JobCentCommTrainee
 
 - type: playTimeTracker
-  id: JobCentCommOfficer
+  id: JobCentCommofficer
 
 - type: playTimeTracker
-  id: JobBlueShieldCentcom
+  id: JobCentcomBlueShield
+
+- type: playTimeTracker
+  id: JobCentcommChef
+
+- type: playTimeTracker
+  id: JobCentcommMedicalDoctor
+
+- type: playTimeTracker
+  id: JobCentcommBartender
+
+- type: playTimeTracker
+  id: JobCentcommSectoralJudge

@@ -1,12 +1,27 @@
 - type: job
   id: CentCommOfficer
-  name: job-name-centcomoff
-  description: job-description-centcomoff
-  playTimeTracker: JobCentCommOfficer
+  name: job-name-centcomofficer
+  description: job-description-centcomofficer
+  playTimeTracker: JobCentCommofficer
   requirements:
-  - !type:DiscordRoleRequirement
+    - !type:DiscordRoleRequirement
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 14400 # 4 hours
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 14400 # 4 hours
+    - !type:DepartmentTimeRequirement
+      department: Science
+      time: 14400 # 4 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 14400 # 4 hours
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 14400 # 4 hours
   weight: 30
-  setPreference: false
+  setPreference: true
   startingGear: CentCommOfficerGear
   icon: "JobIconNanotrasen"
   overrideConsoleVisibility: false # Sunrise added
@@ -20,7 +35,7 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplant, TrackingImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: CentCommOfficerGear
@@ -30,9 +45,9 @@
     # head: ClothingHeadHatCentcom  #Fish-Edit
     eyes: ClothingEyesGlassesSunglasses
     gloves: ClothingHandsGlovesColorBlack
-    # outerClothing: ClothingOuterArmorCentcomCarapace
+    outerClothing: ClothingOuterArmorBasicSlim
     id: CentcomPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: ClothingHeadsetFishCentCom
     belt: WeaponPistolN1984
   storage:
     back:

@@ -1,50 +1,37 @@
-- type: job # Fish-start
-  id: BlueShieldCentcom
-  name: job-name-blueshield-officer-centcom
-  description: job-description-blueshield-officer-centcom
-  playTimeTracker: JobBlueShieldCentcom # Fish-start
+- type: job
+  id: CentcommBlueShield
+  name: job-name-centcom-blueshield
+  description: job-description-centcom-blueshield
+  playTimeTracker: JobCentcomBlueShield
   requirements:
-   - !type:DepartmentTimeRequirement
-     department: Security
-     time: 62000 # 20 hrs
-   - !type:AgeRequirement
-     requiredAge: 30
-  startingGear: BlueShieldCentcomGear
-  icon: JobIconBlueShield
+    - !type:DiscordRoleRequirement
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 62000 # 20 hrs
+    - !type:AgeRequirement
+      requiredAge: 20
+  startingGear: CentcomBlueShieldGear
+  icon: "JobIconBlueShield"
+  overrideConsoleVisibility: false
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  alwaysUseSpawner: true
+  accessGroups:
+  - AllAccess
   access:
-   - Command
-   - Bar
-   - Service
-   - Maintenance
-   - Janitor
-   - Theatre
-   - Kitchen
-   - Chapel
-   - Hydroponics
-   - External
-   - Chemistry
-   - Engineering
-   - Research
-   - Salvage
-   - Cargo
-   - Atmospherics
-   - Cargo
-   - Medical
-   - BlueShield
+  - CentralCommand
   special:
    - !type:AddImplantSpecial
      implants: [ MindShieldImplant ]
 
 - type: startingGear
-  id: BlueShieldCentcomGear
+  id: CentcomBlueShieldGear
   equipment:
    shoes: ClothingShoesBootsBlueShieldFilled
    eyes: ClothingEyesGlassesBlueShield
    outerClothing: ClothingOuterArmorBlueShield
-   id: BlueShieldOfficerPDA
-   ears: ClothingHeadsetBlueShield
+   id: BlueShieldOperativePDA
+   ears: ClothingHeadsetFishCentCom
    gloves: ClothingHandsGlovesCombat
   storage:
    back:

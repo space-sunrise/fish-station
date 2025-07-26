@@ -2,8 +2,6 @@
   id: JobCentCommTrainee
   groups:
   - CentCommOperatorJumpsuit
-  - CentCommOperatorHats
-  - CentCommTraineeOuterClothing
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
@@ -16,7 +14,6 @@
   groups:
   - CentCommOperatorJumpsuit
   - CentCommOperatorHats
-  - CentCommTraineeOuterClothing
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
@@ -25,7 +22,7 @@
   - Socks
 
 - type: roleLoadout
-  id: JobBlueShieldCentcom
+  id: JobCentcommBlueShield
   groups:
   - BlueShieldJumpsuit
   - BlueShieldBackpack
@@ -33,6 +30,79 @@
   - BlueShieldNeck
   - Trinkets
   - SurvivalSecurity
+  - GroupSpeciesBreathTool
+  - Bra
+  - Pants
+  - Socks
+
+- type: roleLoadout
+  id: JobCentcommMedicalDoctor
+  groups:
+  - GroupTankHarness
+  - MedicalDoctorHead
+  - MedicalMask
+  - MedicalDoctorJumpsuit
+  - MedicalGloves
+  - MedicalBackpack
+  - MedicalDoctorOuterClothing
+  # Sunrise-start
+  - SunriseMedicalDoctorNeck
+  # Sunrise-end
+  - MedicalShoes
+  #- MedicalDoctorPDA
+  - MedicalEyewear
+  - SurvivalMedical
+  - Trinkets
+  - GroupSpeciesBreathToolMedical
+  # Sunrise-start
+  - MedicalTrinkets
+  - Bra
+  - Pants
+  - Socks
+  # Sunrise-end
+
+- type: roleLoadout
+  id: JobCentcommChef
+  groups:
+  - GroupTankHarness
+  - ChefHead
+  - ChefMask
+  - ChefJumpsuit
+  - CommonBackpack
+  - ChefOuterClothing
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  # Sunrise-start
+  - Bra
+  - Pants
+  - Socks
+  # Sunrise-end
+
+- type: roleLoadout
+  id: JobCentcommBartender
+  groups:
+  - GroupTankHarness
+  - BartenderHead
+  - BartenderJumpsuit
+  - CommonBackpack
+  - BartenderOuterClothing
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  # Sunrise-start
+  - Bra
+  - Pants
+  - Socks
+  # Sunrise-end
+
+- type: roleLoadout
+  id: JobCentcommSectoralJudge
+  groups:
+  - Trinkets
+  - Survival
   - GroupSpeciesBreathTool
   - Bra
   - Pants

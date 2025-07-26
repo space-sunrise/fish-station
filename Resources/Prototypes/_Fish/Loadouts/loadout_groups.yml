@@ -1,5 +1,5 @@
-- type: loadoutGroup
-  id: CentCommTraineeOuterClothing
-  name: loadout-group-centcomm-trainee-outerclothing-vest
-  loadouts:
-  - ArmorVestSlim
+# - type: loadoutGroup
+#   id: CentCommTraineeOuterClothing
+#   name: loadout-group-centcomm-trainee-outerclothing-vest
+#   loadouts:
+#   - ArmorVestSlim

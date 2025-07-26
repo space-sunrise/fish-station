@@ -1,7 +1,9 @@
-job-name-centcomoff = офицер Центком
+job-name-centcomm-sectoral-judge = секторальный судья
+job-name-centcomofficer = офицер Центком
 job-name-centcomtr = стажер Центком
-job-name-blueshield-officer-centcom = оперативник «Синий Щит»
+job-name-centcom-blueshield = оперативник «Синий щит»
 # Перевод трекеров времени
-JobBlueShieldCentcom = офицер «Синий Щит» Центком
+JobCentcommSectoralJudge = секторальный судья
 jobCentCommOfficer = офицер Центком
 JobCentCommTrainee = стажер Центком
+JobCentcomBlueShield = оперативник «Синий щит»

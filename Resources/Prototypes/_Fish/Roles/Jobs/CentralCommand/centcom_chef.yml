@@ -1,42 +1,25 @@
 - type: job
-  id: ChefCentcomm
-  name: job-name-chef-centcomm
-  description: job-description-chef-centcomm
-  playTimeTracker: JobChef
+  id: CentcommChef
+  name: job-name-chef
+  description: job-description-chef
+  playTimeTracker: JobCentcommChef
   requirements:
+    - !type:DiscordRoleRequirement
     - !type:DepartmentTimeRequirement
       department: Civilian
       time: 3600 #1 hrs # Sunrise-RoleTime
   startingGear: ChefGear
-  icon: "JobIconChefCentcomm"
-  supervisors: job-supervisors-hop
+  icon: "JobIconCentcommChef"
+  overrideConsoleVisibility: false
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  alwaysUseSpawner: true
   access:
   - Service
   - Maintenance
   - Kitchen
-  extendedAccess:
   - Hydroponics
   - Bar
-
-- type: startingGear
-  id: ChefGear
-  equipment:
-    shoes: ClothingShoesColorBlack
-    id: ChefPDA
-    ears: ClothingHeadsetService
-    belt: ClothingBeltChefFilled
-  #storage:
-    #back:
-    #- Stuff
-
-- type: chameleonOutfit
-  id: ChefChameleonOutfit
-  job: Chef
-  equipment:
-    head: ClothingHeadHatChef
-    eyes: ClothingEyesGlassesCheapSunglasses
-    mask: ClothingMaskItalianMoustache
-    neck: ClothingNeckScarfStripedBrown
-    outerClothing: ClothingOuterJacketChef
-    gloves: ClothingHandsGlovesColorWhite
-    shoes: ClothingShoesChef
+  special:
+   - !type:AddImplantSpecial
+     implants: [ MindShieldImplant ]

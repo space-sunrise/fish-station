@@ -14,7 +14,7 @@
 - type: entity
   id: SpawnPointCentCommOfficer
   parent: SpawnPointJobBase
-  name: Central Command Officer
+  name: Central Command Fish
   components:
   - type: SpawnPoint
     job_id: CentCommOfficer
@@ -25,12 +25,12 @@
     - state: centcom
 
 - type: entity
-  id: SpawnPointBlueShieldCentcom
+  id: SpawnPointCentcomBlueShield
   parent: SpawnPointJobBase
-  name: blue shield officer Centcom
+  name: blue shield operative
   components:
   - type: SpawnPoint
-    job_id: BlueShieldCentcom
+    job_id: CentcommBlueShield
   - type: Sprite
     sprite: _Sunrise/Markers/jobs.rsi
     layers:
@@ -38,4 +38,52 @@
       - state: blueshield
       - state: jobicon
 
-    # BlueShieldOfficerCentcom
+- type: entity
+  id: SpawnPointCentcommBartender
+  parent: SpawnPointJobBase
+  name: Centcomm Bartender
+  components:
+  - type: SpawnPoint
+    job_id: CentcommBartender
+  - type: Sprite
+    layers:
+      - state: green
+      - state: bartender
+
+- type: entity
+  id: SpawnPointCentcommMedicalDoctor
+  parent: SpawnPointJobBase
+  name: Centcomm Medical Doctor
+  components:
+  - type: SpawnPoint
+    job_id: CentcommMedicalDoctor
+  - type: Sprite
+    layers:
+      - state: green
+      - state: doctor
+
+- type: entity
+  id: SpawnPointCentcommChef
+  parent: SpawnPointJobBase
+  name: Centcomm Chef
+  components:
+  - type: SpawnPoint
+    job_id: CentcommChef
+  - type: Sprite
+    layers:
+      - state: green
+      - state: chef
+
+- type: entity
+  id: SpawnPointCentcommSectoralJudge
+  parent: SpawnPointJobBase
+  name: Centcomm Sectoral Judge
+  components:
+  - type: SpawnPoint
+    job_id: CentcommSectoralJudge
+  - type: Sprite
+    sprite: _Sunrise/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: magistrat
+      - state: jobicon

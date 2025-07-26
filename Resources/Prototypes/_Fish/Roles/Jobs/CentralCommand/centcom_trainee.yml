@@ -4,12 +4,12 @@
   description: job-description-centcomtrainee
   playTimeTracker: JobCentCommTrainee
   requirements:
-  - !type:DiscordRoleRequirement
+    - !type:DiscordRoleRequirement
   weight: 30
   setPreference: true
   startingGear: CentCommTraineeGear
   icon: "JobIconNanotrasenTrainee"
-  overrideConsoleVisibility: false # Sunrise added
+  overrideConsoleVisibility: false
   supervisors: job-supervisors-centcom
   radioBold: true
   canBeAntag: false
@@ -20,21 +20,16 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplant, TrackingImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: CentCommTraineeGear
   equipment:
     shoes: ClothingShoesBootsCombatFilled
     gloves: ClothingHandsGlovesColorWhite
-    # outerClothing: ClothingOuterArmorBasicSlim
-    id: CentcomOperatorPDA
-    ears: ClothingHeadsetCentCom
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: CentcomPDA
+    ears: ClothingHeadsetFishCentCom
   storage:
     back:
     - Paper
-
-# ClothingUniformJumpsuitCentcomOfficer
-# ClothingShoesBootsCombatFilled
-# ClothingHeadsetCentCom
-# ClothingHandsGlovesColorWhite
