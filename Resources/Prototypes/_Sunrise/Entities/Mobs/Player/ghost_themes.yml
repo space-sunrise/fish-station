@@ -7,6 +7,15 @@
     state: animated
 
 - type: ghostTheme
+  id: Tortule
+  name: ghost-theme-tortule
+  color: "#fff8"
+  sponsorOnly: true
+  sprite:
+    sprite: _Sunrise/Mobs/Ghosts/ghost_premium.rsi
+    state: animated
+
+- type: ghostTheme
   id: Gold
   name: ghost-theme-gold
   color: "#fff8"
