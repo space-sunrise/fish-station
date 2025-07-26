@@ -1,0 +1,44 @@
+- type: job
+  id: MedicalDoctorCentcomm
+  name: job-name-doctor-centcomm
+  description: job-description-doctor-centcomm
+  playTimeTracker: JobMedicalDoctor-Centcomm
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 7200 #2 hrs # Sunrise-RoleTime
+  startingGear: DoctorGear
+  icon: "JobIconMedicalDoctor"
+  supervisors: job-supervisors-cmo
+  displayWeight: 20  # Sunrise
+  access:
+  - Medical
+  - Maintenance
+  extendedAccess:
+  - Chemistry
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: DoctorDay
+    prototype: WehMedipen
+
+- type: startingGear
+  id: DoctorGear
+  equipment:
+    ears: ClothingHeadsetMedical
+    belt: ClothingBeltMedicalFilled
+    eyes: ClothingEyesHudMedical # Sunrise-Edit
+    id: MedicalPDA
+  #storage:
+    #back:
+    #- Stuff
+
+- type: chameleonOutfit
+  id: MedicalDoctorChameleonOutfit
+  job: MedicalDoctor
+  equipment:
+    head: ClothingHeadNurseHat
+    eyes: ClothingEyesHudMedical
+    mask: ClothingMaskSterile
+    neck: ClothingNeckStethoscope
+    outerClothing: ClothingOuterCoatLab
+    gloves: ClothingHandsGlovesLatex
