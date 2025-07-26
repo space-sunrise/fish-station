@@ -3,7 +3,6 @@ job-name-centcomop = оператор Центком
 job-name-blueshield-officer = офицер «Синий щит»
 job-name-blueshield-operative = оперативник «Синий щит»
 job-name-blueshield-ensign = командир «Синий щит»
-job-name-blueshield-officer-centcom = офицер «Синий щит» #Fish-edit
 job-name-iaa = агент внутренних дел
 job-name-senior-engineer = ведущий инженер
 job-name-senior-researcher = ведущий учёный
@@ -52,8 +51,6 @@ job-name-ntrguard = оперативник ИСН
 job-name-ntrleader = командир ИСН
 job-name-ntrofficer = офицер ИСН
 # Перевод трекеров времени
-JobBlueShieldCentcom = офицер «Синий Щит» Центком     #Fish-edit
-jobCentCommOfficer = офицер Центком    #Fish-edit
 JobCentCommOfficial = представитель Центком
 JobCentCommOperator = оператор Центком
 JobMagistrat = магистрат

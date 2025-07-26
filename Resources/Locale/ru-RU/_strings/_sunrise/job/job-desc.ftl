@@ -1,8 +1,6 @@
 job-description-iaa = Вы всех уже заебали.
 job-description-magistrat = Вы само правосудие станции, ваша задача судить всех крупных нарушителей порядка.
 job-description-centcomop = Не одобряйте эвакуацию. Не одобряйте ОБР. Делите зарплату экипажа станций на 0.
-job-description-centcomoff = Не одобряйте эвакуацию. Не одобряйте ОБР. Делите зарплату экипажа станций на 0. #Fish-edit
-job-description-centcomtrainee = Вы стажер! Ваша задача это учится и ещё раз учится у старших по званию! #Fish-edit
 job-description-senior-engineer = Обучайте новых инженеров основам работы двигателей, ремонта, атмосферы и энергоснабжения станции.
 job-description-senior-researcher = Обучайте новых учёных основам печати предметов, исследования артефактов и аномальных объектов.
 job-description-senior-physician = Обучайте новых медиков основам ухода за ранеными, химии, диагностике больных и избавлению от мёртвых.
@@ -10,7 +8,6 @@ job-description-senior-officer = Обучите новых кадетов осн
 job-description-blueshield-officer = Ваша главная задача - защита глав. Помните, вы не офицер службы безопасности.
 job-description-blueshield-ensign = Ваша главная задача - руководство силами спецподразделения «Синий щит».
 job-description-blueshield-operative = Ваша главная задача - выполнять задачи по охране особо важных лиц.
-job-description-blueshield-officer-centcom = Ваша главная задача, это охрана самих Центкомовцев! #Fish-edit
 job-description-roboticist = Занимайтесь созданием киборгов, мехов и чините их.
 job-description-mail-carrier = Доставьте письмо адресату...любой ценой!
 job-description-head-of-prison = Управляйте лучшим местом на планете.
