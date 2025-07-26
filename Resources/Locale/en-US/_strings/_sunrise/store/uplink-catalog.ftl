@@ -47,6 +47,8 @@ uplink-clothing-backpack-syndie-siar52-name = Набор SIAR-52
 uplink-clothing-backpack-syndie-siar52-desc = Включает в себя пулемёт SIAR-52 и два магазина патрон.
 uplink-weapon-syndie-laser-minigun-name = UVL-21 «Виверна»
 uplink-weapon-syndie-laser-gun-name = S-13 «Чёрная мамба»
+uplink-gloves-knuckleduster-name = Кастеты Синдиката
+uplink-gloves-knuckleduster-desc = Пара пластитановых кастетов, которые позволяют нанести удар достаточно сильный, чтобы разбить челюсть капитана вдребезги.
 
 ## Cyborgs
 
@@ -69,6 +71,8 @@ uplink-polytrinic-acid-chemistry-bottle-name = Политриновая кисл
 uplink-polytrinic-acid-chemistry-bottle-desc = Чрезвычайно едкое химическое вещество. Сильно обжигает всех, кто вступит с ней в непосредственный контакт.
 uplink-clothing-glasses-nvg-name = NVG Sun Glasses
 uplink-clothing-glasses-nvg-desc = Quality made sunglasses, manufactured by Gorlax Security. Uses modular parts to improve visibility in low light conditions. Warning: The glasses will not protect your eyes from direct flashes.
+uplink-clothing-chameleon-thieving-gloves-name = Воровские хамелеон перчатки
+uplink-clothing-chameleon-thieving-gloves-desc = С этими модными новыми перчатками вы сможете незаметно красть из карманов и совершенствовать свою технику воровства. Они могут менять внешний вид, чтобы соответствовать любой паре перчаток!
 
 ## Implats
 uplink-smoke-screen-implanter-name = Smoke Screen Implanter
