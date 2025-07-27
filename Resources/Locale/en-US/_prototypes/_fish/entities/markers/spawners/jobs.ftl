@@ -1,4 +1,4 @@
-ent-SpawnPointSpawnPointBlueShieldCentcom = blue shield officer Centcom
+ent-SpawnPointSpawnPointBlueShieldCentcom = blue shield operative
     .desc = { ent-SpawnPointJobBase.desc }
 ent-SpawnPointCentCommOfficer = Central Command Officer
     .desc = { ent-SpawnPointJobBase.desc }

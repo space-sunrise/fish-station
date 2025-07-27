@@ -1,4 +1,4 @@
-ent-SpawnPointSpawnPointBlueShieldCentcom = Офицер Синего Щита Центком
+ent-SpawnPointSpawnPointBlueShieldCentcom = оперативник «Синий щит»
     .desc = { ent-SpawnPointJobBase.desc }
 ent-SpawnPointCentCommOfficer = офицер Центком
     .desc = { ent-SpawnPointJobBase.desc }
