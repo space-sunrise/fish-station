@@ -3,8 +3,9 @@
   name: ghost-theme-default
   color: "#fff8"
   sprite:
-    sprite: _Fish/Mobs/Ghosts/ghost_human.rsi #Fish-edit
+    sprite: Mobs/Ghosts/ghost_human.rsi
     state: animated
+
 
 - type: ghostTheme
   id: Gold
