@@ -6,7 +6,6 @@
     sprite: _Fish/Mobs/Ghosts/ghost_human.rsi #Fish-edit
     state: animated
 
-
 - type: ghostTheme
   id: Gold
   name: ghost-theme-gold
