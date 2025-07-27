@@ -11,7 +11,7 @@
     - !type:AgeRequirement
       requiredAge: 20
   startingGear: CentcomBlueShieldGear
-  icon: "JobIconBlueShield"
+  icon: "JobIconNanotrasen"
   overrideConsoleVisibility: false
   supervisors: job-supervisors-centcom
   canBeAntag: false

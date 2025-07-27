@@ -25,7 +25,7 @@
     - state: centcom
 
 - type: entity
-  id: SpawnPointCentcomBlueShield
+  id: SpawnPointCentcommBlueShield
   parent: SpawnPointJobBase
   name: blue shield operative
   components:
