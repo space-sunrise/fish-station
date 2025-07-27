@@ -1,0 +1,10 @@
+- type: entity
+  id: BaseStationTransitHub
+  abstract: true
+  components:
+  - type: StationTransitHub
+    map: /Maps/_Fish/Nonstations/transit_hub.yml
+    biomes:
+    - PlainGrasslands
+    - PlainLowDesert
+    - PlainSnow
