@@ -16,4 +16,11 @@
             prefixCreator: '-AHQ' #Fish-edit
         - type: StationJobs
           availableJobs:
-            CentCommOperator: [ 1, 1 ] #Fish-edit
+            # CentCommOperator: [ 1, 1 ] #Fish-edit
+            CentCommOfficer: [ 3, 3 ] #Fish-edit
+            CentCommTrainee: [ 1, 1 ] #Fish-edit
+            CentcommBlueShield: [ 2, 2 ] #Fish-edit
+            CentcommMedicalDoctor: [ 1, 1 ] #Fish-edit
+            CentcommChef: [ 1, 1 ] #Fish-edit
+            CentcommBartender: [ 1, 1 ] #Fish-edit
+            CentcommSectoralJudge: [ 1, 1 ] #Fish-edit
