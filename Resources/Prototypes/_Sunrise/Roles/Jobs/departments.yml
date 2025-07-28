@@ -6,9 +6,9 @@
   weight: 80
   roles:
     - Magistrat
-    - IAA
-    - Lawyer
-    - NtrOfficer
+    # - IAA
+    # - Lawyer
+    # - NtrOfficer
 
 # - type: department # Surnise-Blueshield
 #   id: BlueShield
@@ -51,7 +51,6 @@
   - CentcommChef #Fish-edit
   - CentcommMedicalDoctor #Fish-edit
   - CentcommBartender #Fish-edit
-  - CentcommSectoralJudge #Fish-edit
   weight: 120
 
 - type: department
