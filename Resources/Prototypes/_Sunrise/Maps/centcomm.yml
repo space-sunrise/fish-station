@@ -2,6 +2,7 @@
   id: SunriseCentComm
   mapName: 'Central Command'
   mapPath: /Maps/_Fish/Station/centcomm.yml #Fish-edit
+  mapPath: /Maps/_Fish/Station/centcomm.yml #Fish-edit
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 10
@@ -13,6 +14,7 @@
           mapNameTemplate: '{0} Врата Эдема {1}' #Fish-edit
           nameGenerator:
             !type:NanotrasenNameGenerator
+            prefixCreator: '-AHQ' #Fish-edit
             prefixCreator: '-AHQ' #Fish-edit
         - type: StationJobs
           availableJobs:

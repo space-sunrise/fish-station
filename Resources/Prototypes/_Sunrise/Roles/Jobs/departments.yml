@@ -16,9 +16,17 @@
 #   description: department-Blueshield-description
 #   color: "#0f4e81"
 #   roles:
+# - type: department # Surnise-Blueshield
+#   id: BlueShield
+#   name: department-Blueshield
+#   description: department-Blueshield-description
+#   color: "#0f4e81"
+#   roles:
 #    - BlueShieldEnsign
 #    - BlueShieldOfficer
 #    - BlueShieldOperative
+#   primary: false
+#   weight: 50
 #   primary: false
 #   weight: 50
 
@@ -43,6 +51,7 @@
   description: department-CentralCommand-description
   color: "#0d4f1d"
   roles:
+  # - CentCommOperator #Fish-edit
   # - CentCommOperator #Fish-edit
   - CentCommOfficial
   - CentCommOfficer #Fish-edit

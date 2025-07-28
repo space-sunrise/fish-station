@@ -58,7 +58,9 @@
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
+            Warden: [ 1, 1 ]
             SeniorOfficer: [ 1, 1 ]
+            Detective: [ 2, 2 ]
             Detective: [ 2, 2 ]
             Brigmedic: [ 1, 1 ]
             SecurityPilot: [ 2, 2 ]
@@ -81,6 +83,7 @@
             #law
             IAA: [ 1, 1 ]
             Lawyer: [ 3, 3 ]
+            NtrOfficer: [ 3, 3 ] #Fish-edit
             NtrOfficer: [ 3, 3 ] #Fish-edit
             # silicon
             StationAi: [ 1, 1 ]

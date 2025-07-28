@@ -10,6 +10,12 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 36000 # 10h Sunrise-RoleTime #Fish-edit
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 54000 # 15h Sunrise-RoleTime #Fish-edit
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10h Sunrise-RoleTime #Fish-edit
   startingGear: IAAGear
   icon: "JobIconFishIAA" #Fish-edit
   supervisors: job-supervisors-oversight #Fish-edit
