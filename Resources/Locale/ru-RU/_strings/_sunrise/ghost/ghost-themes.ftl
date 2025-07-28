@@ -53,3 +53,4 @@ ghost-theme-revenant = Ревенант
 ghost-theme-holo-carp = Голографический карп
 ghost-theme-holo-girl = Holo Girl
 ghost-theme-pirate = Кровожадный Пират
+ghost-theme-tortule = Черепаха
