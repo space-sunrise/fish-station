@@ -6,7 +6,7 @@
   components:
   - type: ContentEye
     maxZoom: 8.916104, 8.916104
-#Fish-start
+    #Fish-start
   - type: Sprite
     overrideContainerOcclusion: true # Ghosts always show up regardless of where they're contained.
     drawdepth: Ghosts
@@ -15,7 +15,7 @@
     layers:
     - state: animated
       shader: unshaded
-#Fish-end
+    #Fish-end
   - type: Tag
     tags:
     - InstantDoAfters

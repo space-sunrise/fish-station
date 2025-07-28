@@ -1,11 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-<<<<<<< SayNoToInfDelta
-    "copyright": "IAA created by vinogradgarden for Fish Station",
-=======
     "copyright": "IAA created by vinogradgarden for Fish Station NanotrasenTrainee, CentcommChef, CentcommMedicalDoctor, CentcommBartender, SectoralJudge created by VladSukr for Fish Station",
->>>>>>> master
     "size": {
         "x": 8,
         "y": 8
@@ -13,9 +9,7 @@
     "states": [
         {
             "name": "IAA"
-<<<<<<< SayNoToInfDelta
         }
-=======
         },
         {
             "name": "NanotrasenTrainee"
@@ -33,6 +27,5 @@
             "name": "SectoralJudge"
         }
 
->>>>>>> master
     ]
 }
