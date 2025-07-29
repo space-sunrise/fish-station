@@ -1,7 +1,7 @@
 - type: gameMap
   id: SunriseFland
   mapName: 'Fland'
-  mapPath: /Maps/_Sunrise/Station/fland.yml
+  mapPath: /Maps/_Fish/Station/fland.yml
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 0
@@ -15,7 +15,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'B'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_Sunrise/Shuttles/emergency.yml
+          emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_fland.yml
         - type: StationJobs
           availableJobs:
             #command
