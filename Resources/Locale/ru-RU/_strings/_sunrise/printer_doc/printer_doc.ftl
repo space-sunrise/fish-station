@@ -92,6 +92,6 @@ doc-template-statement-health-name = Заключение о состоянии 
 
 doc-template-business-deal-name = ДЕЛОВАЯ СДЕЛКА
 doc-template-error-loading-form-header-name = ОШИБКА загрузки заголовка формы
-doc-template-note-beginning-military-actions-name = ЗАМЕТКА о начале военных действий
+doc-template-note-beginning-military-actions-name = НОТА о начале военных действий
 doc-template-notice-of-liquidation-name = УВЕДОМЛЕНИЕ о начале военных действий
 doc-template-report-accomplishment-goals-name = ОТЧЕТ о достижении целей
