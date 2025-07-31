@@ -8,13 +8,13 @@
   #- SunriseBox # Прибытие не стыкуется, эвак стыкуется лишь 1 доком.
   #- SunriseBarratry # Прибытие не стыкуется. Эвак залазит в станцию.
   - SunriseFland
+  - SunrisePacked
   #- SunriseMarathon # Прибытие не стыкуется. Эвак залазит в станцию.
   #- SunriseBagel # Прибытие стыкуется но не туда. Эвак залазит в станцию.
   #- SunriseOasis # Прибытие не стыкуется. Эвак залазит в станцию.
   # НЕИГРАБЕЛЬНЫЕ:
   #- SunriseReach
   #- SunriseRelic
-  #- SunrisePacked # Сломан
   # SUNRISE-TODO: Старые-новые карты
   #- Glacier
   #- Shoukou
