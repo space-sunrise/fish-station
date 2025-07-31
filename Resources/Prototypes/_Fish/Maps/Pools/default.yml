@@ -10,11 +10,11 @@
   - SunriseFland
   #- SunriseMarathon # Прибытие не стыкуется. Эвак залазит в станцию.
   #- SunriseBagel # Прибытие стыкуется но не туда. Эвак залазит в станцию.
-  #- SunrisePacked # Прибытие не стыкуется. Эвак залазит в станцию.
   #- SunriseOasis # Прибытие не стыкуется. Эвак залазит в станцию.
   # НЕИГРАБЕЛЬНЫЕ:
   #- SunriseReach
   #- SunriseRelic
+  #- SunrisePacked # Сломан
   # SUNRISE-TODO: Старые-новые карты
   #- Glacier
   #- Shoukou
