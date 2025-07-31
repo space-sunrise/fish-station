@@ -2,6 +2,8 @@
   id: SunrisePacked
   mapName: 'Packed'
   mapPath: /Maps/_Fish/Station/packed.yml
+  maxRandomOffset: 0
+  randomRotation: false
   minPlayers: 0
   stations:
     Packed:
