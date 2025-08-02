@@ -75,11 +75,13 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             #blueshield
-            # BlueShieldEnsign: [ 1, 1 ]
-            # BlueShieldOfficer: [ 5, 5 ]
+          BlueShieldEnsign: [ 1, 1 ] #Fish-edit
+          BlueShieldOfficer: [ 2, 2 ] #Fish-edit
+          RepresentativeBlueShield: [ 1, 1 ] #Fish-edit
             #law
             IAA: [ 1, 1 ]
             Lawyer: [ 3, 3 ]
+            NtrOfficer: [ 3, 3 ] #Fish-edit
             # silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
