@@ -1,7 +1,7 @@
 - type: gameMap
   id: SunriseBarratry
   mapName: 'Barratry'
-  mapPath: /Maps/_Sunrise/Station/barratry.yml
+  mapPath: /Maps/_Fish/Station/barratry.yml
   maxRandomOffset: 0
   minPlayers: 0
   randomRotation: false
@@ -15,7 +15,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'TG'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency.yml
+          emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_barratry.yml
         - type: StationJobs
           availableJobs:
             #command
@@ -75,8 +75,8 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             #blueshield
-#            BlueShieldEnsign: [ 1, 1 ]
-#            BlueShieldOfficer: [ 5, 5 ]
+            BlueShieldEnsign: [ 1, 1 ]
+            BlueShieldOfficer: [ 5, 5 ]
             #law
             IAA: [ 1, 1 ]
             Lawyer: [ 3, 3 ]
