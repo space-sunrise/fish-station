@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="Space Station 14" width="650" src="https://i.postimg.cc/wBtLj7y3/323131321-3.png" />
+  <img alt="Space Station 14" height="128" src="https://fish.station.wiki.shizainc.com/media/fish-alt.png" />
 </p>
 
 <div class="header" align="center">
@@ -10,7 +10,7 @@
 [![Client](https://img.shields.io/badge/Client-Download-blue)](https://spacestation14.io/about/nightlies/)
 [![GitHub](https://img.shields.io/github/stars/space-sunrise/space-station-14?style=social)](https://github.com/space-sunrise/space-station-14)
 
-# Space Station 14 - SUNRISE
+# Space Station 14 — Fish Station
 
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/space-sunrise/space-station-14)
 ![GitHub Issues](https://img.shields.io/github/issues/space-sunrise/space-station-14)

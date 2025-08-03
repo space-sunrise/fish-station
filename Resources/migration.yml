@@ -793,3 +793,8 @@ BaseUplinkNTERT75BC: null
 BaseUplinkNTERT100BC: null
 BaseUplinkNTERT200BC: null
 # Sunrise migrations end
+
+# Fish migrations
+SpawnMechSecPodFilled: null # Не возвращать поды в игры by vinogradragden
+MechSecPod: null # Не возвращать поды в игры by vinogradragden
+# Fish migrations end
