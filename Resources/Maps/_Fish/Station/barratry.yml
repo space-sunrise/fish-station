@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/03/2025 16:30:39
-  entityCount: 17144
+  time: 08/03/2025 16:42:05
+  entityCount: 17145
 maps:
 - 1
 grids:
@@ -15194,6 +15194,11 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 16.5,44.5
+      parent: 2
+  - uid: 17145
+    components:
+    - type: Transform
+      pos: -53.5,45.5
       parent: 2
 - proto: APCHighCapacity
   entities:
