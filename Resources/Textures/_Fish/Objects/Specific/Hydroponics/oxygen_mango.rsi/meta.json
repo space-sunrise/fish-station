@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "mango created by VladSukr from Fish Station",
+    "copyright": "oxygen mango created by VladSukr from Fish Station",
     "size": {
         "x": 32,
         "y": 32
@@ -38,11 +38,11 @@
             "name": "stage-6"
         },
         {
-            "name": "mango-inhand-left",
+            "name": "oxygen_mango-inhand-left",
             "directions": 4
         },
         {
-            "name": "mango-inhand-right",
+            "name": "oxygen_mango-inhand-right",
             "directions": 4
         }
     ]
