@@ -790,4 +790,6 @@ MagazineFamas: null
 BaseUplinkNTERT75BC: null
 BaseUplinkNTERT100BC: null
 BaseUplinkNTERT200BC: null
-# Sunrise migrations end
+AtmosDeviceFanTiny: null
+AtmosDeviceFanDirectional: null
+# Sunrise-End
