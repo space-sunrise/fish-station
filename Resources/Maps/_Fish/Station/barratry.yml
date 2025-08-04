@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/03/2025 16:52:59
-  entityCount: 17104
+  time: 08/04/2025 18:06:06
+  entityCount: 17116
 maps:
 - 1
 grids:
@@ -74,6 +74,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
+      name: Barratry
     - type: Transform
     - type: Map
       mapPaused: True
@@ -83,6 +84,7 @@ entities:
   - uid: 2
     components:
     - type: MetaData
+      name: Barratry
     - type: Transform
       pos: 0.43985805,0.83991814
       parent: 1
@@ -29262,6 +29264,26 @@ entities:
     - type: Transform
       pos: -10.5,-31.5
       parent: 2
+  - uid: 5485
+    components:
+    - type: Transform
+      pos: -68.5,64.5
+      parent: 2
+  - uid: 5486
+    components:
+    - type: Transform
+      pos: -69.5,64.5
+      parent: 2
+  - uid: 5487
+    components:
+    - type: Transform
+      pos: -70.5,64.5
+      parent: 2
+  - uid: 5488
+    components:
+    - type: Transform
+      pos: -71.5,64.5
+      parent: 2
   - uid: 5927
     components:
     - type: Transform
@@ -29292,6 +29314,21 @@ entities:
     - type: Transform
       pos: -53.5,44.5
       parent: 2
+  - uid: 9871
+    components:
+    - type: Transform
+      pos: -72.5,64.5
+      parent: 2
+  - uid: 9872
+    components:
+    - type: Transform
+      pos: -73.5,64.5
+      parent: 2
+  - uid: 9873
+    components:
+    - type: Transform
+      pos: -74.5,64.5
+      parent: 2
   - uid: 10282
     components:
     - type: Transform
@@ -29301,6 +29338,11 @@ entities:
     components:
     - type: Transform
       pos: -11.5,-34.5
+      parent: 2
+  - uid: 10473
+    components:
+    - type: Transform
+      pos: -74.5,65.5
       parent: 2
   - uid: 11251
     components:
@@ -86426,6 +86468,12 @@ entities:
       parent: 2
 - proto: Poweredlight
   entities:
+  - uid: 4279
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -9.5,61.5
+      parent: 2
   - uid: 11631
     components:
     - type: Transform
@@ -89740,6 +89788,26 @@ entities:
       parent: 2
 - proto: RandomSoap
   entities:
+  - uid: 4278
+    components:
+    - type: Transform
+      pos: -52.5,38.5
+      parent: 2
+  - uid: 10479
+    components:
+    - type: Transform
+      pos: -52.5,36.5
+      parent: 2
+  - uid: 10480
+    components:
+    - type: Transform
+      pos: -51.5,37.5
+      parent: 2
+  - uid: 10481
+    components:
+    - type: Transform
+      pos: -52.5,37.5
+      parent: 2
   - uid: 12138
     components:
     - type: Transform
@@ -89759,11 +89827,6 @@ entities:
     components:
     - type: Transform
       pos: -23.5,2.5
-      parent: 2
-  - uid: 12142
-    components:
-    - type: Transform
-      pos: -50.5,40.5
       parent: 2
   - uid: 12143
     components:
@@ -96119,15 +96182,15 @@ entities:
     - type: Transform
       pos: -50.5,49.5
       parent: 2
+  - uid: 10482
+    components:
+    - type: Transform
+      pos: 0.5,50.5
+      parent: 2
   - uid: 13233
     components:
     - type: Transform
       pos: -41.5,27.5
-      parent: 2
-  - uid: 13234
-    components:
-    - type: Transform
-      pos: -8.5,60.5
       parent: 2
 - proto: SpawnPointClownBorg
   entities:
@@ -96188,10 +96251,10 @@ entities:
       parent: 2
 - proto: SpawnPointJanitor
   entities:
-  - uid: 13240
+  - uid: 10478
     components:
     - type: Transform
-      pos: -51.5,40.5
+      pos: -51.5,37.5
       parent: 2
   - uid: 13241
     components:
@@ -96671,10 +96734,10 @@ entities:
       parent: 2
 - proto: SpawnVendingMachineRestockFoodDrink
   entities:
-  - uid: 13318
+  - uid: 4277
     components:
     - type: Transform
-      pos: -50.5,41.5
+      pos: -51.5,35.5
       parent: 2
   - uid: 13319
     components:
