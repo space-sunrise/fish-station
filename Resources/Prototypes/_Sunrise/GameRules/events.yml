@@ -106,6 +106,8 @@
           - Abductor
           - AbductorScientist
           - CanPilot
+          - DoorBumpOpener
+          - FootstepSound
       - type: NpcFactionMember
         factions:
         - SimpleHostile
