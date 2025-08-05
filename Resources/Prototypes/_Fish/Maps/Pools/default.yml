@@ -10,7 +10,7 @@
   - SunriseFland #Fish-edit
   - SunrisePacked #Fish-edit
   #- SunriseMarathon # Прибытие не стыкуется. Эвак залазит в станцию.
-  #- SunriseBagel # Прибытие стыкуется но не туда. Эвак залазит в станцию.
+  - SunriseBagel #Fish-edit
   #- SunriseOasis # Прибытие не стыкуется. Эвак залазит в станцию.
   # НЕИГРАБЕЛЬНЫЕ:
   #- SunriseReach
