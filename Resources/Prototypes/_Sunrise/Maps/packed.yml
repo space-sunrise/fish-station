@@ -5,8 +5,9 @@
   mapPath: /Maps/_Fish/Station/packed.yml #Fish-edit
   maxRandomOffset: 0
   randomRotation: false
-  #Fish-end
   minPlayers: 0
+  maxPlayers: 25
+  #Fish-end
   stations:
     Packed:
       stationProto: StandardNanotrasenStation
