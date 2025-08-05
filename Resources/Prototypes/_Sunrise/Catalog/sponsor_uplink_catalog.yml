@@ -540,6 +540,58 @@
   - !type:ListingLimitedStockCondition
     stock: 2
 
+#Fish-start
+
+- type: listing
+  id: UplinkSunriseFoodPizzaMeat
+  name: uplink-sunrise-food-pizza-meat-name
+  productEntity: FoodPizzaMeat
+  cost:
+    Suntick: 5
+  categories:
+  - General
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: UplinkSunriseFoodBurgerBacon
+  name: uplink-sunrise-food-burger-bacon-name
+  productEntity: FoodBurgerBacon
+  cost:
+    Suntick: 5
+  categories:
+  - General
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: UplinkSunriseFoodBurgerPlain
+  name: uplink-sunrise-food-burger-plain-name
+  productEntity: FoodBurgerPlain
+  cost:
+    Suntick: 5
+  categories:
+  - General
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: UplinkSunriseFoodBakedMangoCroissant
+  name: uplink-sunrise-food-baked-mango-croissant-name
+  productEntity: FoodBakedMangoCroissant
+  cost:
+    Suntick: 3
+  categories:
+  - General
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+#Fish-end
+
 - type: listing
   id: UplinkSunriseFoodTinBeans
   name: uplink-sunrise-food-tin-beans-name
