@@ -7,13 +7,13 @@
   - SunriseDelta #Fish-edit
   #- SunrisePlasma # Прибытие стыкуется лишь 1 доком с доступом командования. Эвак стыкуется лишь 2 доками.
   #- SunriseBox # Стыкпорт прибытия не настроен под шаттл прибытия. Нет эвака
-  - SunriseBarratry #Fish-edit
   - SunriseFland #Fish-edit
   #- SunriseOasis # Прибытие не стыкуется. Эвак залазит в станцию.
 
   # Midpop 25-55
   #- SunriseMarathon # Прибытие не стыкуется. Эвак залазит в станцию.
   #- SunriseBagel # Прибытие стыкуется но не туда. Эвак залазит в станцию.
+  - SunriseBarratry #Fish-edit
 
   # Lowpop 0-25
   - SunrisePacked #Fish-edit
