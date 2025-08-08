@@ -779,7 +779,7 @@
   description: A pressure resistant and fireproof hood worn by special cleanup units.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/cburn.rsi
+    sprite: _Fish/Clothing/Head/Hardsuits/cburn.rsi #Fish-edit
     layers:
     - state: icon
     - state: icon-unshaded
