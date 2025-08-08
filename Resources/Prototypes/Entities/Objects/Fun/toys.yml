@@ -431,6 +431,44 @@
 
 - type: entity
   parent: BaseItem
+  id: BalloonCont
+  name: contractor balloon
+  description: A unique black balloon with a gold C on the side. No more use than a lighter.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/Balloons/contractor.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: Objects/Fun/Balloons/contractor.rsi
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Tag
+    tags:
+    - Balloon
+  - type: StaticPrice
+    price: 5000 # Entertainment.
+
+- type: entity
+  parent: BaseItem
+  id: BalloonExch
+  name: alien balloon
+  description: Strange balloon. Does it have an alien on it?.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/Balloons/exchange.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: Objects/Fun/Balloons/exchange.rsi
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Tag
+    tags:
+    - Balloon 
+
+- type: entity
+  parent: BaseItem
   id: BalloonNT
   name: nanotrasen balloon
   description: Specially designed to inflict maximum psychological damage to Syndicate operatives.
