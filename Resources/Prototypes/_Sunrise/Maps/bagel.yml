@@ -1,7 +1,7 @@
 - type: gameMap
   id: SunriseBagel
   mapName: 'Bagel'
-  mapPath: /Maps/_Sunrise/Station/bagel.yml
+  mapPath: /Maps/_Fish/Station/bagel.yml #Fish-edit
   minPlayers: 0
   maxRandomOffset: 0
   randomRotation: false
@@ -15,7 +15,7 @@
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
       - type: StationEmergencyShuttle
-        emergencyShuttlePath: /Maps/_Sunrise/Shuttles/emergency.yml
+        emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_bagel.yml #Fish-edit
       - type: StationJobs
         availableJobs:
           #command
@@ -59,9 +59,9 @@
           HeadOfSecurity: [ 1, 1 ]
           Warden: [ 1, 1 ]
           SeniorOfficer: [ 1, 1 ]
-          Detective: [ 1, 1 ]
+          Detective: [ 2, 2 ] #Fish-edit
           Brigmedic: [ 2, 2 ]
-          SecurityPilot: [ 1, 1 ]
+          SecurityPilot: [ 2, 2 ] #Fish-edit
           SecurityOfficer: [ 5, 5 ]
           SecurityCadet: [ 5, 5 ]
           #supply
@@ -75,11 +75,13 @@
           Mime: [ 1, 1 ]
           Musician: [ 1, 1 ]
           #blueshield
-          # BlueShieldEnsign: [ 1, 1 ]
-          # BlueShieldOfficer: [ 5, 5 ]
+          BlueShieldEnsign: [ 1, 1 ] #Fish-edit
+          BlueShieldOfficer: [ 2, 2 ] #Fish-edit
+          RepresentativeBlueShield: [ 1, 1 ] #Fish-edit
           #law
           IAA: [ 1, 1 ]
           Lawyer: [ 3, 3 ]
+          NtrOfficer: [ 3, 3 ] #Fish-edit
           # silicon
           StationAi: [ 1, 1 ]
           Borg: [ 2, 2 ]
