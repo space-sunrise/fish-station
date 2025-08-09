@@ -4,7 +4,7 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/09/2025 15:18:07
+  time: 08/09/2025 15:30:41
   entityCount: 132
 maps: []
 grids:
@@ -454,6 +454,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 3.5,3.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#FF0000FF'
 - proto: GasPipeBend
   entities:
   - uid: 102
@@ -462,18 +464,24 @@ entities:
       rot: 3.141592653589793 rad
       pos: -1.5,-1.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#0000FFFF'
   - uid: 107
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 0.5,3.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#FF0000FF'
   - uid: 113
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 0.5,1.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#FF0000FF'
 - proto: GasPipeStraight
   entities:
   - uid: 98
@@ -482,17 +490,31 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,0.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#0000FFFF'
+  - uid: 109
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,3.5
+      parent: 1
+    - type: AtmosPipeColor
+      color: '#FF0000FF'
   - uid: 111
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 2.5,3.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#FF0000FF'
   - uid: 114
     components:
     - type: Transform
       pos: 1.5,0.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#FF0000FF'
 - proto: GasPipeTJunction
   entities:
   - uid: 97
@@ -501,24 +523,32 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 0.5,-0.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#0000FFFF'
   - uid: 99
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 0.5,-1.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#0000FFFF'
   - uid: 105
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,1.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#FF0000FF'
   - uid: 115
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 1.5,-0.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#FF0000FF'
 - proto: GasPort
   entities:
   - uid: 96
@@ -526,6 +556,8 @@ entities:
     - type: Transform
       pos: -1.5,-0.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#0000FFFF'
 - proto: GasPressurePump
   entities:
   - uid: 104
@@ -534,17 +566,15 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -0.5,-1.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#0000FFFF'
   - uid: 106
     components:
     - type: Transform
       pos: 0.5,2.5
       parent: 1
-  - uid: 109
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 1.5,3.5
-      parent: 1
+    - type: AtmosPipeColor
+      color: '#FF0000FF'
 - proto: GasVentPump
   entities:
   - uid: 100
@@ -552,6 +582,8 @@ entities:
     - type: Transform
       pos: 0.5,1.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#0000FFFF'
     - type: DeviceNetwork
       deviceLists:
       - 118
@@ -561,6 +593,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -0.5,-0.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#0000FFFF'
     - type: DeviceNetwork
       deviceLists:
       - 118
@@ -570,6 +604,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 1.5,-1.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#0000FFFF'
     - type: DeviceNetwork
       deviceLists:
       - 118
@@ -580,6 +616,8 @@ entities:
     - type: Transform
       pos: 1.5,2.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#FF0000FF'
     - type: DeviceNetwork
       deviceLists:
       - 118
@@ -589,6 +627,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 0.5,-0.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#FF0000FF'
     - type: DeviceNetwork
       deviceLists:
       - 118
@@ -598,6 +638,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.5,-0.5
       parent: 1
+    - type: AtmosPipeColor
+      color: '#FF0000FF'
     - type: DeviceNetwork
       deviceLists:
       - 118
