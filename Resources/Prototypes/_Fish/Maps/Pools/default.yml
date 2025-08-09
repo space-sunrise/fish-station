@@ -6,7 +6,7 @@
   # Highpop 55+
   - SunriseDelta #Fish-edit
   #- SunrisePlasma # Прибытие стыкуется лишь 1 доком с доступом командования. Эвак стыкуется лишь 2 доками.
-  #- SunriseBox # Стыкпорт прибытия не настроен под шаттл прибытия. Нет эвака
+  - SunriseBox
   - SunriseFland #Fish-edit
   #- SunriseOasis # Прибытие не стыкуется. Эвак залазит в станцию.
 
