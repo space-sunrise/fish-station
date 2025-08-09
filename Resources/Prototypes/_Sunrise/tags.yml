@@ -456,5 +456,6 @@
 
 - type: Tag
   id: SnapPop
-  tags:
-    - SnapPop
+
+- type: Tag
+  id: Table
