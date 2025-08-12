@@ -1165,8 +1165,8 @@
   components:
   - type: Sprite
     sprite: _Sunrise/Objects/Fun/toys.rsi
-    state: Olegmol
-      - type: UseDelay
+    state: olegmol
+  - type: UseDelay
     delay: 1
   - type: MeleeWeapon
     soundHit:
