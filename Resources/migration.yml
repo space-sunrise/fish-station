@@ -828,5 +828,6 @@ MagazineBoxRifle: MagazineBoxRifleSP
 #Fish-start
 MechSecPod: null
 SpawnMechSecPodFilled: null
+WeaponEnergyGunMultiphaseImproved: null
 #Fish-end
 
