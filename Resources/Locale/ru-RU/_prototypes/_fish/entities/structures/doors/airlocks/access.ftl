@@ -1,6 +1,9 @@
 ent-AirlockExternalGlassFishSecurityShuttle = { ent-AirlockGlassShuttle }
     .suffix = Внешний, СБ, Стеклянный, Стыковочный
+    .desc = { ent-AirlockGlassShuttle.desc }
 ent-AirlockExternalGlassFishERTShuttle = { ent-AirlockGlassShuttle }
     .suffix = Внешний, ОБР, Стеклянный, Стыковочный
+    .desc = { ent-AirlockGlassShuttle.desc }
 ent-AirlockExternalGlassFishCBURNShuttle = { ent-AirlockGlassShuttle }
     .suffix = Внешний, РХБЗЗ, Стеклянный, Стыковочный
+    .desc = { ent-AirlockGlassShuttle.desc }
