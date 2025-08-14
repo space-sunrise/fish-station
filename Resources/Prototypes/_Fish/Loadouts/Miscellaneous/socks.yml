@@ -1,0 +1,7 @@
+- type: loadout
+  id: ThighDarkSocks
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WomanMoment
+  equipment:
+    socks: ClothingThighThin

@@ -846,11 +846,6 @@
 - type: Tag
   id: Lemon
 
-#Fish-start
-- type: Tag
-  id: Mango
-#Fish-end
-
 - type: Tag
   id: LightBulb
 

@@ -1,7 +1,7 @@
 - type: gameMap
   id: SunriseCentComm
   mapName: 'Central Command'
-  mapPath: /Maps/_Fish/Station/centcomm.yml #Fish-edit
+  mapPath: /Maps/_Sunrise/Station/centcomm.yml
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 10
@@ -10,19 +10,10 @@
       stationProto: NanotrasenCentralCommand
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Врата Эдема {1}' #Fish-edit
+          mapNameTemplate: '{0} Центральное командование {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: '-AHQ' #Fish-edit
+            prefixCreator: 'TG'
         - type: StationJobs
           availableJobs:
-            # CentCommOperator: [ 1, 1 ] #Fish-edit
-            CentCommOfficer: [ 3, 3 ] #Fish-edit
-            CentCommTrainee: [ 1, 1 ] #Fish-edit
-            CentcommBlueShield: [ 2, 2 ] #Fish-edit
-            CentcommMedicalDoctor: [ 1, 1 ] #Fish-edit
-            CentcommChef: [ 1, 1 ] #Fish-edit
-            CentcommBartender: [ 1, 1 ] #Fish-edit
-            CentcommSectoralJudge: [ 1, 1 ] #Fish-edit
-            OversightOfficer: [ 1, 1 ] #Fish-edit
-            SpecOpsOfficer: [ 1, 1 ] #Fish-edit
+            CentCommOperator: [ 1, 1 ]

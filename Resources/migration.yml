@@ -812,6 +812,8 @@ GrenadeEMP: GrenadeEMPTimer
 GrenadeFlash: GrenadeFlashTimer
 GrenadeFrag: GrenadeFragTimer
 WeaponEnergyGunMini: WeaponMiniEnergyGun
+# Safes
+GunSafeCombineSmallArms: SpawnerSafeSmallArms
 # SL HITSCAN START
 BoxMagazineRifle: BoxMagazineRifleSP
 MagazineBoxLightRifle: MagazineBoxLightRifleSP

@@ -1,3 +1,3 @@
-department-Law = Департамент внутреннего надзора
+department-Law = Юридический отдел
 department-Blueshield = Синий Щит
 department-PlanetPrison = Планетарная тюрьма
