@@ -1,12 +1,13 @@
 - type: gameMap
-  id: SunriseBagel
-  mapName: 'Bagel'
-  mapPath: /Maps/_Fish/Station/bagel.yml #Fish-edit
-  minPlayers: 0
+  id: FishBagel
+  mapName: 'FishBagel'
+  mapPath: /Maps/_Fish/Station/bagel.yml
+  minPlayers: 20
+  maxPlayers: 55
   maxRandomOffset: 0
   randomRotation: false
   stations:
-    SunriseBagel:
+    FishBagel:
       stationProto: StandardNanotrasenStation
       components:
       - type: StationNameSetup
@@ -15,7 +16,7 @@
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
       - type: StationEmergencyShuttle
-        emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_bagel.yml #Fish-edit
+        emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_bagel.yml
       - type: StationJobs
         availableJobs:
           #command
@@ -59,9 +60,9 @@
           HeadOfSecurity: [ 1, 1 ]
           Warden: [ 1, 1 ]
           SeniorOfficer: [ 1, 1 ]
-          Detective: [ 2, 2 ] #Fish-edit
+          Detective: [ 2, 2 ]
           Brigmedic: [ 2, 2 ]
-          SecurityPilot: [ 2, 2 ] #Fish-edit
+          SecurityPilot: [ 2, 2 ]
           SecurityOfficer: [ 5, 5 ]
           SecurityCadet: [ 5, 5 ]
           #supply
@@ -75,13 +76,13 @@
           Mime: [ 1, 1 ]
           Musician: [ 1, 1 ]
           #blueshield
-          BlueShieldEnsign: [ 1, 1 ] #Fish-edit
-          BlueShieldOfficer: [ 2, 2 ] #Fish-edit
-          RepresentativeBlueShield: [ 1, 1 ] #Fish-edit
+          BlueShieldEnsign: [ 1, 1 ]
+          BlueShieldOfficer: [ 2, 2 ]
+          RepresentativeBlueShield: [ 1, 1 ]
           #law
           IAA: [ 1, 1 ]
           Lawyer: [ 3, 3 ]
-          NtrOfficer: [ 3, 3 ] #Fish-edit
+          NtrOfficer: [ 3, 3 ]
           # silicon
           StationAi: [ 1, 1 ]
           Borg: [ 2, 2 ]
