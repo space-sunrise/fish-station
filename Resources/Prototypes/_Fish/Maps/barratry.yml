@@ -1,21 +1,22 @@
 - type: gameMap
-  id: SunriseBox
-  mapName: 'Box'
-  mapPath: /Maps/_Sunrise/Station/box.yml
+  id: FishBarratry
+  mapName: 'Barratry'
+  mapPath: /Maps/_Fish/Station/barratry.yml
   maxRandomOffset: 0
-  minPlayers: 0
+  minPlayers: 25
+  maxPlayers: 55
   randomRotation: false
   stations:
-    Boxstation:
+    Barratry:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Бокс {1}'
+          mapNameTemplate: '{0} Barratry {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'TG'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_Sunrise/Shuttles/emergency.yml
+          emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_barratry.yml
         - type: StationJobs
           availableJobs:
             #command
@@ -59,15 +60,14 @@
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
             SeniorOfficer: [ 1, 1 ]
-            Detective: [ 1, 1 ]
+            Detective: [ 2, 2 ]
             Brigmedic: [ 2, 2 ]
-            SecurityPilot: [ 1, 1 ]
+            SecurityPilot: [ 2, 2 ]
             SecurityOfficer: [ 5, 5 ]
             SecurityCadet: [ 5, 5 ]
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 4, 4 ]
-            # MiningSpecialist: [ 1, 1 ]
             CargoTechnician: [ 3, 3 ]
             MailCarrier: [ 2, 2 ]
             #civilian
@@ -76,12 +76,13 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             #blueshield
-            # BlueShieldEnsign: [ 1, 1 ]
-            # BlueShieldOfficer: [ 5, 5 ]
+            BlueShieldEnsign: [ 1, 1 ]
+            BlueShieldOfficer: [ 2, 2 ]
+            RepresentativeBlueShield: [ 1, 1 ]
             #law
             IAA: [ 1, 1 ]
             Lawyer: [ 3, 3 ]
-            NtrOfficer: [ 2, 2 ]
+            NtrOfficer: [ 3, 3 ]
             # silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
@@ -103,7 +104,6 @@
           - Zoo
           - MiningOutpost
           - Tesla
-          - XenobiologyRepair
           - VirusologyAmbusol
           - Containment
           - WeaponsSecurity
@@ -126,7 +126,4 @@
           - Furs
           - Crew
           - CleaningUp
-          - HumanitarianAid
-          - PersonnelRecovery
-          - CrewEducation
           #- VirusFlesh

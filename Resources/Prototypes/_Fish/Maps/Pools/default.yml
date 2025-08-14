@@ -1,22 +1,22 @@
 # НЕ ДОБАВЛЯТЬ НОВЫЕ КАРТЫ БЕЗ МОЕГО РЕВЬЮ! ~ SplikZerys
 
 - type: gameMapPool
-  id: SunriseMapPool
+  id: FishMapPool
   maps:
   # Highpop 55+
-  - SunriseDelta #Fish-edit
+  - FishDelta
   #- SunrisePlasma # Прибытие стыкуется лишь 1 доком с доступом командования. Эвак стыкуется лишь 2 доками.
-  - SunriseBox
-  - SunriseFland #Fish-edit
+  - FishBox
+  - FishFland
   #- SunriseOasis # Прибытие не стыкуется. Эвак залазит в станцию.
 
   # Midpop 25-55
   #- SunriseMarathon # Прибытие не стыкуется. Эвак залазит в станцию.
-  - SunriseBagel # Прибытие стыкуется но не туда. Эвак залазит в станцию.
-  - SunriseBarratry #Fish-edit
+  - FishBagel
+  - FishBarratry
 
   # Lowpop 0-25
-  - SunrisePacked #Fish-edit
+  - FishPacked
   #- SunriseReach # Стыкпорт прибытия не настроен под шаттл прибытия. Нет эвака
 
   # НЕИГРАБЕЛЬНЫЕ:
