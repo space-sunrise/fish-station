@@ -10,9 +10,9 @@
     delay: 4
   - type: MeleeWeapon
     soundHit:
-    collection: VulpkaninScreams
-    params:
-      volume: 100
+      collection: VulpkaninScreams
+      params:
+        volume: 100
   - type: EmitSoundOnTrigger
     sound:
       collection: PlushieVulpkaninGrowls
