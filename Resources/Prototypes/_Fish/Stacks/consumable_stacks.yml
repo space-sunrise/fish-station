@@ -1,0 +1,7 @@
+# Food
+
+- type: stack
+  id: PancakeMango
+  name: stack-mango-pancake
+  spawn: FoodBakedPancakeMango
+  maxCount: 9

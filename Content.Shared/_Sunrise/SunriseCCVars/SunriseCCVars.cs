@@ -239,7 +239,7 @@ public sealed partial class SunriseCCVars : CVars
      */
 
     public static readonly CVarDef<string> LobbyChangelogsList =
-        CVarDef.Create("lobby_changelog.list", "ChangelogSunrise.yml,Changelog.yml", CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("lobby_changelog.list", "ChangelogSunrise.yml,ChangelogFish.yml,Changelog.yml", CVar.SERVER | CVar.REPLICATED);
 
     /*
      * Cryoteleport

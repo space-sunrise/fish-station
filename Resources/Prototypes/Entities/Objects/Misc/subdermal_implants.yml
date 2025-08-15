@@ -145,7 +145,7 @@
     - type: TriggerOnMobstateChange
       mobState:
       - Critical
-    - type: Rattle
+    - type: RattleOnTrigger
       radioChannel: "CentCom"
 #Sunrise-end
 
@@ -249,24 +249,6 @@
     range: 2.75
     energyConsumption: 50000
     disableDuration: 10
-
-#Sunrise-start #PR Wiz #31782
-- type: entity
-  parent: BaseSubdermalImplant
-  id: SmokeScreenImplant
-  name: smoke screen implant
-  description: This implant creates a cloud of smoke when activated.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: SubdermalImplant
-    implantAction: ActionActivateSmokeGrenadeImplant
-  - type: TriggerImplantAction
-  - type: SmokeOnTrigger
-    duration: 20
-    spreadAmount: 30
-  - type: SoundOnTrigger
-    sound: /Audio/Items/smoke_grenade_smoke.ogg
-#Sunrise-end
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -477,7 +459,7 @@
   description: This implant will inform the Centcomm radio channel should the user fall into critical condition or die.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Rattle
+  - type: RattleOnTrigger
     radioChannel: BlueShield
 
 - type: entity
