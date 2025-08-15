@@ -113,7 +113,6 @@
     sprite: _Sunrise/Markers/jobs.rsi
     layers:
       - state: green
-      - state: IAA
       - state: jobicon
 
 
@@ -128,5 +127,4 @@
     sprite: _Sunrise/Markers/jobs.rsi
     layers:
       - state: green
-      - state: IAA
       - state: jobicon
