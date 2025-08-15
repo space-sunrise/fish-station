@@ -1,4 +1,4 @@
-department-Law = Департамент внутреннего надзора
-department-Blueshield = Спецподразделение «Синий щит»
+department-Law = Юридический отдел
+department-Blueshield = Синий Щит
 department-PlanetPrison = Планетарная тюрьма
-department-SpecialOperations = Департамент специальных операций
+department-SpecialOperations = Специальные Операции

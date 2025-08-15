@@ -1,0 +1,27 @@
+- type: gameMap
+  id: FishCentComm
+  mapName: 'Central Command'
+  mapPath: /Maps/_Fish/Station/centcomm.yml
+  maxRandomOffset: 0
+  randomRotation: false
+  minPlayers: 10
+  stations:
+    centcomm:
+      stationProto: NanotrasenCentralCommand
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: '{0} Врата Эдема {1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '-AHQ'
+      - type: StationJobs
+        availableJobs:
+          CentCommOfficer: [ 3, 3 ]
+          CentCommTrainee: [ 1, 1 ]
+          CentcommBlueShield: [ 2, 2 ]
+          CentcommMedicalDoctor: [ 1, 1 ]
+          CentcommChef: [ 1, 1 ]
+          CentcommBartender: [ 1, 1 ]
+          CentcommSectoralJudge: [ 1, 1 ]
+          OversightOfficer: [ 1, 1 ]
+          SpecOpsOfficer: [ 1, 1 ]

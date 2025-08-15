@@ -63,7 +63,7 @@
   description: Delicious pancakes with tender pieces of mango.
   components:
   - type: Stack
-    stackType: PancakeMa
+    stackType: PancakeMango
     layerStates:
     - pancakesma1
     - pancakesma2

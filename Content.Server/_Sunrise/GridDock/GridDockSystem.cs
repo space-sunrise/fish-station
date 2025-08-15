@@ -5,6 +5,7 @@ using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Events;
 using Content.Server.Station.Systems;
+using Content.Shared.Station.Components;
 using Robust.Shared.EntitySerialization.Systems;
 
 namespace Content.Server._Sunrise.GridDock;
@@ -50,7 +51,10 @@ public sealed class GridDockSystem : EntitySystem
             // Fish-end
             return;
 
-        var target = _station.GetLargestGrid(Comp<StationDataComponent>(uid));
+        if (!TryComp<StationDataComponent>(uid, out var stationData))
+            return;
+
+        var target = _station.GetLargestGrid((uid, stationData));
 
         if (target == null)
         {
@@ -71,7 +75,7 @@ public sealed class GridDockSystem : EntitySystem
     // Fish-start
     private void OnStationPostInitMultiple(EntityUid uid, SpawnAdditionalGridsAndDockToStationComponent component, StationPostInitEvent args)
     {
-        var target = _station.GetLargestGrid(Comp<StationDataComponent>(uid));
+        var target = _station.GetLargestGrid(uid);
         if (target == null)
         {
             Log.Error($"GridDockSystem: No target station grid found for {ToPrettyString(uid)}. Aborting.");
