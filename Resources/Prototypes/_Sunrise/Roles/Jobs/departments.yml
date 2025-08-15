@@ -1,36 +1,26 @@
-#Fish-edit
-# - type: department
-#   id: Law
-#   name: department-Law
-#   description: department-Law-description
-#   color: "#FF5297"
-#   weight: 80
-#   roles:
-    #  - Magistrat
-    #  - IAA
-    #  - Lawyer
-    #  - NtrOfficer
-#Fish-end
+- type: department
+  id: Law
+  name: department-Law
+  description: department-Law-description
+  color: "#FF5297"
+  weight: 80
+  roles:
+    - Magistrat
+    - IAA
+    - Lawyer
+    - NtrOfficer
 
-# - type: department # Surnise-Blueshield
-#   id: BlueShield
-#   name: department-Blueshield
-#   description: department-Blueshield-description
-#   color: "#0f4e81"
-#   roles:
-# - type: department # Surnise-Blueshield
-#   id: BlueShield
-#   name: department-Blueshield
-#   description: department-Blueshield-description
-#   color: "#0f4e81"
-#   roles:
-#    - BlueShieldEnsign
-#    - BlueShieldOfficer
-#    - BlueShieldOperative
-#   primary: false
-#   weight: 50
-#   primary: false
-#   weight: 50
+- type: department # Surnise-Blueshield
+  id: BlueShield
+  name: department-Blueshield
+  description: department-Blueshield-description
+  color: "#0f4e81"
+  roles:
+    - BlueShieldEnsign
+    - BlueShieldOfficer
+    - BlueShieldOperative
+  primary: false
+  weight: 50
 
 - type: department
   id: PlanetPrison
