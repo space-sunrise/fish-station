@@ -823,6 +823,8 @@ MagazineBoxMagnum: MagazineBoxMagnumSP
 SpeedLoaderMagnum: SpeedLoaderMagnumSP
 MagazineBoxRifle: MagazineBoxRifleSP
 # Sunrise-End
+PrinterDoc: CopyMachineFilled
+PrinterDocFlatpack: CopyMachineFlatpack
 
 #Fish-start
 MechSecPod: null
