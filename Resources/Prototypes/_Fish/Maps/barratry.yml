@@ -13,7 +13,7 @@
           mapNameTemplate: '{0} Barratry {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'TG'
+            prefixCreator: 'RS'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_barratry.yml
         - type: StationJobs

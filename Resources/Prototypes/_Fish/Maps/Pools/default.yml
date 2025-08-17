@@ -2,6 +2,6 @@
   id: FishMapPool
   maps:
   - FishDelta
-  - FishBarratry
+  # - FishBarratry
   - FishFland
   - FishPacked
