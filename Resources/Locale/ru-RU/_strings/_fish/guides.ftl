@@ -30,8 +30,6 @@ guide-entry-fish-rule-10 = Правило 10
 
 guide-entry-fish-rule-2-1 = Правило 2.1
 
-guide-entry-fish-rule-2-2 = Правило 2.2
-
 guide-entry-fish-rule-3-1 = Правило 3.1
 
 guide-entry-fish-rule-3-2 = Правило 3.2
@@ -51,3 +49,5 @@ guide-entry-fish-rule-3-8 = Правило 3.8
 guide-entry-fish-rule-3-9 = Правило 3.9
 
 guide-entry-fish-rule-4-1 = Правило 4.1
+
+guide-entry-fish-rule-4-2 = Правило 4.2

@@ -77,74 +77,74 @@
 
 # SubRules
 - type: guideEntry
-  id: FishR2.1
+  id: FishSR21
   name: guide-entry-fish-rule-2-1
   ruleEntry: true
   priority: 21
-  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishR2.1.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishSR21.xml"
 - type: guideEntry
-  id: FishR2.2
-  name: guide-entry-fish-rule-2-2
-  ruleEntry: true
-  priority: 22
-  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishR2.2.xml"
-- type: guideEntry
-  id: FishR3.1
+  id: FishSR31
   name: guide-entry-fish-rule-3-1
   ruleEntry: true
   priority: 31
-  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishR3.1.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishSR31.xml"
 - type: guideEntry
-  id: FishR3.2
+  id: FishSR32
   name: guide-entry-fish-rule-3-2
   ruleEntry: true
   priority: 32
-  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishR3.2.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishSR32.xml"
 - type: guideEntry
-  id: FishR3.3
+  id: FishSR33
   name: guide-entry-fish-rule-3-3
   ruleEntry: true
   priority: 33
-  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishR3.3.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishSR33.xml"
 - type: guideEntry
-  id: FishR3.4
+  id: FishSR34
   name: guide-entry-fish-rule-3-4
   ruleEntry: true
   priority: 34
-  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishR3.4.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishSR34.xml"
 - type: guideEntry
-  id: FishR3.5
+  id: FishSR35
   name: guide-entry-fish-rule-3-5
   ruleEntry: true
   priority: 35
-  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishR3.5.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishSR35.xml"
 - type: guideEntry
-  id: FishR3.6
+  id: FishSR36
   name: guide-entry-fish-rule-3-6
   ruleEntry: true
   priority: 36
-  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishR3.6.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishSR36.xml"
 - type: guideEntry
-  id: FishR3.7
+  id: FishSR37
   name: guide-entry-fish-rule-3-7
   ruleEntry: true
   priority: 37
-  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishR3.7.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishSR37.xml"
 - type: guideEntry
-  id: FishR3.8
+  id: FishSR38
   name: guide-entry-fish-rule-3-8
   ruleEntry: true
   priority: 38
-  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishR3.8.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishSR38.xml"
 - type: guideEntry
-  id: FishR3.9
+  id: FishSR39
   name: guide-entry-fish-rule-3-9
   ruleEntry: true
   priority: 39
-  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishR3.9.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishSR39.xml"
 - type: guideEntry
-  id: FishR4.1
+  id: FishSR41
   name: guide-entry-fish-rule-4-1
   ruleEntry: true
   priority: 41
-  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishR4.1.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishSR41.xml"
+- type: guideEntry
+  id: FishSR42
+  name: guide-entry-fish-rule-4-2
+  ruleEntry: true
+  priority: 42
+  text: "/ServerInfo/Guidebook/ServerRules/RulesFish/SubRules/FishSR42.xml"
