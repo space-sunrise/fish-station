@@ -1,14 +1,15 @@
 - type: department
   id: Law
-  name: department-Law
+  name: department-LawAlt #Fish-edit
   description: department-Law-description
   color: "#FF5297"
   weight: 80
   roles:
-    - Magistrat
+    # - Magistrat #Fish-edit
     - IAA
     - Lawyer
     - NtrOfficer
+    - OversightOfficer #Fish-edit
 
 - type: department # Surnise-Blueshield
   id: BlueShield
