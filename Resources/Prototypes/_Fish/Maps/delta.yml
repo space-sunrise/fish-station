@@ -6,7 +6,7 @@
   randomRotation: false
   minPlayers: 0
   stations:
-    Delta:
+    FishDelta:
       stationProto: StandardNanotrasenStation
       components:
       - type: StationNameSetup
