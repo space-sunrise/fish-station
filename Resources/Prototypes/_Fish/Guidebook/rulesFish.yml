@@ -1,4 +1,4 @@
-# Core and SubRules for Fish server
+# Core and SubRules for Fish Station server
 # This file contains guideEntry prototypes for Fish server rules, split into CoreRules and SubRules folders.
 # Each entry links to the corresponding XML rule file.
 
