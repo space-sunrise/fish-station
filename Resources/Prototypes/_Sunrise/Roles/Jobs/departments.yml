@@ -1,11 +1,11 @@
 - type: department
   id: Law
-  name: department-LawAlt # Fish-edit Мы хотим ДРУГОЕ название отдела, да в это строчке будет НАСРАНО, увы
+  name: department-Law
   description: department-Law-description
   color: "#FF5297"
   weight: 80
   roles:
-    # - Magistrat # Fish-edit Магистрат на Рыбе находится в отделе Судебная система, ХВАТИТ его возвращать в юротдел
+    - Magistrat
     - IAA
     - Lawyer
     - NtrOfficer
