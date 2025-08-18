@@ -19,8 +19,14 @@ public sealed class GridDockSystem : EntitySystem
     [Dependency] private readonly DockingSystem _dockSystem = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
 
+    // Fish-start
+    private Vector2 _nextSpawnOffset;
+    private const float GridSeparation = 300f;
+    // Fish-end
+
     public override void Initialize()
     {
+        _nextSpawnOffset = new Vector2(500, 500); // Fish-edit
         SubscribeLocalEvent<SpawnGridAndDockToStationComponent, StationPostInitEvent>(OnStationPostInit);
     }
 
@@ -43,16 +49,18 @@ public sealed class GridDockSystem : EntitySystem
             return;
         }
 
-        var baseOffset = new Vector2(0, 0);
-        var offsetStep = new Vector2(100, 0);
         var usedGridDocks = new HashSet<EntityUid>();
-        var currentOffset = baseOffset;
         foreach (var entry in component.Grids)
         {
+            // Fish-start
+            var spawnPosition = _nextSpawnOffset;
+            _nextSpawnOffset.X += GridSeparation;
+            // Fish-end
+
             if (!_loader.TryLoadGrid(xformMap.MapID,
                     entry.GridPath,
                     out var rootUid,
-                    offset: currentOffset))
+                    offset: spawnPosition)) // Fish-edit
                 continue;
 
             if (!TryComp<ShuttleComponent>(rootUid.Value.Owner, out var shuttleComp))
@@ -101,8 +109,6 @@ public sealed class GridDockSystem : EntitySystem
                     priorityTag: entry.PriorityTag,
                     ignored: false);
             }
-
-            currentOffset += offsetStep;
         }
     }
 }

@@ -14,7 +14,13 @@
           mapNameTemplate: '{0} Packed {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'VG'
+            prefixCreator: 'RSS'
+        - type: SpawnGridAndDockToStation
+          grids:
+          - gridPath: /Maps/_Fish/Shuttles/mining.yml
+            priorityTag: DockMining
+          - gridPath: /Maps/_Fish/Shuttles/security.yml
+            priorityTag: DockSecurity
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency.yml
         - type: StationJobs

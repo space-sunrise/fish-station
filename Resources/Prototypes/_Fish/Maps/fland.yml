@@ -13,7 +13,13 @@
           mapNameTemplate: '{0} Фланд {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'B'
+            prefixCreator: 'RS'
+        - type: SpawnGridAndDockToStation
+          grids:
+          - gridPath: /Maps/_Fish/Shuttles/mining.yml
+            priorityTag: DockMining
+          - gridPath: /Maps/_Fish/Shuttles/security.yml
+            priorityTag: DockSecurity
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_fland.yml
         - type: StationJobs
