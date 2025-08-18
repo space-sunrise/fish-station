@@ -4,7 +4,7 @@
   description: department-SpecialOperations-description
   color: "#0c344d"
   roles:
-   - SpecOpsOfficer #Fish-edit
+   - SpecOpsOfficer
   weight: 57
 
 - type: department
