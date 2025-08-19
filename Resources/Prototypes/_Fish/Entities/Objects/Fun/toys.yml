@@ -126,4 +126,3 @@
   - type: EmitSoundOnActivate
     sound:
       path: /Audio/Voice/Moth/moth_scream.ogg
-
