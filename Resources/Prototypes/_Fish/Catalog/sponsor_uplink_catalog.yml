@@ -1,5 +1,5 @@
 - type: listing
-  id: UplinkSunrisePlushiecevulpa
+  id: UplinkFishPlushiecevulpa
   productEntity: Plushiecevulpa
   cost:
     Suntick: 4
@@ -11,7 +11,7 @@
 
 
 - type: listing
-  id: UplinkSunrisePlushieengiexeno
+  id: UplinkFishPlushieengiexeno
   productEntity: Plushieengiexeno
   cost:
     Suntick: 4
@@ -20,8 +20,6 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-
-
 - type: listing
   id: UplinkFishePlushieAnnaSolovieva
   productEntity: PlushieAnnaSolovieva
