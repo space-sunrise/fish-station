@@ -7,8 +7,7 @@
   - type: ItemToggle
     soundActivate:
       path: /Audio/Weapons/ebladeon.ogg
-    soundDeactivate:b
-    
+    soundDeactivate:
       path: /Audio/Weapons/ebladeoff.ogg
     deactivateUnequippedHand: true # Sunrise-Edit
   - type: ItemToggleActiveSound
