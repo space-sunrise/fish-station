@@ -113,9 +113,6 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/Voice/Moth/moth_scream.ogg
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Voice/Moth/moth_scream.ogg
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Voice/Moth/moth_scream.ogg
