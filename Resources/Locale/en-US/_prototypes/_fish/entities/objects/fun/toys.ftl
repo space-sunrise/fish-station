@@ -7,4 +7,6 @@ ent-Plushiemikhail = Plushie Mikhail Beerbeard Oboronovich
 ent-Plushiesquishymoth = Plushie Squishy Moth
     .desc = { ent-BasePlushie.desc }
 ent-PlushieAnnaSolovieva = Plushie Anna Solovieva
-    .desc = She loves her job and is not shy about expressing her affection for her friends, generously showering them with joyful “meows!”
+    .desc = She loves her job and is not shy about expressing her affection for her friends, generously showering them with joyful “meows!”    
+ent-PlushieOlegmol = Olegmol
+    .desc = { ent-BasePlushie.desc }

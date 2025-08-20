@@ -20,7 +20,6 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-
 - type: listing
   id: UplinkFishePlushieAnnaSolovieva
   productEntity: PlushieAnnaSolovieva
@@ -75,6 +74,64 @@
     Suntick: 15
   categories:
   - General
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+
+- type: listing
+  id: UplinkSunrisePlushiemikhail
+  productEntity: Plushiemikhail
+  cost:
+    Suntick: 4
+  categories:
+  - SpecialThings
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+
+- type: listing
+  id: UplinkSunrisePlushiesquishymoth
+  productEntity: Plushiesquishymoth
+  cost:
+    Suntick: 4
+  categories:
+  - SpecialThings
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: UplinkSunriseClothingCloakSquishymoth
+  productEntity: ClothingCloakSquishymoth
+  cost:
+    Suntick: 15
+  categories:
+  - Cloaks
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+
+- type: listing
+  id: UplinkSunriseClothingHeadHatSquishyMoth
+  productEntity: ClothingHeadHatSquishyMoth
+  cost:
+    Suntick: 15
+  categories:
+  - General
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: UplinkFishePlushieOlegmol
+  productEntity: PlushieOlegmol
+  cost:
+    Suntick: 4
+  categories:
+  - SpecialThings
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
