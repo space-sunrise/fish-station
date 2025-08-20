@@ -99,7 +99,7 @@
   - type: Sprite
     sprite: _Fish/Objects/Fun/toys.rsi
     state: Olegmol
-    -type: EmitSoundOnUse
+  - type: EmitSoundOnUse
     sound:
       path: /Audio/Voice/Moth/moth_squeak.ogg
       params:
