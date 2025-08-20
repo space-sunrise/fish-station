@@ -1,12 +1,14 @@
-﻿using System.Numerics;
-using Content.Server._Sunrise.RoundStartFtl;
+﻿using System.Linq;
+using System.Numerics;
+using Content.Server.Shuttles;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
-using Content.Server.Station.Components;
 using Content.Server.Station.Events;
 using Content.Server.Station.Systems;
 using Content.Shared.Station.Components;
 using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 
 namespace Content.Server._Sunrise.GridDock;
 
@@ -15,41 +17,21 @@ public sealed class GridDockSystem : EntitySystem
     [Dependency] private readonly MapLoaderSystem _loader = default!;
     [Dependency] private readonly ShuttleSystem _shuttles = default!;
     [Dependency] private readonly StationSystem _station = default!;
-    private Vector2 _nextSpawnOffset;
-    private const float GridSeparation = 300f;
-    // Fish-end
+    [Dependency] private readonly DockingSystem _dockSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
-        _nextSpawnOffset = new Vector2(500, 500); // Fish-edit
         SubscribeLocalEvent<SpawnGridAndDockToStationComponent, StationPostInitEvent>(OnStationPostInit);
-        SubscribeLocalEvent<SpawnAdditionalGridsAndDockToStationComponent, StationPostInitEvent>(OnStationPostInitMultiple); // Fish-edit
     }
 
     private void OnStationPostInit(EntityUid uid, SpawnGridAndDockToStationComponent component, StationPostInitEvent args)
     {
-        if (component.GridPath is null)
+        if (component.Grids.Count == 0)
             return;
 
         var ftlMap = _shuttles.EnsureFTLMap();
         var xformMap = Transform(ftlMap);
-        // Fish-start
-        var spawnPosition = _nextSpawnOffset;
-        _nextSpawnOffset.X += GridSeparation;
-        // Fish-end
-        if (!_loader.TryLoadGrid(xformMap.MapID,
-                component.GridPath.Value,
-                out var rootUid,
-                offset: spawnPosition)) // Fish-edit
-            return;
-
-        // Fish-start
-        if (rootUid == null)
-            return;
-
-        if (!TryComp<ShuttleComponent>(rootUid.Value, out var shuttleComp))
-            // Fish-end
-            return;
 
         if (!TryComp<StationDataComponent>(uid, out var stationData))
             return;
@@ -58,68 +40,77 @@ public sealed class GridDockSystem : EntitySystem
 
         if (target == null)
         {
-            Log.Error($"GridDockSystem: No target station grid found for {ToPrettyString(uid)}"); // Fish-edit
+            Log.Error($"GridDockSystem: No target grid found for {ToPrettyString(uid)}");
             return;
         }
 
-        _shuttles.FTLToDock(
-            rootUid.Value, // Fish-edit
-            shuttleComp,
-            target.Value,
-            5f,
-            5f,
-            priorityTag: component.PriorityTag,
-            ignored: true);
-    }
-
-    // Fish-start
-    private void OnStationPostInitMultiple(EntityUid uid, SpawnAdditionalGridsAndDockToStationComponent component, StationPostInitEvent args)
-    {
-        var target = _station.GetLargestGrid(uid);
-        if (target == null)
+        var index = 0f;
+        var usedGridDocks = new HashSet<EntityUid>();
+        foreach (var entry in component.Grids)
         {
-            Log.Error($"GridDockSystem: No target station grid found for {ToPrettyString(uid)}. Aborting.");
-            return;
-        }
-
-        var ftlMap = _shuttles.EnsureFTLMap();
-        var xformMap = Transform(ftlMap);
-
-        foreach (var spawnEntry in component.Spawns)
-        {
-            var spawnPosition = _nextSpawnOffset;
-            _nextSpawnOffset.X += GridSeparation;
-
             if (!_loader.TryLoadGrid(xformMap.MapID,
-                    spawnEntry.GridPath,
-                    out var gridUid,
-                    offset: spawnPosition))
-            {
-                Log.Warning($"Failed to load grid from path: {spawnEntry.GridPath}");
+                    entry.GridPath,
+                    out var rootUid))
                 continue;
+
+            var grid = Comp<MapGridComponent>(rootUid.Value.Owner);
+            var width = grid.LocalAABB.Width;
+            var shuttleCenter = grid.LocalAABB.Center;
+
+            var coordinates = new EntityCoordinates(ftlMap, new Vector2(index + width / 2f, 0f) - shuttleCenter);
+            _transform.SetCoordinates(rootUid.Value.Owner, coordinates);
+
+            index += width + 5f;
+
+            if (!TryComp<ShuttleComponent>(rootUid.Value.Owner, out var shuttleComp))
+                continue;
+
+            var gridDocks = _dockSystem.GetDocks(target.Value);
+            var shuttleDocks = _dockSystem.GetDocks(rootUid.Value.Owner);
+            var configs = _dockSystem.GetDockingConfigs(rootUid.Value.Owner, target.Value, shuttleDocks, gridDocks, entry.PriorityTag, ignored: false);
+
+            DockingConfig? chosenConfig = null;
+            int maxNewDocks = 0;
+            foreach (var cfg in configs)
+            {
+                if (cfg.Docks.Any(pair => usedGridDocks.Contains(pair.DockBUid)))
+                    continue;
+                var newDocks = cfg.Docks.Count(pair => !usedGridDocks.Contains(pair.DockBUid));
+                if (newDocks > maxNewDocks)
+                {
+                    maxNewDocks = newDocks;
+                    chosenConfig = cfg;
+                }
             }
 
-            if (gridUid == null)
+            if (chosenConfig != null)
             {
-                Log.Warning($"Loaded grid from {spawnEntry.GridPath}, but it was empty.");
-                continue;
-            }
+                foreach (var pair in chosenConfig.Docks)
+                {
+                    usedGridDocks.Add(pair.DockBUid);
+                }
 
-            if (!TryComp<ShuttleComponent>(gridUid.Value, out var shuttleComp))
+                _shuttles.FTLToDockСonfig(
+                    rootUid.Value.Owner,
+                    shuttleComp,
+                    chosenConfig,
+                    0f,
+                    30f,
+                    priorityTag: entry.PriorityTag,
+                    ignored: false);
+            }
+            else
             {
-                Log.Warning($"Spawned grid {ToPrettyString(gridUid.Value)} from {spawnEntry.GridPath} has no ShuttleComponent. Skipping docking.");
-                continue;
+                if (_shuttles.TryGetFTLProximity(rootUid.Value.Owner, new EntityCoordinates(target.Value, Vector2.Zero), out var coords, out var targAngle))
+                {
+                    _shuttles.FTLToCoordinates(rootUid.Value.Owner,
+                        shuttleComp,
+                        coords,
+                        targAngle,
+                        0f,
+                        30f);
+                }
             }
-
-            _shuttles.FTLToDock(
-                gridUid.Value,
-                shuttleComp,
-                target.Value,
-                5f,
-                5f,
-                priorityTag: spawnEntry.PriorityTag,
-                ignored: true);
         }
     }
-    // Fish-end
 }

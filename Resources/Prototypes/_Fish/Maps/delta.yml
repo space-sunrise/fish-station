@@ -4,7 +4,7 @@
   mapPath: /Maps/_Fish/Station/delta.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 0
+  minPlayers: 55
   stations:
     Delta:
       stationProto: StandardNanotrasenStation
@@ -14,6 +14,12 @@
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '-RS'
+      - type: SpawnGridAndDockToStation
+        grids:
+        - gridPath: /Maps/_Fish/Shuttles/mining.yml
+          priorityTag: DockMining
+        - gridPath: /Maps/_Fish/Shuttles/security.yml
+          priorityTag: DockSecurity
       - type: StationEmergencyShuttle
         emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_delta.yml
       - type: StationJobs

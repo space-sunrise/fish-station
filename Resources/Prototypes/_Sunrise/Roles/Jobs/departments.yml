@@ -10,7 +10,7 @@
     - Lawyer
     - NtrOfficer
 
-- type: department # Surnise-Blueshield
+- type: department
   id: BlueShield
   name: department-Blueshield
   description: department-Blueshield-description

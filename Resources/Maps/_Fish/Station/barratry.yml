@@ -81664,13 +81664,6 @@ entities:
     - type: Transform
       pos: -79.5,29.5
       parent: 2
-- proto: LockerBlueShieldEnsignFilled
-  entities:
-  - uid: 17029
-    components:
-    - type: Transform
-      pos: -18.5,14.5
-      parent: 2
 - proto: LockerBlueShieldOfficerFilled
   entities:
   - uid: 6042

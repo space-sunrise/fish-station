@@ -74,6 +74,20 @@
 
 - type: entity
   parent: BasePlushie
+  id: PlushieAnnaSolovieva
+  name: Plushie Anna Solovieva
+  components:
+  - type: Sprite
+    sprite: _Fish/Objects/Fun/toys.rsi
+    state: annasolovieva
+  - type: UseDelay
+    delay: 4
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Animals/cat_meow.ogg
+
+- type: entity
+  parent: BasePlushie
   id: Plushiemikhail
   name: plushie mikhail beerbeard oboronovich
   components:
