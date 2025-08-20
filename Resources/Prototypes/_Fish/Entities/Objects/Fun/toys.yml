@@ -102,9 +102,6 @@
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Voice/Moth/moth_squeak.ogg
-  - type: TriggerOnActivate
-  - type: UseDelay
-    delay: 2
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Voice/Moth/moth_squeak.ogg
@@ -125,3 +122,5 @@
   - type: EmitSoundOnActivate
     sound:
       path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: UseDelay
+    delay: 1
