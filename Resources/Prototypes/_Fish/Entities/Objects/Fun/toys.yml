@@ -99,6 +99,8 @@
   - type: Sprite
     sprite: _Fish/Objects/Fun/toys.rsi
     state: Olegmol
+  - type: UseDelay
+    delay: 0.5
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Voice/Moth/moth_squeak.ogg
@@ -107,8 +109,6 @@
       path: /Audio/Voice/Moth/moth_squeak.ogg
       params:
         volume: 100
-  - type: UseDelay
-    delay: 1
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Voice/Moth/moth_scream.ogg
