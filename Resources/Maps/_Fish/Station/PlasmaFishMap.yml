@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/19/2025 21:17:04
-  entityCount: 27572
+  time: 08/21/2025 15:18:13
+  entityCount: 27573
 maps:
 - 1
 grids:
@@ -7960,9 +7960,8 @@ entities:
             8361: -33,-7
             9377: -124,21
             9854: -26,-38
-            10864: -31,25
-            10865: -29,25
             10871: -30,21
+            10880: -30,25
         - node:
             cleanable: True
             color: '#FFFFFFFF'
@@ -7990,9 +7989,8 @@ entities:
             6350: -146,-43
             9386: -121,21
             9717: -37,-28
-            10863: -31,25
-            10866: -29,25
             10870: -30,21
+            10879: -30,25
         - node:
             cleanable: True
             color: '#FFFFFFFF'
@@ -8227,6 +8225,7 @@ entities:
             9852: -26,-41
             10125: -10,-19
             10869: -30,22
+            10884: -30,26
         - node:
             cleanable: True
             color: '#FFFFFFFF'
@@ -8568,6 +8567,7 @@ entities:
             10124: -12,-19
             10850: -32,24
             10868: -30,22
+            10883: -30,26
         - node:
             cleanable: True
             color: '#FFFFFFFF'
@@ -8705,7 +8705,8 @@ entities:
             9711: -38,-28
             9748: -26,-50
             10848: -32,21
-            10867: -30,25
+            10877: -29,25
+            10878: -31,25
         - node:
             color: '#FFFFFFFF'
             id: WoodTrimThinCornerNe
@@ -14001,7 +14002,7 @@ entities:
       pos: -68.5,-28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -98595.86
+      secondsUntilStateChange: -98732.13
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14819,17 +14820,11 @@ entities:
           - DoorBolt
 - proto: AirlockExternalGlassFishSecurityShuttle
   entities:
-  - uid: 286
+  - uid: 27573
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -30.5,26.5
-      parent: 2
-  - uid: 287
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -28.5,26.5
+      pos: -29.5,26.5
       parent: 2
 - proto: AirlockExternalGlassLocked
   entities:
@@ -72120,7 +72115,7 @@ entities:
       pos: -20.5,-16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -69306.03
+      secondsUntilStateChange: -69442.305
       state: Closing
 - proto: CurtainsGreen
   entities:
@@ -163784,6 +163779,12 @@ entities:
       fixtures: {}
 - proto: WallReinforced
   entities:
+  - uid: 287
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -28.5,26.5
+      parent: 2
   - uid: 24077
     components:
     - type: Transform
@@ -169388,6 +169389,12 @@ entities:
       parent: 2
 - proto: WallReinforcedRust
   entities:
+  - uid: 286
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -30.5,26.5
+      parent: 2
   - uid: 25145
     components:
     - type: Transform
@@ -180970,7 +180977,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -268315.06
+      secondsUntilStateChange: -268451.34
       state: Opening
     - type: Airlock
       autoClose: False
