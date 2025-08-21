@@ -83,10 +83,11 @@
             #blueshield
             BlueShieldEnsign: [ 1, 1 ]
             BlueShieldOfficer: [ 2, 2 ]
+            RepresentativeBlueShield: [ 1, 1 ]
             #law
             IAA: [ 1, 1 ]
             Lawyer: [ 2, 2 ]
-            NtrOfficer: [ 2, 2 ]
+            NtrOfficer: [ 3, 3 ]
             # silicon
             StationAi: [ 1, 1 ]
             Borg: [ 3, 3 ]
