@@ -14,7 +14,7 @@
           mapNameTemplate: '{0} Packed {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'RSS'
+            prefixCreator: 'RS'
         - type: SpawnGridAndDockToStation
           grids:
           - gridPath: /Maps/_Fish/Shuttles/mining.yml
