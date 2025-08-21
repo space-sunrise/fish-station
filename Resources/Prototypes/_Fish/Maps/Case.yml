@@ -1,7 +1,7 @@
 - type: gameMap
   id: FishCase
   mapName: 'Case'
-  mapPath: /Maps/_Fish/Station/emergency_Case.yml
+  mapPath: /Maps/_Fish/Station/Case.yml
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 0
