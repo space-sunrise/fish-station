@@ -32,7 +32,6 @@
           #supply
           Quartermaster: [ 1, 1 ]
           SalvageSpecialist: [ 3, 3 ]
-          miningspecialist: [ 1, 1 ]
           CargoTechnician: [ 3, 4 ]
           MailCarrier: [ 1, 1 ]
           # engineering
@@ -43,6 +42,7 @@
           TechnicalAssistant: [ 3, 3 ]
           # medical
           ChiefMedicalOfficer: [ 1, 1 ]
+          SeniorPhysician: [ 1, 1 ]
           MedicalDoctor: [ 3, 4 ]
           MedicalIntern: [ 3, 3 ]
           Psychologist: [ 1, 1 ]
