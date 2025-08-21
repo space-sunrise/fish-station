@@ -25,14 +25,6 @@
   - type: EmitSoundOnActivate
     sound:
       collection: PlushieVulpkaninGrowls
-  - type: Item
-    heldPrefix: ce-vulpa
-  - type: Clothing
-    quickEquip: false
-    sprite: _Fish/Objects/Fun/toys.rsi
-    equippedPrefix: ce-vulpa
-    slots:
-    - NECK
 
 - type: entity
   parent: BasePlushie
@@ -63,14 +55,6 @@
     wideAnimationRotation: 180
     soundHit:
       path: /Audio/_Sunrise/Voice/HumanoidXeno/humanoid_xeno_scream2.ogg
-  - type: Item
-    heldPrefix: engie-xeno
-  - type: Clothing
-    quickEquip: false
-    sprite: _Fish/Objects/Fun/toys.rsi
-    equippedPrefix: engie-xeno
-    slots:
-    - NECK
 
 - type: entity
   parent: BasePlushie
@@ -126,14 +110,6 @@
   - type: Sprite
     sprite: _Fish/Objects/Fun/toys.rsi
     state: plushie-mikhail-beerbeard-oboronovich
-  - type: Item
-    heldPrefix: mikhail-beerbeard-oboronovich
-  - type: Clothing
-    quickEquip: false
-    sprite: _Fish/Objects/Fun/toys.rsi
-    equippedPrefix: mikhail-beerbeard-oboronovich
-    slots:
-    - NECK
 
 - type: entity
   parent: BasePlushie
@@ -163,11 +139,3 @@
   - type: EmitSoundOnActivate
     sound:
       collection: PlushieSlimeSounds
-  - type: Item
-    heldPrefix: squishy-moth
-  - type: Clothing
-    quickEquip: false
-    sprite: _Fish/Objects/Fun/toys.rsi
-    equippedPrefix: squishy-moth
-    slots:
-    - NECK

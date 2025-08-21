@@ -33,7 +33,7 @@
 
 
 - type: listing
-  id: UplinkFishePlushiemikhail
+  id: UplinkFishPlushiemikhail
   productEntity: Plushiemikhail
   cost:
     Suntick: 4
@@ -45,7 +45,7 @@
 
 
 - type: listing
-  id: UplinkFishePlushiesquishymoth
+  id: UplinkFishPlushiesquishymoth
   productEntity: Plushiesquishymoth
   cost:
     Suntick: 4
@@ -56,7 +56,7 @@
     stock: 1
 
 - type: listing
-  id: UplinkFisheClothingCloakSquishymoth
+  id: UplinkFishClothingCloakSquishymoth
   productEntity: ClothingCloakSquishymoth
   cost:
     Suntick: 15
@@ -68,7 +68,7 @@
 
 
 - type: listing
-  id: UplinkFisheClothingHeadHatSquishyMoth
+  id: UplinkFishClothingHeadHatSquishyMoth
   productEntity: ClothingHeadHatSquishyMoth
   cost:
     Suntick: 15
@@ -79,7 +79,7 @@
     stock: 1
 
 - type: listing
-  id: UplinkFishePlushieOlegmol
+  id: UplinkFishPlushieOlegmol
   productEntity: PlushieOlegmol
   cost:
     Suntick: 4
