@@ -31,8 +31,55 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+
 - type: listing
-  id: UplinkFishePlushieOlegmol
+  id: UplinkFishPlushiemikhail
+  productEntity: Plushiemikhail
+  cost:
+    Suntick: 4
+  categories:
+  - SpecialThings
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+
+- type: listing
+  id: UplinkFishPlushiesquishymoth
+  productEntity: Plushiesquishymoth
+  cost:
+    Suntick: 4
+  categories:
+  - SpecialThings
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: UplinkFishClothingCloakSquishymoth
+  productEntity: ClothingCloakSquishymoth
+  cost:
+    Suntick: 15
+  categories:
+  - Cloaks
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+
+- type: listing
+  id: UplinkFishClothingHeadHatSquishyMoth
+  productEntity: ClothingHeadHatSquishyMoth
+  cost:
+    Suntick: 15
+  categories:
+  - General
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: UplinkFishPlushieOlegmol
   productEntity: PlushieOlegmol
   cost:
     Suntick: 4

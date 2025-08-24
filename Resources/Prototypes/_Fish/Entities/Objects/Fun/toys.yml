@@ -10,7 +10,7 @@
     delay: 4
   - type: MeleeWeapon
     soundHit:
-      collection: VulpkaninScreams
+      collection: PlushieVulpkaninGrowls
       params:
         volume: 100
   - type: EmitSoundOnTrigger
@@ -25,14 +25,6 @@
   - type: EmitSoundOnActivate
     sound:
       collection: PlushieVulpkaninGrowls
-  - type: Item
-    heldPrefix: ce-vulpa
-  - type: Clothing
-    quickEquip: false
-    sprite: _Fish/Objects/Fun/toys.rsi
-    equippedPrefix: ce-vulpa
-    slots:
-    - NECK
 
 - type: entity
   parent: BasePlushie
@@ -46,35 +38,23 @@
     delay: 4
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/Weapons/Xeno/alien_spitacid.ogg
+      path: /Audio/_Sunrise/Voice/HumanoidXeno/humanoid_xeno_scream1.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Weapons/Xeno/alien_spitacid.ogg
+      path: /Audio/_Sunrise/Voice/HumanoidXeno/humanoid_xeno_scream4.ogg
   - type: EmitSoundOnActivate
     sound:
-      path: /Audio/Weapons/Xeno/alien_spitacid.ogg
+      path: /Audio/_Sunrise/Voice/HumanoidXeno/humanoid_xeno_scream1.ogg
   - type: EmitSoundOnTrigger
     sound:
-      path: /Audio/Weapons/Xeno/alien_spitacid.ogg
+      path: /Audio/_Sunrise/Voice/HumanoidXeno/humanoid_xeno_scream3.ogg
   - type: EmitSoundOnCollide
     sound:
-      path: /Audio/Weapons/Xeno/alien_spitacid.ogg
-  - type: Food
-    requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
+      path: /Audio/_Sunrise/Voice/HumanoidXeno/humanoid_xeno_scream3.ogg
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit:
-      path: /Audio/Weapons/Xeno/alien_spitacid.ogg
-  - type: Item
-    heldPrefix: engie-xeno
-  - type: Clothing
-    quickEquip: false
-    sprite: _Fish/Objects/Fun/toys.rsi
-    equippedPrefix: engie-xeno
-    slots:
-    - NECK
+      path: /Audio/_Sunrise/Voice/HumanoidXeno/humanoid_xeno_scream2.ogg
 
 - type: entity
   parent: BasePlushie
@@ -121,3 +101,41 @@
       path: /Audio/Voice/Moth/moth_scream.ogg
   - type: UseDelay
     delay: 1
+
+- type: entity
+  parent: BasePlushie
+  id: Plushiemikhail
+  name: plushie mikhail beerbeard oboronovich
+  components:
+  - type: Sprite
+    sprite: _Fish/Objects/Fun/toys.rsi
+    state: plushie-mikhail-beerbeard-oboronovich
+
+- type: entity
+  parent: BasePlushie
+  id: Plushiesquishymoth
+  name: plushie squishy moth
+  components:
+  - type: Sprite
+    sprite: _Fish/Objects/Fun/toys.rsi
+    state: plushie-squishy-moth
+  - type: MeleeWeapon
+    soundHit:
+      collection: PlushieSlimeSounds
+      params:
+        volume: 100
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: PlushieSlimeSounds
+  - type: EmitSoundOnCollide
+    sound:
+      collection: PlushieSlimeSounds
+  - type: EmitSoundOnUse
+    sound:
+      collection: PlushieSlimeSounds
+  - type: EmitSoundOnLand
+    sound:
+      collection: PlushieSlimeSounds
+  - type: EmitSoundOnActivate
+    sound:
+      collection: PlushieSlimeSounds
