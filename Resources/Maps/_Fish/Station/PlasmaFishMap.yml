@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/22/2025 11:57:39
-  entityCount: 27571
+  time: 08/24/2025 16:16:54
+  entityCount: 27577
 maps:
 - 1
 grids:
@@ -14002,7 +14002,7 @@ entities:
       pos: -68.5,-28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -99115.9
+      secondsUntilStateChange: -100980.35
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -72101,7 +72101,7 @@ entities:
       pos: -20.5,-16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -69826.07
+      secondsUntilStateChange: -71690.52
       state: Closing
 - proto: CurtainsGreen
   entities:
@@ -154855,17 +154855,12 @@ entities:
     - type: Transform
       pos: -86.5,-76.5
       parent: 2
-  - uid: 22814
-    components:
-    - type: Transform
-      pos: -62.5,-5.5
-      parent: 2
 - proto: SpawnPointBlueShieldOfficer
   entities:
   - uid: 22815
     components:
     - type: Transform
-      pos: -64.5,-6.5
+      pos: -58.5,-0.5
       parent: 2
   - uid: 22816
     components:
@@ -154900,7 +154895,7 @@ entities:
   - uid: 22822
     components:
     - type: Transform
-      pos: -58.5,-0.5
+      pos: -64.5,-6.5
       parent: 2
   - uid: 22823
     components:
@@ -154926,6 +154921,11 @@ entities:
     - type: Transform
       pos: -46.5,-23.5
       parent: 2
+  - uid: 22831
+    components:
+    - type: Transform
+      pos: -46.5,-19.5
+      parent: 2
 - proto: SpawnPointBrigmedic
   entities:
   - uid: 22827
@@ -154946,11 +154946,6 @@ entities:
       pos: -50.5,2.5
       parent: 2
   - uid: 22830
-    components:
-    - type: Transform
-      pos: -61.5,-0.5
-      parent: 2
-  - uid: 22831
     components:
     - type: Transform
       pos: -61.5,-0.5
@@ -155317,6 +155312,18 @@ entities:
     - type: Transform
       pos: -33.5,-50.5
       parent: 2
+  - uid: 27573
+    components:
+    - type: Transform
+      pos: -32.5,-20.5
+      parent: 2
+- proto: SpawnPointMedicalPathologist
+  entities:
+  - uid: 27574
+    components:
+    - type: Transform
+      pos: -40.5,-37.5
+      parent: 2
 - proto: SpawnPointMime
   entities:
   - uid: 22896
@@ -155472,6 +155479,13 @@ entities:
     - type: Transform
       pos: -61.5,-5.5
       parent: 2
+- proto: SpawnPointRepresentativeBlueShield
+  entities:
+  - uid: 22814
+    components:
+    - type: Transform
+      pos: -62.5,-5.5
+      parent: 2
 - proto: SpawnPointResearchAssistant
   entities:
   - uid: 22923
@@ -155493,6 +155507,11 @@ entities:
     components:
     - type: Transform
       pos: -126.5,-46.5
+      parent: 2
+  - uid: 27575
+    components:
+    - type: Transform
+      pos: -126.5,-45.5
       parent: 2
 - proto: SpawnPointResearchDirector
   entities:
@@ -155544,6 +155563,16 @@ entities:
     components:
     - type: Transform
       pos: -127.5,-38.5
+      parent: 2
+  - uid: 27576
+    components:
+    - type: Transform
+      pos: -135.5,-40.5
+      parent: 2
+  - uid: 27577
+    components:
+    - type: Transform
+      pos: -132.5,-40.5
       parent: 2
 - proto: SpawnPointSecurityBorg
   entities:
@@ -155653,6 +155682,11 @@ entities:
     - type: Transform
       pos: -64.5,-33.5
       parent: 2
+  - uid: 27572
+    components:
+    - type: Transform
+      pos: -58.5,-31.5
+      parent: 2
 - proto: SpawnPointStationEngineer
   entities:
   - uid: 22954
@@ -155716,7 +155750,7 @@ entities:
   - uid: 22964
     components:
     - type: Transform
-      pos: -58.580605,-9.512505
+      pos: -58.54254,-9.428568
       parent: 2
 - proto: SpectralLocator
   entities:
@@ -180953,7 +180987,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -268835.12
+      secondsUntilStateChange: -270699.6
       state: Opening
     - type: Airlock
       autoClose: False
