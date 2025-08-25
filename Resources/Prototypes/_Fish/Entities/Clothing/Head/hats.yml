@@ -15,3 +15,27 @@
     - TopCovered # INTERACTIONS
     - WhitelistChameleon
   # SUNRISE EDIT
+
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSquishyMoth
+  name: the Squelching Halo
+  description: The slime from the halo drips right onto your shoulders. Apparently, that’s intentional.
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Head/Hats/squishy_moth_hat.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        shader: unshaded
+  # SUNRISE EDIT
+  - type: Tag
+    tags:
+    - ClothMade
+    - TopCovered # INTERACTIONS
+    - WhitelistChameleon
+  # SUNRISE EDIT
