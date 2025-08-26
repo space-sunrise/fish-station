@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/26/2025 08:16:56
-  entityCount: 41623
+  time: 08/26/2025 11:32:27
+  entityCount: 41621
 maps:
 - 1
 grids:
@@ -1451,6 +1451,9 @@ entities:
           decals:
             38227: 14,-13
             38307: 14,-13
+            41866: 14,-17
+            41867: 10,-17
+            41868: 11,-12
         - node:
             color: '#52B4E9FF'
             id: BoxGreyscale
@@ -1655,11 +1658,6 @@ entities:
           decals:
             37473: -53,24
             38856: -10,-53
-        - node:
-            color: '#37789BFF'
-            id: BrickBoxOverlay
-          decals:
-            38312: 14,-17
         - node:
             color: '#52B4E9FF'
             id: BrickCornerOverlayNW
@@ -3659,7 +3657,6 @@ entities:
             38298: 9,-12
             38299: 10,-12
             38300: 11,-12
-            38301: 13,-17
             38305: 13,-13
             38306: 14,-13
             38389: 5,-11
@@ -4144,7 +4141,6 @@ entities:
             38295: 9,-12
             38296: 10,-12
             38297: 11,-12
-            38302: 13,-17
             38303: 13,-13
             38304: 14,-13
             38387: 5,-11
@@ -24164,7 +24160,8 @@ entities:
           2,-5:
             0: 57599
           3,-4:
-            0: 26343
+            0: 18151
+            1: 8192
           3,-3:
             0: 65392
           3,-2:
@@ -24350,16 +24347,16 @@ entities:
           -9,5:
             0: 61688
           -8,6:
-            1: 62256
+            2: 62256
             0: 136
           -9,6:
-            1: 52416
+            2: 52416
             0: 4881
           -8,7:
-            1: 31
+            2: 31
             0: 64640
           -9,7:
-            1: 204
+            2: 204
             0: 53521
           -8,8:
             0: 65535
@@ -24367,9 +24364,9 @@ entities:
             0: 61183
           -7,6:
             0: 19696
-            1: 4096
+            2: 4096
           -7,7:
-            1: 1
+            2: 1
             0: 65284
           -7,8:
             0: 65375
@@ -24422,9 +24419,9 @@ entities:
           4,8:
             0: 65291
           5,4:
-            1: 65279
+            2: 65279
           5,5:
-            1: 4094
+            2: 4094
           5,6:
             0: 48047
           5,7:
@@ -24432,9 +24429,9 @@ entities:
           5,8:
             0: 30519
           6,4:
-            1: 12595
+            2: 12595
           6,5:
-            1: 817
+            2: 817
           6,6:
             0: 65299
           6,7:
@@ -24494,7 +24491,7 @@ entities:
           8,2:
             0: 65535
           8,3:
-            2: 1
+            1: 1
             0: 3846
           4,-5:
             0: 30591
@@ -24865,7 +24862,7 @@ entities:
             0: 65520
           -6,-14:
             0: 13071
-            1: 34816
+            2: 34816
           -6,-17:
             0: 49147
           -5,-16:
@@ -24874,7 +24871,7 @@ entities:
             0: 65534
           -5,-14:
             0: 34831
-            1: 13056
+            2: 13056
           -5,-13:
             0: 3065
           -5,-17:
@@ -27681,7 +27678,7 @@ entities:
             0: 64499
           20,6:
             0: 4112
-            2: 256
+            1: 256
             3: 35008
           -28,-1:
             3: 49152
@@ -28401,10 +28398,10 @@ entities:
           - 0
           - 0
         - volume: 2500
-          temperature: 235
+          temperature: 293.14975
           moles:
-          - 27.225372
-          - 102.419266
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -28416,10 +28413,10 @@ entities:
           - 0
           - 0
         - volume: 2500
-          temperature: 293.14975
+          temperature: 235
           moles:
-          - 20.078888
-          - 75.53487
+          - 27.225372
+          - 102.419266
           - 0
           - 0
           - 0
@@ -31028,7 +31025,7 @@ entities:
       pos: 52.5,36.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -64346.543
+      secondsUntilStateChange: -64544.19
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -31676,7 +31673,7 @@ entities:
       pos: -35.5,7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -454660.62
+      secondsUntilStateChange: -454858.28
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -32625,7 +32622,7 @@ entities:
       pos: -26.5,47.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -242288
+      secondsUntilStateChange: -242485.66
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -135394,7 +135391,7 @@ entities:
       pos: 39.5,20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -454545.8
+      secondsUntilStateChange: -454743.47
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -138117,18 +138114,6 @@ entities:
     components:
     - type: Transform
       pos: -71.5,-10.5
-      parent: 2
-- proto: EncryptionKeyBlueShield
-  entities:
-  - uid: 6670
-    components:
-    - type: Transform
-      pos: 10.30264,-16.356243
-      parent: 2
-  - uid: 6681
-    components:
-    - type: Transform
-      pos: 10.67764,-16.356241
       parent: 2
 - proto: EngiAlertsMonitorUnpowered
   entities:
@@ -141011,7 +140996,7 @@ entities:
       pos: 15.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -274375.1
+      secondsUntilStateChange: -274572.75
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -141025,7 +141010,7 @@ entities:
       pos: -16.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -161563.66
+      secondsUntilStateChange: -161761.31
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -141226,7 +141211,7 @@ entities:
       pos: -39.5,-73.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -582141.7
+      secondsUntilStateChange: -582339.3
       state: Closing
   - uid: 20628
     components:
@@ -195999,6 +195984,24 @@ entities:
     - type: Transform
       pos: 13.5,-12.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: GunSafeLaserCarbine
   entities:
   - uid: 28719
@@ -198976,6 +198979,21 @@ entities:
       parent: 2
 - proto: LockerBlueshieldFilledHardsuit
   entities:
+  - uid: 6670
+    components:
+    - type: Transform
+      pos: 11.5,-11.5
+      parent: 2
+  - uid: 6681
+    components:
+    - type: Transform
+      pos: 10.5,-16.5
+      parent: 2
+  - uid: 19807
+    components:
+    - type: Transform
+      pos: 14.5,-16.5
+      parent: 2
   - uid: 29104
     components:
     - type: Transform
@@ -239100,12 +239118,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 8.5,2.5
       parent: 2
-  - uid: 35445
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 10.5,-16.5
-      parent: 2
 - proto: TableFancyGreen
   entities:
   - uid: 11540
@@ -243058,11 +243070,6 @@ entities:
       color: '#FF3300FF'
 - proto: TelecomServerFilledBlueShield
   entities:
-  - uid: 36211
-    components:
-    - type: Transform
-      pos: 14.5,-16.5
-      parent: 2
   - uid: 36212
     components:
     - type: Transform
@@ -265728,12 +265735,6 @@ entities:
     components:
     - type: Transform
       pos: -67.5,48.5
-      parent: 2
-  - uid: 40421
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 11.5,-11.5
       parent: 2
   - uid: 40426
     components:
