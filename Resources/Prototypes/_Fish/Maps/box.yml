@@ -1,28 +1,28 @@
 - type: gameMap
-  id: FishFland
-  mapName: 'Fland'
-  mapPath: /Maps/_Fish/Station/fland.yml
+  id: FishBox
+  mapName: 'Box'
+  mapPath: /Maps/_Fish/Station/box.yml
   maxRandomOffset: 0
-  randomRotation: false
   minPlayers: 55
+  randomRotation: false
   stations:
-    Fland:
+    Boxstation:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Фланд {1}'
+          mapNameTemplate: '{0} Бокс {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'RS'
+            prefixCreator: 'TG'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_box.yml
         - type: SpawnGridAndDockToStation
           grids:
           - gridPath: /Maps/_Fish/Shuttles/mining.yml
             priorityTag: DockMining
           - gridPath: /Maps/_Fish/Shuttles/security.yml
             priorityTag: DockFishSecurity
-        - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_fland.yml
-        - type: StationJobs
+          - type: StationJobs
           availableJobs:
             #command
             Captain: [ 1, 1 ]
@@ -43,8 +43,8 @@
             #engineering
             ChiefEngineer: [ 1, 1 ]
             SeniorEngineer: [ 1, 1 ]
-            AtmosphericTechnician: [ 3, 3 ]
-            StationEngineer: [ 5, 5 ]
+            AtmosphericTechnician: [ 4, 4 ]
+            StationEngineer: [ 6, 6 ]
             TechnicalAssistant: [ 5, 5 ]
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
@@ -58,9 +58,9 @@
             #science
             ResearchDirector: [ 1, 1 ]
             SeniorResearcher: [ 1, 1 ]
-            Scientist: [ 5, 5 ]
+            Scientist: [ 6, 6 ]
             ResearchAssistant: [ 5, 5 ]
-            Roboticist: [ 4, 4 ]
+            Roboticist: [ 3, 3 ]
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
@@ -72,7 +72,8 @@
             SecurityCadet: [ 5, 5 ]
             #supply
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 3, 3 ]
+            SalvageSpecialist: [ 4, 4 ]
+            # MiningSpecialist: [ 1, 1 ]
             CargoTechnician: [ 3, 3 ]
             MailCarrier: [ 2, 2 ]
             #civilian
@@ -135,4 +136,4 @@
           - HumanitarianAid
           - PersonnelRecovery
           - CrewEducation
-          - VirusFlesh
+          #- VirusFlesh
