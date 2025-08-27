@@ -63,9 +63,9 @@
   - type: Physics
     canCollide: false
     bodyType: static
+  # Sunrise-start    
   - type: StaticPrice
-    price: 30
-  # Sunrise-start
+    price: 15
   - type: ContainerContainer
     containers:
       VentCrawTube: !type:Container

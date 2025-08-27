@@ -72,35 +72,24 @@
 
 - type: entity
   id: PlushieOlegmol
-  parent: BasePlushie
+  parent: BaseFigurine
   name: Olegmol
   description: He's just an optimistic green moth.
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Fun/toys.rsi
+    sprite: _Fish/Objects/Fun/toys.rsi   
     state: Olegmol
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Voice/Moth/moth_squeak.ogg
-  - type: MeleeWeapon
-    soundHit:
-      path: /Audio/Voice/Moth/moth_squeak.ogg
-      params:
-        volume: 100
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: SpeakOnTrigger
+    pack: Figurinesmol
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/Voice/Moth/moth_scream.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Voice/Moth/moth_scream.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Voice/Moth/moth_scream.ogg
   - type: UseDelay
-    delay: 1
+    delay: 5
+  - type: TTS
+    voice: meepo_dota_2
+  - type: Speech
+    speechSounds: Pai
 
 - type: entity
   parent: BasePlushie
