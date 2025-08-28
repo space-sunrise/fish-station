@@ -4,7 +4,6 @@
   mapPath: /Maps/_Fish/Station/delta.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 55
   stations:
     Delta:
       stationProto: StandardNanotrasenStation
