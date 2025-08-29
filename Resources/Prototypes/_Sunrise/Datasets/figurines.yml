@@ -33,9 +33,3 @@
   values:
     prefix: figurines-ert-
     count: 7
-
-- type: localizedDataset
-  id: Figurinesmol
-  values:
-    prefix: figurines-mol-
-    count: 1

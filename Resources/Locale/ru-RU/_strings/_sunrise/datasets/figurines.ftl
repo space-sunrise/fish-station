@@ -36,4 +36,3 @@ figurines-ert-4 = А где все?
 figurines-ert-5 = Мне есворд, ещилд.. ой, не та команда
 figurines-ert-6 = ОБР прибыл в сектор!
 figurines-ert-7 = Какая ситуация на станции?
-figurines-mol-1 = ПРИВЕТ!
