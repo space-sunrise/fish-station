@@ -1,1 +1,1 @@
-figurines-mol-1 = ПРИВЕТ!
+figurines-mol-1 = ПРИВЕТ!!!
