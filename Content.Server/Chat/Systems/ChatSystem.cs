@@ -372,7 +372,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         sender ??= Loc.GetString("chat-manager-sender-announcement");
 
         var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message", ("sender", sender), ("message", FormattedMessage.EscapeText(message)));
-        
+
         // Sunrise-start - Only show in chat for players with working speakers nearby
         var filteredPlayers = GetPlayersWithWorkingSpeakers();
         if (filteredPlayers.Recipients.Any())
@@ -421,7 +421,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         sender ??= Loc.GetString("chat-manager-sender-announcement");
 
         var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message", ("sender", sender), ("message", FormattedMessage.EscapeText(message)));
-        
+
         // Sunrise-start - Filter chat recipients by working speakers
         var filteredChatPlayers = FilterPlayersByWorkingSpeakers(filter);
         if (filteredChatPlayers.Recipients.Any())
@@ -429,7 +429,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             _chatManager.ChatMessageToManyFiltered(filteredChatPlayers, ChatChannel.Radio, message, wrappedMessage, source ?? default, false, true, colorOverride);
         }
         // Sunrise-end
-        
+
         // Sunrise-start - For filtered announcements, we may want to try speaker network if source is on a station
         if (playTts && (playDefault || announcementSound != null))
         {
@@ -437,7 +437,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 announcementSound = new SoundPathSpecifier(DefaultAnnouncementSound);
 
             var resolvedSound = announcementSound != null ? _audio.ResolveSound(announcementSound) : null;
-            
+
             // If we have a source, try to use the station's speaker network
             if (source != null)
             {
@@ -446,22 +446,10 @@ public sealed partial class ChatSystem : SharedChatSystem
                 {
                     _announcementSpeaker.DispatchAnnouncementToSpeakers(station.Value, message, announcementSound, announceVoice);
                 }
-                else
-                {
-                    // Fallback to old broadcast system for non-station sources
-                    var announcementEv = new AnnouncementSpokeEvent(filter, message, resolvedSound, announceVoice);
-                    RaiseLocalEvent(announcementEv);
-                }
-            }
-            else
-            {
-                // No source, fallback to old broadcast system
-                var announcementEv = new AnnouncementSpokeEvent(filter, message, resolvedSound, announceVoice);
-                RaiseLocalEvent(announcementEv);
             }
         }
         // Sunrise-end
-        
+
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement from {sender}: {message}");
     }
 
@@ -552,6 +540,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         // Sunrise added end
 
         var clients = Filter.Empty();
+        var receivers = new HashSet<EntityUid>();
         var mindQuery = EntityQueryEnumerator<CollectiveMindComponent, ActorComponent>();
         while (mindQuery.MoveNext(out var uid, out var collectMindComp, out var actorComp))
         {
@@ -561,6 +550,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (collectMindComp.Minds.Contains(collectiveMind.ID))
             {
                 clients.AddPlayer(actorComp.PlayerSession);
+                receivers.Add(uid);
             }
         }
 
@@ -569,9 +559,19 @@ public sealed partial class ChatSystem : SharedChatSystem
         string messageWrap;
         string adminMessageWrap;
 
-        messageWrap = Loc.GetString("collective-mind-chat-wrap-message",
-            ("message", message),
-            ("channel", collectiveMind.LocalizedName));
+        if (collectiveMind.ShowAuthor)
+        {
+            messageWrap = Loc.GetString("collective-mind-chat-wrap-message-with-author",
+                ("source", source),
+                ("message", message),
+                ("channel", collectiveMind.LocalizedName));
+        }
+        else
+        {
+            messageWrap = Loc.GetString("collective-mind-chat-wrap-message",
+                ("message", message),
+                ("channel", collectiveMind.LocalizedName));
+        }
 
         adminMessageWrap = Loc.GetString("collective-mind-chat-wrap-message-admin",
             ("source", source),
@@ -597,6 +597,9 @@ public sealed partial class ChatSystem : SharedChatSystem
             true,
             admins,
             collectiveMind.Color);
+
+        // Raise event for TTS
+        RaiseLocalEvent(new CollectiveMindSpokeEvent(source, message, receivers, collectiveMind.ID));
     }
     // Sunrise-End
 
@@ -874,7 +877,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     private Filter GetPlayersWithWorkingSpeakers()
     {
         var filteredPlayers = Filter.Empty();
-        
+
         foreach (var player in _playerManager.Sessions)
         {
             if (player.AttachedEntity is not { Valid: true } playerEntity)
@@ -895,7 +898,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     private Filter FilterPlayersByWorkingSpeakers(Filter originalFilter)
     {
         var filteredPlayers = Filter.Empty();
-        
+
         foreach (var player in originalFilter.Recipients)
         {
             if (player.AttachedEntity is not { Valid: true } playerEntity)
@@ -1261,23 +1264,18 @@ public enum ChatTransmitRange : byte
 }
 
 // Sunrise-TTS-Start
-public sealed class AnnouncementSpokeEvent(
-    Filter source,
-    string message,
-    ResolvedSoundSpecifier? announcementSound,
-    string? announceVoice)
-    : EntityEventArgs
-{
-    public readonly Filter Source = source;
-    public readonly string Message = message;
-    public readonly string? AnnounceVoice = announceVoice;
-    public readonly ResolvedSoundSpecifier? AnnouncementSound = announcementSound;
-}
-
 public sealed class RadioSpokeEvent(EntityUid source, string message, EntityUid[] receivers) : EntityEventArgs
 {
     public readonly EntityUid Source = source;
     public readonly string Message = message;
     public readonly EntityUid[] Receivers = receivers;
+}
+
+public sealed class CollectiveMindSpokeEvent(EntityUid source, string message, IReadOnlyCollection<EntityUid> receivers, string collectiveMindId) : EntityEventArgs
+{
+    public readonly EntityUid Source = source;
+    public readonly string Message = message;
+    public readonly IReadOnlyCollection<EntityUid> Receivers = receivers;
+    public readonly string CollectiveMindId = collectiveMindId;
 }
 // Sunrise-TTS-End
