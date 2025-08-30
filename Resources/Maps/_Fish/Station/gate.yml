@@ -125,7 +125,7 @@ entities:
     - type: Broadphase
     - type: OccluderTree
     - type: Parallax
-      parallax: AspidParallax
+      parallax: AspidStation
   - uid: 2
     components:
     - type: MetaData
