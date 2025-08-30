@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/30/2025 02:56:47
+  time: 08/30/2025 03:23:14
   entityCount: 35896
 maps:
 - 1
@@ -12837,8 +12837,8 @@ entities:
           localAnchorB: -3,-1.5
           localAnchorA: -8.5,8
           referenceAngle: 1.5707964
-          damping: 753.7104
-          stiffness: 6765.2886
+          damping: 753.7101
+          stiffness: 6765.2856
         docking457716: !type:WeldJoint
           bodyB: 35677
           bodyA: 2
@@ -12846,16 +12846,16 @@ entities:
           localAnchorB: -3,0.5
           localAnchorA: -10.5,8
           referenceAngle: 1.5707964
-          damping: 753.7104
-          stiffness: 6765.2886
+          damping: 753.7101
+          stiffness: 6765.2856
         docking168406: !type:WeldJoint
           bodyB: 35372
           bodyA: 2
           id: docking168406
           localAnchorB: 6,1.5
           localAnchorA: -50,100.5
-          damping: 433.8046
-          stiffness: 3893.8213
+          damping: 433.80444
+          stiffness: 3893.82
         docking51973: !type:WeldJoint
           bodyB: 35469
           bodyA: 2
@@ -12863,8 +12863,8 @@ entities:
           localAnchorB: 2.5,-4
           localAnchorA: -0.5,161
           referenceAngle: 3.1415927
-          damping: 638.92474
-          stiffness: 5734.975
+          damping: 638.92456
+          stiffness: 5734.9736
         docking51974: !type:WeldJoint
           bodyB: 35469
           bodyA: 2
@@ -12872,8 +12872,8 @@ entities:
           localAnchorB: 0.49999997,-4
           localAnchorA: 1.5,161
           referenceAngle: 3.1415927
-          damping: 638.92474
-          stiffness: 5734.975
+          damping: 638.92456
+          stiffness: 5734.9736
     - type: BecomesStation
       id: FishGate
     - type: FTLDestination
@@ -43022,11 +43022,6 @@ entities:
     - type: Transform
       pos: -104.5,14.5
       parent: 2
-  - uid: 5218
-    components:
-    - type: Transform
-      pos: -114.5,35.5
-      parent: 2
   - uid: 5219
     components:
     - type: Transform
@@ -43156,16 +43151,6 @@ entities:
     components:
     - type: Transform
       pos: -114.5,34.5
-      parent: 2
-  - uid: 5245
-    components:
-    - type: Transform
-      pos: -114.5,35.5
-      parent: 2
-  - uid: 5246
-    components:
-    - type: Transform
-      pos: -114.5,33.5
       parent: 2
   - uid: 5247
     components:
@@ -51503,11 +51488,6 @@ entities:
     components:
     - type: Transform
       pos: -113.5,34.5
-      parent: 2
-  - uid: 6814
-    components:
-    - type: Transform
-      pos: -114.5,33.5
       parent: 2
   - uid: 6815
     components:
@@ -64815,11 +64795,6 @@ entities:
     - type: Transform
       pos: -116.5,50.5
       parent: 2
-  - uid: 9445
-    components:
-    - type: Transform
-      pos: -114.5,35.5
-      parent: 2
   - uid: 9446
     components:
     - type: Transform
@@ -64890,20 +64865,10 @@ entities:
     - type: Transform
       pos: -106.5,33.5
       parent: 2
-  - uid: 9460
-    components:
-    - type: Transform
-      pos: -114.5,35.5
-      parent: 2
   - uid: 9461
     components:
     - type: Transform
       pos: -114.5,34.5
-      parent: 2
-  - uid: 9462
-    components:
-    - type: Transform
-      pos: -114.5,33.5
       parent: 2
   - uid: 9463
     components:
@@ -67169,6 +67134,11 @@ entities:
     components:
     - type: Transform
       pos: 60.5,36.5
+      parent: 2
+  - uid: 27744
+    components:
+    - type: Transform
+      pos: -115.5,34.5
       parent: 2
   - uid: 28016
     components:
@@ -174581,6 +174551,36 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+- proto: SignTelecomms
+  entities:
+  - uid: 27747
+    components:
+    - type: Transform
+      pos: -112.5,33.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 27748
+    components:
+    - type: Transform
+      pos: -112.5,37.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 27749
+    components:
+    - type: Transform
+      pos: -105.5,44.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 27750
+    components:
+    - type: Transform
+      pos: -114.5,33.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: SignTheater
   entities:
   - uid: 26089
@@ -184740,52 +184740,64 @@ entities:
       parent: 2
 - proto: TelecomServerFilledCommand
   entities:
-  - uid: 27744
+  - uid: 5245
     components:
     - type: Transform
-      pos: -112.5,30.5
+      pos: -108.5,32.5
       parent: 2
 - proto: TelecomServerFilledCommon
   entities:
-  - uid: 27745
-    components:
-    - type: Transform
-      pos: -113.5,30.5
-      parent: 2
-- proto: TelecomServerFilledEngineering
-  entities:
-  - uid: 27746
-    components:
-    - type: Transform
-      pos: -109.5,32.5
-      parent: 2
-- proto: TelecomServerFilledMedical
-  entities:
-  - uid: 27747
+  - uid: 9460
     components:
     - type: Transform
       pos: -109.5,30.5
       parent: 2
+- proto: TelecomServerFilledEngineering
+  entities:
+  - uid: 5246
+    components:
+    - type: Transform
+      pos: -113.5,32.5
+      parent: 2
+- proto: TelecomServerFilledLaw
+  entities:
+  - uid: 6814
+    components:
+    - type: Transform
+      pos: -108.5,30.5
+      parent: 2
+- proto: TelecomServerFilledMedical
+  entities:
+  - uid: 27745
+    components:
+    - type: Transform
+      pos: -112.5,32.5
+      parent: 2
 - proto: TelecomServerFilledScience
   entities:
-  - uid: 27748
+  - uid: 27746
     components:
     - type: Transform
       pos: -111.5,32.5
       parent: 2
 - proto: TelecomServerFilledSecurity
   entities:
-  - uid: 27749
+  - uid: 5218
     components:
     - type: Transform
-      pos: -112.5,32.5
+      pos: -109.5,32.5
       parent: 2
 - proto: TelecomServerFilledService
   entities:
-  - uid: 27750
+  - uid: 9445
     components:
     - type: Transform
-      pos: -113.5,32.5
+      pos: -113.5,30.5
+      parent: 2
+  - uid: 9462
+    components:
+    - type: Transform
+      pos: -112.5,30.5
       parent: 2
 - proto: TeslaCoil
   entities:
