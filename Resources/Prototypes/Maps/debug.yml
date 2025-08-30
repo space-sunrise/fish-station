@@ -16,7 +16,7 @@
 - type: gameMap
   id: Dev
   mapName: Dev
-  mapPath: /Maps/_Fish/dev_map_fish.yml # Fish-edit
+  mapPath: /Maps/_Fish/Test/dev_map_fish.yml # Fish-edit
   minPlayers: 0
   stations:
     Dev:
