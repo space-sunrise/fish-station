@@ -1,0 +1,8 @@
+- type: entity
+  parent: ClothingCloakBase # SUNRISE EDIT
+  id: ClothingCloakSquishymoth
+  name: squishy moth
+  description: squishy moth
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Neck/Cloaks/squishymoth.rsi
