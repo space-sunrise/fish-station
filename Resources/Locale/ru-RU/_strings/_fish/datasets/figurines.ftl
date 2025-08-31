@@ -1,0 +1,1 @@
+figurines-mol-1 = ПРИВЕТ!!!
