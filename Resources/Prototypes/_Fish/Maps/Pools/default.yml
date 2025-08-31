@@ -1,9 +1,12 @@
 - type: gameMapPool
   id: FishMapPool
   maps:
-  - FishDelta
+  # Highpop 55+
   - FishGate
-  # - FishBarratry
+  - FishDelta
   - FishFland
-  - FishPacked
+  # Midpop 25-55
   - FishCase
+  # - FishBarratry
+  # Lowpop 0-25
+  - FishPacked

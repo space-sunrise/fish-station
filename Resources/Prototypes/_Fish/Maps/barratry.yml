@@ -3,8 +3,8 @@
   mapName: 'Barratry'
   mapPath: /Maps/_Fish/Station/barratry.yml
   maxRandomOffset: 0
-  minPlayers: 0
-  maxPlayers: 35
+  minPlayers: 25
+  maxPlayers: 55
   randomRotation: false
   stations:
     Barratry:
