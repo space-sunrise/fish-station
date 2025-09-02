@@ -1,0 +1,5 @@
+- type: localizedDataset
+  id: Figurinesmol
+  values:
+    prefix: figurines-mol-
+    count: 1
