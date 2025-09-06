@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/06/2025 17:46:38
+  time: 09/06/2025 18:04:38
   entityCount: 43013
 maps:
 - 1
@@ -24781,13 +24781,13 @@ entities:
           1,0:
             0: 35835
           2,-3:
-            0: 65294
+            0: 65286
           2,-2:
             0: 65311
           2,-1:
             0: 19743
           2,-4:
-            0: 61006
+            0: 61166
           2,0:
             0: 32767
           2,-5:
@@ -25061,33 +25061,33 @@ entities:
           5,8:
             0: 30519
           6,4:
-            0: 12595
+            0: 47547
           6,5:
-            0: 817
+            0: 35769
           6,6:
-            0: 65299
+            0: 65435
           6,7:
             0: 63344
           6,8:
             0: 63279
-          7,4:
-            0: 62839
-          7,5:
-            0: 30559
+          6,3:
+            0: 36622
           7,6:
-            0: 47872
+            0: 47886
           7,7:
             0: 28915
+          7,4:
+            0: 61166
+          7,5:
+            0: 61166
           7,8:
             0: 45159
           8,4:
-            0: 62839
-          8,5:
-            0: 30559
+            0: 65535
           8,6:
-            0: 13056
+            0: 30470
           8,7:
-            0: 13106
+            0: 14194
           5,0:
             0: 20479
           5,1:
@@ -25102,8 +25102,6 @@ entities:
             0: 4095
           6,2:
             0: 61182
-          6,3:
-            0: 3854
           6,0:
             0: 3822
           6,-1:
@@ -25121,7 +25119,7 @@ entities:
           8,1:
             0: 36863
           8,2:
-            0: 63739
+            0: 61691
           8,3:
             0: 3847
           4,-5:
@@ -27417,7 +27415,7 @@ entities:
           11,8:
             0: 61160
           11,7:
-            0: 61416
+            0: 61408
           12,8:
             0: 56784
           12,9:
@@ -27562,7 +27560,7 @@ entities:
           15,-1:
             0: 53503
           15,0:
-            0: 60927
+            0: 52735
           16,-3:
             0: 819
             2: 2184
@@ -27587,7 +27585,7 @@ entities:
           17,-5:
             0: 65535
           17,0:
-            0: 63359
+            0: 30591
           18,-4:
             0: 15
             2: 2304
@@ -27776,15 +27774,15 @@ entities:
           9,3:
             0: 3847
           9,4:
-            0: 62839
+            0: 65535
           10,1:
             0: 65535
           10,2:
             0: 65535
           10,3:
-            0: 24575
+            0: 28671
           10,4:
-            0: 65535
+            0: 65518
           11,1:
             0: 4079
           11,2:
@@ -27797,16 +27795,18 @@ entities:
             0: 61423
           12,2:
             0: 61422
+          8,5:
+            0: 61166
           9,5:
-            0: 30559
+            0: 65535
           9,6:
             0: 30704
           9,7:
             0: 3952
           10,5:
-            0: 30591
+            0: 26223
           10,6:
-            0: 63359
+            0: 63358
           11,5:
             0: 30479
           11,6:
@@ -27989,7 +27989,7 @@ entities:
             0: 7
             2: 3968
           13,7:
-            0: 48059
+            0: 48123
           14,8:
             0: 65295
           14,9:
@@ -32032,7 +32032,7 @@ entities:
       pos: -58.5,91.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -245061.14
+      secondsUntilStateChange: -245190.31
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -32048,7 +32048,7 @@ entities:
       pos: 79.5,28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -168188.5
+      secondsUntilStateChange: -168317.67
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -32120,7 +32120,7 @@ entities:
       pos: 52.5,36.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -80733.01
+      secondsUntilStateChange: -80862.17
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -32757,7 +32757,7 @@ entities:
       pos: -35.5,7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -471047.06
+      secondsUntilStateChange: -471176.22
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -33782,7 +33782,7 @@ entities:
       pos: -26.5,47.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -258674.47
+      secondsUntilStateChange: -258803.64
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -34617,12 +34617,6 @@ entities:
     - type: Transform
       pos: 29.5,-27.5
       parent: 2
-  - uid: 673
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 23.5,-28.5
-      parent: 2
   - uid: 1544
     components:
     - type: Transform
@@ -34680,6 +34674,12 @@ entities:
     components:
     - type: Transform
       pos: 11.5,-47.5
+      parent: 2
+  - uid: 673
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 23.5,-28.5
       parent: 2
   - uid: 676
     components:
@@ -35198,6 +35198,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 40.5,20.5
       parent: 2
+    missingComponents:
+    - Damageable
   - uid: 33629
     components:
     - type: Transform
@@ -35331,7 +35333,7 @@ entities:
       pos: 81.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -576720.1
+      secondsUntilStateChange: -576849.3
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -145218,7 +145220,7 @@ entities:
       pos: 15.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -290761.56
+      secondsUntilStateChange: -290890.72
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -145232,7 +145234,7 @@ entities:
       pos: -16.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -177950.12
+      secondsUntilStateChange: -178079.3
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -145433,7 +145435,7 @@ entities:
       pos: -39.5,-73.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -598528.1
+      secondsUntilStateChange: -598657.3
       state: Closing
   - uid: 20628
     components:
@@ -146704,7 +146706,7 @@ entities:
       pos: 16.5,-36.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -6915.563
+      secondsUntilStateChange: -7044.7295
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -252971,6 +252973,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 40.5,19.5
       parent: 2
+    missingComponents:
+    - Damageable
 - proto: TurnstileGenpopLeave
   entities:
   - uid: 36907
@@ -252979,6 +252983,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 40.5,18.5
       parent: 2
+    missingComponents:
+    - Damageable
 - proto: TwoWayLever
   entities:
   - uid: 29575
