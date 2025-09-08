@@ -205,7 +205,7 @@
               Toxin: -4
             #Sunrise-Start
             types:
-             Mangleness: -0.071
+             Mangleness: -0.5
             #Sunrise-End
 
 - type: reagent
@@ -855,7 +855,7 @@
             Heat: -0.33
             Shock: -0.33
             Cold: -0.33
-            Mangleness: -0.007 #Sunrise-Edit
+            Mangleness: -0.05 #Sunrise-Edit
 
 - type: reagent
   id: Lipozine
@@ -888,7 +888,7 @@
       - !type:HealthChange
         damage:
           types:
-            Mangleness: -0.029
+            Mangleness: -0.2
       #Sunrise-End
       - !type:EvenHealthChange
         damage:
@@ -1223,7 +1223,7 @@
             Heat: -0.5
             Shock: -0.5
             Cold: -0.5
-            Mangleness: -0.014
+            Mangleness: -0.1
             # Sunrise-End
   reactiveEffects:
     Unholy:
@@ -1386,7 +1386,7 @@
               Burn: -5
             types:
               Poison: -2
-              Mangleness: -0.071 #Sunrise-Edit
+              Mangleness: -0.5 #Sunrise-Edit
 
 - type: reagent
   id : Aloxadone
