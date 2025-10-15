@@ -332,7 +332,7 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
             if (!TryComp<BloodstreamComponent>(args.Performer, out _))
                 return;
 
-            if (!_statusEffectsSystem.HasStatusEffect(args.Target, "Stun"))
+            if (!_statusEffectsSystem.HasStatusEffect(args.Target, "Paralyze"))
             {
                 _popupSystem.PopupEntity("Цель не оглушена", uid, uid);
                 return;
