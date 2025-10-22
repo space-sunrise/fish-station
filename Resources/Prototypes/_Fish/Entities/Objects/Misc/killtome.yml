@@ -29,7 +29,7 @@
   parent: BaseItem
   suffix: KillTome, Admeme
   name: scrap of paper
-  description: Scrap of paper.
+  description: A tattered piece of paper.
   components:
   - type: KillTome
     maxKillCount: 1
