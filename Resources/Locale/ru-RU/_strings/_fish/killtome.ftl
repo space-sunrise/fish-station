@@ -11,3 +11,5 @@ killtome-death = Вы чувствуете внезапную боль в гру
 killtome-death-others = {CAPITALIZE($target)} хватается за {POSS-ADJ($target)} грудь и падает на землю!
 killtome-max-kills-reached = Она достигла своего лимита убийств и больше не может быть использована.
 killtome-kills-remaining = Осталось убийств: { $count }
+
+kill-tome-scrap-slot-component-slot-name-kill-tome-scrap = Оторвать клочок бумаги

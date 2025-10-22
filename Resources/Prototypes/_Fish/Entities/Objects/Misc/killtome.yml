@@ -23,6 +23,52 @@
     backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
     backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
     contentMargin: 20.0, 20.0, 20.0, 20.0
+  - type: ItemSlots
+    slots:
+        kill_tome_scrap_slot1:
+          name: kill-tome-scrap-slot-component-slot-name-kill-tome-scrap
+          startingItem: KillTomeScrap
+          disableInsert: true
+          whitelist:
+            tags:
+              - KillTomeScrap
+        kill_tome_scrap_slot2:
+          name: kill-tome-scrap-slot-component-slot-name-kill-tome-scrap
+          startingItem: KillTomeScrap
+          disableInsert: true
+          whitelist:
+            tags:
+              - KillTomeScrap
+        kill_tome_scrap_slot3:
+          name: kill-tome-scrap-slot-component-slot-name-kill-tome-scrap
+          startingItem: KillTomeScrap
+          disableInsert: true
+          whitelist:
+            tags:
+              - KillTomeScrap
+        kill_tome_scrap_slot4:
+          name: kill-tome-scrap-slot-component-slot-name-kill-tome-scrap
+          startingItem: KillTomeScrap
+          disableInsert: true
+          whitelist:
+            tags:
+              - KillTomeScrap
+        kill_tome_scrap_slot5:
+          name: kill-tome-scrap-slot-component-slot-name-kill-tome-scrap
+          startingItem: KillTomeScrap
+          disableInsert: true
+          whitelist:
+            tags:
+              - KillTomeScrap
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+        kill_tome_scrap_slot1: !type:ContainerSlot {}
+        kill_tome_scrap_slot2: !type:ContainerSlot {}
+        kill_tome_scrap_slot3: !type:ContainerSlot {}
+        kill_tome_scrap_slot4: !type:ContainerSlot {}
+        kill_tome_scrap_slot5: !type:ContainerSlot {}
 
 - type: entity
   id: KillTomeScrap
@@ -58,6 +104,9 @@
     contentMargin: 12.0, 0.0, 12.0, 0.0
     # This is a narrow piece of paper
     maxWritableArea: 256.0, 0.0
+  - type: Tag
+    tags:
+      - KillTomeScrap
   - type: Food
     solution: food
     delay: 7
