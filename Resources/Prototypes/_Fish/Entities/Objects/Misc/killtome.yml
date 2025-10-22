@@ -64,11 +64,11 @@
     containers:
       storagebase: !type:Container
         ents: []
-        kill_tome_scrap_slot1: !type:ContainerSlot {}
-        kill_tome_scrap_slot2: !type:ContainerSlot {}
-        kill_tome_scrap_slot3: !type:ContainerSlot {}
-        kill_tome_scrap_slot4: !type:ContainerSlot {}
-        kill_tome_scrap_slot5: !type:ContainerSlot {}
+      kill_tome_scrap_slot1: !type:ContainerSlot {}
+      kill_tome_scrap_slot2: !type:ContainerSlot {}
+      kill_tome_scrap_slot3: !type:ContainerSlot {}
+      kill_tome_scrap_slot4: !type:ContainerSlot {}
+      kill_tome_scrap_slot5: !type:ContainerSlot {}
 
 - type: entity
   id: KillTomeScrap
