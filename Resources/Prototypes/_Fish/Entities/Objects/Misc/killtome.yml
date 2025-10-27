@@ -1,0 +1,142 @@
+- type: entity
+  name: black tome
+  parent: BaseItem
+  id: KillTome
+  suffix: KillTome, Admeme # To stay true to the lore, please never make this accessible outside of divine intervention (admeme).
+  description: A worn black tome. It smells like old paper.
+  components:
+  - type: Sprite
+    sprite: _Fish/Objects/Misc/killtome.rsi
+    state: icon
+  - type: KillTome
+  - type: Paper
+    contentSize: 15000
+    content: killtome-rules
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
+    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
+    contentMargin: 20.0, 20.0, 20.0, 20.0
+  - type: ItemSlots
+    slots:
+        kill_tome_scrap_slot1:
+          name: kill-tome-scrap-slot-component-slot-name-kill-tome-scrap
+          startingItem: KillTomeScrap
+          disableInsert: true
+          whitelist:
+            tags:
+              - KillTomeScrap
+        kill_tome_scrap_slot2:
+          name: kill-tome-scrap-slot-component-slot-name-kill-tome-scrap
+          startingItem: KillTomeScrap
+          disableInsert: true
+          whitelist:
+            tags:
+              - KillTomeScrap
+        kill_tome_scrap_slot3:
+          name: kill-tome-scrap-slot-component-slot-name-kill-tome-scrap
+          startingItem: KillTomeScrap
+          disableInsert: true
+          whitelist:
+            tags:
+              - KillTomeScrap
+        kill_tome_scrap_slot4:
+          name: kill-tome-scrap-slot-component-slot-name-kill-tome-scrap
+          startingItem: KillTomeScrap
+          disableInsert: true
+          whitelist:
+            tags:
+              - KillTomeScrap
+        kill_tome_scrap_slot5:
+          name: kill-tome-scrap-slot-component-slot-name-kill-tome-scrap
+          startingItem: KillTomeScrap
+          disableInsert: true
+          whitelist:
+            tags:
+              - KillTomeScrap
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      kill_tome_scrap_slot1: !type:ContainerSlot {}
+      kill_tome_scrap_slot2: !type:ContainerSlot {}
+      kill_tome_scrap_slot3: !type:ContainerSlot {}
+      kill_tome_scrap_slot4: !type:ContainerSlot {}
+      kill_tome_scrap_slot5: !type:ContainerSlot {}
+
+- type: entity
+  id: KillTomeScrap
+  parent: BaseItem
+  suffix: KillTome, Admeme
+  name: scrap of paper
+  description: A tattered piece of paper.
+  components:
+  - type: KillTome
+    maxKillCount: 1
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: paper_receipt
+    - state: paper_receipt_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: Paper
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_perforated.svg.96dpi.png"
+    backgroundImageTile: true
+    backgroundPatchMargin: 0.0, 6.0, 0.0, 6.0
+    contentMargin: 12.0, 0.0, 12.0, 0.0
+    # This is a narrow piece of paper
+    maxWritableArea: 256.0, 0.0
+  - type: Tag
+    tags:
+      - KillTomeScrap
+  - type: Food
+    solution: food
+    delay: 7
+    forceFeedDelay: 7
+  - type: FlavorProfile
+    flavors:
+    - paper
+  - type: BadFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 1
+  - type: Item
+    size: Tiny
+  - type: PhysicalComposition
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Sunrise/Items/Handling/paper_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Sunrise/Items/Handling/paper_drop.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Sunrise/Items/Handling/paper_use.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_Sunrise/Items/Handling/paper_drop.ogg
+  - type: EmitSoundOnThrow
+    sound:
+      path: /Audio/_Sunrise/Items/Handling/paper_throw.ogg

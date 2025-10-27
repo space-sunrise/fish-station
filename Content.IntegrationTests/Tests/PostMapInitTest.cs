@@ -102,7 +102,8 @@ namespace Content.IntegrationTests.Tests
             "SunriseBagel",
             "SunriseReach",
             "PlanetPrison",
-            "SunriseOasis"
+            "SunriseOasis",
+			"FishPlasma"
         };
 
         private static readonly string[] TotalNoSpawnMaps = NoSpawnMaps.Concat(SunriseNoSpawnMaps).ToArray();

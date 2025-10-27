@@ -43,7 +43,7 @@
       visualState: disable
       magState: disable
       heldPrefix: disable4
-    - proto: TaserBolt
+    - proto: TaserBoltSunrise #fish-edit
       fireCost: 166
       visualState: stun
       magState: stun
@@ -81,14 +81,14 @@
     autoRechargePauseTime: 10
   - type: HitscanBatteryAmmoProvider
     proto: DisablerBolt
-    fireCost: 50
+    fireCost: 100
   - type: BatteryWeaponFireModes
     fireModes:
     - proto: DisablerBolt
-      fireCost: 50
+      fireCost: 100
       magState: disable
-    - proto: TaserBolt
-      fireCost: 166
+    - proto: TaserBoltSunrise #fish-edit
+      fireCost: 200
       magState: stun
       conditions:
       - !type:AlertLevelCondition
@@ -99,7 +99,7 @@
         - red
         - gamma
     - proto: RedLaserBeam
-      fireCost: 66.6
+      fireCost: 200
       magState: lethal
       conditions:
       - !type:AlertLevelCondition
@@ -343,7 +343,7 @@
     fireCost: 100
   - type: BatteryWeaponFireModes
     fireModes:
-    - proto: TaserBolt
+    - proto: TaserBoltSunrise #fish-edit
       fireCost: 100
       magState: stun
     - proto: RedLaserBeam

@@ -124,6 +124,17 @@ namespace Content.Shared.Containers.ItemSlots
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public bool DisableEject = false;
 
+        // Fish-Start
+        /// <summary>
+        /// Prevents adding the insert alt-verb, but still lets you eject items.
+        /// </summary>
+        /// <remarks>
+        /// This does not affect InsertOnInteract, since if you do that you probably want inserting to work.
+        /// </remarks>
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public bool DisableInsert = false;
+        // Fish-End
+
         /// <summary>
         ///     Whether the item slots system will attempt to insert item from the user's hands into this slot when interacted with.
         ///     It doesn't block other insertion methods, like verbs.
@@ -252,6 +263,7 @@ namespace Content.Shared.Containers.ItemSlots
             Name = other.Name;
             Locked = other.Locked;
             InsertOnInteract = other.InsertOnInteract;
+            DisableInsert = other.DisableInsert; // Fish-Edit
             EjectOnInteract = other.EjectOnInteract;
             EjectOnUse = other.EjectOnUse;
             InsertVerbText = other.InsertVerbText;

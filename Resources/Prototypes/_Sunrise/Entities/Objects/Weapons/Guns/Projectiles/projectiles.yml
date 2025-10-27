@@ -38,7 +38,7 @@
     solutions:
       ammo:
         reagents:
-        - ReagentId: Licoxide
+        - ReagentId: Licoxide #lmao
           Quantity: 0.5
   - type: RefillableSolution
     solution: ammo

@@ -93,7 +93,7 @@
         damage:
           types:
             Poison: -3
-            Mangleness: 0.064 #Sunrise-Edit
+            Mangleness: 0.070 #Sunrise-Edit
 
 - type: reagent
   id: Ethylredoxrazine

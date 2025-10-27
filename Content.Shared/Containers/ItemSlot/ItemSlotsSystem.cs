@@ -319,6 +319,9 @@ namespace Content.Shared.Containers.ItemSlots
             if (slot.HasItem && (!swap || swap && !CanEject(uid, user, slot)))
                 return false;
 
+            if (slot.DisableInsert) // Fish-Edit
+                return false;
+
             if (!CanInsertWhitelist(usedUid, slot))
                 return false;
 

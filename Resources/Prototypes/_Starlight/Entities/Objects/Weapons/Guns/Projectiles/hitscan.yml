@@ -1042,7 +1042,7 @@
     disableDuration: 10
   damage:
     types:
-      Shock: 20
+      Shock: 10
 
 - type: hitscan
   id: DecloneBolt
@@ -1112,6 +1112,23 @@
     userWhitelist:
       components:
       - Body
+
+# Add taser hitscan prototype
+- type: hitscan
+  id: TaserBoltSunrise
+  name: projectile-name-energy-taser
+  parent: EnergyTrace
+  bullet:
+    sprite:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+      state: spark
+      shader: unshaded
+    color: "#ffff33"
+  staminaDamage: 40 #fish-edit
+  maxLength: 5.2 #fish-edit
+  damage:
+    types:
+      Shock: 2 #fish-edit
 
 ### rifle heavy #Sunrise
 
