@@ -9,6 +9,7 @@ using Robust.Client.State;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
+using Robust.Client.Console;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
@@ -22,6 +23,7 @@ namespace Content.Client._Sunrise.MentorHelp
     {
         [Dependency] private readonly IUserInterfaceManager _ui = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private readonly IClientConsoleHost _console = default!;
 
         private MentorHelpSystem? _mentorHelpSystem;
         private NetUserId _ownerUserId;
@@ -55,6 +57,7 @@ namespace Content.Client._Sunrise.MentorHelp
             // Wire up ticket action buttons
             ClaimButton.OnPressed += _ => ClaimTicket();
             UnassignButton.OnPressed += _ => UnassignTicket();
+            FollowButton.OnPressed += _ => FollowPlayer();
             CloseTicketButton.OnPressed += _ => CloseTicket();
 
             // Handle enter key in reply input
@@ -308,6 +311,7 @@ namespace Content.Client._Sunrise.MentorHelp
             {
                 ClaimButton.Visible = isOpen && !isAssignedToMe;
                 UnassignButton.Visible = isOpen && isAssignedToMe;
+                FollowButton.Visible = isOpen && isAssignedToMe;
                 CloseTicketButton.Visible = isOpen;
             }
             else
@@ -429,6 +433,16 @@ namespace Content.Client._Sunrise.MentorHelp
                 return;
 
             _mentorHelpSystem?.CloseTicket(_selectedTicket.Id);
+        }
+
+        private void FollowPlayer()
+        {
+            if (_selectedTicket == null)
+                return;
+
+            // Let the mentor system handle the follow command since it has access to
+            // the entity manager and can properly resolve the player's current entity
+            _console.ExecuteCommand($"follow \"{_selectedTicket.PlayerId}\"");
         }
     }
 }
