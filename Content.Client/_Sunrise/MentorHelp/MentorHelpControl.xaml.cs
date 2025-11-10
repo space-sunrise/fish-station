@@ -442,7 +442,7 @@ namespace Content.Client._Sunrise.MentorHelp
 
             // Let the mentor system handle the follow command since it has access to
             // the entity manager and can properly resolve the player's current entity
-            _console.ExecuteCommand($"follow \"{_selectedTicket.PlayerId}\"");
+            _console.ExecuteCommand($"follow \"{_selectedTicket.PlayerName}\"");
         }
     }
 }
