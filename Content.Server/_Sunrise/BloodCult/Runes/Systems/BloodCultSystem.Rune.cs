@@ -778,7 +778,7 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
 
             var ev = new SummonNarsieDoAfterEvent();
 
-            var argsDoAfterEvent = new DoAfterArgs(_entityManager, user, TimeSpan.FromSeconds(180), ev, user) //fish-edit
+            var argsDoAfterEvent = new DoAfterArgs(_entityManager, user, TimeSpan.FromSeconds(170), ev, user) //fish-edit
             {
                 BreakOnMove = true
             };
@@ -798,7 +798,7 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
             var stream = _audio.PlayGlobal(_narsie40Sec,
                 Filter.Broadcast(),
                 false,
-                AudioParams.Default.WithLoop(true).WithVolume(0.15f));
+                AudioParams.Default.WithLoop(false).WithVolume(0.1f)); //fish-edit
 
             _playingStream = stream?.Entity;
 
