@@ -50,13 +50,13 @@
             max: 2
   - type: Appearance
   - type: Pylon
-    healingAuraDamage:
+    healingAuraDamage: #Fish-edit, healing halved
       groups:
-        Brute: -10
-        Burn: -10
-        Toxin: -6
+        Brute: -5
+        Burn: -5
+        Toxin: -3
         Genetic: -5
-        Airloss: -20
+        Airloss: -10
     burnDamageOnInteract:
       groups:
         Burn: 5

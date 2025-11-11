@@ -30,3 +30,5 @@
   - type: Biocode
     factions:
     - Syndicate
+  - type: StaticPrice
+    price: 1000
