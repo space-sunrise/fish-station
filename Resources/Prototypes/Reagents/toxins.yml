@@ -569,7 +569,10 @@
         component: Pacified
         type: Add
         time: 4
-
+        conditions: # Fish-edit
+        - !type:ReagentThreshold
+          min: 2
+          
 - type: reagent
   id: Honk
   name: reagent-name-honk
@@ -666,10 +669,10 @@
     Poison:
       effects:
       - !type:Electrocute
-        probability: 0.8
+        probability: 0.9
         conditions: # Sunrise-Edit
         - !type:ReagentThreshold
-          min: 1
+          min: 2 # Fish-edit
 
 - type: reagent
   id: Lipolicide
