@@ -119,7 +119,7 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
         private readonly SoundPathSpecifier _teleportOutSound = new("/Audio/_Sunrise/BloodCult/veilout.ogg");
         private readonly SoundPathSpecifier _apocRuneEndDrawing = new("/Audio/_Sunrise/BloodCult/finisheddraw.ogg");
         private readonly SoundPathSpecifier _apocRuneStartDrawing = new("/Audio/_Sunrise/BloodCult/startdraw.ogg");
-        private readonly SoundPathSpecifier _narsie40Sec = new("/Audio/_Sunrise/BloodCult/40sec.ogg");
+        private readonly SoundPathSpecifier _narsie40Sec = new("/Audio/_Sunrise/BloodCult/Tear-of-veil(bolgarich).ogg"); //slava Bolgarich https://www.youtube.com/watch?v=NqNHKfTAvcw&list=LL&index=1
         private readonly SoundPathSpecifier _magic = new("/Audio/_Sunrise/BloodCult/magic.ogg");
 
         private bool _doAfterAlreadyStarted;
