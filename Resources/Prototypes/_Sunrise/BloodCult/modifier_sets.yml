@@ -1,0 +1,6 @@
+- type: damageModifierSet
+  id: BloodCultJuggernautModifierSet
+  coefficients:
+    Blunt: 0.5
+    Piercing: 0.2
+    Heat: 2

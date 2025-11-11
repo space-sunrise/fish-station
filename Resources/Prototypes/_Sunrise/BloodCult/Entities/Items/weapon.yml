@@ -220,6 +220,8 @@
       types:
         Structural: 100
         Blunt: 25
+    soundHit:
+      collection: MetalThud
   - type: MultiHandedItem
   - type: Clothing
     quickEquip: false

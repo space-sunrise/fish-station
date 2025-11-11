@@ -71,6 +71,9 @@
   name: juggernaut
   description: big and scary
   components:
+    - type: Damageable
+      damageContainer: Biological
+      damageModifierSet: BloodCultJuggernautModifierSet
     - type: Fixtures
       fixtures:
         fix1:

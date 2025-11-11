@@ -9,41 +9,7 @@
     "states": [
         {
             "name": "pinonalert",
-            "directions": 8,
-            "delays": [
-                [
-                    0.2,
-                    0.2
-                ],
-                [
-                    0.2,
-                    0.2
-                ],
-                [
-                    0.2,
-                    0.2
-                ],
-                [
-                    0.2,
-                    0.2
-                ],
-                [
-                    0.2,
-                    0.2
-                ],
-                [
-                    0.2,
-                    0.2
-                ],
-                [
-                    0.2,
-                    0.2
-                ],
-                [
-                    0.2,
-                    0.2
-                ]
-            ]
+            "directions": 8
         },
         {
             "name": "pinonalertdirect",
@@ -55,13 +21,7 @@
             ]
         },
         {
-            "name": "pinonalertnull",
-            "delays": [
-                [
-                    0.2,
-                    0.2
-                ]
-            ]
+            "name": "pinonalertnull"
         },
         {
             "name": "pinonclose",
@@ -127,16 +87,22 @@
             ]
         },
         {
-            "name": "pinonnull",
+            "name": "pinonnull"
+        },
+        {
+            "name": "pinpointer_bloodcult",
             "delays": [
                 [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
                     0.2,
                     0.2
                 ]
             ]
-        },
-        {
-            "name": "pinpointer_bloodcult"
         }
     ]
 }
