@@ -912,8 +912,8 @@
     - state: icon-chemist
   - type: ItemBorgModule
     hands:
-    - item: HypoBorgMedicalAdvanced # Sunrise-Edit
-    - item: Hypospray # Sunrise-Edit
+    - item: HypoBorgMedicalAdvanced # Sunrise-Edit, Sunrise borg hypo
+    - item: Hypospray # Sunrise-Edit, CMO hypo
     - item: SyringeBluespace # Sunrise-Edit
    # - item: BorgDropper # Sunrise-Edit
     - item: Beaker
