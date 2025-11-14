@@ -11,3 +11,55 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/stamps.rsi
     state: stamp-specops
+
+- type: entity
+  name: CMO rubber stamp
+  parent: RubberStampBase
+  id: RubberStampCMO
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-leading-cmo
+    stampedColor: "#33CCFFFF"
+    stampState: "paper_stamp-cmo"
+  - type: Sprite
+    sprite: _Sunrise/Objects/Misc/stamps.rsi
+    state: stamp-cmo
+
+- type: entity
+  name: Head of Security rubber stamp
+  parent: RubberStampBase
+  id: RubberStampHos
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-leading-hos
+    stampedColor: "#FF33CCFF"
+    stampState: "paper_stamp-hos"
+  - type: Sprite
+    sprite: _Sunrise/Objects/Misc/stamps.rsi
+    state: stamp-hos
+
+- type: entity
+  name: Chief Engineer rubber stamp
+  parent: RubberStampBase
+  id: RubberStampCE
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-leading-ce
+    stampedColor: "#C69B17FF"
+    stampState: "paper_stamp-ce"
+  - type: Sprite
+    sprite: _Sunrise/Objects/Misc/stamps.rsi
+    state: stamp-ce
+
+- type: entity
+  name: Research Director rubber stamp
+  parent: RubberStampBase
+  id: RubberStampRD
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-leading-rd
+    stampedColor: "#A23E3EFF"
+    stampState: "paper_stamp-rd"
+  - type: Sprite
+    sprite: _Sunrise/Objects/Misc/stamps.rsi
+    state: stamp-rd

@@ -20,3 +20,7 @@ stamp-component-stamped-name-ce = Старший инженер
 stamp-component-stamped-name-greytide = Грейтайд
 stamp-component-stamped-name-psychologist = Психолог
 stamp-component-stamped-name-wizard = Маг
+stamp-component-stamped-name-leading-rd = Ведущий ученый
+stamp-component-stamped-name-leading-ce = Ведущий инженер
+stamp-component-stamped-name-leading-cmo = Ведущий врач
+stamp-component-stamped-name-leading-hos = Инструктор СБ

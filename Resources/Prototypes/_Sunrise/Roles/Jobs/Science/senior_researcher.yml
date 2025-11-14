@@ -25,6 +25,7 @@
   storage:
     back:
     - WeaponPistolCHIMP
+    - RubberStampRD
 
 - type: chameleonOutfit
   id: SeniorResearcherChameleonOutfit

@@ -32,6 +32,7 @@
     back:
     - MedicatedSuture
     - RegenerativeMesh
+    - RubberStampCMO
 
 - type: chameleonOutfit
   id: SeniorPhysicianChameleonOutfit
