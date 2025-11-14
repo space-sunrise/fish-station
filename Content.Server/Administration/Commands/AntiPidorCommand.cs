@@ -42,7 +42,7 @@ namespace Content.Server.Administration.Commands
                             break;
                         case "default":
                             _antiPidor.pidorWords = _antiPidor.GetDefaultPidorWords();
-                            shell.WriteLine("Реестр пидорских слов был откачен");
+                            shell.WriteLine("Реестр пидорских слов был откатан");
 
                             log(shell,
                                 $"{shell.Player?.Name} откатил реестр пидорских слов",
