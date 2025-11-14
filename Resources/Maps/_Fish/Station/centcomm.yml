@@ -21701,6 +21701,10 @@ entities:
           showEnts: False
           occludes: False
           ent: null
+    - type: UserInterface
+      actors:
+        enum.StrippingUiKey.Key:
+        - invalid
     - type: ActiveUserInterface
   - uid: 1102
     components:
