@@ -2,14 +2,14 @@ ent-RubberStampSectoralJudge = печать секторального судь�
     .suffix = НЕ МАППИТЬ
     .desc = { ent-RubberStampBase.desc }
 
-ent-RubberStampCMO = печать главного врача
+ent-RubberStampSeniorCMO = печать ведущего врача
     .desc = { ent-RubberStampBase.desc }
 
-ent-RubberStampHos = печать главы службы безопасности
+ent-RubberStampSeniorHos = печать инструктора СБ
     .desc = { ent-RubberStampBase.desc }
 
-ent-RubberStampCE = печать старшего инженера
+ent-RubberStampSeniorCE = печать ведущего инженера
     .desc = { ent-RubberStampBase.desc }
 
-ent-RubberStampRD = печать научного руководителя
+ent-RubberStampSeniorRD = печать ведущего ученого
     .desc = { ent-RubberStampBase.desc }

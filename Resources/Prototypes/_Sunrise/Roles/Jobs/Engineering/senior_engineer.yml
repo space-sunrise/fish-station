@@ -34,7 +34,7 @@
   storage:
     back:
     - ClothingOuterHardsuitEngineeringCompact
-    - RubberStampCE
+    - RubberStampSeniorCE
 
 - type: chameleonOutfit
   id: SeniorEngineerChameleonOutfit

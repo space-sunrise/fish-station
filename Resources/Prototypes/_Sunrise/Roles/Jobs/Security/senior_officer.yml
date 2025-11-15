@@ -41,7 +41,7 @@
   storage:
     back:
     - WeaponDisablerSMG
-    - RubberStampHos
+    - RubberStampSeniorHos
 
 - type: chameleonOutfit
   id: SeniorOfficerChameleonOutfit
