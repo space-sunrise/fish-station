@@ -32,7 +32,7 @@
     back:
     - MedicatedSuture
     - RegenerativeMesh
-    - RubberStampSeniorCMO
+    - RubberStampSeniorCMO # Fish-edit
 
 - type: chameleonOutfit
   id: SeniorPhysicianChameleonOutfit
