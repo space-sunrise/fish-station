@@ -34,7 +34,7 @@
   storage:
     back:
     - ClothingOuterHardsuitEngineeringCompact
-    - RubberStampSeniorCE
+    - RubberStampSeniorCE # Fish-edit
 
 - type: chameleonOutfit
   id: SeniorEngineerChameleonOutfit
