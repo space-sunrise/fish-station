@@ -58,7 +58,7 @@ namespace Content.Client._Sunrise.MentorHelp
             // Wire up ticket action buttons
             ClaimButton.OnPressed += _ => ClaimTicket();
             UnassignButton.OnPressed += _ => UnassignTicket();
-            FollowButton.OnPressed += _ => FollowPlayer();
+            FollowButton.OnPressed += _ => FollowPlayer(); // Fish-edit
             CloseTicketButton.OnPressed += _ => CloseTicket();
 
             // Handle enter key in reply input
@@ -312,7 +312,7 @@ namespace Content.Client._Sunrise.MentorHelp
             {
                 ClaimButton.Visible = isOpen && !isAssignedToMe;
                 UnassignButton.Visible = isOpen && isAssignedToMe;
-                FollowButton.Visible = isOpen && isAssignedToMe;
+                FollowButton.Visible = isOpen && isAssignedToMe; // Fish-edit
                 CloseTicketButton.Visible = isOpen;
             }
             else
@@ -435,7 +435,7 @@ namespace Content.Client._Sunrise.MentorHelp
 
             _mentorHelpSystem?.CloseTicket(_selectedTicket.Id);
         }
-
+        // Fish-start
         private void FollowPlayer()
         {
             if (_selectedTicket == null)
@@ -450,5 +450,6 @@ namespace Content.Client._Sunrise.MentorHelp
                 _console.ExecuteCommand($"follow \"{playerInfo.NetEntity}\"");
             }
         }
+        // Fish-end
     }
 }
