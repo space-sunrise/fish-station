@@ -25,7 +25,7 @@
   storage:
     back:
     - WeaponPistolCHIMP
-    - RubberStampSeniorRD
+    - RubberStampSeniorRD # Fish-edit
 
 - type: chameleonOutfit
   id: SeniorResearcherChameleonOutfit
