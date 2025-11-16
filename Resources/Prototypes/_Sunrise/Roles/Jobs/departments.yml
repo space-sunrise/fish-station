@@ -19,7 +19,8 @@
   roles:
     - BlueShieldEnsign
     - BlueShieldOfficer
-    - BlueShieldOperative
+    # - BlueShieldOperative #Fish-edit
+    - RepresentativeBlueShield #Fish-add
   primary: false
   weight: 50
 
