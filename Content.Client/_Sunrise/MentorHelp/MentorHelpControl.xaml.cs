@@ -24,7 +24,7 @@ namespace Content.Client._Sunrise.MentorHelp
     {
         [Dependency] private readonly IUserInterfaceManager _ui = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IClientConsoleHost _console = default!;
+        [Dependency] private readonly IClientConsoleHost _console = default!; // Fish-edit
 
         private MentorHelpSystem? _mentorHelpSystem;
         private NetUserId _ownerUserId;
