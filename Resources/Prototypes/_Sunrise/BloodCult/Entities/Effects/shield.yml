@@ -36,12 +36,12 @@
         - trigger:
             !type:DamageTrigger
             damage: 300
-          behaviors:
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                CultRunicMetal:
-                  min: 5
-                  max: 5
+          behaviors: # Fish-edit
+            #- !type:SpawnEntitiesBehavior
+            #  spawn:
+            #    CultRunicMetal:
+            #      min: 5
+            #      max: 5
             - !type:PlaySoundBehavior
               sound:
                 collection: MetalBreak
