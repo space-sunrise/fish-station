@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
@@ -27,8 +28,8 @@ public sealed partial class DiscordRoleRequirement : JobRequirement
             return true;
 
         // Sunrise-Sponsors-Start
-        // if (sponsorPrototypes.Contains(protoId))
-        //    return true;
+        if (sponsorPrototypes.Contains(protoId))
+            return true;
         // Sunrise-Sponsors-End
 
         reason = FormattedMessage.FromMarkupPermissive(Loc.GetString("role-timer-discord"));
