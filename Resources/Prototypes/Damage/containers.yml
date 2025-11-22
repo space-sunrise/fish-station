@@ -6,6 +6,7 @@
     - Toxin
     - Airloss
     - Genetic
+    - Exhaustion # Fish-Edit: Mangleness moved to Exhaustion group
 
 - type: damageContainer
   id: Inorganic
@@ -33,7 +34,6 @@
     - Shock
     - Caustic
     - Structural
-    - Mangleness # Sunrise-Edit
 
 
 - type: damageContainer
@@ -75,4 +75,5 @@
   - Toxin
   - Airloss
   - Genetic
+  - Exhaustion # Fish-Edit: Mangleness moved to Exhaustion group
   - Metaphysical
