@@ -31,7 +31,7 @@
         damage:
           types:
             Poison: -1
-            Mangleness: 0.05 #Sunrise-Edit: highest healing (1) / 20
+            Mangleness: 0.05 #Fish-Edit: highest healing (1) / 20
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -93,7 +93,7 @@
         damage:
           types:
             Poison: -3
-            Mangleness: 0.15 #Sunrise-Edit: highest healing (3) / 20
+            Mangleness: 0.15 #Fish-Edit: highest healing (3) / 20
 
 - type: reagent
   id: Ethylredoxrazine
@@ -114,7 +114,7 @@
         damage:
           types:
             Poison: -0.5
-            Mangleness: 0.025 #Sunrise-Edit: highest healing (0.5) / 20
+            Mangleness: 0.025 #Fish-Edit: highest healing (0.5) / 20
 
 - type: reagent
   id: Arithrazine
@@ -131,7 +131,7 @@
         damage:
           types:
             Radiation: -3
-            Mangleness: 0.15 #Sunrise-Edit: highest healing (3) / 20
+            Mangleness: 0.15 #Fish-Edit: highest healing (3) / 20
           groups:
             Brute: 1.5
 
@@ -244,7 +244,7 @@
             Heat: -1.5
             Shock: -1.5
             Cold: -1.5
-            Mangleness: 0.075 #Sunrise-Edit: highest healing (1.5) / 20
+            Mangleness: 0.075 #Fish-Edit: highest healing (1.5) / 20
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -276,7 +276,7 @@
           types:
             Asphyxiation: -1
             Bloodloss: -0.5
-            Mangleness: 0.05 #Sunrise-Edit: highest healing (1) / 20
+            Mangleness: 0.05 #Fish-Edit: highest healing (1) / 20
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
@@ -302,7 +302,7 @@
           types:
             Asphyxiation: -3.5
             Bloodloss: -3
-            Mangleness: 0.175 #Sunrise-Edit: highest healing (3.5) / 20
+            Mangleness: 0.175 #Fish-Edit: highest healing (3.5) / 20
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
@@ -407,7 +407,7 @@
         damage:
           types:
             Radiation: -1
-            Mangleness: 0.05 #Sunrise-Edit: highest healing (1) / 20
+            Mangleness: 0.05 #Fish-Edit: highest healing (1) / 20
       - !type:ChemVomit
         probability: 0.02
       - !type:HealthChange
@@ -480,7 +480,7 @@
             Heat: -0.33
             Shock: -0.33
             Cold: -0.33
-            Mangleness: 0.0165 #Sunrise-Edit: highest healing (0.33) / 20
+            Mangleness: 0.0165 #Fish-Edit: highest healing (0.33) / 20
       - !type:SatiateThirst
         factor: -10
         conditions:
@@ -512,7 +512,7 @@
         damage:
           types:
             Cold: -4
-            Mangleness: 0.2 #Sunrise-Edit: highest healing (4) / 20
+            Mangleness: 0.2 #Fish-Edit: highest healing (4) / 20
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
@@ -604,7 +604,7 @@
             Cellular: -0.3
             Radiation: 0.15
             Caustic: 0.15
-            Mangleness: 0.015 #Sunrise-Edit: highest healing (0.3) / 20
+            Mangleness: 0.015 #Fish-Edit: highest healing (0.3) / 20
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -638,7 +638,7 @@
             Brute: -3.5
           types:
             Asphyxiation: -2.5
-            Mangleness: 0.175 #Sunrise-Edit: highest healing (3.5) / 20
+            Mangleness: 0.175 #Fish-Edit: highest healing (3.5) / 20
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -734,7 +734,7 @@
         damage:
           types:
             Caustic: -5
-            Mangleness: 0.25 #Sunrise-Edit: highest healing (5) / 20
+            Mangleness: 0.25 #Fish-Edit: highest healing (5) / 20
 
 - type: reagent
   id: Stellibinin
@@ -751,7 +751,7 @@
         damage:
           types:
             Poison: -4
-            Mangleness: 0.2 #Sunrise-Edit: highest healing (4) / 20
+            Mangleness: 0.2 #Fish-Edit: highest healing (4) / 20
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
@@ -905,7 +905,7 @@
           groups:
             Brute: 1.5
           types:
-            Mangleness: 0.3 #Sunrise-Edit: highest healing (6) / 20
+            Mangleness: 0.3 #Fish-Edit: highest healing (6) / 20
       - !type:EvenHealthChange
         conditions:
         - !type:ReagentThreshold
@@ -1033,7 +1033,7 @@
         damage:
           types:
             Caustic: -1.25 # 5 per u
-            Mangleness: 0.0625 # Sunrise-Edit: highest healing (1.25) / 20
+            Mangleness: 0.0625 # Fish-Edit: highest healing (1.25) / 20
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -1091,7 +1091,7 @@
           types:
             Slash: -2 # 8 per u
             Heat: 0.2 # 0.8 per u
-            Mangleness: 0.1 #Sunrise-Edit: highest healing (2) / 20
+            Mangleness: 0.1 #Fish-Edit: highest healing (2) / 20
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -1117,7 +1117,7 @@
           types:
             Piercing: -2.5 # 10 per u
             Radiation: 0.05 # 0.2 per u, 3 for 15u
-            Mangleness: 0.125 #Sunrise-Edit: highest healing (2.5) / 20
+            Mangleness: 0.125 #Fish-Edit: highest healing (2.5) / 20
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -1142,7 +1142,7 @@
         damage:
           types:
             Blunt: -2.25 # 9 per u
-            Mangleness: 0.1125 #Sunrise-Edit: highest healing (2.25) / 20
+            Mangleness: 0.1125 #Fish-Edit: highest healing (2.25) / 20
       - !type:SatiateHunger
         factor: -1
       - !type:HealthChange
@@ -1164,7 +1164,7 @@
   color: "#91C3F7"
   metabolisms:
     Drink:
-      metabolismRate: 0.01 # Sunrise-Edit
+      metabolismRate: 0.01 # Fish-Edit
       effects:
       # Sunrise-Start
       - !type:DeconvertCultist
@@ -1251,7 +1251,7 @@
         damage:
           types:
             Heat: -1
-            Mangleness: 0.014 #Sunrise-Edit
+            Mangleness: 0.014 #Fish-Edit
       # od causes massive bleeding
       - !type:HealthChange
         conditions:
@@ -1290,7 +1290,7 @@
         damage:
           types:
             Shock: -1.5 # 6 per u
-            Mangleness: 0.036 #Sunrise-Edit
+            Mangleness: 0.036 #Fish-Edit
       - !type:AdjustReagent
         reagent: Licoxide
         amount: -2
@@ -1367,7 +1367,7 @@
               Burn: -5
             types:
               Poison: -2
-              Mangleness: 0.25 #Sunrise-Edit: highest healing (5) / 20
+              Mangleness: 0.25 #Fish-Edit: highest healing (5) / 20
 
 - type: reagent
   id : Aloxadone

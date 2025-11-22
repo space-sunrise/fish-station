@@ -11,11 +11,11 @@
     Tricordrazine:
       amount: 1
   products:
-    Alpha: 2
+    Vitera: 2
 
 - type: reaction
-  id: AlphaSynthesisProtein
-  name: reaction-alpha-synthesis-protein
+  id: ViteraSynthesisProtein
+  name: reaction-vitera-synthesis-protein
   reactants:
     Protein:
       amount: 1
@@ -24,11 +24,11 @@
     Tricordrazine:
       amount: 1
   products:
-    Alpha: 5
+    Vitera: 5
 
 - type: reaction
-  id: AlphaSynthesisMetals
-  name: reaction-alpha-synthesis-metals
+  id: ViteraSynthesisMetals
+  name: reaction-vitera-synthesis-metals
   reactants:
     Iron:
       amount: 1
@@ -39,11 +39,11 @@
     Tricordrazine:
       amount: 1
   products:
-    Alpha: 2
+    Vitera: 2
 
 - type: reaction
-  id: AlphaSynthesisNutriment
-  name: reaction-alpha-synthesis-nutriment
+  id: ViteraSynthesisNutriment
+  name: reaction-vitera-synthesis-nutriment
   reactants:
     Nutriment:
       amount: 1
@@ -52,11 +52,11 @@
     Tricordrazine:
       amount: 1
   products:
-    Alpha: 5
+    Vitera: 5
 
 - type: reaction
-  id: AlphaSynthesisVitamin
-  name: reaction-alpha-synthesis-vitamin
+  id: ViteraSynthesisVitamin
+  name: reaction-vitera-synthesis-vitamin
   reactants:
     Vitamin:
       amount: 1
@@ -65,13 +65,13 @@
     Tricordrazine:
       amount: 1
   products:
-    Alpha: 25
+    Vitera: 25
 
 - type: reaction
-  id: BetaSynthesis
-  name: reaction-beta-synthesis
+  id: GenesisUltraSynthesis
+  name: reaction-genesis-ultra-synthesis
   reactants:
-    Alpha:
+    Vitera:
       amount: 1
     Benzol:
       amount: 1
@@ -79,5 +79,5 @@
       amount: 1
       catalyst: true
   products:
-    Beta: 1
+    GenesisUltra: 1
 

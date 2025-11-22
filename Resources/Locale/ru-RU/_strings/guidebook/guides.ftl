@@ -86,6 +86,7 @@ guide-entry-brute =
 guide-entry-botanicals = Ботаника
 guide-entry-cloning = Клонирование
 guide-entry-cryogenics = Криогеника
+guide-entry-mangleness = Истощение
 guide-entry-survival = Выживание
 guide-entry-technologies = Технологии
 guide-entry-anomalous-research = Исследование аномалий

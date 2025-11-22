@@ -1,8 +1,8 @@
 - type: reagent
-  id: Alpha
-  name: reagent-name-alpha
+  id: Vitera
+  name: reagent-name-vitera
   group: Medicine
-  desc: reagent-desc-alpha
+  desc: reagent-desc-vitera
   physicalDesc: reagent-physical-desc-viscous
   flavor: medicine
   color: "#a0a0ff"
@@ -15,10 +15,10 @@
             Mangleness: -0.5
 
 - type: reagent
-  id: Beta
-  name: reagent-name-beta
+  id: GenesisUltra
+  name: reagent-name-genesis-ultra
   group: Medicine
-  desc: reagent-desc-beta
+  desc: reagent-desc-genesis-ultra
   physicalDesc: reagent-physical-desc-fizzy
   flavor: medicine
   color: "#ff5050"
@@ -27,7 +27,8 @@
       effects:
       - !type:HealthChange
         damage:
+          groups:
+            Genetic: 0.5
           types:
             Mangleness: -2.5
-            Cellular: 0.5
 
