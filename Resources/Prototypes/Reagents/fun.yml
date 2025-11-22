@@ -167,7 +167,7 @@
         probability: 0.35
         conditions: # Sunrise-Edit
         - !type:ReagentThreshold
-          min: 1
+          min: 2 # Fish-edit
 
 - type: reagent
   id: Razorium

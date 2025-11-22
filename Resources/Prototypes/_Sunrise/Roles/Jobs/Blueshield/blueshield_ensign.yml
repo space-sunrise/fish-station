@@ -52,6 +52,8 @@
     ears: ClothingHeadsetBlueShieldEnsign
     belt: ClothingBeltBlueShieldWebbingFilled
     gloves: ClothingHandsGlovesCombat
+    pocket1: BaseUplinkNTERTBlueShield # fish-add
+    pocket2: WeaponTaser # fish-add
   storage:
     back:
     - HandheldBSOCrewMonitor

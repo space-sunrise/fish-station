@@ -471,7 +471,7 @@
         color: "#AAAAAA"
   - type: MeleeChemicalInjector
     solution: bloodstream
-    transferAmount: 1
+    transferAmount: 3 #Fish-edit
 
 - type: entity
   id: ReagentSlimeNocturine

@@ -11,3 +11,55 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/stamps.rsi
     state: stamp-specops
+
+- type: entity
+  name: Lead Doctor rubber stamp
+  parent: RubberStampBase
+  id: RubberStampSeniorCMO
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-leading-cmo
+    stampedColor: "#33CCFFFF"
+    stampState: "paper_stamp-cmo"
+  - type: Sprite
+    sprite: _Sunrise/Objects/Misc/stamps.rsi
+    state: stamp-senior-cmo
+
+- type: entity
+  name: Security Instructor rubber stamp
+  parent: RubberStampBase
+  id: RubberStampSeniorHos
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-leading-hos
+    stampedColor: "#FF33CCFF"
+    stampState: "paper_stamp-hos"
+  - type: Sprite
+    sprite: _Sunrise/Objects/Misc/stamps.rsi
+    state: stamp-senior-hos
+
+- type: entity
+  name: Lead Engineer rubber stamp
+  parent: RubberStampBase
+  id: RubberStampSeniorCE
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-leading-ce
+    stampedColor: "#C69B17FF"
+    stampState: "paper_stamp-ce"
+  - type: Sprite
+    sprite: _Sunrise/Objects/Misc/stamps.rsi
+    state: stamp-senior-ce
+
+- type: entity
+  name: Lead Researcher rubber stamp
+  parent: RubberStampBase
+  id: RubberStampSeniorRD
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-leading-rd
+    stampedColor: "#A23E3EFF"
+    stampState: "paper_stamp-rd"
+  - type: Sprite
+    sprite: _Sunrise/Objects/Misc/stamps.rsi
+    state: stamp-senior-rd
