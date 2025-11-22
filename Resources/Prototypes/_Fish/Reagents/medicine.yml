@@ -24,11 +24,12 @@
   color: "#ff5050"
   metabolisms:
     Medicine:
+      metabolismRate: 1
       effects:
       - !type:HealthChange
         damage:
           groups:
-            Genetic: 0.5
+            Genetic: 1
           types:
-            Mangleness: -2.5
+            Mangleness: -5
 
