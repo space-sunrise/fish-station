@@ -1,0 +1,83 @@
+- type: reaction
+  id: AlphaSynthesisSugar
+  name: reaction-alpha-synthesis-sugar
+  reactants:
+    Sugar:
+      amount: 1
+    Carbon:
+      amount: 1
+    Water:
+      amount: 1
+    Tricordrazine:
+      amount: 1
+  products:
+    Alpha: 2
+
+- type: reaction
+  id: AlphaSynthesisProtein
+  name: reaction-alpha-synthesis-protein
+  reactants:
+    Protein:
+      amount: 1
+    Water:
+      amount: 1
+    Tricordrazine:
+      amount: 1
+  products:
+    Alpha: 5
+
+- type: reaction
+  id: AlphaSynthesisMetals
+  name: reaction-alpha-synthesis-metals
+  reactants:
+    Iron:
+      amount: 1
+    Copper:
+      amount: 1
+    Water:
+      amount: 1
+    Tricordrazine:
+      amount: 1
+  products:
+    Alpha: 2
+
+- type: reaction
+  id: AlphaSynthesisNutriment
+  name: reaction-alpha-synthesis-nutriment
+  reactants:
+    Nutriment:
+      amount: 1
+    Water:
+      amount: 1
+    Tricordrazine:
+      amount: 1
+  products:
+    Alpha: 5
+
+- type: reaction
+  id: AlphaSynthesisVitamin
+  name: reaction-alpha-synthesis-vitamin
+  reactants:
+    Vitamin:
+      amount: 1
+    Water:
+      amount: 5
+    Tricordrazine:
+      amount: 1
+  products:
+    Alpha: 25
+
+- type: reaction
+  id: BetaSynthesis
+  name: reaction-beta-synthesis
+  reactants:
+    Alpha:
+      amount: 1
+    Benzol:
+      amount: 1
+    Plasma:
+      amount: 1
+      catalyst: true
+  products:
+    Beta: 1
+

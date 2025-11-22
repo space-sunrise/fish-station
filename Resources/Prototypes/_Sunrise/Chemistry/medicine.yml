@@ -18,7 +18,7 @@
       - !type:HealthChange
         damage:
           types:
-            Mangleness: 0.2
+            Mangleness: 0.16 # highest healing (3.2) / 20
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold

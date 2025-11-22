@@ -1,0 +1,33 @@
+- type: reagent
+  id: Alpha
+  name: reagent-name-alpha
+  group: Medicine
+  desc: reagent-desc-alpha
+  physicalDesc: reagent-physical-desc-viscous
+  flavor: medicine
+  color: "#a0a0ff"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Mangleness: -0.5
+
+- type: reagent
+  id: Beta
+  name: reagent-name-beta
+  group: Medicine
+  desc: reagent-desc-beta
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: medicine
+  color: "#ff5050"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Mangleness: -2.5
+            Cellular: 0.5
+

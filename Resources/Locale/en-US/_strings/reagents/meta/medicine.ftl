@@ -158,3 +158,9 @@ reagent-name-dexalin-plus-saline = dexalin plus-saline
 reagent-name-hemostatic-powder = hemostatic powder
 reagent-desc-hemostatic-powder = Hemostatic powder based on a mixture of tranexamic acid and iron silicide. When overdosed, it severely poisons the body with toxins.
 
+reagent-name-alpha = alpha
+reagent-desc-alpha = A specialized medicine that directly treats mangleness damage. Effective for combating exhaustion and metabolic depletion.
+
+reagent-name-beta = beta
+reagent-desc-beta = An advanced mangleness treatment that provides rapid healing, but causes genetic damage as a side effect. Use with caution.
+

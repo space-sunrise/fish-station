@@ -179,7 +179,7 @@ namespace Content.Client.HealthAnalyzer.UI
                     Orientation = BoxContainer.LayoutOrientation.Vertical,
                 };
 
-                groupContainer.AddChild(CreateDiagnosticGroupTitle(groupTitleText, damageGroupId));
+                groupContainer.AddChild(CreateDiagnosticGroupTitle(groupTitleText, damageGroupId, damageDict)); // Fish-Edit
 
                 GroupsContainer.AddChild(groupContainer);
 
@@ -224,7 +224,7 @@ namespace Content.Client.HealthAnalyzer.UI
             };
         }
 
-        private BoxContainer CreateDiagnosticGroupTitle(string text, string id)
+        private BoxContainer CreateDiagnosticGroupTitle(string text, string id, IReadOnlyDictionary<string, FixedPoint2> damageDict)
         {
             var rootContainer = new BoxContainer
             {
@@ -233,10 +233,18 @@ namespace Content.Client.HealthAnalyzer.UI
                 Orientation = BoxContainer.LayoutOrientation.Horizontal,
             };
 
+            // Fish-Start: Use mangleness sprite if Mangleness damage is present in Genetic group
+            string spriteName = id.ToLower();
+            if (id == "Genetic" && damageDict.TryGetValue("Mangleness", out var manglenessDamage) && manglenessDamage.Value > 0)
+            {
+                spriteName = "mangleness";
+            }
+            // Fish-End
+
             rootContainer.AddChild(new TextureRect
             {
                 SetSize = new Vector2(30, 30),
-                Texture = GetTexture(id.ToLower())
+                Texture = GetTexture(spriteName)
             });
 
             rootContainer.AddChild(CreateDiagnosticItemLabel(text));

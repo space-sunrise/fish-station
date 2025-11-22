@@ -50,3 +50,8 @@
   id: AdvancedBrute
   name: guide-entry-brute
   text: "/ServerInfo/Guidebook/Medical/AdvancedBrute.xml"
+
+- type: guideEntry
+  id: Mangleness
+  name: guide-entry-mangleness
+  text: "/ServerInfo/Guidebook/Medical/Mangleness.xml"
