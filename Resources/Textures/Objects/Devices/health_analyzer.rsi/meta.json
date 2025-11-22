@@ -30,6 +30,17 @@
     },
     {
       "name": "metaphysical"
-    }
+    },
+    {
+      "name": "mangleness",
+      "delays": [
+          [
+              0.2,
+              0.2,
+              0.2,
+              0.2
+          ]
+      ]
+  }
   ]
 }
