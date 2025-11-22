@@ -869,7 +869,7 @@
       - !type:HealthChange
         damage:
           types:
-            Mangleness: 0.5 # highest healing (2) / 20
+            Mangleness: -0.5 # Fish-Edit
       #Sunrise-End
       - !type:EvenHealthChange
         damage:

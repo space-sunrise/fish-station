@@ -193,7 +193,7 @@
         Heat: -5
         Shock: -5
         Caustic: -5
-        Mangleness: 1.5 #Sunrise-edit
+        # Mangleness removed - Fish-Edit: mechs/cyborgs shouldn't get Mangleness from repair tools
 
 - type: entity
   parent: CableApcStack

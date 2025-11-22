@@ -14,19 +14,6 @@
     Vitera: 2
 
 - type: reaction
-  id: ViteraSynthesisProtein
-  name: reaction-vitera-synthesis-protein
-  reactants:
-    Protein:
-      amount: 1
-    Water:
-      amount: 1
-    Tricordrazine:
-      amount: 1
-  products:
-    Vitera: 5
-
-- type: reaction
   id: ViteraSynthesisMetals
   name: reaction-vitera-synthesis-metals
   reactants:
@@ -55,6 +42,19 @@
     Vitera: 5
 
 - type: reaction
+  id: ViteraSynthesisProtein
+  name: reaction-vitera-synthesis-protein
+  reactants:
+    Protein:
+      amount: 1
+    Water:
+      amount: 1
+    Tricordrazine:
+      amount: 1
+  products:
+    Vitera: 5
+
+- type: reaction
   id: ViteraSynthesisVitamin
   name: reaction-vitera-synthesis-vitamin
   reactants:
@@ -73,7 +73,7 @@
   reactants:
     Vitera:
       amount: 1
-    Benzol:
+    Bensol:
       amount: 1
     Plasma:
       amount: 1

@@ -43,7 +43,7 @@
         Piercing: -15
         Caustic: -15
         Structural: -15
-        Mangleness: 7.5
+        # Mangleness removed - Fish-Edit: mechs shouldn't get Mangleness from repair
   - type: UserInterface
     interfaces:
       enum.MechUiKey.Key:
