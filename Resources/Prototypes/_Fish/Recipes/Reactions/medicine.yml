@@ -26,7 +26,7 @@
     Tricordrazine:
       amount: 1
   products:
-    Vitera: 2
+    Vitera: 1
 
 - type: reaction
   id: ViteraSynthesisNutriment
@@ -58,10 +58,10 @@
   id: ViteraSynthesisVitamin
   name: reaction-vitera-synthesis-vitamin
   reactants:
-    Vitamin:
-      amount: 1
     Water:
       amount: 5
+    Vitamin:
+      amount: 1
     Tricordrazine:
       amount: 1
   products:
