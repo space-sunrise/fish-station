@@ -245,13 +245,13 @@ public sealed class ThirstSystem : EntitySystem
             {
                 if (damageable.Damage.DamageDict.TryGetValue("Mangleness", out var manglenessDamage) && manglenessDamage.Value > 0)
                 {
-                    // Consume 1 extra point of thirst per tick to heal 0.05 mangleness
-                    var normalizedConsumption = 1.0f * (float)thirst.UpdateRate.TotalSeconds;
+                    // Fish-Edit: Consume 2 extra points of thirst per tick to heal 0.2 mangleness (doubled consumption, doubled healing)
+                    var normalizedConsumption = 2.0f * (float)thirst.UpdateRate.TotalSeconds;
                     if (thirst.CurrentThirst > thirst.ThirstThresholds[ThirstThreshold.Dead] + normalizedConsumption)
                     {
                         ModifyThirst(uid, thirst, -normalizedConsumption);
                         var healAmount = new DamageSpecifier();
-                        healAmount.DamageDict["Mangleness"] = -0.1f * (float)thirst.UpdateRate.TotalSeconds;
+                        healAmount.DamageDict["Mangleness"] = -0.2f * (float)thirst.UpdateRate.TotalSeconds;
                         _damageable.TryChangeDamage(uid, healAmount, true, false);
                     }
                 }

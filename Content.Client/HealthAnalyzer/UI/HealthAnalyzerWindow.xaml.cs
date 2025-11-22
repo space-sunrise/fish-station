@@ -233,9 +233,9 @@ namespace Content.Client.HealthAnalyzer.UI
                 Orientation = BoxContainer.LayoutOrientation.Horizontal,
             };
 
-            // Fish-Start: Use mangleness sprite if Mangleness damage is present in Genetic group
+            // Fish-Start: Use mangleness sprite if Mangleness damage is present in Exhaustion group
             string spriteName = id.ToLower();
-            if (id == "Genetic" && damageDict.TryGetValue("Mangleness", out var manglenessDamage) && manglenessDamage.Value > 0)
+            if (id == "Exhaustion" && damageDict.TryGetValue("Mangleness", out var manglenessDamage) && manglenessDamage.Value > 0)
             {
                 spriteName = "mangleness";
             }

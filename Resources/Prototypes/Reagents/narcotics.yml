@@ -15,7 +15,7 @@
         damage:
           types:
             Poison: 0.75
-            Mangleness: 0.15 #Sunrise-Edit
+            Mangleness: 0.6 #Sunrise-Edit
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -76,7 +76,7 @@
       - !type:HealthChange
         damage:
           types:
-            Mangleness: 0.05
+            Mangleness: 0.25
       #Sunrise-End
       - !type:HealthChange
         conditions:
@@ -136,7 +136,7 @@
       - !type:HealthChange
         damage:
           types:
-            Mangleness: 0.1
+            Mangleness: 0.25
       #Sunrise-End
       - !type:HealthChange
         conditions:

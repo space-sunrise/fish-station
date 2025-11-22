@@ -18,7 +18,7 @@
       - !type:HealthChange
         damage:
           types:
-            Mangleness: 0.16 # highest healing (3.2) / 20
+            Mangleness: 0.32 #Fish-Edit: boosted by 2x (was 0.16)
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold

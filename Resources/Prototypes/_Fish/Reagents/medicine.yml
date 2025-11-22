@@ -12,7 +12,15 @@
       - !type:HealthChange
         damage:
           types:
-            Mangleness: -0.5
+            Mangleness: -1.0 # Fish-Edit: boosted by 2x
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 11
+        damage:
+          types:
+            Cellular: 1
+            Poison: 1
 
 - type: reagent
   id: GenesisUltra
@@ -30,5 +38,13 @@
           groups:
             Genetic: 0.5
           types:
-            Mangleness: -2.5
+            Mangleness: -5.0 # Fish-Edit: boosted by 2x
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 6
+        damage:
+          types:
+            Cellular: 5
+            Poison: 1
 
