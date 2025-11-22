@@ -239,14 +239,14 @@ public sealed class ThirstSystem : EntitySystem
 
             ModifyThirst(uid, thirst, -thirst.ActualDecayRate);
             DoContinuousThirstEffects(uid, thirst);
-            
+
             // Fish-Start: Consume extra thirst to heal mangleness
             if (TryComp<DamageableComponent>(uid, out var damageable))
             {
                 if (damageable.Damage.DamageDict.TryGetValue("Mangleness", out var manglenessDamage) && manglenessDamage.Value > 0)
                 {
-                    // Fish-Edit: Consume 2 extra points of thirst per tick to heal 0.2 mangleness (doubled consumption, doubled healing)
-                    var normalizedConsumption = 2.0f * (float)thirst.UpdateRate.TotalSeconds;
+                    // Fish-Edit: Consume 0.2 extra points of thirst per tick to heal 0.05 mangleness (doubled consumption, doubled healing)
+                    var normalizedConsumption = 0.2f * (float)thirst.UpdateRate.TotalSeconds;
                     if (thirst.CurrentThirst > thirst.ThirstThresholds[ThirstThreshold.Dead] + normalizedConsumption)
                     {
                         ModifyThirst(uid, thirst, -normalizedConsumption);
@@ -257,7 +257,7 @@ public sealed class ThirstSystem : EntitySystem
                 }
             }
             // Fish-End
-            
+
             var calculatedThirstThreshold = GetThirstThreshold(thirst, thirst.CurrentThirst);
 
             if (calculatedThirstThreshold == thirst.CurrentThirstThreshold)
