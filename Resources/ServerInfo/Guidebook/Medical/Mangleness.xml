@@ -1,5 +1,4 @@
 <Document>
-<GuideImage Path="/Textures/Objects/Devices/health_analyzer.rsi" State="mangleness" />
 
 [head=1][color=#ff9966]Истощение[/color][/head]
 
@@ -16,7 +15,7 @@
 [head=2][color=#ffaa66]Причины Истощения[/color][/head]
 
 [color=#dddddd]Истощение может возникать по различным причинам:[/color]
-[bullet/] [color=#ff9999]Использование медицинских препаратов[/color] [color=#dddddd](большинство лекарств вызывают небольшое истощение как побочный эффект)[/color]
+[bullet/] [color=#ff9999]Использование медицинских химикатов[/color] [color=#dddddd](большинство лекарств вызывают небольшое истощение как побочный эффект)[/color]
 [bullet/] [color=#ff9999]Недостаточное питание и обезвоживание[/color]
 
 [head=2][color=#ffaa66]Лечение Истощения[/color][/head]
