@@ -25,6 +25,9 @@
     - state: idblueshield
   - type: Item
     heldPrefix: gold
+  - type: Access
+    groups:
+    - AllAccess
   - type: PresetIdCard
     job: BlueShieldEnsign
 
@@ -39,6 +42,9 @@
     - state: idcentcom
   - type: Item
     heldPrefix: blue
+  - type: Access
+    groups:
+    - AllAccess
   - type: PresetIdCard
     job: BlueShieldOperative
 

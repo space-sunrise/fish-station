@@ -2,6 +2,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Explosion.Components;
+using Content.Shared.Atmos.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
 using Content.Shared.Database;
@@ -67,6 +68,11 @@ public sealed partial class ExplosionSystem
 
     private List<EntityUid> _anchored = new();
 
+    /// <summary>
+    ///     Tracks accumulated damage per entity for gas tank explosions (capped at 300).
+    /// </summary>
+    private Dictionary<EntityUid, float> _gasTankExplosionDamage = new();
+
     private void OnMapRemoved(MapRemovedEvent ev)
     {
         // If a map was deleted, check the explosion currently being processed belongs to that map.
@@ -85,8 +91,12 @@ public sealed partial class ExplosionSystem
     public override void Update(float frameTime)
     {
         if (_activeExplosion == null && _explosionQueue.Count == 0)
+        {
+            // Clear gas tank damage tracking when no explosions are active
+            _gasTankExplosionDamage.Clear();
             // nothing to do
             return;
+        }
 
         Stopwatch.Restart();
         var x = Stopwatch.Elapsed.TotalMilliseconds;
@@ -95,18 +105,22 @@ public sealed partial class ExplosionSystem
         while (tilesRemaining > 0 && MaxProcessingTime > Stopwatch.Elapsed.TotalMilliseconds)
         {
             // if there is no active explosion, get a new one to process
-            if (_activeExplosion == null)
-            {
-                // EXPLOSION TODO allow explosion spawning to be interrupted by time limit. In the meantime, ensure that
-                // there is at-least 1ms of time left before creating a new explosion
-                if (MathF.Max(MaxProcessingTime - 1, 0.1f) < Stopwatch.Elapsed.TotalMilliseconds)
-                    break;
+                if (_activeExplosion == null)
+                {
+                    // EXPLOSION TODO allow explosion spawning to be interrupted by time limit. In the meantime, ensure that
+                    // there is at-least 1ms of time left before creating a new explosion
+                    if (MathF.Max(MaxProcessingTime - 1, 0.1f) < Stopwatch.Elapsed.TotalMilliseconds)
+                        break;
 
-                if (!_explosionQueue.TryDequeue(out var queued))
-                    break;
+                    if (!_explosionQueue.TryDequeue(out var queued))
+                        break;
 
-                _queuedExplosions.Remove(queued);
-                _activeExplosion = SpawnExplosion(queued);
+                    _queuedExplosions.Remove(queued);
+                    _activeExplosion = SpawnExplosion(queued);
+                    
+                    // Clear damage tracking for new explosion if it's a gas tank explosion
+                    if (_activeExplosion?.Cause != null && HasComp<GasTankExplosionComponent>(_activeExplosion.Cause.Value))
+                        _gasTankExplosionDamage.Clear();
 
                 // explosion spawning can be null if something somewhere went wrong. (e.g., negative explosion
                 // intensity).
@@ -142,6 +156,11 @@ public sealed partial class ExplosionSystem
                 var comp = EnsureComp<TimedDespawnComponent>(_activeExplosion.VisualEnt);
                 comp.Lifetime = _cfg.GetCVar(CCVars.ExplosionPersistence);
                 _appearance.SetData(_activeExplosion.VisualEnt, ExplosionAppearanceData.Progress, int.MaxValue);
+                
+                // Clear damage tracking when explosion finishes
+                if (_activeExplosion.Cause != null)
+                    _gasTankExplosionDamage.Clear();
+                
                 _activeExplosion = null;
             }
 #if EXCEPTION_TOLERANCE
@@ -444,24 +463,55 @@ public sealed partial class ExplosionSystem
         if (originalDamage != null)
         {
             GetEntitiesToDamage(uid, originalDamage, id);
+            
+            // Check if this is a gas tank explosion that needs damage capping
+            bool isGasTankExplosion = cause != null && HasComp<GasTankExplosionComponent>(cause.Value);
+            const float maxGasTankDamage = 300f;
+            
             foreach (var (entity, damage) in _toDamage)
             {
-                if (damage.GetTotal() > 0 && TryComp<ActorComponent>(entity, out var actorComponent))
+                var finalDamage = damage;
+                
+                // Cap damage for gas tank explosions
+                if (isGasTankExplosion)
+                {
+                    var currentTotal = _gasTankExplosionDamage.GetValueOrDefault(entity, 0f);
+                    var damageTotal = damage.GetTotal() * _damageableSystem.UniversalExplosionDamageModifier;
+                    var remainingCap = maxGasTankDamage - currentTotal;
+                    
+                    if (remainingCap <= 0)
+                    {
+                        // Already hit damage cap, skip this damage
+                        continue;
+                    }
+                    
+                    if (damageTotal > remainingCap)
+                    {
+                        // Scale down damage to fit within cap
+                        var scale = remainingCap / damageTotal;
+                        finalDamage = damage * scale;
+                    }
+                    
+                    // Track accumulated damage
+                    _gasTankExplosionDamage[entity] = currentTotal + finalDamage.GetTotal() * _damageableSystem.UniversalExplosionDamageModifier;
+                }
+                
+                if (finalDamage.GetTotal() > 0 && TryComp<ActorComponent>(entity, out var actorComponent))
                 {
                     // Log damage to player entities only, cause this will create a massive amount of log spam otherwise.
                     if (cause != null)
                     {
-                        _adminLogger.Add(LogType.ExplosionHit, LogImpact.Medium, $"Explosion of {ToPrettyString(cause):actor} dealt {damage.GetTotal()} damage to {ToPrettyString(entity):subject}");
+                        _adminLogger.Add(LogType.ExplosionHit, LogImpact.Medium, $"Explosion of {ToPrettyString(cause):actor} dealt {finalDamage.GetTotal()} damage to {ToPrettyString(entity):subject}");
                     }
                     else
                     {
-                        _adminLogger.Add(LogType.ExplosionHit, LogImpact.Medium, $"Explosion at {epicenter:epicenter} dealt {damage.GetTotal()} damage to {ToPrettyString(entity):subject}");
+                        _adminLogger.Add(LogType.ExplosionHit, LogImpact.Medium, $"Explosion at {epicenter:epicenter} dealt {finalDamage.GetTotal()} damage to {ToPrettyString(entity):subject}");
                     }
 
                 }
 
                 // TODO EXPLOSIONS turn explosions into entities, and pass the the entity in as the damage origin.
-                _damageableSystem.TryChangeDamage(entity, damage * _damageableSystem.UniversalExplosionDamageModifier, ignoreResistances: true);
+                _damageableSystem.TryChangeDamage(entity, finalDamage * _damageableSystem.UniversalExplosionDamageModifier, ignoreResistances: true);
 
             }
         }

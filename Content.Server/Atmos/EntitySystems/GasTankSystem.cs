@@ -175,6 +175,8 @@ namespace Content.Server.Atmos.EntitySystems
                 // !1984
                 range = Math.Min(Math.Min(range, GasTankComponent.MaxExplosionRange), _maxExplosionRange);
 
+                // Mark this as a gas tank explosion for damage capping
+                EnsureComp<GasTankExplosionComponent>(owner);
                 _explosions.TriggerExplosive(owner, radius: range);
 
                 return;

@@ -171,12 +171,12 @@
     damage:
       types:
         Piercing: 10
-        Radiation: 8
+        Radiation: 5
   - type: DamageOtherOnHit
     damage:
       types:
         Piercing: 12
-        Radiation: 9
+        Radiation: 5
   - type: Construction
     graph: SpearUranium
 
