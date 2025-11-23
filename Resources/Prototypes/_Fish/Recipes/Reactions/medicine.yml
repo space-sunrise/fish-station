@@ -17,6 +17,8 @@
   id: ViteraSynthesisMetals
   name: reaction-vitera-synthesis-metals
   reactants:
+    Sugar:
+      amount: 1
     Iron:
       amount: 1
     Copper:
@@ -26,7 +28,7 @@
     Tricordrazine:
       amount: 1
   products:
-    Vitera: 1
+    Vitera: 2
 
 - type: reaction
   id: ViteraSynthesisNutriment
