@@ -12,11 +12,11 @@
       - !type:HealthChange
         damage:
           types:
-            Mangleness: -1.0 # Fish-Edit: boosted by 2x
+            Mangleness: -1
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 11
+          min: 16
         damage:
           types:
             Cellular: 1
@@ -38,7 +38,7 @@
           groups:
             Genetic: 0.5
           types:
-            Mangleness: -5.0 # Fish-Edit: boosted by 2x
+            Mangleness: -5
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
