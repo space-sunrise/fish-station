@@ -876,7 +876,6 @@
     - item: HypoBorgMedical # Sunrise-Edit
     - item: HyposprayMedical # Sunrise-Edit
     - item: Syringe
-    - item: BorgDropper
     - item: BaseChemistryEmptyVial
       hand:
         emptyLabel: borg-slot-small-containers-empty

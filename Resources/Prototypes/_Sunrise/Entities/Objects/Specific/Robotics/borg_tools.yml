@@ -243,8 +243,6 @@
       Quantity: 1
     - ReagentId: Diphenhydramine
       Quantity: 1
-    - ReagentId: Ambuzol
-      Quantity: 0.1
     - ReagentId: Oculine
       Quantity: 0.1
     - ReagentId: Saline
