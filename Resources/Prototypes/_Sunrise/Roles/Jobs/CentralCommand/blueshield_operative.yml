@@ -4,6 +4,7 @@
   description: job-description-blueshield-operative
   playTimeTracker: JobBlueShieldOperative
   requirements:
+    - !type:DiscordRoleRequirement
     # - !type:DepartmentTimeRequirement
     #   department: BlueShield
     #   time: 124000 # 40 hrs
@@ -14,6 +15,8 @@
   icon: JobIconNanotrasen
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  setPreference: true # fish-edit
+  overrideConsoleVisibility: false # fish-edit
   accessGroups:
   - AllAccess
   access:

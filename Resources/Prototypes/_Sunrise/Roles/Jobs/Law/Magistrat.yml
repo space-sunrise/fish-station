@@ -7,11 +7,15 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 108000 #30 hrs
+    - !type:DepartmentTimeRequirement # fish-add
+      department: Law # fish-add
+      time: 108000 #30 hrs  # fish-add
   startingGear: MagistratGear
   icon: "JobIconMagistrat"
   supervisors: job-supervisors-centcom
   canBeAntag: false
-  setPreference: false
+  setPreference: true # fish-edit
+  overrideConsoleVisibility: false # Sunrise added
   radioBold: true
   displayWeight: 75
   access:

@@ -41,6 +41,7 @@
   storage:
     back:
     - WeaponDisablerSMG
+    - RubberStampSeniorHos # Fish-edit
 
 - type: chameleonOutfit
   id: SeniorOfficerChameleonOutfit

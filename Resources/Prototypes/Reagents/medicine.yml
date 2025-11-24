@@ -150,7 +150,7 @@
       - !type:HealthChange
         damage:
           types:
-            Mangleness: 0.15 #Fish-Edit: boosted by 2x (was 0.075)
+            Mangleness: 0.25 #Fish-Edit
         #Sunrise-End
       - !type:EvenHealthChange
         damage:
@@ -243,7 +243,7 @@
             Heat: -1.5
             Shock: -1.5
             Cold: -1.5
-            Mangleness: 0.15 #Fish-Edit: boosted by 2x (was 0.075)
+            Mangleness: 0.3 #Fish-Edit
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -1366,7 +1366,7 @@
               Burn: -5
             types:
               Poison: -2
-              Mangleness: -1 #Fish-Edit: Necrosol should heal mangleness (boosted by 2x)
+              Mangleness: -2 #Fish-Edit: Necrosol should heal mangleness (boosted by 2x)
 
 - type: reagent
   id : Aloxadone

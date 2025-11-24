@@ -14,8 +14,8 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 0.75
-            Mangleness: 1.1 #Sunrise-Edit
+            Poison: 1 # Fish-edit
+            Mangleness: 1.1 # Fish-edit
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold

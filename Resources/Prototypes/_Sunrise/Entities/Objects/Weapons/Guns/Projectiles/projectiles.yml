@@ -33,13 +33,13 @@
       types:
         Shock: 1
   - type: StaminaDamageOnCollide
-    damage: 33
+    damage: 10 #Fish-edit
   - type: SolutionContainerManager
     solutions:
       ammo:
         reagents:
         - ReagentId: Licoxide #lmao
-          Quantity: 0.5
+          Quantity: 2 #Fish-edit
   - type: RefillableSolution
     solution: ammo
   - type: DrainableSolution

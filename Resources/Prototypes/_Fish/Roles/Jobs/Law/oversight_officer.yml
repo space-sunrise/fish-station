@@ -4,7 +4,6 @@
   description: job-description-oversightofficer
   playTimeTracker: JobOversightOfficer
   requirements:
-    - !type:DiscordRoleRequirement
     - !type:DepartmentTimeRequirement
       department: Security
       time: 54000 # 15 hrs
@@ -14,9 +13,12 @@
     - !type:DepartmentTimeRequirement
       department: Law
       time: 18000 # 5 hrs
+    - !type:DiscordRoleRequirement
   startingGear: OversightOfficerGear
   icon: JobIconOversightOfficer
-  overrideConsoleVisibility: false # Sunrise added
+  weight: 80 # fish-edit
+  setPreference: true # fish-edit
+  overrideConsoleVisibility: false # fish-edit
   supervisors: job-supervisors-oversightdep
   radioBold: true
   canBeAntag: false

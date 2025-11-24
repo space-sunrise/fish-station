@@ -101,7 +101,7 @@
         Piercing: -15
         Caustic: -15
         Structural: -15
-        Mangleness: 7.5 # Sunrise-Edit
+       # Mangleness: 7.5 # Sunrise-Edit # Fish-Edit: Removed Mangleness from the damage types
   - type: UserInterface
     interfaces:
       enum.MechUiKey.Key:

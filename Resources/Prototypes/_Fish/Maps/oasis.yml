@@ -19,7 +19,7 @@
           - gridPath: /Maps/_Fish/Shuttles/mining.yml
             priorityTag: DockMining
           - gridPath: /Maps/_Fish/Shuttles/security.yml
-            priorityTag: DockFishSecurity 
+            priorityTag: DockFishSecurity
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_delta.yml
         - type: StationJobs
@@ -84,6 +84,7 @@
             BlueShieldEnsign: [ 1, 1 ]
             BlueShieldOfficer: [ 2, 2 ]
             #law
+            Magistrat: [ 1, 1 ]
             IAA: [ 1, 1 ]
             Lawyer: [ 2, 2 ]
             NtrOfficer: [ 2, 2 ]
