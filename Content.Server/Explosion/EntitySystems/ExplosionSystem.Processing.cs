@@ -117,7 +117,7 @@ public sealed partial class ExplosionSystem
 
                     _queuedExplosions.Remove(queued);
                     _activeExplosion = SpawnExplosion(queued);
-                    
+
                     // Clear damage tracking for new explosion if it's a gas tank explosion
                     if (_activeExplosion?.Cause != null && HasComp<GasTankExplosionComponent>(_activeExplosion.Cause.Value))
                         _gasTankExplosionDamage.Clear();
@@ -156,11 +156,11 @@ public sealed partial class ExplosionSystem
                 var comp = EnsureComp<TimedDespawnComponent>(_activeExplosion.VisualEnt);
                 comp.Lifetime = _cfg.GetCVar(CCVars.ExplosionPersistence);
                 _appearance.SetData(_activeExplosion.VisualEnt, ExplosionAppearanceData.Progress, int.MaxValue);
-                
+
                 // Clear damage tracking when explosion finishes
                 if (_activeExplosion.Cause != null)
                     _gasTankExplosionDamage.Clear();
-                
+
                 _activeExplosion = null;
             }
 #if EXCEPTION_TOLERANCE
@@ -463,39 +463,39 @@ public sealed partial class ExplosionSystem
         if (originalDamage != null)
         {
             GetEntitiesToDamage(uid, originalDamage, id);
-            
+
             // Check if this is a gas tank explosion that needs damage capping
             bool isGasTankExplosion = cause != null && HasComp<GasTankExplosionComponent>(cause.Value);
             const float maxGasTankDamage = 300f;
-            
+
             foreach (var (entity, damage) in _toDamage)
             {
                 var finalDamage = damage;
-                
+
                 // Cap damage for gas tank explosions
                 if (isGasTankExplosion)
                 {
                     var currentTotal = _gasTankExplosionDamage.GetValueOrDefault(entity, 0f);
                     var damageTotal = damage.GetTotal() * _damageableSystem.UniversalExplosionDamageModifier;
                     var remainingCap = maxGasTankDamage - currentTotal;
-                    
+
                     if (remainingCap <= 0)
                     {
                         // Already hit damage cap, skip this damage
                         continue;
                     }
-                    
+
                     if (damageTotal > remainingCap)
                     {
                         // Scale down damage to fit within cap
                         var scale = remainingCap / damageTotal;
                         finalDamage = damage * scale;
                     }
-                    
+
                     // Track accumulated damage
-                    _gasTankExplosionDamage[entity] = currentTotal + finalDamage.GetTotal() * _damageableSystem.UniversalExplosionDamageModifier;
+                    _gasTankExplosionDamage[entity] = (float)(currentTotal + finalDamage.GetTotal() * _damageableSystem.UniversalExplosionDamageModifier);
                 }
-                
+
                 if (finalDamage.GetTotal() > 0 && TryComp<ActorComponent>(entity, out var actorComponent))
                 {
                     // Log damage to player entities only, cause this will create a massive amount of log spam otherwise.
