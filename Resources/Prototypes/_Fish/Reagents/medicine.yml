@@ -35,10 +35,9 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Genetic: 0.5
           types:
-            Mangleness: -5
+            Cellular: -1
+            Mangleness: -3
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
