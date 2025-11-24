@@ -1366,7 +1366,7 @@
               Burn: -5
             types:
               Poison: -2
-              Mangleness: -1 #Fish-Edit: Necrosol should heal mangleness (boosted by 2x)
+              Mangleness: -2 #Fish-Edit: Necrosol should heal mangleness (boosted by 2x)
 
 - type: reagent
   id : Aloxadone
