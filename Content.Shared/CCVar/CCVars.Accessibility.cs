@@ -27,7 +27,7 @@ public sealed partial class CCVars
 
     /// <summary>
     ///     Screen shake intensity slider, controlling the intensity of the CameraRecoilSystem.
-    ///     Goes from 0 (no recoil at all) to 1 (regular amounts of recoil)
+    ///     Goes from 0.2 (20% minimum) to 1 (regular amounts of recoil) // Fish-Edit
     /// </summary>
     public static readonly CVarDef<float> ScreenShakeIntensity =
         CVarDef.Create("accessibility.screen_shake_intensity", 0.5f, CVar.CLIENTONLY | CVar.ARCHIVE);
