@@ -33,7 +33,7 @@
       types:
         Shock: 1
   - type: StaminaDamageOnCollide
-    damage: 10 #Fish-edit
+    damage: 30 #Fish-edit
   - type: SolutionContainerManager
     solutions:
       ammo:
