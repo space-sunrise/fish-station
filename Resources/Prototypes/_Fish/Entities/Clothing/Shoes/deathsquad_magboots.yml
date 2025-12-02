@@ -5,10 +5,10 @@
   description: Advanced magnetic boots designed for Death Squad operations. Provides magnetic grip without any mobility penalty.
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi
+    sprite: _Fish/Clothing/Shoes/Boots/deathsquad.rsi
     state: icon
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi
+    sprite: _Fish/Clothing/Shoes/Boots/deathsquad.rsi
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0

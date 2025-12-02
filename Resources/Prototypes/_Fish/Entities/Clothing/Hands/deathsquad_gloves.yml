@@ -6,9 +6,9 @@
   suffix: Uplink
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/combat.rsi
+    sprite: _Fish/Clothing/Hands/Gloves/deathsquad.rsi
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/combat.rsi
+    sprite: _Fish/Clothing/Hands/Gloves/deathsquad.rsi
   - type: Store
     balance:
       Bluecrystal: 210
