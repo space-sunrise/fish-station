@@ -1325,7 +1325,7 @@
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mech_ntgygax }
   productEntity: CrateCommandNTGygaxBundle
   cost:
-    Bluecrystal: 75
+    Bluecrystal: 85
   categories:
   - NTMechs
   conditions:
@@ -1339,7 +1339,7 @@
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mech_marauder }
   productEntity: CrateCommandMarauderBundle
   cost:
-    Bluecrystal: 110
+    Bluecrystal: 120
   categories:
   - NTMechs
   conditions:
@@ -1353,7 +1353,7 @@
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mech_seraph }
   productEntity: CrateCommandSeraphBundle
   cost:
-    Bluecrystal: 210
+    Bluecrystal: 200
   categories:
   - NTMechs
   conditions:
