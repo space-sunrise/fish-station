@@ -1,19 +1,19 @@
 - type: gameMap
-  id: FishOasis
-  mapName: 'Oasis'
-  mapPath: /Maps/_Fish/Station/oasis.yml
+  id: FishBox
+  mapName: 'Box'
+  mapPath: /Maps/_Fish/Station/box.yml
   maxRandomOffset: 0
-  randomRotation: false
   minPlayers: 0
+  randomRotation: false
   stations:
-    FishOasis:
+    Boxstation:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Оазис {1}'
+          mapNameTemplate: '{0} Бокс {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: '-RS'
+            prefixCreator: 'TG'
         - type: SpawnGridAndDockToStation
           grids:
           - gridPath: /Maps/_Fish/Shuttles/mining.yml
@@ -29,38 +29,39 @@
             Adjutant: [ 1, 1 ]
             NanoTrasenRepresentative: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
+            # ComMaid: [ 1, 1 ] # Горничная командования
             #service
             Bartender: [ 2, 2 ]
             Botanist: [ 3, 3 ]
             Chef: [ 2, 2 ]
-            Janitor: [ 2, 2 ]
+            Janitor: [ 4, 4 ]
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
-            ServiceWorker: [ 3, 3 ]
+            ServiceWorker: [ 5, 5 ]
             Reporter: [ 2, 2 ]
             Zookeeper: [ 1, 1 ]
             Barber: [ 1, 1 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             SeniorEngineer: [ 1, 1 ]
-            AtmosphericTechnician: [ 3, 3 ]
-            StationEngineer: [ 5, 5 ]
+            AtmosphericTechnician: [ 4, 4 ]
+            StationEngineer: [ 6, 6 ]
             TechnicalAssistant: [ 5, 5 ]
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             SeniorPhysician: [ 1, 1 ]
-            Chemist: [ 2, 2 ]
+            Chemist: [ 2, 3 ]
             MedicalDoctor: [ 4, 4 ]
             Paramedic: [ 2, 2 ]
             MedicalIntern: [ 5, 5 ]
-            Psychologist: [ 1, 1 ]
+            Psychologist: [ 2, 2 ]
             MedicalPathologist: [ 1, 1 ]
             #science
             ResearchDirector: [ 1, 1 ]
             SeniorResearcher: [ 1, 1 ]
-            Scientist: [ 5, 5 ]
+            Scientist: [ 6, 6 ]
             ResearchAssistant: [ 5, 5 ]
-            Roboticist: [ 2, 2 ]
+            Roboticist: [ 3, 3 ]
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
@@ -68,12 +69,13 @@
             Detective: [ 2, 2 ]
             Brigmedic: [ 1, 1 ]
             SecurityPilot: [ 2, 2 ]
-            SecurityOfficer: [ 6, 6 ]
+            SecurityOfficer: [ 5, 5 ]
             SecurityCadet: [ 5, 5 ]
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
-            CargoTechnician: [ 5, 5 ]
+            MiningSpecialist: [ 1, 1 ]
+            CargoTechnician: [ 3, 3 ]
             MailCarrier: [ 2, 2 ]
             #civilian
             Passenger: [ -1, -1 ]
@@ -83,6 +85,7 @@
             #blueshield
             BlueShieldEnsign: [ 1, 1 ]
             BlueShieldOfficer: [ 2, 2 ]
+            RepresentativeBlueShield: [ 1, 1 ]
             #law
             Magistrat: [ 1, 1 ]
             IAA: [ 1, 1 ]
@@ -90,13 +93,13 @@
             NtrOfficer: [ 2, 2 ]
             # silicon
             StationAi: [ 1, 1 ]
-            Borg: [ 3, 3 ]
-            EngineerBorg: [ 3, 3 ]
-            MiningBorg: [ 3, 3 ]
-            JanitorBorg: [ 3, 3 ]
-            ServiceBorg: [ 3, 3 ]
-            ClownBorg: [ 3, 3 ]
-            PeaceBorg: [ 3, 3 ]
+            Borg: [ 2, 2 ]
+            EngineerBorg: [ 2, 2 ]
+            MiningBorg: [ 2, 2 ]
+            JanitorBorg: [ 2, 2 ]
+            ServiceBorg: [ 2, 2 ]
+            ClownBorg: [ 2, 2 ]
+            PeaceBorg: [ 2, 2 ]
             MedicalBorg: [ 4, 4 ]
             SecurityBorg: [ 4, 4 ]
         - type: StationGoal
@@ -106,10 +109,10 @@
           - SolarPanels
           - Artifacts
           - Bank
-          #- Zoo
+          - Zoo
           - MiningOutpost
           - Tesla
-          #- XenobiologyRepair
+          - XenobiologyRepair
           - VirusologyAmbusol
           - Containment
           - WeaponsSecurity
@@ -132,4 +135,7 @@
           - Furs
           - Crew
           - CleaningUp
-          - VirusFlesh
+          - HumanitarianAid
+          - PersonnelRecovery
+          - CrewEducation
+          #- VirusFlesh

@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/18/2025 09:11:46
-  entityCount: 16293
+  time: 12/02/2025 19:23:53
+  entityCount: 16294
 maps:
 - 1
 grids:
@@ -9097,7 +9097,7 @@ entities:
       pos: 13.5,-3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -21022.625
+      secondsUntilStateChange: -21096.592
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -72961,6 +72961,13 @@ entities:
     - type: Transform
       pos: 9.5,19.5
       parent: 2
+- proto: LockerRepresentative
+  entities:
+  - uid: 16294
+    components:
+    - type: Transform
+      pos: 19.5,44.5
+      parent: 2
 - proto: LockerResearchDirectorFilled
   entities:
   - uid: 11041
@@ -74100,21 +74107,37 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+    - type: ContainerContainer
+      containers:
+        innate_items: !type:Container
+          ents: []
   - uid: 11222
     components:
     - type: Transform
       pos: 23.509125,15.577751
       parent: 2
+    - type: ContainerContainer
+      containers:
+        innate_items: !type:Container
+          ents: []
   - uid: 11223
     components:
     - type: Transform
       pos: 26.514572,47.589886
       parent: 2
+    - type: ContainerContainer
+      containers:
+        innate_items: !type:Container
+          ents: []
   - uid: 11224
     components:
     - type: Transform
       pos: 70.51922,36.549946
       parent: 2
+    - type: ContainerContainer
+      containers:
+        innate_items: !type:Container
+          ents: []
 - proto: PhoneInstrument
   entities:
   - uid: 11225
