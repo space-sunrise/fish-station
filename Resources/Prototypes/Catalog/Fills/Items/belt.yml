@@ -166,11 +166,10 @@
   components:
   - type: StorageFill
     contents:
-      - id: ChemistryBottleEpinephrine
-        amount: 2
-      - id: ChemistryBottleEphedrine
-        amount: 2
-      - id: ChemistryBottleOmnizine
+      - id: ChemistryBottleOmnizine #Fish-edit - Changed from epinephrine
+        amount: 3 #Fish-edit
+      - id: MedipenCombatInjector #Fish-edit - Added combat injectors
+        amount: 3 #Fish-edit
       - id: MedkitCombatFilled
 
 - type: entity

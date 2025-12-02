@@ -1076,7 +1076,7 @@
   - type: Pierceable
     level: Metal
   - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
-    damageCoefficient: 0.15 # Needs 21 hits with a disabler to stun :godo:
+    damageCoefficient: 0.1 #Fish-edit
   - type: Armor
     modifiers:
       coefficients:
@@ -1086,6 +1086,9 @@
         Heat: 0.1
         Radiation: 0.1
         Caustic: 0.1
+        Poison: 0.1 #Fish-edit
+        Cellular: 0.1 #Fish-edit
+        Shock: 0.9 #Fish-edit
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0

@@ -16,6 +16,11 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  - !type:AddComponentSpecial #Fish-edit - Required for biocoded equipment
+    components:
+    - type: FactionMember
+      factions:
+      - DeathSquad
 
 - type: startingGear
   id: DeathSquadGear
@@ -41,9 +46,11 @@
     - BoxFlashbang
     - ToolDebug # spanish army knife
     - WelderExperimental
-    - Hypospray
+    - JawsOfLife
     - DeathAcidifierImplanter # crew will try to steal their amazing hardsuits
     - FreedomImplanter
+    - AdvancedDefibrillator #Fish-edit
+    belt:
   inhand:
   - WeaponPulseRifle
 

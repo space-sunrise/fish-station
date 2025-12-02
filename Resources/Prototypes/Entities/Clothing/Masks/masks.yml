@@ -410,7 +410,7 @@
   parent: ClothingMaskGasERT
   id: ClothingMaskGasDeathSquad
   name: death squad gas mask
-  description: A unique gas mask for the NT's most elite squad.
+  description: A unique gas mask for the NT's most elite squad. Features integrated oxygen supply, advanced vision systems, and welding protection.
   components:
   - type: Sprite
     sprite: Clothing/Mask/squadron.rsi
@@ -418,6 +418,28 @@
     sprite: Clothing/Mask/squadron.rsi
   - type: Pierceable
     level: Rock
+  - type: ShowHealthBars #Fish-edit - Health HUD
+    damageContainer: Biological
+  - type: FlashImmunity #Fish-edit
+  - type: EyeProtection #Fish-edit
+  - type: ComponentToggler #Fish-edit
+    parent: true
+    components:
+    - type: ThermalVision
+  - type: ItemToggle
+    predictable: false
+    onUse: false
+    canActivateInhand: false
+    soundActivate:
+      path: /Audio/_Sunrise/Items/Goggles/activate.ogg
+    soundDeactivate:
+      path: /Audio/_Sunrise/Items/Goggles/deactivate.ogg
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+  - type: ToggleClothing
+    action: ActionToggleThermalVision
+    disableOnUnequip: true
+    targetSlot: mask
   - type: HideLayerClothing
     slots:
     - Hair

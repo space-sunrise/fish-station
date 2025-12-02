@@ -1311,7 +1311,7 @@
   productEntity: PlayerBorgChassisERTBattery
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: cyborg_ert }
   cost:
-    Bluecrystal: 40
+    Bluecrystal: 30
   categories:
     - NTMechs
   conditions:
@@ -1325,7 +1325,7 @@
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mech_ntgygax }
   productEntity: CrateCommandNTGygaxBundle
   cost:
-    Bluecrystal: 85
+    Bluecrystal: 75
   categories:
   - NTMechs
   conditions:
@@ -1339,7 +1339,7 @@
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mech_marauder }
   productEntity: CrateCommandMarauderBundle
   cost:
-    Bluecrystal: 120
+    Bluecrystal: 110
   categories:
   - NTMechs
   conditions:
@@ -1353,7 +1353,7 @@
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mech_seraph }
   productEntity: CrateCommandSeraphBundle
   cost:
-    Bluecrystal: 220
+    Bluecrystal: 210
   categories:
   - NTMechs
   conditions:
