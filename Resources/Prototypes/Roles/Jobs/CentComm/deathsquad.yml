@@ -16,11 +16,6 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
-  - !type:AddComponentSpecial #Fish-edit - Required for biocoded equipment
-    components:
-    - type: FactionMember
-      factions:
-      - DeathSquad
 
 - type: startingGear
   id: DeathSquadGear
