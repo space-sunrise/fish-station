@@ -1088,7 +1088,7 @@
         Caustic: 0.1
         Poison: 0.1 #Fish-edit
         Cellular: 0.1 #Fish-edit
-        Shock: 0.9 #Fish-edit
+        Shock: 0.1 #Fish-edit
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0

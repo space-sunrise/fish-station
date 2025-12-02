@@ -422,10 +422,6 @@
     damageContainer: Biological
   - type: FlashImmunity #Fish-edit
   - type: EyeProtection #Fish-edit
-  - type: ComponentToggler #Fish-edit
-    parent: true
-    components:
-    - type: ThermalVision
   - type: ItemToggle
     predictable: false
     onUse: false

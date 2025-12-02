@@ -189,17 +189,17 @@
     stock: 5
 
 # Лазеры:
-- type: listing
-  id: ERTUplinkWeaponWeaponPulseRifle
-  productEntity: WeaponPulseRifle
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: pulse-r }
-  cost:
-    Bluecrystal: 35
-  categories:
-  - NTLasers
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
+#- type: listing
+#  id: ERTUplinkWeaponWeaponPulseRifle
+#  productEntity: WeaponPulseRifle
+#  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: pulse-r }
+#  cost:
+#    Bluecrystal: 35
+#  categories:
+#  - NTLasers
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
 
 - type: listing
   id: ERTUplinkWeaponSniperPulseCarbine
@@ -230,7 +230,7 @@
   productEntity: WeaponPulseCarbine
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: pulse-c }
   cost:
-    Bluecrystal: 17
+    Bluecrystal: 20 # fish-edit
   categories:
     - NTLasers
   conditions:
@@ -1311,7 +1311,7 @@
   productEntity: PlayerBorgChassisERTBattery
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: cyborg_ert }
   cost:
-    Bluecrystal: 30
+    Bluecrystal: 40
   categories:
     - NTMechs
   conditions:

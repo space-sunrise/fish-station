@@ -17,3 +17,21 @@
     tags:
     - NTUplink
     - WhitelistChameleon
+  - type: UseDelay
+    delay: 6
+  - type: UseDelayOnMeleeHit
+  - type: MeleeThrowOnHit
+    stunTime: 1.5
+    activateOnThrown: true
+    distance: 6
+    speed: 7
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 10
+        Structural: 10
+    bluntStaminaDamageFactor: 5.0
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist

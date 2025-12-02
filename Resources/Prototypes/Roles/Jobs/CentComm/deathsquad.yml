@@ -30,9 +30,9 @@
     mask: ClothingMaskGasDeathSquad
     eyes: ClothingEyesHudSecurity
     ears: ClothingHeadsetAltCentCom
-    gloves: ClothingHandsGlovesCombat
+    gloves: ClothingHandsGlovesDeathSquad
     outerClothing: ClothingOuterHardsuitDeathsquad
-    shoes: ClothingShoesBootsMagAdv
+    shoes: ClothingShoesBootsMagDeathSquad
     id: DeathsquadPDA
     pocket1: EnergySword
     pocket2: EnergyShield
