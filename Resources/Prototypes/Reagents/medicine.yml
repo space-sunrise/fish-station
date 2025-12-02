@@ -868,7 +868,7 @@
       - !type:HealthChange
         damage:
           types:
-            Mangleness: -2.0 #Fish-Edit: boosted by 2x (was -0.5)
+            Mangleness: -1.5 #Fish-Edit
       #Sunrise-End
       - !type:EvenHealthChange
         damage:

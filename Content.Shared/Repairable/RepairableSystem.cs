@@ -39,28 +39,8 @@ public sealed partial class RepairableSystem : EntitySystem
 
         else
         {
-            // Fish-Start: Repair all damage except Mangleness (mechs/cyborgs shouldn't have Mangleness)
-            var damageToRepair = new DamageSpecifier();
-            foreach (var (type, amount) in damageable.Damage.DamageDict)
-            {
-                if (type != "Mangleness" && amount > 0)
-                {
-                    damageToRepair.DamageDict[type] = -amount;
-                }
-            }
-            if (damageToRepair.GetTotal() > 0)
-            {
-                _damageableSystem.TryChangeDamage(ent.Owner, damageToRepair, true, false, origin: args.User);
-            }
-            // Also set Mangleness to 0 if present (but don't log it as repaired)
-            if (damageable.Damage.DamageDict.TryGetValue("Mangleness", out var mangleness) && mangleness > 0)
-            {
-                var manglenessSpec = new DamageSpecifier();
-                manglenessSpec.DamageDict["Mangleness"] = -mangleness;
-                _damageableSystem.TryChangeDamage(ent.Owner, manglenessSpec, true, false, origin: args.User);
-            }
-            _adminLogger.Add(LogType.Healed, $"{ToPrettyString(args.User):user} repaired {ToPrettyString(ent.Owner):target} back to full health");
-            // Fish-End
+            // Repair all damage
+            _damageableSystem.SetAllDamage(ent.Owner, damageable, 0);
         }
 
         var str = Loc.GetString("comp-repairable-repair", ("target", ent.Owner), ("tool", args.Used!));

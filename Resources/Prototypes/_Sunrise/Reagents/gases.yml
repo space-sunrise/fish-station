@@ -122,11 +122,11 @@
         ignoreResistances: true
         damage:
           groups:
-            Burn: -0.7
-            Toxin: -0.7
-            Brute: -0.7
+            Burn: -1 #Fish-Edit
+            Toxin: -1 #Fish-Edit
+            Brute: -1 #Fish-Edit
           types:
-            Mangleness: 0.08 #Fish-Edit: boosted by 2x (was 0.04)
+            Mangleness: 0.08 #Fish-Edit
       - !type:ModifyBleedAmount
         amount: -0.15
       - !type:PopupMessage
@@ -187,7 +187,7 @@
         ignoreResistances: true
         damage:
           types:
-            Mangleness: 1.1 #Fish-Edit: boosted by 2x (was 0.4)
+            Mangleness: 1.1 #Fish-Edit
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold

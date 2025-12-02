@@ -136,7 +136,7 @@
       - !type:HealthChange
         damage:
           types:
-            Mangleness: 0.3
+            Mangleness: 0.2 # Fish-edit
       #Sunrise-End
       - !type:HealthChange
         conditions:
