@@ -250,6 +250,9 @@
     transferAmount: 3 #TODO someone you would need 2 nettles and about 6-7 hits, the DOT is likely to crit them if they are running away with almost no health
     solution: food
     pierceArmor: false
+    blacklist: # Fish-edit
+      tags:
+      - Hardsuit
   - type: Extractable
     grindableSolutionName: food
 
@@ -283,7 +286,10 @@
   - type: MeleeChemicalInjector
     transferAmount: 5
     solution: food
-    pierceArmor: true
+    pierceArmor: false # Fish-edit
+    blacklist: # Fish-edit
+      tags:
+      - Hardsuit
   - type: Extractable
     grindableSolutionName: food
   - type: DamageOnInteract

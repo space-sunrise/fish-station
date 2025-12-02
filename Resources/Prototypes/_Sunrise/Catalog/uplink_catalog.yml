@@ -519,9 +519,9 @@
   productEntity: ClothingBackpackDuffelBoomboxBundle
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 3 # Fish-edit
   cost:
-    Telecrystal: 4
+    Telecrystal: 5 # Fish-edit
   categories:
   - UplinkPointless
 

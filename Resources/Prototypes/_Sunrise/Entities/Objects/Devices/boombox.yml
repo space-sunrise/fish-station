@@ -44,4 +44,4 @@
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
   - type: StaminaDamageOnHit
-    damage: 25
+    damage: 20 # Fish-edit
