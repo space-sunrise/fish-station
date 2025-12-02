@@ -418,8 +418,6 @@
     sprite: Clothing/Mask/squadron.rsi
   - type: Pierceable
     level: Rock
-  - type: ShowHealthBars #Fish-edit - Health HUD
-    damageContainer: Biological
   - type: FlashImmunity #Fish-edit
   - type: EyeProtection #Fish-edit
   - type: ItemToggle
