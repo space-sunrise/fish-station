@@ -42,8 +42,8 @@
     - Cellular
 
 - type: damageGroup
-  id: Exhaustion
-  name: damage-group-exhaustion
+  id: Mangleness
+  name: damage-group-mangleness
   damageTypes:
     - Mangleness # Fish-Edit
 

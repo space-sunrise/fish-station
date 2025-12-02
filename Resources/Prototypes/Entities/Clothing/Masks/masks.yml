@@ -432,6 +432,10 @@
       path: /Audio/_Sunrise/Items/Goggles/deactivate.ogg
     soundFailToActivate:
       path: /Audio/Machines/button.ogg
+  - type: ComponentToggler #Fish-edit
+    parent: true
+    components:
+    - type: ThermalVision
   - type: ToggleClothing
     action: ActionToggleThermalVision
     disableOnUnequip: true

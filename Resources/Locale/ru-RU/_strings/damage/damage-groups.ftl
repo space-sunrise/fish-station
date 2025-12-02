@@ -3,5 +3,5 @@ damage-group-burn = Физические
 damage-group-airloss = Нехватка воздуха
 damage-group-toxin = Токсины
 damage-group-genetic = Генетические
-damage-group-exhaustion = Истощение
+damage-group-mangleness = Истощение
 damage-group-metaphysical = Метафизический
