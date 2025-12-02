@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise edited by Floofers",
+  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise edited by Floofers, protogen by evlewarka (discord eblewarka_)",
   "size": {"x": 32, "y": 32},
   "states": [
     {
@@ -50,6 +50,14 @@
     },
     {
       "name": "vulpine-lines",
+      "directions": 4
+    },
+    {
+      "name": "golo",
+      "directions": 4
+    },
+    {
+      "name": "protogen",
       "directions": 4
     },
     {

@@ -147,6 +147,19 @@
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/ear_markings.rsi
     state: dalmatian
 
+- type: marking
+  id: VulpEarProtogen
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Sunrise/Mobs/Customization/Vulpkanin/ear_markings.rsi
+    state: goloearproto
+  - sprite: _Sunrise/Mobs/Customization/Vulpkanin/ear_markings.rsi
+    state: innerearproto
+  - sprite: _Sunrise/Mobs/Customization/Vulpkanin/ear_markings.rsi
+    state: earproto
+
 # Head Markings (Snout)
 - type: marking
   id: VulpSnoutAlt
@@ -228,6 +241,17 @@
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/head_markings.rsi
     state: patch
+
+- type: marking
+  id: VulpProtogen
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Sunrise/Mobs/Customization/Vulpkanin/head_markings.rsi
+    state: protogen
+  - sprite: _Sunrise/Mobs/Customization/Vulpkanin/head_markings.rsi
+    state: golo
 
 # Head Markings (Head)
 - type: marking
