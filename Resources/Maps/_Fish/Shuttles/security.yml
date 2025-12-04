@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/03/2025 21:45:23
+  time: 12/04/2025 19:16:41
   entityCount: 136
 maps: []
 grids:
@@ -29,7 +29,7 @@ entities:
       name: NT-SEC-M «Песочная сойка»
     - type: Transform
       pos: -0.46875,-0.53125
-      parent: 74
+      parent: 38
     - type: MapGrid
       chunks:
         0,0:
@@ -153,7 +153,8 @@ entities:
             0: 13105
             1: 32904
           0,-1:
-            0: 30464
+            2: 256
+            0: 30208
             1: 135
           -1,0:
             0: 34944
@@ -197,10 +198,25 @@ entities:
           - 0
           - 0
           - 0
+        - volume: 2500
+          temperature: 293.1495
+          moles:
+          - 20.078888
+          - 75.53487
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
-  - uid: 74
+  - uid: 38
     components:
     - type: MetaData
       name: Map Entity
@@ -434,30 +450,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 1.5,1.5
       parent: 1
-  - uid: 136
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -0.5,1.5
-      parent: 1
-- proto: ClosetWall
-  entities:
-  - uid: 38
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.5,-2.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 39
-          - 40
-    - type: Fixtures
-      fixtures: {}
 - proto: ClosetWallEmergencyFilledRandom
   entities:
   - uid: 41
@@ -466,6 +458,34 @@ entities:
       rot: 3.141592653589793 rad
       pos: 1.5,0.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
+- proto: ClosetWallOrange
+  entities:
+  - uid: 39
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,-2.5
+      parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.1465
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: Fixtures
       fixtures: {}
 - proto: ComputerShuttle
@@ -672,6 +692,14 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 2
+- proto: GeneratorRTG
+  entities:
+  - uid: 40
+    components:
+    - type: Transform
+      pos: -0.5,1.5
+      parent: 1
+    - type: CMExplosionEffect
 - proto: GeneratorWallmountAPU
   entities:
   - uid: 75
@@ -795,22 +823,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 1.5,2.5
       parent: 1
-- proto: SheetPlasma
-  entities:
-  - uid: 39
-    components:
-    - type: Transform
-      parent: 38
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 40
-    components:
-    - type: Transform
-      parent: 38
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ShuttleGunSvalinnMachineGun
   entities:
   - uid: 81
@@ -1169,8 +1181,24 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -1.5,-1.5
       parent: 1
+  - uid: 136
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,1.5
+      parent: 1
+    - type: AccessReader
+      access:
+      - - Engineering
+      - - Security
 - proto: WindowReinforcedDirectional
   entities:
+  - uid: 74
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,1.5
+      parent: 1
   - uid: 131
     components:
     - type: Transform
