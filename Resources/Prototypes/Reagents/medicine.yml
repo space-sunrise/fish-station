@@ -1169,7 +1169,7 @@
       - !type:DeconvertCultist
         conditions:
         - !type:ReagentThreshold
-          min: 30
+          min: 10 # Fish-Edit
       # Sunrise-End
     Medicine:
       effects:

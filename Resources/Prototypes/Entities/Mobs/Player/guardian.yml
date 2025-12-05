@@ -276,3 +276,15 @@
     useDelay: 2
   - type: InstantAction
     event: !type:GuardianToggleActionEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionGuardianReturn
+  name: Return to Host
+  description: Immediately returns you to your host.
+  components:
+  - type: Action
+    useDelay: 5
+    icon: Interface/Actions/manifest.png
+  - type: InstantAction
+    event: !type:GuardianReturnActionEvent

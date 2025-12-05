@@ -10,6 +10,8 @@
   - type: Clothing
     sprite: _Fish/Clothing/Hands/Gloves/deathsquad.rsi
   - type: Store
+    refundAllowed: false
+    ownerOnly: true
     balance:
       Bluecrystal: 210
       Crystallite: 210
@@ -26,10 +28,22 @@
     distance: 5
     speed: 5
   - type: MeleeWeapon
-    attackRate: 1
+    attackRate: 1.5
     damage:
       types:
-        Blunt: 10
-        Structural: 10
-    bluntStaminaDamageFactor: 5.0
-    animation: WeaponArcFist
+        Blunt: 15
+        Structural: 15
+    bluntStaminaDamageFactor: 3.0
+
+- type: entity
+  parent: ClothingHandsGlovesDeathSquad
+  id: ClothingHandsPowerGlovesUplinkNTERTDeathSquad
+  suffix: Uplink, 80BC 80C
+  components:
+  - type: Store
+    refundAllowed: false
+    ownerOnly: true
+    balance:
+      Bluecrystal: 80
+      Crystallite: 80
+

@@ -55,11 +55,31 @@ namespace Content.Server.Guardian
             SubscribeLocalEvent<GuardianHostComponent, ComponentShutdown>(OnHostShutdown);
 
             SubscribeLocalEvent<GuardianHostComponent, GuardianToggleActionEvent>(OnPerformAction);
-
-            SubscribeLocalEvent<GuardianComponent, AttackAttemptEvent>(OnGuardianAttackAttempt);
+            SubscribeLocalEvent<GuardianComponent, GuardianReturnActionEvent>(OnReturnAction);
 
             SubscribeLocalEvent<GuardianHostComponent, MechPilotRelayedEvent<GettingAttackedAttemptEvent>>(OnPilotAttackAttempt);
+            SubscribeLocalEvent<GuardianComponent, AttackAttemptEvent>(OnAttackAttempt);
         }
+
+        private void OnAttackAttempt(EntityUid uid, GuardianComponent component, AttackAttemptEvent args)
+        {
+            if (args.Target == component.Host)
+            {
+               args.Cancel();
+               return;
+            }
+
+            if (component.DisableInteraction)
+            {
+                if (args.Target != component.Host)
+                {
+                   _popupSystem.PopupClient(Loc.GetString("guardian-too-far"), uid, uid);
+                   args.Cancel();
+                }
+            }
+        }
+
+
 
         private void OnGuardianShutdown(EntityUid uid, GuardianComponent component, ComponentShutdown args)
         {
@@ -92,6 +112,17 @@ namespace Content.Server.Guardian
             args.Handled = true;
         }
 
+        public void ToggleGuardian(EntityUid user, GuardianHostComponent hostComponent)
+        {
+            if (!TryComp<GuardianComponent>(hostComponent.HostedGuardian, out var guardianComponent))
+                return;
+
+            if (guardianComponent.GuardianLoose)
+                RetractGuardian(user, hostComponent, hostComponent.HostedGuardian.Value, guardianComponent);
+            else
+                ReleaseGuardian(user, hostComponent, hostComponent.HostedGuardian.Value, guardianComponent);
+        }
+
         private void OnGuardianPlayerDetached(EntityUid uid, GuardianComponent component, PlayerDetachedEvent args)
         {
             var host = component.Host;
@@ -115,6 +146,20 @@ namespace Content.Server.Guardian
             }
 
             _popupSystem.PopupEntity(Loc.GetString("guardian-available"), host.Value, host.Value);
+
+            // Check for existing action to prevent duplication
+            var existing = false;
+            foreach (var action in _actionSystem.GetActions(uid))
+            {
+                if (MetaData(action).EntityPrototype?.ID == "ActionGuardianReturn")
+                {
+                    existing = true;
+                    break;
+                }
+            }
+
+            if (!existing)
+                _actionSystem.AddAction(uid, "ActionGuardianReturn");
         }
 
         private void OnHostInit(EntityUid uid, GuardianHostComponent component, ComponentInit args)
@@ -137,14 +182,12 @@ namespace Content.Server.Guardian
             component.ActionEntity = null;
         }
 
-        private void OnGuardianAttackAttempt(EntityUid uid, GuardianComponent component, AttackAttemptEvent args)
+        private void OnReturnAction(EntityUid uid, GuardianComponent component, GuardianReturnActionEvent args)
         {
-            if (args.Cancelled || args.Target != component.Host)
-                return;
+             if (component.Host == null || !TryComp<GuardianHostComponent>(component.Host, out var hostComp))
+                 return;
 
-            // why is this server side code? This should be in shared
-            _popupSystem.PopupCursor(Loc.GetString("guardian-attack-host"), uid, PopupType.LargeCaution);
-            args.Cancel();
+             RetractGuardian(component.Host.Value, hostComp, uid, component);
         }
 
         private void OnPilotAttackAttempt(Entity<GuardianHostComponent> uid, ref MechPilotRelayedEvent<GettingAttackedAttemptEvent> args)
@@ -155,17 +198,6 @@ namespace Content.Server.Guardian
             _popupSystem.PopupCursor(Loc.GetString("guardian-attack-host"), args.Args.Attacker, PopupType.LargeCaution);
 
             args.Args.Cancelled = true;
-        }
-
-        public void ToggleGuardian(EntityUid user, GuardianHostComponent hostComponent)
-        {
-            if (!TryComp<GuardianComponent>(hostComponent.HostedGuardian, out var guardianComponent))
-                return;
-
-            if (guardianComponent.GuardianLoose)
-                RetractGuardian(user, hostComponent, hostComponent.HostedGuardian.Value, guardianComponent);
-            else
-                ReleaseGuardian(user, hostComponent, hostComponent.HostedGuardian.Value, guardianComponent);
         }
 
         /// <summary>
@@ -188,6 +220,7 @@ namespace Content.Server.Guardian
             args.Handled = true;
             UseCreator(args.User, args.Target.Value, uid, component);
         }
+
         private void UseCreator(EntityUid user, EntityUid target, EntityUid injector, GuardianCreatorComponent component)
         {
             if (component.Used)
@@ -353,7 +386,21 @@ namespace Content.Server.Guardian
                 return;
 
             if (!_transform.InRange(guardianXform.Coordinates, hostXform.Coordinates, guardianComponent.DistanceAllowed))
-                RetractGuardian(hostUid, hostComponent, guardianUid, guardianComponent);
+            {
+                if (!guardianComponent.DisableInteraction)
+                {
+                    guardianComponent.DisableInteraction = true;
+                    _popupSystem.PopupEntity(Loc.GetString("guardian-radius-limit"), guardianUid, guardianUid, PopupType.LargeCaution);
+                }
+            }
+            else
+            {
+                if (guardianComponent.DisableInteraction)
+                {
+                    guardianComponent.DisableInteraction = false;
+                    _popupSystem.PopupEntity(Loc.GetString("guardian-in-range"), guardianUid, guardianUid);
+                }
+            }
         }
 
         private void ReleaseGuardian(EntityUid host, GuardianHostComponent hostComponent, EntityUid guardian, GuardianComponent guardianComponent)

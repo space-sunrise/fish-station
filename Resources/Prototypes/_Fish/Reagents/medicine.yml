@@ -36,14 +36,15 @@
       - !type:HealthChange
         damage:
           types:
-            Cellular: -1
-            Mangleness: -3
+            Radiation: 1
+            Mangleness: -2
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 6
         damage:
           types:
-            Cellular: 5
-            Poison: 1
+            Radiation: 5
+            Cellular: 1
+
 

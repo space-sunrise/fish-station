@@ -45,7 +45,6 @@
 
 - type: entity
   id: RandomHumanoidSpawnerDeathSquad
-  name: Death Squad Agent
   suffix: ERTRole, Death Squad
   components:
     - type: Sprite
@@ -95,6 +94,30 @@
         - NamesMilitaryFirstLeader
         - NamesMilitaryLast
       nameFormat: name-format-ert
+
+- type: entity  # Fish-edit
+  id: RandomHumanoidSpawnerDeathSquadElite
+  suffix: ERTRole, Death Squad, Admeme
+  components:
+    - type: Sprite
+      sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
+      state: icon
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+      nameFormat: name-format-ert
+    - type: RandomHumanoidSpawner
+      settings: DeathSquadElite
+
+- type: randomHumanoidSettings
+  id: DeathSquadElite
+  parent: DeathSquad
+  components:
+    - type: Loadout
+      prototypes: [ DeathSquadGearElite ]
+      roleLoadout: [ RoleSurvivalEVA ]
+
 
 
 ## ERT Leader

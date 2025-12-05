@@ -87,6 +87,7 @@
     back: ClothingBackpackDuffelSyndicate
     shoes: ClothingShoesBootsCombatFilled
     id: SyndiPDA
+    pocket2: BaseUplinkRadio0TC # Fish-Edit
   storage:
     back:
     - PinpointerSyndicateNuclear
@@ -109,7 +110,6 @@
     id: SyndiCommanderPDA
     neck: SyndicateWhistle
     #outerClothing: ClothingOuterHardsuitSyndieCommanderBiocode # Sunrise-Edit
-    pocket1: BaseUplinkRadio0TC
   inhand:
   - NukeOpsDeclarationOfWar
   - RemoteNukeOpShuttleController # Sunrise-Edit
@@ -133,6 +133,7 @@
     #shoes: ClothingShoesBootsMagSyndie # Sunrise-Edit
     id: SyndiCorpsmanPDA
     belt: ClothingBeltMilitaryWebbingMedSunriseFilled # Sunrise-Edit
+    pocket2: BaseUplinkRadio0TC # Fish-Edit
   storage:
     back:
     - SyndiHypo
