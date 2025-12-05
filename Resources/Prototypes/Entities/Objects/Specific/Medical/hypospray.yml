@@ -309,7 +309,7 @@
         reagents:
         - ReagentId: Dermaline
           Quantity: 10
-        - ReagentId: Leporazine
+        - ReagentId: Kelotane
           Quantity: 10
 
 - type: entity
@@ -467,18 +467,20 @@
     emptySpriteName: dexpen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 40
+    transferAmount: 45
     onlyAffectsMobs: false
     injectOnly: true
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 40
+        maxVol: 45
         reagents:
         - ReagentId: Saline
           Quantity: 20
         - ReagentId: DexalinPlus
           Quantity: 20
+        - ReagentId: TranexamicAcid
+          Quantity: 5
 
 - type: entity
   name: space medipen
@@ -551,10 +553,14 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 30
+        maxVol: 50
         reagents:
         - ReagentId: Stimulants
           Quantity: 30
+        - ReagentId: Epinephrine
+          Quantity: 15
+        - ReagentId: TranexamicAcid
+          Quantity: 5
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
@@ -595,10 +601,14 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 15
+        maxVol: 24
         reagents:
         - ReagentId: Stimulants
           Quantity: 15
+        - ReagentId: Epinephrine
+          Quantity: 7
+        - ReagentId: TranexamicAcid
+          Quantity: 2
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
@@ -636,15 +646,19 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 30
+        maxVol: 40
         reagents:
+        - ReagentId: Bicaridine
+          Quantity: 15
         - ReagentId: Omnizine
-          Quantity: 25
-        - ReagentId: TranexamicAcid
           Quantity: 5
+        - ReagentId: Dermaline
+          Quantity: 10
+        - ReagentId: HemostaticPowder
+          Quantity: 10
   - type: Hypospray
     solutionName: pen
-    transferAmount: 30
+    transferAmount: 40
     onlyAffectsMobs: false
     injectOnly: true
   - type: StaticPrice

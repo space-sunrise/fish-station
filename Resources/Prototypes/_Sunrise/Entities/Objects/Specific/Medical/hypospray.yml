@@ -15,16 +15,14 @@
       pen:
         maxVol: 100
         reagents:
-        - ReagentId: Epinephrine
-          Quantity: 10
         - ReagentId: Omnizine
           Quantity: 20
-        - ReagentId: Saline
-          Quantity: 20
-        - ReagentId: Puncturase
-          Quantity: 25
+        - ReagentId: Bicaridine
+          Quantity: 40
         - ReagentId: Dermaline
-          Quantity: 25
+          Quantity: 20
+        - ReagentId: HemostaticPowder
+          Quantity: 20
   - type: ExaminableSolution
     solution: pen
   - type: Hypospray
@@ -137,11 +135,9 @@
         maxVol: 30
         reagents:
         - ReagentId: Ephedrine
-          Quantity: 16
+          Quantity: 15
         - ReagentId: Epinephrine
-          Quantity: 8
-        - ReagentId: Tricordrazine
-          Quantity: 6
+          Quantity: 15
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
@@ -182,10 +178,12 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 15
+        maxVol: 14
         reagents:
         - ReagentId: Ephedrine
-          Quantity: 15
+          Quantity: 7
+        - ReagentId: Epinephrine
+          Quantity: 7
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false

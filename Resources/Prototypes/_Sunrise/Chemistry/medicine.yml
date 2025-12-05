@@ -18,7 +18,7 @@
       - !type:HealthChange
         damage:
           types:
-            Mangleness: 0.32 #Fish-Edit: boosted by 2x (was 0.16)
+            Mangleness: 0.106 #Fish-Edit
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
