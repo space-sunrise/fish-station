@@ -20,4 +20,5 @@ ent-ClothingHandsGlovesDeathSquadUplink = death squad power gloves
 
 ent-RandomHumanoidSpawnerDeathSquadElite = Death Squad Agent
     .suffix = 210 TC
+    .desc = { "" }
 

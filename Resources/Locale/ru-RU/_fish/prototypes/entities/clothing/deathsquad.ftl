@@ -18,3 +18,4 @@ ent-ClothingHandsPowerGlovesUplinkNTERTDeathSquad = Боевые рукавиц�
 
 ent-RandomHumanoidSpawnerDeathSquadElite = Агент Эскадрона Смерти
     .suffix = 210 БК и К
+    .desc = { "" }
