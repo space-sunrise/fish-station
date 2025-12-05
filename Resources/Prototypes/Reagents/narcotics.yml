@@ -14,12 +14,12 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 1 # Fish-edit
+            Poison: 0.75
             Mangleness: 1.1 # Fish-edit
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 30
+          min: 20 # Fish-edit
         damage:
           types:
             Poison: 2 # this is added to the base damage of the meth.

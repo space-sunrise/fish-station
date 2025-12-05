@@ -77,6 +77,8 @@
       amount: 1
     Benzene:
       amount: 1
+    Radium:
+      amount: 1
     Plasma:
       amount: 1
       catalyst: true

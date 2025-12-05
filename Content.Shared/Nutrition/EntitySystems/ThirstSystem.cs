@@ -251,7 +251,7 @@ public sealed class ThirstSystem : EntitySystem
                     {
                         ModifyThirst(uid, thirst, -normalizedConsumption);
                         var healAmount = new DamageSpecifier();
-                        healAmount.DamageDict["Mangleness"] = -0.05f * (float)thirst.UpdateRate.TotalSeconds;
+                        healAmount.DamageDict["Mangleness"] = -0.025f * (float)thirst.UpdateRate.TotalSeconds;
                         _damageable.TryChangeDamage(uid, healAmount, true, false);
                     }
                 }
