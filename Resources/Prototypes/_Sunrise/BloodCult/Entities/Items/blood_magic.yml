@@ -8,7 +8,7 @@
     state: icon
   - type: CultBloodSpell
   - type: UseDelay
-    delay: 3
+    delay: 0.5
   - type: Item
     size: Ginormous
     inhandVisuals:

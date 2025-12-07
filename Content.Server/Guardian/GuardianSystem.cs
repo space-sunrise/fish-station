@@ -59,6 +59,7 @@ namespace Content.Server.Guardian
 
             SubscribeLocalEvent<GuardianHostComponent, MechPilotRelayedEvent<GettingAttackedAttemptEvent>>(OnPilotAttackAttempt);
             SubscribeLocalEvent<GuardianComponent, AttackAttemptEvent>(OnAttackAttempt);
+            SubscribeLocalEvent<GuardianComponent, InteractionAttemptEvent>(OnInteractAttempt);
         }
 
         private void OnAttackAttempt(EntityUid uid, GuardianComponent component, AttackAttemptEvent args)
@@ -75,6 +76,18 @@ namespace Content.Server.Guardian
                 {
                    _popupSystem.PopupClient(Loc.GetString("guardian-too-far"), uid, uid);
                    args.Cancel();
+                }
+            }
+        }
+
+        private void OnInteractAttempt(EntityUid uid, GuardianComponent component, ref InteractionAttemptEvent args)
+        {
+            if (component.DisableInteraction)
+            {
+                if (args.Target != component.Host)
+                {
+                   _popupSystem.PopupClient(Loc.GetString("guardian-too-far"), uid, uid);
+                   args.Cancelled = true;
                 }
             }
         }
@@ -398,7 +411,7 @@ namespace Content.Server.Guardian
                 if (guardianComponent.DisableInteraction)
                 {
                     guardianComponent.DisableInteraction = false;
-                    _popupSystem.PopupEntity(Loc.GetString("guardian-in-range"), guardianUid, guardianUid);
+                    _popupSystem.PopupEntity(Loc.GetString("guardian-in-range"), guardianUid, guardianUid, PopupType.LargeCaution);
                 }
             }
         }
