@@ -150,7 +150,7 @@
       - !type:HealthChange
         damage:
           types:
-            Mangleness: 0.25 #Fish-Edit
+            Mangleness: 0.15 #Fish-Edit
         #Sunrise-End
       - !type:EvenHealthChange
         damage:
@@ -592,7 +592,7 @@
     - !type:PlantPhalanximine
       conditions:
       - !type:ReagentThreshold
-        min: 4
+        min: 4a
   metabolisms:
     Medicine:
       metabolismRate: 0.1
