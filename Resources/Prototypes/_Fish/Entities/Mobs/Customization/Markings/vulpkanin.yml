@@ -4,11 +4,11 @@
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin]
   sprites:
-  - sprite: _Sunrise/Mobs/Customization/Vulpkanin/ear_markings.rsi
+  - sprite: _Fish/Mobs/Customization/Vulpkanin/ear_markings.rsi
     state: goloearproto
-  - sprite: _Sunrise/Mobs/Customization/Vulpkanin/ear_markings.rsi
+  - sprite: _Fish/Mobs/Customization/Vulpkanin/ear_markings.rsi
     state: innerearproto
-  - sprite: _Sunrise/Mobs/Customization/Vulpkanin/ear_markings.rsi
+  - sprite: _Fish/Mobs/Customization/Vulpkanin/ear_markings.rsi
     state: earproto
 
 - type: marking
@@ -17,7 +17,7 @@
   markingCategory: Snout
   speciesRestriction: [Vulpkanin]
   sprites:
-  - sprite: _Sunrise/Mobs/Customization/Vulpkanin/head_markings.rsi
+  - sprite: _Fish/Mobs/Customization/Vulpkanin/head_markings.rsi
     state: protogen
-  - sprite: _Sunrise/Mobs/Customization/Vulpkanin/head_markings.rsi
+  - sprite: _Fish/Mobs/Customization/Vulpkanin/head_markings.rsi
     state: golo
