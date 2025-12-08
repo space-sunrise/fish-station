@@ -5,7 +5,6 @@
   playTimeTracker: JobBlueShieldOperative
   requirements:
     - !type:DiscordRoleRequirement # fish-edit
-      role: BlueShield Operative
     # - !type:DepartmentTimeRequirement
     #   department: BlueShield
     #   time: 124000 # 40 hrs
