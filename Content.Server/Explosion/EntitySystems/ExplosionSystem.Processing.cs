@@ -2,7 +2,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Explosion.Components;
-using Content.Shared.Atmos.Components;
+using Content.Shared.Atmos.Components; //Fish-edit
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
 using Content.Shared.Database;
@@ -67,11 +67,12 @@ public sealed partial class ExplosionSystem
     private readonly List<(EntityUid, DamageSpecifier)> _toDamage = new();
 
     private List<EntityUid> _anchored = new();
-
+//Fish-start
     /// <summary>
     ///     Tracks accumulated damage per entity for gas tank explosions (capped at 300).
     /// </summary>
     private Dictionary<EntityUid, float> _gasTankExplosionDamage = new();
+//Fish-end
 
     private void OnMapRemoved(MapRemovedEvent ev)
     {
@@ -88,6 +89,8 @@ public sealed partial class ExplosionSystem
     /// <summary>
     ///     Process the explosion queue.
     /// </summary>
+
+//Fish-start
     public override void Update(float frameTime)
     {
         if (_activeExplosion == null && _explosionQueue.Count == 0)
@@ -121,7 +124,7 @@ public sealed partial class ExplosionSystem
                     // Clear damage tracking for new explosion if it's a gas tank explosion
                     if (_activeExplosion?.Cause != null && HasComp<GasTankExplosionComponent>(_activeExplosion.Cause.Value))
                         _gasTankExplosionDamage.Clear();
-
+//Fish-end
                 // explosion spawning can be null if something somewhere went wrong. (e.g., negative explosion
                 // intensity).
                 if (_activeExplosion == null)
@@ -156,11 +159,11 @@ public sealed partial class ExplosionSystem
                 var comp = EnsureComp<TimedDespawnComponent>(_activeExplosion.VisualEnt);
                 comp.Lifetime = _cfg.GetCVar(CCVars.ExplosionPersistence);
                 _appearance.SetData(_activeExplosion.VisualEnt, ExplosionAppearanceData.Progress, int.MaxValue);
-
+//fish-start
                 // Clear damage tracking when explosion finishes
                 if (_activeExplosion.Cause != null)
                     _gasTankExplosionDamage.Clear();
-
+//fish-end
                 _activeExplosion = null;
             }
 #if EXCEPTION_TOLERANCE
@@ -463,7 +466,7 @@ public sealed partial class ExplosionSystem
         if (originalDamage != null)
         {
             GetEntitiesToDamage(uid, originalDamage, id);
-
+//fish-start
             // Check if this is a gas tank explosion that needs damage capping
             bool isGasTankExplosion = cause != null && HasComp<GasTankExplosionComponent>(cause.Value);
             const float maxGasTankDamage = 300f;
@@ -512,7 +515,7 @@ public sealed partial class ExplosionSystem
 
                 // TODO EXPLOSIONS turn explosions into entities, and pass the the entity in as the damage origin.
                 _damageableSystem.TryChangeDamage(entity, finalDamage * _damageableSystem.UniversalExplosionDamageModifier, ignoreResistances: true);
-
+//fish-end
             }
         }
 

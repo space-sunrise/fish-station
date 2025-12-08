@@ -572,7 +572,7 @@
         conditions: # Fish-edit
         - !type:ReagentThreshold
           min: 2
-          
+
 - type: reagent
   id: Honk
   name: reagent-name-honk
@@ -669,7 +669,7 @@
     Poison:
       effects:
       - !type:Electrocute
-        probability: 0.9
+        probability: 0.9 # Fish-edit
         conditions: # Sunrise-Edit
         - !type:ReagentThreshold
           min: 2 # Fish-edit

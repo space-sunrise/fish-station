@@ -11,11 +11,11 @@
     ClothingUniformJumpsuitCentcomFormal: 3
     ClothingUniformJumpskirtCentcomFormalDress: 3
     ClothingHeadHatCentcom: 3
-    # ClothingHeadHatCentcomcap: 3
+    # ClothingHeadHatCentcomcap: 3 #Fish-edit
     ClothingMaskGasCentcom: 3
     ClothingHeadsetCentCom: 3
     ClothingOuterWinterCentcom: 3
-    # ClothingOuterCoatExpensive: 1
+    # ClothingOuterCoatExpensive: 1 #Fish-edit
     ClothingNeckScarfStripedCentcom: 3
     ClothingNeckCloakCentcom: 3
   contrabandInventory:

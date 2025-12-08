@@ -25,9 +25,11 @@
     - state: idblueshield
   - type: Item
     heldPrefix: gold
+#Fish-start
   - type: Access
     groups:
     - AllAccess
+#Fish-end
   - type: PresetIdCard
     job: BlueShieldEnsign
 
@@ -42,9 +44,11 @@
     - state: idcentcom
   - type: Item
     heldPrefix: blue
+#Fish-start
   - type: Access
     groups:
     - AllAccess
+#Fish-end
   - type: PresetIdCard
     job: BlueShieldOperative
 

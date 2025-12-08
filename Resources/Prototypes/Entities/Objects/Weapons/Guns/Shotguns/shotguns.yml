@@ -105,7 +105,7 @@
     - Back
     - suitStorage
   - type: AmmoCounter
-  - type: GunRequiresWield
+  - type: GunRequiresWield #Fish-edit
   - type: Gun
     fireRate: 2
     selectedMode: FullAuto
