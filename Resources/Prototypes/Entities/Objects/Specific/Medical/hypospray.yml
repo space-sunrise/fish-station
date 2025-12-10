@@ -643,8 +643,10 @@
       pen:
         maxVol: 40
         reagents:
-        - ReagentId: Bicaridine
+        - ReagentId: Tricordrazine
           Quantity: 15
+        - ReagentId: Vitera
+          Quantity: 5
         - ReagentId: Omnizine
           Quantity: 5
         - ReagentId: Dermaline
