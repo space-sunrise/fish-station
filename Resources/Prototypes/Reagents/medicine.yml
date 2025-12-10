@@ -592,7 +592,7 @@
     - !type:PlantPhalanximine
       conditions:
       - !type:ReagentThreshold
-        min: 4a
+        min: 4
   metabolisms:
     Medicine:
       metabolismRate: 0.1
