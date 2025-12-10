@@ -179,9 +179,14 @@
       collection: PunchHard
     animation: WeaponArcFist
     mustBeEquippedToUse: true
+  # Fish-Start
+  - type: UseDelay
+    delay: 2
+  - type: UseDelayOnMeleeHit
   - type: MeleeThrowOnHit
-    distance: 0.5
+    distance: 1
     speed: 5
+  # Fish-End
   - type: Reflect
     reflectProb: .05
   - type: Insulated

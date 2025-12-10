@@ -1,5 +1,5 @@
 ent-RandomHumanoidSpawnerDeathSquad = Death Squad Agent
-    .suffix = ERTRole, Death Squad
+    .suffix = 80 TC
     .desc = { "" }
 ent-RandomHumanoidSpawnerERTLeader = ERT leader
     .suffix = ERTRole, Basic

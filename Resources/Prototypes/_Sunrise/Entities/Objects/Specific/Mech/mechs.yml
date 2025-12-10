@@ -255,5 +255,5 @@
       mech-battery-slot:
       - PowerCageMedium
   - type: AccessReader
-    access: [["Mining"]]
+    access: [["Salvage"]] # Fish-edit
 

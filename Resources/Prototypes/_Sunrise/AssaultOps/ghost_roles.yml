@@ -4,8 +4,8 @@
   id: SpawnPointAssaultOpsCommander
   components:
   - type: GhostRole
-    name: AssaultOps Commander
-    description: You are a syndicate operative assigned to the destruction of the station. Your task as an antagonist is to do whatever is necessary to achieve this goal.
+    name: ghost-role-information-assault-ops-commander-name # Fish-edit
+    description: ghost-role-information-assault-ops-commander-description # Fish-edit
     rules: ghost-role-information-rules-default-team-antagonist
     raffle:
       settings: default
@@ -24,8 +24,8 @@
   id: SpawnPointAssaultOpsOperative
   components:
   - type: GhostRole
-    name: AssaultOps Operative
-    description: You are a syndicate operative assigned to the destruction of the station. Your task as an antagonist is to do whatever is necessary to achieve this goal.
+    name: ghost-role-information-assault-ops-operative-name # Fish-edit 
+    description: ghost-role-information-assault-ops-operative-description # Fish-edit
     rules: ghost-role-information-rules-default-team-antagonist
     raffle:
       settings: default

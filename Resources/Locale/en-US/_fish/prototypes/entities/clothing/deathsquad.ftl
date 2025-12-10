@@ -16,3 +16,9 @@ ent-ClothingHandsGlovesDeathSquadBiocode = death squad combat gloves
 ent-ClothingHandsGlovesDeathSquadUplink = death squad power gloves
     .desc = Elite tactical gloves with enhanced striking power and a built-in uplink for Death Squad operations.
     .suffix = Uplink, BIOCODE
+
+
+ent-RandomHumanoidSpawnerDeathSquadElite = Death Squad Agent
+    .suffix = 210 TC
+    .desc = { "" }
+

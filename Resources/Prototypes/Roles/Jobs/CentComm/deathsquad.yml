@@ -25,7 +25,7 @@
     mask: ClothingMaskGasDeathSquad
     eyes: ClothingEyesHudOmni
     ears: ClothingHeadsetAltCentCom
-    gloves: ClothingHandsGlovesDeathSquad
+    gloves: ClothingHandsPowerGlovesUplinkNTERTDeathSquad # Fish-edit
     outerClothing: ClothingOuterHardsuitDeathsquad
     shoes: ClothingShoesBootsMagDeathSquad
     id: DeathsquadPDA
@@ -56,3 +56,10 @@
   equipment:
     head: ClothingHeadHelmetHardsuitDeathsquad
     neck: ClothingNeckBronzeheart
+# Fish-start
+- type: startingGear
+  id: DeathSquadGearElite
+  parent: DeathSquadGear
+  equipment:
+    gloves: ClothingHandsGlovesDeathSquad
+# Fish-end

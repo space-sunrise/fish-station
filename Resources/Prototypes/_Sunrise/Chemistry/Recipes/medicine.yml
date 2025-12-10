@@ -66,6 +66,8 @@
       amount: 1
     Fersilicite:
       amount: 1
+    Bicaridine: # Fish-edit
+      amount: 1
   products:
     HemostaticPowder: 2
 
