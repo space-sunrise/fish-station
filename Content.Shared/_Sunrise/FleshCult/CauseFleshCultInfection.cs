@@ -26,6 +26,8 @@ public sealed partial class CauseFleshCultInfection : EntityEffect
                 var solutionContainerSystem = entityManager.System<SharedSolutionContainerSystem>();
                 if (solutionContainerSystem.ResolveSolution(args.TargetEntity, bloodstream.ChemicalSolutionName, ref bloodstream.ChemicalSolution, out var chemSolution))
                 {
+                    // Remove Carol reagent and replace with Unstable Mutagen
+                    chemSolution.RemoveReagent("Carol", FixedPoint2.New(5));
                     chemSolution.AddReagent("UnstableMutagen", FixedPoint2.New(5));
                 }
             }

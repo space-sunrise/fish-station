@@ -299,7 +299,7 @@ public sealed class HungerSystem : EntitySystem
                     {
                         ModifyHunger(uid, -normalizedConsumption, hunger);
                         var healAmount = new DamageSpecifier();
-                        healAmount.DamageDict["Mangleness"] = -0.025f * (float)hunger.ThresholdUpdateRate.TotalSeconds;
+                        healAmount.DamageDict["Mangleness"] = -0.01f * (float)hunger.ThresholdUpdateRate.TotalSeconds;
                         _damageable.TryChangeDamage(uid, healAmount, true, false);
                     }
                 }

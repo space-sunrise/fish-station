@@ -72,11 +72,8 @@ namespace Content.Server.Guardian
 
             if (component.DisableInteraction)
             {
-                if (args.Target != component.Host)
-                {
-                   _popupSystem.PopupClient(Loc.GetString("guardian-too-far"), uid, uid);
-                   args.Cancel();
-                }
+                _popupSystem.PopupClient(Loc.GetString("guardian-too-far"), uid, uid);
+                args.Cancel();
             }
         }
 
@@ -84,11 +81,8 @@ namespace Content.Server.Guardian
         {
             if (component.DisableInteraction)
             {
-                if (args.Target != component.Host)
-                {
-                   _popupSystem.PopupClient(Loc.GetString("guardian-too-far"), uid, uid);
-                   args.Cancelled = true;
-                }
+                _popupSystem.PopupClient(Loc.GetString("guardian-too-far"), uid, uid);
+                args.Cancelled = true;
             }
         }
 
