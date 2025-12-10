@@ -185,10 +185,10 @@ ghost-role-information-ert-medical-description = Assist with medical efforts to 
 ghost-role-information-cburn-agent-name = CBURN Agent
 ghost-role-information-cburn-agent-description = A highly trained CentComm agent, capable of dealing with various threats.
 
-ghost-role-information-cburn-leader-name = CBURN Leader ## Fish-edit
+ghost-role-information-cburn-leader-name = CBURN Leader
 ghost-role-information-cburn-leader-description = A highly trained CentComm agent, capable of dealing with various threats. ## Fish-edit
 
-ghost-role-information-cburn-RN Leaderagent-name = CBU ## Fish-edit
+ghost-role-information-cburn-RN-Leaderagent-name = CBU
 ghost-role-information-cburn-leader-description = A highly trained CentComm agent, capable of dealing with various threats. ## Fish-edit
 
 ghost-role-information-centcom-official-name = CentComm Official
