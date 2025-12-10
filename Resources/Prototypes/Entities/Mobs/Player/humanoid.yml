@@ -94,8 +94,8 @@
         - NamesMilitaryFirstLeader
         - NamesMilitaryLast
       nameFormat: name-format-ert
-
-- type: entity  # Fish-edit
+# Fish-start
+- type: entity
   id: RandomHumanoidSpawnerDeathSquadElite
   suffix: ERTRole, Death Squad, Admeme
   components:
@@ -117,7 +117,7 @@
     - type: Loadout
       prototypes: [ DeathSquadGearElite ]
       roleLoadout: [ RoleSurvivalEVA ]
-
+# Fish-end
 
 
 ## ERT Leader
