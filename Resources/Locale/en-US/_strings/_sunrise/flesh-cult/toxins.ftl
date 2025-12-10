@@ -1,3 +1,4 @@
+# Fish-edit - FleshCult reagent localizations
 reagent-name-carol = Carol
 reagent-desc-carol = {""}
 reagent-name-flesh-acid = Flesh Acid

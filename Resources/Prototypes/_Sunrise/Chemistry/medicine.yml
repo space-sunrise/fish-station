@@ -7,8 +7,8 @@
   flavor: medicine
   color: "#8b0b47"
   metabolisms:
-    metabolismRate: 0.25 #Fish-Edit
     Medicine:
+      metabolismRate: 0.25 #Fish-Edit
       effects:
       - !type:ModifyBleedAmount
         amount: -4 #Fish-Edit

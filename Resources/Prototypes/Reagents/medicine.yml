@@ -1169,7 +1169,7 @@
       - !type:DeconvertCultist
         conditions:
         - !type:ReagentThreshold
-          min: 10 # Fish-Edit
+          min: 15 # Fish-Edit
       # Sunrise-End
     Medicine:
       effects:
@@ -1203,7 +1203,7 @@
             Heat: -0.5
             Shock: -0.5
             Cold: -0.5
-            Mangleness: 0.05 #Fish-Edit: boosted by 2x (was 0.025)
+            Mangleness: 0.05 #Fish-Edit
             # Sunrise-End
   reactiveEffects:
     Unholy:
