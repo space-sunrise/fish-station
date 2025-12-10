@@ -22,7 +22,7 @@
     stampedColor: "#33CCFFFF"
     stampState: "paper_stamp-cmo"
   - type: Sprite
-    sprite: _Sunrise/Objects/Misc/stamps.rsi
+    sprite: _Fish/Objects/Misc/stamps.rsi
     state: stamp-senior-cmo
 
 - type: entity
@@ -35,7 +35,7 @@
     stampedColor: "#FF33CCFF"
     stampState: "paper_stamp-hos"
   - type: Sprite
-    sprite: _Sunrise/Objects/Misc/stamps.rsi
+    sprite: _Fish/Objects/Misc/stamps.rsi
     state: stamp-senior-hos
 
 - type: entity
@@ -48,7 +48,7 @@
     stampedColor: "#C69B17FF"
     stampState: "paper_stamp-ce"
   - type: Sprite
-    sprite: _Sunrise/Objects/Misc/stamps.rsi
+    sprite: _Fish/Objects/Misc/stamps.rsi
     state: stamp-senior-ce
 
 - type: entity
@@ -61,5 +61,5 @@
     stampedColor: "#A23E3EFF"
     stampState: "paper_stamp-rd"
   - type: Sprite
-    sprite: _Sunrise/Objects/Misc/stamps.rsi
+    sprite: _Fish/Objects/Misc/stamps.rsi
     state: stamp-senior-rd

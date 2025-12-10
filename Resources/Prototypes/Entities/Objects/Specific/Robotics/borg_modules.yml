@@ -875,6 +875,7 @@
     hands:
     - item: HypoBorgMedical # Sunrise-Edit
     - item: HyposprayMedical # Sunrise-Edit
+    # - item: BorgDropper #Fish-edit
     - item: Syringe
     - item: BaseChemistryEmptyVial
       hand:

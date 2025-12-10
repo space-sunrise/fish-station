@@ -700,6 +700,8 @@
     stateBaseClosed: hop
     stateDoorOpen: hop_open
     stateDoorClosed: representative_door
+#Fish-start
   - type: StorageFill
     contents:
     - id: HandheldFax
+#Fish-end

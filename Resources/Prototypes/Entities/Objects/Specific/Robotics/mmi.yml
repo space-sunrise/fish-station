@@ -17,7 +17,7 @@
   - type: MMI
   - type: BorgBrain
   - type: BlockMovement
-    blockInteraction: false
+    blockInteraction: false #Fish-edit
   - type: Examiner
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
@@ -100,7 +100,7 @@
 #      stopSearchVerbPopup: positronic-brain-stopped-searching
 #      job: Borg
     - type: BlockMovement
-      blockInteraction: false
+      blockInteraction: false #Fish-edit
     - type: Examiner
 
     - type: NameIdentifier

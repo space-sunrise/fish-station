@@ -30,7 +30,7 @@ public sealed partial class CCVars
     ///     Goes from 0.2 (20% minimum) to 1 (regular amounts of recoil) // Fish-Edit
     /// </summary>
     public static readonly CVarDef<float> ScreenShakeIntensity =
-        CVarDef.Create("accessibility.screen_shake_intensity", 0.5f, CVar.CLIENTONLY | CVar.ARCHIVE);
+        CVarDef.Create("accessibility.screen_shake_intensity", 0.5f, CVar.CLIENTONLY | CVar.ARCHIVE); // Fish-Edit
 
     /// <summary>
     ///     A generic toggle for various visual effects that are color sensitive.

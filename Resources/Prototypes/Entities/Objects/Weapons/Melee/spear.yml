@@ -171,12 +171,12 @@
     damage:
       types:
         Piercing: 10
-        Radiation: 5
+        Radiation: 5 #Fish-edit
   - type: DamageOtherOnHit
     damage:
       types:
         Piercing: 12
-        Radiation: 5
+        Radiation: 5 #Fish-edit
   - type: Construction
     graph: SpearUranium
 
@@ -217,7 +217,7 @@
 
 - type: entity
   name: sharkminnow tooth spear
-  parent: Spear 
+  parent: Spear
   id: SpearSharkMinnow
   description: A spear with a sharkminnow tooth as a tip.
   components:
