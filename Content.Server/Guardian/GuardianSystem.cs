@@ -55,10 +55,11 @@ namespace Content.Server.Guardian
             SubscribeLocalEvent<GuardianHostComponent, ComponentShutdown>(OnHostShutdown);
 
             SubscribeLocalEvent<GuardianHostComponent, GuardianToggleActionEvent>(OnPerformAction);
-            SubscribeLocalEvent<GuardianComponent, GuardianReturnActionEvent>(OnReturnAction);
 
             SubscribeLocalEvent<GuardianHostComponent, MechPilotRelayedEvent<GettingAttackedAttemptEvent>>(OnPilotAttackAttempt);
+            // Fish-start
             SubscribeLocalEvent<GuardianComponent, AttackAttemptEvent>(OnAttackAttempt);
+            SubscribeLocalEvent<GuardianComponent, GuardianReturnActionEvent>(OnReturnAction);
             SubscribeLocalEvent<GuardianComponent, InteractionAttemptEvent>(OnInteractAttempt);
         }
 
@@ -85,7 +86,7 @@ namespace Content.Server.Guardian
                 args.Cancelled = true;
             }
         }
-
+ // Fish-end
 
 
         private void OnGuardianShutdown(EntityUid uid, GuardianComponent component, ComponentShutdown args)
@@ -119,6 +120,7 @@ namespace Content.Server.Guardian
             args.Handled = true;
         }
 
+        // Fish-start
         public void ToggleGuardian(EntityUid user, GuardianHostComponent hostComponent)
         {
             if (!TryComp<GuardianComponent>(hostComponent.HostedGuardian, out var guardianComponent))
@@ -129,7 +131,7 @@ namespace Content.Server.Guardian
             else
                 ReleaseGuardian(user, hostComponent, hostComponent.HostedGuardian.Value, guardianComponent);
         }
-
+        // Fish-end
         private void OnGuardianPlayerDetached(EntityUid uid, GuardianComponent component, PlayerDetachedEvent args)
         {
             var host = component.Host;
@@ -153,7 +155,7 @@ namespace Content.Server.Guardian
             }
 
             _popupSystem.PopupEntity(Loc.GetString("guardian-available"), host.Value, host.Value);
-
+            //Fish-start
             // Check for existing action to prevent duplication
             var existing = false;
             foreach (var action in _actionSystem.GetActions(uid))
@@ -167,6 +169,7 @@ namespace Content.Server.Guardian
 
             if (!existing)
                 _actionSystem.AddAction(uid, "ActionGuardianReturn");
+            //Fish-end
         }
 
         private void OnHostInit(EntityUid uid, GuardianHostComponent component, ComponentInit args)
@@ -188,7 +191,7 @@ namespace Content.Server.Guardian
             QueueDel(component.ActionEntity);
             component.ActionEntity = null;
         }
-
+        // Fish-start
         private void OnReturnAction(EntityUid uid, GuardianComponent component, GuardianReturnActionEvent args)
         {
              if (component.Host == null || !TryComp<GuardianHostComponent>(component.Host, out var hostComp))
@@ -196,6 +199,7 @@ namespace Content.Server.Guardian
 
              RetractGuardian(component.Host.Value, hostComp, uid, component);
         }
+        // Fish-end
 
         private void OnPilotAttackAttempt(Entity<GuardianHostComponent> uid, ref MechPilotRelayedEvent<GettingAttackedAttemptEvent> args)
         {
@@ -391,7 +395,7 @@ namespace Content.Server.Guardian
 
             if (!guardianComponent.GuardianLoose)
                 return;
-
+            // Fish-start
             if (!_transform.InRange(guardianXform.Coordinates, hostXform.Coordinates, guardianComponent.DistanceAllowed))
             {
                 if (!guardianComponent.DisableInteraction)
@@ -408,6 +412,7 @@ namespace Content.Server.Guardian
                     _popupSystem.PopupEntity(Loc.GetString("guardian-in-range"), guardianUid, guardianUid, PopupType.LargeCaution);
                 }
             }
+            // Fish-end
         }
 
         private void ReleaseGuardian(EntityUid host, GuardianHostComponent hostComponent, EntityUid guardian, GuardianComponent guardianComponent)

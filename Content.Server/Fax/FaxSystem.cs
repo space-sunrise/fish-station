@@ -37,6 +37,7 @@ using Content.Shared.Ghost;
 using Content.Shared.Inventory;
 using Robust.Server.Containers;
 using Content.Server.Storage.EntitySystems;
+using Content.Shared.Item;
 using Robust.Shared.Utility;
 
 // sunrise-end
@@ -300,14 +301,14 @@ public sealed class FaxSystem : EntitySystem
                 case FaxConstants.FaxPongCommand:
                     if (!args.Data.TryGetValue(FaxConstants.FaxNameData, out string? faxName))
                         return;
-
+                    // Fish-start
                     // Prevent duplicates: if a fax with this name already exists in KnownFaxes but with a different address, remove the old one
                     var existingAddress = component.KnownFaxes.FirstOrDefault(x => x.Value == faxName).Key;
                     if (existingAddress != null && existingAddress != args.SenderAddress)
                     {
                         component.KnownFaxes.Remove(existingAddress);
                     }
-
+                    // Fish-end
                     component.KnownFaxes[args.SenderAddress] = faxName;
 
                     UpdateUserInterface(uid, component);

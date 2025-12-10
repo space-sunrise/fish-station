@@ -17,7 +17,7 @@ public sealed partial class CauseFleshCultInfection : EntityEffect
     public override void Effect(EntityEffectBaseArgs args)
     {
         var entityManager = args.EntityManager;
-
+        // Fish-start
         if (entityManager.HasComponent<MindShieldComponent>(args.TargetEntity))
         {
             // Inject into chemical solution (bloodstream) specifically, like hyposprays/syringes do
@@ -31,7 +31,7 @@ public sealed partial class CauseFleshCultInfection : EntityEffect
                     chemSolution.AddReagent("UnstableMutagen", FixedPoint2.New(5));
                 }
             }
-        }
+        } // Fish-end
         else
         {
              entityManager.EnsureComponent<PendingFleshCultistComponent>(args.TargetEntity);

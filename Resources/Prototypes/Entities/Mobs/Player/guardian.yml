@@ -277,6 +277,7 @@
   - type: InstantAction
     event: !type:GuardianToggleActionEvent
 
+  # Fish-start
 - type: entity
   parent: BaseMentalAction
   id: ActionGuardianReturn
@@ -288,3 +289,4 @@
     icon: Interface/Actions/manifest.png
   - type: InstantAction
     event: !type:GuardianReturnActionEvent
+    # Fish-end
