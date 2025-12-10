@@ -307,6 +307,6 @@
     fireStacks: .15
   - type: Store
     balance:
-      Bluecrystal: 80
-      Crystallite: 80
+      Bluecrystal: 40
+      Crystallite: 70
 ##Fish-end
