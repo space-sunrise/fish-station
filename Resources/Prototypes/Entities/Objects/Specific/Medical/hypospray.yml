@@ -561,7 +561,7 @@
     emptySpriteName: stimpen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 30
+    transferAmount: 50
     onlyAffectsMobs: false
     injectOnly: true
   - type: StaticPrice
@@ -593,18 +593,23 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 24
+        maxVol: 25 # Fish-edit
         reagents:
         - ReagentId: Stimulants
           Quantity: 15
         - ReagentId: Epinephrine
           Quantity: 7
-        - ReagentId: TranexamicAcid
-          Quantity: 2
+        - ReagentId: TranexamicAcid # Fish-edit
+          Quantity: 3
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: microstimpen_empty
+  - type: Hypospray # Fish-edit
+    solutionName: pen
+    transferAmount: 25
+    onlyAffectsMobs: false
+    injectOnly: true
   - type: StaticPrice
     price: 583 # 3500 for 6 as a freaky fraction
 
