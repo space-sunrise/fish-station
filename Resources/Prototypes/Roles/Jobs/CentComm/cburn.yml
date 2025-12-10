@@ -37,7 +37,7 @@
     belt: ClothingBeltBandolier
   storage:
     back:
-    - WeaponShotgunDoubleBarreled
+    - WeaponShotgunSPAS12 # Fish-edit
     - BoxShotgunIncendiary
     - GrenadeFlashBang
     - PillAmbuzolPlus
@@ -51,3 +51,61 @@
   equipment:
     head: ClothingHeadHelmetCBURN
     neck: ClothingNeckScarfStripedBrown
+
+
+##Fish-start
+##CBURNLeader
+
+- type: job
+  id: CBURNLeader
+  name: job-name-cburnleader
+  description: job-description-cburnleader
+  playTimeTracker: JobCBURNLeader
+  setPreference: false
+  startingGear: CBURNGearLeader
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 18000
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+    - !type:AddImplantSpecial
+      implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: CBURNGearLeader
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBrown
+    back: ClothingBackpackDuffelCBURN
+    eyes: ClothingEyesGlassesSecurity
+    ears: ClothingHeadsetAltCentCom
+    mask: ClothingMaskGasERT
+    outerClothing: ClothingOuterHardsuitCBURNLeader
+    id: CBURNPDA
+    shoes: ClothingShoesBootsCombatFilled
+    pocket1: RadioHandheld
+    pocket2: WeaponLaserGun
+    belt: ClothingBeltBandolier
+  storage:
+    back:
+      - WeaponShotgunSPAS12
+      - BoxShotgunIncendiary
+      - GrenadeFlashBang
+      - PillAmbuzolPlus
+      - PillAmbuzol
+      - ClothingHandsPowerGlovesUplinkNTERTCBURNLeader
+
+- type: chameleonOutfit
+  id: CBURNLeaderChameleonOutfit
+  job: CBURNLeader
+  hasMindShield: true
+  equipment:
+    outerClothing: ClothingOuterHardsuitCBURNLeader
+    neck: ClothingNeckScarfStripedBrown
+# Fish-end
