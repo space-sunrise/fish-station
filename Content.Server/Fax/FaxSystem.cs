@@ -301,6 +301,13 @@ public sealed class FaxSystem : EntitySystem
                     if (!args.Data.TryGetValue(FaxConstants.FaxNameData, out string? faxName))
                         return;
 
+                    // Prevent duplicates: if a fax with this name already exists in KnownFaxes but with a different address, remove the old one
+                    var existingAddress = component.KnownFaxes.FirstOrDefault(x => x.Value == faxName).Key;
+                    if (existingAddress != null && existingAddress != args.SenderAddress)
+                    {
+                        component.KnownFaxes.Remove(existingAddress);
+                    }
+
                     component.KnownFaxes[args.SenderAddress] = faxName;
 
                     UpdateUserInterface(uid, component);
@@ -611,7 +618,17 @@ public sealed class FaxSystem : EntitySystem
         var printout = component.PrintingQueue.Dequeue();
 
         var entityToSpawn = printout.PrototypeId.Length == 0 ? component.PrintPaperId.ToString() : printout.PrototypeId;
-        var printed = Spawn(entityToSpawn, Transform(uid).Coordinates);
+
+        // Fish-start - For portable faxes (items), attempt to add to inventory instead of dropping to floor
+        EntityUid printed;
+        printed = Spawn(entityToSpawn, Transform(uid).Coordinates);
+        if (HasComp<ItemComponent>(uid))
+        {
+            if (_container.TryGetContainer(uid, "storagebase", out var container))
+                _container.Insert(printed, container);
+        }
+
+        // Fish-end
 
         if (TryComp<PaperComponent>(printed, out var paper))
         {
