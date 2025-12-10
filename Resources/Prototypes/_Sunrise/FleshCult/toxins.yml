@@ -73,7 +73,7 @@
         - !type:HasTag
           tag: "Flesh"
         factor: 2.5
-      - !type:EvenHealthChange
+      - !type:EvenHealthChange # Fish-edit
         conditions:
         - !type:HasTag
           tag: "Flesh"
