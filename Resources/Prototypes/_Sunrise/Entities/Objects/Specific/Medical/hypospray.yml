@@ -15,12 +15,12 @@
         reagents:
         - ReagentId: Omnizine
           Quantity: 20
-        - ReagentId: Bicaridine
-          Quantity: 40
+        - ReagentId: Vitera
+          Quantity: 20
         - ReagentId: Dermaline
           Quantity: 20
         - ReagentId: HemostaticPowder
-          Quantity: 20
+          Quantity: 40
   - type: ExaminableSolution
     solution: pen
   - type: Hypospray
@@ -172,10 +172,10 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 14
+        maxVol: 15
         reagents:
         - ReagentId: Ephedrine
-          Quantity: 7
+          Quantity: 8
         - ReagentId: Epinephrine
           Quantity: 7
   - type: SolutionContainerVisuals
