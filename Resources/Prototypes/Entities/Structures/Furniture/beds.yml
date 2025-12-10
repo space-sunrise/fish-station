@@ -10,7 +10,7 @@
       types:
         Poison: -0.1
         Blunt: -0.1
-        Mangleness: -0.5 #Fish-Edit
+        Mangleness: -0.25 #Fish-Edit
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -84,7 +84,7 @@
       types:
         Poison: -0.2
         Blunt: -0.2
-        Mangleness: -1 #Fish-Edit
+        Mangleness: -0.5 #Fish-Edit
   - type: Construction
     graph: bed
     node: medicalbed
