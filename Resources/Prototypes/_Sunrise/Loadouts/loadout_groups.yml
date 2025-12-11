@@ -139,7 +139,6 @@
   name: loadout-group-blueshield-belt
   loadouts:
   - BlueShieldWebbing
-  - AssaultBeltBS
 
 - type: loadoutGroup
   id: BlueShieldNeck
@@ -224,9 +223,9 @@
   maxLimit: 1
   loadouts:
   - GlockBox
-  - ACP14Box
   - MK58Box
   - MK58GoldBox
+  - SnubRevolverBox
   - WeaponDominator
   - WeaponDisabler
 #  - WeaponTaser
@@ -239,9 +238,9 @@
   maxLimit: 1
   loadouts:
   - CadetWeaponGlockBox
-  - CadetWeaponACP14Box
   - CadetWeaponMK58Box
   - MK58GoldBox
+  - SnubRevolverBox
   - CadetWeaponMiniEnergyGun
   - CadetWeaponDisabler
 
@@ -253,10 +252,26 @@
   maxLimit: 1
   loadouts:
   - DetectiveWeapon
+  - WeaponRevolverSnubRevolver
   - DetectiveWeapon20h
   - DetectiveWeapon50h
   - DetectiveWeapon50h2
   - DetectiveWeapon100h
+
+- type: loadoutGroup
+  id: SunriseWardenGun
+  name: loadout-group-security-gun
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - GlockBox
+  - MK58Box
+  - MK58GoldBox
+  - ACP14Box
+  - SnubRevolverBox
+  - WeaponDominator
+  - WeaponDisabler
+#  - WeaponTaser
 
 # Security  HoS
 - type: loadoutGroup
@@ -523,6 +538,14 @@
   - Sunrise-ShoesGreen
   - Sunrise-ShoesCyan
   - MedicalWinterBoots
+
+- type: loadoutGroup
+  id: SunriseChemistMisc
+  name: loadout-group-chemist-misc
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ChemistGoldBeaker
 
 - type: loadoutGroup
   id: SunrisePsychologistHead
@@ -862,6 +885,7 @@
   - TrinketsEngineeringTFAT
   - TrinketsEngineeringTFCF
 #  - TrinketsEngineeringTT
+  - TrinketsEngineeringGCW
   - TrinketsEngineeringST
 
 - type: loadoutGroup
@@ -1264,6 +1288,7 @@
 - type: loadoutGroup
   id: ComMaidHead
   name: loadout-group-commaid-head
+  minLimit: 0
   loadouts:
   - ComMaidHurseHat
   - ComMaidBonnyEars
@@ -1276,11 +1301,19 @@
   - ComMaidElegantJumpskirt
   - ComMaidSunriseJumpskirt
   - ComMaidBunnyUniform
+  - ComMaidJumpsuitLawyerBlack
   - ComMaidTacticalJumpskirt
+
+- type: loadoutGroup
+  id: ComMaidBackpack
+  name: loadout-group-commaid-backpack
+  loadouts:
+  - ComMaidBackpackSatchelLeather
 
 - type: loadoutGroup
   id: ComMaidNeck
   name: loadout-group-commaid-neck
+  minLimit: 0
   loadouts:
   - ComMaidBunnyButterfly
 
@@ -1290,10 +1323,12 @@
   loadouts:
   - ComMaidShoes
   - ComMaidBunnyShoes
+  - ComMaidShoesBootsLaceup
 
 - type: loadoutGroup
   id: ComMaidGloves
   name: loadout-group-commaid-gloves
+  minLimit: 0
   loadouts:
   - ComMaidBunnyManjets
   - ComMaidGlovesWhite

@@ -152,6 +152,8 @@
     transferAmount: 15
     onlyAffectsMobs: false
     injectOnly: true
+    doAfterTime: 1 #Sunrise-Edit
+    preventOverdose: true #Sunrise-Edit
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 1
@@ -271,8 +273,10 @@
           Quantity: 5
 
 - type: entity
+  name: burn auto-injector
   parent: ChemicalMedipen
   id: BurnAutoInjector
+  description: A rapid dose of dermaline and leporazine, intended for combat applications.
   components:
   - type: Item
     inhandVisuals:
@@ -297,7 +301,7 @@
     emptySpriteName: dermpen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 20
+    transferAmount: 20 # Fish-edit
     onlyAffectsMobs: false
     injectOnly: true
   - type: SolutionContainerManager
@@ -307,7 +311,7 @@
         reagents:
         - ReagentId: Dermaline
           Quantity: 10
-        - ReagentId: Kelotane
+        - ReagentId: Kelotane # Fish-edit
           Quantity: 10
 
 - type: entity
@@ -423,20 +427,21 @@
     emptySpriteName: pyrapen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 20
+    transferAmount: 15 #Sunrise-Edit
     onlyAffectsMobs: false
     injectOnly: true
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 20
+        maxVol: 15 #Sunrise-Edit
         reagents:
         - ReagentId: Pyrazine
-          Quantity: 10
+          Quantity: 5 #Sunrise-Edit
         - ReagentId: Dermaline
           Quantity: 10
 
 - type: entity
+  name: airloss auto-injector
   parent: ChemicalMedipen
   id: AirlossAutoInjector
   components:
@@ -463,18 +468,18 @@
     emptySpriteName: dexpen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 45
+    transferAmount: 35 #Sunrise-Edit
     onlyAffectsMobs: false
     injectOnly: true
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 45
+        maxVol: 35 #Sunrise-Edit
         reagents:
         - ReagentId: Saline
-          Quantity: 20
+          Quantity: 15 #Sunrise-Edit
         - ReagentId: DexalinPlus
-          Quantity: 20
+          Quantity: 15 #Sunrise-Edit
         - ReagentId: TranexamicAcid
           Quantity: 5
 
@@ -522,8 +527,10 @@
             Quantity: 20
 
 - type: entity
+  name: hyperzine injector
   parent: [ChemicalMedipen, BaseSyndicateContraband]
   id: Stimpack
+  description: Contains enough hyperzine for you to have the chemical's effect for 30 seconds. Use it when you're sure you're ready to throw down.
   components:
   - type: Item
     inhandVisuals:
@@ -568,8 +575,10 @@
     price: 1500
 
 - type: entity
+  name: hyperzine microinjector
   parent: [ChemicalMedipen, BaseSyndicateContraband]
   id: StimpackMini
+  description: A microinjector of hyperzine that give you about 15 seconds of the chemical's effects.
   components:
   - type: Item
     inhandVisuals:
@@ -597,7 +606,7 @@
         reagents:
         - ReagentId: Stimulants
           Quantity: 15
-        - ReagentId: Epinephrine
+        - ReagentId: Epinephrine # Fish-edit
           Quantity: 7
         - ReagentId: TranexamicAcid # Fish-edit
           Quantity: 3
@@ -614,8 +623,10 @@
     price: 583 # 3500 for 6 as a freaky fraction
 
 - type: entity
+  name: combat medipen
   parent: [ChemicalMedipen, BaseSyndicateContraband]
   id: CombatMedipen
+  description: A single-use medipen containing chemicals that regenerate most types of damage.
   components:
   - type: Item
     inhandVisuals:
@@ -672,10 +683,11 @@
     solutions:
       hypospray:
         maxVol: 10
-  - type: RefillableSolution
-    solution: hypospray
   - type: Hypospray
     onlyAffectsMobs: false
+    filterReagentGroups: # Sunrise-Edit
+     - Toxins
+     - Narcotics
   - type: UseDelay
     delay: 0.5
   - type: StaticPrice # A new shitcurity meta
@@ -724,6 +736,6 @@
           Quantity: 60
   - type: Hypospray
     solutionName: pen
-    transferAmount: 1
+    transferAmount: 60 #Sunrise-Edit
     onlyAffectsMobs: false
     injectOnly: true

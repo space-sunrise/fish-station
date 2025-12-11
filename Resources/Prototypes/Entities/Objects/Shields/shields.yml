@@ -309,7 +309,7 @@
   name: cardboard shield
   parent: BaseShield
   id: CardShield
-  description: A shield that wont shield you from much.
+  description: A shield made of cardboard. Won't protect you from much.
   components:
     - type: Sprite
       state: cardshield-icon
@@ -633,6 +633,7 @@
       autoRechargePause: true
       autoRechargePauseTime: 5
     - type: EnergyShield
+      energyCostPerDamage: 15
     - type: ExaminableBattery
     - type: Battery
       maxCharge: 1500
@@ -642,6 +643,9 @@
     - type: ClothingSpeedModifier
       sprintModifier: 1
     - type: HeldSpeedModifier
+    - type: EmpImmune
+    - type: StaticPrice
+      price: 7000
     # Sunrise-End
 
 - type: entity

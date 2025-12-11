@@ -10,7 +10,7 @@
     Medicine:
       metabolismRate: 0.25 #Fish-Edit
       effects:
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -4 #Fish-Edit
       - !type:EvenHealthChange #Fish-Edit
         damage:
@@ -21,7 +21,8 @@
             Mangleness: 0.2
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: HemostaticPowder
           min: 11 #Fish-Edit
         damage:
           types:

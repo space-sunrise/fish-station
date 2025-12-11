@@ -23,11 +23,11 @@
     jumpsuit: ClothingUniformJumpsuitDeathSquad
     back: ClothingBackpackDeathSquad
     mask: ClothingMaskGasDeathSquad
-    eyes: ClothingEyesHudOmni
+    eyes: ClothingEyesHudOmni # Fish-edit
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsPowerGlovesUplinkNTERTDeathSquad # Fish-edit
     outerClothing: ClothingOuterHardsuitDeathsquad
-    shoes: ClothingShoesBootsMagDeathSquad
+    shoes: ClothingShoesBootsMagDeathSquad # Fish-edit
     id: DeathsquadPDA
     pocket1: EnergySword
     pocket2: EnergyShield
@@ -41,7 +41,7 @@
     - BoxFlashbang
     - ToolDebug # spanish army knife
     - WelderExperimental
-    - JawsOfLife
+    - JawsOfLife # Fish-edit
     - DeathAcidifierImplanter # crew will try to steal their amazing hardsuits
     - FreedomImplanter
     - AdvancedDefibrillator #Fish-edit
