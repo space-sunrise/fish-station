@@ -28,8 +28,8 @@
 
 [bold][color=#99ccff]Отдых на кровати[/color][/bold]: [color=#dddddd]Лежание на кровати является эффективным способом восстановления истощения.[/color]
 
-  -  [bold][color=#aaddff]Обычная кровать[/color][/bold]: [color=#dddddd]Восстанавливает [bold][color=#99ff99]0.5[/color][/bold] единиц истощения в секунду. При сне на кровати скорость восстановления удваивается до [bold][color=#99ff99]1[/color][/bold] единиц в секунду.[/color]
-  -  [bold][color=#88ccff]Медицинская кровать[/color][/bold]: [color=#dddddd]Восстанавливает [bold][color=#99ff99]1[/color][/bold] единицу истощения в секунду. При сне на медицинской кровати скорость восстановления удваивается до [bold][color=#99ff99]2[/color][/bold] единиц в секунду.[/color]
+  -  [bold][color=#aaddff]Обычная кровать[/color][/bold]: [color=#dddddd]Восстанавливает [bold][color=#99ff99]0.5[/color][/bold] единиц истощения в секунду. При сне на кровати скорость восстановления удваивается до [bold][color=#99ff99]0.5[/color][/bold] единиц в секунду.[/color]
+  -  [bold][color=#88ccff]Медицинская кровать[/color][/bold]: [color=#dddddd]Восстанавливает [bold][color=#99ff99]1[/color][/bold] единицу истощения в секунду. При сне на медицинской кровати скорость восстановления удваивается до [bold][color=#99ff99]1[/color][/bold] единиц в секунду.[/color]
 
 <Box>
 <GuideEntityEmbed Entity="Bed" Caption="обычная кровать"/>

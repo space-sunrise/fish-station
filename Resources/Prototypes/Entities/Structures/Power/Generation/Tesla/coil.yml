@@ -174,8 +174,8 @@
   - type: ExaminableDamage
     messages: WindowMessages
   - type: Repairable
-    doAfterDelay: 5
-    fuelCost: 5
+    doAfterDelay: 5 # Fish-edit
+    fuelCost: 5 # Fish-edit
   - type: Damageable
     damageContainer: StructuralInorganic
   - type: DamageVisuals
