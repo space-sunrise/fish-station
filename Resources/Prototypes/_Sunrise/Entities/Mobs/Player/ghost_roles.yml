@@ -256,6 +256,7 @@
     - ClothingHandsPowerGlovesUplinkNTERTGamma
 
 # Medical
+# Fish-start: ERT Medical Gear with updated belts and hyposprays
 
 - type: startingGear
   id: ERTMedicalGearAmber
@@ -269,8 +270,7 @@
     outerClothing: ClothingOuterArmorAmberMed
     id: ERTMedicPDA
     ears: ClothingHeadsetAltCentComSunrise
-    belt: ClothingBeltMedicalFilled
-    pocket1: MedipenCombatInjector
+    belt: ClothingBeltERTMedicalFilled # Fish-edit
   inhand:
   - MedkitAdvancedFilled
   - DefibrillatorCompact
@@ -289,7 +289,38 @@
     - ChemistryBottleEpinephrine
     - ChemistryBottleEphedrine
     - ClothingHandsPowerGlovesUplinkNTERTAmber
-
+# Fish-end
+# Fish-start
+- type: startingGear
+  id: ERTMedicalGearRed
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTMedic
+    back: ClothingBackpackERTMedical
+    shoes: ClothingShoesBootsMagCombat
+    head: ClothingHeadHatCapCMO
+    neck: HandheldCamera
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesNVDMedSec
+    outerClothing: ClothingOuterHardsuitERTMedical
+    id: ERTMedicPDA
+    ears: ClothingHeadsetAltCentComSunrise
+    belt: ClothingBeltERTMedicalFilled
+  inhand:
+  - MedkitCombatFilled
+  - AdvancedDefibrillator
+  storage:
+    back:
+    - BoxErtBaseKit
+    - MedkitCombatFilled
+    - CrowbarRed
+    - SawAdvanced
+    - Drill
+    - RetractorAdvanced
+    - ScalpelLaser
+    - BoneGel
+    - BoneSetterAdvanced
+    - ClothingHandsPowerGlovesUplinkNTERTRed
+# Fish-end
 - type: startingGear
   id: ERTMedicalGearGamma
   equipment:
@@ -303,9 +334,7 @@
     outerClothing: ClothingOuterHardsuitERTMedical
     id: ERTMedicPDA
     ears: ClothingHeadsetAltCentComSunrise
-    belt: ClothingBeltMedicalFilled
-    pocket1: MedipenCombatInjector
-    pocket2: Hypospray
+    belt: ClothingBeltERTMedicalFilled # Fish-edit
   inhand:
   - MedkitCombatFilled
   - AdvancedDefibrillator

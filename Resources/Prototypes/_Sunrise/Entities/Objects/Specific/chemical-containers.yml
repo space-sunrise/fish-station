@@ -200,3 +200,54 @@
         reagents:
         - ReagentId: Saline
           Quantity: 200
+
+# Fish-start: Medical Chemistry Bottles for ERT and Medics
+- type: entity
+  id: ChemistryBottleBicaridine
+  name: bicaridine bottle # Fish-edit: Proper name with label
+  suffix: bicaridine
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-bicaridine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Bicaridine
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleDermaline
+  name: dermaline bottle # Fish-edit: Proper name with label
+  suffix: dermaline
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-dermaline
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Dermaline
+          Quantity: 30
+
+# Fish-edit: ChemistryBottleStimulants for NukeOps medic belt
+- type: entity
+  id: ChemistryBottleStimulants
+  name: stimulants bottle # Fish-edit: Proper name with label
+  suffix: stimulants
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-stimulants
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Stimulants
+          Quantity: 30
+# Fish-end
