@@ -1,7 +1,5 @@
 - type: entity
-  name: Combat medi-injector
   parent: [BaseItem, BaseCentcommContraband]
-  description: A sterile injector for 4-use. Containing chemicals that regenerate most types of damage.
   id: MedipenCombatInjector
   components:
   - type: Sprite
@@ -15,16 +13,14 @@
       pen:
         maxVol: 100
         reagents:
-        - ReagentId: Epinephrine
-          Quantity: 10
         - ReagentId: Omnizine
           Quantity: 20
-        - ReagentId: Saline
+        - ReagentId: Vitera
           Quantity: 20
-        - ReagentId: Puncturase
-          Quantity: 25
         - ReagentId: Dermaline
-          Quantity: 25
+          Quantity: 20
+        - ReagentId: HemostaticPowder
+          Quantity: 40
   - type: ExaminableSolution
     solution: pen
   - type: Hypospray
@@ -107,10 +103,8 @@
 
 # Medipens
 - type: entity
-  name: ephedrine injector
   parent: [ChemicalMedipen, BaseSecurityContraband ]
   id: StimpackNT
-  description: Contains enough ephedrine for you to have the chemical's effect for 30 seconds. Use it when you're sure you're ready to throw down.
   components:
   - type: Item
     inhandVisuals:
@@ -137,11 +131,9 @@
         maxVol: 30
         reagents:
         - ReagentId: Ephedrine
-          Quantity: 16
+          Quantity: 15
         - ReagentId: Epinephrine
-          Quantity: 8
-        - ReagentId: Tricordrazine
-          Quantity: 6
+          Quantity: 15
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
@@ -155,10 +147,8 @@
     price: 950
 
 - type: entity
-  name: ephedrine microinjector
   parent: [ChemicalMedipen, BaseSecurityContraband]
   id: StimpackMiniNT
-  description: A microinjector of ephedrine that give you about 15 seconds of the chemical's effects.
   components:
   - type: Item
     inhandVisuals:
@@ -185,7 +175,9 @@
         maxVol: 15
         reagents:
         - ReagentId: Ephedrine
-          Quantity: 15
+          Quantity: 8
+        - ReagentId: Epinephrine
+          Quantity: 7
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
