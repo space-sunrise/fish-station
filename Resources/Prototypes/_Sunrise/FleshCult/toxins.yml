@@ -76,7 +76,7 @@
         factor: 2.5
       - !type:EvenHealthChange # Fish-edit
         conditions:
-        - !type:HasTag
+        - !type:TagCondition
           tag: "Flesh"
         damage:
           Brute: -4

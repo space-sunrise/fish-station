@@ -15,7 +15,8 @@
             Mangleness: -1
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Vitera
           min: 16
         damage:
           types:
@@ -37,10 +38,11 @@
         damage:
           types:
             Radiation: 1
-            Mangleness: -2
+            Mangleness: -3
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: GenesisUltra
           min: 6
         damage:
           types:

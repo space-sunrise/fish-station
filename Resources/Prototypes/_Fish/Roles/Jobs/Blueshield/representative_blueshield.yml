@@ -52,7 +52,7 @@
    id: BlueShieldOperativePDA
    ears: ClothingHeadsetCommand
    gloves: ClothingHandsGlovesCombat
-   pocket1: BaseUplinkNTERTBlueShield
+   pocket1: UplinkNTERTBlueShield
   storage:
    back:
    - HandheldBSOCrewMonitor
