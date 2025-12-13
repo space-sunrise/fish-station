@@ -396,10 +396,10 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             queued.MaxTileBreak,
             queued.CanCreateVacuum,
             EntityManager,
+            _mapManager,
             visualEnt,
             queued.Cause,
-            _map,
-            _damageableSystem);
+            _map);
     }
 
     private void CameraShake(float range, MapCoordinates epicenter, float totalIntensity)
