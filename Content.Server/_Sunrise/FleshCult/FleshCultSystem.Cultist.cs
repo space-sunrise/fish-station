@@ -288,6 +288,9 @@ public sealed partial class FleshCultSystem
 
     private bool ParasiteComesOut(EntityUid uid, FleshCultistComponent? component = null)
     {
+        if (Terminating(uid)) // Fish-edit
+            return false;
+
         if (!Resolve(uid, ref component))
             return false;
 
@@ -325,7 +328,7 @@ public sealed partial class FleshCultSystem
             }
         }
 
-        QueueDel(uid);
+        _body.GibBody(uid, true); // Fish-edit
         return true;
     }
 
