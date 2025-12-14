@@ -108,7 +108,7 @@
     text: plushie-mikhail-beerbeard-oboronovich-on-use
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/_Fish/Items/MikhailThrow.ogg # User needs to provide this file
+      path: /Audio/_Fish/Items/MikhailThrow.ogg
 
 - type: entity
   parent: BasePlushie
