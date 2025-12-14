@@ -1,3 +1,4 @@
+ent-RandomHumanoidSpawnerCBURNLeader = CBURN Leader
    .suffix = ERTRole
     .desc = { "" }
-ent-RandomHumanoidSpawnerCBURNLeader = CBURN Leader
+
