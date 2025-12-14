@@ -88,9 +88,6 @@
 - type: playTimeTracker
   id: JobCBURN
 
-- type: playTimeTracker  ## Fish-edit
-  id: JobCBURNLeader  ## Fish-edit
-
 - type: playTimeTracker
   id: JobCBURNVeteran
 
