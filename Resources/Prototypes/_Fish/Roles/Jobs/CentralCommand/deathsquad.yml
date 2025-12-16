@@ -1,0 +1,7 @@
+# Fish Edit: Death Squad requirements override
+- type: job
+  id: DeathSquad
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 360000 # 100 hours
