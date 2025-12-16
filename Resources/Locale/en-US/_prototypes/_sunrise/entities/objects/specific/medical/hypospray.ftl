@@ -1,10 +1,10 @@
 ent-MedipenCombatInjector = Combat medi-injector
-    .desc = A sterile injector for 4-use. Containing chemicals that regenerate most types of damage.
+    .desc = A sterile injector for 4-use. Contains omnizine, bicaridine, dermaline, and hemostatic powder.
 ent-HyposprayERT = ERT hypospray
     .desc = A sterile injector for rapid administration of drugs to patients.
 ent-HyposprayMedical = medical hypospray
     .desc = A sterile injector for rapid administration of drugs to patients. It contains an internal Toxin filter.
 ent-StimpackNT = ephedrine injector
-    .desc = Contains enough ephedrine for you to have the chemical's effect for 30 seconds. Use it when you're sure you're ready to throw down.
+    .desc = Contains enough ephedrine for you to have the chemical's effect for 30 seconds. Use it when you're sure you're ready to throw down. Contains ephedrine and epinephrine.
 ent-StimpackMiniNT = ephedrine microinjector
-    .desc = A microinjector of ephedrine that give you about 15 seconds of the chemical's effects.
+    .desc = A microinjector of ephedrine that give you about 15 seconds of the chemical's effects. Contains ephedrine and epinephrine.

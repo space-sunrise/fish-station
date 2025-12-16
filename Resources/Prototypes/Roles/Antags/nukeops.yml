@@ -132,18 +132,18 @@
     #outerClothing: ClothingOuterHardsuitSyndieMedicBiocode # Sunrise-Edit
     #shoes: ClothingShoesBootsMagSyndie # Sunrise-Edit
     id: SyndiCorpsmanPDA
-    belt: ClothingBeltMilitaryWebbingMedSunriseFilled # Sunrise-Edit
+    belt: ClothingBeltNukeOpsMedicalFilled # Fish-edit
     pocket2: BaseUplinkRadio0TC # Fish-Edit
   storage:
     back:
-    - SyndiHypo
+    #- SyndiHypo # Fish-Edit
     - SawAdvanced
     - Cautery
     - CombatKnife
     - WeaponPistolViper
     - PinpointerSyndicateNuclear
     - HandheldHealthAnalyzer
-    - CombatMedipen
+    #- CombatMedipen # Fish-Edit
     - DeathAcidifierImplanter
 
 - type: chameleonOutfit

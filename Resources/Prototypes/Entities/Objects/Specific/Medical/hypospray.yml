@@ -271,10 +271,8 @@
           Quantity: 5
 
 - type: entity
-  name: burn auto-injector
   parent: ChemicalMedipen
   id: BurnAutoInjector
-  description: A rapid dose of dermaline and leporazine, intended for combat applications.
   components:
   - type: Item
     inhandVisuals:
@@ -309,7 +307,7 @@
         reagents:
         - ReagentId: Dermaline
           Quantity: 10
-        - ReagentId: Leporazine
+        - ReagentId: Kelotane
           Quantity: 10
 
 - type: entity
@@ -439,10 +437,8 @@
           Quantity: 10
 
 - type: entity
-  name: airloss auto-injector
   parent: ChemicalMedipen
   id: AirlossAutoInjector
-  description: A rapid dose of saline and dexalin plus, intended to get someone up quickly.
   components:
   - type: Item
     inhandVisuals:
@@ -467,18 +463,20 @@
     emptySpriteName: dexpen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 40
+    transferAmount: 45
     onlyAffectsMobs: false
     injectOnly: true
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 40
+        maxVol: 45
         reagents:
         - ReagentId: Saline
           Quantity: 20
         - ReagentId: DexalinPlus
           Quantity: 20
+        - ReagentId: TranexamicAcid
+          Quantity: 5
 
 - type: entity
   name: space medipen
@@ -524,10 +522,8 @@
             Quantity: 20
 
 - type: entity
-  name: hyperzine injector
   parent: [ChemicalMedipen, BaseSyndicateContraband]
   id: Stimpack
-  description: Contains enough hyperzine for you to have the chemical's effect for 30 seconds. Use it when you're sure you're ready to throw down.
   components:
   - type: Item
     inhandVisuals:
@@ -551,27 +547,29 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 30
+        maxVol: 50
         reagents:
         - ReagentId: Stimulants
           Quantity: 30
+        - ReagentId: Epinephrine
+          Quantity: 15
+        - ReagentId: TranexamicAcid
+          Quantity: 5
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: stimpen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 30
+    transferAmount: 50
     onlyAffectsMobs: false
     injectOnly: true
   - type: StaticPrice
     price: 1500
 
 - type: entity
-  name: hyperzine microinjector
   parent: [ChemicalMedipen, BaseSyndicateContraband]
   id: StimpackMini
-  description: A microinjector of hyperzine that give you about 15 seconds of the chemical's effects.
   components:
   - type: Item
     inhandVisuals:
@@ -595,22 +593,29 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 15
+        maxVol: 25 # Fish-edit
         reagents:
         - ReagentId: Stimulants
           Quantity: 15
+        - ReagentId: Epinephrine
+          Quantity: 7
+        - ReagentId: TranexamicAcid # Fish-edit
+          Quantity: 3
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: microstimpen_empty
+  - type: Hypospray # Fish-edit
+    solutionName: pen
+    transferAmount: 25
+    onlyAffectsMobs: false
+    injectOnly: true
   - type: StaticPrice
     price: 583 # 3500 for 6 as a freaky fraction
 
 - type: entity
-  name: combat medipen
   parent: [ChemicalMedipen, BaseSyndicateContraband]
   id: CombatMedipen
-  description: A single-use medipen containing chemicals that regenerate most types of damage.
   components:
   - type: Item
     inhandVisuals:
@@ -636,15 +641,21 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 30
+        maxVol: 40
         reagents:
-        - ReagentId: Omnizine
-          Quantity: 25
-        - ReagentId: TranexamicAcid
+        - ReagentId: Tricordrazine
+          Quantity: 15
+        - ReagentId: Vitera
           Quantity: 5
+        - ReagentId: Omnizine
+          Quantity: 5
+        - ReagentId: Dermaline
+          Quantity: 10
+        - ReagentId: HemostaticPowder
+          Quantity: 10
   - type: Hypospray
     solutionName: pen
-    transferAmount: 30
+    transferAmount: 40
     onlyAffectsMobs: false
     injectOnly: true
   - type: StaticPrice

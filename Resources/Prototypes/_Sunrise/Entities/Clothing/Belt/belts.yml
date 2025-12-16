@@ -110,7 +110,7 @@
   - type: Item
     size: Normal
     shape:
-    - 0,0,0,6 
+    - 0,0,0,6
   - type: ItemSlots
     slots:
       item:
@@ -206,3 +206,109 @@
   - type: Appearance
   - type: StaticPrice
     price: 1000
+
+# Fish-start: ERT Medical Belt for medics
+- type: entity
+  id: ClothingBeltERTMedical
+  parent: [ClothingBeltMedical, ContentsExplosionResistanceBase]
+  name: ERT medical belt
+  description: A tactical medical belt used by Emergency Response Team medics.
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Clothing/Belt/cmo.rsi
+  - type: Clothing
+    sprite: _Sunrise/Clothing/Belt/cmo.rsi
+  - type: ExplosionResistance # Fish-edit: 50% explosion resistance
+    damageCoefficient: 0.5
+  - type: Storage
+    whitelist:
+      tags:
+        - Wrench
+        - Bottle
+        - Spray
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - CigPack
+        - PillCanister
+        - Radio
+        - DiscreteHealthAnalyzer
+        - SurgeryTool
+        - Dropper
+        - Medkit
+      components:
+        - Hypospray
+        - Injector
+        - Pill
+        - HandLabeler
+        - Healing
+    maxItemSize: Normal
+    grid:
+    - 0,0,7,1
+# Fish-end
+
+- type: entity
+  id: ClothingBeltERTMedicalFilled
+  parent: ClothingBeltERTMedical
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: MedkitCombatFilled
+      - id: AutoMenderBruteFilled # Fish-edit: Replaced 2nd medkit with automender
+      - id: AutoMenderBurnFilled
+      - id: ChemistryBottleBicaridine
+      - id: ChemistryBottleDermaline
+      - id: ChemistryBottleOmnizine
+      - id: ChemistryBottleEphedrine
+      - id: MedipenCombatInjector
+      - id: HyposprayERT # Fish-edit: Moved from pocket
+
+# Fish-start: NukeOps Medic Belt
+- type: entity
+  id: ClothingBeltNukeOpsMedicalFilled
+  parent: [ClothingBeltMilitaryWebbingMedSunrise, ContentsExplosionResistanceBase]
+  suffix: Filled
+  components:
+  - type: ExplosionResistance # Fish-edit: 50% explosion resistance
+    damageCoefficient: 0.5
+  - type: Storage
+    whitelist:
+      tags:
+        - Wrench
+        - Bottle
+        - Spray
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - CigPack
+        - PillCanister
+        - Radio
+        - DiscreteHealthAnalyzer
+        - SurgeryTool
+        - Dropper
+        - Medkit
+      components:
+        - Hypospray
+        - Injector
+        - Pill
+        - HandLabeler
+        - Healing # Fish-edit: For automenders
+    maxItemSize: Normal # Fish-edit: Reverted from Large
+    grid:
+    - 0,0,7,1 # Fish-edit: Reverted from 0,0,7,2
+  - type: StorageFill
+    contents:
+      - id: MedkitCombatFilled
+      - id: AutoMenderBruteFilled # Fish-edit: Replaced 2nd medkit with automender
+      - id: AutoMenderBurnFilled
+      - id: ChemistryBottleBicaridine
+      - id: ChemistryBottleDermaline
+      - id: ChemistryBottleOmnizine
+      # - id: SyringeStimulants # Fish-edit: Replaced with bottle
+      - id: ChemistryBottleStimulants # Fish-edit: Bottle instead of syringe
+      - id: MedipenCombatInjector
+      - id: SyndiHypo # Fish-edit: Moved from pocket
+# Fish-end
