@@ -3,6 +3,10 @@
   name: job-name-deathsquad
   description: job-description-deathsquad
   playTimeTracker: JobDeathSquad
+  requirements:
+    - !type:DepartmentTimeRequirement # Fish-edit
+      department: Security
+      time: 360000 # 100 hours
   setPreference: false
   startingGear: DeathSquadGear
   icon: "JobIconNanotrasen"
