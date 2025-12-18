@@ -645,8 +645,6 @@
         reagents:
         - ReagentId: Tricordrazine
           Quantity: 15
-        - ReagentId: Vitera
-          Quantity: 5
         - ReagentId: Omnizine
           Quantity: 5
         - ReagentId: Dermaline
