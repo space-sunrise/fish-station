@@ -77,7 +77,7 @@
   description: He's just an optimistic green moth.
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Fun/toys.rsi   
+    sprite: _Fish/Objects/Fun/toys.rsi
     state: Olegmol
   - type: SpeakOnTrigger
     pack: Figurinesmol
@@ -99,6 +99,16 @@
   - type: Sprite
     sprite: _Fish/Objects/Fun/toys.rsi
     state: plushie-mikhail-beerbeard-oboronovich
+  - type: UseDelay
+    delay: 4
+  - type: TTS
+    voice: HearthstoneTekahn
+  - type: TriggerOnUse
+  - type: SpeakOnTrigger
+    text: plushie-mikhail-beerbeard-oboronovich-on-use
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Fish/Items/MikhailThrow.ogg
 
 - type: entity
   parent: BasePlushie

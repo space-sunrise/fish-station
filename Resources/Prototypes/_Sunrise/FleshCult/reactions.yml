@@ -1,0 +1,19 @@
+- type: reaction # Fish-edit
+  id: FleshAcidFluorosurfactant
+  reactants:
+    Carol:
+      amount: 1
+    Fluorosurfactant:
+      amount: 1
+  products:
+    FleshAcid: 2
+
+- type: reaction # Fish-edit
+  id: FleshAcidFoamingAgent
+  reactants:
+    Carol:
+      amount: 1
+    FoamingAgent:
+      amount: 1
+  products:
+    FleshAcid: 2

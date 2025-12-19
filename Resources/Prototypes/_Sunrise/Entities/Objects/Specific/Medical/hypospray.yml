@@ -15,10 +15,8 @@
         reagents:
         - ReagentId: Omnizine
           Quantity: 20
-        - ReagentId: Vitera
-          Quantity: 20
         - ReagentId: Dermaline
-          Quantity: 20
+          Quantity: 40
         - ReagentId: HemostaticPowder
           Quantity: 40
   - type: ExaminableSolution

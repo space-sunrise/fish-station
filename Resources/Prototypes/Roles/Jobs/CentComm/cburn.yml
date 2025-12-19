@@ -37,7 +37,7 @@
     belt: ClothingBeltBandolier
   storage:
     back:
-    - WeaponShotgunDoubleBarreled
+    - WeaponShotgunSPAS12 # Fish-edit
     - BoxShotgunIncendiary
     - GrenadeFlashBang
     - PillAmbuzolPlus
