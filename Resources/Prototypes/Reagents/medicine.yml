@@ -275,7 +275,7 @@
           types:
             Asphyxiation: -1
             Bloodloss: -0.5
-            Mangleness: 0.1 #Fish-Edit: boosted by 2x (was 0.05)
+            Mangleness: 0.015 #Fish-Edit: 1/100 of healing amount (was 0.1)
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
@@ -301,7 +301,7 @@
           types:
             Asphyxiation: -3.5
             Bloodloss: -3
-            Mangleness: 0.35 #Fish-Edit: boosted by 2x (was 0.175)
+            Mangleness: 0.065 #Fish-Edit: 1/100 of healing amount (was 0.35)
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold

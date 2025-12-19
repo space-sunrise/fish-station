@@ -14,11 +14,11 @@
         amount: -4 #Fish-Edit
       - !type:EvenHealthChange #Fish-Edit
         damage:
-          Brute: -2
+          Brute: -1
       - !type:HealthChange
         damage:
           types:
-            Mangleness: 0.2
+            Mangleness: 0.1
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
