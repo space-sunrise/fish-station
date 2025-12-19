@@ -48,4 +48,10 @@ public sealed partial class FleshCultistComponent : Component
 
     [DataField]
     public SoundSpecifier SoundMutation = new SoundPathSpecifier("/Audio/_Sunrise/FleshCult/flesh_cultist_mutation.ogg");
+
+    /// <summary>
+    /// Flag to indicate that the entity is already in the process of dying/gibbing.
+    /// </summary>
+    [ViewVariables]
+    public bool IsDeathPending = false; // Fish-Edit
 }
