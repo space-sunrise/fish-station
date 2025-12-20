@@ -44,6 +44,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly UplinkSystem _uplinkSystem = default!;
+    [Dependency] private readonly Content.Server.Stack.StackSystem _stack = default!; // Sunrise-Edit
 
     private static readonly ProtoId<CurrencyPrototype> TelecrystalCurrencyPrototype = "Telecrystal";
     private static readonly ProtoId<TagPrototype> NukeOpsUplinkTagPrototype = "NukeOpsUplink";
@@ -373,7 +374,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 var timeRemain = nukeops.WarNukieArriveDelay + Timing.CurTime;
                 ev.DeclaratorEntity.Comp.ShuttleDisabledTime = timeRemain;
 
-                DistributeExtraTc((uid, nukeops));
+                DistributeExtraTc((uid, nukeops), ev.DeclaratorEntity); // Sunrise-Edit
             }
         }
     }
@@ -400,8 +401,16 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         return WarConditionStatus.YesWar;
     }
 
-    private void DistributeExtraTc(Entity<NukeopsRuleComponent> nukieRule)
+    private void DistributeExtraTc(Entity<NukeopsRuleComponent> nukieRule, EntityUid device) // Sunrise-Edit
     {
+        // Sunrise-Start
+        var amount = nukieRule.Comp.WarTcAmountPerNukie * nukieRule.Comp.RoundstartOperatives;
+        _stack.Spawn(amount.Int(), "Telecrystal", Transform(device).Coordinates);
+
+        var msg = Loc.GetString("store-currency-war-boost-given", ("target", device));
+        _popupSystem.PopupEntity(msg, device);
+
+        /*
         var enumerator = EntityQueryEnumerator<StoreComponent>();
         while (enumerator.MoveNext(out var uid, out var component))
         {
@@ -419,6 +428,8 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             var msg = Loc.GetString("store-currency-war-boost-given", ("target", uid));
             _popupSystem.PopupEntity(msg, uid);
         }
+        */
+        // Sunrise-End
     }
 
     private void SetWinType(Entity<NukeopsRuleComponent> ent, WinType type, bool endRound = true)
