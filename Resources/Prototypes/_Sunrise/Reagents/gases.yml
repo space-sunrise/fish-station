@@ -126,7 +126,7 @@
             Toxin: -1 #Fish-Edit
             Brute: -1 #Fish-Edit
           types:
-            Mangleness: 0.08 #Fish-Edit
+            Mangleness: -0.5 #Fish-Edit
       - !type:ModifyBleedAmount
         amount: -0.15
       - !type:PopupMessage
@@ -187,7 +187,7 @@
         ignoreResistances: true
         damage:
           types:
-            Mangleness: 1.1 #Fish-Edit
+            Mangleness: 0.5 #Fish-Edit
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
