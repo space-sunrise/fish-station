@@ -178,16 +178,7 @@
         sprintSpeedModifier: 1.4
       - !type:MovespeedModifier
         walkSpeedModifier: 1.4
-        sprintSpeedModifier: 1.4
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Nitrium
-          min: 0.5
-        ignoreResistances: true
-        damage:
-          types:
-            Mangleness: 0.5 #Fish-Edit
+        sprintSpeedModifier: 1.4 #Fish-Edit
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
