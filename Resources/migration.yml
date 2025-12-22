@@ -853,11 +853,19 @@ GrenadeFlash: GrenadeFlashTimer
 GrenadeFrag: GrenadeFragTimer
 WeaponEnergyGunMini: WeaponMiniEnergyGun
 GunSafeCombineSmallArms: SpawnerSafeSmallArms
+AphrodisiacChemistryBottle: null
+PatchViagra: null
+
 MagazinePPSH41: MagazinePistolSubMachineGunPPSHExtended
 MagazinePPSH41Extended: null
 WeaponSTG44: null
 MagazineSTG44: null
 WeaponSniperMosinNew: null
+# Super Matter
+SupermatterFlatpack: SupermatterFlatpackAnchored
+SupermatterCrystal: SupermatterFlatpackAnchored
+WeaponRifleM28: WeaponRifleSKM28
+WeaponRifleAR18: null
 # SL HITSCAN START
 BoxMagazineRifle: BoxMagazineRifleSP
 MagazineBoxLightRifle: MagazineBoxLightRifleSP

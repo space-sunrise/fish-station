@@ -7,12 +7,10 @@
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
     - state: silver
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: department-side
+      color: &color-centcomm "#134975"
     - sprite: &sunrise-icon-rsi _Sunrise/Interface/Misc/job_icons.rsi
-      offset: &icon-offset -0.09375, 0.0625 #3 pixels left, 2 pixels up
+      offset: &icon-offset -0.19, 0
       state: BlueShield
   - type: Item
     heldPrefix: silver
@@ -27,11 +25,9 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: silver
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: gold
+    - state: department-side
+      color: *color-centcomm
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: BlueShield
@@ -53,11 +49,9 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: centcom
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: blue
+    - state: department-side
+      color: *color-centcomm
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: BlueShield
@@ -79,14 +73,14 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: centcom
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: default
+    - state: department-side
+      color: &color-science "#a53aaa"
     - sprite: &icon-rsi Interface/Misc/job_icons.rsi
       offset: *icon-offset
       state: Roboticist
+  - type: Item
+    heldPrefix: default
   - type: PresetIdCard
     job: Roboticist
 
@@ -98,14 +92,14 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: centcom
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: default
+    - state: department-side
+      color: &color-security "#cb0000"
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: SecurityPilot
+  - type: Item
+    heldPrefix: default
   - type: PresetIdCard
     job: SecurityPilot
 
@@ -117,14 +111,14 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: orange-space-prison
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: space-prison
+    - state: department-side
+      color: &color-engineer "#ffa62b"
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: PrisonEngineer
+  - type: Item
+    heldPrefix: space-prison
   - type: PresetIdCard
     job: PrisonEngineer
 
@@ -136,14 +130,14 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: orange-space-prison
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: space-prison
+    - state: department-side
+      color: *color-science
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: PrisonScientist
+  - type: Item
+    heldPrefix: space-prison
   - type: PresetIdCard
     job: PrisonScientist
 
@@ -155,14 +149,14 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: orange-space-prison
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: space-prison
+    - state: department-side
+      color: &color-medical "#68aed6"
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: PrisonDoctor
+  - type: Item
+    heldPrefix: space-prison
   - type: PresetIdCard
     job: PrisonDoctor
 
@@ -174,14 +168,14 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: orange-space-prison
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: space-prison
+    - state: department-side
+      color: &color-service "#639137"
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: PrisonChef
+  - type: Item
+    heldPrefix: space-prison
   - type: PresetIdCard
     job: PrisonChef
 
@@ -193,14 +187,14 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: orange-space-prison
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: space-prison
+    - state: department-side
+      color: *color-service
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: PrisonWorker
+  - type: Item
+    heldPrefix: space-prison
   - type: PresetIdCard
     job: PrisonWorker
 
@@ -212,14 +206,14 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: orange-space-prison
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: space-prison
+    - state: department-side
+      color: &color-command "#1b67a5"
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: PrisonInspector
+  - type: Item
+    heldPrefix: space-prison
   - type: PresetIdCard
     job: PrisonInspector
 
@@ -232,13 +226,13 @@
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
     - state: silver
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: department-side
+      color: *color-centcomm
     - sprite: *icon-rsi
       offset: *icon-offset
       state: IAA
+  - type: Item
+    heldPrefix: silver
   - type: PresetIdCard
     job: IAA
 
@@ -250,14 +244,14 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: silver
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: blue
+    - state: department-side
+      color: *color-centcomm
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Magistrat
+  - type: Item
+    heldPrefix: blue
   - type: PresetIdCard
     job: Magistrat
 
@@ -269,14 +263,14 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: prisoner-space-prison
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: space-prison
+    - state: department-side
+      color: "#2d2d2d"
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Prisoner
+  - type: Item
+    heldPrefix: space-prison
   - type: PresetIdCard
     job: PlanetPrisoner
 
@@ -288,14 +282,14 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: orange-space-prison
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: space-prison
+    - state: department-side
+      color: *color-security
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: PrisonGuard
+  - type: Item
+    heldPrefix: space-prison
   - type: PresetIdCard
     job: PrisonGuard
 
@@ -307,14 +301,14 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: orange-space-prison
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: space-prison
+    - state: department-side
+      color: *color-security
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: PrisonPilot
+  - type: Item
+    heldPrefix: space-prison
   - type: PresetIdCard
     job: PrisonPilot
 
@@ -327,10 +321,9 @@
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
     - state: silver
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: department-side
+      color: *color-command
+    - state: department-side-extra-gold
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: HeadOfPrison
@@ -347,14 +340,14 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: centcom
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: gold
+    - state: department-side
+      color: *color-centcomm
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Nanotrasen
+  - type: Item
+    heldPrefix: gold
   - type: PresetIdCard
     job: NanoTrasenRepresentative
 
@@ -367,13 +360,13 @@
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
     - state: default
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: department-side
+      color: *color-service
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: Barber
+  - type: Item
+    heldPrefix: default
   - type: PresetIdCard
     job: Barber
 
@@ -386,14 +379,14 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: default
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: silver
+    - state: department-side
+      color: *color-command
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Adjutant
+  - type: Item
+    heldPrefix: silver
   - type: PresetIdCard
     job: Adjutant
 
@@ -406,13 +399,13 @@
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
     - state: default
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: department-side
+      color: *color-medical
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: Pathologist
+  - type: Item
+    heldPrefix: default
   - type: PresetIdCard
     job: MedicalPathologist
 
@@ -426,16 +419,16 @@
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
     - state: ussp
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: department-side
+      color: &color-ussp-side "#e80c0c"
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: CrewUSSP
   - type: Access
     tags:
     - Maintenance
+  - type: Item
+    heldPrefix: black
   - type: PresetIdCard
     job: USSPCrew
 
@@ -449,10 +442,8 @@
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
     - state: ussp
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: department-side
+      color: *color-ussp-side
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: OfficerUSSP
@@ -461,6 +452,8 @@
     - Maintenance
     - NuclearOperative
     - SyndicateAgent
+  - type: Item
+    heldPrefix: black
   - type: PresetIdCard
     job: USSPOfficer
 
@@ -474,10 +467,8 @@
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
     - state: ussp
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: department-side
+      color: *color-ussp-side
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: SoldierUSSP
@@ -485,6 +476,8 @@
     tags:
     - NuclearOperative
     - SyndicateAgent
+  - type: Item
+    heldPrefix: black
   - type: PresetIdCard
     job: USSPSoldier
 
@@ -498,10 +491,8 @@
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
     - state: ussp
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: department-side
+      color: *color-ussp-side
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: OfficerAltUSSP
@@ -509,6 +500,8 @@
     tags:
     - NuclearOperative
     - SyndicateAgent
+  - type: Item
+    heldPrefix: black
   - type: PresetIdCard
     job: USSPOfficerAlt
 
@@ -522,10 +515,9 @@
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
     - state: ussp
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: department-side
+      color: *color-ussp-side
+    - state: department-side-extra-gold-ussp
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: CaptainUSSP
@@ -535,6 +527,8 @@
     tags:
     - NuclearOperative
     - SyndicateAgent
+  - type: Item
+    heldPrefix: black
   - type: PresetIdCard
     job: USSPCaptain
   - type: IdCard
@@ -551,10 +545,8 @@
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
     - state: silver
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: department-side
+      color: *color-ussp-side
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: NanotrasenGuard
@@ -574,10 +566,9 @@
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
     - state: silver
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: department-side
+      color: *color-centcomm
+    - state: department-side-extra-gold
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: NanotrasenLeader
@@ -595,13 +586,13 @@
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
     - state: default
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: department-side
+      color: &color-supply "#b18644"
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: MailCarrier
+  - type: Item
+    heldPrefix: default
   - type: PresetIdCard
     job: MailCarrier
 
@@ -614,13 +605,13 @@
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
     - state: default
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: department-side
+      color: *color-supply
     - sprite: *icon-rsi
       offset: *icon-offset
       state: ShaftMiner
+  - type: Item
+    heldPrefix: default
   - type: PresetIdCard
     job: MiningSpecialist
 
@@ -639,6 +630,8 @@
       bypassLogging: true
       canMicrowave: false
       jobTitle: job-name-unknown
+    - type: Item
+      heldPrefix: default
     - type: ActivatableUI
       key: enum.AgentIDCardUiKey.Key
       inHandsOnly: true
@@ -655,14 +648,14 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: default
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: silver
+    - state: department-side
+      color: "#ff7ee3"
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: CommandMaid
+    - type: Item
+      heldPrefix: silver
   - type: PresetIdCard
     job: ComMaid
 
@@ -674,11 +667,9 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: centcom
-    - state: stripe_top
-      color: "#1b67a5"
-    - state: stripe_bottom
-      color: "#0e4069"
+    - state: blue
+    - state: department-side
+      color: *color-centcomm
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: Nanotrasen

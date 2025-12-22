@@ -77,6 +77,7 @@
   - Dwarf
   - HumanoidXeno
   - Predator
+  - Resomi
   randomizeName: false
   components:
     - type: GhostRole
@@ -90,12 +91,17 @@
       job: DeathSquad
     - type: Loadout
       prototypes: [ DeathSquadGear ]
-      roleLoadout: [ RoleSurvivalEVA ]
+      # roleLoadout: [ RoleSurvivalEVA ] # sunrise-edit
     - type: RandomMetadata
       nameSegments:
         - NamesMilitaryFirstLeader
         - NamesMilitaryLast
       nameFormat: name-format-ert
+    - type: FootstepModifier
+      footstepSoundCollection:
+        collection: FootstepThud
+        params:
+          volume: -6
 # Fish-start
 - type: entity
   id: RandomHumanoidSpawnerDeathSquadElite
@@ -158,6 +164,7 @@
   - Dwarf
   - HumanoidXeno
   - Predator
+  - Resomi
   randomizeName: false
   components:
     - type: GhostRole
@@ -205,6 +212,7 @@
   - Dwarf
   - HumanoidXeno
   - Predator
+  - Resomi
   parent: ERTLeader
   components:
     - type: GhostRole
@@ -244,6 +252,7 @@
   - Dwarf
   - HumanoidXeno
   - Predator
+  - Resomi
   components:
     - type: GhostRole
       name: ghost-role-information-ert-leader-name
@@ -292,6 +301,7 @@
   - Dwarf
   - HumanoidXeno
   - Predator
+  - Resomi
   parent: ERTLeader
   components:
     - type: BibleUser
@@ -340,6 +350,7 @@
   - Dwarf
   - HumanoidXeno
   - Predator
+  - Resomi
   parent: ERTChaplain
   components:
     - type: GhostRole
@@ -390,6 +401,7 @@
   - Dwarf
   - HumanoidXeno
   - Predator
+  - Resomi
   parent: ERTLeader
   components:
     - type: GhostRole
@@ -437,6 +449,7 @@
   - Dwarf
   - HumanoidXeno
   - Predator
+  - Resomi
   parent: ERTJanitor
   components:
     - type: GhostRole
@@ -486,6 +499,7 @@
   - Dwarf
   - HumanoidXeno
   - Predator
+  - Resomi
   parent: ERTLeader
   components:
     - type: GhostRole
@@ -533,6 +547,7 @@
   - Dwarf
   - HumanoidXeno
   - Predator
+  - Resomi
   parent: ERTEngineer
   components:
     - type: GhostRole
@@ -582,6 +597,7 @@
   - Dwarf
   - HumanoidXeno
   - Predator
+  - Resomi
   parent: ERTLeader
   components:
     - type: GhostRole
@@ -629,6 +645,7 @@
   - Dwarf
   - HumanoidXeno
   - Predator
+  - Resomi
   parent: ERTSecurity
   components:
     - type: GhostRole
@@ -667,6 +684,7 @@
   - Dwarf
   - HumanoidXeno
   - Predator
+  - Resomi
   parent: ERTSecurityEVA
   components:
     - type: GhostRole
@@ -716,6 +734,7 @@
   - Dwarf
   - HumanoidXeno
   - Predator
+  - Resomi
   parent: ERTLeader
   components:
     - type: GhostRole
@@ -763,6 +782,7 @@
   - Dwarf
   - HumanoidXeno
   - Predator
+  - Resomi
   parent: ERTMedical
   components:
     - type: GhostRole
@@ -807,6 +827,7 @@
   - Dwarf
   - HumanoidXeno
   - Predator
+  - Resomi
   components:
     - type: Loadout
       prototypes: [ CBURNGear ]

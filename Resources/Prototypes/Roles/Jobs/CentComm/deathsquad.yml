@@ -9,7 +9,7 @@
       time: 360000 # 100 hours
   setPreference: false
   startingGear: DeathSquadGear
-  icon: "JobIconNanotrasen"
+  icon: "JobIconDeathsquad" # Sunrise-edit
   overrideConsoleVisibility: false # Sunrise added
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -25,7 +25,7 @@
   id: DeathSquadGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitDeathSquad
-    back: ClothingBackpackDeathSquad
+    back: ClothingDeathSquadronBackpack # Sunrise-edit
     mask: ClothingMaskGasDeathSquad
     eyes: ClothingEyesHudOmni # Fish-edit
     ears: ClothingHeadsetAltCentCom
@@ -33,9 +33,9 @@
     outerClothing: ClothingOuterHardsuitDeathsquad
     shoes: ClothingShoesBootsMagDeathSquad # Fish-edit
     id: DeathsquadPDA
-    pocket1: EnergySword
-    pocket2: EnergyShield
-    belt: ClothingBeltMilitaryWebbingMedFilled
+    pocket1: PouchAmmo # Sunrise-edit
+    pocket2: DoubleEmergencyOxygenTankFilled # Sunrise-edit
+    belt: ClothingBeltMedicalElite # Sunrise-edit
   storage:
     back:
     - WeaponPulsePistol
@@ -46,12 +46,19 @@
     - ToolDebug # spanish army knife
     - WelderExperimental
     - JawsOfLife # Fish-edit
+    # - Hypospray # Sunrise-edit
     - DeathAcidifierImplanter # crew will try to steal their amazing hardsuits
     - FreedomImplanter
     - AdvancedDefibrillator #Fish-edit
-    belt:
+    # Sunrise-start
+    - EnergySword
+    - EnergyShield
+    - SpeedLoaderMagnumAP
+    - SpeedLoaderMagnumAP
+    - BoxErtBaseKit
+    # Sunrise-end
   inhand:
-  - WeaponPulseRifle
+  - WeaponPulseRifle # Fish-edit
 
 - type: chameleonOutfit
   id: DeathSquadChameleonOutfit

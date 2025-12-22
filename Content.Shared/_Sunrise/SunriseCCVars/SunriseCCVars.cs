@@ -3,6 +3,9 @@ using Robust.Shared.Configuration;
 
 namespace Content.Shared._Sunrise.SunriseCCVars;
 
+// TODO: Разбиние на partial файлы
+// TODO: Документация по каждому из сиваров
+[CVarDefs]
 public sealed partial class SunriseCCVars : CVars
 {
     /**
@@ -228,6 +231,9 @@ public sealed partial class SunriseCCVars : CVars
 
     public static readonly CVarDef<int> MinPlayersPlanetPrison =
         CVarDef.Create("planet_prison.min_players", 0, CVar.SERVERONLY);
+
+    public static readonly CVarDef<bool> PlanetPrisonModern =
+        CVarDef.Create("planet_prison.modern", true, CVar.SERVERONLY);
 
     /*
      * MaxLoadedChunks
