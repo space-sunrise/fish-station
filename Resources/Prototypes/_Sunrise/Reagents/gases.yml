@@ -120,7 +120,7 @@
             Toxin: -1 #Fish-Edit
             Brute: -1 #Fish-Edit
           types:
-            Mangleness: 0.01 #Fish-Edit
+            Mangleness: -0.5 #Fish-Edit
       - !type:ModifyBleed
         amount: -0.15
       - !type:PopupMessage

@@ -30,3 +30,6 @@
 
 - type: playTimeTracker
   id: JobCentCommHead
+
+- type: playTimeTracker
+  id: JobCBURNLeader

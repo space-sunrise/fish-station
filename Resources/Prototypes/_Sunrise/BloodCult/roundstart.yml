@@ -4,7 +4,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: GameRule
-    minPlayers: 50 # НЕ ТРОГАТЬ БЕЗ МОЕГО РАЗРЕШЕНИЯ!!! SplikZerys
+    minPlayers: 35 # НЕ ТРОГАТЬ БЕЗ МОЕГО РАЗРЕШЕНИЯ!!! SplikZerys # Fish-edit
   - type: BloodCultRule
   - type: AntagObjectives
     objectives:

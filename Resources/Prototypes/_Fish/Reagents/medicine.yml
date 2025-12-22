@@ -38,7 +38,7 @@
         damage:
           types:
             Radiation: 1
-            Mangleness: -3
+            Mangleness: -2
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition

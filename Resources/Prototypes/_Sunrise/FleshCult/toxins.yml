@@ -63,7 +63,7 @@
         conditions:
         - !type:TagCondition
           tag: "Flesh"
-        amount: 5
+        amount: 0.1 # Fish-edit
       - !type:SatiateThirst
         conditions:
         - !type:TagCondition

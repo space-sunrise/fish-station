@@ -1,0 +1,8066 @@
+meta:
+  format: 7
+  category: Grid
+  engineVersion: 266.0.0
+  forkId: fish_station
+  forkVersion: 1741dcb735aa3c080a12bdfb8deaa247fb24fdc3
+  time: 12/14/2025 20:25:30
+  entityCount: 837
+maps: []
+grids:
+- 1
+orphans:
+- 1
+nullspace: []
+tilemap:
+  1: Space
+  0: FloorBasalt
+entities:
+- proto: ""
+  entities:
+  - uid: 1
+    mapInit: true
+    components:
+    - type: MetaData
+      name: grid
+    - type: Transform
+      pos: 0.16983128,1.6289072
+      parent: invalid
+    - type: MapGrid
+      chunks:
+        0,0:
+          ind: 0,0
+          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+          version: 7
+        -1,0:
+          ind: -1,0
+          tiles: AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+          version: 7
+        -1,1:
+          ind: -1,1
+          tiles: AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA==
+          version: 7
+        0,1:
+          ind: 0,1
+          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA==
+          version: 7
+        1,1:
+          ind: 1,1
+          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA==
+          version: 7
+        1,0:
+          ind: 1,0
+          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAA==
+          version: 7
+    - type: Broadphase
+    - type: Physics
+      bodyStatus: InAir
+      fixedRotation: False
+      bodyType: Dynamic
+    - type: Fixtures
+      fixtures: {}
+    - type: OccluderTree
+    - type: SpreaderGrid
+      updateAccumulator: 0.30089235
+    - type: Shuttle
+      dampingModifier: 0.25
+    - type: ImplicitRoof
+    - type: GridPathfinding
+    - type: Gravity
+      gravityShakeSound: !type:SoundPathSpecifier
+        path: /Audio/Effects/alert.ogg
+    - type: DecalGrid
+      chunkCollection:
+        version: 2
+        nodes: []
+    - type: GridAtmosphere
+      version: 2
+      data:
+        tiles:
+          0,2:
+            0: 65535
+          0,1:
+            0: 65127
+          0,0:
+            0: 28928
+          -1,2:
+            0: 65518
+          -1,1:
+            0: 29196
+          -1,0:
+            0: 51200
+          -2,2:
+            0: 62464
+          1,1:
+            0: 12544
+          1,2:
+            0: 29491
+          1,0:
+            0: 8192
+          -2,3:
+            0: 1279
+          -1,3:
+            0: 65535
+          -1,4:
+            0: 52991
+          0,3:
+            0: 32767
+          0,4:
+            0: 32767
+          1,3:
+            0: 1911
+          1,4:
+            0: 48
+          -1,5:
+            0: 200
+          0,5:
+            0: 7
+          -2,4:
+            0: 4352
+          -2,5:
+            0: 17
+          -3,1:
+            0: 65527
+          -3,2:
+            0: 65535
+          -3,3:
+            0: 65535
+          -3,4:
+            0: 61439
+          -3,5:
+            0: 8
+          -3,0:
+            0: 12544
+          -4,0:
+            0: 34816
+            1: 4369
+          -4,1:
+            0: 34952
+            1: 4369
+          -4,2:
+            0: 34952
+            1: 4369
+          -4,3:
+            0: 34952
+            1: 4369
+          -4,4:
+            0: 8
+            1: 4369
+          0,-1:
+            1: 61440
+          -1,-1:
+            1: 61440
+          -2,-1:
+            1: 61440
+          1,-1:
+            1: 61440
+          2,2:
+            0: 65518
+          2,3:
+            0: 61439
+          -2,6:
+            1: 15
+          -1,6:
+            1: 15
+          0,6:
+            1: 15
+          1,6:
+            1: 15
+          -3,-1:
+            1: 61440
+          -3,6:
+            1: 15
+          -4,-1:
+            1: 57344
+          -4,6:
+            1: 14
+          -4,5:
+            1: 4369
+          2,4:
+            0: 52974
+          2,1:
+            0: 61164
+          2,5:
+            0: 8
+          3,5:
+            0: 3
+          3,4:
+            0: 65535
+          3,3:
+            0: 65535
+          3,2:
+            0: 65535
+          3,1:
+            0: 65535
+          3,0:
+            0: 57344
+          4,4:
+            0: 65535
+          4,3:
+            0: 65535
+          4,2:
+            0: 65535
+          4,1:
+            0: 65535
+          4,0:
+            0: 61440
+          5,4:
+            0: 65535
+          5,3:
+            0: 65535
+          5,2:
+            0: 65535
+          5,1:
+            0: 65535
+          5,5:
+            0: 14
+          5,0:
+            0: 33280
+          6,4:
+            0: 4915
+          6,3:
+            0: 13175
+          6,2:
+            0: 65395
+          6,1:
+            0: 13105
+          2,6:
+            1: 15
+          2,-1:
+            1: 61440
+          3,6:
+            1: 15
+          3,-1:
+            1: 61440
+          4,6:
+            1: 15
+          4,-1:
+            1: 61440
+          5,6:
+            1: 15
+          5,-1:
+            1: 61440
+          6,6:
+            1: 15
+          6,-1:
+            1: 61440
+          7,6:
+            1: 3
+          7,-1:
+            1: 12288
+          7,5:
+            1: 17476
+          7,4:
+            1: 17476
+          7,3:
+            1: 17476
+          7,2:
+            1: 17476
+          7,1:
+            1: 17476
+          7,0:
+            1: 17476
+        uniqueMixes:
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          immutable: True
+          moles:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        chunkSize: 4
+    - type: GasTileOverlay
+    - type: IFF
+      flags: HideLabel
+    - type: RadiationGridResistance
+  - uid: 370
+    mapInit: true
+    components:
+    - type: MetaData
+      name: solution - food
+    - type: Transform
+      parent: 369
+    - type: Solution
+      solution:
+        maxVol: 30
+        name: food
+        reagents:
+        - data: []
+          ReagentId: Fiber
+          Quantity: 30
+    - type: ContainedSolution
+      containerName: food
+      container: 369
+  - uid: 372
+    mapInit: true
+    components:
+    - type: MetaData
+      name: solution - food
+    - type: Transform
+      parent: 371
+    - type: Solution
+      solution:
+        maxVol: 10
+        name: food
+        reagents:
+        - data: []
+          ReagentId: Fiber
+          Quantity: 10
+    - type: ContainedSolution
+      containerName: food
+      container: 371
+  - uid: 380
+    mapInit: true
+    components:
+    - type: MetaData
+      name: solution - food
+    - type: Transform
+      parent: 379
+    - type: Solution
+      solution:
+        maxVol: 10
+        name: food
+        reagents:
+        - data: []
+          ReagentId: Fiber
+          Quantity: 10
+    - type: ContainedSolution
+      containerName: food
+      container: 379
+  - uid: 389
+    mapInit: true
+    components:
+    - type: MetaData
+      name: solution - food
+    - type: Transform
+      parent: 388
+    - type: Solution
+      solution:
+        maxVol: 10
+        name: food
+        reagents:
+        - data: []
+          ReagentId: Fiber
+          Quantity: 10
+    - type: ContainedSolution
+      containerName: food
+      container: 388
+  - uid: 391
+    mapInit: true
+    components:
+    - type: MetaData
+      name: solution - food
+    - type: Transform
+      parent: 390
+    - type: Solution
+      solution:
+        maxVol: 10
+        name: food
+        reagents:
+        - data: []
+          ReagentId: Fiber
+          Quantity: 10
+    - type: ContainedSolution
+      containerName: food
+      container: 390
+  - uid: 393
+    mapInit: true
+    components:
+    - type: MetaData
+      name: solution - food
+    - type: Transform
+      parent: 392
+    - type: Solution
+      solution:
+        maxVol: 10
+        name: food
+        reagents:
+        - data: []
+          ReagentId: Fiber
+          Quantity: 10
+    - type: ContainedSolution
+      containerName: food
+      container: 392
+  - uid: 395
+    mapInit: true
+    components:
+    - type: MetaData
+      name: solution - food
+    - type: Transform
+      parent: 394
+    - type: Solution
+      solution:
+        maxVol: 10
+        name: food
+        reagents:
+        - data: []
+          ReagentId: Fiber
+          Quantity: 10
+    - type: ContainedSolution
+      containerName: food
+      container: 394
+  - uid: 397
+    mapInit: true
+    components:
+    - type: MetaData
+      name: solution - food
+    - type: Transform
+      parent: 396
+    - type: Solution
+      solution:
+        maxVol: 10
+        name: food
+        reagents:
+        - data: []
+          ReagentId: Fiber
+          Quantity: 10
+    - type: ContainedSolution
+      containerName: food
+      container: 396
+  - uid: 399
+    mapInit: true
+    components:
+    - type: MetaData
+      name: solution - food
+    - type: Transform
+      parent: 398
+    - type: Solution
+      solution:
+        maxVol: 10
+        name: food
+        reagents:
+        - data: []
+          ReagentId: Fiber
+          Quantity: 10
+    - type: ContainedSolution
+      containerName: food
+      container: 398
+  - uid: 401
+    mapInit: true
+    components:
+    - type: MetaData
+      name: solution - food
+    - type: Transform
+      parent: 400
+    - type: Solution
+      solution:
+        maxVol: 30
+        name: food
+        reagents:
+        - data: []
+          ReagentId: Fiber
+          Quantity: 30
+    - type: ContainedSolution
+      containerName: food
+      container: 400
+  - uid: 403
+    mapInit: true
+    components:
+    - type: MetaData
+      name: solution - food
+    - type: Transform
+      parent: 402
+    - type: Solution
+      solution:
+        maxVol: 30
+        name: food
+        reagents:
+        - data: []
+          ReagentId: Fiber
+          Quantity: 30
+    - type: ContainedSolution
+      containerName: food
+      container: 402
+  - uid: 405
+    mapInit: true
+    components:
+    - type: MetaData
+      name: solution - food
+    - type: Transform
+      parent: 404
+    - type: Solution
+      solution:
+        maxVol: 30
+        name: food
+        reagents:
+        - data: []
+          ReagentId: Fiber
+          Quantity: 30
+    - type: ContainedSolution
+      containerName: food
+      container: 404
+  - uid: 407
+    mapInit: true
+    components:
+    - type: MetaData
+      name: solution - food
+    - type: Transform
+      parent: 406
+    - type: Solution
+      solution:
+        maxVol: 30
+        name: food
+        reagents:
+        - data: []
+          ReagentId: Fiber
+          Quantity: 30
+    - type: ContainedSolution
+      containerName: food
+      container: 406
+  - uid: 409
+    mapInit: true
+    components:
+    - type: MetaData
+      name: solution - food
+    - type: Transform
+      parent: 408
+    - type: Solution
+      solution:
+        maxVol: 30
+        name: food
+        reagents:
+        - data: []
+          ReagentId: Fiber
+          Quantity: 30
+    - type: ContainedSolution
+      containerName: food
+      container: 408
+  - uid: 411
+    mapInit: true
+    components:
+    - type: MetaData
+      name: solution - food
+    - type: Transform
+      parent: 410
+    - type: Solution
+      solution:
+        maxVol: 30
+        name: food
+        reagents:
+        - data: []
+          ReagentId: Fiber
+          Quantity: 30
+    - type: ContainedSolution
+      containerName: food
+      container: 410
+  - uid: 454
+    mapInit: true
+    components:
+    - type: MetaData
+      name: solution - melee
+    - type: Transform
+      parent: 453
+    - type: Solution
+      solution:
+        maxVol: 5
+        name: melee
+        reagents: []
+    - type: ContainedSolution
+      containerName: melee
+      container: 453
+  - uid: 456
+    mapInit: true
+    components:
+    - type: MetaData
+      name: solution - melee
+    - type: Transform
+      parent: 455
+    - type: Solution
+      solution:
+        maxVol: 5
+        name: melee
+        reagents: []
+    - type: ContainedSolution
+      containerName: melee
+      container: 455
+  - uid: 458
+    mapInit: true
+    components:
+    - type: MetaData
+      name: solution - melee
+    - type: Transform
+      parent: 457
+    - type: Solution
+      solution:
+        maxVol: 5
+        name: melee
+        reagents: []
+    - type: ContainedSolution
+      containerName: melee
+      container: 457
+  - uid: 492
+    mapInit: true
+    components:
+    - type: MetaData
+      name: solution - food
+    - type: Transform
+      parent: 491
+    - type: Solution
+      solution:
+        maxVol: 10
+        name: food
+        reagents:
+        - data: []
+          ReagentId: Fiber
+          Quantity: 10
+    - type: ContainedSolution
+      containerName: food
+      container: 491
+  - uid: 494
+    mapInit: true
+    components:
+    - type: MetaData
+      name: solution - food
+    - type: Transform
+      parent: 493
+    - type: Solution
+      solution:
+        maxVol: 10
+        name: food
+        reagents:
+        - data: []
+          ReagentId: Fiber
+          Quantity: 10
+    - type: ContainedSolution
+      containerName: food
+      container: 493
+- proto: ActionToggleBlock
+  entities:
+  - uid: 378
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 377
+    - type: Action
+      originalIconColor: '#FFFFFFFF'
+      container: 377
+  - uid: 424
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 423
+    - type: Action
+      originalIconColor: '#FFFFFFFF'
+      container: 423
+  - uid: 426
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 425
+    - type: Action
+      originalIconColor: '#FFFFFFFF'
+      container: 425
+  - uid: 428
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 427
+    - type: Action
+      originalIconColor: '#FFFFFFFF'
+      container: 427
+  - uid: 430
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 429
+    - type: Action
+      originalIconColor: '#FFFFFFFF'
+      container: 429
+  - uid: 432
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 431
+    - type: Action
+      originalIconColor: '#FFFFFFFF'
+      container: 431
+  - uid: 434
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 433
+    - type: Action
+      originalIconColor: '#FFFFFFFF'
+      container: 433
+  - uid: 436
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 435
+    - type: Action
+      originalIconColor: '#FFFFFFFF'
+      container: 435
+  - uid: 438
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 437
+    - type: Action
+      originalIconColor: '#FFFFFFFF'
+      container: 437
+  - uid: 440
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 439
+    - type: Action
+      originalIconColor: '#FFFFFFFF'
+      container: 439
+  - uid: 442
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 441
+    - type: Action
+      originalIconColor: '#FFFFFFFF'
+      container: 441
+  - uid: 444
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 443
+    - type: Action
+      originalIconColor: '#FFFFFFFF'
+      container: 443
+  - uid: 446
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 445
+    - type: Action
+      originalIconColor: '#FFFFFFFF'
+      container: 445
+- proto: AlwaysPoweredlightRed
+  entities:
+  - uid: 366
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -12.5,11.5
+      parent: 1
+  - uid: 367
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -3.5,14.5
+      parent: 1
+  - uid: 374
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,8.5
+      parent: 1
+  - uid: 806
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 13.5,12.5
+      parent: 1
+  - uid: 807
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 21.5,12.5
+      parent: 1
+  - uid: 808
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 17.5,16.5
+      parent: 1
+  - uid: 809
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 17.5,7.5
+      parent: 1
+  - uid: 810
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 17.5,7.5
+      parent: 1
+- proto: BannerRed
+  entities:
+  - uid: 459
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -3.5,15.499999
+      parent: 1
+- proto: BarrierRune
+  entities:
+  - uid: 333
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -8.5,12.5
+      parent: 1
+  - uid: 733
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -7.490637,12.758958
+      parent: 1
+    - type: Forensics
+      residues: []
+      dnas: []
+      fibers: []
+      fingerprints: []
+- proto: BlastDoor
+  entities:
+  - uid: 713
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,14.5
+      parent: 1
+    - type: ContainerContainer
+      containers:
+        board: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 714
+    - type: DeviceNetwork
+      address: 1039-C89B
+      receiveFrequency: 1280
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 715
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,13.5
+      parent: 1
+    - type: ContainerContainer
+      containers:
+        board: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 716
+    - type: DeviceNetwork
+      address: 3494-F345
+      receiveFrequency: 1280
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 717
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,12.5
+      parent: 1
+    - type: ContainerContainer
+      containers:
+        board: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 718
+    - type: DeviceNetwork
+      address: 445C-ED14
+      receiveFrequency: 1280
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 719
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,11.5
+      parent: 1
+    - type: ContainerContainer
+      containers:
+        board: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 720
+    - type: DeviceNetwork
+      address: 7E70-BF52
+      receiveFrequency: 1280
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 721
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,10.5
+      parent: 1
+    - type: ContainerContainer
+      containers:
+        board: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 722
+    - type: DeviceNetwork
+      address: 6437-D35B
+      receiveFrequency: 1280
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: GravityAffected
+      weightless: False
+- proto: BloodBoilRune
+  entities:
+  - uid: 723
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -2.1451993,14.008958
+      parent: 1
+  - uid: 725
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -2.633572,12.739427
+      parent: 1
+    - type: Forensics
+      residues: []
+      dnas: []
+      fibers: []
+      fingerprints: []
+  - uid: 726
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.0242696,13.540208
+      parent: 1
+  - uid: 727
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.4222417,9.321459
+      parent: 1
+- proto: CardShield
+  entities:
+  - uid: 441
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -0.46528336,12.817552
+      parent: 1
+    - type: Blocking
+      blockingToggleActionEntity: 442
+    - type: EmitSoundOnCollide
+      nextSound: -2231.7315734
+    - type: Physics
+      canCollide: False
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 442
+    - type: Forensics
+      residues: []
+      dnas: []
+      fibers: []
+      fingerprints: []
+  - uid: 443
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -0.2896515,13.11384
+      parent: 1
+    - type: Blocking
+      blockingToggleActionEntity: 444
+    - type: EmitSoundOnCollide
+      nextSound: -2232.9316542
+    - type: Physics
+      canCollide: False
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 444
+  - uid: 445
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -0.107325554,13.231028
+      parent: 1
+    - type: Blocking
+      blockingToggleActionEntity: 446
+    - type: EmitSoundOnCollide
+      nextSound: -2233.36483
+    - type: Physics
+      canCollide: False
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 446
+- proto: CardSword
+  entities:
+  - uid: 412
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -10.503153,13.540401
+      parent: 1
+    - type: MeleeWeapon
+      nextAttack: -2171.3194705
+    - type: EmitSoundOnCollide
+      nextSound: -2171.3194705
+    - type: Physics
+      canCollide: False
+  - uid: 413
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -10.398966,8.709673
+      parent: 1
+    - type: MeleeWeapon
+      nextAttack: -2173.1981524
+    - type: EmitSoundOnCollide
+      nextSound: -2173.1981524
+    - type: Physics
+      canCollide: False
+- proto: Claymore
+  entities:
+  - uid: 373
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 368
+    - type: MeleeWeapon
+      nextAttack: -674.0661147
+    - type: Clothing
+      inSlotFlag: BACK
+      inSlot: back
+    - type: EmitSoundOnCollide
+      nextSound: -2199.0981069
+    - type: Physics
+      canCollide: False
+    - type: Forensics
+      residues: []
+      dnas: []
+      fibers: []
+      fingerprints: []
+  - uid: 421
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.077791,13.400297
+      parent: 1
+    - type: MeleeWeapon
+      nextAttack: -2197.4981339
+    - type: EmitSoundOnCollide
+      nextSound: -2197.4981339
+    - type: Physics
+      canCollide: False
+- proto: ClothingHeadHatGladiator
+  entities:
+  - uid: 371
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 368
+    - type: Clothing
+      inSlotFlag: HEAD
+      inSlot: head
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - food
+    - type: EmitSoundOnCollide
+      nextSound: -2478.3643117
+    - type: Physics
+      canCollide: False
+    - type: ContainerContainer
+      containers:
+        solution@food: !type:ContainerSlot
+          ent: 372
+    - type: Forensics
+      residues: []
+      dnas: []
+      fibers: []
+      fingerprints: []
+  - uid: 388
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -10.672455,12.180128
+      parent: 1
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - food
+    - type: EmitSoundOnCollide
+      nextSound: -2158.7978994
+    - type: Physics
+      canCollide: False
+    - type: ContainerContainer
+      containers:
+        solution@food: !type:ContainerSlot
+          ent: 389
+  - uid: 390
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -10.594315,12.375441
+      parent: 1
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - food
+    - type: EmitSoundOnCollide
+      nextSound: -2159.3280266
+    - type: Physics
+      canCollide: False
+    - type: ContainerContainer
+      containers:
+        solution@food: !type:ContainerSlot
+          ent: 391
+  - uid: 392
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -10.633385,12.713984
+      parent: 1
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - food
+    - type: EmitSoundOnCollide
+      nextSound: -2160.3919036
+    - type: Physics
+      canCollide: False
+    - type: ContainerContainer
+      containers:
+        solution@food: !type:ContainerSlot
+          ent: 393
+  - uid: 394
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -11.6491995,11.013937
+      parent: 1
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - food
+    - type: EmitSoundOnCollide
+      nextSound: -2161.4634547
+    - type: Physics
+      canCollide: False
+    - type: ContainerContainer
+      containers:
+        solution@food: !type:ContainerSlot
+          ent: 395
+  - uid: 396
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -11.427804,10.975298
+      parent: 1
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - food
+    - type: EmitSoundOnCollide
+      nextSound: -2161.7980023
+    - type: Physics
+      canCollide: False
+    - type: ContainerContainer
+      containers:
+        solution@food: !type:ContainerSlot
+          ent: 397
+  - uid: 398
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -11.505943,10.85811
+      parent: 1
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - food
+    - type: EmitSoundOnCollide
+      nextSound: -2162.2221618
+    - type: Physics
+      canCollide: False
+    - type: ContainerContainer
+      containers:
+        solution@food: !type:ContainerSlot
+          ent: 399
+- proto: ClothingHeadHelmetPaladin
+  entities:
+  - uid: 379
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 375
+    - type: Clothing
+      inSlotFlag: HEAD
+      inSlot: head
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - food
+    - type: EmitSoundOnCollide
+      nextSound: -2478.3643117
+    - type: Physics
+      canCollide: False
+    - type: ContainerContainer
+      containers:
+        solution@food: !type:ContainerSlot
+          ent: 380
+    - type: Forensics
+      residues: []
+      dnas: []
+      fibers: []
+      fingerprints: []
+- proto: ClothingOuterArmorPaladin
+  entities:
+  - uid: 376
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 375
+    - type: Clothing
+      inSlotFlag: OUTERCLOTHING
+      inSlot: outerClothing
+    - type: EmitSoundOnCollide
+      nextSound: -2478.3643117
+    - type: Physics
+      canCollide: False
+    - type: Forensics
+      residues: []
+      dnas: []
+      fibers: []
+      fingerprints: []
+- proto: ClothingOuterRobesCult
+  entities:
+  - uid: 384
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 383
+    - type: Clothing
+      inSlotFlag: OUTERCLOTHING
+      inSlot: outerClothing
+    - type: EmitSoundOnCollide
+      nextSound: -2377.9978547
+    - type: Physics
+      canCollide: False
+    - type: Forensics
+      residues: []
+      dnas: []
+      fibers: []
+      fingerprints: []
+  - uid: 487
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -0.5184891,14.776404
+      parent: 1
+    - type: EmitSoundOnCollide
+      nextSound: -2377.1315117
+    - type: Physics
+      canCollide: False
+  - uid: 489
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -11.427445,11.631872
+      parent: 1
+    - type: EmitSoundOnCollide
+      nextSound: -2379.3977869
+    - type: Physics
+      canCollide: False
+  - uid: 490
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -11.095353,10.577185
+      parent: 1
+    - type: EmitSoundOnCollide
+      nextSound: -2379.9545496
+    - type: Physics
+      canCollide: False
+- proto: ClothingPantsManStripe
+  entities:
+  - uid: 447
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -11.412322,11.772694
+      parent: 1
+    - type: EmitSoundOnCollide
+      nextSound: -2239.3653733
+    - type: Physics
+      canCollide: False
+    - type: UseDelay
+      delays:
+        default:
+          endTime: 238.9989384
+          length: 1
+        quickInsert:
+          endTime: 238.9989384
+          length: 0.5
+        storage:
+          endTime: 238.9989384
+  - uid: 448
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -11.243019,11.772694
+      parent: 1
+    - type: EmitSoundOnCollide
+      nextSound: -2239.8646642
+    - type: Physics
+      canCollide: False
+    - type: UseDelay
+      delays:
+        default:
+          endTime: 238.4996475
+          length: 1
+        quickInsert:
+          endTime: 238.4996475
+          length: 0.5
+        storage:
+          endTime: 238.4996475
+  - uid: 449
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -11.216972,11.629465
+      parent: 1
+    - type: EmitSoundOnCollide
+      nextSound: -2240.3527866
+    - type: Physics
+      canCollide: False
+    - type: UseDelay
+      delays:
+        default:
+          endTime: 238.0115251
+          length: 1
+        quickInsert:
+          endTime: 238.0115251
+          length: 0.5
+        storage:
+          endTime: 238.0115251
+  - uid: 450
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -10.48767,9.390753
+      parent: 1
+    - type: EmitSoundOnCollide
+      nextSound: -2241.4313627
+    - type: Physics
+      canCollide: False
+    - type: UseDelay
+      delays:
+        default:
+          endTime: 236.932949
+          length: 1
+        quickInsert:
+          endTime: 236.932949
+          length: 0.5
+        storage:
+          endTime: 236.932949
+  - uid: 451
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -10.552787,9.312628
+      parent: 1
+    - type: EmitSoundOnCollide
+      nextSound: -2241.8316018
+    - type: Physics
+      canCollide: False
+    - type: UseDelay
+      delays:
+        default:
+          endTime: 236.5327099
+          length: 1
+        quickInsert:
+          endTime: 236.5327099
+          length: 0.5
+        storage:
+          endTime: 236.5327099
+  - uid: 452
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -10.448601,9.299606
+      parent: 1
+    - type: EmitSoundOnCollide
+      nextSound: -2242.1651548
+    - type: Physics
+      canCollide: False
+    - type: UseDelay
+      delays:
+        default:
+          endTime: 236.1991569
+          length: 1
+        quickInsert:
+          endTime: 236.1991569
+          length: 0.5
+        storage:
+          endTime: 236.1991569
+- proto: ClothingShoesCult
+  entities:
+  - uid: 491
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -10.60698,13.331091
+      parent: 1
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - food
+    - type: EmitSoundOnCollide
+      nextSound: -2382.2632514
+    - type: Physics
+      canCollide: False
+    - type: ContainerContainer
+      containers:
+        solution@food: !type:ContainerSlot
+          ent: 492
+  - uid: 493
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -10.704655,9.444372
+      parent: 1
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - food
+    - type: EmitSoundOnCollide
+      nextSound: -2383.0978772
+    - type: Physics
+      canCollide: False
+    - type: ContainerContainer
+      containers:
+        solution@food: !type:ContainerSlot
+          ent: 494
+- proto: ClothingUniformJumpsuitGladiator
+  entities:
+  - uid: 369
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 368
+    - type: Clothing
+      inSlotFlag: INNERCLOTHING
+      inSlot: jumpsuit
+    - type: SuitSensor
+      nextUpdate: -679.2026104
+      user: 368
+    - type: DeviceNetwork
+      address: 5D85-24D3
+      transmitFrequency: 1262
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - food
+    - type: EmitSoundOnCollide
+      nextSound: -2478.3643117
+    - type: Physics
+      canCollide: False
+    - type: ContainerContainer
+      containers:
+        solution@food: !type:ContainerSlot
+          ent: 370
+    - type: Forensics
+      residues: []
+      dnas: []
+      fibers: []
+      fingerprints: []
+  - uid: 400
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -10.477106,10.102901
+      parent: 1
+    - type: SuitSensor
+      nextUpdate: -620.8206874
+    - type: DeviceNetwork
+      address: 427D-6E32
+      transmitFrequency: 1262
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - food
+    - type: EmitSoundOnCollide
+      nextSound: -2163.4859113
+    - type: Physics
+      canCollide: False
+    - type: ContainerContainer
+      containers:
+        solution@food: !type:ContainerSlot
+          ent: 401
+  - uid: 402
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -10.503153,9.881548
+      parent: 1
+    - type: SuitSensor
+      nextUpdate: -621.2247465
+    - type: DeviceNetwork
+      address: 6C0D-9EC4
+      transmitFrequency: 1262
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - food
+    - type: EmitSoundOnCollide
+      nextSound: -2163.8899704
+    - type: Physics
+      canCollide: False
+    - type: ContainerContainer
+      containers:
+        solution@food: !type:ContainerSlot
+          ent: 403
+  - uid: 404
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -10.398966,9.8164425
+      parent: 1
+    - type: SuitSensor
+      nextUpdate: -621.867996
+    - type: DeviceNetwork
+      address: 271E-4A70
+      transmitFrequency: 1262
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - food
+    - type: EmitSoundOnCollide
+      nextSound: -2164.5332199
+    - type: Physics
+      canCollide: False
+    - type: ContainerContainer
+      containers:
+        solution@food: !type:ContainerSlot
+          ent: 405
+  - uid: 406
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -10.555245,11.33988
+      parent: 1
+    - type: SuitSensor
+      nextUpdate: -622.4884002
+    - type: DeviceNetwork
+      address: 0769-CBE4
+      transmitFrequency: 1262
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - food
+    - type: EmitSoundOnCollide
+      nextSound: -2165.1536241
+    - type: Physics
+      canCollide: False
+    - type: ContainerContainer
+      containers:
+        solution@food: !type:ContainerSlot
+          ent: 407
+  - uid: 408
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -10.672455,11.313839
+      parent: 1
+    - type: SuitSensor
+      nextUpdate: -622.8663235
+    - type: DeviceNetwork
+      address: 724E-CE5E
+      transmitFrequency: 1262
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - food
+    - type: EmitSoundOnCollide
+      nextSound: -2165.5315474
+    - type: Physics
+      canCollide: False
+    - type: ContainerContainer
+      containers:
+        solution@food: !type:ContainerSlot
+          ent: 409
+  - uid: 410
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -10.438036,11.105505
+      parent: 1
+    - type: SuitSensor
+      nextUpdate: -623.2661413
+    - type: DeviceNetwork
+      address: 1CDD-3873
+      transmitFrequency: 1262
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - food
+    - type: EmitSoundOnCollide
+      nextSound: -2165.9313652
+    - type: Physics
+      canCollide: False
+    - type: ContainerContainer
+      containers:
+        solution@food: !type:ContainerSlot
+          ent: 411
+- proto: CultGirder
+  entities:
+  - uid: 506
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -1.5,11.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 507
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 1.5,15.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 508
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -0.5,17.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 509
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -1.5,7.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 510
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -5.5,14.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 511
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -5.5,10.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 512
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -10.5,14.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 513
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -10.5,7.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 834
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 11.5,12.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 835
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 17.5,17.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 836
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 24.5,12.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 837
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 17.5,6.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+- proto: DoorElectronics
+  entities:
+  - uid: 714
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 713
+    - type: EmitSoundOnCollide
+      nextSound: -2478.3643117
+    - type: Physics
+      canCollide: False
+  - uid: 716
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 715
+    - type: EmitSoundOnCollide
+      nextSound: -2478.3643117
+    - type: Physics
+      canCollide: False
+  - uid: 718
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 717
+    - type: EmitSoundOnCollide
+      nextSound: -2478.3643117
+    - type: Physics
+      canCollide: False
+  - uid: 720
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 719
+    - type: EmitSoundOnCollide
+      nextSound: -2478.3643117
+    - type: Physics
+      canCollide: False
+  - uid: 722
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 721
+    - type: EmitSoundOnCollide
+      nextSound: -2478.3643117
+    - type: Physics
+      canCollide: False
+- proto: FloorLavaEntity
+  entities:
+  - uid: 283
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -12.5,2.5
+      parent: 1
+  - uid: 284
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -11.5,2.5
+      parent: 1
+  - uid: 285
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -12.5,3.5
+      parent: 1
+  - uid: 286
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -12.5,4.5
+      parent: 1
+  - uid: 287
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -12.5,5.5
+      parent: 1
+  - uid: 288
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -12.5,6.5
+      parent: 1
+  - uid: 289
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -12.5,7.5
+      parent: 1
+  - uid: 290
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -12.5,8.5
+      parent: 1
+  - uid: 291
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -12.5,9.5
+      parent: 1
+  - uid: 292
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -12.5,10.5
+      parent: 1
+  - uid: 293
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -12.5,11.5
+      parent: 1
+  - uid: 294
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -12.5,12.5
+      parent: 1
+  - uid: 295
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -12.5,13.5
+      parent: 1
+  - uid: 296
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -12.5,14.5
+      parent: 1
+  - uid: 297
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -12.5,15.5
+      parent: 1
+  - uid: 298
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -12.5,16.5
+      parent: 1
+  - uid: 299
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -11.5,16.5
+      parent: 1
+  - uid: 300
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -11.5,17.5
+      parent: 1
+  - uid: 301
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -11.5,18.5
+      parent: 1
+  - uid: 302
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -10.5,18.5
+      parent: 1
+  - uid: 303
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -10.5,19.5
+      parent: 1
+  - uid: 304
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -9.5,19.5
+      parent: 1
+  - uid: 305
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -8.5,19.5
+      parent: 1
+  - uid: 306
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -8.5,20.5
+      parent: 1
+  - uid: 307
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,20.5
+      parent: 1
+  - uid: 308
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,21.5
+      parent: 1
+  - uid: 309
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,21.5
+      parent: 1
+  - uid: 310
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,21.5
+      parent: 1
+  - uid: 311
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,20.5
+      parent: 1
+  - uid: 312
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5,20.5
+      parent: 1
+  - uid: 313
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.5,20.5
+      parent: 1
+  - uid: 314
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,20.5
+      parent: 1
+  - uid: 315
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,19.5
+      parent: 1
+  - uid: 316
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,18.5
+      parent: 1
+  - uid: 317
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,18.5
+      parent: 1
+  - uid: 318
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 3.5,17.5
+      parent: 1
+  - uid: 319
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 4.5,17.5
+      parent: 1
+  - uid: 320
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 5.5,17.5
+      parent: 1
+  - uid: 321
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 5.5,7.5
+      parent: 1
+  - uid: 322
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 4.5,7.5
+      parent: 1
+  - uid: 323
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 4.5,6.5
+      parent: 1
+  - uid: 324
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 3.5,6.5
+      parent: 1
+  - uid: 325
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,6.5
+      parent: 1
+  - uid: 326
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,4.5
+      parent: 1
+  - uid: 327
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,5.5
+      parent: 1
+  - uid: 328
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,3.5
+      parent: 1
+  - uid: 329
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,3.5
+      parent: 1
+  - uid: 330
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 0.5,3.5
+      parent: 1
+  - uid: 331
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 0.5,2.5
+      parent: 1
+  - uid: 332
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.5,2.5
+      parent: 1
+  - uid: 734
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 12.5,14.5
+      parent: 1
+  - uid: 735
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 13.5,14.5
+      parent: 1
+  - uid: 736
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 14.5,14.5
+      parent: 1
+  - uid: 737
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 15.5,14.5
+      parent: 1
+  - uid: 738
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 13.5,15.5
+      parent: 1
+  - uid: 739
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 14.5,15.5
+      parent: 1
+  - uid: 740
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 15.5,15.5
+      parent: 1
+  - uid: 741
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 16.5,15.5
+      parent: 1
+  - uid: 742
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 17.5,15.5
+      parent: 1
+  - uid: 743
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 18.5,15.5
+      parent: 1
+  - uid: 744
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 19.5,15.5
+      parent: 1
+  - uid: 745
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 20.5,15.5
+      parent: 1
+  - uid: 746
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 19.5,14.5
+      parent: 1
+  - uid: 747
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 20.5,14.5
+      parent: 1
+  - uid: 748
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 21.5,14.5
+      parent: 1
+  - uid: 749
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 22.5,14.5
+      parent: 1
+  - uid: 750
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 21.5,14.5
+      parent: 1
+  - uid: 751
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 21.5,13.5
+      parent: 1
+  - uid: 752
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 21.5,12.5
+      parent: 1
+  - uid: 753
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 22.5,13.5
+      parent: 1
+  - uid: 754
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 22.5,12.5
+      parent: 1
+  - uid: 755
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 22.5,11.5
+      parent: 1
+  - uid: 756
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 22.5,10.5
+      parent: 1
+  - uid: 757
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,12.5
+      parent: 1
+  - uid: 758
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,11.5
+      parent: 1
+  - uid: 759
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,10.5
+      parent: 1
+  - uid: 760
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,9.5
+      parent: 1
+  - uid: 761
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,8.5
+      parent: 1
+  - uid: 762
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 21.5,8.5
+      parent: 1
+  - uid: 763
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 19.5,8.5
+      parent: 1
+  - uid: 764
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 18.5,8.5
+      parent: 1
+  - uid: 765
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 17.5,8.5
+      parent: 1
+  - uid: 766
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 20.5,8.5
+      parent: 1
+  - uid: 767
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 16.5,8.5
+      parent: 1
+  - uid: 768
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 15.5,8.5
+      parent: 1
+  - uid: 769
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 14.5,8.5
+      parent: 1
+  - uid: 770
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 13.5,8.5
+      parent: 1
+  - uid: 771
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 14.5,9.5
+      parent: 1
+  - uid: 772
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 13.5,9.5
+      parent: 1
+  - uid: 773
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 13.5,9.5
+      parent: 1
+  - uid: 774
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 13.5,10.5
+      parent: 1
+  - uid: 775
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 13.5,11.5
+      parent: 1
+  - uid: 776
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 13.5,12.5
+      parent: 1
+  - uid: 777
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 13.5,13.5
+      parent: 1
+  - uid: 778
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 13.5,14.5
+      parent: 1
+  - uid: 779
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 12.5,9.5
+      parent: 1
+  - uid: 780
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 12.5,10.5
+      parent: 1
+  - uid: 781
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 12.5,11.5
+      parent: 1
+  - uid: 782
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 12.5,12.5
+      parent: 1
+  - uid: 783
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 12.5,13.5
+      parent: 1
+  - uid: 784
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 12.5,14.5
+      parent: 1
+  - uid: 785
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 15.5,8.5
+      parent: 1
+  - uid: 786
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 15.5,7.5
+      parent: 1
+  - uid: 787
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 16.5,7.5
+      parent: 1
+  - uid: 788
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 17.5,8.5
+      parent: 1
+  - uid: 789
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 17.5,7.5
+      parent: 1
+  - uid: 790
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 18.5,8.5
+      parent: 1
+  - uid: 791
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 16.5,8.5
+      parent: 1
+  - uid: 792
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 18.5,7.5
+      parent: 1
+  - uid: 793
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 19.5,8.5
+      parent: 1
+  - uid: 794
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 19.5,7.5
+      parent: 1
+  - uid: 795
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 22.5,9.5
+      parent: 1
+  - uid: 796
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 23.5,11.5
+      parent: 1
+  - uid: 797
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 23.5,12.5
+      parent: 1
+  - uid: 798
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 23.5,13.5
+      parent: 1
+  - uid: 799
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 21.5,15.5
+      parent: 1
+  - uid: 800
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 20.5,16.5
+      parent: 1
+  - uid: 801
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 19.5,16.5
+      parent: 1
+  - uid: 802
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 18.5,16.5
+      parent: 1
+  - uid: 803
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 17.5,16.5
+      parent: 1
+  - uid: 804
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 16.5,16.5
+      parent: 1
+  - uid: 805
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 15.5,16.5
+      parent: 1
+- proto: ForgedShieldTower
+  entities:
+  - uid: 435
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 1.4294183,12.059153
+      parent: 1
+    - type: MeleeWeapon
+      nextAttack: -2228.3559208
+    - type: Blocking
+      blockingToggleActionEntity: 436
+    - type: EmitSoundOnCollide
+      nextSound: -2228.3559208
+    - type: Physics
+      canCollide: False
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 436
+  - uid: 437
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 1.5336041,11.915922
+      parent: 1
+    - type: MeleeWeapon
+      nextAttack: -2229.0646439
+    - type: Blocking
+      blockingToggleActionEntity: 438
+    - type: EmitSoundOnCollide
+      nextSound: -2229.0646439
+    - type: Physics
+      canCollide: False
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 438
+  - uid: 439
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 1.416395,11.941965
+      parent: 1
+    - type: MeleeWeapon
+      nextAttack: -2229.5646073
+    - type: Blocking
+      blockingToggleActionEntity: 440
+    - type: EmitSoundOnCollide
+      nextSound: -2229.5646073
+    - type: Physics
+      canCollide: False
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 440
+- proto: LegionnaireBonfire
+  entities:
+  - uid: 485
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,16.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 486
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,7.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+- proto: Mannequin
+  entities:
+  - uid: 368
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 2.5,13.5
+      parent: 1
+    - type: ContainerContainer
+      containers:
+        jumpsuit: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: 369
+        outerClothing: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+        neck: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+        mask: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+        eyes: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+        head: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: 371
+        suitstorage: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+        back: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: 373
+  - uid: 375
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,10.5
+      parent: 1
+    - type: ContainerContainer
+      containers:
+        jumpsuit: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+        outerClothing: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: 376
+        neck: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+        mask: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+        eyes: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+        head: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: 379
+        suitstorage: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: 377
+        back: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+  - uid: 383
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,12.5
+      parent: 1
+    - type: ContainerContainer
+      containers:
+        jumpsuit: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+        outerClothing: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: 384
+        neck: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+        mask: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+        eyes: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+        head: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+        suitstorage: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+        back: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+- proto: Multitool
+  entities:
+  - uid: 724
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 5.704827,3.4347706
+      parent: 1
+    - type: NetworkConfigurator
+      lastUseAttempt: -770.6993527
+    - type: EmitSoundOnCollide
+      nextSound: -1094.9655952
+    - type: Physics
+      canCollide: False
+    - type: Forensics
+      residues: []
+      dnas: []
+      fibers: []
+      fingerprints: []
+- proto: OfferingRune
+  entities:
+  - uid: 382
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 4.5322933,11.548021
+      parent: 1
+  - uid: 422
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 4.0634565,12.036302
+      parent: 1
+  - uid: 482
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -2.5,13.5
+      parent: 1
+  - uid: 488
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 4.0634565,11.05974
+      parent: 1
+- proto: PaladinShield
+  entities:
+  - uid: 377
+    mapInit: true
+    components:
+    - type: Transform
+      parent: 375
+    - type: Clothing
+      inSlotFlag: SUITSTORAGE
+      inSlot: suitstorage
+    - type: Blocking
+      blockingToggleActionEntity: 378
+    - type: MeleeWeapon
+      nextAttack: -651.6661374
+    - type: EmitSoundOnCollide
+      nextSound: -2478.3643117
+    - type: Physics
+      canCollide: False
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 378
+    - type: Forensics
+      residues: []
+      dnas: []
+      fibers: []
+      fingerprints: []
+  - uid: 429
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.19848847,11.772694
+      parent: 1
+    - type: Blocking
+      blockingToggleActionEntity: 430
+    - type: MeleeWeapon
+      nextAttack: -2219.3216446
+    - type: EmitSoundOnCollide
+      nextSound: -2219.3216446
+    - type: Physics
+      canCollide: False
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 430
+  - uid: 431
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -0.25058138,11.86384
+      parent: 1
+    - type: Blocking
+      blockingToggleActionEntity: 432
+    - type: MeleeWeapon
+      nextAttack: -2220.3645443
+    - type: EmitSoundOnCollide
+      nextSound: -2220.3645443
+    - type: Physics
+      canCollide: False
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 432
+  - uid: 433
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -0.34174442,11.681547
+      parent: 1
+    - type: Blocking
+      blockingToggleActionEntity: 434
+    - type: MeleeWeapon
+      nextAttack: -2221.1986617
+    - type: EmitSoundOnCollide
+      nextSound: -2221.1986617
+    - type: Physics
+      canCollide: False
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 434
+- proto: PaladinShieldGreat
+  entities:
+  - uid: 423
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.9017445,15.770091
+      parent: 1
+    - type: Blocking
+      blockingToggleActionEntity: 424
+    - type: MeleeWeapon
+      nextAttack: -2208.5649629
+    - type: EmitSoundOnCollide
+      nextSound: -2208.5649629
+    - type: Physics
+      canCollide: False
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 424
+  - uid: 425
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.6022093,15.63988
+      parent: 1
+    - type: Blocking
+      blockingToggleActionEntity: 426
+    - type: MeleeWeapon
+      nextAttack: -2209.1645765
+    - type: EmitSoundOnCollide
+      nextSound: -2209.1645765
+    - type: Physics
+      canCollide: False
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 426
+  - uid: 427
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.41988397,15.457591
+      parent: 1
+    - type: Blocking
+      blockingToggleActionEntity: 428
+    - type: MeleeWeapon
+      nextAttack: -2213.598728
+    - type: EmitSoundOnCollide
+      nextSound: -2213.598728
+    - type: Physics
+      canCollide: False
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 428
+- proto: ReviveRune
+  entities:
+  - uid: 334
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,13.5
+      parent: 1
+  - uid: 728
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.0315442,8.774584
+      parent: 1
+  - uid: 729
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.3282895,8.305834
+      parent: 1
+  - uid: 730
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.4417768,8.637865
+      parent: 1
+  - uid: 731
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.6213117,9.204271
+      parent: 1
+  - uid: 732
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -8.096218,13.169114
+      parent: 1
+- proto: SignalButtonExt1
+  entities:
+  - uid: 149
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 5.5,3.5
+      parent: 1
+    - type: UseDelay
+      delays:
+        default:
+          endTime: 1712.8649543
+          startTime: 1712.3649543
+          length: 0.5
+    - type: DeviceNetwork
+      address: 0523-49FC
+    - type: DeviceLinkSource
+      linkedPorts:
+        721:
+        - - Pressed
+          - Toggle
+        719:
+        - - Pressed
+          - Toggle
+        717:
+        - - Pressed
+          - Toggle
+        715:
+        - - Pressed
+          - Toggle
+        713:
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
+    - type: Forensics
+      residues: []
+      dnas: []
+      fibers: []
+      fingerprints: []
+- proto: Spear
+  entities:
+  - uid: 453
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 0.2211465,15.286323
+      parent: 1
+    - type: MeleeWeapon
+      nextAttack: -2247.5979977
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - melee
+    - type: UseDelay
+      delays:
+        default:
+          endTime: 230.766314
+          startTime: 0
+          length: 1
+    - type: EmitSoundOnCollide
+      nextSound: -2247.5979977
+    - type: Physics
+      canCollide: False
+    - type: ContainerContainer
+      containers:
+        solution@melee: !type:ContainerSlot
+          ent: 454
+  - uid: 455
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 0.15602961,15.025908
+      parent: 1
+    - type: MeleeWeapon
+      nextAttack: -2248.0983766
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - melee
+    - type: UseDelay
+      delays:
+        default:
+          endTime: 230.2659351
+          startTime: 0
+          length: 1
+    - type: EmitSoundOnCollide
+      nextSound: -2248.0983766
+    - type: Physics
+      canCollide: False
+    - type: ContainerContainer
+      containers:
+        solution@melee: !type:ContainerSlot
+          ent: 456
+  - uid: 457
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 0.28626272,14.882678
+      parent: 1
+    - type: MeleeWeapon
+      nextAttack: -2248.6561325
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - melee
+    - type: UseDelay
+      delays:
+        default:
+          endTime: 229.7081792
+          startTime: 0
+          length: 1
+    - type: EmitSoundOnCollide
+      nextSound: -2248.6561325
+    - type: Physics
+      canCollide: False
+    - type: ContainerContainer
+      containers:
+        solution@melee: !type:ContainerSlot
+          ent: 458
+- proto: SummoningRune
+  entities:
+  - uid: 385
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.2000833,12.856614
+      parent: 1
+  - uid: 483
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,11.5
+      parent: 1
+- proto: SwordForged
+  entities:
+  - uid: 414
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.86941814,10.727901
+      parent: 1
+    - type: MeleeWeapon
+      nextAttack: -2175.6981568
+    - type: EmitSoundOnCollide
+      nextSound: -2175.6981568
+    - type: Physics
+      canCollide: False
+  - uid: 415
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.8433714,10.962276
+      parent: 1
+    - type: MeleeWeapon
+      nextAttack: -2176.297888
+    - type: EmitSoundOnCollide
+      nextSound: -2176.297888
+    - type: Physics
+      canCollide: False
+  - uid: 416
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.635,10.636755
+      parent: 1
+    - type: MeleeWeapon
+      nextAttack: -2177.2316419
+    - type: EmitSoundOnCollide
+      nextSound: -2177.2316419
+    - type: Physics
+      canCollide: False
+- proto: SwordImprovised
+  entities:
+  - uid: 419
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 0.5047674,12.397694
+      parent: 1
+    - type: MeleeWeapon
+      nextAttack: -2185.0648529
+    - type: EmitSoundOnCollide
+      nextSound: -2185.0648529
+    - type: Physics
+      canCollide: False
+  - uid: 420
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 0.54383755,12.111235
+      parent: 1
+    - type: MeleeWeapon
+      nextAttack: -2185.9645602
+    - type: EmitSoundOnCollide
+      nextSound: -2185.9645602
+    - type: Physics
+      canCollide: False
+- proto: SwordMakeshift
+  entities:
+  - uid: 417
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.061976433,13.947172
+      parent: 1
+    - type: MeleeWeapon
+      nextAttack: -2179.5311936
+    - type: EmitSoundOnCollide
+      nextSound: -2179.5311936
+    - type: Physics
+      canCollide: False
+  - uid: 418
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.32872105,13.90811
+      parent: 1
+    - type: MeleeWeapon
+      nextAttack: -2182.5314513
+    - type: EmitSoundOnCollide
+      nextSound: -2182.5314513
+    - type: Physics
+      canCollide: False
+- proto: TableBrass
+  entities:
+  - uid: 335
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -10.5,12.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 336
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -10.5,11.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 337
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -10.5,10.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 338
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -10.5,9.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 339
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -11.5,11.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 340
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -11.5,10.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 341
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -10.5,8.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 342
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -10.5,13.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 343
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,14.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 344
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,12.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 345
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,13.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 346
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,11.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 347
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5,14.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 348
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5,13.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 349
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5,12.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 350
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5,11.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 351
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.5,13.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 352
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.5,12.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 353
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.5,11.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 354
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.5,14.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 355
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 0.5,10.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 356
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 0.5,9.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 357
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 1.5,10.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 358
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 1.5,9.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 359
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 0.5,15.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 360
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 0.5,16.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 361
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.5,15.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 362
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.5,16.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 363
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,17.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 364
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,16.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 365
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,15.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+- proto: TeleportRune
+  entities:
+  - uid: 381
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.903339,12.426927
+      parent: 1
+    - type: CultRuneTeleport
+      label: неизвестно где
+  - uid: 386
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.414967,12.01677
+      parent: 1
+    - type: CultRuneTeleport
+      label: неизвестно где
+- proto: WallBasaltCobblebrick
+  entities:
+  - uid: 474
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -7.5,9.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 475
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -7.5,10.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 476
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -6.5,10.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 477
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -6.5,14.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 478
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,14.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 479
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,15.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 480
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,16.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 481
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,17.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+- proto: WallCult
+  entities:
+  - uid: 495
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,18.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 496
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,19.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 497
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -2.5,19.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 498
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -2.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 499
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 500
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -4.5,14.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 501
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,6.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 502
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,5.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 503
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -2.5,5.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 504
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -2.5,4.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 505
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,5.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 811
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 14.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 812
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 15.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 813
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 16.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 814
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 17.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 815
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 18.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 816
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 18.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 817
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 19.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 818
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 20.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 819
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 17.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 820
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 13.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 821
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 14.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 822
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 15.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 823
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 16.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 824
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 17.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 825
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 18.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 826
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 19.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 827
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 20.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 828
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 21.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 829
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 22.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 830
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 20.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 831
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 12.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 832
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 12.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 833
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+- proto: WallReinforced
+  entities:
+  - uid: 2
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -5.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 3
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -5.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 4
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -5.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 5
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -5.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 6
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -5.5,4.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 7
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -5.5,5.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 8
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -5.5,6.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 9
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -5.5,7.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 10
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -5.5,8.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 12
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 13
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -12.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 14
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -10.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 15
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -11.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 16
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -6.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 18
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -5.5,16.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 19
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -5.5,17.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 20
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -5.5,18.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 21
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -5.5,19.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 22
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -5.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 23
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -5.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 24
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -5.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 25
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -5.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 26
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -4.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 27
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 28
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -2.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 29
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 30
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 31
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 0.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 32
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 33
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 34
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 35
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 4.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 36
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 37
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 6.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 38
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 39
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 40
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 41
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 42
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,19.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 43
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,18.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 44
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,17.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 45
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,16.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 46
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,15.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 52
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,9.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 53
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,8.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 54
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,7.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 55
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,6.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 56
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,5.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 57
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,4.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 58
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 59
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 60
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 61
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 62
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 63
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 5.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 64
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 4.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 65
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 66
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 67
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 68
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 69
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 70
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 71
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 72
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -3.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 73
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -4.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 83
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 84
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -13.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 85
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -7.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 86
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -9.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 87
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -8.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 176
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 177
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 178
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,4.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 179
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,5.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 180
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,6.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 181
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,7.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 182
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,8.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 183
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,9.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 184
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,10.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 185
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,11.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 186
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,12.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 187
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,13.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 188
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,14.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 189
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,15.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 190
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,16.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 191
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,17.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 192
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,18.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 193
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,19.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 194
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 195
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 196
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -14.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 197
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -14.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 198
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -13.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 199
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -12.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 200
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -11.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 201
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -10.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 202
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -9.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 203
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -8.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 204
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 205
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -6.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+- proto: WallRiveted
+  entities:
+  - uid: 47
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 48
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 15.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 49
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 13.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 50
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 12.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 51
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 8.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 114
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 9.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 115
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 16.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 116
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 14.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 117
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 17.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 465
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 11.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 484
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 18.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 514
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 19.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 515
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 21.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 516
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 20.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 517
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 22.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 518
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 23.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 519
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 24.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 520
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 25.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 521
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 26.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 522
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 27.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 523
+    mapInit: true
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 28.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 524
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,23.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 525
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 526
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 527
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 528
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,19.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 529
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,18.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 530
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,17.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 531
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,16.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 532
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,15.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 533
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,14.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 534
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,13.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 535
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,12.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 536
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,11.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 537
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,10.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 538
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,9.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 539
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,8.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 540
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,7.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 541
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,6.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 542
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,5.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 543
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,4.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 544
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 545
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 546
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 29.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 547
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 29.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 548
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 28.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 549
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 27.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 550
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 26.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 551
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 25.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 552
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 24.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 553
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 23.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 554
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 22.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 555
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 21.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 556
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 20.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 557
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 19.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 558
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 18.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 559
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 17.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 560
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 16.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 561
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 15.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 562
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 14.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 563
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 13.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 564
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 12.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 565
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 566
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 10.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 567
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 9.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 568
+    mapInit: true
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 8.5,0.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+- proto: WallRockBasalt
+  entities:
+  - uid: 11
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -5.5,9.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 17
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -5.5,15.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 74
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -4.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 75
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -4.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 76
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -4.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 77
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -4.5,4.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 78
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -4.5,6.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 79
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -4.5,5.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 80
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -4.5,7.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 81
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -4.5,8.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 82
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -4.5,9.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 88
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -4.5,15.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 89
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -4.5,16.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 90
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -4.5,17.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 91
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -4.5,19.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 92
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -4.5,18.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 93
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -4.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 94
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -4.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 95
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -4.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 96
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -3.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 97
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -2.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 98
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -1.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 99
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -0.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 100
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 0.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 101
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 1.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 102
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 2.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 103
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 3.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 104
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 4.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 105
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 5.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 106
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 6.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 107
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 6.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 108
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 6.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 109
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 6.5,19.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 110
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 6.5,18.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 111
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 6.5,17.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 112
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 6.5,16.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 113
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 6.5,15.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 118
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 6.5,10.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 119
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 6.5,9.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 120
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 6.5,8.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 121
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 6.5,7.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 122
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 6.5,6.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 123
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 6.5,5.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 124
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 6.5,4.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 125
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 6.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 126
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 6.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 127
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 6.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 128
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 4.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 129
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 3.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 130
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 5.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 131
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 2.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 132
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 1.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 133
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -0.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 134
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 0.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 135
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -1.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 136
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -2.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 137
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -3.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 138
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -3.5,4.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 139
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -3.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 140
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -3.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 141
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -2.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 142
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -1.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 143
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -2.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 144
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 1.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 145
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 2.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 146
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 3.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 147
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 4.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 148
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 5.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 150
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 5.5,4.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 151
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 5.5,5.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 152
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 4.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 153
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 4.5,5.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 154
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 3.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 155
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 3.5,4.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 156
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 4.5,4.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 157
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 3.5,5.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 158
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 5.5,6.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 159
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 3.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 160
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 3.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 161
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 3.5,19.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 162
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 4.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 163
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 4.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 164
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 4.5,19.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 165
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 5.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 166
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 5.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 167
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 5.5,19.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 168
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 5.5,18.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 169
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 4.5,18.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 170
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 2.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 171
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 0.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 172
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 1.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 173
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -3.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 174
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -2.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 175
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -3.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 206
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -6.5,15.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 207
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -6.5,16.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 208
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -6.5,17.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 209
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -6.5,18.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 210
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -6.5,19.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 211
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -6.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 212
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -6.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 213
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -6.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 214
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -7.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 215
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -8.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 216
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -11.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 217
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -10.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 218
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -12.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 219
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -13.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 220
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -9.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 221
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -13.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 222
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -13.5,19.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 223
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -13.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 224
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -13.5,18.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 225
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -13.5,17.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 226
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -13.5,15.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 227
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -13.5,14.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 228
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -13.5,16.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 229
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -13.5,13.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 230
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -13.5,11.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 231
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -13.5,12.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 232
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -13.5,10.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 233
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -13.5,8.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 234
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -13.5,9.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 235
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -13.5,7.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 236
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -13.5,6.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 237
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -13.5,5.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 238
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -13.5,4.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 239
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -13.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 240
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -13.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 241
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -13.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 242
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -11.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 243
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -10.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 244
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -9.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 245
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -8.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 246
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -7.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 247
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -12.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 248
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -6.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 249
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -6.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 250
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -6.5,4.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 251
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -6.5,5.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 252
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -6.5,6.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 253
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -6.5,7.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 254
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -6.5,8.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 255
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -6.5,9.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 256
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -6.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 257
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -7.5,8.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 258
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -7.5,7.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 259
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -7.5,6.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 260
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -7.5,5.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 261
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -7.5,4.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 262
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -7.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 263
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -7.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 264
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -9.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 265
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -8.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 266
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -10.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 267
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -8.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 268
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -8.5,4.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 269
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -9.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 270
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -12.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 271
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -12.5,19.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 272
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -11.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 273
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -11.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 274
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -11.5,19.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 275
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -12.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 276
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -10.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 277
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -10.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 278
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -9.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 279
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -9.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 280
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -8.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 281
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -12.5,18.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 282
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -12.5,17.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 387
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -0.5,7.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 460
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 3.5,15.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 461
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -4.5,10.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 462
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -3.5,9.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 463
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -3.5,8.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 464
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 4.5,15.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 466
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 4.5,16.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 467
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 5.5,16.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 468
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 5.5,15.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 469
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -1.5,6.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 470
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -0.5,6.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 471
+    mapInit: true
+    components:
+    - type: Transform
+      pos: -0.5,5.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 472
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 0.5,6.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 473
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 0.5,5.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 569
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 8.5,15.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 570
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 8.5,16.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 571
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 8.5,17.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 572
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 8.5,18.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 573
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 8.5,19.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 574
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 8.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 575
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 8.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 576
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 8.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 577
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 9.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 578
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 9.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 579
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 10.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 580
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 10.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 581
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 10.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 582
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 9.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 583
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 9.5,19.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 584
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 11.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 585
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 12.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 586
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 12.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 587
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 13.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 588
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 13.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 589
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 14.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 590
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 14.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 591
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 15.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 592
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 15.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 593
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 16.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 594
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 16.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 595
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 11.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 596
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 17.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 597
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 18.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 598
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 19.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 599
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 20.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 600
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 21.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 601
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 22.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 602
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 23.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 603
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 24.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 604
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 25.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 605
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 26.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 606
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 27.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 607
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 28.5,22.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 608
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 28.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 609
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 28.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 610
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 28.5,18.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 611
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 28.5,17.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 612
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 28.5,19.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 613
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 28.5,16.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 614
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 28.5,15.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 615
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 28.5,14.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 616
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 28.5,12.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 617
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 28.5,13.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 618
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 28.5,11.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 619
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 28.5,9.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 620
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 28.5,10.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 621
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 28.5,8.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 622
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 28.5,7.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 623
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 28.5,6.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 624
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 28.5,5.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 625
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 28.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 626
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 28.5,4.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 627
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 28.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 628
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 28.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 629
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 27.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 630
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 26.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 631
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 23.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 632
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 24.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 633
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 22.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 634
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 21.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 635
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 20.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 636
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 19.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 637
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 18.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 638
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 17.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 639
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 16.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 640
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 15.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 641
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 14.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 642
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 13.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 643
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 12.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 644
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 11.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 645
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 10.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 646
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 9.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 647
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 8.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 648
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 25.5,1.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 649
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 8.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 650
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 8.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 651
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 8.5,4.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 652
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 8.5,5.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 653
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 8.5,6.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 654
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 8.5,7.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 655
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 8.5,8.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 656
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 8.5,9.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 657
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 9.5,4.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 658
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 9.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 659
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 9.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 660
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 10.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 661
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 11.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 662
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 10.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 663
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 27.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 664
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 27.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 665
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 27.5,4.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 666
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 27.5,5.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 667
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 27.5,6.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 668
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 27.5,7.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 669
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 27.5,8.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 670
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 26.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 671
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 26.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 672
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 26.5,4.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 673
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 26.5,5.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 674
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 26.5,6.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 675
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 26.5,7.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 676
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 26.5,8.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 677
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 27.5,9.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 678
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 25.5,4.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 679
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 25.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 680
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 25.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 681
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 23.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 682
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 22.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 683
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 24.5,2.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 684
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 24.5,3.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 685
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 27.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 686
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 27.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 687
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 26.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 688
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 26.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 689
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 27.5,19.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 690
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 26.5,19.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 691
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 25.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 692
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 25.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 693
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 25.5,19.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 694
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 26.5,18.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 695
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 26.5,17.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 696
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 26.5,15.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 697
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 26.5,14.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 698
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 27.5,18.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 699
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 27.5,17.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 700
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 27.5,16.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 701
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 27.5,15.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 702
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 27.5,14.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 703
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 26.5,16.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 704
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 27.5,13.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 705
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 27.5,12.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 706
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 24.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 707
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 23.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 708
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 22.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 709
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 21.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 710
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 20.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 711
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 19.5,21.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+  - uid: 712
+    mapInit: true
+    components:
+    - type: Transform
+      pos: 24.5,20.5
+      parent: 1
+    - type: GravityAffected
+      weightless: False
+...

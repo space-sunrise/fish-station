@@ -123,7 +123,7 @@
   id: Nukeops
   components:
   - type: GameRule
-    minPlayers: 50
+    minPlayers: 35 # Fish-edit
   - type: LoadMapRule
     mapPath: /Maps/_Sunrise/Nonstations/nukieplanet.yml
   - type: AntagSelection
@@ -529,7 +529,7 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 50 # Слишком тяжело для меньшего количества игроков.
+    minPlayers: 35 # Слишком тяжело для меньшего количества игроков. # Fish-edit
   - type: RampingStationEventScheduler
     scheduledGameRules: !type:NestedSelector
       tableId: BasicGameRulesTable

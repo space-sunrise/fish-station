@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/04/2025 19:16:41
-  entityCount: 136
+  time: 12/14/2025 20:57:09
+  entityCount: 135
 maps: []
 grids:
 - 1
@@ -29,7 +29,7 @@ entities:
       name: NT-SEC-M «Песочная сойка»
     - type: Transform
       pos: -0.46875,-0.53125
-      parent: 38
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -216,16 +216,6 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
-  - uid: 38
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
-    - type: Broadphase
-    - type: OccluderTree
 - proto: AirAlarm
   entities:
   - uid: 2

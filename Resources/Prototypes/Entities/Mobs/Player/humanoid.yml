@@ -45,6 +45,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerDeathSquad
+  #name: Death Squad Agent # Fish-edit
   suffix: ERTRole, Death Squad
   components:
     - type: Sprite
@@ -808,7 +809,7 @@
   - Predator
   components:
     - type: Loadout
-      prototypes: [CBURNGear]
+      prototypes: [ CBURNGear ]
       roleLoadout: [ RoleSurvivalEVA ]
     - type: GhostRole
       name: ghost-role-information-cburn-agent-name

@@ -1,0 +1,19 @@
+- type: entity
+  parent: ClothingHandsPowerGlovesUplinkNTERTAmber
+  id: ClothingHandsPowerGlovesUplinkNTERTCBURNLeader
+  suffix: Uplink, CBURN
+  name: CBURN Leader Power Gloves
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 11
+        Heat: 3
+        Structural: 6
+  - type: IgniteOnMeleeHit
+    fireStacks: .15
+  - type: Store
+    balance:
+      Bluecrystal: 40
+      Crystallite: 70

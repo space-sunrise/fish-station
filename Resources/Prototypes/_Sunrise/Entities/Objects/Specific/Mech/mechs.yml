@@ -58,15 +58,18 @@
   - type: InputMover
   - type: InteractionOutline
   - type: MovementSpeedModifier
-    baseWalkSpeed: 1
-    baseSprintSpeed: 3
-    baseWeightlessModifier: 5
+    baseWalkSpeed: 1.7
+    baseSprintSpeed: 1.7
+    baseFriction: 15
+    baseWeightlessModifier: 10
   - type: MovementAlwaysTouching
   - type: Pullable
   - type: Clickable
   - type: WiresPanel
   - type: Physics
     bodyType: Dynamic
+    angularDamping: 2
+    linearDamping: 2
   - type: MobState
     allowedStates:
     - Alive
@@ -75,7 +78,7 @@
     currentThresholdState : Alive
     thresholds:
       0: Alive
-      400: Critical
+      300: Critical
     showOverlays: false
     allowRevives: true
   - type: HealthExaminable
@@ -95,7 +98,7 @@
       mech-battery-slot: !type:ContainerSlot
   - type: Damageable
     damageContainer: Mech
-    damageModifierSet: LightArmor
+    damageModifierSet: MediumArmorNT
   - type: GuideHelp
     guides:
     - Robotics
@@ -143,9 +146,9 @@
     fixtures:
       fix1:
         shape:
-          !type:PhysShapeAabb
-          bounds: "-1.1,-1.1,1.1,1"
-        density: 100
+          !type:PhysShapeCircle
+          radius: 0.9
+        density: 1000
         mask:
           - FlyingMobMask
         layer:

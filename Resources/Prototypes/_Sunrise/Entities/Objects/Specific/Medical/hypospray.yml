@@ -15,10 +15,8 @@
         reagents:
         - ReagentId: Omnizine
           Quantity: 20
-        - ReagentId: Vitera
-          Quantity: 20
         - ReagentId: Dermaline
-          Quantity: 20
+          Quantity: 40
         - ReagentId: HemostaticPowder
           Quantity: 40
   - type: ExaminableSolution
@@ -95,6 +93,7 @@
     filterReagentGroups:
      - Medicine
     onlyAffectsMobs: true
+    filterPoison: true
     doAfterTime: 0.75
     transferAmount: 5
   - type: UseDelay
