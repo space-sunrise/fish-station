@@ -939,6 +939,11 @@ ClothingBeltAssaultFilled: null
 # 2025-12-21
 ClothingNeckCMOCloak: ClothingNeckMedCloak
 
+HyposprayMedicalNoFilter: null
+HyposprayMedical: null
+HyposprayMedicalNoFilterBox: null
+GrenadeFlashTimer: null
+
 # Sunrise-End
 
 #Fish-start
