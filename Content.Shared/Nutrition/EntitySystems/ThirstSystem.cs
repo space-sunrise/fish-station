@@ -16,6 +16,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared._Sunrise.SunriseCCVars;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Shared.Nutrition.EntitySystems;
 
@@ -136,15 +137,15 @@ public sealed class ThirstSystem : EntitySystem
         switch (component.CurrentThirstThreshold)
         {
             case ThirstThreshold.OverHydrated:
-                _prototype.TryIndex(ThirstIconOverhydratedId, out prototype);
+                _prototype.Resolve(ThirstIconOverhydratedId, out prototype);
                 break;
 
             case ThirstThreshold.Thirsty:
-                _prototype.TryIndex(ThirstIconThirstyId, out prototype);
+                _prototype.Resolve(ThirstIconThirstyId, out prototype);
                 break;
 
             case ThirstThreshold.Parched:
-                _prototype.TryIndex(ThirstIconParchedId, out prototype);
+                _prototype.Resolve(ThirstIconParchedId, out prototype);
                 break;
 
             default:
@@ -239,25 +240,6 @@ public sealed class ThirstSystem : EntitySystem
 
             ModifyThirst(uid, thirst, -thirst.ActualDecayRate);
             DoContinuousThirstEffects(uid, thirst);
-
-            // Fish-Start: Consume extra thirst to heal mangleness
-            if (TryComp<DamageableComponent>(uid, out var damageable))
-            {
-                if (damageable.Damage.DamageDict.TryGetValue("Mangleness", out var manglenessDamage) && manglenessDamage.Value > 0)
-                {
-                    // Fish-Edit: Consume 0.1 extra points of thirst per tick to heal 0.01 mangleness
-                    var normalizedConsumption = 0.1f * (float)thirst.UpdateRate.TotalSeconds;
-                    if (thirst.CurrentThirst > thirst.ThirstThresholds[ThirstThreshold.Dead] + normalizedConsumption)
-                    {
-                        ModifyThirst(uid, thirst, -normalizedConsumption);
-                        var healAmount = new DamageSpecifier();
-                        healAmount.DamageDict["Mangleness"] = -0.01f * (float)thirst.UpdateRate.TotalSeconds;
-                        _damageable.TryChangeDamage(uid, healAmount, true, false);
-                    }
-                }
-            }
-            // Fish-End
-
             var calculatedThirstThreshold = GetThirstThreshold(thirst, thirst.CurrentThirst);
 
             if (calculatedThirstThreshold == thirst.CurrentThirstThreshold)

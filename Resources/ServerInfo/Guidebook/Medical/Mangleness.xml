@@ -41,11 +41,8 @@
 [color=#dddddd]Большинство медицинских препаратов вызывают истощение как побочный эффект. Количество вызываемого истощения пропорционально их лечебному эффекту - чем сильнее препарат, тем больше истощение.[/color]
 
 [color=#dddddd]Для прямого лечения истощения существуют специализированные препараты:[/color]
-
   <GuideReagentEmbed Reagent="Cryoxadone"/>
-<GuideReagentEmbed Reagent="Vitera"/>
-  <GuideReagentEmbed Reagent="GenesisUltra"/>
-<GuideReagentEmbed Reagent="Omnizine"/>
+  <GuideReagentEmbed Reagent="Omnizine"/>
 
 [head=2][color=#ffaa66]Важные замечания[/color][/head]
 

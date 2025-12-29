@@ -1,19 +1,55 @@
 {
     "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made for Space Sunrise by gardsnake (Github)",
     "size": {
         "x": 32,
         "y": 32
     },
-    "license": "CC-BY-SA-3.0",
-    "copyright": "© 2025 Alexnov33x",
     "states": [
         {
-            "name": "pinonalert",
-            "directions": 8
+            "name": "pinpointer_bloodcult",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
         },
         {
-            "name": "pinonalertdirect",
+            "name": "pinonalert",
+            "directions": 8,
             "delays": [
+                [
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2
+                ],
                 [
                     0.2,
                     0.2
@@ -21,10 +57,7 @@
             ]
         },
         {
-            "name": "pinonalertnull"
-        },
-        {
-            "name": "pinonclose",
+            "name": "pinondirectsmall",
             "delays": [
                 [
                     0.2,
@@ -51,7 +84,16 @@
             ]
         },
         {
-            "name": "pinondirectsmall",
+            "name": "pinondirectxtrlarge",
+            "delays": [
+                [
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+       {
+            "name": "pinonalertdirect",
             "delays": [
                 [
                     0.2,
@@ -60,7 +102,34 @@
             ]
         },
         {
-            "name": "pinondirectxtrlarge",
+            "name": "pinonnull",
+            "delays": [
+                [
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "pinonalertnull",
+            "delays": [
+                [
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "pinonclose",
+            "delays": [
+                [
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "pinonmedium",
             "delays": [
                 [
                     0.2,
@@ -72,33 +141,6 @@
             "name": "pinonfar",
             "delays": [
                 [
-                    0.6,
-                    0.2
-                ]
-            ]
-        },
-        {
-            "name": "pinonmedium",
-            "delays": [
-                [
-                    0.4,
-                    0.2
-                ]
-            ]
-        },
-        {
-            "name": "pinonnull"
-        },
-        {
-            "name": "pinpointer_bloodcult",
-            "delays": [
-                [
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
                     0.2,
                     0.2
                 ]

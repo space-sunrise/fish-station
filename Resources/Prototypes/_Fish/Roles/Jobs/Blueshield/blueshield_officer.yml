@@ -1,15 +1,15 @@
 - type: job
-  id: BlueShieldOfficer
+  id: BlueShieldOfficerFish
   name: job-name-blueshield-officer
   description: job-description-blueshield-officer
-  playTimeTracker: JobBlueShield
+  playTimeTracker: JobBlueShieldFish
   requirements:
    - !type:DepartmentTimeRequirement
      department: Security
      time: 62000 # 20 hrs
    - !type:AgeRequirement
      requiredAge: 20
-  startingGear: BlueShieldOfficerGear
+  startingGear: BlueShieldOfficerGearFish
   icon: JobIconBlueShield
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -38,7 +38,7 @@
      implants: [ MindShieldImplant ]
 
 - type: startingGear
-  id: BlueShieldOfficerGear
+  id: BlueShieldOfficerGearFish
   equipment:
    shoes: ClothingShoesBootsBlueShieldFilled
    eyes: ClothingEyesGlassesBlueShield
@@ -47,7 +47,6 @@
    id: BlueShieldOfficerPDA
    ears: ClothingHeadsetBlueShield
    gloves: ClothingHandsGlovesCombat
-   pocket1: BaseUplinkNTERTBlueShield
   storage:
    back:
    - HandheldBSOCrewMonitor
