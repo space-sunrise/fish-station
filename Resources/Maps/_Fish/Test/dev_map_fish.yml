@@ -9974,7 +9974,6 @@ entities:
           - 1499
           - 1497
           - 1498
-          - 1501
           - 1502
           - 1503
           - 1504
@@ -12386,15 +12385,6 @@ entities:
     - type: Transform
       pos: 2.35,-1.35
       parent: 3094
-- proto: MagazineLightRifleBoxSP
-  entities:
-  - uid: 1501
-    components:
-    - type: Transform
-      parent: 1495
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 1502
     components:
     - type: Transform
