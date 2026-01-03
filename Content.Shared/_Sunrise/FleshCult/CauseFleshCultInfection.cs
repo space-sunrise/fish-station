@@ -22,7 +22,7 @@ public sealed partial class CauseFleshCultInfectionEntityEffectSystem : EntityEf
             if (_entityManager.TryGetComponent<BloodstreamComponent>(entity, out var bloodstream))
             {
                 var solutionContainerSystem = _entityManager.System<SharedSolutionContainerSystem>();
-                if (solutionContainerSystem.ResolveSolution(entity.Owner, bloodstream.ChemicalSolutionName, ref bloodstream.ChemicalSolution, out var chemSolution))
+                if (solutionContainerSystem.ResolveSolution(entity.Owner, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var chemSolution))
                 {
                     // Remove Carol reagent and replace with Unstable Mutagen
                     chemSolution.RemoveReagent("Carol", FixedPoint2.New(5));
