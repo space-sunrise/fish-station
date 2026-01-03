@@ -456,7 +456,7 @@ public sealed partial class ExplosionSystem
                 RaiseLocalEvent(ref modifyEvent);
                 if (modifyEvent.Cancelled)
                     continue;
-                var finalDamage = modifyEvent.Damage;
+                damage = modifyEvent.Damage;
                 // Sunrise-End
 
                 // TODO EXPLOSIONS turn explosions into entities, and pass the the entity in as the damage origin.
