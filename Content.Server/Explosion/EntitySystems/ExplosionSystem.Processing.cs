@@ -451,16 +451,24 @@ public sealed partial class ExplosionSystem
                 if (!_damageableQuery.TryComp(entity, out var damageable))
                     continue;
 
+                // Sunrise-Start
+                var modifyEvent = new ModifyExplosionDamageEvent(entity, damage, cause);
+                RaiseLocalEvent(ref modifyEvent);
+                if (modifyEvent.Cancelled)
+                    continue;
+                var finalDamage = modifyEvent.Damage;
+                // Sunrise-End
+
                 // TODO EXPLOSIONS turn explosions into entities, and pass the the entity in as the damage origin.
-                _damageableSystem.TryChangeDamage((entity, damageable), damage, ignoreResistances: true, ignoreGlobalModifiers: true);
+                _damageableSystem.TryChangeDamage((entity, damageable), finalDamage, ignoreResistances: true, ignoreGlobalModifiers: true);
 
                 if (_actorQuery.HasComp(entity))
                 {
                     // Log damage to player entities only; this will create a massive amount of log spam otherwise.
                     if (cause is not null)
-                        _adminLogger.Add(LogType.ExplosionHit, LogImpact.Medium, $"Explosion of {ToPrettyString(cause):actor} dealt {damage.GetTotal()} damage to {ToPrettyString(entity):subject}");
+                        _adminLogger.Add(LogType.ExplosionHit, LogImpact.Medium, $"Explosion of {ToPrettyString(cause):actor} dealt {finalDamage.GetTotal()} damage to {ToPrettyString(entity):subject}");
                     else
-                        _adminLogger.Add(LogType.ExplosionHit, LogImpact.Medium, $"Explosion at {epicenter:epicenter} dealt {damage.GetTotal()} damage to {ToPrettyString(entity):subject}");
+                        _adminLogger.Add(LogType.ExplosionHit, LogImpact.Medium, $"Explosion at {epicenter:epicenter} dealt {finalDamage.GetTotal()} damage to {ToPrettyString(entity):subject}");
                 }
             }
         }
