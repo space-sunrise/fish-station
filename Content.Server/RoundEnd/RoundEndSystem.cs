@@ -62,6 +62,10 @@ namespace Content.Server.RoundEnd
         public TimeSpan? ExpectedShuttleLength => ExpectedCountdownEnd - LastCountdownStart;
         public TimeSpan? ShuttleTimeLeft => ExpectedCountdownEnd - _gameTiming.CurTime;
 
+        /// <summary>
+        /// If the shuttle can't be recalled. if set to true, the station wont be able to recall
+        /// </summary>
+        public bool CantRecall = false;
         public override void Initialize()
         {
             base.Initialize();
@@ -87,6 +91,8 @@ namespace Content.Server.RoundEnd
                 _cooldownTokenSource.Cancel();
                 _cooldownTokenSource = null;
             }
+
+            CantRecall = false;
 
             LastCountdownStart = null;
             ExpectedCountdownEnd = null;
@@ -118,7 +124,7 @@ namespace Content.Server.RoundEnd
 
         public bool CanCallOrRecall()
         {
-            return _cooldownTokenSource == null;
+            return _cooldownTokenSource == null && !CantRecall;
         }
 
         public bool IsRoundEndRequested()
@@ -126,10 +132,18 @@ namespace Content.Server.RoundEnd
             return _countdownTokenSource != null;
         }
 
+        /// <summary>
+        /// Starts the process of ending the round by calling evac
+        /// </summary>
+        /// <param name="requester"></param>
+        /// <param name="checkCooldown"></param>
+        /// <param name="text">text in the announcement of shuttle calling</param>
+        /// <param name="name">name in the announcement of shuttle calling</param>
+        /// <param name="cantRecall">if the station shouldn't be able to recall the shuttle</param>
         public void RequestRoundEnd(EntityUid? requester = null,
             bool checkCooldown = true,
             string text = "round-end-system-shuttle-called-announcement",
-            string name = "round-end-system-shuttle-sender-announcement")
+            string name = "round-end-system-shuttle-sender-announcement", bool cantRecall = false)
         {
             var duration = DefaultCountdownDuration;
 
@@ -144,14 +158,23 @@ namespace Content.Server.RoundEnd
                 }
             }
 
-            RequestRoundEnd(duration, requester, checkCooldown, text, name);
+            RequestRoundEnd(duration, requester, checkCooldown, text, name, cantRecall);
         }
 
+        /// <summary>
+        /// Starts the process of ending the round by calling evac
+        /// </summary>
+        /// <param name="countdownTime">time for evac to arrive</param>
+        /// <param name="requester"></param>
+        /// <param name="checkCooldown"></param>
+        /// <param name="text">text in the announcement of shuttle calling</param>
+        /// <param name="name">name in the announcement of shuttle calling</param>
+        /// <param name="cantRecall">if the station shouldn't be able to recall the shuttle</param>
         public void RequestRoundEnd(TimeSpan countdownTime,
             EntityUid? requester = null,
             bool checkCooldown = true,
             string text = "round-end-system-shuttle-called-announcement",
-            string name = "round-end-system-shuttle-sender-announcement")
+            string name = "round-end-system-shuttle-sender-announcement", bool cantRecall = false)
         {
             if (_gameTicker.RunLevel != GameRunLevel.InRound)
                 return;
@@ -163,6 +186,7 @@ namespace Content.Server.RoundEnd
                 return;
 
             _countdownTokenSource = new();
+            CantRecall = cantRecall;
 
             if (requester != null)
             {
@@ -228,11 +252,12 @@ namespace Content.Server.RoundEnd
             }
         }
 
-        public void CancelRoundEndCountdown(EntityUid? requester = null, bool checkCooldown = true)
+        public void CancelRoundEndCountdown(EntityUid? requester = null, bool forceRecall = false)
         {
             if (_gameTicker.RunLevel != GameRunLevel.InRound)
                 return;
-            if (checkCooldown && _cooldownTokenSource != null)
+            if (!forceRecall && (CantRecall || _cooldownTokenSource != null)
+               )
                 return;
 
             if (_countdownTokenSource == null)

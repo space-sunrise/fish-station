@@ -52,6 +52,7 @@
     entries:
     - id: MobPibbleVent
       prob: 0.03
+
 - type: entity
   parent: BaseGameRule
   id: AbductorsSpawn
@@ -63,7 +64,7 @@
     duration: 1
   - type: RuleGrids
   - type: LoadMapRule
-    gridPath: /Maps/_Fish/Shuttles/abductor_shuttle.yml #Fish-edit
+    gridPath: /Maps/_Sunrise/Shuttles/Antag/abductor_shuttle.yml
   - type: AntagObjectives
     objectives:
     - AbductObjective
@@ -121,6 +122,8 @@
         - SimpleHostile
       mindRoles:
       - MindRoleLoneAbductor
+  - type: DynamicRuleCost
+    cost: 125
 
 - type: entity
   id: AbductorVictim
@@ -149,6 +152,8 @@
         sound: /Audio/_Sunrise/Abductor/abductor.ogg
       mindRoles:
       - AbductorVictimRole
+  - type: DynamicRuleCost
+    cost: 70
 
 - type: entity
   parent: BaseGameRule
@@ -158,3 +163,66 @@
     weight: 0 # Only triggered by code/admin
     duration: 1
   - type: EpsilonDeathSquadLawset
+
+- type: entity
+  parent: BaseGameRule
+  id: DerelictSyndicateReaperCyborgSpawn
+  components:
+  - type: StationEvent
+    weight: 1
+    earliestStart: 25
+    reoccurrenceDelay: 20
+    minimumPlayers: 15
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSpawner
+    prototype: PlayerBorgSyndicateReaperDerelictGhostRoleSunrise
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDerelictSyndicateReaperCyborg
+      min: 1
+      max: 1
+      pickPlayer: false
+
+- type: entity
+  parent: BaseGameRule
+  id: DerelictSyndicateSaboteurCyborgSpawn
+  components:
+  - type: StationEvent
+    weight: 1
+    earliestStart: 25
+    reoccurrenceDelay: 20
+    minimumPlayers: 15
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSpawner
+    prototype: PlayerBorgSyndicateSaboteurDerelictGhostRoleSunrise
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDerelictSyndicateSaboteurCyborg
+      min: 1
+      max: 1
+      pickPlayer: false
+
+- type: entity
+  parent: BaseGameRule
+  id: DerelictSyndicateMedicalCyborgSpawn
+  components:
+  - type: StationEvent
+    weight: 1
+    earliestStart: 25
+    reoccurrenceDelay: 20
+    minimumPlayers: 15
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSpawner
+    prototype: PlayerBorgSyndicateMedicalDerelictGhostRoleSunrise
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDerelictSyndicateMedicalCyborg
+      min: 1
+      max: 1
+      pickPlayer: false

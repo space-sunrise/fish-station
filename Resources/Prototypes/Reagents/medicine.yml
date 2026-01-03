@@ -94,7 +94,6 @@
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDrowsiness
         time: 1.5
-        type: Add
       - !type:HealthChange
         damage:
           types:
@@ -200,7 +199,7 @@
   metabolisms:
     Medicine:
       effects:
-        - !type:HealthChange
+        - !type:EvenHealthChange
           conditions:
           - !type:TemperatureCondition
             # this is a little arbitrary but they gotta be pretty cold
@@ -622,10 +621,7 @@
     - !type:PlantAdjustToxins
       amount: 6
     - !type:PlantPhalanximine
-      conditions:
-      - !type:ReagentCondition
-        reagent: Phalanximine
-        min: 4
+      minScale: 4
   metabolisms:
     Medicine:
       metabolismRate: 0.1
@@ -747,7 +743,7 @@
         - !type:HealthChange
           damage:
             types:
-              Mangleness: 0.05 # Fish-edit
+              Mangleness: -0.25
         #Sunrise-End
         - !type:SatiateThirst
           factor: 6
@@ -1290,7 +1286,6 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaling: true
         ignoreResistances: false
         damage:
           types:
@@ -1412,6 +1407,37 @@
             mobstate: Dead
 
 - type: reagent
+  id: Arcryox
+  name: reagent-name-arcryox
+  group: Medicine
+  desc: reagent-desc-arcryox
+  physicalDesc: reagent-physical-desc-arcryox
+  flavor: medicine
+  color: "#0cbfe9"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:EvenHealthChange
+        conditions:
+        - !type:TemperatureCondition
+          max: 213.0
+        - !type:TotalDamageCondition
+          min: 199.9
+        damage:
+          Brute: -2
+          Burn: -2
+      - !type:EvenHealthChange
+        conditions:
+        - !type:TemperatureCondition
+          max: 213.0
+        - !type:TotalDamageCondition
+          min: 500
+        damage:
+          Brute: -4
+          Burn: -4
+
+- type: reagent
   id: Necrosol
   name: reagent-name-necrosol
   group: Medicine
@@ -1429,14 +1455,18 @@
   metabolisms:
     Medicine:
       effects:
+        - !type:EvenHealthChange
+          conditions:
+          - !type:TemperatureCondition
+            max: 213.0
+          damage:
+            Brute: -2
+            Burn: -2
         - !type:HealthChange
           conditions:
           - !type:TemperatureCondition
             max: 213.0
           damage:
-            groups:
-              Brute: -4
-              Burn: -5
             types:
               Poison: -4 # Sunrise-Edit
               Mangleness: -5 #Sunrise-Edit
@@ -1453,16 +1483,12 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         conditions:
         - !type:TemperatureCondition
           max: 213.0
         damage:
-          types:
-            Cold: -4.0
-            Heat: -4.0
-            Shock: -4.0
-            Caustic: -1.5
+          Burn: -4.5
 
 - type: reagent
   id : Mannitol # currently this is just a way to create psicodine
@@ -1639,65 +1665,25 @@
           mobstate: Dead
 
 - type: reagent
-  id: H-32
-  name: reagent-name-h-32
+  id: Warfarin
+  name: reagent-name-warfarin
   group: Medicine
-  desc: reagent-desc-h-32
-  physicalDesc: reagent-physical-desc-h-32
+  desc: reagent-desc-warfarin
+  physicalDesc: reagent-physical-desc-thin
+  allowedDepartments:
+  - Medical
   flavor: medicine
-  color: "#cc1a79"
-  worksOnTheDead: true
+  color: "#d0e21b"
   metabolisms:
     Medicine:
-      metabolismRate: 1.0
-      effects:
-      - !type:HealthChange
+      effects: # One day this could be useful for treating blood clots, if we get those
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectAnticoagulant
+        time: 30 # 10 bleed ticks, you bleed every 3 seconds by default.
+        type: Update
+      - !type:ModifyBleed
         conditions:
-        - !type:TemperatureCondition
-          max: 213.0
-        damage:
-          types:
-            Radiation: -4
-
-- type: reagent
-  id: Antidon
-  name: reagent-name-antidon
-  group: Medicine
-  desc: reagent-desc-antidon
-  physicalDesc: reagent-physical-desc-antidon
-  flavor: medicine
-  color: "#8A2BE2"
-  worksOnTheDead: true
-  metabolisms:
-    Medicine:
-      metabolismRate: 1.0
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:TemperatureCondition
-          max: 200.0
-        damage:
-          types:
-            Poison: -6
-
-- type: reagent
-  id: Brutedon
-  name: reagent-name-brutedon
-  group: Medicine
-  desc: reagent-desc-brutedon
-  physicalDesc: reagent-physical-desc-brutedon
-  flavor: medicine
-  color: "#FFFF00"
-  worksOnTheDead: true
-  metabolisms:
-    Medicine:
-      metabolismRate: 1.0
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:TemperatureCondition
-          max: 200.0
-        damage:
-          groups:
-            Brute: -6
-#Sunrise-End
+        - !type:ReagentCondition
+          reagent: Warfarin
+          min: 15
+        amount: 0.25

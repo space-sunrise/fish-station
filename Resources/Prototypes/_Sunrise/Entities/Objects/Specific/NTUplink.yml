@@ -129,7 +129,7 @@
   id: UplinkNTERTBlueShield
   name: Bluespace ERT visionary
   description: Ultra-innovative portable bluespace teleporter.
-  suffix: 9BC, 10C, BlueShield #Fish-edit
+  suffix: 8BC, 10C, BlueShield
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -140,7 +140,7 @@
         shader: unshaded
   - type: Store
     balance:
-      Bluecrystal: 9 #Fish-edit
+      Bluecrystal: 10
       Crystallite: 10
     buySuccessSound:
       path: /Audio/Effects/Arcade/newgame.ogg
@@ -174,7 +174,6 @@
   - type: Tag
     tags:
     - NTUplink
-    - Debug
     - ERTRed
     - ERTGamma
     - ERTEpsilon
@@ -242,14 +241,9 @@
       collection: PunchHard
     animation: WeaponArcFist
     mustBeEquippedToUse: true
-  # Fish-Start
-  - type: UseDelay
-    delay: 2
-  - type: UseDelayOnMeleeHit
   - type: MeleeThrowOnHit
-    distance: 1
+    distance: 0.5
     speed: 5
-  # Fish-End
   - type: Reflect
     reflectProb: .05
   - type: Insulated

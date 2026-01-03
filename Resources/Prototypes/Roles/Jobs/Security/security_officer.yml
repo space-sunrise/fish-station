@@ -15,12 +15,9 @@
   access:
   - Security
   - Brig
-#  - Maintenance #Sunrise-Edit
-  - Service
+  # - Maintenance # Sunrise-Edit
   - External
   - Cryogenics
-  - GenpopEnter
-  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -35,7 +32,7 @@
   storage:
     back:
     - Flash
-    - MagazinePistol
+    # - MagazinePistol # Sunrise-Edit
 
 - type: chameleonOutfit
   id: SecurityOfficerChameleonOutfit

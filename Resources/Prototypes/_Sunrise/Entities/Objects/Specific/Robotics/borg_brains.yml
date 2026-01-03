@@ -82,7 +82,6 @@
   - type: Input
     context: "ghost"
   - type: BlockMovement
-    blockInteraction: false #Fish-add
   - type: ToggleableGhostRole
     examineTextMindPresent: sofia-installed
     examineTextMindSearching: sofia-still-searching

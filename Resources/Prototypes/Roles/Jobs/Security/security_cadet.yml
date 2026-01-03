@@ -18,12 +18,9 @@
   access:
   - Security
   - Brig
-#  - Maintenance #Sunrise-Edit
-  - Service
+  # - Maintenance # sunrise-edit
   - External
   - Cryogenics
-  - GenpopEnter
-  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -36,12 +33,12 @@
     id: SecurityCadetPDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled
-    pocket1: WeaponPistolMk58
+    # pocket1: WeaponPistolMk58 # sunrise-edit
     pocket2: BookSecurity
   storage:
     back:
     - Flash
-    - MagazinePistol
+    #- MagazinePistol  # sunrise-edit
 
 - type: chameleonOutfit
   id: SecurityCadetChameleonOutfit

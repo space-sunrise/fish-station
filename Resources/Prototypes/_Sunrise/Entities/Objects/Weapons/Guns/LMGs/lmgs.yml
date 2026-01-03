@@ -63,12 +63,8 @@
     soundRack:
       path: /Audio/_Sunrise/Weapons/Guns/LMGs/cocked.ogg
   - type: SpeedModifiedOnWield
-    walkModifier: 0.6
-    sprintModifier: 0.6
-  - type: CursorOffsetRequiresWield
-  - type: EyeCursorOffset
-    maxOffset: 6
-    pvsIncrease: 0.6
+    walkModifier: 0.75
+    sprintModifier: 0.75
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
@@ -115,6 +111,7 @@
         whitelist:
           tags:
           - MagazineRPD
+          - LightRifleHeavy
       gun_chamber:
         name: Chamber
         startingItem: CartridgeLightRifleSP
@@ -140,10 +137,6 @@
   - type: SpeedModifiedOnWield
     walkModifier: 0.85
     sprintModifier: 0.85
-  - type: CursorOffsetRequiresWield
-  - type: EyeCursorOffset
-    maxOffset: 4
-    pvsIncrease: 0.4
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -215,12 +208,8 @@
     soundRack:
       path: /Audio/_Sunrise/Weapons/Guns/LMGs/cocked.ogg
   - type: SpeedModifiedOnWield
-    walkModifier: 0.6
-    sprintModifier: 0.6
-  - type: CursorOffsetRequiresWield
-  - type: EyeCursorOffset
-    maxOffset: 6
-    pvsIncrease: 0.6
+    walkModifier: 0.75
+    sprintModifier: 0.75
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
@@ -295,6 +284,42 @@
   - type: GunRequiresWield
   - type: StaticPrice
     price: 10000
+
+- type: entity
+  id: MagazineCannonBallMini
+  name: cannonball suitcase
+  description: A suitcase for neatly storing cannonballs for the pirate’s belt-fed cannon.
+  parent: BaseItem
+  components:
+  - type: Tag
+    tags:
+    - MagazineCannonBallMini
+  - type: BallisticAmmoProvider
+    mayTransfer: false
+    proto: CannonBallMini
+    whitelist:
+      tags:
+      - CannonBallMini
+    capacity: 50
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,1
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/cannonball_belt.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-5
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
 
 - type: entity
   name: pirate cannon

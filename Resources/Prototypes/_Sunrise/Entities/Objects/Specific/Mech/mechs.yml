@@ -40,15 +40,15 @@
     joinSystem: true
   - type: DoAfter
   - type: Repairable
-    doAfterDelay: 3
+    doAfterDelay: 1
     damage:
       types:
-        Blunt: -15
-        Slash: -15
-        Piercing: -15
-        Caustic: -15
-        Structural: -15
-        # Mangleness removed - Fish-Edit: mechs shouldn't get Mangleness from repair
+        Blunt: -25
+        Slash: -25
+        Piercing: -25
+        Caustic: -25
+        Structural: -25
+        Mangleness: 2
   - type: UserInterface
     interfaces:
       enum.MechUiKey.Key:
@@ -58,18 +58,15 @@
   - type: InputMover
   - type: InteractionOutline
   - type: MovementSpeedModifier
-    baseWalkSpeed: 1.7
-    baseSprintSpeed: 1.7
-    baseFriction: 15
-    baseWeightlessModifier: 10
+    baseWalkSpeed: 1
+    baseSprintSpeed: 3
+    baseWeightlessModifier: 5
   - type: MovementAlwaysTouching
   - type: Pullable
   - type: Clickable
   - type: WiresPanel
   - type: Physics
-    bodyType: Dynamic
-    angularDamping: 2
-    linearDamping: 2
+    bodyType: KinematicController #Dynamic
   - type: MobState
     allowedStates:
     - Alive
@@ -78,7 +75,7 @@
     currentThresholdState : Alive
     thresholds:
       0: Alive
-      300: Critical
+      400: Critical
     showOverlays: false
     allowRevives: true
   - type: HealthExaminable
@@ -98,7 +95,7 @@
       mech-battery-slot: !type:ContainerSlot
   - type: Damageable
     damageContainer: Mech
-    damageModifierSet: MediumArmorNT
+    damageModifierSet: LightArmor
   - type: GuideHelp
     guides:
     - Robotics
@@ -146,9 +143,9 @@
     fixtures:
       fix1:
         shape:
-          !type:PhysShapeCircle
-          radius: 0.9
-        density: 1000
+          !type:PhysShapeAabb
+          bounds: "-1.1,-1.1,1.1,1"
+        density: 100
         mask:
           - FlyingMobMask
         layer:

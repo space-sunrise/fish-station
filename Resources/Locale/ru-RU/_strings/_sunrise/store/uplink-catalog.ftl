@@ -23,7 +23,7 @@ uplink-grenade-emp-contact-name = контактная ЭМИ граната
 uplink-grenade-emp-contact-desc = ЭМИ граната. Совместима с "China-Lake" и "GL-70". Взрывается при контакте с целью.
 uplink-magazine-siar52-name = Магазин ПП (.25 безгильзовый)
 uplink-magazine-siar52-desc = Магазин ПП на 30 патронов. Совместим с SIAR-52.
-uplink-magazine-bauer127-extended-name = расширенный магазин Bauer127 (.60 антиматериальные)
+uplink-magazine-bauer127-extended-name = расширенный магазин Bauer127 (15мм антиматериальные)
 uplink-mechpaint-mauler-name = балончик краски "МЯУЛЕР"
 uplink-mechpaint-mauler-desc = Содержит краску для Маулера. Превратите огромного МЕХа в милого котика!.
 uplink-magazine-bauer127-extended-desc = Магазин для Bauer127. Содержит 15 патронов калибра .60 антиматериальный.
@@ -37,6 +37,9 @@ uplink-pistol-magnum-magazine-name = Магазин (.45 магнум SP)
 uplink-pistol-magnum-magazine-desc = 7-зарядный однорядный магазин для пистолета. Содержит патроны SP. Совместим с "Диглом".
 uplink-pistol-magnum-magazine-ap-name = Магазин (.45 магнум бронебойные)
 uplink-pistol-magnum-magazine-ap-desc = 7-зарядный однорядный магазин для пистолета. Содержит бронебойные патроны. Совместим с "Диглом".
+uplink-pistoltec9-magazine-name = Tac-Tec (.20 безгильзовый)
+uplink-pistoltec9-magazine-desc = Кустарный пистолетный магазин под распространённый патрон, используемый агентами синдиката.
+
 
 uplink-magazine-127-desc = Магазин Bauer SR-127 на 7 патронов предназначеных для уничтожения мехов, киборгов или стркутур таких как решетки и окна, пары попаданий достаточно для пролома стены.
 uplink-magazine-127pen-desc = Магазин Bauer SR-127 на 7 патронов предназначеных для ликвидации защищенных противников а так же целей за укрытиями и стенами, прекрасно сочетаются с термальным зрением.
@@ -78,8 +81,11 @@ uplink-clothing-thieving-gloves-name = Воровские перчатки
 uplink-clothing-thieving-gloves-desc = Незаметно обчищайте карманы и повышайте свой навык воровства с помощью этих новых модных перчаток, которые выглядят как обычные!
 uplink-clothing-chameleon-thieving-gloves-name = Воровские перчатки "Хамелеон"
 uplink-clothing-chameleon-thieving-gloves-desc = Незаметно обчищайте карманы и повышайте свой навык воровства с помощью этих новых модных перчаток, которые могут менять свой облик! Учтите что волокна остануться уникальные для этих перчаток.
+uplink-50blessing-name = Подарочный набор 50 благословений
+uplink-50blessing-desc = Для агентов, которые хотят скрыть свою личность стильно, с любовью от Егора Семёнова
 ## Weapon
-
+uplink-swat-helmet-syndicate-name = Шлем Спецназа
+uplink-swat-helmet-syndicate-desc = Прочный шлем, созданный специально для тех, кто ценит целостность своей головы и конфиденциальность своих коварных замыслов. Окрашен в фирменные цвета спецназа Синдиката.
 uplink-syndicate-rapier-name = Рапира Синдиката
 uplink-syndicate-rapier-desc = Элегантная рапира из пластитана с алмазным наконечником. Рапира поставляется в собственных ножнах и способна пробить практически любую защиту если бить точно.
 uplink-clothing-backpack-syndie-aj100-name = Набор ПП AJ-100
@@ -87,6 +93,8 @@ uplink-clothing-backpack-syndie-aj100-desc = Включает в себя пис
 uplink-weapon-syndie-laser-pistol-name = SAM-300
 uplink-clothing-backpack-syndie-dl6902-name = Набор DL6902
 uplink-clothing-backpack-syndie-dl6902-desc = Включает в себя пулемёт DL6902 и один дополнительный короб.
+uplink-power-backpack-dl6902-name = DL6902 с патронным рюкзаком
+uplink-power-backpack-dl6902-desc = DL6902 переделанный под питание длинной лентой прямиком из рюкзака, рюкзак содержит 1200 патронов 7,62х39мм FMJ.
 uplink-clothing-backpack-syndie-siar52-name = Набор SIAR-52
 uplink-clothing-backpack-syndie-siar52-desc = Включает в себя SIAR-52 что оборудован интегрированым глушителем. и два магазина безгильзовых патрон.
 uplink-weapon-syndie-laser-minigun-name = UVL-21 «Виверна»
@@ -94,8 +102,12 @@ uplink-weapon-syndie-laser-gun-name = S-13 «Чёрная мамба»
 uplink-weapon-ussp-dmr-name = Набор Драгунов
 uplink-deagle-name = пистолет «Desert Eagle»
 uplink-deagle-desc = Cерьёзный аргумент в споре. Выгравировано: Мир благодаря превосходящей огневой мощи".
-uplink-mini-energy-crossbow-name = Мини энерго-арбалет
-uplink-mini-energy-crossbow-desc =  Компактное оружие скрытного действия. Выпускает маломощные кинетические болты, вызывающие паралич и малое отравление. Эффективен на близком расстоянии.
+uplink-goldendeagle-name = Золотой Десерт Игл
+uplink-goldendeagle-desc = Использует патрон «магнум» 45-го калибра. Выгравировано: "Все, что у меня осталось от него в памяти — это два позолоченных Desert Eagle 45-го калибра".
+uplink-mini-energy-crossbow-name = энерго-арбалет биокодированный
+uplink-mini-energy-crossbow-desc = Главное оружие оперативника, предпочитающего неподвижные цели. Стреляет регенерирующими токсичными болтами, мгновенно валящими жертву на пол. Вариант с биокодировкой.
+uplink-pistoltec9-name = Tac-Tec
+uplink-pistoltec9-desc = Очень дешёвый в производстве и очень простой в использовании, надёжный как SKM-24.
 
 ## Cyborgs
 
@@ -146,7 +158,7 @@ uplink-mech-equipment-vindictor-desc = Тяжёлое оружие массов�
 uplink-mech-equipment-uvm31-name = UVM-31 "Дрейк"
 uplink-mech-equipment-uvm31-desc = Тяжёлое оружие массового поражения разработанное Cybersun на основе минигана. теперь на прочном штативе позволяющем вести огонь прямо из МЕХа!
 uplink-mech-teleporter-medium-name = Телепорт среднего меха
-uplink-mech-teleporter-medium-desc = Содержит среднебронированный мех Cybersan с AC-2 "Ультра" и ракетной установкой BRM-8.
+uplink-mech-teleporter-medium-desc = Содержит среднебронированный мех Cybersun с AC-2 "Ультра" и ракетной установкой BRM-8.
 uplink-clothing-glasses-nvg-name = Модульные Очки
 uplink-clothing-glasses-nvg-desc = Качественно исполненные солнцезащитные очки, производства компании "Горлакс секьюрити". Использует модульные части для улучшения видимости в условиях низкой освещенности.
 
@@ -192,10 +204,10 @@ uplink-ammo-lmguraniumkit-desc = Перезаряжаю! Содержит 4 ур
 uplink-cluster-mini-bomb-name = Кластерная минибомба синдиката
 uplink-cluster-mini-bomb-desc = Если вы не преследуете цель точечных диверсий, то этот выбор для вас.
 uplink-mech-teleporter-heavy-name = Телепорт тяжелого меха
-uplink-mech-teleporter-heavy-desc = Содержит тяжелобронированный мех Cybersan с AC-2 "Ультра", LBX AC 10 "Залп" и ракетной установкой BRM-6.
-uplink-mech-teleporter-death-desc = Содержит тяжелобронированный мех АВП MK-II, не идет с какими либо модулями но имеет ящик для базового обслуживания. Докажите Службе безопасности что ваша "Смерть-дозер" круче их Падди.
+uplink-mech-teleporter-heavy-desc = Содержит тяжелобронированный мех Cybersun с AC-2 "Ультра", LBX AC 10 "Залп" и ракетной установкой BRM-6.
+uplink-mech-teleporter-death-desc = Содержит тяжелобронированный мех АВП MK-II, не идет с какими либо модулями но имеет ящик для базового обслуживания, не забудьте купить карту с доступом Синдиката. Докажите Службе безопасности что ваш "Смерть-дозер" круче их Падди.
 uplink-mech-teleporter-assault-name = Телепорт штурмового меха
-uplink-mech-teleporter-assault-desc = Содержит легкобронированный мех Cybersan с LBX AC 10 "Залп" и легкой ракетной установкой SRM-8.
+uplink-mech-teleporter-assault-desc = Содержит легкобронированный мех Cybersun с LBX AC 10 "Залп" и легкой ракетной установкой SRM-8.
 uplink-mech-missile-rack8frag-desc = Старые ракеты на мех, схожие с теми, что используют мехи синдиката. Имеют хороший радиус взрыва и отличное осколочное действие по сравнению со стандартными ракетами.
 uplink-energy-dome-name = Личный энергетический купол
 uplink-energy-dome-desc = Персональный генератор щита, который защищает владельца от лазеров и пуль, но не позволяет использовать дистанционное оружие. Поставляется с небольшим энергетическим элементом.
@@ -206,6 +218,4 @@ uplink-syndicate-teleporter-desc = Экспериментальное устро
 
 uplink-syndicate-law-name = Плата законов (Синдикат)
 uplink-syndicate-law-desc = Электронная плата, содержащая набор законов Синдиката.
-
-uplink-exploding-syndicate-empbomb-desc = Большая стационарная ЭМИ-бомба, выводящая из строя электронику, если её вовремя не обезвредить. Регулируемый таймер, минимум 180 секунд; отлично отключает инфраструктуру.
 

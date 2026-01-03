@@ -107,10 +107,6 @@
   - type: Tag
     tags:
       - KillTomeScrap
-  - type: Food
-    solution: food
-    delay: 7
-    forceFeedDelay: 7
   - type: FlavorProfile
     flavors:
     - paper

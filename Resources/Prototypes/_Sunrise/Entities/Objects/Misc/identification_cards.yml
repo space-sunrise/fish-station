@@ -111,11 +111,13 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: space-prison
-    - state: department-side
-      color: &color-engineer "#ffa62b"
+    - state: orange-space-prison
+    - state: stripe_top
+      color: "#9c2600"
+    - state: stripe_bottom
+      color: "#730401"
     - sprite: *sunrise-icon-rsi
-      offset: *icon-offset
+      offset: &icon-offset-old -0.1, 0.06 # спрайты ID карт для ПТ не обновлены, поэтому возвращаем старый offset
       state: PrisonEngineer
   - type: Item
     heldPrefix: space-prison
@@ -130,11 +132,13 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: space-prison
-    - state: department-side
-      color: *color-science
+    - state: orange-space-prison
+    - state: stripe_top
+      color: "#9c2600"
+    - state: stripe_bottom
+      color: "#730401"
     - sprite: *sunrise-icon-rsi
-      offset: *icon-offset
+      offset: *icon-offset-old
       state: PrisonScientist
   - type: Item
     heldPrefix: space-prison
@@ -149,11 +153,13 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: space-prison
-    - state: department-side
-      color: &color-medical "#68aed6"
+    - state: orange-space-prison
+    - state: stripe_top
+      color: "#9c2600"
+    - state: stripe_bottom
+      color: "#730401"
     - sprite: *sunrise-icon-rsi
-      offset: *icon-offset
+      offset: *icon-offset-old
       state: PrisonDoctor
   - type: Item
     heldPrefix: space-prison
@@ -168,11 +174,13 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: space-prison
-    - state: department-side
-      color: &color-service "#639137"
+    - state: orange-space-prison
+    - state: stripe_top
+      color: "#9c2600"
+    - state: stripe_bottom
+      color: "#730401"
     - sprite: *sunrise-icon-rsi
-      offset: *icon-offset
+      offset: *icon-offset-old
       state: PrisonChef
   - type: Item
     heldPrefix: space-prison
@@ -187,11 +195,13 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: space-prison
-    - state: department-side
-      color: *color-service
+    - state: orange-space-prison
+    - state: stripe_top
+      color: "#9c2600"
+    - state: stripe_bottom
+      color: "#730401"
     - sprite: *sunrise-icon-rsi
-      offset: *icon-offset
+      offset: *icon-offset-old
       state: PrisonWorker
   - type: Item
     heldPrefix: space-prison
@@ -206,11 +216,13 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: space-prison
-    - state: department-side
-      color: &color-command "#1b67a5"
+    - state: dark-orange-space-prison
+    - state: stripe_top
+      color: "#900600"
+    - state: stripe_bottom
+      color: "#730401"
     - sprite: *sunrise-icon-rsi
-      offset: *icon-offset
+      offset: *icon-offset-old
       state: PrisonInspector
   - type: Item
     heldPrefix: space-prison
@@ -263,11 +275,9 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: space-prison
-    - state: department-side
-      color: "#2d2d2d"
+    - state: prisoner-space-prison
     - sprite: *icon-rsi
-      offset: *icon-offset
+      offset: *icon-offset-old
       state: Prisoner
   - type: Item
     heldPrefix: space-prison
@@ -320,15 +330,14 @@
   - type: Sprite
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
-    - state: silver
-    - state: department-side
-      color: *color-command
-    - state: department-side-extra-gold
+    - state: dark-orange-space-prison
+    - state: stripe_top
+      color: "#900600"
+    - state: stripe_bottom
+      color: "#730401"
     - sprite: *sunrise-icon-rsi
-      offset: *icon-offset
+      offset: *icon-offset-old
       state: HeadOfPrison
-  - type: Item
-    heldPrefix: silver
   - type: PresetIdCard
     job: HeadOfPrison
 
@@ -361,7 +370,7 @@
     layers:
     - state: default
     - state: department-side
-      color: *color-service
+      color: "#639137"
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: Barber
@@ -381,7 +390,7 @@
     layers:
     - state: silver
     - state: department-side
-      color: *color-command
+      color: "#1b67a5"
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Adjutant
@@ -400,7 +409,7 @@
     layers:
     - state: default
     - state: department-side
-      color: *color-medical
+      color: "#68aed6"
     - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: Pathologist

@@ -29,11 +29,12 @@
   - Brig
   - Security
   - Armory
-#  - Maintenance #Sunrise-Edit
-  - Service
+  # - Maintenance # Sunrise-Edit
   - External
   - Detective
   - Cryogenics
+  - GenpopEnter
+  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, TrackingImplant, DeathRattleImplantBlueShield ]
@@ -53,7 +54,6 @@
   storage:
     back:
     - Flash
-#    - MagazineGlock22 # Sunrise-Edit
 
 - type: chameleonOutfit
   id: HeadOfSecurityChameleonOutfit
