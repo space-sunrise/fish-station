@@ -1,0 +1,15 @@
+- type: entity
+  id: ChemistryBottleUnknownPathogen
+  suffix: unknown_pathogen
+  parent: BaseChemistryBottleFilled
+  name: bottle (unknown pathogen)
+  components:
+  - type: Label
+    currentLabel: reagent-name-unknown-pathogen
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: UnknownPathogen
+          Quantity: 30

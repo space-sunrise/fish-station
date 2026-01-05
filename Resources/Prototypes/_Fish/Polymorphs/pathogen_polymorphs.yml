@@ -1,0 +1,274 @@
+- type: polymorph
+  id: PathogenPolymorphHuman
+  configuration:
+    entity: MobHumanRandomization
+    forced: true
+    transferDamage: true
+    transferName: true
+    inventory: Transfer
+    revertOnDeath: true
+    revertOnCrit: false
+    revertOnDelete: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: PathogenPolymorphReptilian
+  configuration:
+    entity: MobReptilianRandomization
+    forced: true
+    transferDamage: true
+    transferName: true
+    inventory: Transfer
+    revertOnDeath: true
+    revertOnCrit: false
+    revertOnDelete: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: PathogenPolymorphTajaran
+  configuration:
+    entity: MobTajaranRandomization
+    forced: true
+    transferDamage: true
+    transferName: true
+    inventory: Transfer
+    revertOnDeath: true
+    revertOnCrit: false
+    revertOnDelete: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: PathogenPolymorphSlime
+  configuration:
+    entity: MobSlimePersonRandomization
+    forced: true
+    transferDamage: true
+    transferName: true
+    inventory: Transfer
+    revertOnDeath: true
+    revertOnCrit: false
+    revertOnDelete: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: PathogenPolymorphMoth
+  configuration:
+    entity: MobMothRandomization
+    forced: true
+    transferDamage: true
+    transferName: true
+    inventory: Transfer
+    revertOnDeath: true
+    revertOnCrit: false
+    revertOnDelete: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: PathogenPolymorphSwine
+  configuration:
+    entity: MobSwineRandomization
+    forced: true
+    transferDamage: true
+    transferName: true
+    inventory: Transfer
+    revertOnDeath: true
+    revertOnCrit: false
+    revertOnDelete: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: PathogenPolymorphResomi
+  configuration:
+    entity: MobResomiRandomization
+    forced: true
+    transferDamage: true
+    transferName: true
+    inventory: Transfer
+    revertOnDeath: true
+    revertOnCrit: false
+    revertOnDelete: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: PathogenPolymorphVox
+  configuration:
+    entity: MobVoxRandomization
+    forced: true
+    transferDamage: true
+    transferName: true
+    inventory: Transfer
+    revertOnDeath: true
+    revertOnCrit: false
+    revertOnDelete: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: PathogenPolymorphVulpkanin
+  configuration:
+    entity: MobVulpkaninRandomization
+    forced: true
+    transferDamage: true
+    transferName: true
+    inventory: Transfer
+    revertOnDeath: true
+    revertOnCrit: false
+    revertOnDelete: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: PathogenPolymorphFelinid
+  configuration:
+    entity: MobFelinidRandomization
+    forced: true
+    transferDamage: true
+    transferName: true
+    inventory: Transfer
+    revertOnDeath: true
+    revertOnCrit: false
+    revertOnDelete: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: PathogenPolymorphHumanoidXeno
+  configuration:
+    entity: MobHumanoidXenoRandomization
+    forced: true
+    transferDamage: true
+    transferName: true
+    inventory: Transfer
+    revertOnDeath: true
+    revertOnCrit: false
+    revertOnDelete: true
+    allowRepeatedMorphs: true
+
+# Extended Races
+
+- type: polymorph
+  id: PathogenPolymorphDiona
+  configuration:
+    entity: MobDionaRandomization
+    forced: true
+    transferDamage: true
+    transferName: true
+    inventory: Transfer
+    revertOnDeath: true
+    revertOnCrit: false
+    revertOnDelete: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: PathogenPolymorphDwarf
+  configuration:
+    entity: MobDwarfRandomization
+    forced: true
+    transferDamage: true
+    transferName: true
+    inventory: Transfer
+    revertOnDeath: true
+    revertOnCrit: false
+    revertOnDelete: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: PathogenPolymorphSkeleton
+  configuration:
+    entity: MobSkeletonRandomization
+    forced: true
+    transferDamage: true
+    transferName: true
+    inventory: Transfer
+    revertOnDeath: true
+    revertOnCrit: false
+    revertOnDelete: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: PathogenPolymorphArachnid
+  configuration:
+    entity: MobArachnidRandomization
+    forced: true
+    transferDamage: true
+    transferName: true
+    inventory: Transfer
+    revertOnDeath: true
+    revertOnCrit: false
+    revertOnDelete: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: PathogenPolymorphGingerbread
+  configuration:
+    entity: MobGingerbreadRandomization
+    forced: true
+    transferDamage: true
+    transferName: true
+    inventory: Transfer
+    revertOnDeath: true
+    revertOnCrit: false
+    revertOnDelete: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: PathogenPolymorphTerminator
+  configuration:
+    entity: MobTerminatorRandomization
+    forced: true
+    transferDamage: true
+    transferName: true
+    inventory: Transfer
+    revertOnDeath: true
+    revertOnCrit: false
+    revertOnDelete: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: PathogenPolymorphAbductor
+  configuration:
+    entity: MobAbductorRandomization
+    forced: true
+    transferDamage: true
+    transferName: true
+    inventory: Transfer
+    revertOnDeath: true
+    revertOnCrit: false
+    revertOnDelete: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: PathogenPolymorphDemon
+  configuration:
+    entity: MobDemonRandomization
+    forced: true
+    transferDamage: true
+    transferName: true
+    inventory: Transfer
+    revertOnDeath: true
+    revertOnCrit: false
+    revertOnDelete: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: PathogenPolymorphMilira
+  configuration:
+    entity: MobMiliraRandomization
+    forced: true
+    transferDamage: true
+    transferName: true
+    inventory: Transfer
+    revertOnDeath: true
+    revertOnCrit: false
+    revertOnDelete: true
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: PathogenPolymorphPredator
+  configuration:
+    entity: MobPredatorRandomization
+    forced: true
+    transferDamage: true
+    transferName: true
+    inventory: Transfer
+    revertOnDeath: true
+    revertOnCrit: false
+    revertOnDelete: true
+    allowRepeatedMorphs: true
