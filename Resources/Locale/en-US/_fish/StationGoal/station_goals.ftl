@@ -11,7 +11,7 @@ station-goal-polymorph = [bold]NT/COM-CC-PCS Form[/bold]
 
     ⠀Your Shift Goal — [bold]research of an unknown preparation[/bold].
 
-[bold]It is necessary to conduct 6 experiments, preferably on representatives of different races and genders.[/bold]
+    ⠀[bold]It is necessary to conduct 6 experiments, preferably on representatives of different races and genders.[/bold]
 
     ⠀[bold]Procedure:[/bold]
     ⠀1.  Select volunteer subjects from the crew.
