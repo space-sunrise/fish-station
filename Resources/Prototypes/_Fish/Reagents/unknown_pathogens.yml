@@ -173,16 +173,6 @@
         conditions: *cond
 
       - !type:Polymorph
-        prototype: PathogenPolymorphTerminator
-        probability: 0.2
-        conditions: *cond
-      - !type:AdjustReagent
-        reagent: UnknownPathogen
-        amount: -1000
-        probability: 0.2
-        conditions: *cond
-
-      - !type:Polymorph
         prototype: PathogenPolymorphDemon
         probability: 0.3333
         conditions: *cond

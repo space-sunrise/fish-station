@@ -39,7 +39,7 @@
     randomizeName: false
 
 - type: entity
-  parent: MobTerminator
+  parent: MobHumanTerminator
   id: MobTerminatorRandomization
   categories: [ HideSpawnMenu ]
   components:
