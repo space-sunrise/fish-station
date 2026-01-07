@@ -123,8 +123,10 @@
   table: !type:AllSelector
     children:
     - id: HandheldCrewMonitor # Sunrise-Edit
-    - id: ClothingOuterHardsuitVoidParamed
+    # - id: ClothingOuterHardsuitVoidParamed # Fish: commented out
+    - id: ClothingOuterHardsuitVoidParamedFish # Fish: added
     - id: ClothingOuterCoatParamedicWB
+
     - id: ClothingHeadHatParamedicsoft
     - id: ClothingOuterWinterPara
     - id: ClothingUniformJumpsuitParamedic

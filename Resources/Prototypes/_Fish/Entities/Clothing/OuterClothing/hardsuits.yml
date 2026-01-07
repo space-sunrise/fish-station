@@ -1,0 +1,13 @@
+- type: entity
+  parent: ClothingOuterHardsuitVoidParamed
+  id: ClothingOuterHardsuitVoidParamedFish
+  suffix: Fish
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/OuterClothing/Hardsuits/paramed.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: _Fish/Clothing/OuterClothing/Hardsuits/paramed.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetVoidParamedFish
