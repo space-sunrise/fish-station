@@ -15,4 +15,4 @@
   sponsorOnly: true
   sprite:
     sprite: Mobs/Animals/fox.rsi
-    state: fox
+    state: fox-moving
