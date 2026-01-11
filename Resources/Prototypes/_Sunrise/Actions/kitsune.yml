@@ -1,14 +1,14 @@
 - type: entity
   parent: BaseAction
   id: ActionKitsuneTransform
-  name: Fox Transform
-  description: "Transform into a nine-tailed fox form, consuming 50 blood. Takes 5 seconds."
+  name: kitsune-transform-action-name
+  description: "kitsune-transform-action-description"
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
     icon:
-      sprite: /Textures/Interface/Actions/actions.rsi
-      state: transform
+      sprite: Mobs/Animals/fox.rsi
+      state: fox
     useDelay: 5
     temporary: true
     itemIconStyle: NoItem
@@ -18,14 +18,14 @@
 - type: entity
   parent: BaseAction
   id: ActionKitsuneRevert
-  name: Revert Form
-  description: "Revert from fox form back to humanoid form. Only available in fox form."
+  name: kitsune-revert-action-name
+  description: "kitsune-revert-action-description"
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
     icon:
-      sprite: /Textures/Interface/Actions/actions.rsi
-      state: revert
+      sprite: Mobs/Animals/fox.rsi
+      state: fox
     useDelay: 2
     temporary: true
     itemIconStyle: NoItem

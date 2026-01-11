@@ -2,10 +2,9 @@
   parent: MobHuman
   id: MobKitsune
   name: Kitsune
-  abstract: true
   components:
   - type: KitsuneTransform
   - type: ActionsContainer
-  - type: ActionGranter
+  - type: ActionGrant
     actions:
     - ActionKitsuneTransform

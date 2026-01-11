@@ -2,8 +2,8 @@
   id: KitsuneTransform
   configuration:
     entity: MobKitsuneFox
-    forced: true
+    forced: false
     transferName: true
     transferDamage: true
-    inventory: Drop
+    inventory: Transfer
     revertOnDeath: true

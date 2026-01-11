@@ -20,7 +20,6 @@
 
 - type: markingPoints
   id: MobKitsuneMarkingLimits
-  onlyWhitelisted: true
   points:
     Hair:
       points: 1

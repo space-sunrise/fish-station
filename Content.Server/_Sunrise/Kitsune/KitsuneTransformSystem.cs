@@ -1,12 +1,17 @@
+using Content.Server.Actions;
+using Content.Server.DoAfter;
 using Content.Server.Polymorph.Systems;
 using Content.Shared._Sunrise.Kitsune;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
+using Content.Shared.Polymorph;
 using Content.Shared.Popups;
+using Robust.Shared.Localization;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Sunrise.Kitsune;
@@ -22,7 +27,7 @@ public sealed class KitsuneTransformSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        
+
         SubscribeLocalEvent<KitsuneTransformComponent, KitsuneTransformActionEvent>(OnKitsuneTransform);
         SubscribeLocalEvent<KitsuneTransformComponent, KitsuneTransformDoAfterEvent>(OnKitsuneTransformDoAfter);
     }
@@ -33,34 +38,34 @@ public sealed class KitsuneTransformSystem : EntitySystem
 
         if (component.IsTransformed)
         {
-            _popup.PopupEntity("You are already in fox form!", uid, uid, PopupType.MediumCaution);
+            _popup.PopupEntity(Loc.GetString("kitsune-transform-already-transformed"), uid, uid, PopupType.MediumCaution);
             return;
         }
 
         // Check if they have enough blood
         if (!TryComp<SolutionContainerManagerComponent>(uid, out var solutionManager))
         {
-            _popup.PopupEntity("You need a bloodstream to transform!", uid, uid, PopupType.MediumCaution);
+            _popup.PopupEntity(Loc.GetString("kitsune-transform-no-bloodstream"), uid, uid, PopupType.MediumCaution);
             return;
         }
 
-        if (!solutionManager.TryGetSolution("blood", out var bloodSolution))
+        /*if (!solutionManager.TryGetSolution("blood", out var bloodSolution))
         {
-            _popup.PopupEntity("You have no blood!", uid, uid, PopupType.MediumCaution);
+            _popup.PopupEntity(Loc.GetString("kitsune-transform-no-blood"), uid, uid, PopupType.MediumCaution);
             return;
         }
 
-        var bloodAmount = bloodSolution.Comp.Solution.GetTotalPrototypeQuantity("Blood");
+        var bloodAmount = bloodSolution.GetTotalPrototypeQuantity("Blood");
         if (bloodAmount < 50)
         {
-            _popup.PopupEntity($"You need 50 blood to transform. You have {bloodAmount}.", uid, uid, PopupType.MediumCaution);
+            _popup.PopupEntity(Loc.GetString("kitsune-transform-insufficient-blood", ("amount", bloodAmount)), uid, uid, PopupType.MediumCaution);
             return;
-        }
+        }*/
 
         // Start the do-after
         var doAfterArgs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(5),
             new KitsuneTransformDoAfterEvent(),
-            eventTarget: uid)
+            uid)
         {
             BreakOnMove = true,
             BreakOnDamage = true,
@@ -70,7 +75,7 @@ public sealed class KitsuneTransformSystem : EntitySystem
 
         if (_doAfter.TryStartDoAfter(doAfterArgs))
         {
-            _popup.PopupEntity("You begin your transformation into fox form...", uid, uid, PopupType.MediumCaution);
+            _popup.PopupEntity(Loc.GetString("kitsune-transform-starting"), uid, uid, PopupType.MediumCaution);
         }
     }
 
@@ -79,28 +84,28 @@ public sealed class KitsuneTransformSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        // Check blood again (in case they lost some)
+        /*// Check blood again (in case they lost some)
         if (!TryComp<SolutionContainerManagerComponent>(uid, out var solutionManager) ||
             !solutionManager.TryGetSolution("blood", out var bloodSolution))
         {
-            _popup.PopupEntity("You lost your blood mid-transformation!", uid, uid, PopupType.MediumCaution);
+            _popup.PopupEntity(Loc.GetString("kitsune-transform-lost-blood"), uid, uid, PopupType.MediumCaution);
             return;
         }
 
-        var bloodAmount = bloodSolution.Comp.Solution.GetTotalPrototypeQuantity("Blood");
+        var bloodAmount = bloodSolution.GetTotalPrototypeQuantity("Blood");
         if (bloodAmount < 50)
         {
-            _popup.PopupEntity("You don't have enough blood to transform!", uid, uid, PopupType.MediumCaution);
+            _popup.PopupEntity(Loc.GetString("kitsune-transform-insufficient-mid"), uid, uid, PopupType.MediumCaution);
             return;
         }
 
         // Consume 50 blood
-        bloodSolution.Comp.Solution.RemoveReagent("Blood", FixedPoint2.New(50));
+        bloodSolution.RemoveReagent("Blood", FixedPoint2.New(50));*/
 
         // Transform into fox
         if (!_prototypeManager.TryIndex<PolymorphPrototype>("KitsuneTransform", out var prototype))
         {
-            _popup.PopupEntity("Transformation failed - no transform prototype found!", uid, uid, PopupType.MediumCaution);
+            _popup.PopupEntity(Loc.GetString("kitsune-transform-failed"), uid, uid, PopupType.MediumCaution);
             Logger.Warning($"Kitsune transform failed: could not find 'KitsuneTransform' polymorph prototype");
             return;
         }
@@ -112,6 +117,6 @@ public sealed class KitsuneTransformSystem : EntitySystem
         // Perform polymorph
         _polymorph.PolymorphEntity(uid, prototype);
 
-        _popup.PopupEntity("You transform into a nine-tailed fox!", uid, uid, PopupType.MediumCaution);
+        _popup.PopupEntity(Loc.GetString("kitsune-transform-success"), uid, uid, PopupType.MediumCaution);
     }
 }
