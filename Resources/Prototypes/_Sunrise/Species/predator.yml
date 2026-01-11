@@ -9,7 +9,7 @@
   markingLimits: MobPredatorMarkingLimits
   dollPrototype: MobPredatorDummy
   skinColoration: Hues
-  sponsorOnly: true #Fish-edit
+  sponsorOnly: false
   defaultHeight: 1.05
   defaultWidth: 1.1
   maxHeight: 1.15
