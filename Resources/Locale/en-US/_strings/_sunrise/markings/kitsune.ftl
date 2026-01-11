@@ -1,2 +1,7 @@
-marking-KitsuneEarsDefault = Ears
-marking-KitsuneTailDefault = Tail
+marking-KitsuneEarDefault = Ears (Default)
+marking-KitsuneTailDefault = Tail (Bushy Wag)
+marking-KitsuneTailAlt1 = Tail (Smooth)
+marking-KitsuneTailAlt2 = Tail (Straight)
+marking-KitsuneTailAlt3 = Tail (Fluffy)
+marking-KitsuneTailAlt4 = Tail (Split)
+marking-KitsuneTailAlt5 = Tail (Vulpine)

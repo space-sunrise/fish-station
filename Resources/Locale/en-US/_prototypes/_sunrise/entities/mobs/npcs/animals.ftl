@@ -11,3 +11,6 @@ ent-MobInferiorVulpkaninSyndicateAgent = { ent-MobBaseSyndicateInferiorVulpkanin
 ent-MobInferiorVulpkaninSyndicateAgentNukeops = { ent-MobBaseSyndicateInferiorVulpkanin }
     .suffix = NukeOps
     .desc = { ent-MobBaseSyndicateInferiorVulpkanin.desc }
+
+ent-MobKitsuneFox = kitsune fox
+    .desc = They're a nine tailed fox.

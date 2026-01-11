@@ -1,8 +1,8 @@
 - type: entity
-  name: kitsune fox
-  parent: [SimpleMobBase, StripableInventoryBase]
+  name: kitsune-mob-name
+  parent: [SimpleMobBase, StripableInventoryBase, BaseSpeciesPickupable]
   id: MobKitsuneFox
-  description: They're a nine tailed fox.
+  description: kitsune-mob-description
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -21,6 +21,9 @@
         - MobMask
         layer:
         - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 6
   - type: Inventory
     speciesId: fox
     templateId: pet
@@ -34,6 +37,9 @@
   - type: Grammar
     attributes:
       gender: epicene
+  - type: ComplexInteraction
+  - type: TTS
+    voice: KateSmirnovaTB
   # inherit bloodstream from parent to match human health stats
   - type: MeleeWeapon
     angle: 0
@@ -55,4 +61,5 @@
     tags:
     - VimPilot
   - type: Carriable
+    requiresNestingMob: true
   - type: CanEscapeInventory

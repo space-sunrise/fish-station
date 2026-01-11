@@ -1,2 +1,7 @@
-marking-KitsuneEarsDefault = Уши
-marking-KitsuneTailDefault = Хвост
+marking-KitsuneEarDefault = Уши (Стандартные)
+marking-KitsuneTailDefault = Хвост (Пушистый, Виляющий)
+marking-KitsuneTailAlt1 = Хвост (Гладкий)
+marking-KitsuneTailAlt2 = Хвост (Прямой)
+marking-KitsuneTailAlt3 = Хвост (Пушистый)
+marking-KitsuneTailAlt4 = Хвост (Расщеплённый)
+marking-KitsuneTailAlt5 = Хвост (Лисий)
