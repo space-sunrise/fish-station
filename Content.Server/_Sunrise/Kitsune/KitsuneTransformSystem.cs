@@ -1,5 +1,6 @@
 using Content.Server.Actions;
 using Content.Server.DoAfter;
+using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Shared._Sunrise.Kitsune;
 using Content.Shared.Actions;
@@ -30,6 +31,8 @@ public sealed class KitsuneTransformSystem : EntitySystem
 
         SubscribeLocalEvent<KitsuneTransformComponent, KitsuneTransformActionEvent>(OnKitsuneTransform);
         SubscribeLocalEvent<KitsuneTransformComponent, KitsuneTransformDoAfterEvent>(OnKitsuneTransformDoAfter);
+        SubscribeLocalEvent<KitsuneTransformComponent, KitsuneRevertActionEvent>(OnKitsuneRevert);
+        SubscribeLocalEvent<KitsuneTransformComponent, KitsuneRevertDoAfterEvent>(OnKitsuneRevertDoAfter);
     }
 
     private void OnKitsuneTransform(EntityUid uid, KitsuneTransformComponent component, KitsuneTransformActionEvent args)
@@ -118,5 +121,49 @@ public sealed class KitsuneTransformSystem : EntitySystem
         _polymorph.PolymorphEntity(uid, prototype);
 
         _popup.PopupEntity(Loc.GetString("kitsune-transform-success"), uid, uid, PopupType.MediumCaution);
+    }
+
+    private void OnKitsuneRevert(EntityUid uid, KitsuneTransformComponent component, KitsuneRevertActionEvent args)
+    {
+        args.Handled = true;
+
+        if (!component.IsTransformed)
+        {
+            _popup.PopupEntity(Loc.GetString("kitsune-revert-not-transformed"), uid, uid, PopupType.MediumCaution);
+            return;
+        }
+
+        // Start the do-after for revert
+        var doAfterArgs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(5),
+            new KitsuneRevertDoAfterEvent(),
+            uid)
+        {
+            BreakOnMove = true,
+            BreakOnDamage = true,
+            MovementThreshold = 1f,
+            NeedHand = false,
+        };
+
+        if (_doAfter.TryStartDoAfter(doAfterArgs))
+        {
+            _popup.PopupEntity(Loc.GetString("kitsune-revert-starting"), uid, uid, PopupType.MediumCaution);
+        }
+    }
+
+    private void OnKitsuneRevertDoAfter(EntityUid uid, KitsuneTransformComponent component, ref KitsuneRevertDoAfterEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        if (!component.IsTransformed)
+            return;
+
+        // Revert the polymorph
+        if (TryComp<PolymorphedEntityComponent>(uid, out var morphComp))
+        {
+            _polymorph.Revert((uid, morphComp));
+            component.IsTransformed = false;
+            _popup.PopupEntity(Loc.GetString("kitsune-revert-success"), uid, uid, PopupType.MediumCaution);
+        }
     }
 }

@@ -5,5 +5,4 @@
     forced: false
     transferName: true
     transferDamage: true
-    inventory: Transfer
     revertOnDeath: true

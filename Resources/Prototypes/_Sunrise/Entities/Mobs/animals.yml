@@ -7,6 +7,8 @@
   - type: Sprite
     drawdepth: Mobs
     sprite: Fish/nine_tailed_fox.rsi
+    layers:
+    - state: fox
   - type: Physics
   - type: Fixtures
     fixtures:

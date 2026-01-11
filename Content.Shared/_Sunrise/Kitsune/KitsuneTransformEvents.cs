@@ -16,3 +16,8 @@ public sealed partial class KitsuneRevertActionEvent : InstantActionEvent
 public sealed partial class KitsuneTransformDoAfterEvent : SimpleDoAfterEvent
 {
 }
+
+[Serializable, NetSerializable]
+public sealed partial class KitsuneRevertDoAfterEvent : SimpleDoAfterEvent
+{
+}
