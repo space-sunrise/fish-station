@@ -1,0 +1,21 @@
+- type: species
+  id: Kitsune
+  name: species-name-kitsune
+  roundStart: true
+  prototype: MobHuman
+  bodyTypes:
+  - HumanNormal
+  markingLimits: MobHumanMarkingLimits
+  dollPrototype: MobHumanDummy
+  skinColoration: HumanToned
+  maleFirstNames: names_human_male
+  femaleFirstNames: names_human_female
+  maleLastNames: names_human_last
+  femaleLastNames: names_human_last
+  naming: firstlast
+  youngAge: 50
+  oldAge: 700
+  maxAge: 900
+  buttScan:
+    sprite: /Textures/_Sunrise/CopyMachine/butts_scans.rsi
+    state: human
