@@ -8,6 +8,7 @@
   markingLimits: MobMiliraMarkingLimits
   dollPrototype: MobMiliraDummy
   skinColoration: MiliraLightTones
+  sponsorOnly: true #Fish-edit
   youngAge: 18
   oldAge: 100
   maxAge: 300

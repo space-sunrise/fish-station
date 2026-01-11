@@ -9,7 +9,7 @@
   markingLimits: MobHumanoidXenoMarkingLimits
   dollPrototype: MobXenoDummy
   skinColoration: Hues
-  sponsorOnly: false
+  sponsorOnly: true #Fish-edit
   maleFirstNames: names_xeno_first
   femaleFirstNames: names_xeno_first
   maleLastNames: names_xeno_last
