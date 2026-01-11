@@ -28,7 +28,6 @@
   maxHeightCm: 165
   standardWeight: 40
   standardDensity: 17
-  sponsorOnly: true #Fish-edit
 
 - type: bodyType
   id: ResomiNormal
