@@ -24,20 +24,25 @@
     Hair:
       points: 1
       required: false
+      availableMarkings: [ HumanHairAfricanPigtails, HumanHairAfropuffdouble, HumanHairAfropuffleft, HumanHairAfropuffright, HumanHairAmazon, HumanHairAstolfo, HumanHairBaum, HumanHairBeachwave, HumanHairBluntbangs, HumanHairBluntbangsAlt, HumanHairBobcutAlt, HumanHairBunhead4, HumanHairCombed, HumanHairCombedbob, HumanHairCotton, HumanHairCurly, HumanHairDave, HumanHairDiagonalBangs, HumanHairEmoshort, HumanHairFingerwave, HumanHairFluffyShort, HumanHairFortuneteller, HumanHairFortunetellerAlt, HumanHairFroofylong, HumanHairGeisha, HumanHairGentle21, HumanHairGlammetal, HumanHairGloomyLong, HumanHairGloomyMedium, HumanHairGrande, HumanHairHalfshave, HumanHairHalfshaveglamorous, HumanHairHalfshaveLong, HumanHairHalfshaveMessy, HumanHairHalfshaveMessyLong, HumanHairHalfshaveSnout, HumanHairHightight, HumanHairHyenamane, HumanHairJessica, HumanHairLong4, HumanHairLongdtails, HumanHairLongerAlt, HumanHairLongovereyeAlt, HumanHairLongsidepartstraight, HumanHairLooseSlicked, HumanHairMediumbraid, HumanHairNewyou, HumanHairPonytailAlt, HumanHairPonytailF, HumanHairPoofy2, HumanHairQuadcurls, HumanHairSabitsuki, HumanHairScully, HumanHairShorthair4, HumanHairShy, HumanHairSimplePonytail, HumanHairSleaze, HumanHairSlightlyMessy, HumanHairSlimedroplet, HumanHairSlimedropletAlt, HumanHairSlimespikes, HumanHairSlimetendrils, HumanHairSlimetendrilsAlt, HumanHairSpicy, HumanHairTwintailFloor, HumanHairVeryshortovereye, HumanHairVictory, HumanHairViper, HumanHairWife, HumanHairZiegler, HairBasarab, HairCrayfish, HairHank, HairHonor, HairMadScientist, HairMonday, HairNemesida, HairPunk, HairTuranga, HairAyanami, HairBubbleGum, HairMavis, HairCloud, HairMorningHairstyle, HairMorningHairstyle2, HairPonytail8, HairPrinceCharming, HairShavedFemale, HairShavedFemaleUnisex, HairMoon, HairMalet, HairLongDisheveled, HairQuickInstalation, HairProtrudingStrand, HairWindy, HairNeatFeminineStyling, HairNeatManBun, HairLongComb, HairMediumDisheveled, HairBunWithTail, HairBunWithTailAlt, HairGluckosa, HairAppleJack, HairPinkiePie, HairRarity, HairAqua, HairBairdAndBangs, Hairmalet-alternative, HumanHairCatTail ]
     FacialHair:
       points: 1
       required: false
+      availableMarkings: [ HumanFacialHairHandlebar, HumanFacialHairHandlebarAlt ]
     Tail:
       points: 1
       required: true
       defaultMarkings: [ VulpTailBushyWag ]
+      availableMarkings: [ VulpTail, VulpTailTip, VulpTailWag, VulpTailWagTip, VulpTailAlt, VulpTailAltTip, VulpTailLong, VulpTailFox, VulpTailFoxTip, VulpTailFoxWag, VulpTailFoxWagTip, VulpTailBushy, VulpTailBushyWag, VulpTailCoyote, VulpTailCoyoteWag, VulpTailCorgiWag, VulpTailHusky, VulpTailHuskyAlt, VulpTailFox2, VulpTailFox3, VulpTailFennec, VulpTailOtie, VulpTailFluffy, VulpTailFluffyAlt, VulpTailDalmatianWag, FoxTail, BigFoxTail, SharkTail ]
     HeadTop:
       points: 1
       required: true
       defaultMarkings: [ VulpEar ]
+      availableMarkings: [ VulpEar, VulpEarFade, VulpEarSharp, VulpEarJackal, VulpEarJackalAlt, VulpEarTerrier, VulpEarWolf, VulpEarFennec, VulpEarFox, VulpEarOtie, VulpEarTajaran, VulpEarShock, VulpEarCoyote, VulpEarDalmatian ]
     Chest:
       points: 1
       required: false
+      availableMarkings: [ HumanTopHorns ]
     Legs:
       points: 2
       required: false
