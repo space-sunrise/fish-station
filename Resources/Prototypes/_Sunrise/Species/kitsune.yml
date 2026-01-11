@@ -32,12 +32,12 @@
     Tail:
       points: 1
       required: true
-      defaultMarkings: [ VulpTailBushyWag ]
+      defaultMarkings: [ BigFoxTail ]
       availableMarkings: [ VulpTail, VulpTailTip, VulpTailWag, VulpTailWagTip, VulpTailAlt, VulpTailAltTip, VulpTailLong, VulpTailFox, VulpTailFoxTip, VulpTailFoxWag, VulpTailFoxWagTip, VulpTailBushy, VulpTailBushyWag, VulpTailCoyote, VulpTailCoyoteWag, VulpTailCorgiWag, VulpTailHusky, VulpTailHuskyAlt, VulpTailFox2, VulpTailFox3, VulpTailFennec, VulpTailOtie, VulpTailFluffy, VulpTailFluffyAlt, VulpTailDalmatianWag, FoxTail, BigFoxTail, SharkTail ]
     HeadTop:
       points: 1
       required: true
-      defaultMarkings: [ VulpEar ]
+      defaultMarkings: [ VulpEarFox ]
       availableMarkings: [ VulpEar, VulpEarFade, VulpEarSharp, VulpEarJackal, VulpEarJackalAlt, VulpEarTerrier, VulpEarWolf, VulpEarFennec, VulpEarFox, VulpEarOtie, VulpEarTajaran, VulpEarShock, VulpEarCoyote, VulpEarDalmatian ]
     Chest:
       points: 1
