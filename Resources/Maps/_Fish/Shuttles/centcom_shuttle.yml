@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 262.0.0
+  engineVersion: 270.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/27/2025 05:37:47
+  time: 01/11/2026 01:47:04
   entityCount: 536
 maps: []
 grids:
@@ -70,8 +70,8 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-    - type: CentCommShuttle
       dampingModifier: 0.25
+    - type: CentCommShuttle
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -543,95 +543,75 @@ entities:
             0: 14141
             1: 16384
           -1,1:
-            0: 56471
+            0: 56469
+            2: 2
           0,2:
             0: 51
-            2: 72
+            3: 72
           -1,2:
             0: 136
-            2: 66
+            3: 66
           1,0:
             0: 12322
-            2: 1024
+            3: 1024
           1,1:
             0: 4099
             1: 16
-            2: 8256
+            3: 8256
           0,-2:
             0: 46002
           -1,-2:
             0: 47272
-            2: 16
+            3: 16
           -1,-1:
             0: 53147
           1,-2:
-            2: 16912
+            3: 16912
             0: 4096
           1,-1:
             0: 563
             1: 256
-            2: 16384
+            3: 16384
           -2,0:
-            2: 1024
+            3: 1024
             0: 32904
           -2,1:
-            2: 32832
-            0: 8
+            3: 32832
+            4: 8
           -2,-2:
-            2: 18432
+            3: 18432
           -2,-1:
             0: 2056
-            2: 16384
+            3: 16384
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
           moles:
-          - 21.824879
-          - 82.10312
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Oxygen: 21.824879
+            Nitrogen: 82.10312
         - volume: 2500
           temperature: 293.14996
           moles:
-          - 20.078888
-          - 75.53487
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Oxygen: 20.078888
+            Nitrogen: 75.53487
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+            Oxygen: 20.078888
+            Nitrogen: 75.53487
         - volume: 2500
           immutable: True
+          moles: {}
+        - volume: 2500
+          temperature: 293.14975
           moles:
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Oxygen: 21.824879
+            Nitrogen: 82.10312
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ImplicitRoof
+    - type: ExplosionAirtightGrid
   - uid: 5
     components:
     - type: MetaData
@@ -1710,6 +1690,8 @@ entities:
       - 340
       - 341
       - 172
+    - type: Fixtures
+      fixtures: {}
 - proto: AirCanister
   entities:
   - uid: 161
@@ -1824,7 +1806,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 3.5,-2.5
       parent: 1
-- proto: AtmosDeviceFanDirectional
+    - type: Fixtures
+      fixtures: {}
+- proto: AtmosDeviceFanDirectionalDev
   entities:
   - uid: 174
     components:
@@ -1867,7 +1851,7 @@ entities:
   - uid: 177
     components:
     - type: Transform
-      pos: -1.4461176,6.6551337
+      pos: -1.4141814,6.7198906
       parent: 1
     - type: Storage
       storedItems:
@@ -1898,6 +1882,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+      storage: 181
 - proto: BoxMagazinePistol
   entities:
   - uid: 183
@@ -1907,6 +1892,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+      storage: 181
 - proto: BoxMRE
   entities:
   - uid: 149
@@ -2435,23 +2421,32 @@ entities:
   - uid: 275
     components:
     - type: Transform
+      anchored: True
       pos: -3.5,4.5
       parent: 1
+    - type: Physics
+      bodyType: Static
 - proto: ChairOfficeGrey
   entities:
   - uid: 276
     components:
     - type: Transform
+      anchored: True
       rot: 3.141592653589793 rad
       pos: -0.5,6.5
       parent: 1
+    - type: Physics
+      bodyType: Static
 - proto: ChairOfficeLight
   entities:
   - uid: 277
     components:
     - type: Transform
+      anchored: True
       pos: 4.5,4.5
       parent: 1
+    - type: Physics
+      bodyType: Static
 - proto: ChairPilotSeat
   entities:
   - uid: 278
@@ -2517,18 +2512,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -2548,6 +2533,37 @@ entities:
           - 159
           - 152
           - 153
+    - type: Fixtures
+      fixtures: {}
+- proto: ClosetWallGreen
+  entities:
+  - uid: 299
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -2.5,3.5
+      parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 362
+          - 361
+          - 363
+          - 364
+          - 399
+    - type: Fixtures
+      fixtures: {}
 - proto: ComputerIFF
   entities:
   - uid: 285
@@ -2578,6 +2594,8 @@ entities:
     - type: Transform
       pos: 5.5,5.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: DisposalPipe
   entities:
   - uid: 289
@@ -2687,12 +2705,16 @@ entities:
     - type: Transform
       pos: 1.5,3.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
   - uid: 297
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -1.5,-5.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: FaxMachineBase
   entities:
   - uid: 298
@@ -2702,13 +2724,16 @@ entities:
       parent: 1
     - type: FaxMachine
       name: ПЦК
-- proto: filingCabinetRandom
+- proto: filingCabinetTallRandom
   entities:
-  - uid: 299
+  - uid: 537
     components:
     - type: Transform
+      anchored: True
       pos: -3.5,5.5
       parent: 1
+    - type: Physics
+      bodyType: Static
 - proto: Firelock
   entities:
   - uid: 300
@@ -3112,34 +3137,30 @@ entities:
   - uid: 181
     components:
     - type: Transform
+      anchored: True
       pos: 2.5,7.5
       parent: 1
+    - type: AccessReader
+      accessListsOriginal: []
+    - type: Physics
+      bodyType: Static
     - type: EntityStorage
       air:
         volume: 200
         immutable: False
         temperature: 293.1496
         moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
           ents:
+          - 532
+          - 188
           - 182
-          - 183
           - 184
           - 186
           - 185
@@ -3147,7 +3168,7 @@ entities:
           - 189
           - 191
           - 190
-          - 188
+          - 183
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -3166,33 +3187,32 @@ entities:
     - type: MetaData
       name: шкафчик для улик
     - type: Transform
+      anchored: True
       pos: -4.5,-1.5
       parent: 1
+    - type: Physics
+      bodyType: Static
 - proto: LockerMedicineFilled
   entities:
   - uid: 2
     components:
     - type: Transform
+      anchored: True
       pos: 4.5,5.5
       parent: 1
+    - type: AccessReader
+      accessListsOriginal:
+      - - Medical
+    - type: Physics
+      bodyType: Static
     - type: EntityStorage
       air:
         volume: 200
         immutable: False
         temperature: 293.1496
         moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -3233,7 +3253,7 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-- proto: MagazineBoxPistol
+- proto: MagazineBoxPistolSP
   entities:
   - uid: 184
     components:
@@ -3242,6 +3262,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+      storage: 181
 - proto: MagazineMP7
   entities:
   - uid: 185
@@ -3251,6 +3272,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+      storage: 181
   - uid: 186
     components:
     - type: Transform
@@ -3258,6 +3280,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+      storage: 181
 - proto: MagazineShotgun
   entities:
   - uid: 187
@@ -3267,6 +3290,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+      storage: 181
   - uid: 188
     components:
     - type: Transform
@@ -3274,6 +3298,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+      storage: 181
 - proto: MedicalBed
   entities:
   - uid: 360
@@ -3329,25 +3354,37 @@ entities:
   - uid: 361
     components:
     - type: Transform
-      pos: -4.5818696,3.8408337
-      parent: 1
+      parent: 299
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 299
   - uid: 362
     components:
     - type: Transform
-      pos: -4.4881196,3.7627087
-      parent: 1
+      parent: 299
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 299
   - uid: 363
     components:
     - type: Transform
-      pos: -4.4099946,3.6845837
-      parent: 1
+      parent: 299
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 299
 - proto: PenCentcom
   entities:
-  - uid: 364
+  - uid: 399
     components:
     - type: Transform
-      pos: -3.6374445,3.7470837
-      parent: 1
+      parent: 299
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 299
 - proto: PillBicaridine
   entities:
   - uid: 21
@@ -3357,7 +3394,13 @@ entities:
     - type: Transform
       parent: 20
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -3375,7 +3418,13 @@ entities:
     - type: Transform
       parent: 20
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -3393,7 +3442,13 @@ entities:
     - type: Transform
       parent: 20
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -3411,7 +3466,13 @@ entities:
     - type: Transform
       parent: 20
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -3429,7 +3490,13 @@ entities:
     - type: Transform
       parent: 20
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -3933,7 +4000,13 @@ entities:
     - type: Transform
       parent: 3
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -3951,7 +4024,13 @@ entities:
     - type: Transform
       parent: 3
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -3969,7 +4048,13 @@ entities:
     - type: Transform
       parent: 3
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -3989,7 +4074,13 @@ entities:
     - type: Transform
       parent: 61
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4007,7 +4098,13 @@ entities:
     - type: Transform
       parent: 61
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4025,7 +4122,13 @@ entities:
     - type: Transform
       parent: 61
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4043,7 +4146,13 @@ entities:
     - type: Transform
       parent: 61
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4061,7 +4170,13 @@ entities:
     - type: Transform
       parent: 61
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4081,7 +4196,13 @@ entities:
     - type: Transform
       parent: 98
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4099,7 +4220,13 @@ entities:
     - type: Transform
       parent: 98
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4117,7 +4244,13 @@ entities:
     - type: Transform
       parent: 98
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4135,7 +4268,13 @@ entities:
     - type: Transform
       parent: 98
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4153,7 +4292,13 @@ entities:
     - type: Transform
       parent: 98
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4173,7 +4318,13 @@ entities:
     - type: Transform
       parent: 83
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4191,7 +4342,13 @@ entities:
     - type: Transform
       parent: 83
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4209,7 +4366,13 @@ entities:
     - type: Transform
       parent: 83
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4227,7 +4390,13 @@ entities:
     - type: Transform
       parent: 83
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4245,7 +4414,13 @@ entities:
     - type: Transform
       parent: 83
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4263,7 +4438,13 @@ entities:
     - type: Transform
       parent: 83
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4281,7 +4462,13 @@ entities:
     - type: Transform
       parent: 83
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4301,7 +4488,13 @@ entities:
     - type: Transform
       parent: 109
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4319,7 +4512,13 @@ entities:
     - type: Transform
       parent: 109
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4337,7 +4536,13 @@ entities:
     - type: Transform
       parent: 109
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4355,7 +4560,13 @@ entities:
     - type: Transform
       parent: 109
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4373,7 +4584,13 @@ entities:
     - type: Transform
       parent: 109
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4393,7 +4610,13 @@ entities:
     - type: Transform
       parent: 72
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4411,7 +4634,13 @@ entities:
     - type: Transform
       parent: 72
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4429,7 +4658,13 @@ entities:
     - type: Transform
       parent: 72
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4447,7 +4682,13 @@ entities:
     - type: Transform
       parent: 72
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4465,7 +4706,13 @@ entities:
     - type: Transform
       parent: 72
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4485,7 +4732,13 @@ entities:
     - type: Transform
       parent: 120
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4503,7 +4756,13 @@ entities:
     - type: Transform
       parent: 120
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4521,7 +4780,13 @@ entities:
     - type: Transform
       parent: 120
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4539,7 +4804,13 @@ entities:
     - type: Transform
       parent: 120
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4557,7 +4828,13 @@ entities:
     - type: Transform
       parent: 120
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4577,7 +4854,13 @@ entities:
     - type: Transform
       parent: 33
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4595,7 +4878,13 @@ entities:
     - type: Transform
       parent: 33
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4613,7 +4902,13 @@ entities:
     - type: Transform
       parent: 33
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4631,7 +4926,13 @@ entities:
     - type: Transform
       parent: 33
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4649,7 +4950,13 @@ entities:
     - type: Transform
       parent: 33
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4669,7 +4976,13 @@ entities:
     - type: Transform
       parent: 46
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4687,7 +5000,13 @@ entities:
     - type: Transform
       parent: 46
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4705,7 +5024,13 @@ entities:
     - type: Transform
       parent: 46
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4723,7 +5048,13 @@ entities:
     - type: Transform
       parent: 46
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4741,7 +5072,13 @@ entities:
     - type: Transform
       parent: 46
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Physics
@@ -4759,6 +5096,8 @@ entities:
     - type: Transform
       pos: 3.5,2.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: PosterLegitNanotrasenLogo
   entities:
   - uid: 366
@@ -4766,18 +5105,24 @@ entities:
     - type: Transform
       pos: -2.5,5.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
   - uid: 367
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -1.5,-2.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
   - uid: 368
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 2.5,-2.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: PosterLegitNTTGC
   entities:
   - uid: 369
@@ -4785,6 +5130,8 @@ entities:
     - type: Transform
       pos: -3.5,-0.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: PowerCellRecharger
   entities:
   - uid: 370
@@ -4884,8 +5231,8 @@ entities:
   - uid: 383
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 3.5,-4.5
+      rot: -1.5707963267948966 rad
+      pos: 4.5,-3.5
       parent: 1
   - uid: 384
     components:
@@ -4909,12 +5256,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 0.5,-0.5
-      parent: 1
-  - uid: 388
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 3.5,-3.5
       parent: 1
   - uid: 389
     components:
@@ -4981,12 +5322,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,-2.5
       parent: 1
-  - uid: 399
+  - uid: 400
     components:
     - type: Transform
       pos: 0.5,-4.5
       parent: 1
-  - uid: 400
+  - uid: 401
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -5012,15 +5353,14 @@ entities:
     - type: InsideEntityStorage
 - proto: RubberStampCentcom
   entities:
-  - uid: 401
+  - uid: 364
     components:
-    - type: MetaData
-      name: печать ПЦК
     - type: Transform
-      pos: -3.7936945,3.5283337
-      parent: 1
-    - type: Stamp
-      stampedName: ПЦК
+      parent: 299
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 299
 - proto: ShadowTree
   entities:
   - uid: 402
@@ -5441,6 +5781,8 @@ entities:
     - type: Transform
       pos: 3.5,5.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: VendingMachineYouTool
   entities:
   - uid: 442
@@ -5989,8 +6331,11 @@ entities:
   - uid: 532
     components:
     - type: Transform
-      pos: 4.668089,3.6176097
-      parent: 1
+      parent: 181
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 181
 - proto: WeaponShotgunTrenchgun4034
   entities:
   - uid: 189
@@ -6000,6 +6345,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+      storage: 181
 - proto: WeaponSubMachineGunMP7
   entities:
   - uid: 190
@@ -6009,6 +6355,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+      storage: 181
   - uid: 191
     components:
     - type: Transform
@@ -6016,6 +6363,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+      storage: 181
 - proto: WindoorSecureCentralCommandLocked
   entities:
   - uid: 533
