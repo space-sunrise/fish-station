@@ -32,8 +32,7 @@
   - type: Grammar
     attributes:
       gender: epicene
-  - type: Bloodstream
-    bloodMaxVolume: 100
+  # inherit bloodstream from parent to match human health stats
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite

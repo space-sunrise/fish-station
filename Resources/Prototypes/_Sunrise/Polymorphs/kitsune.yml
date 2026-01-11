@@ -1,0 +1,9 @@
+- type: polymorph
+  id: KitsuneTransform
+  configuration:
+    entity: MobKitsuneFox
+    forced: true
+    transferName: true
+    transferDamage: true
+    inventory: Drop
+    revertOnDeath: true

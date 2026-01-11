@@ -2,16 +2,14 @@
   id: Kitsune
   name: species-name-kitsune
   roundStart: true
-  prototype: MobHuman
+  prototype: MobKitsune
   bodyTypes:
   - HumanNormal
-  markingLimits: MobHumanMarkingLimits
+  - HumanSlimFemale
+  - HumanSlimMale
+  markingLimits: MobKitsuneMarkingLimits
   dollPrototype: MobHumanDummy
   skinColoration: HumanToned
-  maleFirstNames: names_human_male
-  femaleFirstNames: names_human_female
-  maleLastNames: names_human_last
-  femaleLastNames: names_human_last
   naming: firstlast
   youngAge: 50
   oldAge: 700
@@ -19,3 +17,31 @@
   buttScan:
     sprite: /Textures/_Sunrise/CopyMachine/butts_scans.rsi
     state: human
+
+- type: markingPoints
+  id: MobKitsuneMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ VulpTailBushyWag ]
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [ VulpEar ]
+    Chest:
+      points: 1
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
