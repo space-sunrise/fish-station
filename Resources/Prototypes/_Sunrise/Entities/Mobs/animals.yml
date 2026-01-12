@@ -1,7 +1,7 @@
 - type: entity
-  name: kitsune-mob-name
   parent: [SimpleMobBase, StripableInventoryBase, BaseSpeciesPickupable]
   id: MobKitsuneFox
+  name: kitsune-mob-name
   description: kitsune-mob-description
   components:
   - type: Sprite
@@ -68,6 +68,8 @@
 - type: entity
   parent: MobKitsuneFox
   id: MobKitsunePlayerFox
+  name: kitsune-mob-name
+  description: kitsune-mob-description
   components:
   - type: Sprite
     drawdepth: Mobs

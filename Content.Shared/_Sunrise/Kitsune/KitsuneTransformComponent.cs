@@ -7,7 +7,7 @@ namespace Content.Shared._Sunrise.Kitsune;
 /// Component that tracks Kitsune transformation state.
 /// Attached to humanoid entities that are Kitsune species.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class KitsuneTransformComponent : Component
 {
     /// <summary>
@@ -15,11 +15,4 @@ public sealed partial class KitsuneTransformComponent : Component
     /// </summary>
     [ViewVariables]
     public EntityUid? StashedHumanoid = null;
-
-    /// <summary>
-    /// Whether the Kitsune is currently in fox form.
-    /// </summary>
-    [ViewVariables]
-    [AutoNetworkedField]
-    public bool IsTransformed = false;
 }

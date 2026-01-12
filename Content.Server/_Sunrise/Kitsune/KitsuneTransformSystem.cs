@@ -3,6 +3,7 @@ using Content.Server.DoAfter;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Shared._Sunrise.Kitsune;
+using Content.Shared._Sunrise.SpriteColor;
 using Content.Shared._Sunrise.TTS;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
@@ -11,7 +12,6 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Markings;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
@@ -34,6 +34,7 @@ public sealed class KitsuneTransformSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly SpriteColorSystem _spriteColor = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -79,7 +80,6 @@ public sealed class KitsuneTransformSystem : EntitySystem
                 TryComp<PolymorphedEntityComponent>(uid, out var morphComp))
             {
                 _polymorph.Revert((uid, morphComp));
-                component.IsTransformed = false;
                 _popup.PopupEntity(Loc.GetString("kitsune-transform-expired"), uid, uid, PopupType.MediumCaution);
             }
         }
@@ -89,7 +89,7 @@ public sealed class KitsuneTransformSystem : EntitySystem
     {
         args.Handled = true;
 
-        if (component.IsTransformed)
+        if (TryComp<PolymorphedEntityComponent>(uid, out _))
         {
             _popup.PopupEntity(Loc.GetString("kitsune-transform-already-transformed"), uid, uid, PopupType.MediumCaution);
             return;
@@ -137,7 +137,6 @@ public sealed class KitsuneTransformSystem : EntitySystem
         _damage.TryChangeDamage(uid, damage);
         // Store the original entity reference before polymorph
         component.StashedHumanoid = uid;
-        component.IsTransformed = true;
 
         // Set transform duration timer
         _transformDurations[uid] = TransformDurationSeconds;
@@ -154,16 +153,13 @@ public sealed class KitsuneTransformSystem : EntitySystem
             }
         }
 
-        /*// Apply the humanoid's hair color to the colored fur layer (layer 0)
+        // Apply the humanoid's hair color to the colored fur layer
         if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoidAppearance))
         {
-            var hairColor = humanoidAppearance.CachedHairColor;
-            if (TryComp<SpriteComponent>(newUid, out var sprite))
-            {
-                // Apply hair color to layer 0 (the colored fur layer)
-                sprite.LayerSetColor(0, hairColor);
-            }
-        }*/
+            // Use CachedHairColor if available, otherwise fallback to SkinColor
+            var hairColor = humanoidAppearance.CachedHairColor ?? humanoidAppearance.EyeColor;
+            _spriteColor.SetStateColor(newUid, "nine-tail_fox_gray_color", hairColor);
+        }
 
         _popup.PopupEntity(Loc.GetString("kitsune-transform-success"), newUid, newUid, PopupType.MediumCaution);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Sunrise/BloodCult/enter_blood.ogg"), newUid);
@@ -173,7 +169,7 @@ public sealed class KitsuneTransformSystem : EntitySystem
     {
         args.Handled = true;
 
-        if (!component.IsTransformed)
+        if (!TryComp<PolymorphedEntityComponent>(uid, out _))
         {
             _popup.PopupEntity(Loc.GetString("kitsune-revert-not-transformed"), uid, uid, PopupType.MediumCaution);
             return;
@@ -201,9 +197,6 @@ public sealed class KitsuneTransformSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        if (!component.IsTransformed)
-            return;
-
         // Clear the duration timer
         _transformDurations.Remove(uid);
 
@@ -211,7 +204,9 @@ public sealed class KitsuneTransformSystem : EntitySystem
         if (!TryComp<PolymorphedEntityComponent>(uid, out var morphComp))
             return;
         _polymorph.Revert((uid, morphComp));
-        component.IsTransformed = false;
+
+        // Clear any sprite colors that were applied
+        _spriteColor.ClearAllColors(uid);
 
         _popup.PopupEntity(Loc.GetString("kitsune-revert-success"), uid, uid, PopupType.MediumCaution);
     }
