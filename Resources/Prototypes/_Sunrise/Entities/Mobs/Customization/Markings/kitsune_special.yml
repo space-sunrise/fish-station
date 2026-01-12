@@ -1,0 +1,15 @@
+# Kitsune Special marking (color-only overlay for gray fox sprite)
+
+- type: marking
+  id: KitsuneSpecialColor
+  bodyPart: Head
+  markingCategory: Special
+  speciesRestriction: [Kitsune]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+        category: Hair
+  sprites:
+  - sprite: Fish/nine_tailed_fox.rsi
+    state: nine-tail_fox_gray_color

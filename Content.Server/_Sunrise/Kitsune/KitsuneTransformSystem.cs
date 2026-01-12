@@ -3,12 +3,15 @@ using Content.Server.DoAfter;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Shared._Sunrise.Kitsune;
+using Content.Shared._Sunrise.TTS;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
+using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Markings;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
@@ -21,7 +24,8 @@ namespace Content.Server._Sunrise.Kitsune;
 
 public sealed class KitsuneTransformSystem : EntitySystem
 {
-    private const float TransformDurationSeconds = 300f; // 5 minutes
+    private const float TransformDurationSeconds = 240f; // 4 minutes
+    private const float TransformDoAfterDurationSeconds = 5f;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
@@ -96,7 +100,7 @@ public sealed class KitsuneTransformSystem : EntitySystem
         }
 
         // Start the do-after
-        var doAfterArgs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(5),
+        var doAfterArgs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(TransformDoAfterDurationSeconds),
             new KitsuneTransformDoAfterEvent(),
             uid)
         {
@@ -109,7 +113,7 @@ public sealed class KitsuneTransformSystem : EntitySystem
         if (_doAfter.TryStartDoAfter(doAfterArgs))
         {
             _popup.PopupEntity(Loc.GetString("kitsune-transform-starting"), uid, uid, PopupType.MediumCaution);
-            _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Sunrise/BloodCult/blood.ogg"), uid);
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Sunrise/BloodCult/butcher.ogg"), uid);
         }
     }
 
@@ -135,16 +139,48 @@ public sealed class KitsuneTransformSystem : EntitySystem
             }
         };
         _damage.TryChangeDamage(uid, damage);
-
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Sunrise/BloodCult/enter_blood.ogg"), uid);
         // Store the original entity reference before polymorph
         component.StashedHumanoid = uid;
         component.IsTransformed = true;
 
-        // Set transform duration timer (5 minutes)
+        // Stash the Special markings (color) from original humanoid form
+        component.StashedSpecialMarkings.Clear();
+        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoidAppearance))
+        {
+            if (humanoidAppearance.MarkingSet.Markings.TryGetValue(MarkingCategories.Special, out var specialMarkings))
+            {
+                component.StashedSpecialMarkings.AddRange(specialMarkings);
+            }
+        }
+
+        // Set transform duration timer
         _transformDurations[uid] = TransformDurationSeconds;
 
         // Perform polymorph
         _polymorph.PolymorphEntity(uid, prototype);
+
+        // Transfer TTS voice to the fox form from the original humanoid's voice
+        if (TryComp<TTSComponent>(uid, out var originalTts))
+        {
+            if (TryComp<TTSComponent>(uid, out var foxTts))
+            {
+                foxTts.VoicePrototypeId = originalTts.VoicePrototypeId;
+            }
+        }
+
+        // Apply the Special markings (color) to the fox form
+        if (component.StashedSpecialMarkings.Count > 0 && TryComp<HumanoidAppearanceComponent>(uid, out var foxAppearance))
+        {
+            if (!foxAppearance.MarkingSet.Markings.ContainsKey(MarkingCategories.Special))
+            {
+                foxAppearance.MarkingSet.Markings[MarkingCategories.Special] = new();
+            }
+
+            foxAppearance.MarkingSet.Markings[MarkingCategories.Special] = new List<Marking>(component.StashedSpecialMarkings);
+            // Dirty the component to update appearance on all clients
+            Dirty(uid, foxAppearance);
+        }
 
         _popup.PopupEntity(Loc.GetString("kitsune-transform-success"), uid, uid, PopupType.MediumCaution);
     }
@@ -192,6 +228,20 @@ public sealed class KitsuneTransformSystem : EntitySystem
         {
             _polymorph.Revert((uid, morphComp));
             component.IsTransformed = false;
+
+            // Restore the Special markings (color) to the reverted humanoid form
+            if (component.StashedSpecialMarkings.Count > 0 && TryComp<HumanoidAppearanceComponent>(uid, out var humanoidAppearance))
+            {
+                if (!humanoidAppearance.MarkingSet.Markings.ContainsKey(MarkingCategories.Special))
+                {
+                    humanoidAppearance.MarkingSet.Markings[MarkingCategories.Special] = new();
+                }
+
+                humanoidAppearance.MarkingSet.Markings[MarkingCategories.Special] = new List<Marking>(component.StashedSpecialMarkings);
+                // Dirty the component to update appearance on all clients
+                Dirty(uid, humanoidAppearance);
+            }
+
             _popup.PopupEntity(Loc.GetString("kitsune-revert-success"), uid, uid, PopupType.MediumCaution);
         }
     }

@@ -1,4 +1,6 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
+using Content.Shared.Humanoid.Markings;
 
 namespace Content.Shared._Sunrise.Kitsune;
 
@@ -21,4 +23,10 @@ public sealed partial class KitsuneTransformComponent : Component
     [ViewVariables]
     [AutoNetworkedField]
     public bool IsTransformed = false;
+
+    /// <summary>
+    /// Stashed Special marking (color) from original humanoid form, restored on revert.
+    /// </summary>
+    [ViewVariables]
+    public List<Marking> StashedSpecialMarkings = new();
 }

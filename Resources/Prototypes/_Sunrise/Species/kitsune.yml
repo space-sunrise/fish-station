@@ -21,6 +21,9 @@
 - type: markingPoints
   id: MobKitsuneMarkingLimits
   points:
+    Special:
+      points: 1
+      required: false
     Hair:
       points: 1
       required: false
@@ -37,7 +40,7 @@
     HeadTop:
       points: 1
       required: true
-      defaultMarkings: [ VulpEarFox ]
+      defaultMarkings: [ FoxEars ]
       availableMarkings: [ VulpEar, VulpEarFade, VulpEarSharp, VulpEarJackal, VulpEarJackalAlt, VulpEarTerrier, VulpEarWolf, VulpEarFennec, VulpEarFox, VulpEarOtie, VulpEarTajaran, VulpEarShock, VulpEarCoyote, VulpEarDalmatian ]
     Chest:
       points: 1
