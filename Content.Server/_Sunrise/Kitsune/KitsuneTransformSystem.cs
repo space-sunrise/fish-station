@@ -60,9 +60,7 @@ public sealed class KitsuneTransformSystem : EntitySystem
         {
             var newTimeLeft = timeLeft - frameTime;
             if (newTimeLeft <= 0)
-            {
                 expired.Add(uid);
-            }
             else
             {
                 toUpdate[uid] = newTimeLeft;
