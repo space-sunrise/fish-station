@@ -61,6 +61,15 @@
   - type: CanEscapeInventory
   - type: Damageable
     damageModifierSet: Kitsune
+  - type: Speech
+    speechSounds: Vulpkanin
+    speechVerb: Vulpkanin
+    allowedEmotes: [ 'Bark', 'Snarl', 'Whine', 'Howl', 'Growl' ]
+  - type: Vocal
+    sounds:
+      Male: MaleVulpkanin
+      Female: FemaleVulpkanin
+      Unsexed: MaleVulpkanin
 
 # Player-transformed Kitsune form with dual sprite layers for color + white parts
 - type: entity
