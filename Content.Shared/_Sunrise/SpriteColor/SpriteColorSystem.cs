@@ -9,9 +9,6 @@ namespace Content.Shared._Sunrise.SpriteColor;
 /// </summary>
 public sealed class SpriteColorSystem : EntitySystem
 {
-    [Dependency] private readonly ILogManager _logManager = default!;
-    private ISawmill _sawmill = default!;
-
     public override void Initialize()
     {
         base.Initialize();
