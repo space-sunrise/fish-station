@@ -40,7 +40,6 @@
   - type: ComplexInteraction
   - type: TTS
     voice: KateSmirnovaTB
-  # inherit bloodstream from parent to match human health stats
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
@@ -57,19 +56,16 @@
   - type: HTN
     rootTask:
       task: RuminantHostileCompound
-  - type: Tag
-    tags:
-    - VimPilot
   - type: Carriable
     requiresNestingMob: true
   - type: CanEscapeInventory
+  - type: Damageable
+    damageModifierSet: Kitsune
 
 # Player-transformed Kitsune form with dual sprite layers for color + white parts
 - type: entity
   parent: MobKitsuneFox
   id: MobKitsunePlayerFox
-  name: kitsune-mob-name
-  description: kitsune-mob-description
   components:
   - type: Sprite
     drawdepth: Mobs

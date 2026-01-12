@@ -25,7 +25,7 @@ namespace Content.Server._Sunrise.Kitsune;
 public sealed class KitsuneTransformSystem : EntitySystem
 {
     private const float TransformDurationSeconds = 240f; // 4 minutes
-    private const float TransformDoAfterDurationSeconds = 5f;
+    private const float TransformDoAfterDurationSeconds = 3f;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
@@ -44,8 +44,6 @@ public sealed class KitsuneTransformSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
-        _sawmill = _logManager.GetSawmill("kitsune");
 
         SubscribeLocalEvent<KitsuneTransformComponent, KitsuneTransformActionEvent>(OnKitsuneTransform);
         SubscribeLocalEvent<KitsuneTransformComponent, KitsuneTransformDoAfterEvent>(OnKitsuneTransformDoAfter);
@@ -102,7 +100,7 @@ public sealed class KitsuneTransformSystem : EntitySystem
         {
             BreakOnMove = true,
             BreakOnDamage = true,
-            MovementThreshold = 0.01f,
+            MovementThreshold = 1f,
             NeedHand = false,
         };
 
@@ -176,7 +174,7 @@ public sealed class KitsuneTransformSystem : EntitySystem
         }
 
         // Start the do-after for revert
-        var doAfterArgs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(5),
+        var doAfterArgs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(3),
             new KitsuneRevertDoAfterEvent(),
             uid)
         {
@@ -204,9 +202,6 @@ public sealed class KitsuneTransformSystem : EntitySystem
         if (!TryComp<PolymorphedEntityComponent>(uid, out var morphComp))
             return;
         _polymorph.Revert((uid, morphComp));
-
-        // Clear any sprite colors that were applied
-        _spriteColor.ClearAllColors(uid);
 
         _popup.PopupEntity(Loc.GetString("kitsune-revert-success"), uid, uid, PopupType.MediumCaution);
     }
