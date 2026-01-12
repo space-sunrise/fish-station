@@ -62,9 +62,7 @@ public sealed class KitsuneTransformSystem : EntitySystem
             if (newTimeLeft <= 0)
                 expired.Add(uid);
             else
-            {
                 toUpdate[uid] = newTimeLeft;
-            }
         }
 
         // Update the timers
