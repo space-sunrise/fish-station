@@ -15,7 +15,6 @@ public sealed class SpriteColorSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        _sawmill = _logManager.GetSawmill("spritecolor");
     }
 
     /// <summary>
