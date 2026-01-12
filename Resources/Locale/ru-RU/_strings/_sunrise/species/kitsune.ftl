@@ -1,1 +1,1 @@
-species-name-kitsune = Кицуне
+species-name-kitsune = Кицунэ
