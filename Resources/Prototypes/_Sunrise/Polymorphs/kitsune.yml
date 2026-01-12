@@ -1,8 +1,0 @@
-- type: polymorph
-  id: KitsuneTransform
-  configuration:
-    entity: MobKitsuneFox
-    forced: false
-    transferName: true
-    transferDamage: true
-    revertOnDeath: true

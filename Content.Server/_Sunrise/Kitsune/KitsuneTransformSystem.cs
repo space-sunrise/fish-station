@@ -139,16 +139,6 @@ public sealed class KitsuneTransformSystem : EntitySystem
         component.StashedHumanoid = uid;
         component.IsTransformed = true;
 
-        // Stash the Special markings (color) from original humanoid form
-        component.StashedSpecialMarkings.Clear();
-        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoidAppearance))
-        {
-            if (humanoidAppearance.MarkingSet.Markings.TryGetValue(MarkingCategories.Special, out var specialMarkings))
-            {
-                component.StashedSpecialMarkings.AddRange(specialMarkings);
-            }
-        }
-
         // Set transform duration timer
         _transformDurations[uid] = TransformDurationSeconds;
 
@@ -163,6 +153,17 @@ public sealed class KitsuneTransformSystem : EntitySystem
                 foxTts.VoicePrototypeId = originalTts.VoicePrototypeId;
             }
         }
+
+        /*// Apply the humanoid's hair color to the colored fur layer (layer 0)
+        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoidAppearance))
+        {
+            var hairColor = humanoidAppearance.CachedHairColor;
+            if (TryComp<SpriteComponent>(newUid, out var sprite))
+            {
+                // Apply hair color to layer 0 (the colored fur layer)
+                sprite.LayerSetColor(0, hairColor);
+            }
+        }*/
 
         _popup.PopupEntity(Loc.GetString("kitsune-transform-success"), newUid, newUid, PopupType.MediumCaution);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Sunrise/BloodCult/enter_blood.ogg"), newUid);
@@ -207,25 +208,11 @@ public sealed class KitsuneTransformSystem : EntitySystem
         _transformDurations.Remove(uid);
 
         // Revert the polymorph
-        if (TryComp<PolymorphedEntityComponent>(uid, out var morphComp))
-        {
-            _polymorph.Revert((uid, morphComp));
-            component.IsTransformed = false;
+        if (!TryComp<PolymorphedEntityComponent>(uid, out var morphComp))
+            return;
+        _polymorph.Revert((uid, morphComp));
+        component.IsTransformed = false;
 
-            // Restore the Special markings (color) to the reverted humanoid form
-            if (component.StashedSpecialMarkings.Count > 0 && TryComp<HumanoidAppearanceComponent>(uid, out var humanoidAppearance))
-            {
-                if (!humanoidAppearance.MarkingSet.Markings.ContainsKey(MarkingCategories.Special))
-                {
-                    humanoidAppearance.MarkingSet.Markings[MarkingCategories.Special] = new();
-                }
-
-                humanoidAppearance.MarkingSet.Markings[MarkingCategories.Special] = new List<Marking>(component.StashedSpecialMarkings);
-                // Dirty the component to update appearance on all clients
-                Dirty(uid, humanoidAppearance);
-            }
-
-            _popup.PopupEntity(Loc.GetString("kitsune-revert-success"), uid, uid, PopupType.MediumCaution);
-        }
+        _popup.PopupEntity(Loc.GetString("kitsune-revert-success"), uid, uid, PopupType.MediumCaution);
     }
 }

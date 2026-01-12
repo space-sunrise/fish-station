@@ -48,7 +48,7 @@
       path: /Audio/Effects/bite.ogg
     damage:
       types:
-        Piercing: 8
+        Piercing: 9
   - type: NpcFactionMember
     factions:
     - Passive
@@ -63,3 +63,15 @@
   - type: Carriable
     requiresNestingMob: true
   - type: CanEscapeInventory
+
+# Player-transformed Kitsune form with dual sprite layers for color + white parts
+- type: entity
+  parent: MobKitsuneFox
+  id: MobKitsunePlayerFox
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Fish/nine_tailed_fox.rsi
+    layers:
+    - state: nine-tail_fox_gray_color
+    - state: nine-tail_fox_gray_white

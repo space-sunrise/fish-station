@@ -12,6 +12,18 @@
     {
       "name": "fox",
       "directions": 4
-	}
+	},
+      {
+          "name": "nine-tail_fox_gray",
+          "directions": 4
+      },
+      {
+          "name": "nine-tail_fox_gray_color",
+          "directions": 4
+      },
+      {
+          "name": "nine-tail_fox_gray_white",
+          "directions": 4
+      }
   ]
 }
