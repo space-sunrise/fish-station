@@ -135,7 +135,6 @@ public sealed class KitsuneTransformSystem : EntitySystem
             }
         };
         _damage.TryChangeDamage(uid, damage);
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Sunrise/BloodCult/enter_blood.ogg"), uid);
         // Store the original entity reference before polymorph
         component.StashedHumanoid = uid;
         component.IsTransformed = true;
@@ -154,31 +153,19 @@ public sealed class KitsuneTransformSystem : EntitySystem
         _transformDurations[uid] = TransformDurationSeconds;
 
         // Perform polymorph
-        _polymorph.PolymorphEntity(uid, prototype);
+        var newUid = _polymorph.PolymorphEntity(uid, prototype) ?? throw new ArgumentNullException("_polymorph.PolymorphEntity(uid, prototype)");
 
         // Transfer TTS voice to the fox form from the original humanoid's voice
         if (TryComp<TTSComponent>(uid, out var originalTts))
         {
-            if (TryComp<TTSComponent>(uid, out var foxTts))
+            if (TryComp<TTSComponent>(newUid, out var foxTts))
             {
                 foxTts.VoicePrototypeId = originalTts.VoicePrototypeId;
             }
         }
 
-        // Apply the Special markings (color) to the fox form
-        if (component.StashedSpecialMarkings.Count > 0 && TryComp<HumanoidAppearanceComponent>(uid, out var foxAppearance))
-        {
-            if (!foxAppearance.MarkingSet.Markings.ContainsKey(MarkingCategories.Special))
-            {
-                foxAppearance.MarkingSet.Markings[MarkingCategories.Special] = new();
-            }
-
-            foxAppearance.MarkingSet.Markings[MarkingCategories.Special] = new List<Marking>(component.StashedSpecialMarkings);
-            // Dirty the component to update appearance on all clients
-            Dirty(uid, foxAppearance);
-        }
-
-        _popup.PopupEntity(Loc.GetString("kitsune-transform-success"), uid, uid, PopupType.MediumCaution);
+        _popup.PopupEntity(Loc.GetString("kitsune-transform-success"), newUid, newUid, PopupType.MediumCaution);
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Sunrise/BloodCult/enter_blood.ogg"), newUid);
     }
 
     private void OnKitsuneRevert(EntityUid uid, KitsuneTransformComponent component, KitsuneRevertActionEvent args)

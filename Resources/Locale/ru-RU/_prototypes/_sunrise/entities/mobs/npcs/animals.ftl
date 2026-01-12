@@ -13,9 +13,5 @@ ent-MobInferiorVulpkaninSyndicateAgentNukeops = { ent-MobBaseSyndicateInferiorVu
     .desc = { ent-MobBaseSyndicateInferiorVulpkanin.desc }
 ent-MobSaw = пила
     .desc = Мать.
-
-ent-MobKitsuneFox = Лиса (форма Кицуне)
+ent-MobKitsuneFox = Девятихвостая лиса
     .desc = Девятихвостая лиса. Результат ритуалов трансформации Кицуне.
-
-ent-MobKitsuneFox = Лиса (форма Кицуне)
-    .desc = Это девятихвостая лисица. Результат ритуалов трансформации Кицуне.
