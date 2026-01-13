@@ -9,5 +9,14 @@
     - state: icon
   - type: Clothing
     sprite: _Fish/Clothing/OuterClothing/Hardsuits/paramed.rsi
+    clothingVisuals: # Fish
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-vox
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
+      outerClothing-dog:
+      - state: equipped-OUTERCLOTHING-dog
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetVoidParamedFish

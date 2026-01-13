@@ -9,7 +9,7 @@
     sprite: _Fish/Clothing/OuterClothing/Hardsuits/paramed.rsi
   - type: Clothing
     sprite: _Fish/Clothing/OuterClothing/Hardsuits/paramed.rsi
-    clothingVisuals:
+    clothingVisuals: # Fish
       head:
       - state: equipped-head
       head-vox:
@@ -17,7 +17,7 @@
       head-dog:
       - state: equipped-head
   - type: ToggleableVisuals
-    clothingVisuals:
+    clothingVisuals: # Fish
       head:
       - state: equipped-head-light
       head-vox:

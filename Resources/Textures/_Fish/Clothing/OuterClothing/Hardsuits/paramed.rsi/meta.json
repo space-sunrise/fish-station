@@ -46,6 +46,10 @@
         {
             "name": "equipped-head-light",
             "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-dog",
+            "directions": 4
         }
     ]
 }
