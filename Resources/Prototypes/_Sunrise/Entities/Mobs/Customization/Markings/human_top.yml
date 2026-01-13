@@ -2,7 +2,7 @@
   id: HumanTopHorns
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Human, Dwarf, Kitsune]
+  speciesRestriction: [Human, Dwarf]
   forcedColoring: true
   coloring:
     default:
