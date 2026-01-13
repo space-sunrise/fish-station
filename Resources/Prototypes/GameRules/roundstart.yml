@@ -331,7 +331,7 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 35 # Fish-edit
     # Sunrise-Start
     delay:
       min: 900
@@ -448,7 +448,7 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 20
+    minPlayers: 35 # Fish-edit
     delay:
       min: 600
       max: 900

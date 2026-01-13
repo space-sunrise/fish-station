@@ -1,0 +1,6 @@
+- type: petSelection
+  id: PetSelectionFox
+  name: pet-selection-fox-name
+  description: pet-selection-fox-description
+  petEntity: MobFoxPet
+  sponsorOnly: true

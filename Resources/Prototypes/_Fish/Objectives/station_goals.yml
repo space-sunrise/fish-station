@@ -1,0 +1,6 @@
+- type: stationGoal
+  id: StationGoalPolymorph
+  text: station-goal-polymorph
+  lockBoxPrototypeId: Lockbox
+  extraItems:
+  - ChemistryBottleUnknownPathogen

@@ -192,4 +192,4 @@
 - type: stationGoal
   id: Examination
   text: station-goal-health-examination
-  lockBoxPrototypeId: Lockbox
+  lockBoxPrototypeId: Lockbox 

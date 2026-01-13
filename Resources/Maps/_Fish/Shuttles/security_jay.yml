@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 266.0.0
+  engineVersion: 270.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/14/2025 20:57:09
-  entityCount: 135
+  time: 01/10/2026 18:30:50
+  entityCount: 139
 maps: []
 grids:
 - 1
@@ -157,7 +157,8 @@ entities:
             0: 30208
             1: 135
           -1,0:
-            0: 34944
+            3: 128
+            0: 34816
             1: 8226
           0,1:
             0: 1
@@ -171,51 +172,25 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-          - 21.824879
-          - 82.10312
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Oxygen: 21.824879
+            Nitrogen: 82.10312
         - volume: 2500
           immutable: True
-          moles:
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+          moles: {}
         - volume: 2500
           temperature: 293.1495
           moles:
-          - 20.078888
-          - 75.53487
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Oxygen: 20.078888
+            Nitrogen: 75.53487
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+            Oxygen: 20.078888
+            Nitrogen: 75.53487
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: ExplosionAirtightGrid
 - proto: AirAlarm
   entities:
   - uid: 2
@@ -409,10 +384,35 @@ entities:
     - type: Transform
       pos: -0.5,-2.5
       parent: 1
+  - uid: 38
+    components:
+    - type: Transform
+      pos: -1.5,0.5
+      parent: 1
+  - uid: 40
+    components:
+    - type: Transform
+      pos: -1.5,2.5
+      parent: 1
+  - uid: 128
+    components:
+    - type: Transform
+      pos: 0.5,2.5
+      parent: 1
   - uid: 135
     components:
     - type: Transform
       pos: -1.5,1.5
+      parent: 1
+  - uid: 136
+    components:
+    - type: Transform
+      pos: 1.5,2.5
+      parent: 1
+  - uid: 137
+    components:
+    - type: Transform
+      pos: 2.5,2.5
       parent: 1
 - proto: CableMV
   entities:
@@ -464,18 +464,8 @@ entities:
         immutable: False
         temperature: 293.1465
         moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
     - type: Fixtures
       fixtures: {}
 - proto: ComputerShuttle
@@ -682,20 +672,24 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 2
-- proto: GeneratorRTG
-  entities:
-  - uid: 40
-    components:
-    - type: Transform
-      pos: -0.5,1.5
-      parent: 1
-    - type: CMExplosionEffect
 - proto: GeneratorWallmountAPU
   entities:
+  - uid: 74
+    components:
+    - type: Transform
+      pos: -1.5,2.5
+      parent: 1
+    - type: CMExplosionEffect
   - uid: 75
     components:
     - type: Transform
-      pos: -1.5,1.5
+      pos: -1.5,0.5
+      parent: 1
+    - type: CMExplosionEffect
+  - uid: 76
+    components:
+    - type: Transform
+      pos: 2.5,2.5
       parent: 1
     - type: CMExplosionEffect
 - proto: GravityGeneratorMini
@@ -754,6 +748,32 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 1.5,2.5
       parent: 1
+- proto: LockerPilot
+  entities:
+  - uid: 138
+    components:
+    - type: Transform
+      pos: -0.5,1.5
+      parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 139
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: Mattress
   entities:
   - uid: 73
@@ -779,12 +799,15 @@ entities:
     - type: CMExplosionEffect
 - proto: PowerCellHigh
   entities:
-  - uid: 76
+  - uid: 139
     components:
     - type: Transform
-      pos: -0.38471103,2.7169447
-      parent: 1
+      parent: 138
+    - type: Physics
+      canCollide: False
     - type: CMExplosionEffect
+    - type: InsideEntityStorage
+      storage: 138
 - proto: PowerCellRecharger
   entities:
   - uid: 77
@@ -1149,14 +1172,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 3.5,0.5
       parent: 1
-- proto: WallWeaponCapacitorRecharger
-  entities:
-  - uid: 128
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5,2.5
-      parent: 1
 - proto: WindoorSecureSecurityLocked
   entities:
   - uid: 129
@@ -1171,24 +1186,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -1.5,-1.5
       parent: 1
-  - uid: 136
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -0.5,1.5
-      parent: 1
-    - type: AccessReader
-      access:
-      - - Engineering
-      - - Security
 - proto: WindowReinforcedDirectional
   entities:
-  - uid: 74
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -0.5,1.5
-      parent: 1
   - uid: 131
     components:
     - type: Transform

@@ -1,0 +1,80 @@
+- type: entity
+  parent: MobDiona
+  id: MobDionaRandomization
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+
+- type: entity
+  parent: MobDwarf
+  id: MobDwarfRandomization
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+
+- type: entity
+  parent: MobSkeletonPerson
+  id: MobSkeletonRandomization
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+
+- type: entity
+  parent: MobArachnid
+  id: MobArachnidRandomization
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+
+- type: entity
+  parent: MobGingerbread
+  id: MobGingerbreadRandomization
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+
+- type: entity
+  parent: MobHumanTerminator
+  id: MobTerminatorRandomization
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+
+# Sunrise / Extra
+- type: entity
+  parent: MobAbductor
+  id: MobAbductorRandomization
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+
+- type: entity
+  parent: MobDemon
+  id: MobDemonRandomization
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+
+- type: entity
+  parent: MobMilira
+  id: MobMiliraRandomization
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+
+- type: entity
+  parent: MobPredator
+  id: MobPredatorRandomization
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
