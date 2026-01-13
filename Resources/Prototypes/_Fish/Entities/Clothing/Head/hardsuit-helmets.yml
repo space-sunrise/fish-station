@@ -1,0 +1,26 @@
+- type: entity
+  parent: ClothingHeadHelmetVoidParamed
+  id: ClothingHeadHelmetVoidParamedFish
+  name: paramedic void helmet
+  description: A void helmet made for paramedics.
+  suffix: Fish
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/OuterClothing/Hardsuits/paramed.rsi
+  - type: Clothing
+    sprite: _Fish/Clothing/OuterClothing/Hardsuits/paramed.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      head-vox:
+      - state: equipped-head
+      head-dog:
+      - state: equipped-head
+  - type: ToggleableVisuals
+    clothingVisuals:
+      head:
+      - state: equipped-head-light
+      head-vox:
+      - state: equipped-head-light
+      head-dog:
+      - state: equipped-head-light
