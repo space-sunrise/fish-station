@@ -206,7 +206,7 @@
     - type: InputMover
     - type: MobMover
     - type: Physics
-      bodyType: Dynamic
+      bodyType: KinematicController
     - type: MovementSpeedModifier
       baseWalkSpeed: 3 # Fish-edit
       baseSprintSpeed: 4 # Fish-edit
@@ -447,7 +447,7 @@
       slots:
         - MASK
     - type: Physics
-      bodyType: Dynamic
+      bodyType: KinematicController
     - type: Fixtures
       fixtures:
         fix1:
@@ -523,7 +523,7 @@
       sounds:
         Unsexed: FleshWormEmote
     - type: Physics
-      bodyType: Dynamic
+      bodyType: KinematicController
     - type: Fixtures
       fixtures:
         fix1:
