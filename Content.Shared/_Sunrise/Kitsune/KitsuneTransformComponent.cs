@@ -15,10 +15,4 @@ public sealed partial class KitsuneTransformComponent : Component
     /// </summary>
     [ViewVariables]
     public EntityUid? StashedHumanoid = null;
-
-    /// <summary>
-    /// The transformed fox entity.
-    /// </summary>
-    [ViewVariables]
-    public EntityUid? FoxUid = null;
 }

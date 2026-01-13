@@ -39,8 +39,6 @@ public sealed class KitsuneTransformSystem : EntitySystem
     private ISawmill _sawmill = default!;
 
     // Dictionary to track when each transformed entity should auto-revert
-    // Key: The fox entity UID (the one that needs to be reverted)
-    // Value: Time remaining in seconds
     private Dictionary<EntityUid, float> _transformDurations = new();
 
     public override void Initialize()
@@ -76,8 +74,8 @@ public sealed class KitsuneTransformSystem : EntitySystem
         // Auto-revert expired transforms
         foreach (var uid in expired)
         {
-            // uid here should be the fox entity
-            if (TryComp<PolymorphedEntityComponent>(uid, out var morphComp))
+            if (TryComp<KitsuneTransformComponent>(uid, out var component) &&
+                TryComp<PolymorphedEntityComponent>(uid, out var morphComp))
             {
                 _polymorph.Revert((uid, morphComp));
                 _popup.PopupEntity(Loc.GetString("kitsune-transform-expired"), uid, uid, PopupType.MediumCaution);
@@ -85,20 +83,20 @@ public sealed class KitsuneTransformSystem : EntitySystem
         }
     }
 
-    private void OnKitsuneTransform(Entity<KitsuneTransformComponent> ent, ref KitsuneTransformActionEvent args)
+    private void OnKitsuneTransform(EntityUid uid, KitsuneTransformComponent component, KitsuneTransformActionEvent args)
     {
         args.Handled = true;
 
-        if (TryComp<PolymorphedEntityComponent>(ent, out _))
+        if (TryComp<PolymorphedEntityComponent>(uid, out _))
         {
-            _popup.PopupEntity(Loc.GetString("kitsune-transform-already-transformed"), ent, ent, PopupType.MediumCaution);
+            _popup.PopupEntity(Loc.GetString("kitsune-transform-already-transformed"), uid, uid, PopupType.MediumCaution);
             return;
         }
 
         // Start the do-after
-        var doAfterArgs = new DoAfterArgs(EntityManager, ent, TimeSpan.FromSeconds(TransformDoAfterDurationSeconds),
+        var doAfterArgs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(TransformDoAfterDurationSeconds),
             new KitsuneTransformDoAfterEvent(),
-            ent)
+            uid)
         {
             BreakOnMove = true,
             BreakOnDamage = true,
@@ -108,12 +106,12 @@ public sealed class KitsuneTransformSystem : EntitySystem
 
         if (_doAfter.TryStartDoAfter(doAfterArgs))
         {
-            _popup.PopupEntity(Loc.GetString("kitsune-transform-starting"), ent, ent, PopupType.MediumCaution);
-            _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Sunrise/BloodCult/butcher.ogg"), ent);
+            _popup.PopupEntity(Loc.GetString("kitsune-transform-starting"), uid, uid, PopupType.MediumCaution);
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Sunrise/BloodCult/butcher.ogg"), uid);
         }
     }
 
-    private void OnKitsuneTransformDoAfter(Entity<KitsuneTransformComponent> ent, ref KitsuneTransformDoAfterEvent args)
+    private void OnKitsuneTransformDoAfter(EntityUid uid, KitsuneTransformComponent component, ref KitsuneTransformDoAfterEvent args)
     {
         if (args.Cancelled)
             return;
@@ -121,7 +119,7 @@ public sealed class KitsuneTransformSystem : EntitySystem
         // Transform into fox
         if (!_prototypeManager.TryIndex<PolymorphPrototype>(new ProtoId<PolymorphPrototype>("KitsuneTransform"), out var prototype))
         {
-            _popup.PopupEntity(Loc.GetString("kitsune-transform-failed"), ent, ent, PopupType.MediumCaution);
+            _popup.PopupEntity(Loc.GetString("kitsune-transform-failed"), uid, uid, PopupType.MediumCaution);
             _sawmill.Warning($"Kitsune transform failed: could not find 'KitsuneTransform' polymorph prototype");
             return;
         }
@@ -134,25 +132,18 @@ public sealed class KitsuneTransformSystem : EntitySystem
                 { "Slash", FixedPoint2.New(9) }
             }
         };
-        // Fix CS1503: Pass ent.Owner explicitly or use the correct overload if available.
-        // Usually Entity<T> can correspond to EntityUid overload, but maybe not for this specific method signature in this codebase version.
-        // Using ent.Owner is safe.
-        _damage.TryChangeDamage(ent.Owner, damage);
-
+        _damage.TryChangeDamage(uid, damage);
         // Store the original entity reference before polymorph
-        ent.Comp.StashedHumanoid = ent.Owner;
+        component.StashedHumanoid = uid;
+
+        // Set transform duration timer
+        _transformDurations[uid] = TransformDurationSeconds;
 
         // Perform polymorph
-        var newUid = _polymorph.PolymorphEntity(ent, prototype) ?? throw new ArgumentNullException("_polymorph.PolymorphEntity(uid, prototype)");
-
-        // Store the fox entity UID
-        ent.Comp.FoxUid = newUid;
-
-        // Set transform duration timer for the FOX entity
-        _transformDurations[newUid] = TransformDurationSeconds;
+        var newUid = _polymorph.PolymorphEntity(uid, prototype) ?? throw new ArgumentNullException("_polymorph.PolymorphEntity(uid, prototype)");
 
         // Transfer TTS voice to the fox form from the original humanoid's voice
-        if (TryComp<TTSComponent>(ent, out var originalTts))
+        if (TryComp<TTSComponent>(uid, out var originalTts))
         {
             if (TryComp<TTSComponent>(newUid, out var foxTts))
             {
@@ -161,7 +152,7 @@ public sealed class KitsuneTransformSystem : EntitySystem
         }
 
         // Apply the humanoid's hair color to the colored fur layer
-        if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoidAppearance))
+        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoidAppearance))
         {
             // Use CachedHairColor if available, otherwise fallback to SkinColor
             var hairColor = humanoidAppearance.CachedHairColor ?? humanoidAppearance.EyeColor;
@@ -172,36 +163,20 @@ public sealed class KitsuneTransformSystem : EntitySystem
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Sunrise/BloodCult/enter_blood.ogg"), newUid);
     }
 
-    private void OnKitsuneRevert(Entity<KitsuneTransformComponent> ent, ref KitsuneRevertActionEvent args)
+    private void OnKitsuneRevert(EntityUid uid, KitsuneTransformComponent component, KitsuneRevertActionEvent args)
     {
         args.Handled = true;
 
-        // This event is raised on the original humanoid (ent), because the action is likely still attached to it (or the player mind).
-        // But the entity effectively active in the world is the FoxUid.
-        // We need to check if we have a valid fox entity that is currently polymorphed.
-
-        if (ent.Comp.FoxUid == null || !TryComp<PolymorphedEntityComponent>(ent.Comp.FoxUid, out _))
+        if (!TryComp<PolymorphedEntityComponent>(uid, out _))
         {
-            _popup.PopupEntity(Loc.GetString("kitsune-revert-not-transformed"), ent, ent, PopupType.MediumCaution);
+            _popup.PopupEntity(Loc.GetString("kitsune-revert-not-transformed"), uid, uid, PopupType.MediumCaution);
             return;
         }
 
-        var foxUid = ent.Comp.FoxUid.Value;
-
         // Start the do-after for revert
-        // We attach the do-after to the original entity (ent) because that's where the event handler is running,
-        // but we'll use the fox entity (foxUid) for the target logic in the specific event handling if needed.
-        // Actually, for visual feedback (cast bar), it should probably be on the entity the player is controlling... which is the fox.
-        // The event args might give us the performer.
-
-        var performer = args.Performer; // Expected to be the player entity (fox?)
-
-        // If the performer is the fox, we can use that.
-        // But let's stick to using the stored FoxUid to be safe about who we are reverting.
-
-        var doAfterArgs = new DoAfterArgs(EntityManager, ent, TimeSpan.FromSeconds(3),
+        var doAfterArgs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(3),
             new KitsuneRevertDoAfterEvent(),
-            ent)
+            uid)
         {
             BreakOnMove = true,
             BreakOnDamage = true,
@@ -211,32 +186,23 @@ public sealed class KitsuneTransformSystem : EntitySystem
 
         if (_doAfter.TryStartDoAfter(doAfterArgs))
         {
-            _popup.PopupEntity(Loc.GetString("kitsune-revert-starting"), foxUid, foxUid, PopupType.MediumCaution);
+            _popup.PopupEntity(Loc.GetString("kitsune-revert-starting"), uid, uid, PopupType.MediumCaution);
         }
     }
 
-    private void OnKitsuneRevertDoAfter(Entity<KitsuneTransformComponent> ent, ref KitsuneRevertDoAfterEvent args)
+    private void OnKitsuneRevertDoAfter(EntityUid uid, KitsuneTransformComponent component, ref KitsuneRevertDoAfterEvent args)
     {
         if (args.Cancelled)
             return;
 
-        if (ent.Comp.FoxUid == null)
-            return;
-
-        var foxUid = ent.Comp.FoxUid.Value;
-
         // Clear the duration timer
-        _transformDurations.Remove(foxUid);
+        _transformDurations.Remove(uid);
 
-        // Revert the polymorph on the fox entity
-        if (!TryComp<PolymorphedEntityComponent>(foxUid, out var morphComp))
+        // Revert the polymorph
+        if (!TryComp<PolymorphedEntityComponent>(uid, out var morphComp))
             return;
+        _polymorph.Revert((uid, morphComp));
 
-        // Clean up the reference
-        ent.Comp.FoxUid = null;
-
-        _polymorph.Revert((foxUid, morphComp));
-
-        _popup.PopupEntity(Loc.GetString("kitsune-revert-success"), ent, ent, PopupType.MediumCaution);
+        _popup.PopupEntity(Loc.GetString("kitsune-revert-success"), uid, uid, PopupType.MediumCaution);
     }
 }
