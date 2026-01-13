@@ -208,8 +208,8 @@
     - type: Physics
       bodyType: Dynamic
     - type: MovementSpeedModifier
-      baseWalkSpeed: 3
-      baseSprintSpeed: 4
+      baseWalkSpeed: 3 # Fish-edit
+      baseSprintSpeed: 4 # Fish-edit
     - type: MobThresholds
       thresholds:
         0: Alive
@@ -228,7 +228,7 @@
         types:
           Slash: 15
           Blunt: 25
-          Structural: 30
+          Structural: 30 # Fish-edit
     - type: GhostRole
       allowMovement: true
       allowSpeech: true
