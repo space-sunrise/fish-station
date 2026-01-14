@@ -1,4 +1,5 @@
 ﻿- type: entity
+  # parent: SimpleSpaceMobBase
   parent: # Fish-start
   - BaseSimpleMob
   - MobAtmosExposed
@@ -218,7 +219,7 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        250: Dead
+        200: Dead # Fish-edit
     - type: MobState
       allowedStates:
         - Alive
@@ -622,3 +623,14 @@
               max: 1
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
+# Fish-start
+- type: entity
+  id: MobFleshCultistPreview
+  name: flesh cultist
+  suffix: DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Interface/Misc/antag_preview.rsi
+    state: flesh_cultist
+    scale: 2, 2
+# Fish-end
