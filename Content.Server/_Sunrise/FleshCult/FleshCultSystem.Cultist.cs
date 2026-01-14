@@ -211,7 +211,7 @@ public sealed partial class
             {
                 _action.RemoveAction(uid, action);
             }
-            abilitiesComponent.Actions.Clear();
+            abilitiesComponent.Actions.Clear(); // Fish-edit
         }
     }
 
@@ -222,8 +222,10 @@ public sealed partial class
         RemCompDeferred<FlashImmunityComponent>(uid);
         RemCompDeferred<RespiratorImmunityComponent>(uid);
         RemCompDeferred<PressureImmunityComponent>(uid);
+        // Fish-start
         RemCompDeferred<StoreComponent>(uid);
         RemCompDeferred<FleshAbilitiesComponent>(uid);
+        // Fish-end
     }
 
     private void RemoveCollectiveMind(EntityUid uid)

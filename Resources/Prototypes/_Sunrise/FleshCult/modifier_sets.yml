@@ -1,9 +1,9 @@
 ﻿- type: damageModifierSet
   id: FleshMob
   coefficients:
-    Heat: 2.0
-    Pierce: 0.8
-    Blunt: 0.8
+    Heat: 2.0 # Fish-edit
+    Pierce: 0.8 # Fish-edit
+    Blunt: 0.8 # Fish-edit
 
 - type: damageModifierSet
   id: FleshHeart

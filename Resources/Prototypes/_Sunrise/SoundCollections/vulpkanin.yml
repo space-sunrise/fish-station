@@ -19,9 +19,7 @@
   id: VulpkaninWhines
   files:
   - /Audio/_Sunrise/Voice/Vulpkanin/dog_whimpering_1.ogg
-  - /Audio/_Sunrise/Voice/Vulpkanin/dog_whine.ogg
-
-- type: soundCollection
+  - /Audio/_Sunrise/Voice/Vulpkanin/dog_whine.ogg # Fish-edit type: soundCollection
   id: PlushieVulpkaninGrowls
   files:
   - /Audio/_Sunrise/Voice/Vulpkanin/dog_growl1.ogg

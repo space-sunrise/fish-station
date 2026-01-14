@@ -1,10 +1,11 @@
 ﻿- type: entity
-  parent:
+  parent: # Fish-start
   - BaseSimpleMob
   - MobAtmosExposed
   - MobCombat
   - MobBloodstream
-  id: BaseMobFleshCult
+  # Fish-end
+  id: BaseMobFleshCult # Fish-edit: Removed MobFlammable inheritance to prevent client crash when dying to flames as a cultist
   name: flesh mob
   description: A shambling mass of flesh, animated through anomalous energy.
   abstract: true
@@ -210,7 +211,7 @@
     - type: InputMover
     - type: MobMover
     - type: Physics
-      bodyType: KinematicController
+      bodyType: KinematicController # Fish-edit
     - type: MovementSpeedModifier
       baseWalkSpeed: 3 # Fish-edit
       baseSprintSpeed: 4 # Fish-edit
