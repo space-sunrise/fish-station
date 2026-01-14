@@ -138,3 +138,29 @@
   - type: EmitSoundOnActivate
     sound:
       collection: PlushieSlimeSounds
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieIssacLow
+  name: Plushie Issac Low
+  components:
+  - type: Sprite
+    sprite: #
+    state: #
+  - type: UseDelay
+    delay: 4
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: #
+  - type: EmitSoundOnCollide
+    sound:
+      collection: #
+  - type: EmitSoundOnUse
+    sound:
+      collection: #
+  - type: EmitSoundOnLand
+    sound:
+      collection: #
+  - type: EmitSoundOnActivate
+    sound:
+      collection: #
