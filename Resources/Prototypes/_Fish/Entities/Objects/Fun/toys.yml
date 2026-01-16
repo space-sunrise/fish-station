@@ -68,7 +68,8 @@
     delay: 4
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/Animals/cat_meow.ogg
+      path: /Audio/_Sunrise/Voice/Felinid/cat_meow2.ogg
+
 
 - type: entity
   id: PlushieOlegmol
