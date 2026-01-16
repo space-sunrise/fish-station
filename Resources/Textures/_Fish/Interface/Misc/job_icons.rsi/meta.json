@@ -30,6 +30,24 @@
         },
         {
             "name": "SpecOpsOfficer"
+        },
+        {
+            "name": "BlueShield"
+        },
+        {
+            "name": "CentcommOfficer"
+        },
+        {
+            "name": "CentcommEngineer"
+        },
+        {
+            "name": "CentcommHead"
+        },
+        {
+            "name": "NanotrasenGuard"
+        },
+        {
+            "name": "NanotrasenLeader"
         }
     ]
 }
