@@ -74,6 +74,7 @@
     quickEquip: false
     slots:
       - Belt
+      - Neck # Fish-Edit
 
 - type: entity
   name: seclite
@@ -125,6 +126,7 @@
     quickEquip: false
     slots:
       - Belt
+      - Neck # Fish-Edit
 
 - type: entity
   parent: FlashlightLantern
