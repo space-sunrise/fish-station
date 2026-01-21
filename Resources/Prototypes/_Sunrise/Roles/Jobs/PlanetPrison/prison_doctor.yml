@@ -7,9 +7,13 @@
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 7200 # 2 hrs
+    - !type:RoleTimeRequirement
+      role: JobChemist
+      time: 7200 #2 hrs
     - !type:DepartmentTimeRequirement
       department: Security
       time: 7200 # 2 hrs
+  weight: 6
   alwaysUseSpawner: true
   canBeAntag: false
   startingGear: PrisonDoctorGear
@@ -32,8 +36,8 @@
   id: PrisonDoctorGear
   equipment:
     id: PrisonDoctorPDA
-    jumpsuit: UniformPrisonDoctorMetus
-    ears: ClothingHeadsetMedical
+    jumpsuit: ClothingUniformJumpsuitPrisonDoctor
+    ears: ClothingHeadsetSecurity
     eyes: ClothingEyesGlassesSunglasses
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterArmorRiot
@@ -47,7 +51,7 @@
   id: PrisonDoctorChameleonOutfit
   job: PrisonDoctor
   equipment:
-    jumpsuit: UniformPrisonDoctorMetus
+    jumpsuit: ClothingUniformJumpsuitPrisonDoctor
     head: ClothingHeadHatBeretPrisonDoctorMetus
     ears: ClothingHeadsetMedical
     eyes: ClothingEyesGlassesSunglasses

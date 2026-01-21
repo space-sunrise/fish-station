@@ -125,7 +125,7 @@
   discountDownTo:
     Telecrystal: 3
   cost:
-    Telecrystal: 6
+    Telecrystal: 5 # Sunrise-Edit
   categories:
     - UplinkWeaponry
 
@@ -694,7 +694,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
   productEntity: SpeedLoaderMagnumAP
   cost:
-    Telecrystal: 3
+    Telecrystal: 2 # Sunrise-Edit
   categories:
   - UplinkAmmo
 
@@ -1497,6 +1497,7 @@
       whitelist:
         tags:
           - NukeOpsUplink
+          - LoneOpsUplink # Sunrise-Edit
 
 - type: listing
   id: UplinkCarpDehydrated
@@ -1598,7 +1599,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 4 # it's a gamble that may kill you easily so 4 TC per 2 uses, second one more of a backup
+    Telecrystal: 6 # it's a gamble that may kill you easily so 4 TC per 2 uses, second one more of a backup # Sunrise-edit
   categories:
     - UplinkImplants
 

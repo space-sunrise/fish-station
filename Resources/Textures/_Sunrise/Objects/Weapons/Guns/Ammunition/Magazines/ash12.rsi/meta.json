@@ -16,6 +16,22 @@
         },
         {
             "name": "stripe"
+        },
+        {
+            "name": "storage"
+
+        },
+        {
+            "name": "storage_slug"
+
+        },
+        {
+            "name": "storage_flare"
+
+        },
+        {
+            "name": "storage_rubber"
+
         }
     ]
 }
