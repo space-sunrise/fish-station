@@ -47,8 +47,9 @@ public sealed class SmallDiseaseRuleSystem : GameRuleSystem<SmallDiseaseRuleComp
         // 2. Spawn the Disease Entity (Dummy)
         var diseaseUid = Spawn("MobDisease", MapCoordinates.Nullspace);
         if (!TryComp<DiseaseRoleComponent>(diseaseUid, out var diseaseComp))
+        {
             return;
-
+        }
 
         // 3. Configure Symptoms
         // Always add Cough
@@ -73,10 +74,7 @@ public sealed class SmallDiseaseRuleSystem : GameRuleSystem<SmallDiseaseRuleComp
             if (availableSymptoms.Count == 0) break;
 
             var pick = _random.Pick(availableSymptoms);
-            var cost = pick.Cost.GetValueOrDefault("DiseasePoints", 100);
-
-            if (cost > component.TargetSymptomPoints)
-                continue;
+            var cost = pick.Cost.GetValueOrDefault("DiseasePoints", 0);
 
             // Avoid adding same symptom twice
             if (!diseaseComp.Symptoms.ContainsKey(pick.ID))
