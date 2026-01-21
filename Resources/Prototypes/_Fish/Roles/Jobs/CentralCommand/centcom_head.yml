@@ -8,7 +8,8 @@
   weight: 30
   setPreference: false
   startingGear: CentCommHeadGear
-  icon: "JobIconNanotrasen"
+  icon: "JobIconCentcommHead"
+
   overrideConsoleVisibility: false # Sunrise added
   supervisors: job-supervisors-centcom
   radioBold: true

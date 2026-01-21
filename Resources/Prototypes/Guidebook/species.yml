@@ -12,6 +12,7 @@
   - SlimePerson
   - Vox
   - Vulpkanin
+  - Kitsune # Sunrsise-edit
 
 - type: guideEntry
   id: Arachnid
@@ -57,3 +58,9 @@
   id: Vulpkanin
   name: species-name-vulpkanin
   text: "/ServerInfo/Guidebook/Mobs/Vulpkanin.xml"
+# Sunrise-start
+- type: guideEntry
+  id: Kitsune
+  name: species-name-kitsune
+  text: "/ServerInfo/Guidebook/Mobs/Kitsune.xml"
+  # Sunrise-end
