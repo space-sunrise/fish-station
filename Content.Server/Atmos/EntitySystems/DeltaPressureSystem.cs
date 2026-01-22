@@ -25,7 +25,12 @@ public sealed partial class DeltaPressureSystem : SharedDeltaPressureSystem
         SubscribeLocalEvent<DeltaPressureComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<DeltaPressureComponent, ComponentShutdown>(OnComponentShutdown);
         SubscribeLocalEvent<DeltaPressureComponent, GridUidChangedEvent>(OnGridChanged);
+
+        // Fish-edit - DeltaP override
+        AfterInit();
     }
+
+    partial void AfterInit(); // Fish-edit - DeltaP override
 
     private void OnComponentInit(Entity<DeltaPressureComponent> ent, ref ComponentInit args)
     {
