@@ -123,8 +123,8 @@
     stock: 1
 
   - type: listing
-  id: UplinkFishPlushieIssacLow
-  productEntity: PlushieIssacLow
+  id: UplinkFishPlushieIsaacLow
+  productEntity: PlushieIsaacLow
   cost:
     Suntick: 4
   categories:

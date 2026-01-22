@@ -141,26 +141,26 @@
 
 - type: entity
   parent: BasePlushie
-  id: PlushieIssacLow
-  name: Plushie Issac Low
+  id: PlushieIsaacLow
+  name: plushie Isaac Low
   components:
   - type: Sprite
-    sprite: #
-    state: #
+    sprite: _Fish/Objects/Fun/toys.rsi
+    state: isaac
   - type: UseDelay
     delay: 4
   - type: EmitSoundOnTrigger
     sound:
-      collection: #
+      path: /Audio/Voice/Moth/moth_chitter.ogg
   - type: EmitSoundOnCollide
     sound:
-      collection: #
+      path: /Audio/Voice/Moth/moth_chitter.ogg
   - type: EmitSoundOnUse
     sound:
-      collection: #
+      path: /Audio/Voice/Moth/moth_chitter.ogg
   - type: EmitSoundOnLand
     sound:
-      collection: #
+      path: /Audio/Voice/Moth/moth_chitter.ogg
   - type: EmitSoundOnActivate
     sound:
-      collection: #
+      path: /Audio/Voice/Moth/moth_chitter.ogg
