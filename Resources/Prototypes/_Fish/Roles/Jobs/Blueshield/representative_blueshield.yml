@@ -13,8 +13,7 @@
    - !type:AgeRequirement
      requiredAge: 25
   startingGear: RepresentativeBlueShieldGear
-  icon: JobIconBlueShield
-
+  icon: JobIconNanotrasen
   supervisors: job-supervisors-representative
   canBeAntag: false
   access:
