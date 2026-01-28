@@ -13,7 +13,7 @@
       - type: StationNameSetup
         mapNameTemplate: '{0} Кейс {1}'
         nameGenerator: !type:NanotrasenNameGenerator
-          prefixCreator: 'НТСР'
+          prefixCreator: 'FH'
       - type: SpawnGridAndDockToStation
         grids:
         - gridPath: /Maps/_Fish/Shuttles/mining.yml

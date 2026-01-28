@@ -2,6 +2,8 @@
   id: FishGate
   mapName: 'Gate Station'
   mapPath: /Maps/_Fish/Station/gate.yml
+  maxRandomOffset: 0
+  randomRotation: false
   minPlayers: 55
   stations:
     FishGate:
@@ -11,7 +13,7 @@
         mapNameTemplate: '{0} Гейт {1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
-          prefixCreator: 'НТЕДСР'
+          prefixCreator: 'FH'
       - type: SpawnGridAndDockToStation
         grids:
         - gridPath: /Maps/_Fish/Shuttles/mining.yml
