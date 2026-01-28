@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
 using Content.Server.Atmos.Components;
+using Content.Shared._Sunrise.SunriseCCVars;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.Piping.Components;
@@ -25,7 +26,14 @@ public partial class AtmosphereSystem
         float maxComponent = 0; // moles of the dominant gas
         for (var i = 0; i < Atmospherics.TotalNumberOfGases; i++)
         {
-            basePrice += mixture.Moles[i] * GetGas(i).PricePerMole;
+            // Sunrise edit start - configurable gas prices
+            var gasPrice = GetGas(i).PricePerMole;
+            if (_cfg.GetCVar(SunriseCCVars.GasPrices).TryGetValue(GetGas(i).ID, out var configuratedPrice))
+                gasPrice = (float)configuratedPrice;
+
+            basePrice += mixture.Moles[i] * gasPrice;
+            // Sunrise edit end
+
             totalMoles += mixture.Moles[i];
             maxComponent = Math.Max(maxComponent, mixture.Moles[i]);
         }

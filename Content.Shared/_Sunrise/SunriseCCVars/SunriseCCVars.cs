@@ -66,6 +66,21 @@ public sealed partial class SunriseCCVars : CVars
     public static readonly CVarDef<string> TTSAnnounceEffect =
         CVarDef.Create("tts.announce_effect", "tiny_room", CVar.SERVERONLY | CVar.ARCHIVE);
 
+    /*
+     * Atmos
+     */
+
+    public static readonly CVarDef<Dictionary<string, double>> GasPrices =
+        CVarDef.Create("atmos.gas_prices",
+            new Dictionary<string, double>() {
+                { "Tritium", 0.04 },
+                { "NitrousOxide", 0.5 },
+                { "Frezon", 0.25 },
+                { "BZ", 0.3 },
+                { "Healium", 0.32 },
+                { "Nitrium", 0.26 },
+            }, CVar.SERVERONLY);
+
     /**
      * Ban Webhook
      */
