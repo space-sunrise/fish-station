@@ -11,7 +11,7 @@
         mapNameTemplate: '{0} Гейт {1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
-          prefixCreator: 'ED'
+          prefixCreator: 'НТЕДСР'
       - type: SpawnGridAndDockToStation
         grids:
         - gridPath: /Maps/_Fish/Shuttles/mining.yml
@@ -27,6 +27,7 @@
           Adjutant: [ 1, 1 ]
           NanoTrasenRepresentative: [ 1, 1 ]
           HeadOfPersonnel: [ 1, 1 ]
+          ComMaid: [ 1, 1 ] # Горничная командования
           #service
           Bartender: [ 2, 2 ]
           Botanist: [ 3, 3 ]
@@ -70,6 +71,7 @@
           #supply
           Quartermaster: [ 1, 1 ]
           SalvageSpecialist: [ 3, 3 ]
+          MiningSpecialist: [ 1, 1 ]
           CargoTechnician: [ 3, 3 ]
           MailCarrier: [ 2, 2 ]
           #civilian
