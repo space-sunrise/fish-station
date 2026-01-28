@@ -26,5 +26,6 @@ public sealed partial class RevolutionaryRuleComponent : Component
     /// The time it takes after the last head is killed for the shuttle to arrive.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan ShuttleCallTime = TimeSpan.FromMinutes(5);
+    public TimeSpan ShuttleCallTime = TimeSpan.FromMinutes(20); // Fish-Edit
+
 }

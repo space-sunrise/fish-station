@@ -103,7 +103,9 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                 {
                     _alertLevel.SetLevel(station, "epsilon", true, true, true);
                 }
-                _roundEnd.EndRound();
+                // Fish-Edit-Start
+                _roundEnd.RequestRoundEnd(component.ShuttleCallTime, uid, true, cantRecall: true);
+                // Fish-Edit-End
                 //  Sunrise-Edit-End
                 GameTicker.EndGameRule(uid, gameRule);
             }
