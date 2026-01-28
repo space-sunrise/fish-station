@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Events;
@@ -21,6 +22,8 @@ public sealed partial class MessengerServerSystem
         if (!component.Users.TryGetValue(args.SenderAddress, out var sender))
             return;
 
+        UpdateUserInfoFromPda(uid, component, args.SenderAddress, sender);
+
         var timestamp = GetStationTime();
 
         if (messageData.TryGetValue("group_id", out string? groupId) && !string.IsNullOrWhiteSpace(groupId))
@@ -39,7 +42,7 @@ public sealed partial class MessengerServerSystem
             return;
 
         var messageId = GetNextMessageId(uid, component);
-        var message = new MessengerMessage(sender.UserId, sender.Name, content, timestamp, null, recipientId, isRead: false, messageId);
+        var message = new MessengerMessage(sender.UserId, sender.Name, content, timestamp, null, recipientId, isRead: false, messageId, sender.JobIconId);
         var chatId = GetPersonalChatId(sender.UserId, recipientId);
 
         if (!component.MessageHistory.TryGetValue(chatId, out var history))
@@ -87,7 +90,8 @@ public sealed partial class MessengerServerSystem
             ["group_id"] = message.GroupId ?? string.Empty,
             ["recipient_id"] = message.RecipientId ?? string.Empty,
             ["is_read"] = message.IsRead,
-            ["message_id"] = message.MessageId
+            ["message_id"] = message.MessageId,
+            ["sender_job_icon_id"] = message.SenderJobIconId?.Id ?? string.Empty
         };
 
         if (pdaFrequency.HasValue)
@@ -135,7 +139,7 @@ public sealed partial class MessengerServerSystem
             return;
 
         var messageId = GetNextMessageId(uid, component);
-        var message = new MessengerMessage(sender.UserId, sender.Name, content, timestamp, groupId, null, false, messageId);
+        var message = new MessengerMessage(sender.UserId, sender.Name, content, timestamp, groupId, null, false, messageId, sender.JobIconId);
 
         if (!component.MessageHistory.TryGetValue(groupId, out var history))
         {
@@ -184,7 +188,8 @@ public sealed partial class MessengerServerSystem
             ["group_id"] = message.GroupId ?? string.Empty,
             ["recipient_id"] = message.RecipientId ?? string.Empty,
             ["is_read"] = message.IsRead,
-            ["message_id"] = message.MessageId
+            ["message_id"] = message.MessageId,
+            ["sender_job_icon_id"] = message.SenderJobIconId?.Id ?? string.Empty
         };
 
         foreach (var memberId in group.Members)
@@ -196,6 +201,87 @@ public sealed partial class MessengerServerSystem
             else
             {
                 _deviceNetwork.QueuePacket(uid, memberId, payload);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Обрабатывает удаление сообщения пользователем
+    /// </summary>
+    private void HandleDeleteMessage(EntityUid uid, MessengerServerComponent component, DeviceNetworkPacketEvent args)
+    {
+        if (!args.Data.TryGetValue(MessengerCommands.CmdDeleteMessage, out NetworkPayload? deleteData))
+            return;
+
+        if (!deleteData.TryGetValue("message_id", out object? messageIdObj) ||
+            !deleteData.TryGetValue("chat_id", out string? chatId))
+            return;
+
+        if (!long.TryParse(messageIdObj?.ToString(), out var messageId))
+            return;
+
+        if (!component.Users.TryGetValue(args.SenderAddress, out var user))
+            return;
+
+        if (!component.MessageHistory.TryGetValue(chatId, out var history))
+            return;
+
+        var message = history.FirstOrDefault(m => m.MessageId == messageId);
+        if (message == null)
+            return;
+
+        if (message.SenderId != user.UserId)
+            return;
+
+        history.Remove(message);
+
+        if (!TryComp<DeviceNetworkComponent>(uid, out var serverDevice))
+            return;
+
+        uint? pdaFrequency = null;
+        if (_prototypeManager.TryIndex(component.PdaFrequencyId, out var pdaFreq))
+        {
+            pdaFrequency = pdaFreq.Frequency;
+        }
+
+        var recipients = new HashSet<string>();
+
+        if (chatId.StartsWith("personal_"))
+        {
+            var parts = chatId.Split('_');
+            if (parts.Length >= 3)
+            {
+                recipients.Add(parts[1]);
+                recipients.Add(parts[2]);
+            }
+        }
+        else
+        {
+            if (component.Groups.TryGetValue(chatId, out var group))
+            {
+                foreach (var memberId in group.Members)
+                {
+                    recipients.Add(memberId);
+                }
+            }
+        }
+
+        var deletePayload = new NetworkPayload
+        {
+            [DeviceNetworkConstants.Command] = MessengerCommands.CmdMessageDeleted,
+            ["message_id"] = messageId,
+            ["chat_id"] = chatId
+        };
+
+        foreach (var recipientId in recipients)
+        {
+            if (pdaFrequency.HasValue)
+            {
+                _deviceNetwork.QueuePacket(uid, recipientId, deletePayload, frequency: pdaFrequency, network: serverDevice.DeviceNetId);
+            }
+            else
+            {
+                _deviceNetwork.QueuePacket(uid, recipientId, deletePayload);
             }
         }
     }
