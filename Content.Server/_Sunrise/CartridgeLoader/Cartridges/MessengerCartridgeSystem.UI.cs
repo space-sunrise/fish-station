@@ -55,7 +55,9 @@ public sealed partial class MessengerCartridgeSystem
             component.MessageHistory,
             component.MutedPersonalChats,
             component.MutedGroupChats,
-            unreadCounts
+            unreadCounts,
+            component.ActiveInvites,
+            component.PinnedChats
         );
 
         _cartridgeLoader.UpdateCartridgeUiState(loaderUid, state);
@@ -79,6 +81,17 @@ public sealed partial class MessengerCartridgeSystem
             else
                 component.MutedPersonalChats.Remove(chatId);
         }
+
+        if (component.LoaderUid.HasValue)
+            UpdateUiState(uid, component.LoaderUid.Value, component);
+    }
+
+    private void TogglePin(EntityUid uid, MessengerCartridgeComponent component, string chatId)
+    {
+        if (component.PinnedChats.Contains(chatId))
+            component.PinnedChats.Remove(chatId);
+        else
+            component.PinnedChats.Add(chatId);
 
         if (component.LoaderUid.HasValue)
             UpdateUiState(uid, component.LoaderUid.Value, component);
