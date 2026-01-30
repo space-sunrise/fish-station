@@ -2,9 +2,10 @@
   id: FishBagel
   mapName: 'Bagel'
   mapPath: /Maps/_Fish/Station/bagel.yml
-  minPlayers: 0
   maxRandomOffset: 0
   randomRotation: false
+  minPlayers: 0
+  maxPlayers: 55
   stations:
     SunriseBagel:
       stationProto: StandardNanotrasenStation
@@ -13,7 +14,7 @@
         mapNameTemplate: '{0} Багель {1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
-          prefixCreator: '14'
+          prefixCreator: 'FH'
       - type: SpawnGridAndDockToStation
         grids:
         - gridPath: /Maps/_Fish/Shuttles/mining.yml
@@ -29,7 +30,7 @@
           Adjutant: [ 1, 1 ]
           NanoTrasenRepresentative: [ 1, 1 ]
           HeadOfPersonnel: [ 1, 1 ]
-          # ComMaid: [ 1, 1 ]
+          ComMaid: [ 1, 1 ] # Горничная командования
           #service
           Bartender: [ 2, 2 ]
           Botanist: [ 2, 2 ]
@@ -101,43 +102,3 @@
           PeaceBorg: [ 2, 2 ]
           MedicalBorg: [ 4, 4 ]
           SecurityBorg: [ 4, 4 ]
-      - type: StationGoal
-        goals:
-        - Shuttle
-        - Singularity
-        - SolarPanels
-        - Artifacts
-        - Bank
-        - Zoo
-        - MiningOutpost
-        - Tesla
-        - XenobiologyRepair
-        - VirusologyAmbusol
-        - Containment
-        - WeaponsSecurity
-        - MaintsRepair
-        - DormsBuild
-        - BattleShuttle
-        - Transit
-        - NukeRoom
-        - Permabrig
-        - Farm
-        - Delegates
-        - Cyborgs
-        - Testing
-        - Anomaly
-        - Replenishment
-        - IntelWeapons
-        - Reports
-        - Reconnaissance
-        - Saboteurs
-        - Furs
-        - Crew
-        - CleaningUp
-        - HumanitarianAid
-        - PersonnelRecovery
-        - CrewEducation
-        - Virology
-        - SampleCollection
-        - Examination
-        #- VirusFlesh

@@ -13,7 +13,7 @@
       - type: StationNameSetup
         mapNameTemplate: '{0} Кейс {1}'
         nameGenerator: !type:NanotrasenNameGenerator
-          prefixCreator: 'TF'
+          prefixCreator: 'FH'
       - type: SpawnGridAndDockToStation
         grids:
         - gridPath: /Maps/_Fish/Shuttles/mining.yml
@@ -29,9 +29,11 @@
           Adjutant: [ 1, 1 ]
           NanoTrasenRepresentative: [ 1, 1 ]
           HeadOfPersonnel: [ 1, 1 ]
+          ComMaid: [ 1, 1 ] # Горничная командования
           #supply
           Quartermaster: [ 1, 1 ]
           SalvageSpecialist: [ 3, 3 ]
+          MiningSpecialist: [ 1, 1 ]
           CargoTechnician: [ 3, 4 ]
           MailCarrier: [ 1, 1 ]
           # engineering
