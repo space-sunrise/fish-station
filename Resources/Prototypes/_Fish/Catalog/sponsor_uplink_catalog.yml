@@ -122,7 +122,7 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-  - type: listing
+- type: listing
   id: UplinkFishPlushieIsaacLow
   productEntity: PlushieIsaacLow
   cost:
