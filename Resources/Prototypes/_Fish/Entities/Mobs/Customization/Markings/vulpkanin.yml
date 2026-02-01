@@ -21,3 +21,14 @@
     state: protogen
   - sprite: _Fish/Mobs/Customization/Vulpkanin/head_markings.rsi
     state: golo
+
+- type: marking
+  id: VulpLegsProtogen
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Fish/Mobs/Customization/Vulpkanin/body_markings.rsi
+    state: protogen-legs
+  - sprite: _Fish/Mobs/Customization/Vulpkanin/body_markings.rsi
+    state: protogen-legs-golo

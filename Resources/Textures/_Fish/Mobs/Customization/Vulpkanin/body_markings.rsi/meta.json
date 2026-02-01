@@ -1,15 +1,15 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by Eblewarka (discord iblewarka)",
+  "copyright": "Made by Eblewarka (Discord iblewarka)",
   "size": {"x": 32, "y": 32},
   "states": [
     {
-      "name": "golo",
+      "name": "protogen-legs",
       "directions": 4
     },
     {
-      "name": "protogen",
+      "name": "protogen-legs-golo",
       "directions": 4
     }
   ]
