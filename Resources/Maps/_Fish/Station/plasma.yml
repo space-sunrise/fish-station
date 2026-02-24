@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.1.0
   forkId: ""
   forkVersion: ""
-  time: 02/23/2026 15:31:50
-  entityCount: 27414
+  time: 02/24/2026 00:27:43
+  entityCount: 27442
 maps:
 - 1
 grids:
@@ -86,7 +86,7 @@ entities:
     - type: MetaData
       name: PlasmaStation
     - type: Transform
-      pos: -3.009163,-1.7526045
+      pos: 59.960815,17.114456
       parent: 1
     - type: MapGrid
       chunks:
@@ -13877,7 +13877,7 @@ entities:
       pos: -68.5,-28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -110726.69
+      secondsUntilStateChange: -110807.76
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -68185,6 +68185,7 @@ entities:
     - type: Transform
       pos: -104.5,19.5
       parent: 2
+    - type: Conveyed
   - uid: 10454
     components:
     - type: Transform
@@ -71714,7 +71715,7 @@ entities:
       pos: -20.5,-16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -81436.86
+      secondsUntilStateChange: -81517.93
       state: Closing
 - proto: CurtainsGreen
   entities:
@@ -126820,8 +126821,8 @@ entities:
     components:
     - type: Transform
       anchored: False
-      pos: -155.50916,-19.252605
-      parent: 1
+      pos: -153.33588,-16.942356
+      parent: 2
     - type: Physics
       bodyType: Dynamic
   - uid: 18773
@@ -152253,6 +152254,14 @@ entities:
     - type: Transform
       pos: -60.5,0.5
       parent: 2
+- proto: SpawnPointAnyJob
+  entities:
+  - uid: 21521
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -71.5,-21.5
+      parent: 2
 - proto: SpawnPointAtmos
   entities:
   - uid: 14173
@@ -155260,6 +155269,222 @@ entities:
     - type: Transform
       anchored: True
       pos: -55.5,-46.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21483
+    components:
+    - type: Transform
+      anchored: True
+      pos: -55.5,-46.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21484
+    components:
+    - type: Transform
+      anchored: True
+      pos: -120.5,23.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21493
+    components:
+    - type: Transform
+      anchored: True
+      pos: -117.5,25.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21494
+    components:
+    - type: Transform
+      anchored: True
+      pos: -67.5,-10.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21495
+    components:
+    - type: Transform
+      anchored: True
+      pos: -55.5,-10.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21496
+    components:
+    - type: Transform
+      anchored: True
+      pos: -66.5,1.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21497
+    components:
+    - type: Transform
+      anchored: True
+      pos: -55.5,1.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21498
+    components:
+    - type: Transform
+      anchored: True
+      pos: -57.5,-2.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21499
+    components:
+    - type: Transform
+      anchored: True
+      pos: -65.5,-2.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21500
+    components:
+    - type: Transform
+      anchored: True
+      pos: -108.5,-26.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21501
+    components:
+    - type: Transform
+      anchored: True
+      pos: -54.5,-62.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21502
+    components:
+    - type: Transform
+      anchored: True
+      pos: -95.5,-55.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21504
+    components:
+    - type: Transform
+      anchored: True
+      pos: -95.5,-57.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21505
+    components:
+    - type: Transform
+      anchored: True
+      pos: -73.5,-14.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21506
+    components:
+    - type: Transform
+      anchored: True
+      pos: -73.5,-12.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21507
+    components:
+    - type: Transform
+      anchored: True
+      pos: -44.5,-14.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21508
+    components:
+    - type: Transform
+      anchored: True
+      pos: -44.5,-12.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21509
+    components:
+    - type: Transform
+      anchored: True
+      pos: -13.5,-14.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21510
+    components:
+    - type: Transform
+      anchored: True
+      pos: -13.5,-12.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21511
+    components:
+    - type: Transform
+      anchored: True
+      pos: -30.5,0.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21512
+    components:
+    - type: Transform
+      anchored: True
+      pos: -28.5,0.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21513
+    components:
+    - type: Transform
+      anchored: True
+      pos: -102.5,-21.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21514
+    components:
+    - type: Transform
+      anchored: True
+      pos: -104.5,-21.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21515
+    components:
+    - type: Transform
+      anchored: True
+      pos: -104.5,-0.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21516
+    components:
+    - type: Transform
+      anchored: True
+      pos: -102.5,-0.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21519
+    components:
+    - type: Transform
+      anchored: True
+      pos: -35.5,-68.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21520
+    components:
+    - type: Transform
+      anchored: True
+      pos: -33.5,-68.5
       parent: 2
     - type: Airtight
       airBlocked: True
@@ -179728,7 +179953,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -280445.97
+      secondsUntilStateChange: -280527.03
       state: Opening
     - type: Airlock
       autoClose: False
