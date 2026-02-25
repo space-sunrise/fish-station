@@ -3,13 +3,16 @@ using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee;
-using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Damage;
+using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Server._Sunrise.SharpeningSystem;
 
 public sealed class SharpeningSystem : EntitySystem
 {
+    private const string SlashDamageType = "Slash";
+    private const string PiercingDamageType = "Piercing";
+
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
@@ -17,12 +20,12 @@ public sealed class SharpeningSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SharpenerComponent, AfterInteractEvent>(OnSharping);
+        SubscribeLocalEvent<SharpenerComponent, AfterInteractEvent>(OnSharpening);
 
         SubscribeLocalEvent<SharpenedComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
-    private void OnSharping(EntityUid uid, SharpenerComponent component, AfterInteractEvent args)
+    private void OnSharpening(EntityUid uid, SharpenerComponent component, AfterInteractEvent args)
     {
         if (!args.Target.HasValue)
             return;
@@ -40,8 +43,7 @@ public sealed class SharpeningSystem : EntitySystem
             _popupSystem.PopupEntity(Loc.GetString("sharpening-failed"), target, args.User);
             return;
         }
-        /// Sunrise - Edit
-        if (!meleeWeaponComponent.Damage.DamageDict.ContainsKey("Slash") && !meleeWeaponComponent.Damage.DamageDict.ContainsKey("Piercing"))
+        if (!TryGetDamageBonus(component, meleeWeaponComponent, out var damageBonus))
         {
             _popupSystem.PopupEntity(Loc.GetString("sharpening-failed-blade"), target, args.User);
             return;
@@ -58,14 +60,6 @@ public sealed class SharpeningSystem : EntitySystem
             _popupSystem.PopupEntity(Loc.GetString("sharpening-used"), target, args.User);
             return;
         }
-
-        /// Sunrise - Edit
-        var damageBonus = new DamageSpecifier();
-
-        if (meleeWeaponComponent.Damage.DamageDict.ContainsKey("Piercing"))
-            damageBonus = component.PiercingDamageBonus;
-        else if (meleeWeaponComponent.Damage.DamageDict.ContainsKey("Slash"))
-            damageBonus = component.SlashDamageBonus;
 
         EnsureComp<SharpenedComponent>(target).DamageBonus = damageBonus;
 
@@ -95,5 +89,26 @@ public sealed class SharpeningSystem : EntitySystem
 
         _popupSystem.PopupEntity(Loc.GetString("sharpening-removed"), uid, args.User);
         RemCompDeferred<SharpenedComponent>(uid);
+    }
+
+    private static bool TryGetDamageBonus(
+        SharpenerComponent sharpener,
+        MeleeWeaponComponent meleeWeapon,
+        out DamageSpecifier damageBonus)
+    {
+        if (meleeWeapon.Damage.DamageDict.ContainsKey(PiercingDamageType))
+        {
+            damageBonus = sharpener.PiercingDamageBonus;
+            return true;
+        }
+
+        if (meleeWeapon.Damage.DamageDict.ContainsKey(SlashDamageType))
+        {
+            damageBonus = sharpener.SlashDamageBonus;
+            return true;
+        }
+
+        damageBonus = default!;
+        return false;
     }
 }
