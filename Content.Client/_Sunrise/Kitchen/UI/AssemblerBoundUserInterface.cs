@@ -1,5 +1,4 @@
 using Content.Shared._Sunrise.Kitchen.Components;
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Kitchen.Components;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
@@ -16,9 +15,6 @@ namespace Content.Client._Sunrise.Kitchen.UI
 
         [ViewVariables]
         private readonly Dictionary<int, EntityUid> _solids = new();
-
-        [ViewVariables]
-        private readonly Dictionary<int, ReagentQuantity> _reagents = new();
 
         private readonly string _menuTitle;
         private readonly string _leftFlavorText;
@@ -67,9 +63,6 @@ namespace Content.Client._Sunrise.Kitchen.UI
             // TODO move this to a component state and ensure the net ids.
             RefreshContentsDisplay(EntMan.GetEntityArray(cState.ContainedSolids));
 
-            //Set the cook time info label
-            var cookTime = cState.CurrentCookTime.ToString();
-
             _menu.CookTimeInfoLabel.Text = Loc.GetString("assembler-bound-user-interface-insert-ingredients");
             _menu.StartButton.Disabled = cState.IsMicrowaveBusy || cState.ContainedSolids.Length == 0;
             _menu.EjectButton.Disabled = cState.IsMicrowaveBusy || cState.ContainedSolids.Length == 0;
@@ -87,8 +80,6 @@ namespace Content.Client._Sunrise.Kitchen.UI
 
         private void RefreshContentsDisplay(EntityUid[] containedSolids)
         {
-            _reagents.Clear();
-
             if (_menu == null) return;
 
             _solids.Clear();
@@ -97,29 +88,35 @@ namespace Content.Client._Sunrise.Kitchen.UI
             {
                 if (EntMan.Deleted(entity))
                 {
-                    return;
-                }
-
-                // TODO just use sprite view
-
-                Texture? texture;
-                if (EntMan.TryGetComponent<IconComponent>(entity, out var iconComponent))
-                {
-                    texture = EntMan.System<SpriteSystem>().GetIcon(iconComponent);
-                }
-                else if (EntMan.TryGetComponent<SpriteComponent>(entity, out var spriteComponent))
-                {
-                    texture = spriteComponent.Icon?.Default;
-                }
-                else
-                {
                     continue;
                 }
+
+                if (!TryGetEntityTexture(entity, out var texture))
+                    continue;
 
                 var solidItem = _menu.IngredientsList.AddItem(EntMan.GetComponent<MetaDataComponent>(entity).EntityName, texture);
                 var solidIndex = _menu.IngredientsList.IndexOf(solidItem);
                 _solids.Add(solidIndex, entity);
             }
+        }
+
+        private bool TryGetEntityTexture(EntityUid entity, out Texture? texture)
+        {
+            // TODO just use sprite view
+            if (EntMan.TryGetComponent<IconComponent>(entity, out var iconComponent))
+            {
+                texture = EntMan.System<SpriteSystem>().GetIcon(iconComponent);
+                return true;
+            }
+
+            if (EntMan.TryGetComponent<SpriteComponent>(entity, out var spriteComponent))
+            {
+                texture = spriteComponent.Icon?.Default;
+                return true;
+            }
+
+            texture = null;
+            return false;
         }
     }
 }
