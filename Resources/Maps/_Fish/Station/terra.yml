@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.1.0
   forkId: ""
   forkVersion: ""
-  time: 02/26/2026 00:28:29
-  entityCount: 9288
+  time: 03/01/2026 14:40:07
+  entityCount: 9304
 maps:
 - 1
 grids:
@@ -4841,12 +4841,6 @@ entities:
             color: '#8D1C99BF'
             id: OldConcreteTrimInnerNe
           decals:
-            7384: 51,17
-            7385: 51,16
-        - node:
-            color: '#8D1C99BF'
-            id: OldConcreteTrimInnerNe
-          decals:
             7315: 46,23
             7316: 48,23
             7317: 51,26
@@ -4857,18 +4851,14 @@ entities:
             7322: 51,21
             7323: 51,19
             7324: 51,18
+            7384: 51,17
+            7385: 51,16
         - node:
             color: '#FFFFFFFF'
             id: OldConcreteTrimInnerNe
           decals:
             305: 32,22
             433: 32,17
-        - node:
-            color: '#8D1C99BF'
-            id: OldConcreteTrimInnerNw
-          decals:
-            7386: 50,17
-            7387: 50,16
         - node:
             color: '#8D1C99BF'
             id: OldConcreteTrimInnerNw
@@ -4882,13 +4872,8 @@ entities:
             7314: 46,20
             7326: 50,19
             7327: 50,18
-        - node:
-            color: '#8D1C99BF'
-            id: OldConcreteTrimInnerSe
-          decals:
-            7381: 50,16
-            7382: 51,16
-            7383: 51,17
+            7386: 50,17
+            7387: 50,16
         - node:
             color: '#8D1C99BF'
             id: OldConcreteTrimInnerSe
@@ -4905,6 +4890,9 @@ entities:
             7339: 51,18
             7342: 47,20
             7343: 46,20
+            7381: 50,16
+            7382: 51,16
+            7383: 51,17
         - node:
             color: '#FFFFFFFF'
             id: OldConcreteTrimInnerSe
@@ -4912,13 +4900,6 @@ entities:
             306: 32,22
             328: 36,22
             434: 32,17
-        - node:
-            color: '#8D1C99BF'
-            id: OldConcreteTrimInnerSw
-          decals:
-            7379: 50,17
-            7380: 50,16
-            7388: 51,16
         - node:
             color: '#8D1C99BF'
             id: OldConcreteTrimInnerSw
@@ -4935,6 +4916,9 @@ entities:
             7354: 50,19
             7355: 50,18
             7358: 51,21
+            7379: 50,17
+            7380: 50,16
+            7388: 51,16
         - node:
             color: '#FFFFFFFF'
             id: OldConcreteTrimInnerSw
@@ -50773,11 +50757,103 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+  - uid: 6843
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -28.462227,3.4108849
+      parent: 2
+  - uid: 6904
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -28.462227,3.434338
+      parent: 2
   - uid: 7503
     components:
     - type: Transform
       pos: 15.712991,-18.770264
       parent: 6952
+  - uid: 9289
+    components:
+    - type: Transform
+      pos: -28.485664,3.598515
+      parent: 2
+  - uid: 9290
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -28.602852,3.434338
+      parent: 2
+  - uid: 9291
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -28.53254,3.5046992
+      parent: 2
+  - uid: 9292
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -28.53254,3.481246
+      parent: 2
+  - uid: 9293
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -28.555977,3.481246
+      parent: 2
+  - uid: 9294
+    components:
+    - type: Transform
+      pos: -28.555977,3.434338
+      parent: 2
+  - uid: 9297
+    components:
+    - type: Transform
+      pos: -30.59504,26.395199
+      parent: 2
+  - uid: 9298
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -30.571602,26.418652
+      parent: 2
+  - uid: 9299
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -30.50129,26.46556
+      parent: 2
+  - uid: 9300
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -30.50129,26.46556
+      parent: 2
+  - uid: 9301
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -30.50129,26.489014
+      parent: 2
+  - uid: 9302
+    components:
+    - type: Transform
+      pos: -30.50129,26.489014
+      parent: 2
+  - uid: 9303
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -30.50129,26.489014
+      parent: 2
+  - uid: 9304
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -30.477852,26.46556
+      parent: 2
 - proto: PillCanisterRandom
   entities:
   - uid: 4423
@@ -51943,10 +52019,9 @@ entities:
   - uid: 4576
     components:
     - type: Transform
+      rot: 3.141592653589793 rad
       pos: 10.5,9.5
       parent: 2
-    - type: PointLight
-      energy: 1.5
   - uid: 4577
     components:
     - type: Transform
@@ -52027,6 +52102,12 @@ entities:
     - type: Transform
       pos: 10.5,-28.5
       parent: 2
+  - uid: 4593
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 12.5,7.5
+      parent: 2
   - uid: 8257
     components:
     - type: Transform
@@ -52053,14 +52134,6 @@ entities:
       color: '#F4A460FF'
 - proto: PoweredLightPostSmallEmpty
   entities:
-  - uid: 4593
-    components:
-    - type: Transform
-      pos: 12.5,7.5
-      parent: 2
-    - type: PointLight
-      energy: 1.5
-      enabled: True
   - uid: 4596
     components:
     - type: Transform
@@ -53072,6 +53145,16 @@ entities:
       rot: 3.141592653589793 rad
       pos: -7.5,6.5
       parent: 7677
+  - uid: 9295
+    components:
+    - type: Transform
+      pos: -28.5,3.5
+      parent: 2
+  - uid: 9296
+    components:
+    - type: Transform
+      pos: -30.5,26.5
+      parent: 2
 - proto: Railing
   entities:
   - uid: 4697
@@ -69828,14 +69911,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 46.5,10.5
       parent: 2
-- proto: WindoorSecure
-  entities:
-  - uid: 6843
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -24.5,2.5
-      parent: 2
 - proto: WindoorSecureArmoryLocked
   entities:
   - uid: 6844
@@ -70220,12 +70295,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 18.5,13.5
-      parent: 2
-  - uid: 6904
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -24.5,3.5
       parent: 2
   - uid: 6905
     components:

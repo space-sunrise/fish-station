@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.1.0
   forkId: ""
   forkVersion: ""
-  time: 02/21/2026 21:51:39
-  entityCount: 19995
+  time: 03/01/2026 13:06:23
+  entityCount: 20053
 maps:
 - 1
 grids:
@@ -9208,7 +9208,9 @@ entities:
             0: 13057
             1: 35000
           -2,5:
-            1: 53759
+            1: 53535
+            10: 160
+            8: 64
           -2,6:
             1: 60941
           -2,7:
@@ -9709,6 +9711,11 @@ entities:
             Nitrogen: 81.57766
         - volume: 2500
           temperature: 293.15
+          moles:
+            Oxygen: 20.078888
+            Nitrogen: 75.53487
+        - volume: 2500
+          temperature: 293.14975
           moles:
             Oxygen: 20.078888
             Nitrogen: 75.53487
@@ -19807,6 +19814,11 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 49.5,8.5
+      parent: 2
+  - uid: 20051
+    components:
+    - type: Transform
+      pos: 32.5,15.5
       parent: 2
 - proto: CableApcExtension
   entities:
@@ -51536,6 +51548,32 @@ entities:
       pos: 73.48328,2.7752597
       parent: 2
     - type: Visibility
+- proto: ClothingBackpackDuffelWeaponSubMachineGunDrozdMk2
+  entities:
+  - uid: 19996
+    components:
+    - type: Transform
+      parent: 8930
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 8930
+  - uid: 20015
+    components:
+    - type: Transform
+      parent: 3026
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 3026
+  - uid: 20016
+    components:
+    - type: Transform
+      parent: 8963
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 8963
 - proto: ClothingBackpackERTClown
   entities:
   - uid: 77
@@ -60552,7 +60590,7 @@ entities:
     - type: Label
       currentLabel: кофейный ликёр
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.059365448
+      sprayFizzinessThresholdRoll: 0.08623446
     - type: NameModifier
       baseName: бутылка кофейного ликёра
     - type: ContainerContainer
@@ -60838,7 +60876,7 @@ entities:
     - type: Label
       currentLabel: ром
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.3057615
+      sprayFizzinessThresholdRoll: 0.90479434
     - type: NameModifier
       baseName: кубинский пряный ром капитана Пита
     - type: ContainerContainer
@@ -60880,7 +60918,7 @@ entities:
     - type: Label
       currentLabel: текила
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.9511804
+      sprayFizzinessThresholdRoll: 0.53662366
     - type: NameModifier
       baseName: бутылка текилы Каккаво гарантированного качества
     - type: ContainerContainer
@@ -60921,7 +60959,7 @@ entities:
     - type: Label
       currentLabel: вермут
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.29830697
+      sprayFizzinessThresholdRoll: 0.011393715
     - type: NameModifier
       baseName: бутылка вермута Золотой глаз
     - type: ContainerContainer
@@ -60944,7 +60982,7 @@ entities:
     - type: Label
       currentLabel: водка
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.70873064
+      sprayFizzinessThresholdRoll: 0.9438492
     - type: NameModifier
       baseName: бутылка водки
     - type: ContainerContainer
@@ -60994,7 +61032,7 @@ entities:
     - type: Label
       currentLabel: вино
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.37443113
+      sprayFizzinessThresholdRoll: 0.5965542
     - type: NameModifier
       baseName: особое двухбородое бородатое вино
     - type: ContainerContainer
@@ -64857,7 +64895,7 @@ entities:
       pos: 39.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -135184.5
+      secondsUntilStateChange: -135314.9
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -84310,6 +84348,8 @@ entities:
       pos: 33.5,57.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 11410
     - type: AtmosPipeColor
@@ -87310,6 +87350,8 @@ entities:
       pos: 31.5,57.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 11410
     - type: AtmosPipeColor
@@ -94678,6 +94720,21 @@ entities:
           - Toggle
     - type: Fixtures
       fixtures: {}
+  - uid: 20052
+    components:
+    - type: Transform
+      pos: 32.5,15.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        14423:
+        - - Pressed
+          - Toggle
+        14424:
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
 - proto: LockableButtonEngineering
   entities:
   - uid: 445
@@ -94919,10 +94976,55 @@ entities:
     - type: Transform
       pos: -6.5,21.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 20015
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
   - uid: 8930
     components:
     - type: Transform
       pos: -5.5,21.5
+      parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+          Oxygen: 1.8856695
+          Nitrogen: 7.0937095
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 19996
+          - 8954
+          - 8953
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+  - uid: 8963
+    components:
+    - type: Transform
+      pos: -4.5,21.5
       parent: 2
     - type: EntityStorage
       air:
@@ -94938,17 +95040,11 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 8953
-          - 8954
+          - 20016
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
           ent: null
-  - uid: 8963
-    components:
-    - type: Transform
-      pos: -4.5,21.5
-      parent: 2
 - proto: LockerBoozeFilled
   entities:
   - uid: 12358
@@ -109176,6 +109272,8 @@ entities:
       pos: 47.5,11.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
   - uid: 19984
     components:
     - type: Transform
@@ -110035,6 +110133,8 @@ entities:
       pos: 49.5,8.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
     - type: DeviceLinkSource
       linkedPorts:
         19983:
@@ -117455,6 +117555,422 @@ entities:
       parent: 2
     - type: Airtight
       airBlocked: True
+  - uid: 19997
+    components:
+    - type: Transform
+      anchored: True
+      pos: 10.5,32.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 19998
+    components:
+    - type: Transform
+      anchored: True
+      pos: 66.5,54.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 19999
+    components:
+    - type: Transform
+      anchored: True
+      pos: 69.5,38.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20000
+    components:
+    - type: Transform
+      anchored: True
+      pos: 27.5,39.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20001
+    components:
+    - type: Transform
+      anchored: True
+      pos: 85.5,48.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20002
+    components:
+    - type: Transform
+      anchored: True
+      pos: 10.5,17.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20003
+    components:
+    - type: Transform
+      anchored: True
+      pos: 41.5,71.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20004
+    components:
+    - type: Transform
+      anchored: True
+      pos: 6.5,13.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20005
+    components:
+    - type: Transform
+      anchored: True
+      pos: 39.5,4.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20006
+    components:
+    - type: Transform
+      anchored: True
+      pos: 22.5,-13.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20007
+    components:
+    - type: Transform
+      anchored: True
+      pos: 21.5,-10.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20008
+    components:
+    - type: Transform
+      anchored: True
+      pos: 22.5,4.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20009
+    components:
+    - type: Transform
+      anchored: True
+      pos: 25.5,4.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20010
+    components:
+    - type: Transform
+      anchored: True
+      pos: 23.5,-17.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20011
+    components:
+    - type: Transform
+      anchored: True
+      pos: 10.5,-11.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20012
+    components:
+    - type: Transform
+      anchored: True
+      pos: 12.5,-11.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20013
+    components:
+    - type: Transform
+      anchored: True
+      pos: 76.5,9.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20014
+    components:
+    - type: Transform
+      anchored: True
+      pos: 46.5,29.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20017
+    components:
+    - type: Transform
+      anchored: True
+      pos: 70.5,29.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20018
+    components:
+    - type: Transform
+      anchored: True
+      pos: 72.5,29.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20019
+    components:
+    - type: Transform
+      anchored: True
+      pos: 73.5,31.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20020
+    components:
+    - type: Transform
+      anchored: True
+      pos: 73.5,33.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20021
+    components:
+    - type: Transform
+      anchored: True
+      pos: 69.5,14.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20022
+    components:
+    - type: Transform
+      anchored: True
+      pos: 69.5,12.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20023
+    components:
+    - type: Transform
+      anchored: True
+      pos: 35.5,15.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20024
+    components:
+    - type: Transform
+      anchored: True
+      pos: 37.5,15.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20025
+    components:
+    - type: Transform
+      anchored: True
+      pos: 39.5,12.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20026
+    components:
+    - type: Transform
+      anchored: True
+      pos: 39.5,14.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20027
+    components:
+    - type: Transform
+      anchored: True
+      pos: 71.5,54.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20028
+    components:
+    - type: Transform
+      anchored: True
+      pos: 69.5,54.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20029
+    components:
+    - type: Transform
+      anchored: True
+      pos: 24.5,36.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20030
+    components:
+    - type: Transform
+      anchored: True
+      pos: 24.5,38.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20031
+    components:
+    - type: Transform
+      anchored: True
+      pos: 11.5,34.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20032
+    components:
+    - type: Transform
+      anchored: True
+      pos: 13.5,34.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20033
+    components:
+    - type: Transform
+      anchored: True
+      pos: 73.5,36.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20034
+    components:
+    - type: Transform
+      anchored: True
+      pos: 73.5,38.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20035
+    components:
+    - type: Transform
+      anchored: True
+      pos: 24.5,12.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20036
+    components:
+    - type: Transform
+      anchored: True
+      pos: 24.5,14.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20037
+    components:
+    - type: Transform
+      anchored: True
+      pos: 11.5,16.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20038
+    components:
+    - type: Transform
+      anchored: True
+      pos: 13.5,16.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20039
+    components:
+    - type: Transform
+      anchored: True
+      pos: 11.5,27.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20040
+    components:
+    - type: Transform
+      anchored: True
+      pos: 13.5,27.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20041
+    components:
+    - type: Transform
+      anchored: True
+      pos: 35.5,39.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20042
+    components:
+    - type: Transform
+      anchored: True
+      pos: 37.5,39.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20043
+    components:
+    - type: Transform
+      anchored: True
+      pos: 35.5,34.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20044
+    components:
+    - type: Transform
+      anchored: True
+      pos: 37.5,34.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20045
+    components:
+    - type: Transform
+      anchored: True
+      pos: 58.5,53.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20046
+    components:
+    - type: Transform
+      anchored: True
+      pos: 58.5,51.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20047
+    components:
+    - type: Transform
+      anchored: True
+      pos: 45.5,46.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20048
+    components:
+    - type: Transform
+      anchored: True
+      pos: 47.5,46.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20049
+    components:
+    - type: Transform
+      anchored: True
+      pos: 87.5,36.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20050
+    components:
+    - type: Transform
+      anchored: True
+      pos: 87.5,38.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
 - proto: SurveillanceCameraCommand
   entities:
   - uid: 6629
@@ -121828,6 +122344,27 @@ entities:
           - Reverse
         - - Middle
           - Off
+  - uid: 20053
+    components:
+    - type: Transform
+      pos: 31.5,16.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        14423:
+        - - Left
+          - Open
+        - - Right
+          - Open
+        - - Middle
+          - Close
+        14424:
+        - - Left
+          - Open
+        - - Right
+          - Open
+        - - Middle
+          - Close
 - proto: UnfinishedMachineFrame
   entities:
   - uid: 5992
