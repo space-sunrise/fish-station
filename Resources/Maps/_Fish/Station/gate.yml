@@ -25689,16 +25689,6 @@ entities:
     - type: Transform
       pos: 26.706728,20.665289
       parent: 2
-- proto: BoxFolderNuclearCodes
-  entities:
-  - uid: 23773
-    components:
-    - type: Transform
-      parent: 23059
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 23059
 - proto: BoxFolderRed
   entities:
   - uid: 1638
