@@ -257,7 +257,7 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 8
+      max: 13 # Sunrise-Edit
       playerRatio: 10
       pickCommandStaff: true # Sunrise-Edit
       maxCommandStaff: 1 # Sunrise-Edit
@@ -331,11 +331,11 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 35 # Fish-edit
+    minPlayers: 45 # Sunrise-Edit
     # Sunrise-Start
     delay:
-      min: 900
-      max: 1200
+      min: 300
+      max: 600
     # Sunrise-End
   - type: RevolutionaryRule
   - type: AntagSelection
@@ -358,7 +358,7 @@
     # Sunrise-Start
     - prefRoles: [ Rev ]
       fallbackRoles: [ HeadRev ]
-      max: 30
+      max: 40 # Sunrise-Edit
       playerRatio: 3
       briefing:
         text: rev-role-greeting
@@ -368,6 +368,11 @@
       - type: Revolutionary
       mindRoles:
       - MindRoleRevolutionary
+  - type: SubGamemodes
+    rules:
+    - id: RevolutionarySmugglerStashSpawn
+      amount: 6
+      maxAmount: 15
     # Sunrise-End
   - type: DynamicRuleCost
     cost: 200

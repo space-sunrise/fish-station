@@ -6,7 +6,14 @@
   abstract: true
   components:
   - type: Interactions
-  - type: JumpSkill
+  - type: JumpAbility
+    jumpDistance: 5
+    jumpSound:
+      path: /Audio/Weapons/punchmiss.ogg
+      params:
+        pitch: 1.33
+        volume: -5
+        variation: 0.05
   - type: DamageVisuals
     thresholds: [ 10, 30, 50, 70]
     targetLayers:
@@ -97,6 +104,11 @@
       collection: ResomiChirp
     interactFailureSound:
       path: /Audio/Items/wirecutter.ogg
+  - type: FootprintEmitter
+    leftBareFootState:
+      - "footprint-left-bare-spider"
+    rightBareFootState:
+      - "footprint-right-bare-spider"
   - type: Hands
     leftHandDisplacement:
       sizeMaps:

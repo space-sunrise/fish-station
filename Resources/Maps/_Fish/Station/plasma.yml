@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 270.0.0
+  engineVersion: 271.1.0
   forkId: ""
   forkVersion: ""
-  time: 01/11/2026 00:20:04
-  entityCount: 27657
+  time: 01/28/2026 18:37:45
+  entityCount: 27651
 maps:
 - 1
 grids:
@@ -13937,7 +13937,7 @@ entities:
       pos: -68.5,-28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -102130.6
+      secondsUntilStateChange: -102377.27
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -26376,11 +26376,6 @@ entities:
     - type: Transform
       pos: -69.69247,-26.289198
       parent: 2
-  - uid: 2310
-    components:
-    - type: Transform
-      pos: -84.22241,-23.593504
-      parent: 2
 - proto: BoxBodyBag
   entities:
   - uid: 2311
@@ -26647,11 +26642,6 @@ entities:
     components:
     - type: Transform
       pos: -89.32789,-22.80691
-      parent: 2
-  - uid: 2388
-    components:
-    - type: Transform
-      pos: -84.20864,-23.500015
       parent: 2
 - proto: BoxSmokeGrenade
   entities:
@@ -68767,17 +68757,6 @@ entities:
     - type: Transform
       pos: -134.56674,-43.3662
       parent: 2
-- proto: ClothingEyesGlassesSecurity
-  entities:
-  - uid: 10512
-    components:
-    - type: Transform
-      parent: 10511
-    - type: Clothing
-      inSlot: eyes
-      inSlotFlag: EYES
-    - type: Physics
-      canCollide: False
 - proto: ClothingEyesGlassesSunglasses
   entities:
   - uid: 10494
@@ -68785,24 +68764,6 @@ entities:
     - type: Transform
       pos: -97.522255,-43.642056
       parent: 2
-  - uid: 10496
-    components:
-    - type: Transform
-      parent: 10495
-    - type: Clothing
-      inSlot: eyes
-      inSlotFlag: EYES
-    - type: Physics
-      canCollide: False
-  - uid: 10504
-    components:
-    - type: Transform
-      parent: 10503
-    - type: Clothing
-      inSlot: eyes
-      inSlotFlag: EYES
-    - type: Physics
-      canCollide: False
 - proto: ClothingEyesGlassesWelding
   entities:
   - uid: 10517
@@ -68957,26 +68918,6 @@ entities:
     - type: Transform
       pos: -32.618732,15.781072
       parent: 2
-- proto: ClothingHeadHatCowboyBlack
-  entities:
-  - uid: 10497
-    components:
-    - type: Transform
-      parent: 10495
-    - type: Clothing
-      inSlot: head
-      inSlotFlag: HEAD
-    - type: Physics
-      canCollide: False
-  - uid: 10505
-    components:
-    - type: Transform
-      parent: 10503
-    - type: Clothing
-      inSlot: head
-      inSlotFlag: HEAD
-    - type: Physics
-      canCollide: False
 - proto: ClothingHeadHatCowboyBountyHunter
   entities:
   - uid: 10539
@@ -69039,17 +68980,6 @@ entities:
     - type: Transform
       pos: -39.49891,-46.146896
       parent: 2
-- proto: ClothingHeadHelmetPubg
-  entities:
-  - uid: 10513
-    components:
-    - type: Transform
-      parent: 10511
-    - type: Clothing
-      inSlot: head
-      inSlotFlag: HEAD
-    - type: Physics
-      canCollide: False
 - proto: ClothingHeadHelmetRiot
   entities:
   - uid: 10548
@@ -69076,38 +69006,6 @@ entities:
     - type: Transform
       pos: -116.44845,12.663849
       parent: 2
-- proto: ClothingMaskGasSecurity
-  entities:
-  - uid: 10498
-    components:
-    - type: Transform
-      parent: 10495
-    - type: Clothing
-      inSlot: mask
-      inSlotFlag: MASK
-    - type: DiseaseImmuneClothing
-      isActive: True
-    - type: Physics
-      canCollide: False
-  - uid: 10506
-    components:
-    - type: Transform
-      parent: 10503
-    - type: DiseaseImmuneClothing
-      isActive: True
-    - type: Physics
-      canCollide: False
-  - uid: 10514
-    components:
-    - type: Transform
-      parent: 10511
-    - type: Clothing
-      inSlot: mask
-      inSlotFlag: MASK
-    - type: DiseaseImmuneClothing
-      isActive: True
-    - type: Physics
-      canCollide: False
 - proto: ClothingMaskGasSwat
   entities:
   - uid: 10482
@@ -69144,37 +69042,6 @@ entities:
     - type: Transform
       pos: -97.616005,-43.298306
       parent: 2
-- proto: ClothingNeckTieDet
-  entities:
-  - uid: 10499
-    components:
-    - type: Transform
-      parent: 10495
-    - type: Clothing
-      inSlot: neck
-      inSlotFlag: NECK
-    - type: Physics
-      canCollide: False
-  - uid: 10507
-    components:
-    - type: Transform
-      parent: 10503
-    - type: Clothing
-      inSlot: neck
-      inSlotFlag: NECK
-    - type: Physics
-      canCollide: False
-- proto: ClothingOuterArmorBulletproof
-  entities:
-  - uid: 10515
-    components:
-    - type: Transform
-      parent: 10511
-    - type: Clothing
-      inSlot: outerClothing
-      inSlotFlag: OUTERCLOTHING
-    - type: Physics
-      canCollide: False
 - proto: ClothingOuterArmorCult
   entities:
   - uid: 10554
@@ -69236,26 +69103,6 @@ entities:
     - type: Transform
       pos: -81.30054,-20.671629
       parent: 2
-- proto: ClothingOuterCoatDetectiveDark
-  entities:
-  - uid: 10500
-    components:
-    - type: Transform
-      parent: 10495
-    - type: Clothing
-      inSlot: outerClothing
-      inSlotFlag: OUTERCLOTHING
-    - type: Physics
-      canCollide: False
-  - uid: 10508
-    components:
-    - type: Transform
-      parent: 10503
-    - type: Clothing
-      inSlot: outerClothing
-      inSlotFlag: OUTERCLOTHING
-    - type: Physics
-      canCollide: False
 - proto: ClothingOuterCoatHoSGreatcoat
   entities:
   - uid: 10483
@@ -69366,37 +69213,6 @@ entities:
     - type: Transform
       pos: -15.489,17.553165
       parent: 2
-- proto: ClothingUniformJumpsuitColorRed
-  entities:
-  - uid: 10516
-    components:
-    - type: Transform
-      parent: 10511
-    - type: Clothing
-      inSlot: jumpsuit
-      inSlotFlag: INNERCLOTHING
-    - type: Physics
-      canCollide: False
-- proto: ClothingUniformJumpsuitDetectiveGrey
-  entities:
-  - uid: 10501
-    components:
-    - type: Transform
-      parent: 10495
-    - type: Clothing
-      inSlot: jumpsuit
-      inSlotFlag: INNERCLOTHING
-    - type: Physics
-      canCollide: False
-  - uid: 10509
-    components:
-    - type: Transform
-      parent: 10503
-    - type: Clothing
-      inSlot: jumpsuit
-      inSlotFlag: INNERCLOTHING
-    - type: Physics
-      canCollide: False
 - proto: ClothingUniformJumpsuitHoSBlue
   entities:
   - uid: 10484
@@ -72099,7 +71915,7 @@ entities:
       pos: -20.5,-16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -72840.77
+      secondsUntilStateChange: -73087.445
       state: Closing
 - proto: CurtainsGreen
   entities:
@@ -133277,27 +133093,6 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-- proto: GunSafeRifleM16A4
-  entities:
-  - uid: 19599
-    components:
-    - type: Transform
-      pos: -84.56616,-18.515379
-      parent: 2
-- proto: GunSafeShotgunSPAS12
-  entities:
-  - uid: 19600
-    components:
-    - type: Transform
-      pos: -83.9332,-18.4842
-      parent: 2
-- proto: GunSafeShotgunTrenchgun4034
-  entities:
-  - uid: 19601
-    components:
-    - type: Transform
-      pos: -83.29778,-18.494616
-      parent: 2
 - proto: GunSafeSubMachineGunSkorpion
   entities:
   - uid: 19602
@@ -136214,133 +136009,6 @@ entities:
           ent: 10480
     - type: DiseaseTempImmune
       prob: 0.35
-  - uid: 10495
-    components:
-    - type: Transform
-      pos: -80.5,-18.5
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        jumpsuit: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 10501
-        outerClothing: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 10500
-        neck: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 10499
-        mask: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 10498
-        eyes: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 10496
-        head: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 10497
-        suitstorage: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 10502
-        back: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: null
-    - type: DiseaseTempImmune
-      prob: 0.35
-    - type: ReplacementAccent
-      accent: cowboy
-  - uid: 10503
-    components:
-    - type: Transform
-      pos: -82.5,-18.5
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        jumpsuit: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 10509
-        outerClothing: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 10508
-        neck: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 10507
-        mask: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 10506
-        eyes: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 10504
-        head: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 10505
-        suitstorage: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 10510
-        back: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: null
-    - type: ReplacementAccent
-      accent: cowboy
-    - type: DiseaseTempImmune
-      prob: 0.35
-  - uid: 10511
-    components:
-    - type: Transform
-      pos: -81.5,-18.5
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        jumpsuit: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 10516
-        outerClothing: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 10515
-        neck: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: null
-        mask: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 10514
-        eyes: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 10512
-        head: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 10513
-        suitstorage: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: null
-        back: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: null
-    - type: DiseaseTempImmune
-      prob: 0.35
 - proto: Matchbox
   entities:
   - uid: 19993
@@ -136587,6 +136255,13 @@ entities:
     components:
     - type: Transform
       pos: -61.5,-27.5
+      parent: 2
+- proto: MessengerServer
+  entities:
+  - uid: 27311
+    components:
+    - type: Transform
+      pos: -82.5,-1.5
       parent: 2
 - proto: MetalDoor
   entities:
@@ -138599,12 +138274,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -99.5,-58.5
       parent: 2
+    - type: Airtight
   - uid: 20322
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -100.5,25.5
       parent: 2
+    - type: Airtight
 - proto: PlasticFlapsOpaque
   entities:
   - uid: 20323
@@ -138612,11 +138289,13 @@ entities:
     - type: Transform
       pos: -103.5,18.5
       parent: 2
+    - type: Airtight
   - uid: 20324
     components:
     - type: Transform
       pos: -97.5,24.5
       parent: 2
+    - type: Airtight
 - proto: PlayerStationAi
   entities:
   - uid: 20325
@@ -139239,6 +138918,19 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+- proto: PottedPlant10
+  entities:
+  - uid: 10508
+    components:
+    - type: Transform
+      pos: -92.5,-21.5
+      parent: 2
+    - type: ContainerContainer
+      containers:
+        stash: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: 10509
 - proto: PottedPlant21
   entities:
   - uid: 20290
@@ -139358,11 +139050,6 @@ entities:
     components:
     - type: Transform
       pos: -99.5,-37.5
-      parent: 2
-  - uid: 20420
-    components:
-    - type: Transform
-      pos: -92.5,-21.5
       parent: 2
   - uid: 20421
     components:
@@ -142956,11 +142643,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -97.5,-61.5
       parent: 2
-  - uid: 21025
-    components:
-    - type: Transform
-      pos: -84.5,-23.5
-      parent: 2
   - uid: 21026
     components:
     - type: Transform
@@ -143284,12 +142966,6 @@ entities:
       parent: 2
 - proto: Railing
   entities:
-  - uid: 21086
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -81.5,-19.5
-      parent: 2
   - uid: 21087
     components:
     - type: Transform
@@ -143805,18 +143481,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -84.5,-25.5
-      parent: 2
-  - uid: 21177
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -82.5,-19.5
-      parent: 2
-  - uid: 21178
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -80.5,-19.5
       parent: 2
   - uid: 21179
     components:
@@ -154820,12 +154484,48 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -115.5,20.5
       parent: 2
+- proto: SpawnerSafeRifle
+  entities:
+  - uid: 2310
+    components:
+    - type: Transform
+      pos: -81.5,-18.5
+      parent: 2
+  - uid: 10510
+    components:
+    - type: Transform
+      pos: -80.5,-18.5
+      parent: 2
+- proto: SpawnerSafeShotguns
+  entities:
+  - uid: 10505
+    components:
+    - type: Transform
+      pos: -84.5,-18.5
+      parent: 2
+  - uid: 10506
+    components:
+    - type: Transform
+      pos: -83.5,-18.5
+      parent: 2
 - proto: SpawnerSafeSmallArms
   entities:
   - uid: 22783
     components:
     - type: Transform
       pos: -86.5,-20.5
+      parent: 2
+  - uid: 27310
+    components:
+    - type: Transform
+      pos: -84.5,-23.5
+      parent: 2
+- proto: SpawnerSafeSMG
+  entities:
+  - uid: 10507
+    components:
+    - type: Transform
+      pos: -82.5,-18.5
       parent: 2
 - proto: SpawnMechHauler
   entities:
@@ -156905,6 +156605,208 @@ entities:
     - type: Transform
       pos: -86.5,-23.5
       parent: 2
+- proto: SunriseMultiTileAirtightBlocker
+  entities:
+  - uid: 2388
+    components:
+    - type: Transform
+      anchored: True
+      pos: -55.5,-46.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 10495
+    components:
+    - type: Transform
+      anchored: True
+      pos: -120.5,23.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 10496
+    components:
+    - type: Transform
+      anchored: True
+      pos: -117.5,25.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 10497
+    components:
+    - type: Transform
+      anchored: True
+      pos: -67.5,-10.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 10498
+    components:
+    - type: Transform
+      anchored: True
+      pos: -55.5,-10.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 10499
+    components:
+    - type: Transform
+      anchored: True
+      pos: -66.5,1.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 10500
+    components:
+    - type: Transform
+      anchored: True
+      pos: -55.5,1.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 10501
+    components:
+    - type: Transform
+      anchored: True
+      pos: -57.5,-2.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 10502
+    components:
+    - type: Transform
+      anchored: True
+      pos: -65.5,-2.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 10503
+    components:
+    - type: Transform
+      anchored: True
+      pos: -108.5,-26.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 10504
+    components:
+    - type: Transform
+      anchored: True
+      pos: -54.5,-62.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 10511
+    components:
+    - type: Transform
+      anchored: True
+      pos: -95.5,-55.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 10512
+    components:
+    - type: Transform
+      anchored: True
+      pos: -95.5,-57.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 10513
+    components:
+    - type: Transform
+      anchored: True
+      pos: -73.5,-14.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 10514
+    components:
+    - type: Transform
+      anchored: True
+      pos: -73.5,-12.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 10515
+    components:
+    - type: Transform
+      anchored: True
+      pos: -44.5,-14.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 10516
+    components:
+    - type: Transform
+      anchored: True
+      pos: -44.5,-12.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 19599
+    components:
+    - type: Transform
+      anchored: True
+      pos: -13.5,-14.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 19600
+    components:
+    - type: Transform
+      anchored: True
+      pos: -13.5,-12.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 19601
+    components:
+    - type: Transform
+      anchored: True
+      pos: -30.5,0.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 20420
+    components:
+    - type: Transform
+      anchored: True
+      pos: -28.5,0.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21025
+    components:
+    - type: Transform
+      anchored: True
+      pos: -102.5,-21.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21086
+    components:
+    - type: Transform
+      anchored: True
+      pos: -104.5,-21.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21177
+    components:
+    - type: Transform
+      anchored: True
+      pos: -104.5,-0.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
+  - uid: 21178
+    components:
+    - type: Transform
+      anchored: True
+      pos: -102.5,-0.5
+      parent: 2
+    - type: Airtight
+      airBlocked: True
 - proto: SupermatterFlatpackAnchored
   entities:
   - uid: 23124
@@ -161541,6 +161443,14 @@ entities:
     - type: Transform
       pos: -87.5,-3.5
       parent: 2
+- proto: Telecrystal5
+  entities:
+  - uid: 10509
+    components:
+    - type: Transform
+      parent: 10508
+    - type: Physics
+      canCollide: False
 - proto: TelescopicShield
   entities:
   - uid: 2362
@@ -181015,50 +180925,12 @@ entities:
       parent: 2
     - type: Item
       heldPrefix: disabler
-- proto: WeaponRevolverMatebaNew
-  entities:
-  - uid: 10502
-    components:
-    - type: Transform
-      parent: 10495
-    - type: Clothing
-      inSlot: suitstorage
-      inSlotFlag: SUITSTORAGE
-    - type: Physics
-      canCollide: False
-  - uid: 10510
-    components:
-    - type: Transform
-      parent: 10503
-    - type: Clothing
-      inSlot: suitstorage
-      inSlotFlag: SUITSTORAGE
-    - type: Physics
-      canCollide: False
 - proto: WeaponShotgunDoubleBarreledRubber
   entities:
   - uid: 27309
     components:
     - type: Transform
       pos: -51.516827,-38.652927
-      parent: 2
-- proto: WeaponShotgunSawnEmpty
-  entities:
-  - uid: 27310
-    components:
-    - type: MetaData
-      name: тактический обрез СБ
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -84.84965,-23.51564
-      parent: 2
-  - uid: 27311
-    components:
-    - type: MetaData
-      name: тактический обрез СБ
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -84.72465,-23.51564
       parent: 2
 - proto: WeaponSniperRepeater
   entities:
@@ -181226,7 +181098,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -271849.84
+      secondsUntilStateChange: -272096.53
       state: Opening
     - type: Airlock
       autoClose: False
@@ -181253,24 +181125,6 @@ entities:
       parent: 2
 - proto: WindoorSecureArmoryLocked
   entities:
-  - uid: 27334
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -79.5,-19.5
-      parent: 2
-  - uid: 27335
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -84.5,-19.5
-      parent: 2
-  - uid: 27336
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -83.5,-19.5
-      parent: 2
   - uid: 27337
     components:
     - type: Transform
@@ -181938,28 +181792,10 @@ entities:
     - type: Transform
       pos: -58.5,-9.5
       parent: 2
-  - uid: 27448
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -79.5,-18.5
-      parent: 2
-  - uid: 27449
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -79.5,-18.5
-      parent: 2
   - uid: 27450
     components:
     - type: Transform
       pos: -59.5,5.5
-      parent: 2
-  - uid: 27451
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -82.5,-18.5
       parent: 2
   - uid: 27452
     components:

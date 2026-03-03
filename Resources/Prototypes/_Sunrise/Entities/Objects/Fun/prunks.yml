@@ -66,6 +66,9 @@
   parent: ToySword
   components:
   - type: Wieldable
+  - type: ItemToggle
+    onUse: false
+    onActivate: false
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_sword_double.rsi
     layers:
@@ -220,9 +223,6 @@
       - TrashOnSolutionEmpty
   - type: StorageFill
     contents:
-      - id: Screwdriver
-      - id: Crowbar
-      - id: Wirecutter
       - id: DrinkSpaceLube
       - id: CrazyGlue
 

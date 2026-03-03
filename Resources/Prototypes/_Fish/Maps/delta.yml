@@ -4,7 +4,7 @@
   mapPath: /Maps/_Fish/Station/delta.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 0
+  minPlayers: 55
   stations:
     Delta:
       stationProto: StandardNanotrasenStation
@@ -13,7 +13,7 @@
         mapNameTemplate: '{0} Дельта {1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
-          prefixCreator: '-RS'
+          prefixCreator: 'FH'
       - type: SpawnGridAndDockToStation
         grids:
         - gridPath: /Maps/_Fish/Shuttles/mining.yml
@@ -29,6 +29,7 @@
           Adjutant: [ 1, 1 ]
           NanoTrasenRepresentative: [ 1, 1 ]
           HeadOfPersonnel: [ 1, 1 ]
+          ComMaid: [ 1, 1 ] # Горничная командования
           #service
           Bartender: [ 2, 2 ]
           Botanist: [ 3, 3 ]
