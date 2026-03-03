@@ -54,3 +54,29 @@
     sprite: /Textures/_Fish/Interface/Misc/job_icons.rsi
     state: SpecOpsOfficer
   jobName: job-name-specopsofficer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCentcommOfficer
+  icon:
+    sprite: /Textures/_Fish/Interface/Misc/job_icons.rsi
+    state: CentcommOfficer
+
+  jobName: job-name-centcomofficer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCentcommEngineer
+  icon:
+    sprite: /Textures/_Fish/Interface/Misc/job_icons.rsi
+    state: CentcommEngineer
+  jobName: job-name-centcomengineer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCentcommHead
+  icon:
+    sprite: /Textures/_Fish/Interface/Misc/job_icons.rsi
+    state: CentcommHead
+  jobName: job-name-centcomhead
+

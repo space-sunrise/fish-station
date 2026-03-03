@@ -20,8 +20,12 @@
   - SyringeCryostasis
   - AutoMenderBurn
   - AutoMenderBrute
-  - HandheldCrewMonitor
+  - HandheldEmergencyCrewMonitor
   - BlankMediPen
+  - ImplanterExtractor
+  - DefibrillatorCompact
+  - AdvancedDefibrillatorCompact
+  - DnaInjector
 
 - type: latheRecipePack
   id: SurgeryDynamicSunrise

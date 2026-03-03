@@ -14,7 +14,7 @@
           mapNameTemplate: '{0} Плазма {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: '-RS'
+            prefixCreator: 'FH'
         - type: SpawnGridAndDockToStation
           grids:
           - gridPath: /Maps/_Fish/Shuttles/mining.yml
@@ -30,6 +30,7 @@
             Adjutant: [ 1, 1 ]
             NanoTrasenRepresentative: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
+            ComMaid: [ 1, 1 ] # Горничная командования
             #service
             Bartender: [ 2, 2 ]
             Botanist: [ 3, 3 ]
@@ -72,7 +73,8 @@
             SecurityCadet: [ 5, 5 ]
             #supply
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 4, 4 ]
+            SalvageSpecialist: [ 3, 3 ]
+            MiningSpecialist: [ 1, 1 ]
             CargoTechnician: [ 5, 5 ]
             MailCarrier: [ 2, 2 ]
             #civilian
@@ -100,38 +102,3 @@
             PeaceBorg: [ 3, 3 ]
             MedicalBorg: [ 4, 4 ]
             SecurityBorg: [ 4, 4 ]
-        - type: StationGoal
-          goals:
-          - Shuttle
-          - Singularity
-          - SolarPanels
-          - Artifacts
-          - Bank
-          - Zoo
-          - MiningOutpost
-          - Tesla
-          #- XenobiologyRepair
-          - VirusologyAmbusol
-          - Containment
-          - WeaponsSecurity
-          - MaintsRepair
-          - DormsBuild
-          - BattleShuttle
-          - StationGoalPolymorph
-          - Transit
-          - NukeRoom
-          - Permabrig
-          - Farm
-          - Delegates
-          - Cyborgs
-          - Testing
-          - Anomaly
-          #- Replenishment
-          - IntelWeapons
-          - Reports
-          - Reconnaissance
-          - Saboteurs
-          - Furs
-          - Crew
-          - CleaningUp
-          - VirusFlesh
