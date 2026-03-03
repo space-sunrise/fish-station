@@ -1,26 +1,22 @@
+using System;
 using System.Net;
 
 namespace Content.Shared.Connection.IPBlocking;
 
-/// <summary>
-/// Интерфейс для системы блокировки IP-адресов.
-/// </summary>
 public interface IIPBlockingSystem
 {
-    /// <summary>
-    /// Проверяет, заблокирован ли указанный IP-адрес.
-    /// </summary>
+    void Initialize();
+
     bool IsBlocked(IPAddress ip);
 
-    /// <summary>
-    /// Проверяет длину ответа и блокирует IP при обнаружении подозрительного значения.
-    /// </summary>
-    /// <returns>true, если длина подозрительная и IP был заблокирован</returns>
+    void BlockIP(IPAddress ip, TimeSpan duration, string reason);
+
+    void BlockIP(IPAddress ip, string reason);
+
     bool CheckAndBlockSuspiciousLength(IPAddress ip, int length, string context);
 
-    /// <summary>
-    /// Получает максимально допустимую длину ответа.
-    /// </summary>
-    int GetMaxResponseLength();
+    bool CheckAndBlockUnhandledMessageRate(IPAddress ip, string messageType);
+
+    void Update();
 }
 

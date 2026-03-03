@@ -3,8 +3,8 @@
   mapName: 'Box'
   mapPath: /Maps/_Fish/Station/box.yml
   maxRandomOffset: 0
-  minPlayers: 0
   randomRotation: false
+  minPlayers: 55
   stations:
     Boxstation:
       stationProto: StandardNanotrasenStation
@@ -13,7 +13,7 @@
           mapNameTemplate: '{0} Бокс {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'TG'
+            prefixCreator: 'FH'
         - type: SpawnGridAndDockToStation
           grids:
           - gridPath: /Maps/_Fish/Shuttles/mining.yml
@@ -29,7 +29,7 @@
             Adjutant: [ 1, 1 ]
             NanoTrasenRepresentative: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
-            # ComMaid: [ 1, 1 ] # Горничная командования
+            ComMaid: [ 1, 1 ] # Горничная командования
             #service
             Bartender: [ 2, 2 ]
             Botanist: [ 3, 3 ]
@@ -101,41 +101,3 @@
             PeaceBorg: [ 2, 2 ]
             MedicalBorg: [ 4, 4 ]
             SecurityBorg: [ 4, 4 ]
-        - type: StationGoal
-          goals:
-          - Shuttle
-          - Singularity
-          - SolarPanels
-          - Artifacts
-          - Bank
-          - Zoo
-          - MiningOutpost
-          - Tesla
-          - XenobiologyRepair
-          - VirusologyAmbusol
-          - Containment
-          - WeaponsSecurity
-          - MaintsRepair
-          - DormsBuild
-          - BattleShuttle
-          - Transit
-          - NukeRoom
-          - Permabrig
-          - Farm
-          - Delegates
-          - Cyborgs
-          - Testing
-          - Anomaly
-          #- Replenishment
-          - IntelWeapons
-          - Reports
-          - Reconnaissance
-          - Saboteurs
-          - Furs
-          - Crew
-          - CleaningUp
-          - HumanitarianAid
-          - PersonnelRecovery
-          - CrewEducation
-          - StationGoalPolymorph
-          #- VirusFlesh
