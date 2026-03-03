@@ -23,6 +23,9 @@
             priorityTag: DockMining
           - gridPath: /Maps/_Fish/empty.yml
             priorityTag: DockFishSecurity
+        - type: StationBiome
+          biome: TerraPlanet
+          mapLightColor: "#090303FF"
         - type: StationJobs
           availableJobs:
             # service
