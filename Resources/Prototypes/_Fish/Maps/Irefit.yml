@@ -1,6 +1,6 @@
 - type: gameMap
   id: FishIrefit
-  mapName: 'FishIrefit'
+  mapName: 'Irefit Station'
   mapPath: /Maps/_Fish/Station/Irefit.yml
   maxRandomOffset: 0
   randomRotation: false
@@ -21,7 +21,7 @@
         - gridPath: /Maps/_Fish/Shuttles/security_jay.yml
           priorityTag: DockSecurity
       - type: StationEmergencyShuttle
-        emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_delta.yml
+        emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_gate.yml
       - type: StationJobs
         availableJobs:
           #command
@@ -43,13 +43,13 @@
           ChiefEngineer: [ 1, 1 ]
           SeniorEngineer: [ 1, 1 ]
           AtmosphericTechnician: [ 3, 3 ]
-          StationEngineer: [ 5, 5 ]
+          StationEngineer: [ 5, 6 ]
           TechnicalAssistant: [ 5, 5 ]
           #medical
           ChiefMedicalOfficer: [ 1, 1 ]
           SeniorPhysician: [ 1, 1 ]
           Chemist: [ 3, 3 ]
-          MedicalDoctor: [ 5, 5 ]
+          MedicalDoctor: [ 5, 6 ]
           Paramedic: [ 2, 2 ]
           MedicalIntern: [ 5, 5 ]
           Psychologist: [ 1, 2 ]
@@ -57,7 +57,7 @@
           #science
           ResearchDirector: [ 1, 1 ]
           SeniorResearcher: [ 1, 1 ]
-          Scientist: [ 5, 5 ]
+          Scientist: [ 4, 5 ]
           ResearchAssistant: [ 5, 5 ]
           Roboticist: [ 2, 2 ]
           #security
@@ -67,13 +67,13 @@
           Detective: [ 2, 2 ]
           Brigmedic: [ 1, 1 ]
           SecurityPilot: [ 2, 2 ]
-          SecurityOfficer: [ 5, 5 ]
+          SecurityOfficer: [ 5, 6 ]
           SecurityCadet: [ 5, 5 ]
           #supply
           Quartermaster: [ 1, 1 ]
           SalvageSpecialist: [ 3, 3 ]
           MiningSpecialist: [ 1, 1 ]
-          CargoTechnician: [ 5, 5 ]
+          CargoTechnician: [ 5, 6 ]
           MailCarrier: [ 2, 2 ]
           #civilian
           Passenger: [ -1, -1 ]
