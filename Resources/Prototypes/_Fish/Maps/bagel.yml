@@ -89,7 +89,7 @@
           #law
           Magistrat: [ 1, 1 ]
           IAA: [ 1, 1 ]
-          Lawyer: [ 3, 3 ]
+          Lawyer: [ 1, 2 ]
           NtrOfficer: [ 2, 2 ]
           # silicon
           StationAi: [ 1, 1 ]
