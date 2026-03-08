@@ -14,8 +14,6 @@
   #Fish-start
   accessGroups:
   - AllAccess
-  access:
-  - CentralCommand
   #Fish-end
   special:
     - !type:AddImplantSpecial

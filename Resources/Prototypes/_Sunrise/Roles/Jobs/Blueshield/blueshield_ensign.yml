@@ -18,9 +18,8 @@
   canBeAntag: false
   accessGroups:
   - AllAccess
-  access:
-  - CentralCommand
-    # Fish-End
+  #access: # Fish-edit
+  #- CentralCommand
   special:
     - !type:AddImplantSpecial
       implants: [ MindShieldImplant ]
