@@ -12,7 +12,7 @@
       department: Command
       time: 124000 # 40 hrs
   startingGear: BlueShieldOperativeGear
-  icon: JobIconNanotrasen
+  icon: NTR_operative # Fish-edit
   supervisors: job-supervisors-centcom
   canBeAntag: false
   setPreference: true # fish-edit

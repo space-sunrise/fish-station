@@ -80,3 +80,18 @@
     state: CentcommHead
   jobName: job-name-centcomhead
 
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconNanotrasen_representative
+  icon:
+    sprite: /Textures/_Fish/Interface/Misc/job_icons.rsi
+    state: NanoTrasen_representative
+  jobName: job-name-centcomoff
+
+- type: jobIcon
+  parent: JobIcon
+  id: NTR_operative
+  icon:
+    sprite: /Textures/_Fish/Interface/Misc/job_icons.rsi
+    state: NTR_operative
+  jobName: job-name-blueshield-operative

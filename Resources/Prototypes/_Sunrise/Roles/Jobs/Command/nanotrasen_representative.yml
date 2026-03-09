@@ -6,7 +6,7 @@
   requirements:
     - !type:DiscordRoleRequirement #Fish-edit
   startingGear: NanoTrasenRepresentativeGear
-  icon: JobIconNanotrasen
+  icon: JobIconNanotrasen_representative #Fish-edit
   joinNotifyCrew: true
   radioBold: true
   supervisors: job-supervisors-centcom
