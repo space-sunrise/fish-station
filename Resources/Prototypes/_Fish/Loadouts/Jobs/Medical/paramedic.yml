@@ -1,4 +1,10 @@
 - type: loadout
   id: ParamedicHardSuitFish
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobParamedic
+      time: 10h
   equipment:
     outerClothing: ClothingOuterHardsuitVoidParamedFish
