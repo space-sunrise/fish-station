@@ -216,13 +216,6 @@ public sealed partial class SunriseCCVars : CVars
     public static readonly CVarDef<bool> PlanetPrisonModern =
         CVarDef.Create("planet_prison.modern", true, CVar.SERVERONLY);
 
-    /*
-     * MaxLoadedChunks
-     */
-
-    public static readonly CVarDef<int> MaxLoadedChunks =
-        CVarDef.Create("chunk.max", 100, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
-
     /**
      * Roadmap
      */
@@ -242,10 +235,10 @@ public sealed partial class SunriseCCVars : CVars
      */
 
     public static readonly CVarDef<bool> CryoTeleportEnable =
-        CVarDef.Create("cryo_teleport.enable", true, CVar.SERVERONLY); //Fish-edit
+        CVarDef.Create("cryo_teleport.enable", true, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> CryoTeleportTransferDelay =
-        CVarDef.Create("cryo_teleport.transfer_delay", 15, CVar.SERVERONLY); //Fish-edit
+        CVarDef.Create("cryo_teleport.transfer_delay", 6, CVar.SERVERONLY);
 
     /*
      * Damage
