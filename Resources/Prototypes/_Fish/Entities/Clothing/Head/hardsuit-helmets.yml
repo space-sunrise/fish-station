@@ -6,9 +6,9 @@
   suffix: Fish
   components:
   - type: Sprite
-    sprite: _Fish/Clothing/OuterClothing/Hardsuits/paramed.rsi
+    sprite: _Fish/Clothing/Head/Hardsuits/paramedhelm.rsi
   - type: Clothing
-    sprite: _Fish/Clothing/OuterClothing/Hardsuits/paramed.rsi
+    sprite: _Fish/Clothing/Head/Hardsuits/paramedhelm.rsi
     clothingVisuals: # Fish
       head:
       - state: equipped-head
