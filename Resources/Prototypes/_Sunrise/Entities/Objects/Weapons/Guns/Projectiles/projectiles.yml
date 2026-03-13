@@ -13,9 +13,14 @@
       types:
         Blunt: 5
     deleteOnCollide: false
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
   - type: StartTimerOnShoot
   - type: TimerTrigger
     delay: 2
+  - type: TimedDespawn
+    lifetime: 6
   - type: Fixtures
     fixtures:
       fix1:
@@ -45,43 +50,6 @@
         - state: xeno_toxic
     - type: Ammo
       muzzleFlash: null
-
-- type: entity
-  id: BulletTaserSunrise
-  name: taser bolt
-  categories: [ HideSpawnMenu ]
-  parent: BaseBullet
-  components:
-  - type: Sprite
-    noRot: true
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    color: "#ffff33"
-    layers:
-    - state: spark
-      shader: unshaded
-  - type: Projectile
-    damage:
-      types:
-        Shock: 1
-  - type: StaminaDamageOnCollide
-    damage: 30 #Fish-edit
-  - type: SolutionContainerManager
-    solutions:
-      ammo:
-        reagents:
-        - ReagentId: Licoxide #lmao
-          Quantity: 2 #Fish-edit
-  - type: RefillableSolution
-    solution: ammo
-  - type: DrainableSolution
-    solution: ammo
-  - type: SolutionInjectOnProjectileHit
-    transferAmount: 0.5
-    solution: ammo
-  - type: InjectableSolution
-    solution: ammo
-  - type: TimedDespawn
-    lifetime: 0.28 #5.2 tiles
 
 # Sunrise-ION
 - type: entity
@@ -322,11 +290,8 @@
   - type: FlashOnTrigger
     range: 7
   - type: SpawnOnTrigger
-    keysIn:
-    - timer
     proto: GrenadeFlashEffect
     predicted: true
-  - type: ActiveTimerTrigger
   - type: DeleteOnTrigger
 
 - type: entity
@@ -371,6 +336,8 @@
     totalIntensity: 120 # about a ~4 tile radius
     canCreateVacuum: false
   - type: EmitSoundOnTrigger
+    keysIn:
+    - timer
     sound:
       path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
   - type: EmitSoundOnSpawn
@@ -418,33 +385,14 @@
       path: /Audio/Items/smoke_grenade_prime.ogg
       params:
         volume: 15
-
-- type: entity
-  id: BulletEMPGrenade
-  name: emp grenade
-  parent: BulletGrenadeEMPTimer
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/empgrenade.rsi
-    layers:
-      - state: primed
-  - type: EmitSoundOnSpawn
-    sound:
-      path: /Audio/Effects/countdown.ogg
-  - type: EmpOnTrigger
-    keysIn:
-    - timer
-    range: 11
-    energyConsumption: 50000
-    disableDuration: 60
-  - type: Ammo
-    muzzleFlash: null
-  - type: DeleteOnTrigger
+  - type: TimedDespawn
+    lifetime: 3
 
 - type: entity
   id: BulletAirGrenade
   parent: BaseBulletGrenade
+  name: air grenade
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/airboom.rsi
@@ -456,7 +404,7 @@
     primingSound:
       path: /Audio/Items/smoke_grenade_prime.ogg
   - type: TimerTrigger
-    delay: 3
+    delay: 2
   - type: ReleaseGasOnTrigger
     keysIn:
     - timer
@@ -467,6 +415,8 @@
       - 654.7464 # oxygen
       - 2463.0936 # nitrogen
       temperature: 293.15
+  - type: TimedDespawn
+    lifetime: 5
 
 - type: entity
   id: BulletTearGasGrenade
@@ -541,7 +491,7 @@
 
 - type: entity
   id: BulletMetalFoamGrenade
-  name: tear gase grenade
+  name: metal foam grenade
   parent: BulletSmokeGrenade
   categories: [ HideSpawnMenu ]
   components:
@@ -549,6 +499,8 @@
     sprite: Objects/Weapons/Grenades/metalfoam.rsi
     layers:
       - state: primed
+  - type: TimerTrigger
+    delay: 2
   - type: SmokeOnTrigger
     keysIn:
     - timer
@@ -585,6 +537,9 @@
     keysIn:
     - timer
     proto: GrenadeFlashEffect
+  - type: DeleteOnTrigger
+    keysIn:
+    - timer
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/Effects/countdown.ogg
@@ -604,6 +559,8 @@
     fillPrototype: PelletClusterIncendiary
     capacity: 30
   - type: EmitSoundOnTrigger
+    keysIn:
+    - timer
     sound:
       path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
   - type: SpawnOnTrigger
@@ -672,7 +629,7 @@
     keysIn:
     - timer
   - type: TimerTrigger
-    delay: 2
+    delay: 3
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
@@ -684,6 +641,8 @@
     sound:
       path: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
   - type: DeleteOnTrigger
+    keysIn:
+    - timer
 
 - type: entity
   id: BulletKineticTrash
@@ -731,6 +690,57 @@
     intensitySlope: 5
     maxIntensity: 10
     canCreateVacuum: false
+  - type: DeleteOnTrigger
+    keysIn:
+    - timer
+
+- type: entity
+  id: BulletFuzeCannonBall
+  name: blast grenade
+  parent: BaseBulletGrenade
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: primed
+  - type: ExplodeOnTrigger
+    keysIn:
+    - timer
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 150 # a ~2 tile radius
+    intensitySlope: 5
+    maxIntensity: 10
+    canCreateVacuum: false
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: ProjectileGrenade
+    fillPrototype: PelletClusterLessLethal
+    capacity: 20
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletAntiMaterielCannonBall
+  name: plasteel cannonball
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: ball
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 75
+        Blunt: 25
+        Structural: 800
+    penetrationThreshold: 1200
+    penetrationDamageTypeRequirement:
+    - Structural
+  - type: StaminaDamageOnCollide
+    damage: 80
 
 # This is supposed to spawn shrapnel and stuff so uhh... TODO?
 - type: entity
@@ -758,6 +768,9 @@
   - type: ProjectileGrenade
     fillPrototype: PelletClusterLessLethal
     capacity: 30
+  - type: DeleteOnTrigger
+    keysIn:
+    - timer
 
 - type: entity
   id: BulletGrenadeEMPTimer
@@ -782,6 +795,8 @@
     color: blue
     energy: 0.5
   - type: DeleteOnTrigger
+    keysIn:
+    - timer
 
 - type: entity
   id: BulletHeavyRifleArtillery
@@ -885,21 +900,20 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Heat: 14
-        Slash: 14
-        Structural: 35
+        Heat: 13
+        Slash: 13
+        Structural: 23
     penetrationThreshold: 800
     penetrationDamageTypeRequirement:
     - Structural
   - type: Ammo
     muzzleFlash: HitscanEffect
   - type: TimedDespawn
-    lifetime: 0.35
+    lifetime: 0.3
   - type: PointLight
     radius: 2.5
     color: "#dd16d395"
     energy: 0.5
-  - type: GatheringProjectile
 
 - type: entity
   name: wide plasma barrage
@@ -911,3 +925,159 @@
     proto: BulletPlasma
     count: 3
     spread: 25
+
+- type: entity
+  id: BulletImprovisedGrenadeFirebomb
+  name: firebomb
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Bombs/ied.rsi
+    layers:
+      - state: primed
+      - state: wires
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 25
+    intensitySlope: 5
+    maxIntensity: 3
+    canCreateVacuum: false
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: ProjectileGrenade
+    triggerKey: trigger
+    fillPrototype: PelletClusterIncendiary
+    capacity: 10
+  - type: AmbientSound
+    range: 8
+    volume: 1
+    sound:
+      path: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+
+- type: entity
+  id: BulletImprovisedGrenadePipeBomb
+  name: pipebomb
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Bombs/pipebomb.rsi
+    layers:
+      - state: primed
+      - state: wires
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 50
+    intensitySlope: 5
+    maxIntensity: 6
+    canCreateVacuum: false
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: ProjectileGrenade
+    triggerKey: trigger
+    fillPrototype: PelletClusterLessLethal
+    capacity: 6
+  - type: AmbientSound
+    range: 8
+    volume: 1
+    sound:
+      path: /Audio/Effects/lightburn.ogg
+
+- type: entity
+  id: BulletImprovisedGrenadeGlass
+  name: glass
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Casings/explosives.rsi
+    layers:
+      - state: glass
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 5
+    intensitySlope: 1
+    maxIntensity: 5
+    canCreateVacuum: false
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: ProjectileGrenade
+    triggerKey: trigger
+    fillPrototype: PelletClusterLessLethal
+    capacity: 16
+
+- type: entity
+  parent: BaseBullet
+  id: EnergyCrossbowBoltLarge
+  categories: [ HideSpawnMenu ]
+  name: energy bolt
+  description: This'll hurt.
+  components:
+  - type: Reflective
+    reflective:
+    - NonEnergy
+  - type: Ammo
+    muzzleFlash: null
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: crossbowbolt
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 2
+  - type: StunOnCollide #somewhat mirror to taser stats, meant to be tot 'sidegrade'
+    stunAmount: 0
+    knockdownAmount: 2.5
+    slowdownAmount: 2.5
+    walkSpeedModifier: 0.2
+    sprintSpeedModifier: 0.2
+    drop: false
+  - type: StaminaDamageOnCollide #additional stam damage to make repeated pushups less of a viable counter
+    damage: 45
+  - type: SolutionContainerManager
+    solutions:
+      bolt:
+        maxVol: 3
+        reagents:
+        - ReagentId: Toxin
+          Quantity: 1.5
+        - ReagentId: Lead
+          Quantity: 1.5
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 3
+    solution: bolt
+
+- type: entity
+  parent: BaseBulletRubber
+  id: BulletMagnumProjectileRubber
+  categories: [ HideSpawnMenu ]
+  name: bullet (.45 magnum rubber)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 5
+  - type: StaminaDamageOnCollide
+    damage: 20
+
+- type: entity
+  parent: BaseBulletRubber
+  id: BulletPistolProjectileRubber
+  categories: [ HideSpawnMenu ]
+  name: bullet (.35 auto rubber)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 3
+  - type: StaminaDamageOnCollide
+    damage: 9

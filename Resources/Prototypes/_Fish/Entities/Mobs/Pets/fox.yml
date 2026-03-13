@@ -1,0 +1,46 @@
+- type: entity
+  name: fox
+  parent: [MobFox, BasePet]
+  id: MobFoxPet
+  description: A cute fox.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Animals/fox.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: fox
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: fox-moving
+    noMovementLayers:
+      movement:
+        state: fox
+  - type: UserInterface
+    interfaces:
+      enum.PetControlUiKey.Key:
+        type: PetControlBoundUserInterface
+        interactionRange: -1
+  - type: HTN
+    rootTask:
+      task: PetCompound
+    blackboard:
+      IdleRange: !type:Single
+        2.0
+      FollowCloseRange: !type:Single
+        1.0
+      FollowRange: !type:Single
+        1.5
+  - type: NpcFactionMember
+    factions:
+      - AllHostile
+  - type: TTS
+    voice: NecoArcTwo
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 3
+  - type: Tag
+    tags:
+    - VimPilot

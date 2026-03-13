@@ -38,6 +38,7 @@
     - BoxLethalshot
     - BoxShotgunSlug
     - BoxShellTranquilizer
+    - BoxShotgunFlare
     #####################MAGAZINE#######################
     # LMG
     - MagazineLightRifleBeltBoxSP
@@ -189,6 +190,10 @@
     - SpeedLoaderShotgunEmpty
     - SpeedLoaderShotgunSlug
     - SpeedLoaderShotgunBeanbag
+    # Pirate cannon
+    - CannonBallMini
+    - CannonBallGrapeshotMini
+    - MagazineCannonBallMini
     # Medical
     - Gauze
     - Brutepack
@@ -202,6 +207,7 @@
     - WeaponEnergyGun
     - WeaponMiniEnergyGun
     - WeaponEnergyGunPistol
+    - WeaponIonCarbine
     - WeaponGunLaserCarbineAutomatic
     - MagazineBatteryLr30
     - FlareGunSecurityUpgrade
@@ -219,7 +225,9 @@
     - ShellBlastArtillery
     - ShellEMPArtillery
     - ShellFlashArtillery
+    - ShellFragArtillery
     - MagazineBauer127
+    - MagazineBauer127Penetrator
     - RifleHeavyMagazineArtillery
     - MagazineBoxBelt127Artillery
     - MagazineBauer127Blast
@@ -264,6 +272,7 @@
     - BoxShotgunIncendiary
     - BoxShotgunUranium
     - BoxShellTranquilizer
+    - BoxShotgunFlechette
   #####################MAGAZINE#######################
   # LMG
     - MagazineLightRifleBeltBoxIncendiary
@@ -306,9 +315,13 @@
     - MagazineRifleHeavyIncendiary
     - MagazineRifleHeavyAP
     - MagazineRifleHeavyUranium
+    - RifleHeavyMagazineFMJ
+    - RifleHeavyMagazineHP
+    - RifleHeavyMagazineSP
   # Shotgun
     - SpeedLoaderShotgunIncendiary
     - SpeedLoaderShotgunUranium
+    - SpeedLoaderShotgunFlechette
   # Grenade
     - MagazineGrenadeEmpty
 ####################################################
@@ -327,6 +340,11 @@
     - VestSecUpgradeReflective
     - VestSecUpgradeWeb
     - VestSecUpgradeBulletHeavy
+    - ClothingOuterArmorMiliraLight
+    - ClothingOuterArmorMiliraHeavy
+    - ClothingOuterHardsuitMilira
+    - ClothingHeadHelmetEVAMilira
+    - ClothingEyesHudMilira
 
 - type: latheRecipePack
   id: SecurityDynamicSunriseMech
@@ -335,7 +353,6 @@
     - WeaponMechCombatSolarisLaser
     - WeaponMechCombatFiredartLaser
     - WeaponMechCombatUltraRifle
-    - WeaponMechCombatMG
     - WeaponMechCombatIon
     - WeaponMechCombatXray
     - WeaponMechCombatShotgun
@@ -371,13 +388,13 @@
     - MagazineGrenadeEmpty
     - ShellFragArtillery
     - ShellEMPArtillery
-    # .60/14mm cannon
+    # .60/15mm cannon
     - MagazineBauer127
     - MagazineBauer127Penetrator
     - MagazineBauer127Blast
     - MagazineBauer127Frag
     - MagazineBauer127Emp
-    # .60/14mm auto-cannon
+    # .60/15mm auto-cannon
     - MagazineBoxBelt127Empty
     - MagazineBoxBelt127
     - MagazineBoxBelt127Artillery

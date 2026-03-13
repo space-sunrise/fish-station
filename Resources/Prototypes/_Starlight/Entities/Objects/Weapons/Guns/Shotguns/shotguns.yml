@@ -138,6 +138,8 @@
     fireRate: 2
     availableModes:
     - SemiAuto
+  - type: GunSpreadModifier # Sunrise-Add
+    spread: 1.4
   - type: BallisticAmmoProvider
     capacity: 3
   - type: RevolverAmmoProvider
@@ -151,6 +153,10 @@
     ammoSlots: [ null, null, null ]
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+      revolver-ammo: !type:Container
   - type: KnockbackByUserTag
     doestContain:
       Resomi:
@@ -196,7 +202,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazineShotgun
+        startingItem: MagazineShotgunXL
         priority: 2
         whitelist:
           tags:

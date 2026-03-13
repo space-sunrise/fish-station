@@ -1,0 +1,19 @@
+- type: entity
+  parent: BaseFigurine
+  id: FigurineLinda
+  name: ent-FigurineLinda
+  description: ent-FigurineLinda-desc
+  components:
+  - type: Sprite
+    sprite: _Fish/Objects/Fun/Figurines/CentComm_head.rsi
+    state: CentComm_Head
+  - type: SpeakOnTrigger
+    pack: FigurinesLinda
+  - type: TTS
+    voice: NatsaiOnai
+
+- type: localizedDataset
+  id: FigurinesLinda
+  values:
+    prefix: figurines-linda-
+    count: 8

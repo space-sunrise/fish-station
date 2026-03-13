@@ -1,0 +1,203 @@
+- type: reagent
+  id: UnknownPathogen
+  name: reagent-name-unknown-pathogen
+  parent: BaseSoda
+  desc: reagent-desc-unknown-pathogen
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: soda
+  color: "#2E6671"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:Polymorph
+        prototype: PathogenPolymorphHuman
+        probability: 0.0476
+        conditions: &cond
+        - !type:ReagentCondition
+          reagent: UnknownPathogen
+          min: 5
+      - !type:AdjustReagent
+        reagent: UnknownPathogen
+        amount: -1000
+        probability: 0.0476
+        conditions: *cond
+
+      - !type:Polymorph
+        prototype: PathogenPolymorphReptilian
+        probability: 0.05
+        conditions: *cond
+      - !type:AdjustReagent
+        reagent: UnknownPathogen
+        amount: -1000
+        probability: 0.05
+        conditions: *cond
+
+      - !type:Polymorph
+        prototype: PathogenPolymorphTajaran
+        probability: 0.0526
+        conditions: *cond
+      - !type:AdjustReagent
+        reagent: UnknownPathogen
+        amount: -1000
+        probability: 0.0526
+        conditions: *cond
+
+      - !type:Polymorph
+        prototype: PathogenPolymorphSlime
+        probability: 0.0555
+        conditions: *cond
+      - !type:AdjustReagent
+        reagent: UnknownPathogen
+        amount: -1000
+        probability: 0.0555
+        conditions: *cond
+
+      - !type:Polymorph
+        prototype: PathogenPolymorphMoth
+        probability: 0.0588
+        conditions: *cond
+      - !type:AdjustReagent
+        reagent: UnknownPathogen
+        amount: -1000
+        probability: 0.0588
+        conditions: *cond
+
+      - !type:Polymorph
+        prototype: PathogenPolymorphSwine
+        probability: 0.0625
+        conditions: *cond
+      - !type:AdjustReagent
+        reagent: UnknownPathogen
+        amount: -1000
+        probability: 0.0625
+        conditions: *cond
+
+      - !type:Polymorph
+        prototype: PathogenPolymorphResomi
+        probability: 0.0666
+        conditions: *cond
+      - !type:AdjustReagent
+        reagent: UnknownPathogen
+        amount: -1000
+        probability: 0.0666
+        conditions: *cond
+
+      - !type:Polymorph
+        prototype: PathogenPolymorphVox
+        probability: 0.0714
+        conditions: *cond
+      - !type:AdjustReagent
+        reagent: UnknownPathogen
+        amount: -1000
+        probability: 0.0714
+        conditions: *cond
+
+      - !type:Polymorph
+        prototype: PathogenPolymorphVulpkanin
+        probability: 0.0769
+        conditions: *cond
+      - !type:AdjustReagent
+        reagent: UnknownPathogen
+        amount: -1000
+        probability: 0.0769
+        conditions: *cond
+
+      - !type:Polymorph
+        prototype: PathogenPolymorphFelinid
+        probability: 0.0833
+        conditions: *cond
+      - !type:AdjustReagent
+        reagent: UnknownPathogen
+        amount: -1000
+        probability: 0.0833
+        conditions: *cond
+
+      - !type:Polymorph
+        prototype: PathogenPolymorphHumanoidXeno
+        probability: 0.0909
+        conditions: *cond
+      - !type:AdjustReagent
+        reagent: UnknownPathogen
+        amount: -1000
+        probability: 0.0909
+        conditions: *cond
+
+      - !type:Polymorph
+        prototype: PathogenPolymorphDiona
+        probability: 0.1
+        conditions: *cond
+      - !type:AdjustReagent
+        reagent: UnknownPathogen
+        amount: -1000
+        probability: 0.1
+        conditions: *cond
+
+      - !type:Polymorph
+        prototype: PathogenPolymorphDwarf
+        probability: 0.1111
+        conditions: *cond
+      - !type:AdjustReagent
+        reagent: UnknownPathogen
+        amount: -1000
+        probability: 0.1111
+        conditions: *cond
+
+      - !type:Polymorph
+        prototype: PathogenPolymorphSkeleton
+        probability: 0.125
+        conditions: *cond
+      - !type:AdjustReagent
+        reagent: UnknownPathogen
+        amount: -1000
+        probability: 0.125
+        conditions: *cond
+
+      - !type:Polymorph
+        prototype: PathogenPolymorphArachnid
+        probability: 0.1428
+        conditions: *cond
+      - !type:AdjustReagent
+        reagent: UnknownPathogen
+        amount: -1000
+        probability: 0.1428
+        conditions: *cond
+
+      - !type:Polymorph
+        prototype: PathogenPolymorphGingerbread
+        probability: 0.1666
+        conditions: *cond
+      - !type:AdjustReagent
+        reagent: UnknownPathogen
+        amount: -1000
+        probability: 0.1666
+        conditions: *cond
+
+      - !type:Polymorph
+        prototype: PathogenPolymorphDemon
+        probability: 0.3333
+        conditions: *cond
+      - !type:AdjustReagent
+        reagent: UnknownPathogen
+        amount: -1000
+        probability: 0.3333
+        conditions: *cond
+
+      - !type:Polymorph
+        prototype: PathogenPolymorphMilira
+        probability: 0.5
+        conditions: *cond
+      - !type:AdjustReagent
+        reagent: UnknownPathogen
+        amount: -1000
+        probability: 0.5
+        conditions: *cond
+
+      - !type:Polymorph
+        prototype: PathogenPolymorphPredator
+        probability: 1.0
+        conditions: *cond
+      - !type:AdjustReagent
+        reagent: UnknownPathogen
+        amount: -1000
+        probability: 1.0
+        conditions: *cond

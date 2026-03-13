@@ -20091,15 +20091,6 @@ entities:
       parent: 379
     - type: Physics
       canCollide: False
-- proto: WeaponPistolViperBiocode
-  entities:
-  - uid: 1131
-    components:
-    - type: Transform
-      parent: 1125
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: WeaponPulsePistol
   entities:
   - uid: 1928
@@ -20145,14 +20136,6 @@ entities:
     components:
     - type: Transform
       parent: 648
-    - type: Physics
-      canCollide: False
-- proto: WeaponSTG44
-  entities:
-  - uid: 681
-    components:
-    - type: Transform
-      parent: 674
     - type: Physics
       canCollide: False
 - proto: WeaponSubMachineGunMP5

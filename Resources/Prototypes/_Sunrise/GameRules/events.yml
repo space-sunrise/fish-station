@@ -1,5 +1,17 @@
 ﻿- type: entity
   parent: BaseGameRule
+  id: RevolutionarySmugglerStashSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 0
+    duration: 1
+    minimumPlayers: 1
+    weight: 0
+  - type: RandomSpawnRule
+    prototype: RevolutionarySmugglerStash
+
+- type: entity
+  parent: BaseGameRule
   id: DiseaseSpawn
   categories: [ HideSpawnMenu ]
   components:
@@ -68,8 +80,8 @@
   - type: AntagObjectives
     objectives:
     - AbductObjective
-  - type: AntagLoadProfileRule
-    speciesHardOverride: Abductor
+  - type: AntagSpawner # Sunrise-todo: починить AntagLoadProfileRule для бубукторов
+    prototype: MobAbductor
   - type: AntagSelection
     definitions:
     - spawnerPrototype: AbductorScientistSpawner
@@ -123,7 +135,7 @@
       mindRoles:
       - MindRoleLoneAbductor
   - type: DynamicRuleCost
-    cost: 125
+    cost: 100
 
 - type: entity
   id: AbductorVictim

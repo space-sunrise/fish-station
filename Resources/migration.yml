@@ -303,7 +303,7 @@ CartridgeRifleRubber: CartridgeRifleSP # Sunrise-Edit
 CartridgeCaselessRifleRubber: CartridgeCaselessRifle
 # Sunrise-Edit
 # MagazinePistolRubber: MagazinePistol
-MagazinePistolSubMachineGunRubber: MagazinePistolSubMachineGunSP # Sunrise-Edit
+#MagazinePistolSubMachineGunRubber: MagazinePistolSubMachineGunSP # Sunrise-Edit
 MagazinePistolCaselessRifleRubber: MagazinePistolCaselessRifle
 # Sunrise-Edit
 # MagazineMagnumRubber: MagazineMagnum
@@ -771,7 +771,7 @@ FigureSpawner: MechFigurineSpawner50
 ToySpawner: PlushieSpawner50
 SpacemenFigureSpawner: SpacemenFigurineSpawner90
 
-# Sunrise-Start
+# region Sunrise-Start
 AirlockExternalGlassShuttleArrivals: AirlockExternalGlassShuttleArrivalsLocked
 AirlockHatchSyndicate: AirlockHatchSyndicateLocked
 SurveillanceCameraWirelessRouterBase: SurveillanceCameraWirelessRouterConstructed
@@ -866,8 +866,8 @@ BaseUplinkNTERT100BC: null
 BaseUplinkNTERT200BC: null
 SupermatterSliver: null
 CartridgePistol: null
-AtmosDeviceFanTiny: AtmosDeviceFanTinyDev
-AtmosDeviceFanDirectional: AtmosDeviceFanDirectionalDev
+AtmosDeviceFanTinyDev: AtmosDeviceFanTiny
+AtmosDeviceFanDirectionalDev: AtmosDeviceFanDirectional
 MagazineBR64Extended: null
 MagazineBR64: null
 MagazineAR18Extended: null
@@ -889,7 +889,7 @@ WeaponEnergyGunMini: WeaponMiniEnergyGun
 GunSafeCombineSmallArms: SpawnerSafeSmallArms
 AphrodisiacChemistryBottle: null
 PatchViagra: null
-
+ClothingHandsGlovesBoxingRigged: GlovesBoxingRiggedRandomSpawner
 MagazinePPSH41: MagazinePistolSubMachineGunPPSHExtended
 MagazinePPSH41Extended: null
 WeaponSTG44: null
@@ -919,6 +919,11 @@ RandomHumanoidSpawnerERTLeaderGammaVeteran: RandomHumanoidSpawnerERTLeaderGamma
 VendingMachineMayson: null
 DrinkLukin: null
 DrinkFourteenLokoPlusCan: null
+MagazineAsh12: null
+ClothingHeadHelmetSpaceNinjaBiocode: null
+ClothingHandsGlovesSpaceNinjaBiocode: null
+ClothingOuterSuitSpaceNinjaBiocode: null
+EnergyKatanaBiocode: null
 # SL HITSCAN START
 BoxMagazineRifle: BoxMagazineRifleSP
 MagazineBoxLightRifle: MagazineBoxLightRifleSP
@@ -938,7 +943,11 @@ WeaponRifleV31: null
 MagazineV31: null
 WeaponEnergyGunMultiphase: WeaponMultiphaseGun
 ClothingBeltAssaultFilled: null
-
+MagazinePistolSubMachineGunCaseless: BaseMagazinePistolCaselessRifleExtended
+SyndicateCircuitBoard: SyndimovCircuitBoard
+WeaponRifleAKM: WeaponRifleAKMU
+CrateArmoryAKMS: null
+SpawnPointPrisonGuard: null
 # 2025-12-21
 ClothingNeckCMOCloak: ClothingNeckMedCloak
 
@@ -951,7 +960,37 @@ ImplantExtractorMachineCircuitboard: InterrogatorMachineCircuitboard
 
 # 2026-01-02
 EnergyDomeWiredTest: null
-# Sunrise-End
+
+# 2026-01-31
+ClothingHeadHelmetHardsuitMilira: ClothingHeadHelmetEVAMilira
+MagazineDragunov: MagazineDragunovSP
+# 2026-02-07
+ClothingHeadAreopagite: null
+ClothingHeadHelmetInsulated: null
+ClothingHeadTechPriest: null
+ClothingOuterRobeTechPriest: null
+ClothingOuterWinterCoatLong: null
+ClothingOuterWinterCoatPlaid: null
+ClothingOuterWinterMystagogue: null
+GunSafeBlueshield: null
+MusicTape157: null
+MusicTape18: null
+PosterLegitSMAnomalies: null
+PosterLegitSMEpi: null
+PosterLegitSMGlimmer: null
+PosterLegitSMHardhats: null
+PosterLegitSMPills: null
+SalvageSeedSpawnerLow: null
+PosterLegitSMPiping: null
+ClothingOuterSuitAreopagite: null
+SuitStorageBlueshield: SuitStorageBlueShield
+GunSafeIonRifle: GunSafeSuperIonRifle
+GunSafeSMRTGun: GunSafeSuperweaponSmartGun
+
+#2026-02-28
+CartridgeRifle: CartridgeRifleSP
+MagazinePistolHighCapacity: MagazinePistolHighCapacitySP
+# region Sunrise-End
 
 #Fish-start
 MechSecPod: null
