@@ -1847,11 +1847,11 @@
 # Sunrise-end
   - ParamedicWintercoat
 # Sunrise-start
-  - Sunrise-WinterColorrColorWhite
-  - Sunrise-WinterColorrColorRed
-  - Sunrise-WinterColorGreen
-  - Sunrise-WinterColorCyan
-  - Sunrise-WinterColorBlue
+  - SunriseWinterColorWhite
+  - SunriseWinterColorRed
+  - SunriseWinterColorGreen
+  - SunriseWinterColorCyan
+  - SunriseWinterColorBlue
   - ParamedicHardSuitFish # Fish-edit
 # Sunrise-end
 
