@@ -1,6 +1,6 @@
-﻿<tabs:ExtraTab xmlns="https://spacestation14.io"
-                 xmlns:tabs="clr-namespace:Content.Client.Options.UI.Tabs"
-                 xmlns:ui="clr-namespace:Content.Client.Options.UI">
+﻿<tabs1:ExtraTab xmlns="https://spacestation14.io"
+                 xmlns:ui="clr-namespace:Content.Client.Options.UI"
+                 xmlns:tabs1="clr-namespace:Content.Client._Sunrise.Options.UI.Tabs">
     <BoxContainer Orientation="Vertical">
         <ScrollContainer VerticalExpand="True">
             <BoxContainer Orientation="Vertical" Margin="8 8 8 8">
@@ -35,6 +35,7 @@
                 <CheckBox Name="TapePlayerClientCheckBox" Text="{Loc 'ui-options-tape-player-enabled'}" />
                 <CheckBox Name="JumpSoundDisableCheckBox" Text="{Loc 'ui-options-jump-sound-disable'}" />
                 <CheckBox Name="VoteMusicDisableCheckBox" Text="{Loc 'ui-options-vote-music-disable'}" />
+                <CheckBox Name="RoundEndMusicCheckBox" Text="{Loc 'ui-options-sunrise-round-end-music'}" />
                 <CheckBox Name="MuteGhostRoleNotificationCheckBox" Text="{Loc 'ui-options-mute-new-ghost-roles'}" />
                 <CheckBox Name="PlayHeartbeatSound" Text="{Loc 'ui-options-play-heartbeat-sound'}" />
 
@@ -47,4 +48,4 @@
         </ScrollContainer>
         <ui:OptionsTabControlRow Name="Control" Access="Public" />
     </BoxContainer>
-</tabs:ExtraTab>
+</tabs1:ExtraTab>
