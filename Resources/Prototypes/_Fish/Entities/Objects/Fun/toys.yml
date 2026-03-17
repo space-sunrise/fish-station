@@ -164,3 +164,12 @@
   - type: EmitSoundOnActivate
     sound:
       path: /Audio/Voice/Moth/moth_chitter.ogg
+
+- type: entity
+  parent: Plushiecevulpa
+  id: PlushieSpEktr
+  name: Elisabeth von Valantius
+  components:
+    - type: Sprite
+      sprite: _Fish/Objects/Fun/toys.rsi
+      state: SpEktr
