@@ -6,13 +6,11 @@
   - type: Damageable
     damageModifierSet: Kitsune
   - type: KitsuneTransform
-  - type: KitsuneFoxLights
-  - type: ActionsContainer
-  - type: ActionGrant
     actions:
     - ActionKitsuneTransform
     # - ActionKitsuneFire
     - ActionKitsuneFoxLights
+  - type: KitsuneFoxLights
   - type: TemperatureDamage
     heatDamageThreshold: 400
     coldDamageThreshold: 200

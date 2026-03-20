@@ -15,4 +15,14 @@ public sealed partial class KitsuneTransformComponent : Component
     /// </summary>
     [ViewVariables]
     public EntityUid? StashedHumanoid = null;
+
+    /// <summary>
+    /// Actions granted by this component.
+    /// Moved here from ActionGrant to prevent loss during anomaly infection.
+    /// </summary>
+    [DataField]
+    public List<EntProtoId> Actions = new();
+
+    [ViewVariables]
+    public List<EntityUid> ActionEntities = new();
 }

@@ -39,6 +39,8 @@ public sealed class KitsuneTransformSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<KitsuneTransformComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<KitsuneTransformComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<KitsuneTransformComponent, KitsuneTransformActionEvent>(OnKitsuneTransform);
         SubscribeLocalEvent<KitsuneTransformComponent, KitsuneTransformDoAfterEvent>(OnKitsuneTransformDoAfter);
         SubscribeLocalEvent<KitsuneTransformComponent, KitsuneRevertActionEvent>(OnKitsuneRevert);
@@ -73,6 +75,29 @@ public sealed class KitsuneTransformSystem : EntitySystem
                 continue;
             _polymorph.Revert((uid, morphComp));
             _popup.PopupEntity(Loc.GetString("kitsune-transform-expired"), uid, uid, PopupType.MediumCaution);
+        }
+    }
+
+    private void OnMapInit(EntityUid uid, KitsuneTransformComponent component, MapInitEvent args)
+    {
+        // Grant actions defined in the component
+        // This is moved here from ActionGrant to prevent loss during anomaly infection
+        foreach (var action in component.Actions)
+        {
+            EntityUid? actionEnt = null;
+            _actions.AddAction(uid, ref actionEnt, action);
+
+            if (actionEnt != null)
+                component.ActionEntities.Add(actionEnt.Value);
+        }
+    }
+
+    private void OnShutdown(EntityUid uid, KitsuneTransformComponent component, ComponentShutdown args)
+    {
+        // Remove actions granted by this component
+        foreach (var actionEnt in component.ActionEntities)
+        {
+            _actions.RemoveAction(uid, actionEnt);
         }
     }
 
