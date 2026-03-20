@@ -1,4 +1,4 @@
-using Content.Shared._Sunrise.Kitsune;
+using Content.Shared._Fish.Kitsune;
 using Robust.Shared.Timing;
 using System.Numerics;
 using Content.Shared.DoAfter;
@@ -8,7 +8,7 @@ using Content.Shared.FixedPoint;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
 
-namespace Content.Server._Sunrise.Kitsune
+namespace Content.Server._Fish.Kitsune
 {
     public sealed class KitsuneFoxLightsSystem : EntitySystem
     {

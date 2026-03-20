@@ -1,7 +1,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Sunrise.Kitsune;
+namespace Content.Shared._Fish.Kitsune;
 
 /// <summary>
 /// Component that tracks Kitsune transformation state.

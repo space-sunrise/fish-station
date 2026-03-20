@@ -1,7 +1,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared._Sunrise.Kitsune
+namespace Content.Shared._Fish.Kitsune
 {
     [RegisterComponent, NetworkedComponent]
     public sealed partial class KitsuneFoxLightsComponent : Component

@@ -1,4 +1,4 @@
-using Content.Shared._Sunrise.Kitsune;
+using Content.Shared._Fish.Kitsune;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -14,7 +14,7 @@ using Content.Shared.Atmos;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 
-namespace Content.Server._Sunrise.Kitsune
+namespace Content.Server._Fish.Kitsune
 {
     public sealed class KitsuneFireSystem : EntitySystem
     {

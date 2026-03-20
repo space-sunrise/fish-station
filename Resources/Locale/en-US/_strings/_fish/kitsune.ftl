@@ -24,3 +24,5 @@ ent-KitsuneFoxLight-desc = A mystical wisp of blue fire.
 
 ent-MacKitsune = Kitsune
 ent-MacKitsune-desc = A nine-tailed fox spirit.
+
+species-name-kitsune = Kitsune

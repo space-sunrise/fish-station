@@ -24,3 +24,5 @@ ent-KitsuneFoxLight-desc = Мистический огонек голубого 
 
 ent-MacKitsune = Кицунэ
 ent-MacKitsune-desc = Девятихвостая лиса.
+
+species-name-kitsune = Кицунэ

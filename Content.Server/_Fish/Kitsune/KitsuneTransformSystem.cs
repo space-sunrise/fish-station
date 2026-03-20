@@ -2,7 +2,7 @@ using Content.Server.Actions;
 using Content.Server.DoAfter;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
-using Content.Shared._Sunrise.Kitsune;
+using Content.Shared._Fish.Kitsune;
 using Content.Shared._Sunrise.SpriteColor;
 using Content.Shared._Sunrise.TTS;
 using Content.Shared.Damage;
@@ -16,7 +16,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Sunrise.Kitsune;
+namespace Content.Server._Fish.Kitsune;
 
 public sealed class KitsuneTransformSystem : EntitySystem
 {

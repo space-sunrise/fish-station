@@ -2,7 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Sunrise.Kitsune;
+namespace Content.Shared._Fish.Kitsune;
 
 public sealed partial class KitsuneTransformActionEvent : InstantActionEvent
 {
