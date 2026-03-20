@@ -1,4 +1,4 @@
-﻿# All the Vulpkanin customization
+# All the Vulpkanin customization
 
 # Ears Markings
 - type: marking
@@ -339,7 +339,7 @@
   id: VulpTailFox
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Kitsune] # Fish-edit
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: fox
@@ -350,7 +350,7 @@
   id: VulpTailFoxTip
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Kitsune] # Fish-edit
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: fox
@@ -361,7 +361,7 @@
   id: VulpTailFoxWag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Kitsune] # Fish-edit
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: fox_wag
@@ -372,7 +372,7 @@
   id: VulpTailFoxWagTip
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Kitsune] # Fish-edit
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: fox_wag
@@ -383,7 +383,7 @@
   id: VulpTailBushy
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Kitsune] # Fish-edit
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: bushfluff
@@ -392,7 +392,7 @@
   id: VulpTailBushyWag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Kitsune] # Fish-edit
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: bushfluff_wag
@@ -448,7 +448,7 @@
   id: VulpTailFox2
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Kitsune] # Fish-edit
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: fox2
@@ -457,7 +457,7 @@
   id: VulpTailFox3
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Kitsune] # Fish-edit
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: fox3
@@ -468,7 +468,7 @@
   id: VulpTailFennec
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Kitsune] # Fish-edit
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: fennec

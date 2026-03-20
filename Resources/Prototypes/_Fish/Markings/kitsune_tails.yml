@@ -36,7 +36,7 @@
   - sprite: _Fish/Markings/Tails/hoary_fox_tail.rsi
     state: hoary-fox-tail
   - sprite: _Fish/Markings/Tails/hoary_fox_tail.rsi
-    state: hoary-fox-tail-tip
+    state: hoary-fox-tail-second
 
 - type: marking
   id: BlanfordsFoxTail

@@ -30,3 +30,7 @@ species-name-kitsune = Kitsune
 marking-AmericanFoxTail = American Fox Tail
 marking-HoaryFoxTail = Hoary Fox Tail
 marking-BlanfordsFoxTail = Blanfords Fox Tail
+
+marking-KitsuneEarCow = Kitsune Ears 1
+marking-KitsuneEarDeer = Kitsune Ears 2
+marking-KitsuneEarLynx = Kitsune Ears 3

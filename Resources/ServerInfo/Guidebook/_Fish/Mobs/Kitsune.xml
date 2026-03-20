@@ -3,8 +3,8 @@
 [head=1]Кицунэ[/head]
 
 <Box>
-<GuideEntityEmbed Entity="MacKitsune" Caption=""/>
-<GuideEntityEmbed Entity="MobKitsuneFox" Caption=""/>
+<GuideEntityEmbed Entity="MacKitsune" Caption="Форма человека"/>
+<GuideEntityEmbed Entity="MobKitsuneFox" Caption="Форма лисы"/>
 </Box>
 
 [color=#cccccc]Кицунэ — это древняя раса врождённых псиоников, обладающих способностью манипулировать реальностью. В своём первозданном виде они способны создавать пространственные аномалии чистой силой мысли, однако использование такой мощи быстро сжигает их рассудок, ведя к безумию.[/color]

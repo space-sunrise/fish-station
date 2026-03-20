@@ -24,8 +24,8 @@
   components:
   - type: Action
     icon:
-      sprite: Interface/Actions/revert_polymorph.rsi
-      state: icon
+      sprite: Fish/nine_tailed_fox.rsi
+      state: fox
     useDelay: 5
     temporary: true
     itemIconStyle: NoItem

@@ -5,11 +5,11 @@
   "size": {"x": 32, "y": 32},
   "states": [
     {
-      "name": "hoary-fox-tail",
+      "name": "deer-ears",
       "directions": 4
     },
     {
-      "name": "hoary-fox-tail-second",
+      "name": "deer-ears-inner",
       "directions": 4
     }
   ]
