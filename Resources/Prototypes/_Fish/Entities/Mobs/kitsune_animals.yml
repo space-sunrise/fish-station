@@ -26,7 +26,9 @@
     baseSprintSpeed: 6
   - type: Inventory
     speciesId: fox
-    templateId: pet
+    templateId: kitsune_pet
+  - type: FootstepModifier
+    footstepSoundCollection: BarestepHard
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-soft-floofy
@@ -59,11 +61,14 @@
   - type: Carriable
     requiresNestingMob: true
   - type: CanEscapeInventory
+  - type: TypingIndicator
+    proto: kitsune
   - type: Damageable
     damageModifierSet: Kitsune
   - type: Speech
     speechSounds: Vulpkanin
     speechVerb: Vulpkanin
+    speechBubbleOffset: -0.5
     allowedEmotes: [ 'Bark', 'Snarl', 'Whine', 'Howl', 'Growl' ]
   - type: Vocal
     sounds:

@@ -1,0 +1,5 @@
+- type: typingIndicator
+  id: kitsune
+  typingState: default0
+  idleState: default3
+  offset: 0, -0.5
