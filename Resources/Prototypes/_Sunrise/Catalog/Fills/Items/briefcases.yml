@@ -3,11 +3,13 @@
   parent: BriefcaseBrown
   suffix: IAA
   components:
-    - type: StorageFill
-      contents:
-        - id: Paper
-        - id: PenCentcom
-        - id: RubberStampIAA
+    - type: EntityTableContainerFill
+      containers:
+        storagebase: !type:AllSelector
+          children:
+          - id: Paper
+          - id: PenCentcom
+          - id: RubberStampIAA
 
 - type: entity
   id: BriefcaseWeaponC40Filled
@@ -52,8 +54,9 @@
         children:
         - id: WeaponSniperDragunov
         - id: MagazineDragunovIncendiary
-        - id: MagazineDragunovUranium
-        - id: MagazineDragunov
+        - id: MagazineDragunovSP
+        - id: MagazineDragunovHP
+        - id: MagazineDragunovFMJ
 
 - type: entity
   id: BriefcaseWeaponM79Filled

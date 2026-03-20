@@ -101,6 +101,33 @@
   - BrigmedicJumpskirt
 
 - type: loadoutGroup
+  id: BrigmedicInjectors
+  name: loadout-group-sunrise-injectors
+  minLimit: 0
+  maxLimit: 4
+  loadouts:
+  - AutoInjectorEmergency1
+  - AutoInjectorEmergency2
+  - AutoInjectorBrute1
+  - AutoInjectorBrute2
+  - AutoInjectorBurn1
+  - AutoInjectorBurn2
+  - AutoInjectorPuncturase1
+  - AutoInjectorPuncturase2
+  - AutoInjectorBruiz1
+  - AutoInjectorBruiz2
+  - AutoInjectorLacer1
+  - AutoInjectorLacer2
+  - AutoInjectorPyrazine1
+  - AutoInjectorPyrazine2
+  - AutoInjectorAirloss
+  - AutoInjectorPoison
+  - AutoInjectorCoal
+  - AutoInjectorRadiation
+  - AutoInjectorPoly
+  - AutoInjectorStellibinin
+
+- type: loadoutGroup
   id: NanoTrasenRepresentativeJumpsuit
   name: loadout-group-nanotrasenrepresentative-jumpsuit
   minLimit: 1
@@ -165,7 +192,10 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
+  - BlueshieldACP14
   - BlueshieldWT550
+  - BlueshieldLecterMk2
+  - BlueshieldVP78
   - BlueshieldAsh12
 
 - type: loadoutGroup
@@ -249,7 +279,17 @@
   - SnubRevolverBox
   - WeaponDominator
   - WeaponDisabler
-#  - WeaponTaser
+  - WeaponTaser
+
+- type: loadoutGroup
+  id: SecurityGlasses
+  name: loadout-group-security-glasses
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SecurityEyesHud
+  - SecurityEyesGlasses
+  - SecurityEyesEyepatchHud
 
 # Security Cadet
 - type: loadoutGroup
@@ -292,7 +332,17 @@
   - SnubRevolverBox
   - WeaponDominator
   - WeaponDisabler
-#  - WeaponTaser
+  - WeaponTaser
+
+- type: loadoutGroup
+  id: SunriseBrigmedGun
+  name: loadout-group-security-gun
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WeaponDisabler
+  - WeaponDominatorBrigmed
+  - WeaponTaserBrigmed
 
 # Security  HoS
 - type: loadoutGroup
@@ -332,18 +382,18 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-MedicalSterileBlack
-  - Sunrise-MedicalSterileRed
-  - Sunrise-MedicalSterileOrange
-  - Sunrise-MedicalSterileGreen
+  - SunriseMedicalSterileBlack
+  - SunriseMedicalSterileRed
+  - SunriseMedicalSterileOrange
+  - SunriseMedicalSterileGreen
   - SterileMask
-  - Sunrise-MedicalSterileBlue
-  - Sunrise-MedicalMaskBlack
-  - Sunrise-MedicalMaskRed
-  - Sunrise-MedicalMaskOrange
-  - Sunrise-MedicalMaskGreen
-  - Sunrise-MedicalMask
-  - Sunrise-MedicalMaskBlue
+  - SunriseMedicalSterileBlue
+  - SunriseMedicalMaskBlack
+  - SunriseMedicalMaskRed
+  - SunriseMedicalMaskOrange
+  - SunriseMedicalMaskGreen
+  - SunriseMedicalMask
+  - SunriseMedicalMaskBlue
 
 - type: loadoutGroup
   id: SunriseChiefMedicalOfficerGloves
@@ -352,18 +402,18 @@
   maxLimit: 1
   loadouts:
   - LatexGloves
-  - Sunrise-BlackGloves
-  - Sunrise-WhiteGloves
-  - Sunrise-RedGloves
-  - Sunrise-GreenGloves
-  - Sunrise-TealGloves
-  - Sunrise-BlueGloves
-  # - Sunrise-GlovesNitrileBlack
-  # - Sunrise-GlovesNitrileRed
-  # - Sunrise-GlovesNitrileOrange
-  # - Sunrise-GlovesNitrileGreen
+  - SunriseBlackGloves
+  - SunriseWhiteGloves
+  - SunriseRedGloves
+  - SunriseGreenGloves
+  - SunriseTealGloves
+  - SunriseBlueGloves
+  - SunriseGlovesNitrileBlack
+  - SunriseGlovesNitrileRed
+  - SunriseGlovesNitrileOrange
+  - SunriseGlovesNitrileGreen
   - NitrileGloves
-  # - Sunrise-GlovesNitrileBlue
+  - SunriseGlovesNitrileBlue
 
 - type: loadoutGroup
   id: SeniorPhysicianHead
@@ -382,11 +432,11 @@
   - PurpleSurgeryCap
   - HatPatologonatHat
   - ParamedicHead
-  - Sunrise-HatBlacksoft
-  - Sunrise-HatRedsoft
-  - Sunrise-HatOrangesoft
-  - Sunrise-HatCyansoft
-  - Sunrise-HatBluesoft
+  - SunriseHatBlacksoft
+  - SunriseHatRedsoft
+  - SunriseHatOrangesoft
+  - SunriseHatCyansoft
+  - SunriseHatBluesoft
   - MedicalHeadMirror
 
 - type: loadoutGroup
@@ -396,23 +446,23 @@
   maxLimit: 1
   loadouts:
   - RegularLabCoat
-  - Sunrise-CoatLabViro
+  - SunriseCoatLabViro
   - ChemistLabCoat
-  - Sunrise-CoatLabGene
+  - SunriseCoatLabGene
   - CoatLabSeniorPhysician
   - CoatPatologoanatom
-  - Sunrise-WinterViro
+  - SunriseWinterViro
   - ChemistWintercoat
-  - Sunrise-WinterGen
+  - SunriseWinterGen
   - MedicalDoctorWintercoat
   - ParamedicWintercoat
-  - Sunrise-WinterColorrColorWhite
-  - Sunrise-WinterColorBlack
-  - Sunrise-WinterColorrColorRed
-  - Sunrise-WinterColorOrange
-  - Sunrise-WinterColorGreen
-  - Sunrise-WinterColorCyan
-  - Sunrise-WinterColorBlue
+  - SunriseWinterColorWhite
+  - SunriseWinterColorBlack
+  - SunriseWinterColorRed
+  - SunriseWinterColorOrange
+  - SunriseWinterColorGreen
+  - SunriseWinterColorCyan
+  - SunriseWinterColorBlue
   - ParamedicWindbreaker
 
 - type: loadoutGroup
@@ -421,14 +471,14 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-ScarfBlack
-  - Sunrise-ScarfRed
-  - Sunrise-ScarfOrange
-  - Sunrise-ScarfGreen
-  - Sunrise-ScarfLightBlue
-  - Sunrise-ScarfCyan
-  - Sunrise-ScarfBlue
-  - Sunrise-Stethoscope
+  - SunriseScarfBlack
+  - SunriseScarfRed
+  - SunriseScarfOrange
+  - SunriseScarfGreen
+  - SunriseScarfLightBlue
+  - SunriseScarfCyan
+  - SunriseScarfBlue
+  - SunriseStethoscope
 
 - type: loadoutGroup
   id: SeniorPhysicianMask
@@ -436,18 +486,18 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-MedicalSterileBlack
-  - Sunrise-MedicalSterileRed
-  - Sunrise-MedicalSterileOrange
-  - Sunrise-MedicalSterileGreen
+  - SunriseMedicalSterileBlack
+  - SunriseMedicalSterileRed
+  - SunriseMedicalSterileOrange
+  - SunriseMedicalSterileGreen
   - SterileMask
-  - Sunrise-MedicalSterileBlue
-  - Sunrise-MedicalMaskBlack
-  - Sunrise-MedicalMaskRed
-  - Sunrise-MedicalMaskOrange
-  - Sunrise-MedicalMaskGreen
-  - Sunrise-MedicalMask
-  - Sunrise-MedicalMaskBlue
+  - SunriseMedicalSterileBlue
+  - SunriseMedicalMaskBlack
+  - SunriseMedicalMaskRed
+  - SunriseMedicalMaskOrange
+  - SunriseMedicalMaskGreen
+  - SunriseMedicalMask
+  - SunriseMedicalMaskBlue
 
 - type: loadoutGroup
   id: SeniorPhysicianShoes
@@ -458,10 +508,10 @@
   - BrownShoes
   - WhiteShoes
   - BlackShoes
-  - Sunrise-RedShoes
-  - Sunrise-OrangeShoes
-  - Sunrise-ShoesGreen
-  - Sunrise-ShoesCyan
+  - SunriseRedShoes
+  - SunriseOrangeShoes
+  - SunriseShoesGreen
+  - SunriseShoesCyan
   - BlueShoes
   - MedicalWinterBoots
 
@@ -472,18 +522,18 @@
   maxLimit: 1
   loadouts:
   - LatexGloves
-  - Sunrise-BlackGloves
-  - Sunrise-WhiteGloves
-  - Sunrise-RedGloves
-  - Sunrise-GreenGloves
-  - Sunrise-TealGloves
-  - Sunrise-BlueGloves
-  # - Sunrise-GlovesNitrileBlack
-  # - Sunrise-GlovesNitrileRed
-  # - Sunrise-GlovesNitrileOrange
-  # - Sunrise-GlovesNitrileGreen
+  - SunriseBlackGloves
+  - SunriseWhiteGloves
+  - SunriseRedGloves
+  - SunriseGreenGloves
+  - SunriseTealGloves
+  - SunriseBlueGloves
+  - SunriseGlovesNitrileBlack
+  - SunriseGlovesNitrileRed
+  - SunriseGlovesNitrileOrange
+  - SunriseGlovesNitrileGreen
   - NitrileGloves
-  # - Sunrise-GlovesNitrileBlue
+  - SunriseGlovesNitrileBlue
 
 - type: loadoutGroup
   id: SunriseChemistHead
@@ -497,9 +547,9 @@
   - BlueSurgeryCap
   - GreenSurgeryCap
   - PurpleSurgeryCap
-  - Sunrise-HatRedsoft
-  - Sunrise-HatOrangesoft
-  - Sunrise-HatCyansoft
+  - SunriseHatRedsoft
+  - SunriseHatOrangesoft
+  - SunriseHatCyansoft
   - MedicalHeadMirror
 
 - type: loadoutGroup
@@ -508,12 +558,12 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-ScarfRed
-  - Sunrise-ScarfOrange
-  - Sunrise-ScarfGreen
-  - Sunrise-ScarfLightBlue
-  - Sunrise-ScarfCyan
-  - Sunrise-Stethoscope
+  - SunriseScarfRed
+  - SunriseScarfOrange
+  - SunriseScarfGreen
+  - SunriseScarfLightBlue
+  - SunriseScarfCyan
+  - SunriseStethoscope
 
 - type: loadoutGroup
   id: SunriseChemistMask
@@ -521,14 +571,14 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-MedicalSterileRed
-  - Sunrise-MedicalSterileOrange
-  - Sunrise-MedicalSterileGreen
+  - SunriseMedicalSterileRed
+  - SunriseMedicalSterileOrange
+  - SunriseMedicalSterileGreen
   - SterileMask
-  - Sunrise-MedicalMaskRed
-  - Sunrise-MedicalMaskOrange
-  - Sunrise-MedicalMaskGreen
-  - Sunrise-MedicalMask
+  - SunriseMedicalMaskRed
+  - SunriseMedicalMaskOrange
+  - SunriseMedicalMaskGreen
+  - SunriseMedicalMask
 
 
 - type: loadoutGroup
@@ -538,13 +588,13 @@
   maxLimit: 1
   loadouts:
   - LatexGloves
-  - Sunrise-WhiteGloves
-  - Sunrise-RedGloves
-  - Sunrise-GreenGloves
-  - Sunrise-TealGloves
-  # - Sunrise-GlovesNitrileRed
-  # - Sunrise-GlovesNitrileOrange
-  # - Sunrise-GlovesNitrileGreen
+  - SunriseWhiteGloves
+  - SunriseRedGloves
+  - SunriseGreenGloves
+  - SunriseTealGloves
+  - SunriseGlovesNitrileRed
+  - SunriseGlovesNitrileOrange
+  - SunriseGlovesNitrileGreen
   - NitrileGloves
 
 - type: loadoutGroup
@@ -554,10 +604,10 @@
   maxLimit: 1
   loadouts:
   - WhiteShoes
-  - Sunrise-RedShoes
-  - Sunrise-OrangeShoes
-  - Sunrise-ShoesGreen
-  - Sunrise-ShoesCyan
+  - SunriseRedShoes
+  - SunriseOrangeShoes
+  - SunriseShoesGreen
+  - SunriseShoesCyan
   - MedicalWinterBoots
 
 - type: loadoutGroup
@@ -584,8 +634,8 @@
   loadouts:
   - RegularLabCoat
   - MedicalDoctorWintercoat
-  - Sunrise-WinterColorrColorWhite
-  - Sunrise-WinterColorCyan
+  - SunriseWinterColorWhite
+  - SunriseWinterColorCyan
 
 
 - type: loadoutGroup
@@ -594,8 +644,8 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-ScarfLightBlue
-  - Sunrise-ScarfCyan
+  - SunriseScarfLightBlue
+  - SunriseScarfCyan
 
 - type: loadoutGroup
   id: SunrisePsychologistMask
@@ -604,7 +654,7 @@
   maxLimit: 1
   loadouts:
   - SterileMask
-  - Sunrise-MedicalMask
+  - SunriseMedicalMask
 
 - type: loadoutGroup
   id: SunrisePsychologistGloves
@@ -613,7 +663,7 @@
   maxLimit: 1
   loadouts:
   - LatexGloves
-  - Sunrise-WhiteGloves
+  - SunriseWhiteGloves
   - NitrileGloves
 
 - type: loadoutGroup
@@ -631,11 +681,11 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-ScarfRed
-  - Sunrise-ScarfGreen
-  - Sunrise-ScarfLightBlue
-  - Sunrise-ScarfCyan
-  - Sunrise-Stethoscope
+  - SunriseScarfRed
+  - SunriseScarfGreen
+  - SunriseScarfLightBlue
+  - SunriseScarfCyan
+  - SunriseStethoscope
 
 - type: loadoutGroup
   id: SunriseParamedicNeck
@@ -643,12 +693,12 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-ScarfRed
-  - Sunrise-ScarfGreen
-  - Sunrise-ScarfLightBlue
-  - Sunrise-ScarfCyan
-  - Sunrise-ScarfBlue
-  - Sunrise-Stethoscope
+  - SunriseScarfRed
+  - SunriseScarfGreen
+  - SunriseScarfLightBlue
+  - SunriseScarfCyan
+  - SunriseScarfBlue
+  - SunriseStethoscope
 
 - type: loadoutGroup
   id: SunriseParamedicMask
@@ -656,14 +706,14 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-MedicalSterileRed
-  - Sunrise-MedicalSterileGreen
+  - SunriseMedicalSterileRed
+  - SunriseMedicalSterileGreen
   - SterileMask
-  - Sunrise-MedicalSterileBlue
-  - Sunrise-MedicalMaskRed
-  - Sunrise-MedicalMaskGreen
-  - Sunrise-MedicalMask
-  - Sunrise-MedicalMaskBlue
+  - SunriseMedicalSterileBlue
+  - SunriseMedicalMaskRed
+  - SunriseMedicalMaskGreen
+  - SunriseMedicalMask
+  - SunriseMedicalMaskBlue
 
 - type: loadoutGroup
   id: SunriseParamedicGloves
@@ -672,15 +722,15 @@
   maxLimit: 1
   loadouts:
   - LatexGloves
-  - Sunrise-WhiteGloves
-  - Sunrise-RedGloves
-  - Sunrise-GreenGloves
-  - Sunrise-TealGloves
-  - Sunrise-BlueGloves
-  # - Sunrise-GlovesNitrileRed
-  # - Sunrise-GlovesNitrileGreen
+  - SunriseWhiteGloves
+  - SunriseRedGloves
+  - SunriseGreenGloves
+  - SunriseTealGloves
+  - SunriseBlueGloves
+  - SunriseGlovesNitrileRed
+  - SunriseGlovesNitrileGreen
   - NitrileGloves
-  # - Sunrise-GlovesNitrileBlue
+  - SunriseGlovesNitrileBlue
 
 - type: loadoutGroup
   id: PathologistHead
@@ -695,9 +745,9 @@
   - GreenSurgeryCap
   - PurpleSurgeryCap
   - HatPatologonatHat
-  - Sunrise-HatBlacksoft
-  - Sunrise-HatRedsoft
-  - Sunrise-HatCyansoft
+  - SunriseHatBlacksoft
+  - SunriseHatRedsoft
+  - SunriseHatCyansoft
   - MedicalHeadMirror
 
 - type: loadoutGroup
@@ -709,11 +759,11 @@
   - RegularLabCoat
   - CoatPatologoanatom
   - MedicalDoctorWintercoat
-  - Sunrise-WinterColorrColorWhite
-  - Sunrise-WinterColorBlack
-  - Sunrise-WinterColorrColorRed
-  - Sunrise-WinterColorGreen
-  - Sunrise-WinterColorCyan
+  - SunriseWinterColorWhite
+  - SunriseWinterColorBlack
+  - SunriseWinterColorRed
+  - SunriseWinterColorGreen
+  - SunriseWinterColorCyan
 
 
 - type: loadoutGroup
@@ -722,10 +772,10 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-ScarfLightBlue
-  - Sunrise-ScarfCyan
-  - Sunrise-ScarfBlack
-  - Sunrise-Stethoscope
+  - SunriseScarfLightBlue
+  - SunriseScarfCyan
+  - SunriseScarfBlack
+  - SunriseStethoscope
 
 - type: loadoutGroup
   id: PathologistMask
@@ -733,14 +783,14 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-MedicalSterileBlack
-  - Sunrise-MedicalSterileRed
-  - Sunrise-MedicalSterileGreen
+  - SunriseMedicalSterileBlack
+  - SunriseMedicalSterileRed
+  - SunriseMedicalSterileGreen
   - SterileMask
-  - Sunrise-MedicalMaskBlack
-  - Sunrise-MedicalMaskRed
-  - Sunrise-MedicalMaskGreen
-  - Sunrise-MedicalMask
+  - SunriseMedicalMaskBlack
+  - SunriseMedicalMaskRed
+  - SunriseMedicalMaskGreen
+  - SunriseMedicalMask
 
 - type: loadoutGroup
   id: PathologistShoes
@@ -750,9 +800,9 @@
   loadouts:
   - WhiteShoes
   - BlackShoes
-  - Sunrise-RedShoes
-  - Sunrise-ShoesGreen
-  - Sunrise-ShoesCyan
+  - SunriseRedShoes
+  - SunriseShoesGreen
+  - SunriseShoesCyan
   - MedicalWinterBoots
 
 - type: loadoutGroup
@@ -762,14 +812,14 @@
   maxLimit: 1
   loadouts:
   - LatexGloves
-  - Sunrise-BlackGloves
-  - Sunrise-WhiteGloves
-  - Sunrise-RedGloves
-  - Sunrise-GreenGloves
-  - Sunrise-TealGloves
-  # - Sunrise-GlovesNitrileBlack
-  # - Sunrise-GlovesNitrileRed
-  # - Sunrise-GlovesNitrileGreen
+  - SunriseBlackGloves
+  - SunriseWhiteGloves
+  - SunriseRedGloves
+  - SunriseGreenGloves
+  - SunriseTealGloves
+  - SunriseGlovesNitrileBlack
+  - SunriseGlovesNitrileRed
+  - SunriseGlovesNitrileGreen
   - NitrileGloves
 
 - type: loadoutGroup
@@ -915,12 +965,12 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-ScarfRed
-  - Sunrise-ScarfOrange
-  - Sunrise-ScarfYellow
-  - Sunrise-ScarfCyan
-  - Sunrise-ScarfLightBlue
-  - Sunrise-TieRed
+  - SunriseScarfRed
+  - SunriseScarfOrange
+  - SunriseScarfYellow
+  - SunriseScarfCyan
+  - SunriseScarfLightBlue
+  - SunriseTieRed
 
 - type: loadoutGroup
   id: SeniorEngineerMask
@@ -930,10 +980,10 @@
   loadouts:
   - EngineerMaskCMG
   - EngineerMaskCMGA
-  - Sunrise-MBandRed
-  - Sunrise-MBandOrange
-  - Sunrise-MBandYellow
-  - Sunrise-MBandCyan
+  - SunriseMBandRed
+  - SunriseMBandOrange
+  - SunriseMBandYellow
+  - SunriseMBandCyan
 
 - type: loadoutGroup
   id: SeniorEngineerHead
@@ -941,20 +991,20 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-EngineerHeadBeret
-  - Sunrise-BandRed
-  - Sunrise-BandOrange
-  - Sunrise-AtmosBeret
-  - Sunrise-BandYellow
-  - Sunrise-BandCyan
+  - SunriseEngineerHeadBeret
+  - SunriseBandRed
+  - SunriseBandOrange
+  - SunriseAtmosBeret
+  - SunriseBandYellow
+  - SunriseBandCyan
   - StationEngineerHardhatRed
   - StationEngineerHardhatOrange
   - StationEngineerHardhatYellow
-  - Sunrise-HardhatYellowDark
-  - Sunrise-HardhatBlue
-  - Sunrise-HatRedsoft
-  - Sunrise-HatOrangesoft
-  - Sunrise-HatYellowsoft
+  - SunriseHardhatYellowDark
+  - SunriseHardhatBlue
+  - SunriseHatRedsoft
+  - SunriseHatOrangesoft
+  - SunriseHatYellowsoft
 
 - type: loadoutGroup
   id: SeniorEngineerShoes
@@ -965,9 +1015,9 @@
   - BrownShoes
   - WorkBoots
   - EngineeringWinterBoots
-  - Sunrise-RedShoes
-  - Sunrise-OrangeShoes
-  - Sunrise-YellowShoes
+  - SunriseRedShoes
+  - SunriseOrangeShoes
+  - SunriseYellowShoes
   - WhiteShoes
 
 - type: loadoutGroup
@@ -979,9 +1029,9 @@
   - StationEngineerOuterVest
   - StationEngineerWintercoat
   - AtmosphericTechnicianWintercoat
-  - Sunrise-WinterColorrColorRed
-  - Sunrise-WinterColorOrange
-  - Sunrise-WinterColorYellow
+  - SunriseWinterColorRed
+  - SunriseWinterColorOrange
+  - SunriseWinterColorYellow
 
 - type: loadoutGroup
   id: StationSeniorEngineerBackpack
@@ -1003,11 +1053,11 @@
   maxLimit: 1
   loadouts:
   - PassengerGloves
-  - Sunrise-YellowBudgetGloves
-  - Sunrise-RedGloves
+  - SunriseYellowBudgetGloves
+  - SunriseRedGloves
   - OrangeGloves
-  - Sunrise-TealGloves
-  - Sunrise-WhiteGloves
+  - SunriseTealGloves
+  - SunriseWhiteGloves
 
 - type: loadoutGroup
   id: StationSunriseEngineerGloves
@@ -1016,8 +1066,8 @@
   maxLimit: 1
   loadouts:
   - PassengerGloves
-  - Sunrise-YellowBudgetGloves
-  - Sunrise-RedGloves
+  - SunriseYellowBudgetGloves
+  - SunriseRedGloves
   - OrangeGloves
 
 - type: loadoutGroup
@@ -1026,9 +1076,9 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-MBandRed
-  - Sunrise-MBandOrange
-  - Sunrise-MBandYellow
+  - SunriseMBandRed
+  - SunriseMBandOrange
+  - SunriseMBandYellow
   - EngineerMaskCMG
 
 - type: loadoutGroup
@@ -1037,10 +1087,10 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-ScarfRed
-  - Sunrise-ScarfOrange
-  - Sunrise-ScarfYellow
-  - Sunrise-TieRed
+  - SunriseScarfRed
+  - SunriseScarfOrange
+  - SunriseScarfYellow
+  - SunriseTieRed
 
 - type: loadoutGroup
   id: SunriseAtmosGloves
@@ -1049,11 +1099,11 @@
   maxLimit: 1
   loadouts:
   - PassengerGloves
-  - Sunrise-YellowBudgetGloves
-  - Sunrise-RedGloves
+  - SunriseYellowBudgetGloves
+  - SunriseRedGloves
   - OrangeGloves
-  - Sunrise-TealGloves
-  - Sunrise-WhiteGloves
+  - SunriseTealGloves
+  - SunriseWhiteGloves
 
 - type: loadoutGroup
   id: SunriseAtmosHead
@@ -1061,20 +1111,20 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-EngineerHeadBeret
-  - Sunrise-AtmosBeret
-  - Sunrise-BandRed
-  - Sunrise-BandOrange
-  - Sunrise-BandYellow
-  - Sunrise-BandCyan
+  - SunriseEngineerHeadBeret
+  - SunriseAtmosBeret
+  - SunriseBandRed
+  - SunriseBandOrange
+  - SunriseBandYellow
+  - SunriseBandCyan
   - StationEngineerHardhatRed
   - StationEngineerHardhatOrange
   - StationEngineerHardhatYellow
-  - Sunrise-HardhatYellowDark
-  - Sunrise-HardhatBlue
-  - Sunrise-HatRedsoft
-  - Sunrise-HatOrangesoft
-  - Sunrise-HatYellowsoft
+  - SunriseHardhatYellowDark
+  - SunriseHardhatBlue
+  - SunriseHatRedsoft
+  - SunriseHatOrangesoft
+  - SunriseHatYellowsoft
 
 - type: loadoutGroup
   id: SunriseAtmosMask
@@ -1084,10 +1134,10 @@
   loadouts:
   - EngineerMaskCMG
   - EngineerMaskCMGA
-  - Sunrise-MBandRed
-  - Sunrise-MBandOrange
-  - Sunrise-MBandYellow
-  - Sunrise-MBandCyan
+  - SunriseMBandRed
+  - SunriseMBandOrange
+  - SunriseMBandYellow
+  - SunriseMBandCyan
 
 - type: loadoutGroup
   id: SunriseAtmosNeck
@@ -1095,12 +1145,12 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-ScarfRed
-  - Sunrise-ScarfOrange
-  - Sunrise-ScarfYellow
-  - Sunrise-ScarfCyan
-  - Sunrise-ScarfLightBlue
-  - Sunrise-TieRed
+  - SunriseScarfRed
+  - SunriseScarfOrange
+  - SunriseScarfYellow
+  - SunriseScarfCyan
+  - SunriseScarfLightBlue
+  - SunriseTieRed
 
 - type: loadoutGroup
   id: SunriseCEGloves
@@ -1109,11 +1159,11 @@
   maxLimit: 1
   loadouts:
   - PassengerGloves
-  - Sunrise-YellowBudgetGloves
-  - Sunrise-RedGloves
+  - SunriseYellowBudgetGloves
+  - SunriseRedGloves
   - OrangeGloves
-  - Sunrise-TealGloves
-  - Sunrise-WhiteGloves
+  - SunriseTealGloves
+  - SunriseWhiteGloves
 
 - type: loadoutGroup
   id: SunriseCEMask
@@ -1123,11 +1173,11 @@
   loadouts:
   - EngineerMaskCMG
   - EngineerMaskCMGA
-  - Sunrise-MBandRed
-  - Sunrise-MBandOrange
-  - Sunrise-MBandYellow
-  - Sunrise-MBandCyan
-  - Sunrise-MBandWhite
+  - SunriseMBandRed
+  - SunriseMBandOrange
+  - SunriseMBandYellow
+  - SunriseMBandCyan
+  - SunriseMBandWhite
 
 - type: loadoutGroup
   id: ChiefEngineerHead
@@ -1135,22 +1185,22 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-HardhatWhite
-  - Sunrise-BandWhite
-  - Sunrise-BeretCE
-  - Sunrise-EngineerHeadBeret
-  - Sunrise-BandRed
-  - Sunrise-BandOrange
-  - Sunrise-BandYellow
-  - Sunrise-BandCyan
+  - SunriseHardhatWhite
+  - SunriseBandWhite
+  - SunriseBeretCE
+  - SunriseEngineerHeadBeret
+  - SunriseBandRed
+  - SunriseBandOrange
+  - SunriseBandYellow
+  - SunriseBandCyan
   - StationEngineerHardhatRed
   - StationEngineerHardhatOrange
   - StationEngineerHardhatYellow
-  - Sunrise-HardhatYellowDark
-  - Sunrise-HardhatBlue
-  - Sunrise-HatRedsoft
-  - Sunrise-HatOrangesoft
-  - Sunrise-HatYellowsoft
+  - SunriseHardhatYellowDark
+  - SunriseHardhatBlue
+  - SunriseHatRedsoft
+  - SunriseHatOrangesoft
+  - SunriseHatYellowsoft
   - ChiefEngineerCrown
 
 #Cargo
@@ -1162,8 +1212,8 @@
   maxLimit: 1
   loadouts:
   - OrangeGloves
-  - Sunrise-LightBrownGloves
-  - Sunrise-BrownGloves
+  - SunriseLightBrownGloves
+  - SunriseBrownGloves
   - PurpleGloves
 
 - type: loadoutGroup
@@ -1173,8 +1223,8 @@
   maxLimit: 1
   loadouts:
   - OrangeGloves
-  - Sunrise-LightBrownGloves
-  - Sunrise-BrownGloves
+  - SunriseLightBrownGloves
+  - SunriseBrownGloves
 
 - type: loadoutGroup
   id: MailCarrierJumpsuit
@@ -1190,8 +1240,8 @@
   maxLimit: 1
   loadouts:
   - OrangeGloves
-  - Sunrise-LightBrownGloves
-  - Sunrise-BrownGloves
+  - SunriseLightBrownGloves
+  - SunriseBrownGloves
   - PurpleGloves
 
 - type: loadoutGroup
@@ -1200,11 +1250,11 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-MaskGasExplorer
-  - Sunrise-MBandOrange
-  - Sunrise-MBandYellow
-  - Sunrise-MBandBrown
-  - Sunrise-MBandPurple
+  - SunriseMaskGasExplorer
+  - SunriseMBandOrange
+  - SunriseMBandYellow
+  - SunriseMBandBrown
+  - SunriseMBandPurple
 
 - type: loadoutGroup
   id: SunriseCargoTechMask
@@ -1212,9 +1262,9 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-MBandOrange
-  - Sunrise-MBandYellow
-  - Sunrise-MBandBrown
+  - SunriseMBandOrange
+  - SunriseMBandYellow
+  - SunriseMBandBrown
 
 - type: loadoutGroup
   id: SunriseSalvageMask
@@ -1222,11 +1272,11 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-MaskGasExplorer
-  - Sunrise-MBandOrange
-  - Sunrise-MBandYellow
-  - Sunrise-MBandBrown
-  - Sunrise-MBandPurple
+  - SunriseMaskGasExplorer
+  - SunriseMBandOrange
+  - SunriseMBandYellow
+  - SunriseMBandBrown
+  - SunriseMBandPurple
 
 - type: loadoutGroup
   id: SunriseCargoTechNeck
@@ -1234,9 +1284,9 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-ScarfOrange
-  - Sunrise-ScarfYellow
-  - Sunrise-ScarfBrown
+  - SunriseScarfOrange
+  - SunriseScarfYellow
+  - SunriseScarfBrown
 
 - type: loadoutGroup
   id: SunriseSalvageNeck
@@ -1244,11 +1294,11 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-ScarfOrange
-  - Sunrise-ScarfYellow
-  - Sunrise-ScarfBrown
-  - Sunrise-ScarfPurple
-  - Sunrise-BedsheetCosmos
+  - SunriseScarfOrange
+  - SunriseScarfYellow
+  - SunriseScarfBrown
+  - SunriseScarfPurple
+  - SunriseBedsheetCosmos
 
 - type: loadoutGroup
   id: SunriseSalvageHead
@@ -1256,20 +1306,20 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - Sunrise-BandOrange
-  - Sunrise-BandYellow
-  - Sunrise-BandBrown
-  - Sunrise-BandPurple
+  - SunriseBandOrange
+  - SunriseBandYellow
+  - SunriseBandBrown
+  - SunriseBandPurple
   - StationEngineerHardhatOrange
   - StationEngineerHardhatYellow
-  - Sunrise-HardhatYellowDark
-  - Sunrise-HatOrangesoft
-  - Sunrise-HatYellowsoft
-  - Sunrise-HatBrownsoft
-  - Sunrise-BrownFlatcap
-  - Sunrise-CatBrown
-  - Sunrise-HelmetCosmonaut
-  - Sunrise-HideBear
+  - SunriseHardhatYellowDark
+  - SunriseHatOrangesoft
+  - SunriseHatYellowsoft
+  - SunriseHatBrownsoft
+  - SunriseBrownFlatcap
+  - SunriseCatBrown
+  - SunriseHelmetCosmonaut
+  - SunriseHideBear
 
 - type: loadoutGroup
   id: TrinketsCargo
@@ -1277,7 +1327,7 @@
   minLimit: 0
   maxLimit: 2
   loadouts:
-  - Sunrise-Clipboard
+  - SunriseClipboard
   - TrinketsCargoGPS
   - TrinketsCargoFL
   - TrinketsCargoF
