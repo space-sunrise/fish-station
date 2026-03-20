@@ -26,3 +26,7 @@ ent-MacKitsune = Кицунэ
 ent-MacKitsune-desc = Девятихвостая лиса.
 
 species-name-kitsune = Кицунэ
+
+marking-AmericanFoxTail = Хвост американской лисицы
+marking-HoaryFoxTail = Пятнистый хвост
+marking-BlanfordsFoxTail = Бухарский хвост

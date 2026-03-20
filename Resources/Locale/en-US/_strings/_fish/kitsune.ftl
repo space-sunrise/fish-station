@@ -26,3 +26,7 @@ ent-MacKitsune = Kitsune
 ent-MacKitsune-desc = A nine-tailed fox spirit.
 
 species-name-kitsune = Kitsune
+
+marking-AmericanFoxTail = American Fox Tail
+marking-HoaryFoxTail = Hoary Fox Tail
+marking-BlanfordsFoxTail = Blanfords Fox Tail
