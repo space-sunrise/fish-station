@@ -82,13 +82,24 @@ public sealed class KitsuneTransformSystem : EntitySystem
     {
         // Grant actions defined in the component
         // This is moved here from ActionGrant to prevent loss during anomaly infection
-        foreach (var action in component.Actions)
+        foreach (var actionProto in component.Actions)
         {
             EntityUid? actionEnt = null;
-            _actions.AddAction(uid, ref actionEnt, action);
+            _actions.AddAction(uid, ref actionEnt, actionProto);
 
             if (actionEnt != null)
+            {
                 component.ActionEntities.Add(actionEnt.Value);
+
+                // If this is the revert action, set its icon to the parent entity (the humanoid)
+                // This makes it look like the vanilla revert action
+                if (TryComp<PolymorphedEntityComponent>(uid, out var morphComp) &&
+                    _actions.GetAction(actionEnt.Value) is { } action &&
+                    _actions.GetEvent(actionEnt.Value) is KitsuneRevertActionEvent)
+                {
+                    _actions.SetEntityIcon((actionEnt.Value, action.Comp), morphComp.Parent);
+                }
+            }
         }
     }
 

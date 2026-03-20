@@ -7,7 +7,7 @@
   components:
   - type: Action
     icon:
-      sprite: Fish/nine_tailed_fox.rsi
+      sprite: Mobs/Animals/fox.rsi
       state: fox
     useDelay: 5
     temporary: true
@@ -24,8 +24,8 @@
   components:
   - type: Action
     icon:
-      sprite: Mobs/Animals/fox.rsi
-      state: fox
+      sprite: Interface/Actions/revert_polymorph.rsi
+      state: icon
     useDelay: 5
     temporary: true
     itemIconStyle: NoItem
@@ -40,7 +40,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon: { sprite: Effects/fire.rsi, state: 1 }
+    icon: { sprite: Fish/kitsune_fire.rsi, state: fire }
     useDelay: 15
     itemIconStyle: NoItem
     checkCanInteract: false
@@ -59,7 +59,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon: { sprite: Objects/Weapons/Guns/Projectiles/magic.rsi, state: magicm_cyan }
+    icon: { sprite: Fish/kitsune_fire.rsi, state: fire }
     useDelay: 10
     itemIconStyle: NoItem
     checkCanInteract: true
