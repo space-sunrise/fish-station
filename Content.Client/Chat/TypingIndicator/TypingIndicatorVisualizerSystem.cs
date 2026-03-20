@@ -9,7 +9,7 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
-
+//Fish-start
     public override void Initialize()
     {
         base.Initialize();
@@ -24,7 +24,7 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
         if (TryComp<AppearanceComponent>(uid, out var appearance))
             AppearanceSystem.QueueUpdate(uid, appearance);
     }
-
+//Fish-end
     protected override void OnAppearanceChange(EntityUid uid, TypingIndicatorComponent component, ref AppearanceChangeEvent args)
     {
         if (args.Sprite == null)
@@ -54,7 +54,7 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
 
         SpriteSystem.LayerSetRsi((uid, args.Sprite), layer, proto.SpritePath, proto.TypingState);
         args.Sprite.LayerSetShader(layer, proto.Shader);
-
+//Fish-start
         var offset = proto.Offset;
         if (proto.DirectionalOffsets != null)
         {
@@ -63,7 +63,7 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
                 offset = dirOffset;
         }
         SpriteSystem.LayerSetOffset((uid, args.Sprite), layer, offset);
-
+//Fish-end
         AppearanceSystem.TryGetData<TypingIndicatorState>(uid, TypingIndicatorVisuals.State, out var state);
         SpriteSystem.LayerSetVisible((uid, args.Sprite), layer, state != TypingIndicatorState.None);
         switch (state)
