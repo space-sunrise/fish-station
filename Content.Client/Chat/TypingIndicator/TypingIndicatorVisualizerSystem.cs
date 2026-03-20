@@ -1,4 +1,4 @@
-﻿using Content.Shared.Chat.TypingIndicator;
+using Content.Shared.Chat.TypingIndicator;
 using Robust.Client.GameObjects;
 using Robust.Shared.Prototypes;
 using Content.Shared.Inventory;
@@ -9,6 +9,21 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<TypingIndicatorComponent, MoveEvent>(OnMove);
+    }
+
+    private void OnMove(EntityUid uid, TypingIndicatorComponent component, ref MoveEvent args)
+    {
+        if (args.NewRotation == args.OldRotation)
+            return;
+
+        if (TryComp<AppearanceComponent>(uid, out var appearance))
+            AppearanceSystem.QueueUpdate(uid, appearance);
+    }
 
     protected override void OnAppearanceChange(EntityUid uid, TypingIndicatorComponent component, ref AppearanceChangeEvent args)
     {
@@ -39,7 +54,15 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
 
         SpriteSystem.LayerSetRsi((uid, args.Sprite), layer, proto.SpritePath, proto.TypingState);
         args.Sprite.LayerSetShader(layer, proto.Shader);
-        SpriteSystem.LayerSetOffset((uid, args.Sprite), layer, proto.Offset);
+
+        var offset = proto.Offset;
+        if (proto.DirectionalOffsets != null)
+        {
+            var dir = Transform(uid).LocalRotation.GetDir();
+            if (proto.DirectionalOffsets.TryGetValue(dir, out var dirOffset))
+                offset = dirOffset;
+        }
+        SpriteSystem.LayerSetOffset((uid, args.Sprite), layer, offset);
 
         AppearanceSystem.TryGetData<TypingIndicatorState>(uid, TypingIndicatorVisuals.State, out var state);
         SpriteSystem.LayerSetVisible((uid, args.Sprite), layer, state != TypingIndicatorState.None);

@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -24,6 +24,9 @@ public sealed partial class TypingIndicatorPrototype : IPrototype
 
     [DataField("offset")]
     public Vector2 Offset = new(0, 0);
+
+    [DataField("directionalOffsets")]
+    public Dictionary<Direction, Vector2>? DirectionalOffsets;
 
     [DataField("shader")]
     public string Shader = "shaded";
