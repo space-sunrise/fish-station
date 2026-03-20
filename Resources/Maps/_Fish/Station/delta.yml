@@ -201750,7 +201750,7 @@ entities:
     - type: Transform
       pos: 29.5,35.5
       parent: 2
-- proto: LockerRepresentative
+- proto: LockerRepresentativeFilled
   entities:
   - uid: 17995
     components:

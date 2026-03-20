@@ -95293,7 +95293,7 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-- proto: LockerRepresentative
+- proto: LockerRepresentativeFilled
   entities:
   - uid: 14853
     components:
