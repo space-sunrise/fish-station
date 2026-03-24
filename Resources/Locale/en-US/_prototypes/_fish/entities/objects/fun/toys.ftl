@@ -12,3 +12,5 @@ ent-PlushieOlegmol = Olegmol
     .desc = { ent-BasePlushie.desc }
 ent-PlushieIsaacLow = Plushie Isaac Low
     .desc = { ent-BasePlushie.desc }
+ent-PlushieCentcomMasa = Plushie Centcom Masa
+    .desc = { ent-BasePlushie.desc }
