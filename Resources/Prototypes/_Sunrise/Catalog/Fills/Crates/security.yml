@@ -15,30 +15,14 @@
   id: CrateSecurityGlovesCombat
   parent: CrateSecgear
   name: Gloves Combat crate
-  description: Contains three combat gloves (may include fingerless variants). Requires Security access to open.
+  description: Contains three combat gloves. Requires Security access to open.
   components:
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:AllSelector
         children:
-        - !type:GroupSelector
-          children:
-          - id: ClothingHandsGlovesCombat
-            weight: 0.75
-          - id: ClothingHandsGlovesCombatFingerless
-            weight: 0.25
-        - !type:GroupSelector
-          children:
-          - id: ClothingHandsGlovesCombat
-            weight: 0.5
-          - id: ClothingHandsGlovesCombatFingerless
-            weight: 0.5
-        - !type:GroupSelector
-          children:
-          - id: ClothingHandsGlovesCombat
-            weight: 0.25
-          - id: ClothingHandsGlovesCombatFingerless
-            weight: 0.75
+        - id: ClothingHandsGlovesCombat
+          amount: 3
 
 - type: entity
   id: CrateSecuritySWAT
