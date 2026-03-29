@@ -162,7 +162,6 @@
   categories:
   - DiseaseInfectionCategory
 
-#Sunrise-start
 - type: listing
   id: BaseChance
   name: listing-disease-base-chance-name
@@ -217,5 +216,4 @@
   - DiseaseEvolutionCategory
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 5
-#Sunrise-End
+    stock: 1

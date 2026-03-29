@@ -145,6 +145,7 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+    - FootstepSound
 
 # region Mech Pod
 - type: entity
@@ -331,6 +332,9 @@
     containers:
       mech-battery-slot:
       - PowerCageMedium
+  - type: Tag
+    tags:
+    - DoorBumpOpener # No paint unique ripley
 
 # Ripley MK-II "Death"
 - type: entity
@@ -359,6 +363,10 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+    equipmentWhitelist:
+      tags:
+      - IndustrialMech
+      - CombatMech
   - type: MeleeThrowOnHit
     distance: 1
     speed: 8
@@ -626,10 +634,8 @@
     soundOnReflect: /Audio/_Starlight/Armor/Ricochet/ricochet1_1.ogg
     reflects:
     - NonEnergy
-  # Sunrise-Start
   - type: Loadout
     prototypes: [ MechArmorMediumNTLoadout ]
-  # Sunrise-End
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: Tag

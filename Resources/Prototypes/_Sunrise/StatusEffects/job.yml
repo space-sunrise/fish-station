@@ -16,7 +16,7 @@
   parent: JobIcon
   id: JobIconBlueShield
   icon:
-    sprite: /Textures/_fish/Interface/Misc/job_icons.rsi # Fish-edit
+    sprite: /Textures/_Sunrise/Interface/Misc/job_icons.rsi
     state: BlueShield
 
 
@@ -24,7 +24,7 @@
   parent: JobIcon
   id: JobIconNtrGuard
   icon:
-    sprite: /Textures/_fish/Interface/Misc/job_icons.rsi # Fish-edit
+    sprite: /Textures/_Sunrise/Interface/Misc/job_icons.rsi
     state: NanotrasenGuard
 
 
@@ -32,7 +32,7 @@
   parent: JobIcon
   id: JobIconNtrLeader
   icon:
-    sprite: /Textures/_Fish/Interface/Misc/job_icons.rsi # Fish-edit
+    sprite: /Textures/_Sunrise/Interface/Misc/job_icons.rsi
     state: NanotrasenLeader
 
 
