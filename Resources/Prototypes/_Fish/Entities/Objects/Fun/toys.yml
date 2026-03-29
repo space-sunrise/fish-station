@@ -173,3 +173,18 @@
     - type: Sprite
       sprite: _Fish/Objects/Fun/toys.rsi
       state: SpEktr
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieMasya
+  name: Plushie Masya Armstrong
+  components:
+  - type: Sprite
+    sprite: _Fish/Objects/Fun/toys.rsi
+    state: centcom_masa
+  - type: UseDelay
+    delay: 4
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Sunrise/Voice/Felinid/cat_meow2.ogg
+
