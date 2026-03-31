@@ -14,7 +14,7 @@
     sprite: Clothing/Hands/Gloves/combat.rsi
     state: icon
   product: CrateSecurityGlovesCombat
-  cost: 3800
+  cost: 12000
   category: cargoproduct-category-name-security
   group: market
 
