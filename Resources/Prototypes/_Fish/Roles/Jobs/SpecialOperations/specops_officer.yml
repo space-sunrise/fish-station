@@ -37,7 +37,7 @@
     gloves: ClothingHandsGlovesCombat
 #    outerClothing: ClothingOuterArmorBasicSlim
     id: SpecOpsOfficerPDA
-    ears: ClothingHeadsetFishCentCom
+    ears: ClothingHeadsetAltSpecOpsOfficer
     belt: WeaponPistolN1984
   storage:
     back:

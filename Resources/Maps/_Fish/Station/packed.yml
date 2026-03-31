@@ -72813,7 +72813,7 @@ entities:
     - type: Transform
       pos: 9.5,19.5
       parent: 2
-- proto: LockerRepresentative
+- proto: LockerRepresentativeFilled
   entities:
   - uid: 16294
     components:
