@@ -83,7 +83,7 @@
   #Fish-start
   #effects:
   # - !type:GroupLoadoutEffect
-  #   proto: MisterBlueShit50
+  #   proto: MisterBlueShit5
   #Fish-end
 
 - type: loadout
@@ -108,7 +108,7 @@
   - ClothingBackpackDuffelWeaponRifleAsh12
   effects:
   - !type:GroupLoadoutEffect
-    proto: MisterBlueShit # Fish-edit
+    proto: MisterBlueShit50
 
 - type: loadout
   id: BlueShieldBra
