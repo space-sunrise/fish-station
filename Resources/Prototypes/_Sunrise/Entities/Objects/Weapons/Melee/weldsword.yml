@@ -1,0 +1,150 @@
+- type: entity
+  name: weldsword
+  parent: [ BaseSword, BaseMajorContraband, Welder ]
+  id: Weldsword
+  description: A makeshift alternative to the well known energy sword.
+  components:
+  - type: Tag
+    tags:
+    - Weldsword
+  - type: Sprite
+    sprite: _Sunrise/Objects/Weapons/Melee/weldsword.rsi
+    layers:
+    - state: icon
+    - state: icon_flame
+      visible: false
+      shader: unshaded
+      map: ["enum.ToggleableVisuals.Layer"]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: PointLight
+    enabled: false
+    radius: 3
+  - type: Reflect
+    reflectProb: 0.1
+    spread: 90
+  - type: ItemToggle
+    deactivateUnequippedHand: true
+    predictable: false
+    soundActivate:
+      collection: WelderOn
+      params:
+        variation: 0.125
+        volume: -5
+    soundDeactivate:
+      collection: WelderOff
+      params:
+        variation: 0.125
+        volume: -5
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+        volume: -12
+    activatedDamage:
+        types:
+          Heat: 10
+          Structural: 6
+  - type: MeleeWeapon
+    autoAttack: true
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 4.5
+  - type: Item
+    size: Small
+    sprite: _Sunrise/Objects/Weapons/Melee/weldsword.rsi
+  - type: Tool
+    useSound:
+      collection: Welder
+    qualities: Welding
+  - type: Welder
+  - type: ComponentToggler
+    components:
+    - type: Sharp
+    - type: DisarmMalus
+      malus: 0.6
+    - type: Execution
+      doAfterDuration: 4.0
+  - type: ItemToggleHot
+  - type: Construction
+    graph: WeldswordGraph
+    node: sword
+    
+- type: entity
+  name: double weldsword
+  description: A makeshift alternative to the well known energy sword. Now with two blades.
+  parent: Weldsword
+  id: WeldswordDouble
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Objects/Weapons/Melee/weldsword_double.rsi
+    layers:
+    - state: icon
+    - state: icon_flame
+      visible: false
+      shader: unshaded
+      map: ["enum.ToggleableVisuals.Layer"]
+  - type: Item
+    size: Small
+    sprite: _Sunrise/Objects/Weapons/Melee/weldsword_double_inhands.rsi
+  - type: Tag
+    tags:
+    - WeldswordDouble
+  - type: FlipOnAttack
+    probability: 0.5
+  - type: Reflect
+    reflectProb: 0.2
+  - type: Wieldable
+    wieldSound: null
+  - type: MeleeRequiresWield
+  - type: ItemToggle
+    onUse: false # wielding events control it instead
+    onActivate: false # prevents the weapon from being able to be turned on when it is on the ground
+    deactivateUnequippedHand: true
+    predictable: false
+    soundActivate:
+      collection: WelderOn
+      params:
+        variation: 0.125
+        volume: -5
+    soundDeactivate:
+      collection: WelderOff
+      params:
+        variation: 0.125
+        volume: -5
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 2
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 4.5
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+        volume: -12
+    activatedDamage:
+        types:
+          Heat: 10
+          Structural: 6
+  - type: Construction
+    graph: WeldswordGraph
+    node: double

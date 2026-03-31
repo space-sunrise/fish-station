@@ -648,3 +648,10 @@
 # обозначает вещь, как твёрдый шлем
 - type: Tag
   id: Helmet
+
+# Меч из сварки и двойной меч (для крафтов)
+- type: Tag
+  id: Weldsword
+
+- type: Tag
+  id: WeldswordDouble
