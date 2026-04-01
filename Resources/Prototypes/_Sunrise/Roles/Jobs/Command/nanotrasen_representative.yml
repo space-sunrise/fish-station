@@ -11,10 +11,26 @@
   radioBold: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
-  #Fish-start
-  accessGroups:
-  - AllAccess
-  #Fish-end
+  - Command
+  - Bar
+  - Service
+  - Maintenance
+  - Janitor
+  - Theatre
+  - Kitchen
+  - Chapel
+  - Hydroponics
+  - External
+  - Chemistry
+  - Engineering
+  - Research
+  - Salvage
+  - Cargo
+  - Atmospherics
+  - Cargo
+  - Medical
+  - BlueShield
+  - BlueShieldEnsign
   special:
     - !type:AddImplantSpecial
       implants: [ MindShieldImplant, TrackingImplant, DeathRattleImplantBlueShield ]
