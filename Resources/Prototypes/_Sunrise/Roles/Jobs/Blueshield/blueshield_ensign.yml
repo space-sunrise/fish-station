@@ -19,7 +19,7 @@
   accessGroups:
   - AllAccess
   #access: # Fish-edit
-  #- CentralCommand
+  #- CentralCommand # Fish-edit
   special:
     - !type:AddImplantSpecial
       implants: [ MindShieldImplant ]
