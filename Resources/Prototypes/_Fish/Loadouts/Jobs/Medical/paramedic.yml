@@ -10,7 +10,7 @@
       neck: ClothingNeckCloakParamedicFish
 
 - type: loadout
-  id: ParamedicHardSuitFish
+  id: ClothingOuterHardsuitVoidParamedFish
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
@@ -18,5 +18,5 @@
       role: JobParamedic
       time: 180000 # 50 hours
   equipment:
-      outerClothing: ClothingOuterHardsuitVoidParamedFish
+    outerClothing: ClothingOuterHardsuitVoidParamedFish
 
