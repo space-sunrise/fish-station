@@ -1,7 +1,6 @@
 - type: entity
   id: KitsuneFoxLight
-  name: ent-KitsuneFoxLight
-  description: "Мистический огонек голубого пламени. Он не греет."
+
   components:
   - type: Sprite
     sprite: Fish/kitsune_fire.rsi

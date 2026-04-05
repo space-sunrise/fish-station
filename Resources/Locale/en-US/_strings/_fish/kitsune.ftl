@@ -20,10 +20,10 @@ kitsune-lights-action-name = Fox Lights
 kitsune-lights-action-description = Summon dancing wisps of fox fire to light your way.
 
 ent-KitsuneFoxLight = Fox Light
-ent-KitsuneFoxLight-desc = A mystical wisp of blue fire.
+    .desc = A mystical wisp of blue fire. It doesn't emit any heat.
 
 ent-MacKitsune = Kitsune
-ent-MacKitsune-desc = A nine-tailed fox spirit.
+    .desc = A nine-tailed fox spirit.
 
 species-name-kitsune = Kitsune
 
