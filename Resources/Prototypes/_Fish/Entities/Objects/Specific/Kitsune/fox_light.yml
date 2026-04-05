@@ -1,7 +1,7 @@
 - type: entity
   id: KitsuneFoxLight
-  name: fox light
-  description: A mystical wisp of blue fire.
+  name: ent-KitsuneFoxLight
+  description: "Мистический огонек голубого пламени. Он не греет."
   components:
   - type: Sprite
     sprite: Fish/kitsune_fire.rsi
