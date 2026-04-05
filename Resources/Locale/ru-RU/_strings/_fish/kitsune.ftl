@@ -44,7 +44,7 @@ kitsune-lights-action-name = Блуждающий огонёк
 kitsune-lights-action-description = Призовите блуждающий огонёк на одну минуту, чтобы осветить свой путь.
 
 ent-KitsuneFoxLight = Блуждающий огонёк
-ent-KitsuneFoxLight-desc = Мистический огонек голубого пламени.
+ent-KitsuneFoxLight-desc = Мистический огонек голубого пламени. Он не горячий на ощупь.
 
 ent-MacKitsune = Кицунэ
 ent-MacKitsune-desc = Девятихвостая лиса.
