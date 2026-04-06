@@ -76,6 +76,8 @@
   - GroupSpeciesBreathTool
   - Bra
   - Pants
+  - BlueShieldBra # fish-edit
+  - BlueShieldPants # fish-edit
   - Socks
   - Contributors
 
@@ -86,6 +88,7 @@
   - BlueShieldJumpsuit
   - BlueShieldBackpack
   - BlueShieldBelt
+  - BlueshieldGun
   - BlueShieldBra
   - BlueShieldPants
   - SunriseTrinkets
@@ -119,10 +122,14 @@
   - BlueShieldBelt
   - BlueShieldNeck
   - Trinkets
+  - BlueshieldGun
+  - SunriseTrinkets
   - SurvivalSecurity
   - GroupSpeciesBreathTool
   - Bra
   - Pants
+  - BlueShieldBra
+  - BlueShieldPants
   - Socks
 # fish-end
 

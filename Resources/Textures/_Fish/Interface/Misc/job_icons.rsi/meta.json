@@ -46,6 +46,12 @@
         {
             "name": "NanotrasenGuard"
         },
+	{
+            "name": "NanoTrasen_representative"
+        },
+	{
+            "name": "NTR_operative"
+        },
         {
             "name": "NanotrasenLeader"
         }

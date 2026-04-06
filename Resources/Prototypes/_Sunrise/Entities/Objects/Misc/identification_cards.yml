@@ -51,10 +51,10 @@
     layers:
     - state: blue
     - state: department-side
-      color: *color-centcomm
-    - sprite: *sunrise-icon-rsi
-      offset: *icon-offset
-      state: BlueShield
+      color: "#212121"
+    - sprite: _Fish/Interface/Misc/job_icons.rsi #Fish-start
+      offset: -0.19, 0
+      state: NTR_operative # Fish-end
   - type: Item
     heldPrefix: blue
 #Fish-start
@@ -189,10 +189,10 @@
     layers:
     - state: gold
     - state: department-side
-      color: *color-centcomm
-    - sprite: *icon-rsi
-      offset: *icon-offset
-      state: Nanotrasen
+      color: "#212121" #Fish-start
+    - sprite: _Fish/Interface/Misc/job_icons.rsi
+      offset: -0.19, 0
+      state: NanoTrasen_representative # Fish-end
   - type: Item
     heldPrefix: gold
   - type: PresetIdCard
