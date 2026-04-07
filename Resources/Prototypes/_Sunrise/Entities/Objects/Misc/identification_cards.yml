@@ -51,10 +51,10 @@
     layers:
     - state: blue
     - state: department-side
-      color: *color-centcomm
-    - sprite: *sunrise-icon-rsi
-      offset: *icon-offset
-      state: BlueShield
+      color: "#212121"
+    - sprite: _Fish/Interface/Misc/job_icons.rsi #Fish-start
+      offset: -0.19, 0
+      state: NTR_operative # Fish-end
   - type: Item
     heldPrefix: blue
 #Fish-start
@@ -189,10 +189,10 @@
     layers:
     - state: gold
     - state: department-side
-      color: *color-centcomm
-    - sprite: *icon-rsi
-      offset: *icon-offset
-      state: Nanotrasen
+      color: "#212121" #Fish-start
+    - sprite: _Fish/Interface/Misc/job_icons.rsi
+      offset: -0.19, 0
+      state: NanoTrasen_representative # Fish-end
   - type: Item
     heldPrefix: gold
   - type: PresetIdCard
@@ -548,3 +548,63 @@
   - type: IdCard
     jobTitle: job-name-senior-courier
     jobIcon: JobIconCargoTechnician
+
+- type: entity
+  parent: [IDCardStandard, BaseTSFContraband]
+  id: TSFIdCard
+  name: TSF ID card
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Objects/Misc/id_cards.rsi
+    layers:
+    - state: tsf
+  - type: IdCard
+    jobIcon: JobIconTSF
+
+- type: entity
+  parent: TSFIdCard
+  id: TSFIdCardTrader
+  name: TSF Trader ID card
+  components:
+  - type: IdCard
+    jobTitle: job-title-tsf-trader
+
+- type: entity
+  parent: [IDCardStandard, BaseTSFContraband]
+  id: TSFIdCardMarine
+  name: dog tags
+  suffix: TSF
+  description: A marine dog tags.
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Clothing/Neck/Misc/dogtags.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    slots:
+    - idcard
+    sprite: _Sunrise/Clothing/Neck/Misc/dogtags.rsi
+  - type: IdCard
+    jobTitle: job-title-tsf-marine
+    jobIcon: JobIconTSF
+  - type: Access
+    groups:
+    - AllAccess
+
+- type: entity
+  parent: TSFIdCardMarine
+  id: TSFIdCardLeader
+  suffix: TSF
+  name: team leader dog tags
+  components:
+  - type: IdCard
+    jobTitle: job-title-tsf-marine-leader
+
+- type: entity
+  parent: TSFIdCardMarine
+  id: TSFIdCardElite
+  name: MARSOC dog tags
+  suffix: TSF
+  components:
+  - type: IdCard
+    jobTitle: job-title-tsf-MARSOC
