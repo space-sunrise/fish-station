@@ -45,6 +45,12 @@ namespace Content.Shared.Storage
         public Dictionary<string, List<ItemStorageLocation>> SavedLocations = new();
 
         /// <summary>
+        /// Item currently prioritized to be taken out last from the storage, without changing its physical order.
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        public EntityUid? PriorityStoredItem;
+
+        /// <summary>
         /// A list of boxes that comprise a combined grid that determines the location that items can be stored.
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
@@ -259,6 +265,20 @@ namespace Content.Shared.Storage
         public readonly NetEntity Storage;
 
         public StorageSaveItemLocationEvent(NetEntity item, NetEntity storage)
+        {
+            Item = item;
+            Storage = storage;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class StorageMoveItemToEndEvent : EntityEventArgs
+    {
+        public readonly NetEntity Item;
+
+        public readonly NetEntity Storage;
+
+        public StorageMoveItemToEndEvent(NetEntity item, NetEntity storage)
         {
             Item = item;
             Storage = storage;

@@ -177,7 +177,14 @@ binds:
   key: MouseRight
 - function: SaveItemLocation
   type: State
+  key: L
+  canFocus: true
+  priority: 10
+- function: MoveItemToEnd
+  type: State
   key: MouseMiddle
+  canFocus: true
+  priority: 10
 - function: Drop
   type: State
   key: Q

@@ -165,6 +165,7 @@ public abstract class SharedStorageSystem : EntitySystem
         SubscribeAllEvent<StorageSetItemLocationEvent>(OnSetItemLocation);
         SubscribeAllEvent<StorageInsertItemIntoLocationEvent>(OnInsertItemIntoLocation);
         SubscribeAllEvent<StorageSaveItemLocationEvent>(OnSaveItemLocation);
+        SubscribeAllEvent<StorageMoveItemToEndEvent>(OnMoveItemToEnd);
 
         SubscribeLocalEvent<ItemSizeChangedEvent>(OnItemSizeChanged);
 
@@ -855,6 +856,31 @@ public abstract class SharedStorageSystem : EntitySystem
             return;
 
         SaveItemLocation(storage!, item.Owner);
+    }
+
+    private void OnMoveItemToEnd(StorageMoveItemToEndEvent msg, EntitySessionEventArgs args)
+    {
+        if (!ValidateInput(args, msg.Storage, msg.Item, out var player, out var storage, out var item))
+        {
+            Logger.Warning($"[Storage] MoveItemToEnd validation failed for player {args.SenderSession}");
+            return;
+        }
+
+        if (!storage.Comp.Container.Contains(item.Owner))
+        {
+            Logger.Warning($"[Storage] Item {item.Owner} not in container {storage.Owner}");
+            return;
+        }
+
+        if (!storage.Comp.StoredItems.ContainsKey(item.Owner))
+        {
+            Logger.Warning($"[Storage] Item {item.Owner} has no stored location in {storage.Owner}");
+            return;
+        }
+
+        storage.Comp.PriorityStoredItem = item.Owner;
+        Logger.Debug($"[Storage] Marked item {item.Owner} as priority last in storage {storage.Owner}");
+        UpdateUI(storage!);
     }
 
     private void OnBoundUIOpen(Entity<StorageComponent> ent, ref BoundUIOpenedEvent args)

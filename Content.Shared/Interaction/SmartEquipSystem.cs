@@ -12,6 +12,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Player;
+using System.Linq;
 
 namespace Content.Shared.Interaction;
 
@@ -153,7 +154,16 @@ public sealed class SmartEquipSystem : EntitySystem
                     _popup.PopupClient(emptyEquipmentSlotString, uid, uid);
                     return;
                 case null:
-                    var removing = storage.Container.ContainedEntities[^1];
+                    var priority = storage.PriorityStoredItem;
+                    var removing = priority != null && storage.Container.Contains(priority)
+                        ? priority.Value
+                        : storage.Container.ContainedEntities[^1];
+
+                    if (priority != null && removing == priority.Value)
+                    {
+                        storage.PriorityStoredItem = null;
+                    }
+
                     _container.RemoveEntity(slotItem, removing);
                     _hands.TryPickup(uid, removing, handsComp: hands);
                     return;
