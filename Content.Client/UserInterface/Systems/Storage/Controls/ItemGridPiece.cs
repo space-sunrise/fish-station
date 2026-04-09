@@ -48,6 +48,8 @@ public sealed class ItemGridPiece : Control, IEntityControl
     private Texture? _markedFirstTexture;
     private readonly string _markedSecondTexturePath = "Storage/marked_second";
     private Texture? _markedSecondTexture;
+    private readonly string _markedPriorityTexturePath = "Storage/marked_priority";
+    private Texture? _markedPriorityTexture;
     #endregion
 
     public ItemGridPiece(Entity<ItemComponent> entity, ItemStorageLocation location,  IEntityManager entityManager)
@@ -94,6 +96,7 @@ public sealed class ItemGridPiece : Control, IEntityControl
         _bottomRightTexture = Theme.ResolveTextureOrNull(_bottomRightTexturePath)?.Texture;
         _markedFirstTexture = Theme.ResolveTextureOrNull(_markedFirstTexturePath)?.Texture;
         _markedSecondTexture = Theme.ResolveTextureOrNull(_markedSecondTexturePath)?.Texture;
+        _markedPriorityTexture = Theme.ResolveTextureOrNull(_markedPriorityTexturePath)?.Texture;
     }
 
     protected override void Draw(DrawingHandleScreen handle)
@@ -207,6 +210,7 @@ public sealed class ItemGridPiece : Control, IEntityControl
             {
                 ItemGridPieceMarks.First => _markedFirstTexture,
                 ItemGridPieceMarks.Second => _markedSecondTexture,
+                ItemGridPieceMarks.Priority => _markedPriorityTexture,
                 _ => null,
             };
 
@@ -304,4 +308,5 @@ public enum ItemGridPieceMarks
 {
     First,
     Second,
+    Priority
 }

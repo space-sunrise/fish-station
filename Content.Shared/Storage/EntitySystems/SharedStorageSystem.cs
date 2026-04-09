@@ -73,6 +73,7 @@ public abstract class SharedStorageSystem : EntitySystem
     [Dependency] private   readonly TagSystem _tag = default!;
     [Dependency] protected readonly UseDelaySystem UseDelay = default!;
 
+
     private EntityQuery<ItemComponent> _itemQuery;
     private EntityQuery<StackComponent> _stackQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -165,7 +166,7 @@ public abstract class SharedStorageSystem : EntitySystem
         SubscribeAllEvent<StorageSetItemLocationEvent>(OnSetItemLocation);
         SubscribeAllEvent<StorageInsertItemIntoLocationEvent>(OnInsertItemIntoLocation);
         SubscribeAllEvent<StorageSaveItemLocationEvent>(OnSaveItemLocation);
-        SubscribeAllEvent<StorageMoveItemToEndEvent>(OnMoveItemToEnd);
+        SubscribeAllEvent<StorageToggleItemPriorityEvent>(OnToggleItemPriority);
 
         SubscribeLocalEvent<ItemSizeChangedEvent>(OnItemSizeChanged);
 
@@ -858,28 +859,35 @@ public abstract class SharedStorageSystem : EntitySystem
         SaveItemLocation(storage!, item.Owner);
     }
 
-    private void OnMoveItemToEnd(StorageMoveItemToEndEvent msg, EntitySessionEventArgs args)
+    private void OnToggleItemPriority(StorageToggleItemPriorityEvent msg, EntitySessionEventArgs args)
     {
         if (!ValidateInput(args, msg.Storage, msg.Item, out var player, out var storage, out var item))
         {
-            Logger.Warning($"[Storage] MoveItemToEnd validation failed for player {args.SenderSession}");
             return;
         }
 
         if (!storage.Comp.Container.Contains(item.Owner))
         {
-            Logger.Warning($"[Storage] Item {item.Owner} not in container {storage.Owner}");
             return;
         }
 
         if (!storage.Comp.StoredItems.ContainsKey(item.Owner))
         {
-            Logger.Warning($"[Storage] Item {item.Owner} has no stored location in {storage.Owner}");
             return;
         }
 
-        storage.Comp.PriorityStoredItem = item.Owner;
-        Logger.Debug($"[Storage] Marked item {item.Owner} as priority last in storage {storage.Owner}");
+        var priorityComp = EnsureComp<PersonalStoragePriorityComponent>(player.Owner);
+
+        if (priorityComp.Priorities.TryGetValue(storage.Owner, out var current) && current == item.Owner)
+        {
+            priorityComp.Priorities.Remove(storage.Owner);
+        }
+        else
+        {
+            priorityComp.Priorities[storage.Owner] = item.Owner;
+        }
+
+        Dirty(player.Owner, priorityComp);
         UpdateUI(storage!);
     }
 

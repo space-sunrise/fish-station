@@ -39,13 +39,11 @@ public sealed class StorageUIController : UIController, IOnSystemChanged<Storage
     [Dependency] private readonly IConfigurationManager _configuration = default!;
     [Dependency] private readonly IInputManager _input = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly CloseRecentWindowUIController _closeRecentWindowUIController = default!;
     [UISystemDependency] private readonly StorageSystem _storage = default!;
     [UISystemDependency] private readonly UserInterfaceSystem _ui = default!;
 
     private readonly DragDropHelper<ItemGridPiece> _menuDragHelper;
-    private ISawmill _sawmill = default!;
 
     public ItemGridPiece? DraggingGhost => _menuDragHelper.Dragged;
     public Angle DraggingRotation = Angle.Zero;
@@ -66,8 +64,6 @@ public sealed class StorageUIController : UIController, IOnSystemChanged<Storage
     public override void Initialize()
     {
         base.Initialize();
-
-        _sawmill = _logManager.GetSawmill("storage");
 
         _configuration.OnValueChanged(CCVars.StaticStorageUI, OnStaticStorageChanged, true);
         _configuration.OnValueChanged(CCVars.OpaqueStorageWindow, OnOpaqueWindowChanged, true);
@@ -247,8 +243,6 @@ public sealed class StorageUIController : UIController, IOnSystemChanged<Storage
         if (IsDragging || !window.IsOpen)
             return;
 
-        _sawmill.Debug($"[StorageUIController.OnPiecePressed] Got args.Function = {args.Function}");
-
         if (args.Function == ContentKeyFunctions.MoveStoredItem)
         {
             DraggingRotation = control.Location.Rotation;
@@ -267,16 +261,13 @@ public sealed class StorageUIController : UIController, IOnSystemChanged<Storage
                 EntityManager.GetNetEntity(storage)));
             args.Handle();
         }
-        else if (args.Function == ContentKeyFunctions.MoveItemToEnd)
+        else if (args.Function == ContentKeyFunctions.ToggleItemPriority)
         {
-            _sawmill.Debug($"[StorageUIController] MoveItemToEnd triggered for item {control.Entity}");
-            
             if (window.StorageEntity is not {} storage)
                 return;
 
-            _sawmill.Debug($"[StorageUIController] Raising StorageMoveItemToEndEvent");
-            EntityManager.RaisePredictiveEvent(new StorageMoveItemToEndEvent(
-                EntityManager.GetNetEntity(control.Entity),
+             EntityManager.RaisePredictiveEvent(new StorageToggleItemPriorityEvent(
+                 EntityManager.GetNetEntity(control.Entity),
                 EntityManager.GetNetEntity(storage)));
             args.Handle();
         }

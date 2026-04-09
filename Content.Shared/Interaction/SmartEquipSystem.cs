@@ -7,6 +7,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Content.Shared.Storage;
+using Content.Shared.Storage.Components;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
@@ -34,11 +35,11 @@ public sealed class SmartEquipSystem : EntitySystem
     public override void Initialize()
     {
         CommandBinds.Builder
-            .Bind(ContentKeyFunctions.SmartEquipBackpack, InputCmdHandler.FromDelegate(HandleSmartEquipBackpack, handle: false, outsidePrediction: false))
-            .Bind(ContentKeyFunctions.SmartEquipBelt, InputCmdHandler.FromDelegate(HandleSmartEquipBelt, handle: false, outsidePrediction: false))
-            .Bind(ContentKeyFunctions.SmartEquipPocket1, InputCmdHandler.FromDelegate(HandleSmartEquipPocket1, handle: false, outsidePrediction: false))
-            .Bind(ContentKeyFunctions.SmartEquipPocket2, InputCmdHandler.FromDelegate(HandleSmartEquipPocket2, handle: false, outsidePrediction: false))
-            .Bind(ContentKeyFunctions.SmartEquipSuitStorage, InputCmdHandler.FromDelegate(HandleSmartEquipSuitStorage, handle: false, outsidePrediction: false))
+            .Bind(ContentKeyFunctions.SmartEquipBackpack, InputCmdHandler.FromDelegate(HandleSmartEquipBackpack, handle: false, outsidePrediction: true))
+            .Bind(ContentKeyFunctions.SmartEquipBelt, InputCmdHandler.FromDelegate(HandleSmartEquipBelt, handle: false, outsidePrediction: true))
+            .Bind(ContentKeyFunctions.SmartEquipPocket1, InputCmdHandler.FromDelegate(HandleSmartEquipPocket1, handle: false, outsidePrediction: true))
+            .Bind(ContentKeyFunctions.SmartEquipPocket2, InputCmdHandler.FromDelegate(HandleSmartEquipPocket2, handle: false, outsidePrediction: true))
+            .Bind(ContentKeyFunctions.SmartEquipSuitStorage, InputCmdHandler.FromDelegate(HandleSmartEquipSuitStorage, handle: false, outsidePrediction: true))
             .Register<SmartEquipSystem>();
     }
 
@@ -154,16 +155,24 @@ public sealed class SmartEquipSystem : EntitySystem
                     _popup.PopupClient(emptyEquipmentSlotString, uid, uid);
                     return;
                 case null:
-                    var priority = storage.PriorityStoredItem;
-                    var removing = priority != null && storage.Container.Contains(priority)
-                        ? priority.Value
-                        : storage.Container.ContainedEntities[^1];
-
-                    if (priority != null && removing == priority.Value)
+                    // We determine which item to take IMMEDIATELY, before any operations with the container
+                    EntityUid removing;
+                    
+                    // The priority item is checked first
+                    if (TryComp<PersonalStoragePriorityComponent>(uid, out var priorityComp) &&
+                        priorityComp.Priorities.TryGetValue(slotItem, out var priority) &&
+                        storage.Container.Contains(priority))
                     {
-                        storage.PriorityStoredItem = null;
+                        removing = priority;
+                        // We don’t clear the priority, it remains until the user disables it
+                    }
+                    else
+                    {
+                        // Fallback to the last added item
+                        removing = storage.Container.ContainedEntities[^1];
                     }
 
+                    // We delete and pick up atomically after we have determined exactly what to take
                     _container.RemoveEntity(slotItem, removing);
                     _hands.TryPickup(uid, removing, handsComp: hands);
                     return;
