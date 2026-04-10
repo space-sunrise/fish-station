@@ -5,6 +5,18 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobParamedic
+      time: 36000 # 10 hours
+  equipment:
+      neck: ClothingNeckCloakParamedicFish
+
+- type: loadout
+  id: ClothingOuterHardsuitVoidParamedFish
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobParamedic
       time: 180000 # 50 hours
   equipment:
-    neck: ClothingNeckCloakParamedicFish
+    outerClothing: ClothingOuterHardsuitVoidParamedFish
+
