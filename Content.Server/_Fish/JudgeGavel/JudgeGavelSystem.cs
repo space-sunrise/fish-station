@@ -14,6 +14,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Warps;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -29,17 +30,16 @@ public sealed class JudgeGavelSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly TransformSystem _xformSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly GodmodeSystem _godmode = default!;
+    [Dependency] private readonly PhysicsSystem _physics = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        
+
         SubscribeLocalEvent<JudgeGavelComponent, UseInHandEvent>(OnUseInHand);
-        SubscribeLocalEvent<JudgeGavelComponent, ActivateInWorldEvent>(OnActivate);
         SubscribeLocalEvent<JudgeGavelComponent, JudgeGavelDoAfterEvent>(OnDoAfter);
     }
 
@@ -48,13 +48,8 @@ public sealed class JudgeGavelSystem : EntitySystem
         if (args.Handled)
             return;
 
-        StartActivation(uid, component, args.User);
-        args.Handled = true;
-    }
-
-    private void OnActivate(EntityUid uid, JudgeGavelComponent component, ActivateInWorldEvent args)
-    {
-        if (args.Handled)
+        // Prevent multiple concurrent swings
+        if (component.ActiveDoAfter != null)
             return;
 
         StartActivation(uid, component, args.User);
@@ -75,11 +70,16 @@ public sealed class JudgeGavelSystem : EntitySystem
             NeedHand = true
         };
 
-        _doAfter.TryStartDoAfter(doAfterArgs);
+        if (_doAfter.TryStartDoAfter(doAfterArgs, out var doAfterId))
+        {
+            component.ActiveDoAfter = doAfterId;
+        }
     }
 
     private void OnDoAfter(EntityUid uid, JudgeGavelComponent component, JudgeGavelDoAfterEvent args)
     {
+        component.ActiveDoAfter = null;
+
         if (args.Cancelled || args.Handled)
             return;
 
@@ -87,11 +87,9 @@ public sealed class JudgeGavelSystem : EntitySystem
         var identifier = component.CourtroomBeaconId;
 
         // 1. Destination Discovery: WarpPoint or Beacon lookup
-        // Priority 1: WarpPoint (Abductor method)
         var warpQuery = EntityQueryEnumerator<WarpPointComponent, TransformComponent>();
         while (warpQuery.MoveNext(out _, out var warp, out var xform))
         {
-            // Match exactly or check for the specific Russian name found in _Fish centcomm.yml
             if (warp.Location == identifier || (identifier == "station-beacon-courtroom" && warp.Location == "Секторальный суд"))
             {
                 targetMapCoords = _transform.ToMapCoordinates(xform.Coordinates);
@@ -113,7 +111,7 @@ public sealed class JudgeGavelSystem : EntitySystem
             }
         }
 
-        // 2. Fallback: Grid + Coordinates lookup (Hardcoded position for _Fish centcomm courtroom)
+        // 2. Fallback: Grid + Coordinates lookup
         if (targetMapCoords == null)
         {
             EntityUid? centcommGrid = null;
@@ -138,19 +136,25 @@ public sealed class JudgeGavelSystem : EntitySystem
             return;
 
         var sourceCoords = _transform.GetMapCoordinates(uid);
-        
+
         // Play effect at source
         Spawn("RadiationPulse", sourceCoords);
 
+        // Deduplicate entities in range to avoid multiple teleports per entity (prevents gibbing/cloning)
+        var processed = new HashSet<EntityUid>();
         var ents = _lookup.GetEntitiesInRange(sourceCoords, component.Range);
+
         foreach (var mob in ents)
         {
+            if (!processed.Add(mob))
+                continue;
+
             if (!HasComp<MindContainerComponent>(mob))
                 continue;
 
             // Apply temporary Godmode to prevent collision deaths during teleport overlapping
             _godmode.EnableGodmode(mob);
-            
+
             // Scheduling removal in 2 seconds
             Timer.Spawn(TimeSpan.FromSeconds(2), () =>
             {
@@ -164,6 +168,13 @@ public sealed class JudgeGavelSystem : EntitySystem
             // Spread out targets within 3 tiles to prevent stacking
             var offset = _random.NextVector2(3.0f);
             var finalTarget = targetMapCoords.Value.Offset(offset);
+
+            // Clear velocity before teleporting to prevent cannonballing into walls/others upon arrival
+            if (TryComp<PhysicsComponent>(mob, out var physics))
+            {
+                _physics.SetLinearVelocity(mob, System.Numerics.Vector2.Zero, body: physics);
+                _physics.SetAngularVelocity(mob, 0f, body: physics);
+            }
 
             // Teleport
             _xformSystem.SetMapCoordinates(mob, finalTarget);

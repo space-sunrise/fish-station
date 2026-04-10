@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.DoAfter;
 using Content.Shared.Pinpointer;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
@@ -30,4 +31,9 @@ public sealed partial class JudgeGavelComponent : Component
 
     [DataField]
     public float DoAfterTime = 3f;
+
+    /// <summary>
+    ///     Tracks the current active DoAfter to prevent multiple concurrent swings.
+    /// </summary>
+    public DoAfterId? ActiveDoAfter;
 }
