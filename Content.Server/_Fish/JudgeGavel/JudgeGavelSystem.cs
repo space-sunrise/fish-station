@@ -149,8 +149,9 @@ public sealed class JudgeGavelSystem : EntitySystem
             if (!processed.Add(mob))
                 continue;
 
-            if (!HasComp<MindContainerComponent>(mob))
+            if (!TryComp<MindContainerComponent>(mob, out var mind) || !mind.HasMind)
                 continue;
+
 
             // Apply temporary Godmode to prevent collision deaths during teleport overlapping
             _godmode.EnableGodmode(mob);
