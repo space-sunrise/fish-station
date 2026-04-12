@@ -1,0 +1,139 @@
+# Centcomm Loadouts (Fish)
+
+# --- Jumpsuits ---
+
+- type: loadout
+  id: CentCommOfficialJumpsuitFish
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficialFish
+
+- type: loadout
+  id: CentCommOfficialJumpskirtFish
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCentcomOfficialFish
+
+- type: loadout
+  id: CentCommAssistantJumpsuitFish
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomAssistantFish
+
+- type: loadout
+  id: SpecOpsOfficerUniformBlackFish
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficialBlackFish
+
+# --- Shoes ---
+
+- type: loadout
+  id: CentCommBootsFish
+  equipment:
+    shoes: ClothingShoesBootsCentcomFish
+
+# --- Gloves ---
+
+- type: loadout
+  id: CentCommGlovesWhiteFish
+  equipment:
+    gloves: ClothingHandsGlovesCentcomWhiteFish
+
+# --- Outer Clothing ---
+
+- type: loadout
+  id: CentcommCoatFish
+  equipment:
+    outerClothing: ClothingOuterCoatCentcoatFish
+
+- type: loadout
+  id: CentcommArmorFish
+  equipment:
+    outerClothing: ClothingOuterArmorCentcomFish
+
+# --- Neck ---
+
+- type: loadout
+  id: CentcommCloakFormalFish
+  equipment:
+    neck: ClothingNeckCloakCentcomFormalFish
+
+- type: loadout
+  id: CentcommCloakFormalLongFish
+  equipment:
+    neck: ClothingNeckCloakCentcomFormalLongFish
+
+- type: loadout
+  id: CentcommMantleFish
+  equipment:
+    neck: ClothingNeckMantleCentcomFish
+
+- type: loadout
+  id: CentcommMantleShoulderFish
+  equipment:
+    neck: ClothingNeckMantleCentcomShoulderFish
+
+# --- Hats ---
+
+- type: loadout
+  id: CentcommHatFish
+  equipment:
+    head: ClothingHeadHatCentcomFish
+
+- type: loadout
+  id: CentcommCapFish
+  equipment:
+    head: ClothingHeadHatCentcomCapFish
+
+# --- Back ---
+
+- type: loadout
+  id: CentcommSatchelFish
+  equipment:
+    back: ClothingBackpackSatchelCentcomFish
+
+# --- Weapons ---
+
+- type: loadout
+  id: CentcommSwordFish
+  equipment:
+    pocket1: WeaponMeleeSwordCentcomFish
+
+# --- Groups ---
+
+- type: loadoutGroup
+  id: CentCommOperatorShoesFish
+  name: loadout-group-centcomm-shoes
+  loadouts:
+  - CentCommBootsFish
+
+- type: loadoutGroup
+  id: CentCommOperatorGlovesFish
+  name: loadout-group-centcomm-gloves
+  loadouts:
+  - CentCommGlovesWhiteFish
+
+- type: loadoutGroup
+  id: CentCommOperatorOuterFish
+  name: loadout-group-centcomm-outer
+  loadouts:
+  - CentcommCoatFish
+  - CentcommArmorFish
+
+- type: loadoutGroup
+  id: CentCommOperatorNeckFish
+  name: loadout-group-centcomm-neck
+  loadouts:
+  - CentcommCloakFormalFish
+  - CentcommCloakFormalLongFish
+  - CentcommMantleFish
+  - CentcommMantleShoulderFish
+
+- type: loadoutGroup
+  id: CentCommOperatorBackFish
+  name: loadout-group-centcomm-back
+  loadouts:
+  - CentcommSatchelFish
+
+- type: loadoutGroup
+  id: CentCommOperatorWeaponsFish
+  name: loadout-group-centcomm-weapons
+  loadouts:
+  - CentcommSwordFish

@@ -1,0 +1,27 @@
+Список текстур для предметов, распиханых по папкам: (Можете использоватть как список по которому отмечать сделаные будете)
+
+1. Униформа ОЦК (штаны)                                                        CENTком переспрайт\Textures\Clothing\Uniforms\Jumpsuit\centcom_official.rsi
+2. Униформа ОЦК (юбка)                                                         CENTком переспрайт\Textures\Clothing\Uniforms\Jumpskirt\centcom_official.rsi
+3. Униформа ассистента ЦК (зелёный свитер)                                     CENTком переспрайт\Textures\Clothing\Uniforms\Jumpsuit\centcom_assistant.rsi
+4. Униформа ОСО                                                                CENTком переспрайт\Textures\Clothing\Uniforms\Jumpsuit\centcom_official_black.rsi
+5. Сапоги ЦК                                                                   CENTком переспрайт\Textures\Clothing\Shoes\Boots\centccom.rsi
+6. Белые перчатки ЦК                                                           CENTком переспрайт\Textures\Clothing\Hands\Gloves\centcom_white.rsi
+7. Тренч ЦК                                                                    CENTком переспрайт\Textures\Clothing\OuterClothing\Coats\centcoat.rsi
+8. Плащ ЦК (под стиль оригинальных плащей)                                     CENTком переспрайт\Textures\Clothing\Neck\Cloaks\centcomcloakformal.rsi
+9. Плащ ЦК (более длинный ниспадающий)                                         CENTком переспрайт\Textures\Clothing\Neck\Cloaks\centcomcloakformal_long.rsi
+10. Накидка ЦК                                                                 CENTком переспрайт\Textures\Clothing\Neck\Mantles\centcommantle.rsi
+11. Накидка ЦК на одно плечо (как у КМ-а)                                      CENTком переспрайт\Textures\Clothing\Neck\Mantles\centcommantle_shoulder.rsi
+12. Фуражка ЦК                                                                 CENTком переспрайт\Textures\Clothing\Head\Hats\centcom.rsi
+13. Пилотка ЦК                                                                 CENTком переспрайт\Textures\Clothing\Head\Hats\centcomсcap.rsi
+14. Сумка ЦК                                                                   CENTком переспрайт\Textures\Clothing\Back\Satchels\centcom.rsi
+15. Бронежилет ЦК                                                              CENTком переспрайт\Textures\Clothing\OuterClothing\Armor\centcom_armor.rsi
+16. Кобура N1984                                                               CENTком переспрайт\Textures\Clothing\Belt\centcom_N1984_sheath.rsi
+17. Разложенный N1984 с кобурой-прикладом (попробуйте наследовать с g36)       CENTком переспрайт\Textures\Objects\Weapons\Guns\Pistols\N1984-holster-butt
+18. Сложенный N1984 с кобурой-прикладом                                        CENTком переспрайт\Textures\Clothing\Belt\centcom_N1984_holster-butt.rsi
+19. Шпага ЦК                                                                   CENTком переспрайт\Textures\Objects\Weapons\Melee
+20. Ножны Шпаги ЦК                                                             CENTком переспрайт\Textures\Clothing\Belt\centcom_sheath.rsi
+
+
+--------------------------------
+Дополнительная записка:
+В ходе нарисовки и респрайта спрайтов, нашёл ошибку у спрайта equipped-NECK в папке centcom_officer_black.rsi по пути Resources\Textures\_Sunrise\Clothing\Neck\Cloaks\centcom_officer_black.rsi. Исправленная версия прилагается.
