@@ -4,6 +4,8 @@
   name: kitsune-mob-name
   description: kitsune-mob-description
   components:
+  - type: Inventory
+    templateId: kitsune_pet
   - type: Sprite
     drawdepth: Mobs
     sprite: _Fish/nine_tailed_fox.rsi

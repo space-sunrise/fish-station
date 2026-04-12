@@ -12,6 +12,9 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
+using Content.Shared.Radio;
+using Content.Shared.Radio.Components;
+using Content.Shared.Inventory;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
@@ -28,9 +31,9 @@ public sealed class KitsuneTransformSystem : EntitySystem
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly SpriteColorSystem _spriteColor = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     // Dictionary to track when each transformed entity should auto-revert
     private Dictionary<EntityUid, float> _transformDurations = new();
@@ -166,8 +169,31 @@ public sealed class KitsuneTransformSystem : EntitySystem
         // Set transform duration timer
         _transformDurations[uid] = TransformDurationSeconds;
 
+        // Extract radio channels from ears slot before polymorph
+        var channels = new HashSet<ProtoId<RadioChannelPrototype>>();
+        if (TryComp<InventoryComponent>(uid, out var invComp) &&
+            _inventory.TryGetSlotEntity(uid, "ears", out var headsetUid, invComp))
+        {
+            if (TryComp<EncryptionKeyHolderComponent>(headsetUid, out var keyHolder))
+            {
+                channels.UnionWith(keyHolder.Channels);
+            }
+        }
+
         // Perform polymorph
         var newUid = _polymorph.PolymorphEntity(uid, prototype) ?? throw new ArgumentNullException("_polymorph.PolymorphEntity(uid, prototype)");
+
+        // Apply intrinsic radio if we found any channels
+        if (channels.Count > 0)
+        {
+            var activeRadio = EnsureComp<ActiveRadioComponent>(newUid);
+            activeRadio.Channels.UnionWith(channels);
+
+            var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(newUid);
+            transmitter.Channels.UnionWith(channels);
+
+            EnsureComp<IntrinsicRadioReceiverComponent>(newUid);
+        }
 
         // Transfer TTS voice to the fox form from the original humanoid's voice
         if (TryComp<TTSComponent>(uid, out var originalTts))
@@ -226,8 +252,8 @@ public sealed class KitsuneTransformSystem : EntitySystem
         // Revert the polymorph
         if (!TryComp<PolymorphedEntityComponent>(uid, out var morphComp))
             return;
-        _polymorph.Revert((uid, morphComp));
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Sunrise/BloodCult/enter_blood.ogg"), uid);
         _popup.PopupEntity(Loc.GetString("kitsune-revert-success"), uid, uid, PopupType.MediumCaution);
+        _polymorph.Revert((uid, morphComp));
     }
 }
