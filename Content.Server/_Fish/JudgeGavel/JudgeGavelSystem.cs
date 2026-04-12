@@ -1,16 +1,14 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Damage.Systems;
-using Content.Server.Station.Systems;
 using Content.Shared._Fish.JudgeGavel;
 using Content.Shared.Chat;
 using Content.Shared.DoAfter;
-using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind.Components;
 using Content.Shared.Pinpointer;
 using Content.Shared.StatusEffect;
 using Content.Server.Station.Components;
-using Content.Shared.Damage.Components;
+using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Warps;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
@@ -154,18 +152,17 @@ public sealed class JudgeGavelSystem : EntitySystem
 
 
             // Apply temporary Godmode to prevent collision deaths during teleport overlapping
-            _godmode.EnableGodmode(mob);
+            /*_godmode.EnableGodmode(mob);
 
             // Scheduling removal in 2 seconds
             Timer.Spawn(TimeSpan.FromSeconds(2), () =>
             {
                 if (Exists(mob))
                     _godmode.DisableGodmode(mob);
-            });
+            });*/
 
-            // Apply Pacified
-            _statusEffects.TryAddStatusEffect(mob, "Pacified", TimeSpan.FromSeconds(component.Duration), true);
-
+            // Apply Pacified (using the exact same signature as GenericStatusEffectEntityEffectSystem does for Pax)
+            _statusEffects.TryAddStatusEffect(mob, "Pacified", TimeSpan.FromSeconds(component.Duration), true, "Pacified");
             // Spread out targets within 3 tiles to prevent stacking
             var offset = _random.NextVector2(3.0f);
             var finalTarget = targetMapCoords.Value.Offset(offset);
