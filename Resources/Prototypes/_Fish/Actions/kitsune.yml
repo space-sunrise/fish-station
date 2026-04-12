@@ -24,7 +24,7 @@
   components:
   - type: Action
     icon:
-      sprite: Fish/nine_tailed_fox.rsi
+      sprite: _Fish/nine_tailed_fox.rsi
       state: fox
     useDelay: 5
     temporary: true
@@ -40,7 +40,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon: { sprite: Fish/kitsune_fire.rsi, state: fire }
+    icon: { sprite: _Fish/kitsune_fire.rsi, state: fire }
     useDelay: 15
     itemIconStyle: NoItem
     checkCanInteract: false
@@ -59,7 +59,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon: { sprite: Fish/kitsune_fire.rsi, state: fire }
+    icon: { sprite: _Fish/kitsune_fire.rsi, state: fire }
     useDelay: 10
     itemIconStyle: NoItem
     checkCanInteract: true

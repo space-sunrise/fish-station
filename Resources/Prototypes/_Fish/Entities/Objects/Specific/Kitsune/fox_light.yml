@@ -3,7 +3,7 @@
 
   components:
   - type: Sprite
-    sprite: Fish/kitsune_fire.rsi
+    sprite: _Fish/kitsune_fire.rsi
     state: fire
     noRot: true
   - type: PointLight
