@@ -369,7 +369,10 @@
   name: loadout-group-centcomm-operator-head-hat
   loadouts:
   - HeadHatBeretCentcomNaval
+  - HeadHatCentcomcap
 # Fish start
+  - CentCommOfficialHat
+  - SpecOpsCapBlack
   - CentcommHatFish
   - CentcommCapFish
 # Fish end
@@ -381,6 +384,9 @@
   loadouts:
   - BlackShoes
 # Fish start
+  - CentCommShoesLaceup
+  - CentCommShoesCombat
+  - SpecOpsShoesBlack
   - CentCommBootsFish
 # Fish end
 
@@ -391,6 +397,8 @@
   - LatexGloves
   - SunriseBlackGloves
 # Fish start
+  - CentCommGlovesBlack
+  - SpecOpsGlovesCombat
   - CentCommGlovesWhiteFish
 # Fish end
 
@@ -400,6 +408,8 @@
   loadouts:
   - CentcommArmor
 # Fish start
+  - CentCommArmorCarapace
+  - CentCommArmorSlim
   - CentcommCoatFish
   - CentcommArmorFish
 # Fish end
@@ -424,12 +434,26 @@
 # Fish end
 
 - type: loadoutGroup
+  id: CentCommOperatorEyes
+  name: loadout-group-centcomm-eyes
+  loadouts:
+# Fish start
+  - CentCommSunglasses
+  - CentCommAdminGlasses
+# Fish end
+
+- type: loadoutGroup
   id: CentCommOperatorWeapons
   name: loadout-group-centcomm-weapons
   loadouts:
 # Fish start
+  - CentCommPistolN1984
   - CentcommSwordFish
 # Fish end
+
+- type: loadoutGroup
+  id: CentCommJobTrinkets
+  name: loadout-group-centcomm-trinkets
 
 
 - type: loadoutGroup

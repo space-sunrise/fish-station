@@ -4,8 +4,8 @@ ent-ClothingUniformJumpsuitCentcomOfficialFish = centcom official's jumpsuit
 ent-ClothingUniformJumpskirtCentcomOfficialFish = centcom official's jumpskirt
     .desc = It's a jumpskirt worn by CentComm officials.
 
-ent-ClothingUniformJumpsuitCentcomAssistantFish = centcom assistant's sweater
-    .desc = A distinctive green sweater denoting a CentComm assistant.
+ent-ClothingUniformJumpsuitCentcomAssistantFish = CentComm trainee uniform
+    .desc = A distinctive green sweater denoting a CentComm trainee.
 
 ent-ClothingUniformJumpsuitCentcomOfficialBlackFish = special operations officer uniform
     .desc = A black uniform worn by special operations officers.
@@ -43,8 +43,11 @@ ent-ClothingBackpackSatchelCentcomFish = centcom satchel
 ent-ClothingOuterArmorCentcomFish = centcom armor
     .desc = High-tier protective armor with CentComm markings.
 
-ent-WeaponMeleeSwordCentcomFish = centcom sword
-    .desc = A finely crafted ceremonial sword, sharp enough to cut through red tape.
+ent-WeaponMeleeSwordCentcomFish = CentComm Rapier
+    .desc = A finely crafted ceremonial rapier, sharp enough to cut through red tape.
+
+ent-ClothingBeltSheathCentcomFish = CentComm rapier sheath
+    .desc = An ornate sheath designed to hold an officer's rapier. This one comes with a matching rapier.
 
 # Loadout Groups
 loadout-group-centcomm-shoes = CentComm Shoes
@@ -52,4 +55,5 @@ loadout-group-centcomm-gloves = CentComm Gloves
 loadout-group-centcomm-outer = CentComm Outer Clothing
 loadout-group-centcomm-neck = CentComm Neck
 loadout-group-centcomm-back = CentComm Back
+loadout-group-centcomm-eyes = CentComm Eyes
 loadout-group-centcomm-weapons = CentComm Weapons

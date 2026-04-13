@@ -2,6 +2,14 @@
   id: JobCentCommTrainee
   groups:
   - CentCommOperatorJumpsuit
+  - CentCommOperatorHats
+  - CentCommOperatorShoes
+  - CentCommOperatorGloves
+  - CentCommOperatorOuter
+  - CentCommOperatorNeck
+  - CentCommOperatorEyes
+  - CentCommOperatorBack
+  - CentCommOperatorWeapons
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
@@ -14,18 +22,38 @@
   groups:
   - CentCommOperatorJumpsuit
   - CentCommOperatorHats
+  - CentCommOperatorShoes
+  - CentCommOperatorGloves
+  - CentCommOperatorOuter
+  - CentCommOperatorNeck
+  - CentCommOperatorEyes
+  - CentCommOperatorBack
+  - CentCommOperatorWeapons
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
   - Bra
   - Pants
   - Socks
+
+- type: roleLoadout
+  id: JobCentCommOfficial
+  groups:
+  - CentCommOperatorJumpsuit
+  - CentCommOperatorHats
   - CentCommOperatorShoes
   - CentCommOperatorGloves
   - CentCommOperatorOuter
   - CentCommOperatorNeck
+  - CentCommOperatorEyes
   - CentCommOperatorBack
   - CentCommOperatorWeapons
+  - Trinkets
+  - Survival
+  - GroupSpeciesBreathTool
+  - Bra
+  - Pants
+  - Socks
 
 - type: roleLoadout
   id: JobCentcommBlueShield
@@ -138,7 +166,14 @@
   id: JobOversightOfficer
   groups:
   - LawyerJumpsuit
-  - CommonBackpack
+  - CentCommOperatorHats
+  - CentCommOperatorShoes
+  - CentCommOperatorGloves
+  - CentCommOperatorOuter
+  - CentCommOperatorNeck
+  - CentCommOperatorEyes
+  - CentCommOperatorBack
+  - CentCommOperatorWeapons
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
@@ -150,16 +185,17 @@
   id: JobSpecOpsOfficer
   groups:
   - SpecOpsOfficerJumpsuit
-  - CommonBackpack
+  - CentCommOperatorHats
+  - CentCommOperatorShoes
+  - CentCommOperatorGloves
+  - CentCommOperatorOuter
+  - CentCommOperatorNeck
+  - CentCommOperatorEyes
+  - CentCommOperatorBack
+  - CentCommOperatorWeapons
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
   - Bra
   - Pants
   - Socks
-  - CentCommOperatorShoes
-  - CentCommOperatorGloves
-  - CentCommOperatorOuter
-  - CentCommOperatorNeck
-  - CentCommOperatorBack
-  - CentCommOperatorWeapons

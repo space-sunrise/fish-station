@@ -6,8 +6,16 @@
     sprite: _Fish/Objects/Weapons/Melee/centcom_sword.rsi
   - type: Item
     sprite: _Fish/Objects/Weapons/Melee/centcom_sword.rsi
+    size: Ginormous
+    storedSprite:
+      state: icon
+      sprite: _Fish/Objects/Weapons/Melee/centcom_sword.rsi
   - type: MeleeWeapon
+    attackRate: 1.2
     damage:
       types:
-        Slash: 15
-        Piercing: 5
+        Piercing: 17
+    resistanceBypass: true
+  - type: Tag
+    tags:
+    - CentCommRapier

@@ -99,7 +99,7 @@
 - type: loadout
   id: CentcommSwordFish
   equipment:
-    pocket1: WeaponMeleeSwordCentcomFish
+    belt: ClothingBeltSheathCentcomFish
 
 # --- Groups ---
 
@@ -142,3 +142,89 @@
   name: loadout-group-centcomm-weapons
   loadouts:
   - CentcommSwordFish
+# --- Default Gear ---
+
+- type: loadout
+  id: CentCommShoesLaceup
+  equipment:
+    shoes: ClothingShoesBootsLaceup
+
+- type: loadout
+  id: CentCommShoesCombat
+  equipment:
+    shoes: ClothingShoesBootsCombatFilled
+
+- type: loadout
+  id: SpecOpsShoesBlack
+  equipment:
+    shoes: ClothingShoesCentcomBlack
+
+- type: loadout
+  id: CentCommGlovesBlack
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
+
+- type: loadout
+  id: SpecOpsGlovesCombat
+  equipment:
+    gloves: ClothingHandsGlovesCombat
+
+- type: loadout
+  id: CentCommArmorCarapace
+  equipment:
+    outerClothing: ClothingOuterArmorCentcomCarapace
+
+- type: loadout
+  id: CentCommArmorSlim
+  equipment:
+    outerClothing: ClothingOuterArmorBasicSlim
+
+- type: loadout
+  id: CentCommPDA
+  equipment:
+    id: CentcomPDA
+
+- type: loadout
+  id: SpecOpsPDA
+  equipment:
+    id: SpecOpsOfficerPDA
+
+- type: loadout
+  id: CentCommHeadset
+  equipment:
+    ears: ClothingHeadsetFishCentCom
+
+- type: loadout
+  id: CentCommHeadsetAlt
+  equipment:
+    ears: ClothingHeadsetAltCentCom
+
+- type: loadout
+  id: SpecOpsHeadsetAlt
+  equipment:
+    ears: ClothingHeadsetAltSpecOpsOfficer
+
+- type: loadout
+  id: CentCommSunglasses
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+
+- type: loadout
+  id: CentCommPistolN1984
+  equipment:
+    belt: WeaponPistolN1984
+
+- type: loadout
+  id: CentCommOfficialHat
+  equipment:
+    head: ClothingHeadHatCentcom
+
+- type: loadout
+  id: SpecOpsCapBlack
+  equipment:
+    head: ClothingHeadCapCentcomBlack
+
+- type: loadout
+  id: CentCommAdminGlasses
+  equipment:
+    eyes: ClothingEyesGlassesCommand
