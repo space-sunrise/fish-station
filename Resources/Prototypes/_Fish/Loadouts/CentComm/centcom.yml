@@ -44,6 +44,11 @@
     outerClothing: ClothingOuterCoatCentcoatFish
 
 - type: loadout
+  id: CentcommArmor
+  equipment:
+    outerClothing: ClothingOuterArmorCentcomCarapace
+
+- type: loadout
   id: CentcommArmorFish
   equipment:
     outerClothing: ClothingOuterArmorCentcomFish

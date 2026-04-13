@@ -20,12 +20,12 @@
   - Bra
   - Pants
   - Socks
-  - CentCommOperatorShoesFish
-  - CentCommOperatorGlovesFish
-  - CentCommOperatorOuterFish
-  - CentCommOperatorNeckFish
-  - CentCommOperatorBackFish
-  - CentCommOperatorWeaponsFish
+  - CentCommOperatorShoes
+  - CentCommOperatorGloves
+  - CentCommOperatorOuter
+  - CentCommOperatorNeck
+  - CentCommOperatorBack
+  - CentCommOperatorWeapons
 
 - type: roleLoadout
   id: JobCentcommBlueShield
@@ -157,9 +157,9 @@
   - Bra
   - Pants
   - Socks
-  - CentCommOperatorShoesFish
-  - CentCommOperatorGlovesFish
-  - CentCommOperatorOuterFish
-  - CentCommOperatorNeckFish
-  - CentCommOperatorBackFish
-  - CentCommOperatorWeaponsFish
+  - CentCommOperatorShoes
+  - CentCommOperatorGloves
+  - CentCommOperatorOuter
+  - CentCommOperatorNeck
+  - CentCommOperatorBack
+  - CentCommOperatorWeapons

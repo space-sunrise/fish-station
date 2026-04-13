@@ -358,13 +358,79 @@
   - CentCommOfficerJumpskirt
   - CentCommOfficialJumpsuit
   - CentCommOfficialJumpskirt
+# Fish start
+  - CentCommOfficialJumpsuitFish
+  - CentCommOfficialJumpskirtFish
+  - CentCommAssistantJumpsuitFish
+# Fish end
 
 - type: loadoutGroup
   id: CentCommOperatorHats
   name: loadout-group-centcomm-operator-head-hat
   loadouts:
   - HeadHatBeretCentcomNaval
+# Fish start
+  - CentcommHatFish
+  - CentcommCapFish
+# Fish end
   # - HeadHatCentcomcap #Fish-Edit
+
+- type: loadoutGroup
+  id: CentCommOperatorShoes
+  name: loadout-group-centcomm-shoes
+  loadouts:
+  - BlackShoes
+# Fish start
+  - CentCommBootsFish
+# Fish end
+
+- type: loadoutGroup
+  id: CentCommOperatorGloves
+  name: loadout-group-centcomm-gloves
+  loadouts:
+  - LatexGloves
+  - SunriseBlackGloves
+# Fish start
+  - CentCommGlovesWhiteFish
+# Fish end
+
+- type: loadoutGroup
+  id: CentCommOperatorOuter
+  name: loadout-group-centcomm-outer
+  loadouts:
+  - CentcommArmor
+# Fish start
+  - CentcommCoatFish
+  - CentcommArmorFish
+# Fish end
+
+- type: loadoutGroup
+  id: CentCommOperatorNeck
+  name: loadout-group-centcomm-neck
+  loadouts:
+# Fish start
+  - CentcommCloakFormalFish
+  - CentcommCloakFormalLongFish
+  - CentcommMantleFish
+  - CentcommMantleShoulderFish
+# Fish end
+
+- type: loadoutGroup
+  id: CentCommOperatorBack
+  name: loadout-group-centcomm-back
+  loadouts:
+# Fish start
+  - CentcommSatchelFish
+# Fish end
+
+- type: loadoutGroup
+  id: CentCommOperatorWeapons
+  name: loadout-group-centcomm-weapons
+  loadouts:
+# Fish start
+  - CentcommSwordFish
+# Fish end
+
 
 - type: loadoutGroup
   id: ChiefEngineerBackpack

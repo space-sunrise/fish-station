@@ -116,7 +116,7 @@
     sprite: _Fish/Clothing/Head/Hats/centcom_cap.rsi
 
 - type: entity
-  parent: [ ClothingBackpackSatchelBase, BaseCentcommContraband ]
+  parent: [ ClothingBackpackSatchel, BaseCentcommContraband ]
   id: ClothingBackpackSatchelCentcomFish
   components:
   - type: Sprite
