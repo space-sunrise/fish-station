@@ -2,7 +2,7 @@
   id: FoxTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Human, Dwarf, Felinid, Vulpkanin]
+  speciesRestriction: [Human, Dwarf, Felinid, Vulpkanin, Kitsune] # Fish-edit
   sponsorOnly: false # Sunrise
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
@@ -14,7 +14,7 @@
   id: BigFoxTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Human, Dwarf, Felinid, Vulpkanin]
+  speciesRestriction: [Human, Dwarf, Felinid, Vulpkanin, Kitsune] # Fish-edit
   sponsorOnly: false # Sunrise
   coloring:
     default:

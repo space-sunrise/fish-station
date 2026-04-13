@@ -1,0 +1,59 @@
+- type: entity
+  parent: MobHuman
+  id: MacKitsune
+
+  components:
+  - type: Damageable
+    damageModifierSet: Kitsune
+  - type: KitsuneTransform
+    actions:
+    - ActionKitsuneTransform
+    # - ActionKitsuneFire
+    - ActionKitsuneFoxLights
+  - type: KitsuneFoxLights
+  - type: TemperatureDamage
+    heatDamageThreshold: 400
+    coldDamageThreshold: 200
+    coldDamage:
+      types:
+        Cold: 0.1
+    heatDamage:
+      types:
+        Heat: 1.5
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: BarestepHard
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+
+- type: entity
+  parent: MacKitsune
+  id: MobKitsunePrime
+  suffix: ADMEME
+  components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      400: Critical
+      500: Dead
+  - type: KitsuneTransform
+    actions:
+    - ActionKitsuneTransform
+    - ActionKitsuneFire
+    - ActionKitsuneFoxLights
+    - ActionFireball
+    - ActionBlink
+    - ActionForceWall
+    - ActionSmite
+    - ActionCluwne
+    - ActionSlippery
+    - ActionRepulse
+    - ActionSmoke
+    - ActionVoidApplause
+    - ActionKnock
+    - ActionMindSwap
+    - ActionSpawnMagicarpSpell

@@ -11,12 +11,33 @@
   radioBold: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
-  #Fish-start
-  accessGroups:
-  - AllAccess
+  alternativeTitles:
+  - job-alt-title-nt-diplomat
   access:
-  - CentralCommand
-  #Fish-end
+    - Cryogenics
+    - Lawyer
+    - Command
+    - Bar
+    - Service
+    - Maintenance
+    - Janitor
+    - Theatre
+    - Kitchen
+    - Chapel
+    - Hydroponics
+    - External
+    - Chemistry
+    - Engineering
+    - Research
+    - Detective
+    - Salvage
+    - Security
+    - Brig
+    - Cargo
+    - Atmospherics
+    - Cargo
+    - Medical
+    - Ntrep
   special:
     - !type:AddImplantSpecial
       implants: [ MindShieldImplant, TrackingImplant, DeathRattleImplantBlueShield ]
@@ -31,7 +52,7 @@
     eyes: ClothingEyesSunGlassesHudSkill
     head: ClothingHeadHatCapNtrep
     id: NanoTrasenRepresentativePDA
-    ears: ClothingHeadsetAltCommand
+    ears: ClothingHeadsetAltRepresentativeNT
     pocket1: FlippoEngravedLighter
     pocket2: PenCentcom
   storage:

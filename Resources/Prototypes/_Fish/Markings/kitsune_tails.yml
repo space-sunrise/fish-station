@@ -1,0 +1,59 @@
+- type: marking
+  id: AmericanFoxTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Kitsune]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+        category: Hair
+      fallbackTypes:
+      - !type:CategoryColoring
+        category: FacialHair
+      - !type:SkinColoring
+  sprites:
+  - sprite: _Fish/Markings/Tails/american_fox_tail.rsi
+    state: kit-fox-tail
+  - sprite: _Fish/Markings/Tails/american_fox_tail.rsi
+    state: kit-fox-tail-tip
+
+- type: marking
+  id: HoaryFoxTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Kitsune]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+        category: Hair
+      fallbackTypes:
+      - !type:CategoryColoring
+        category: FacialHair
+      - !type:SkinColoring
+  sprites:
+  - sprite: _Fish/Markings/Tails/hoary_fox_tail.rsi
+    state: hoary-fox-tail
+  - sprite: _Fish/Markings/Tails/hoary_fox_tail.rsi
+    state: hoary-fox-tail-second
+
+- type: marking
+  id: BlanfordsFoxTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Kitsune]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+        category: Hair
+      fallbackTypes:
+      - !type:CategoryColoring
+        category: FacialHair
+      - !type:SkinColoring
+  sprites:
+  - sprite: _Fish/Markings/Tails/blanfords_fox_tail.rsi
+    state: blanfords-fox-tail
+  - sprite: _Fish/Markings/Tails/blanfords_fox_tail.rsi
+    state: blanfords-fox-tail-second
