@@ -66,7 +66,7 @@ namespace Content.Server._Fish.Kitsune
             {
                 DamageDict = new Dictionary<string, FixedPoint2>
                 {
-                    { "Slash", FixedPoint2.New(9) }
+                    { "Slash", FixedPoint2.New(3) }
                 }
             };
             _damageable.TryChangeDamage(uid, damage, ignoreResistances: true);
