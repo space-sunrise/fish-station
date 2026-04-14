@@ -11,26 +11,8 @@
   radioBold: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
-  access: # Sunrise-Edit
-    - Command
-    - Bar
-    - Service
-    - Maintenance
-    - Janitor
-    - Theatre
-    - Kitchen
-    - Chapel
-    - Hydroponics
-    - External
-    - Chemistry
-    - Engineering
-    - Research
-    - Salvage
-    - Cargo
-    - Atmospherics
-    - Medical
-    - BlueShield
-    - BlueShieldEnsign
+  accessGroups:
+  - AllAccess
   special:
     - !type:AddImplantSpecial
       implants: [ MindShieldImplant, TrackingImplant, DeathRattleImplantBlueShield ]
