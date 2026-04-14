@@ -449,11 +449,13 @@
 # Fish start
   - CentCommPistolN1984
   - CentcommSwordFish
+  - CentcommPistolN1984ButtFish
 # Fish end
 
 - type: loadoutGroup
   id: CentCommJobTrinkets
   name: loadout-group-centcomm-trinkets
+  loadouts: []
 
 
 - type: loadoutGroup

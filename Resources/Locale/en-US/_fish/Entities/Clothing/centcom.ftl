@@ -57,3 +57,4 @@ loadout-group-centcomm-neck = CentComm Neck
 loadout-group-centcomm-back = CentComm Back
 loadout-group-centcomm-eyes = CentComm Eyes
 loadout-group-centcomm-weapons = CentComm Weapons
+loadout-group-centcomm-trinkets = CentComm Trinkets

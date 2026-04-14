@@ -228,3 +228,8 @@
   id: CentCommAdminGlasses
   equipment:
     eyes: ClothingEyesGlassesCommand
+
+- type: loadout
+  id: CentcommPistolN1984ButtFish
+  equipment:
+    belt: ClothingBeltHolsterN1984ButtFish

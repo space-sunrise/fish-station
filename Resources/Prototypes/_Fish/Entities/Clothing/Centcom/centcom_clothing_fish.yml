@@ -170,3 +170,54 @@
     containers:
       item:
       - WeaponMeleeSwordCentcomFish
+
+- type: entity
+  parent: [ ClothingBeltBase, ClothingSlotBase, BaseCentcommContraband ]
+  id: ClothingBeltHolsterN1984ButtFish
+  suffix: Filled
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Belt/centcom_N1984_holster-butt.rsi
+    state: holster-butt
+  - type: Clothing
+    sprite: _Fish/Clothing/Belt/centcom_N1984_holster-butt.rsi
+  - type: ItemSlots
+    slots:
+      gun:
+        name: Handgun
+        whitelist:
+          tags:
+          - N1984Butt
+  - type: ContainerFill
+    containers:
+      gun:
+      - WeaponPistolN1984ButtFish
+
+- type: entity
+  parent: [ ClothingBeltSheath, BaseCentcommContraband ]
+  id: ClothingBeltSheathN1984Fish
+  suffix: Filled
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Belt/centcom_N1984_sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: _Fish/Clothing/Belt/centcom_N1984_sheath.rsi
+  - type: ItemSlots
+    slots:
+      item:
+        name: Handgun
+        whitelist:
+          tags:
+          - Sidearm
+  - type: ItemMapper
+    sprite: _Fish/Clothing/Belt/centcom_N1984_sheath.rsi
+    mapLayers:
+      sheath-pistol:
+        whitelist:
+          tags:
+          - Sidearm
+  - type: ContainerFill
+    containers:
+      item:
+      - WeaponPistolN1984ButtFish

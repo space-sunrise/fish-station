@@ -1,0 +1,15 @@
+- type: entity
+  name: N1984
+  parent: WeaponPistolN1984
+  id: WeaponPistolN1984ButtFish
+  components:
+  - type: Sprite
+    sprite: _Fish/Objects/Weapons/Guns/Pistols/N1984-holster-butt/big.rsi
+  - type: Clothing
+    sprite: _Fish/Objects/Weapons/Guns/Pistols/N1984-holster-butt/tiny.rsi
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -10
+  - type: Tag
+    tags:
+    - N1984Butt

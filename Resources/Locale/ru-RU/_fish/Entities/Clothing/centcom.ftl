@@ -58,3 +58,4 @@ loadout-group-centcomm-neck = Аксессуары на шею ЦК
 loadout-group-centcomm-back = Сумки ЦК
 loadout-group-centcomm-eyes = Очки ЦК
 loadout-group-centcomm-weapons = Оружие
+loadout-group-centcomm-trinkets = Аксессуары ЦК
