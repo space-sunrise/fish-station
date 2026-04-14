@@ -17,28 +17,12 @@
 
   supervisors: job-supervisors-representative
   canBeAntag: false
+  #Fish-start
+  accessGroups:
+  - AllAccess
   access:
-   - Command
-   - Bar
-   - Service
-   - Maintenance
-   - Janitor
-   - Theatre
-   - Kitchen
-   - Chapel
-   - Hydroponics
-   - External
-   - Chemistry
-   - Engineering
-   - Research
-   - Salvage
-   - Cargo
-   - Atmospherics
-   - Cargo
-   - Medical
-   - BlueShield
-   - BlueShieldEnsign
-   - Ntrep
+  - CentralCommand
+  # Fish-End
   special:
    - !type:AddImplantSpecial
      implants: [ MindShieldImplant ]
