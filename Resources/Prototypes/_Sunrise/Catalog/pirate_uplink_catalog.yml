@@ -2420,22 +2420,24 @@
   - UplinkPirateWearables
   restockTime: 3600
 
-- type: listing
-  id: UplinkPirateHardsuitInfiltration
-  name: uplink-hardsuit-infiltration-name
-  description: uplink-hardsuit-infiltration-desc
-  icon: { sprite: /Textures/_Starlight/Objects/Clothing/OuterClothing/Hardsuits/infiltrationsyndie.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledInfiltration
-  cost:
-    Doubloon: 60
-  categories:
-  - UplinkPirateWearables
-  restockTime: 3600
-  conditions:
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
+# Fish-edit
+#- type: listing
+#  id: UplinkPirateHardsuitInfiltration
+#  name: uplink-hardsuit-infiltration-name
+#  description: uplink-hardsuit-infiltration-desc
+#  icon: { sprite: /Textures/_Starlight/Objects/Clothing/OuterClothing/Hardsuits/infiltrationsyndie.rsi, state: icon }
+#  productEntity: ClothingBackpackDuffelSyndicateFilledInfiltration
+#  cost:
+#    Doubloon: 60
+#  categories:
+#  - UplinkPirateWearables
+#  restockTime: 3600
+#  conditions:
+#  - !type:BuyerWhitelistCondition
+#    blacklist:
+#      components:
+#      - SurplusBundle
+# Fish-edit-end
 
 # region UplinkPiratePointless
 - type: listing

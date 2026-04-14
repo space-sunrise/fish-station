@@ -3,17 +3,18 @@
   mapName: 'Barratry'
   mapPath: /Maps/_Fish/Station/barratry.yml
   maxRandomOffset: 0
-  minPlayers: 0
   randomRotation: false
+  minPlayers: 0
+  maxPlayers: 55
   stations:
     Barratry:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Barratry {1}'
+          mapNameTemplate: '{0} Барратри {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'RS'
+            prefixCreator: 'AD'
         - type: SpawnGridAndDockToStation
           grids:
           - gridPath: /Maps/_Fish/Shuttles/mining.yml
@@ -31,49 +32,49 @@
             HeadOfPersonnel: [ 1, 1 ]
             #service
             Bartender: [ 2, 2 ]
-            Botanist: [ 3, 3 ]
-            Chef: [ 2, 2 ]
-            Janitor: [ 4, 4 ]
+            Botanist: [ 2, 2 ]
+            Chef: [ 1, 1 ]
+            Janitor: [ 2, 2 ]
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
-            ServiceWorker: [ 5, 5 ]
-            Reporter: [ 2, 2 ]
-            Barber: [ 1, 1 ]
+            ServiceWorker: [ 2, 2 ]
+            Reporter: [ 1, 1 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             SeniorEngineer: [ 1, 1 ]
-            AtmosphericTechnician: [ 4, 4 ]
-            StationEngineer: [ 6, 6 ]
-            TechnicalAssistant: [ 5, 5 ]
+            AtmosphericTechnician: [ 3, 3 ]
+            StationEngineer: [ 3, 3 ]
+            TechnicalAssistant: [ 3, 3 ]
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             SeniorPhysician: [ 1, 1 ]
-            Chemist: [ 2, 3 ]
-            MedicalDoctor: [ 4, 4 ]
+            Chemist: [ 2, 2 ]
+            MedicalDoctor: [ 3, 3 ]
             Paramedic: [ 2, 2 ]
-            MedicalIntern: [ 5, 5 ]
-            Psychologist: [ 2, 2 ]
+            MedicalIntern: [ 3, 3 ]
+            Psychologist: [ 1, 1 ]
             MedicalPathologist: [ 1, 1 ]
             #science
             ResearchDirector: [ 1, 1 ]
             SeniorResearcher: [ 1, 1 ]
-            Scientist: [ 6, 6 ]
-            ResearchAssistant: [ 5, 5 ]
-            Roboticist: [ 3, 3 ]
+            Scientist: [ 3, 3 ]
+            ResearchAssistant: [ 3, 3 ]
+            Roboticist: [ 1, 1 ]
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
             SeniorOfficer: [ 1, 1 ]
             Detective: [ 2, 2 ]
-            Brigmedic: [ 2, 2 ]
-            SecurityPilot: [ 2, 2 ]
-            SecurityOfficer: [ 5, 5 ]
-            SecurityCadet: [ 5, 5 ]
+            Brigmedic: [ 1, 1 ]
+            SecurityPilot: [ 1, 2 ]
+            SecurityOfficer: [ 3, 3 ]
+            SecurityCadet: [ 3, 3 ]
             #supply
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 4, 4 ]
+            SalvageSpecialist: [ 3, 3 ]
+            MiningSpecialist: [ 1, 1 ]
             CargoTechnician: [ 3, 3 ]
-            MailCarrier: [ 2, 2 ]
+            MailCarrier: [ 1, 1 ]
             #civilian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]
@@ -81,55 +82,21 @@
             Musician: [ 1, 1 ]
             #blueshield
             BlueShieldEnsign: [ 1, 1 ]
-            BlueShieldOfficer: [ 2, 2 ]
+            BlueShieldOfficer: [ 1, 1 ]
             RepresentativeBlueShield: [ 1, 1 ]
             #law
             Magistrat: [ 1, 1 ]
             IAA: [ 1, 1 ]
-            Lawyer: [ 3, 3 ]
-            NtrOfficer: [ 3, 3 ]
+            Lawyer: [ 1, 1 ]
+            NtrOfficer: [ 1, 1 ]
             # silicon
             StationAi: [ 1, 1 ]
-            Borg: [ 2, 2 ]
-            EngineerBorg: [ 2, 2 ]
-            MiningBorg: [ 2, 2 ]
-            JanitorBorg: [ 2, 2 ]
-            ServiceBorg: [ 2, 2 ]
-            ClownBorg: [ 2, 2 ]
-            PeaceBorg: [ 2, 2 ]
-            MedicalBorg: [ 4, 4 ]
-            SecurityBorg: [ 4, 4 ]
-        - type: StationGoal
-          goals:
-          - Shuttle
-          - Singularity
-          - SolarPanels
-          - Artifacts
-          - Bank
-          - Zoo
-          - MiningOutpost
-          - Tesla
-          - VirusologyAmbusol
-          - Containment
-          - WeaponsSecurity
-          - MaintsRepair
-          - DormsBuild
-          - BattleShuttle
-          - StationGoalPolymorph
-          - Transit
-          - NukeRoom
-          - Permabrig
-          - Farm
-          - Delegates
-          - Cyborgs
-          - Testing
-          - Anomaly
-          #- Replenishment
-          - IntelWeapons
-          - Reports
-          - Reconnaissance
-          - Saboteurs
-          - Furs
-          - Crew
-          - CleaningUp
-          #- VirusFlesh
+            Borg: [ 1, 1 ]
+            EngineerBorg: [ 1, 1 ]
+            MiningBorg: [ 1, 1 ]
+            JanitorBorg: [ 1, 1 ]
+            ServiceBorg: [ 1, 1 ]
+            ClownBorg: [ 1, 1 ]
+            PeaceBorg: [ 1, 1 ]
+            MedicalBorg: [ 1, 1 ]
+            SecurityBorg: [ 1, 1 ]
