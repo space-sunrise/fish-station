@@ -61,7 +61,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellXenoborgSmallPrinted
+        startingItem: PowerCellHighPrinted # Fish-edit
 
 - type: entity
   parent: FishXenoReaper
