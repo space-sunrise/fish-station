@@ -7,6 +7,7 @@
   - XenoborgHeavyRecipe
   - XenoborgScoutRecipe
   - XenoborgStealthRecipe
+  - XenoborgReaperRecipe
 
 - type: latheRecipePack
   id: XenoborgUpgradeModules
