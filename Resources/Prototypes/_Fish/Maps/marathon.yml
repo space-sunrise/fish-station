@@ -1,7 +1,7 @@
 - type: gameMap
   id: FishMarathon
   mapName: 'Marathon'
-  mapPath: /Maps/_Sunrise/Station/marathon.yml
+  mapPath: /Maps/_Fish/Station/marathon.yml
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 0
@@ -17,12 +17,12 @@
             prefixCreator: 'FH'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_Case.yml
-      - type: SpawnGridAndDockToStation
-        grids:
-        - gridPath: /Maps/_Fish/Shuttles/mining.yml
-          priorityTag: DockMining
-        - gridPath: /Maps/_Fish/Shuttles/security_jay.yml
-          priorityTag: DockFishSecurity
+        - type: SpawnGridAndDockToStation
+          grids:
+          - gridPath: /Maps/_Fish/Shuttles/mining.yml
+            priorityTag: DockMining
+          - gridPath: /Maps/_Fish/Shuttles/security_jay.yml
+            priorityTag: DockFishSecurity
         - type: StationJobs
           availableJobs:
             #command
