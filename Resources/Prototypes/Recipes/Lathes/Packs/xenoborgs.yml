@@ -7,7 +7,7 @@
   - XenoborgHeavyRecipe
   - XenoborgScoutRecipe
   - XenoborgStealthRecipe
-  - XenoborgReaperRecipe
+  - XenoborgReaperRecipe # Fish-edit
 
 - type: latheRecipePack
   id: XenoborgUpgradeModules
