@@ -22,9 +22,6 @@ kitsune-lights-action-description = Призовите блуждающий ог
 ent-KitsuneFoxLight = Блуждающий огонёк
     .desc = Мистический огонек голубого пламени. Он не греет.
 
-ent-MacKitsune = Кицунэ
-    .desc = Девятихвостая лиса.
-
 species-name-kitsune = Кицунэ
 
 marking-AmericanFoxTail = Хвост Американской лисы
