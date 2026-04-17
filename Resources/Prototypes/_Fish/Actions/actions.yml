@@ -1,0 +1,12 @@
+- type: entity
+  id: ActionN1984Detach
+  name: Detach Stock
+  description: Detaches the stock from the pistol, reverting it back to a holster.
+  components:
+  - type: Action
+    itemIconStyle: BigItem
+    icon:
+      sprite: _Fish/Objects/Weapons/Guns/Pistols/N1984-holster-butt/tiny.rsi
+      state: wielded-inhand-right
+  - type: InstantAction
+    event: !type:ActionN1984DetachEvent

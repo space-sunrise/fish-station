@@ -269,3 +269,7 @@
         whitelist:
           tags:
             - CartridgeMagnum
+  - type: N1984Transform # FIsh edit
+    targetPrototype: WeaponPistolN1984ButtFish
+    stockPrototype: ClothingBeltHolsterN1984ButtFish
+    isStocked: false

@@ -58,3 +58,12 @@ loadout-group-centcomm-back = CentComm Back
 loadout-group-centcomm-eyes = CentComm Eyes
 loadout-group-centcomm-weapons = CentComm Weapons
 loadout-group-centcomm-trinkets = CentComm Trinkets
+
+ent-WeaponPistolN1984ButtFish = N1984 (Stock)
+    .desc = A reliable N1984 pistol equipped with a stock for improved stability.
+
+ent-ClothingBeltHolsterN1984ButtFish = N1984 stock
+    .desc = A specialized holster designed to carry an N1984 pistol with a stock.
+
+ent-ClothingBeltSheathN1984Fish = N1984 sheath
+    .desc = A standard sheath for an N1984 pistol.

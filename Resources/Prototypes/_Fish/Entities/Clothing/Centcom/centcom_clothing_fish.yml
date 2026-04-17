@@ -185,9 +185,6 @@
     slots:
       gun:
         name: Handgun
-        whitelist:
-          tags:
-          - N1984Butt
   - type: ContainerFill
     containers:
       gun:

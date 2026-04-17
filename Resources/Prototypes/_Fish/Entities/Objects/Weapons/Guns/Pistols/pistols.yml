@@ -1,15 +1,22 @@
 - type: entity
-  name: N1984
+  name: N1984 (Stock)
   parent: WeaponPistolN1984
   id: WeaponPistolN1984ButtFish
   components:
   - type: Sprite
     sprite: _Fish/Objects/Weapons/Guns/Pistols/N1984-holster-butt/big.rsi
+  - type: Item
+    size: Normal
+    sprite: _Fish/Objects/Weapons/Guns/Pistols/N1984-holster-butt/tiny.rsi
   - type: Clothing
     sprite: _Fish/Objects/Weapons/Guns/Pistols/N1984-holster-butt/tiny.rsi
   - type: Wieldable
+    unwieldOnUse: false
   - type: GunWieldBonus
     minAngle: -10
-  - type: Tag
-    tags:
-    - N1984Butt
+    maxAngle: -10
+  - type: N1984Transform
+    targetPrototype: WeaponPistolN1984
+    stockPrototype: ClothingBeltHolsterN1984ButtFish
+    detachAction: ActionN1984Detach
+    isStocked: true

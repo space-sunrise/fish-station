@@ -59,3 +59,12 @@ loadout-group-centcomm-back = Сумки ЦК
 loadout-group-centcomm-eyes = Очки ЦК
 loadout-group-centcomm-weapons = Оружие
 loadout-group-centcomm-trinkets = Аксессуары ЦК
+
+ent-WeaponPistolN1984ButtFish = N1984(с прикладом)
+    .desc = Надежный пистолет N1984, оснащенный прикладом для большей устойчивости.
+
+ent-ClothingBeltHolsterN1984ButtFish = Кобура N1984(с прикладом)
+    .desc = Специализированная кобура, предназначенная для ношения пистолета N1984 с прикладом.
+
+ent-ClothingBeltSheathN1984Fish = Кобура для N1984
+    .desc = Стандартная кобура для пистолета N1984.
