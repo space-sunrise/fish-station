@@ -1,0 +1,15 @@
+- type: entity
+  parent: ClothingCloakBase
+  id: ClothingNeckCloakParamedicFish
+  name: ent-ClothingNeckCloakParamedicFish
+  description: ent-ClothingNeckCloakParamedicFish
+  suffix: Fish
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Neck/Cloaks/paramedCape.rsi
+    state: paramedCape
+  - type: Clothing
+    sprite: _Fish/Clothing/Neck/Cloaks/paramedCape.rsi
+    clothingVisuals:
+      neck:
+      - state: paramedCape

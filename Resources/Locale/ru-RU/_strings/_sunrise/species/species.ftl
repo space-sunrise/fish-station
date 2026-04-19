@@ -7,5 +7,6 @@ species-name-demon = Аркана
 species-name-resomi = Резоми
 species-name-abductor = Абдуктор
 species-name-milira = Милира
-species-name-kitsune = Кицунэ
+# species-name-kitsune = Кицунэ # Fish-edit
+
 species-name-vulpkanin = Вульпканин
