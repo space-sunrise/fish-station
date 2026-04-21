@@ -19,7 +19,7 @@
   abstract: true
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Kitsune] # Fish-edit
 
 - type: marking
   id: BaseSunriseMarkingVulpHead
@@ -33,7 +33,7 @@
   abstract: true
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Kitsune] #Fish-edit
 
 - type: marking
   id: BaseSunriseMarkingVulpLeftArm
@@ -75,7 +75,7 @@
   abstract: true
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Kitsune] # Fish-edit
 
 # Ears Markings
 - type: marking

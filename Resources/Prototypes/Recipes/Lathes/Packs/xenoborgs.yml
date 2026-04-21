@@ -7,6 +7,7 @@
   - XenoborgHeavyRecipe
   - XenoborgScoutRecipe
   - XenoborgStealthRecipe
+  - XenoborgReaperRecipe # Fish-edit
 
 - type: latheRecipePack
   id: XenoborgUpgradeModules
@@ -33,6 +34,7 @@
   - PowerCellXenoborg
   - XenoborgModuleXrayRecipe
   - XenoborgModuleTurboLaserRecipe
+  - XenoborgModuleTemperatureRecipe
   - BorgChargerCircuitboard
   - MicroManipulatorStockPart
 # Sunrise-End

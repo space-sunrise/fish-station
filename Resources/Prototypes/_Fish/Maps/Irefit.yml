@@ -4,7 +4,7 @@
   mapPath: /Maps/_Fish/Station/Irefit.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 55
+  minPlayers: 75
   stations:
     FishIrefit:
       stationProto: StandardNanotrasenStation
@@ -19,7 +19,7 @@
         - gridPath: /Maps/_Fish/Shuttles/mining.yml
           priorityTag: DockMining
         - gridPath: /Maps/_Fish/Shuttles/security_jay.yml
-          priorityTag: DockSecurity
+          priorityTag: DockFishSecurity
       - type: StationEmergencyShuttle
         emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_gate.yml
       - type: StationJobs

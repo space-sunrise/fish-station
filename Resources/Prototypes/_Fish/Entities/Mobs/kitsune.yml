@@ -20,9 +20,6 @@
     heatDamage:
       types:
         Heat: 1.5
-  - type: FootstepModifier
-    footstepSoundCollection:
-      collection: BarestepHard
   - type: Tag
     tags:
     - CanPilot

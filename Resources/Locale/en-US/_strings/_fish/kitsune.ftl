@@ -22,9 +22,6 @@ kitsune-lights-action-description = Summon dancing wisps of fox fire to light yo
 ent-KitsuneFoxLight = Fox Light
     .desc = A mystical wisp of blue fire. It doesn't emit any heat.
 
-ent-MacKitsune = Kitsune
-    .desc = A nine-tailed fox spirit.
-
 species-name-kitsune = Kitsune
 
 marking-AmericanFoxTail = American Fox Tail
