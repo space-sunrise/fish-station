@@ -1,5 +1,6 @@
 # Corporate Law Prototypes
 
+# Fish-start
 # Laws: 1xx (5-7 minutes or warning)
 - type: corporateLaw
   id: Law100
@@ -438,3 +439,4 @@
   permanentSentenceThreshold: 50
   provisions: [ProvisionOPRS, ProvisionSentences]
   articles: [Section1xx, Section2xx, Section3xx, Section4xx, Section5xx]
+# Fish-end
