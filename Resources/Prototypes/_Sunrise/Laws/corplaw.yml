@@ -382,3 +382,59 @@
   title: corplaw-art509-title
   description: corplaw-art509-desc
   baseSentence: 999
+
+# General Provisions
+- type: corporateLaw
+  id: ProvisionOPRS
+  category: Provision
+  title: corplaw-oprs-title
+  description: corplaw-oprs-desc
+
+- type: corporateLaw
+  id: ProvisionSentences
+  category: Provision
+  title: corplaw-sentences-title
+  description: corplaw-sentences-desc
+
+# Sections
+- type: corporateLawSection
+  id: SectionGeneral
+  title: corplaw-section-general
+  entries: [ProvisionOPRS, ProvisionSentences]
+
+- type: corporateLawSection
+  id: Section1xx
+  title: corplaw-section-1xx
+  color: "#30d158"
+  entries: [Law100, Law101, Law102, Law103, Law104, Law105, Law106, Law107, Law109]
+
+- type: corporateLawSection
+  id: Section2xx
+  title: corplaw-section-2xx
+  color: "#ffd60a"
+  entries: [Law200, Law201, Law202, Law204, Law205, Law206, Law207, Law208, Law209, Law211]
+
+- type: corporateLawSection
+  id: Section3xx
+  title: corplaw-section-3xx
+  color: "#ff9f0a"
+  entries: [Law300, Law301, Law302, Law303, Law304, Law305, Law306, Law307, Law308, Law309, Law310, Law311, Law312]
+
+- type: corporateLawSection
+  id: Section4xx
+  title: corplaw-section-4xx
+  color: "#ff453a"
+  entries: [Law400, Law401, Law402, Law403, Law404, Law405, Law406, Law408, Law409, Law410, Law411, Law412]
+
+- type: corporateLawSection
+  id: Section5xx
+  title: corplaw-section-5xx
+  color: "#bf5af2"
+  entries: [Law500, Law501, Law502, Law503, Law504, Law505, Law506, Law507, Law508, Law509]
+
+# Lawsets
+- type: corporateLawset
+  id: StandardCorporateLaw
+  permanentSentenceThreshold: 50
+  provisions: [ProvisionOPRS, ProvisionSentences]
+  articles: [Section1xx, Section2xx, Section3xx, Section4xx, Section5xx]
