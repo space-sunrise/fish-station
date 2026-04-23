@@ -223,6 +223,12 @@ public sealed partial class SunriseCCVars : CVars
     public static readonly CVarDef<string> RoadmapId =
         CVarDef.Create("roadmap.id", "SunriseRoadmap");
 
+    /// <summary>
+    /// Roadmap text hashset - to show roadmap to player when we change something.
+    /// </summary>
+    public static readonly CVarDef<string> RoadmapLastSeenHash =
+        CVarDef.Create("roadmap.last_seen_hash", "", CVar.CLIENTONLY | CVar.ARCHIVE);
+
     /**
      * Lobby Changelog
      */
@@ -432,19 +438,6 @@ public sealed partial class SunriseCCVars : CVars
     public static readonly CVarDef<bool> PlayHeartBeatSound =
         CVarDef.Create("heartbeat.play_sound", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
-    /**
-     * Transit hub
-     */
-
-    /// <summary>
-    /// До сколько часов общего наиграного времени игроки будут появляться на станции даже в позднем присоединеии.
-    /// </summary>
-    public static readonly CVarDef<int> ArrivalsMinHours =
-        CVarDef.Create("transithub.arrivals_min_hours", 0, CVar.SERVER | CVar.ARCHIVE);
-
-    public static readonly CVarDef<bool> ArrivalsRoundStartSpawn =
-        CVarDef.Create("transithub.arrivals_round_start_spawn", false, CVar.SERVER | CVar.ARCHIVE);
-
     /*
      * Random items-artifacts
      */
@@ -575,4 +568,44 @@ public sealed partial class SunriseCCVars : CVars
     public static readonly CVarDef<int> TrustedProxyPollIntervalMs =
         CVarDef.Create("trusted_proxy.poll_interval_ms", 2000, CVar.SERVERONLY);
 
+    /// <summary>
+    ///     Whether each late-joining player should arrive on their own small shuttle.
+    ///     This is an alternative to the large rolling arrivals shuttle.
+    /// </summary>
+    public static readonly CVarDef<bool> ArrivalsSingleShuttle =
+        CVarDef.Create("shuttle.arrivals_single_shuttle", true, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     The map to use for the single-person arrivals shuttle.
+    /// </summary>
+    public static readonly CVarDef<string> ArrivalsSingleShuttlePath =
+        CVarDef.Create("shuttle.arrivals_single_shuttle_path", "/Maps/_Sunrise/Shuttles/depart.yml", CVar.SERVERONLY);
+
+    /// <summary>
+    ///     The visual speed of all shuttles when in FTL map.
+    /// </summary>
+    public static readonly CVarDef<float> FTLSpeed =
+        CVarDef.Create("shuttle.ftl_speed", 300.0f, CVar.SERVERONLY);
+
+    /**
+     * Photo Uploads
+     */
+
+    /// <summary>
+    /// Whether image loading/uploading in PDA messenger and news console is enabled.
+    /// </summary>
+    public static readonly CVarDef<bool> PhotoUploadEnabled =
+        CVarDef.Create("photo.upload_enabled", false, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Whether taking photos with the PDA camera is enabled.
+    /// </summary>
+    public static readonly CVarDef<bool> PhotoCaptureEnabled =
+        CVarDef.Create("photo.capture_enabled", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
+
+    /// <summary>
+    /// The ID of the corporate law set prototype to use in the PDA application.
+    /// </summary>
+    public static readonly CVarDef<string> CorporateLawSet =
+        CVarDef.Create("sunrise.corporate_law_set", "StandardCorporateLaw", CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 }

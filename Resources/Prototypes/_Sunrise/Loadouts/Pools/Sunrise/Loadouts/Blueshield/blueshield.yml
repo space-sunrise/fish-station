@@ -6,7 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobBlueShield
-      time: 20h
+      time: 10h # Fish-edit
 
 - type: loadoutEffectGroup
   id: MisterBlueShit5
@@ -80,9 +80,11 @@
   id: BlueshieldWT550
   inhand:
   - ClothingBackpackDuffelWeaponSubMachineGunWt550
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MisterBlueShit5
+  #Fish-start
+  #effects:
+  # - !type:GroupLoadoutEffect
+  #   proto: MisterBlueShit5
+  #Fish-end
 
 - type: loadout
   id: BlueshieldLecterMk2

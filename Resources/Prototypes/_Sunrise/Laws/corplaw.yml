@@ -1,0 +1,442 @@
+# Corporate Law Prototypes
+
+# Fish-start
+# Laws: 1xx (5-7 minutes or warning)
+- type: corporateLaw
+  id: Law100
+  lawIdentifier: "100"
+  title: corplaw-art100-title
+  description: corplaw-art100-desc
+  baseSentence: 5
+
+- type: corporateLaw
+  id: Law101
+  lawIdentifier: "101"
+  title: corplaw-art101-title
+  description: corplaw-art101-desc
+  baseSentence: 5
+
+- type: corporateLaw
+  id: Law102
+  lawIdentifier: "102"
+  title: corplaw-art102-title
+  description: corplaw-art102-desc
+  baseSentence: 5
+
+- type: corporateLaw
+  id: Law103
+  lawIdentifier: "103"
+  title: corplaw-art103-title
+  description: corplaw-art103-desc
+  baseSentence: 5
+
+- type: corporateLaw
+  id: Law104
+  lawIdentifier: "104"
+  title: corplaw-art104-title
+  description: corplaw-art104-desc
+  baseSentence: 5
+
+- type: corporateLaw
+  id: Law105
+  lawIdentifier: "105"
+  title: corplaw-art105-title
+  description: corplaw-art105-desc
+  baseSentence: 5
+
+- type: corporateLaw
+  id: Law106
+  lawIdentifier: "106"
+  title: corplaw-art106-title
+  description: corplaw-art106-desc
+  baseSentence: 5
+
+- type: corporateLaw
+  id: Law107
+  lawIdentifier: "107"
+  title: corplaw-art107-title
+  description: corplaw-art107-desc
+  baseSentence: 5
+
+- type: corporateLaw
+  id: Law109
+  lawIdentifier: "109"
+  title: corplaw-art109-title
+  description: corplaw-art109-desc
+  baseSentence: 5
+
+# Laws: 2xx (10-15 minutes)
+- type: corporateLaw
+  id: Law200
+  lawIdentifier: "200"
+  title: corplaw-art200-title
+  description: corplaw-art200-desc
+  baseSentence: 10
+
+- type: corporateLaw
+  id: Law201
+  lawIdentifier: "201"
+  title: corplaw-art201-title
+  description: corplaw-art201-desc
+  baseSentence: 10
+
+- type: corporateLaw
+  id: Law202
+  lawIdentifier: "202"
+  title: corplaw-art202-title
+  description: corplaw-art202-desc
+  baseSentence: 10
+
+- type: corporateLaw
+  id: Law204
+  lawIdentifier: "204"
+  title: corplaw-art204-title
+  description: corplaw-art204-desc
+  baseSentence: 10
+
+- type: corporateLaw
+  id: Law205
+  lawIdentifier: "205"
+  title: corplaw-art205-title
+  description: corplaw-art205-desc
+  baseSentence: 10
+
+- type: corporateLaw
+  id: Law206
+  lawIdentifier: "206"
+  title: corplaw-art206-title
+  description: corplaw-art206-desc
+  baseSentence: 10
+
+- type: corporateLaw
+  id: Law207
+  lawIdentifier: "207"
+  title: corplaw-art207-title
+  description: corplaw-art207-desc
+  baseSentence: 10
+
+- type: corporateLaw
+  id: Law208
+  lawIdentifier: "208"
+  title: corplaw-art208-title
+  description: corplaw-art208-desc
+  baseSentence: 10
+
+- type: corporateLaw
+  id: Law209
+  lawIdentifier: "209"
+  title: corplaw-art209-title
+  description: corplaw-art209-desc
+  baseSentence: 10
+
+- type: corporateLaw
+  id: Law211
+  lawIdentifier: "211"
+  title: corplaw-art211-title
+  description: corplaw-art211-desc
+  baseSentence: 10
+
+# Laws: 3xx (17-25 minutes)
+- type: corporateLaw
+  id: Law300
+  lawIdentifier: "300"
+  title: corplaw-art300-title
+  description: corplaw-art300-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: Law301
+  lawIdentifier: "301"
+  title: corplaw-art301-title
+  description: corplaw-art301-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: Law302
+  lawIdentifier: "302"
+  title: corplaw-art302-title
+  description: corplaw-art302-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: Law303
+  lawIdentifier: "303"
+  title: corplaw-art303-title
+  description: corplaw-art303-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: Law304
+  lawIdentifier: "304"
+  title: corplaw-art304-title
+  description: corplaw-art304-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: Law305
+  lawIdentifier: "305"
+  title: corplaw-art305-title
+  description: corplaw-art305-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: Law306
+  lawIdentifier: "306"
+  title: corplaw-art306-title
+  description: corplaw-art306-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: Law307
+  lawIdentifier: "307"
+  title: corplaw-art307-title
+  description: corplaw-art307-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: Law308
+  lawIdentifier: "308"
+  title: corplaw-art308-title
+  description: corplaw-art308-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: Law309
+  lawIdentifier: "309"
+  title: corplaw-art309-title
+  description: corplaw-art309-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: Law310
+  lawIdentifier: "310"
+  title: corplaw-art310-title
+  description: corplaw-art310-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: Law311
+  lawIdentifier: "311"
+  title: corplaw-art311-title
+  description: corplaw-art311-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: Law312
+  lawIdentifier: "312"
+  title: corplaw-art312-title
+  description: corplaw-art312-desc
+  baseSentence: 17
+
+# Laws: 4xx (40-45 minutes)
+- type: corporateLaw
+  id: Law400
+  lawIdentifier: "400"
+  title: corplaw-art400-title
+  description: corplaw-art400-desc
+  baseSentence: 40
+
+- type: corporateLaw
+  id: Law401
+  lawIdentifier: "401"
+  title: corplaw-art401-title
+  description: corplaw-art401-desc
+  baseSentence: 40
+
+- type: corporateLaw
+  id: Law402
+  lawIdentifier: "402"
+  title: corplaw-art402-title
+  description: corplaw-art402-desc
+  baseSentence: 40
+
+- type: corporateLaw
+  id: Law403
+  lawIdentifier: "403"
+  title: corplaw-art403-title
+  description: corplaw-art403-desc
+  baseSentence: 40
+
+- type: corporateLaw
+  id: Law404
+  lawIdentifier: "404"
+  title: corplaw-art404-title
+  description: corplaw-art404-desc
+  baseSentence: 40
+
+- type: corporateLaw
+  id: Law405
+  lawIdentifier: "405"
+  title: corplaw-art405-title
+  description: corplaw-art405-desc
+  baseSentence: 40
+
+- type: corporateLaw
+  id: Law406
+  lawIdentifier: "406"
+  title: corplaw-art406-title
+  description: corplaw-art406-desc
+  baseSentence: 40
+
+- type: corporateLaw
+  id: Law408
+  lawIdentifier: "408"
+  title: corplaw-art408-title
+  description: corplaw-art408-desc
+  baseSentence: 40
+
+- type: corporateLaw
+  id: Law409
+  lawIdentifier: "409"
+  title: corplaw-art409-title
+  description: corplaw-art409-desc
+  baseSentence: 40
+
+- type: corporateLaw
+  id: Law410
+  lawIdentifier: "410"
+  title: corplaw-art410-title
+  description: corplaw-art410-desc
+  baseSentence: 40
+
+- type: corporateLaw
+  id: Law411
+  lawIdentifier: "411"
+  title: corplaw-art411-title
+  description: corplaw-art411-desc
+  baseSentence: 40
+
+- type: corporateLaw
+  id: Law412
+  lawIdentifier: "412"
+  title: corplaw-art412-title
+  description: corplaw-art412-desc
+  baseSentence: 40
+
+# Laws: 5xx (permanent imprisonment)
+- type: corporateLaw
+  id: Law500
+  lawIdentifier: "500"
+  title: corplaw-art500-title
+  description: corplaw-art500-desc
+  baseSentence: 999
+
+- type: corporateLaw
+  id: Law501
+  lawIdentifier: "501"
+  title: corplaw-art501-title
+  description: corplaw-art501-desc
+  baseSentence: 999
+
+- type: corporateLaw
+  id: Law502
+  lawIdentifier: "502"
+  title: corplaw-art502-title
+  description: corplaw-art502-desc
+  baseSentence: 999
+
+- type: corporateLaw
+  id: Law503
+  lawIdentifier: "503"
+  title: corplaw-art503-title
+  description: corplaw-art503-desc
+  baseSentence: 999
+
+- type: corporateLaw
+  id: Law504
+  lawIdentifier: "504"
+  title: corplaw-art504-title
+  description: corplaw-art504-desc
+  baseSentence: 999
+
+- type: corporateLaw
+  id: Law505
+  lawIdentifier: "505"
+  title: corplaw-art505-title
+  description: corplaw-art505-desc
+  baseSentence: 999
+
+- type: corporateLaw
+  id: Law506
+  lawIdentifier: "506"
+  title: corplaw-art506-title
+  description: corplaw-art506-desc
+  baseSentence: 999
+
+- type: corporateLaw
+  id: Law507
+  lawIdentifier: "507"
+  title: corplaw-art507-title
+  description: corplaw-art507-desc
+  baseSentence: 999
+
+- type: corporateLaw
+  id: Law508
+  lawIdentifier: "508"
+  title: corplaw-art508-title
+  description: corplaw-art508-desc
+  baseSentence: 999
+
+- type: corporateLaw
+  id: Law509
+  lawIdentifier: "509"
+  title: corplaw-art509-title
+  description: corplaw-art509-desc
+  baseSentence: 999
+
+# General Provisions
+- type: corporateLaw
+  id: ProvisionOPRS
+  category: Provision
+  title: corplaw-oprs-title
+  description: corplaw-oprs-desc
+
+- type: corporateLaw
+  id: ProvisionSentences
+  category: Provision
+  title: corplaw-sentences-title
+  description: corplaw-sentences-desc
+
+# Sections
+- type: corporateLawSection
+  id: SectionGeneral
+  title: corplaw-section-general
+  entries: [ProvisionOPRS, ProvisionSentences]
+
+- type: corporateLawSection
+  id: Section1xx
+  title: corplaw-section-1xx
+  color: "#30d158"
+  entries: [Law100, Law101, Law102, Law103, Law104, Law105, Law106, Law107, Law109]
+
+- type: corporateLawSection
+  id: Section2xx
+  title: corplaw-section-2xx
+  color: "#ffd60a"
+  entries: [Law200, Law201, Law202, Law204, Law205, Law206, Law207, Law208, Law209, Law211]
+
+- type: corporateLawSection
+  id: Section3xx
+  title: corplaw-section-3xx
+  color: "#ff9f0a"
+  entries: [Law300, Law301, Law302, Law303, Law304, Law305, Law306, Law307, Law308, Law309, Law310, Law311, Law312]
+
+- type: corporateLawSection
+  id: Section4xx
+  title: corplaw-section-4xx
+  color: "#ff453a"
+  entries: [Law400, Law401, Law402, Law403, Law404, Law405, Law406, Law408, Law409, Law410, Law411, Law412]
+
+- type: corporateLawSection
+  id: Section5xx
+  title: corplaw-section-5xx
+  color: "#bf5af2"
+  entries: [Law500, Law501, Law502, Law503, Law504, Law505, Law506, Law507, Law508, Law509]
+
+# Lawsets
+- type: corporateLawset
+  id: StandardCorporateLaw
+  permanentSentenceThreshold: 50
+  provisions: [ProvisionOPRS, ProvisionSentences]
+  articles: [Section1xx, Section2xx, Section3xx, Section4xx, Section5xx]
+# Fish-end
