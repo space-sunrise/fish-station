@@ -53,18 +53,18 @@
   - Socks
   - Contributors
 
- - type: roleLoadout
-   id: JobCentCommOfficial
-   groups:
-   - CentCommOperatorHats
-   - CentCommOperatorJumpsuit
-   - SunriseTrinkets
-   - SunriseSurvival
-   - GroupSpeciesBreathTool
-   - Bra
-   - Pants
-   - Socks
-   - Contributors
+- type: roleLoadout
+  id: JobCentCommOfficial
+  groups:
+  - CentCommOperatorHats
+  - CentCommOperatorJumpsuit
+  - SunriseTrinkets
+  - SunriseSurvival
+  - GroupSpeciesBreathTool
+  - Bra
+  - Pants
+  - Socks
+  - Contributors
 
 - type: roleLoadout
   id: JobCentCommOperator
