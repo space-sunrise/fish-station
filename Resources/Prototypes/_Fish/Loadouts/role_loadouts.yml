@@ -1,15 +1,15 @@
 - type: roleLoadout
   id: JobCentCommTrainee
   groups:
-  - CentCommOperatorJumpsuit
-  - CentCommOperatorHats
-  - CentCommOperatorShoes
-  - CentCommOperatorGloves
-  - CentCommOperatorOuter
-  - CentCommOperatorNeck
-  - CentCommOperatorEyes
-  - CentCommOperatorBack
-  - CentCommOperatorWeapons
+  - CentCommOperatorJumpsuitFish
+  - CentCommOperatorHatsFish
+  - CentCommOperatorShoesFish
+  - CentCommOperatorGlovesFish
+  - CentCommOperatorOuterFish
+  - CentCommOperatorNeckFish
+  - CentCommOperatorEyesFish
+  - CentCommOperatorBackFish
+  - CentCommOperatorWeaponsFish
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
@@ -20,15 +20,15 @@
 - type: roleLoadout
   id: JobCentCommOfficer
   groups:
-  - CentCommOperatorJumpsuit
-  - CentCommOperatorHats
-  - CentCommOperatorShoes
-  - CentCommOperatorGloves
-  - CentCommOperatorOuter
-  - CentCommOperatorNeck
-  - CentCommOperatorEyes
-  - CentCommOperatorBack
-  - CentCommOperatorWeapons
+  - CentCommOperatorJumpsuitFish
+  - CentCommOperatorHatsFish
+  - CentCommOperatorShoesFish
+  - CentCommOperatorGlovesFish
+  - CentCommOperatorOuterFish
+  - CentCommOperatorNeckFish
+  - CentCommOperatorEyesFish
+  - CentCommOperatorBackFish
+  - CentCommOperatorWeaponsFish
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
@@ -39,15 +39,15 @@
 - type: roleLoadout
   id: JobCentCommOfficial
   groups:
-  - CentCommOperatorJumpsuit
-  - CentCommOperatorHats
-  - CentCommOperatorShoes
-  - CentCommOperatorGloves
-  - CentCommOperatorOuter
-  - CentCommOperatorNeck
-  - CentCommOperatorEyes
-  - CentCommOperatorBack
-  - CentCommOperatorWeapons
+  - CentCommOperatorJumpsuitFish
+  - CentCommOperatorHatsFish
+  - CentCommOperatorShoesFish
+  - CentCommOperatorGlovesFish
+  - CentCommOperatorOuterFish
+  - CentCommOperatorNeckFish
+  - CentCommOperatorEyesFish
+  - CentCommOperatorBackFish
+  - CentCommOperatorWeaponsFish
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
@@ -166,14 +166,14 @@
   id: JobOversightOfficer
   groups:
   - LawyerJumpsuit
-  - CentCommOperatorHats
-  - CentCommOperatorShoes
-  - CentCommOperatorGloves
-  - CentCommOperatorOuter
-  - CentCommOperatorNeck
-  - CentCommOperatorEyes
-  - CentCommOperatorBack
-  - CentCommOperatorWeapons
+  - CentCommOperatorHatsFish
+  - CentCommOperatorShoesFish
+  - CentCommOperatorGlovesFish
+  - CentCommOperatorOuterFish
+  - CentCommOperatorNeckFish
+  - CentCommOperatorEyesFish
+  - CentCommOperatorBackFish
+  - CentCommOperatorWeaponsFish
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
@@ -185,14 +185,14 @@
   id: JobSpecOpsOfficer
   groups:
   - SpecOpsOfficerJumpsuit
-  - CentCommOperatorHats
-  - CentCommOperatorShoes
-  - CentCommOperatorGloves
-  - CentCommOperatorOuter
-  - CentCommOperatorNeck
-  - CentCommOperatorEyes
-  - CentCommOperatorBack
-  - CentCommOperatorWeapons
+  - CentCommOperatorHatsFish
+  - CentCommOperatorShoesFish
+  - CentCommOperatorGlovesFish
+  - CentCommOperatorOuterFish
+  - CentCommOperatorNeckFish
+  - CentCommOperatorEyesFish
+  - CentCommOperatorBackFish
+  - CentCommOperatorWeaponsFish
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool

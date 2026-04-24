@@ -101,48 +101,7 @@
   equipment:
     belt: ClothingBeltSheathCentcomFish
 
-# --- Groups ---
 
-- type: loadoutGroup
-  id: CentCommOperatorShoesFish
-  name: loadout-group-centcomm-shoes
-  loadouts:
-  - CentCommBootsFish
-
-- type: loadoutGroup
-  id: CentCommOperatorGlovesFish
-  name: loadout-group-centcomm-gloves
-  loadouts:
-  - CentCommGlovesWhiteFish
-
-- type: loadoutGroup
-  id: CentCommOperatorOuterFish
-  name: loadout-group-centcomm-outer
-  loadouts:
-  - CentcommCoatFish
-  - CentcommArmorFish
-
-- type: loadoutGroup
-  id: CentCommOperatorNeckFish
-  name: loadout-group-centcomm-neck
-  loadouts:
-  - CentcommCloakFormalFish
-  - CentcommCloakFormalLongFish
-  - CentcommMantleFish
-  - CentcommMantleShoulderFish
-
-- type: loadoutGroup
-  id: CentCommOperatorBackFish
-  name: loadout-group-centcomm-back
-  loadouts:
-  - CentcommSatchelFish
-
-- type: loadoutGroup
-  id: CentCommOperatorWeaponsFish
-  name: loadout-group-centcomm-weapons
-  loadouts:
-  - CentcommSwordFish
-# --- Default Gear ---
 
 - type: loadout
   id: CentCommShoesLaceup

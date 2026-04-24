@@ -358,11 +358,6 @@
   - CentCommOfficerJumpskirt
   - CentCommOfficialJumpsuit
   - CentCommOfficialJumpskirt
-# Fish start
-  - CentCommOfficialJumpsuitFish
-  - CentCommOfficialJumpskirtFish
-  - CentCommAssistantJumpsuitFish
-# Fish end
 
 - type: loadoutGroup
   id: CentCommOperatorHats
@@ -370,25 +365,12 @@
   loadouts:
   - HeadHatBeretCentcomNaval
   - HeadHatCentcomcap
-# Fish start
-  - CentCommOfficialHat
-  - SpecOpsCapBlack
-  - CentcommHatFish
-  - CentcommCapFish
-# Fish end
-  # - HeadHatCentcomcap #Fish-Edit
 
 - type: loadoutGroup
   id: CentCommOperatorShoes
   name: loadout-group-centcomm-shoes
   loadouts:
   - BlackShoes
-# Fish start
-  - CentCommShoesLaceup
-  - CentCommShoesCombat
-  - SpecOpsShoesBlack
-  - CentCommBootsFish
-# Fish end
 
 - type: loadoutGroup
   id: CentCommOperatorGloves
@@ -396,65 +378,32 @@
   loadouts:
   - LatexGloves
   - SunriseBlackGloves
-# Fish start
-  - CentCommGlovesBlack
-  - SpecOpsGlovesCombat
-  - CentCommGlovesWhiteFish
-# Fish end
 
 - type: loadoutGroup
   id: CentCommOperatorOuter
   name: loadout-group-centcomm-outer
-  minLimit: 0 #Fish-Edit
   loadouts:
   - CentcommArmor
-# Fish start
-  - CentCommArmorCarapace
-  - CentCommArmorSlim
-  - CentcommCoatFish
-  - CentcommArmorFish
-# Fish end
 
 - type: loadoutGroup
   id: CentCommOperatorNeck
   name: loadout-group-centcomm-neck
-  minLimit: 0 # Fish-Edit
-  loadouts:
-# Fish start
-  - CentcommCloakFormalFish
-  - CentcommCloakFormalLongFish
-  - CentcommMantleFish
-  - CentcommMantleShoulderFish
-# Fish end
+  loadouts: []
 
 - type: loadoutGroup
   id: CentCommOperatorBack
   name: loadout-group-centcomm-back
-  loadouts:
-# Fish start
-  - CentcommSatchelFish
-# Fish end
+  loadouts: []
 
 - type: loadoutGroup
   id: CentCommOperatorEyes
   name: loadout-group-centcomm-eyes
-  loadouts:
-# Fish start
-  - CentCommSunglasses
-  - CentCommAdminGlasses
-# Fish end
+  loadouts: []
 
 - type: loadoutGroup
   id: CentCommOperatorWeapons
   name: loadout-group-centcomm-weapons
-  loadouts:
-# Fish start
-  - CentCommPistolN1984
-  - CentcommSwordFish
-  - CentcommPistolN1984ButtFish
-  - CentcommPistolN1984SheathFish
-# Fish end
-
+  loadouts: []
 - type: loadoutGroup
   id: CentCommJobTrinkets
   name: loadout-group-centcomm-trinkets

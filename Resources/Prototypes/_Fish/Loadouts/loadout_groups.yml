@@ -1,9 +1,3 @@
-# - type: loadoutGroup
-#   id: CentCommTraineeOuterClothing
-#   name: loadout-group-centcomm-trainee-outerclothing-vest
-#   loadouts:
-#   - ArmorVestSlim
-
 - type: loadoutGroup
   id: SpecOpsOfficerJumpsuit
   name: loadout-group-specops-jumpsuit
@@ -11,3 +5,89 @@
   - SpecOpsOfficerUniformMale
   - SpecOpsOfficerUniformFemale
   - SpecOpsOfficerUniformBlackFish
+
+- type: loadoutGroup
+  id: CentCommOperatorJumpsuitFish
+  name: loadout-group-centcomm-operator-jumpsuit
+  loadouts:
+  - CentCommOfficerJumpsuit
+  - CentCommOfficerJumpskirt
+  - CentCommOfficialJumpsuit
+  - CentCommOfficialJumpskirt
+  - CentCommOfficialJumpsuitFish
+  - CentCommOfficialJumpskirtFish
+  - CentCommAssistantJumpsuitFish
+
+- type: loadoutGroup
+  id: CentCommOperatorHatsFish
+  name: loadout-group-centcomm-operator-head-hat
+  loadouts:
+  - HeadHatBeretCentcomNaval
+  - HeadHatCentcomcap
+  - CentCommOfficialHat
+  - SpecOpsCapBlack
+  - CentcommHatFish
+  - CentcommCapFish
+
+- type: loadoutGroup
+  id: CentCommOperatorShoesFish
+  name: loadout-group-centcomm-shoes
+  loadouts:
+  - BlackShoes
+  - CentCommShoesLaceup
+  - CentCommShoesCombat
+  - SpecOpsShoesBlack
+  - CentCommBootsFish
+
+- type: loadoutGroup
+  id: CentCommOperatorGlovesFish
+  name: loadout-group-centcomm-gloves
+  loadouts:
+  - LatexGloves
+  - SunriseBlackGloves
+  - CentCommGlovesBlack
+  - SpecOpsGlovesCombat
+  - CentCommGlovesWhiteFish
+
+- type: loadoutGroup
+  id: CentCommOperatorOuterFish
+  name: loadout-group-centcomm-outer
+  minLimit: 0
+  loadouts:
+  - CentcommArmor
+  - CentCommArmorCarapace
+  - CentCommArmorSlim
+  - CentcommCoatFish
+  - CentcommArmorFish
+
+- type: loadoutGroup
+  id: CentCommOperatorNeckFish
+  name: loadout-group-centcomm-neck
+  minLimit: 0
+  loadouts:
+  - CentcommCloakFormalFish
+  - CentcommCloakFormalLongFish
+  - CentcommMantleFish
+  - CentcommMantleShoulderFish
+
+- type: loadoutGroup
+  id: CentCommOperatorBackFish
+  name: loadout-group-centcomm-back
+  loadouts:
+  - CentcommSatchelFish
+
+- type: loadoutGroup
+  id: CentCommOperatorEyesFish
+  name: loadout-group-centcomm-eyes
+  loadouts:
+  - CentCommSunglasses
+  - CentCommAdminGlasses
+
+- type: loadoutGroup
+  id: CentCommOperatorWeaponsFish
+  name: loadout-group-centcomm-weapons
+  loadouts:
+  - CentCommPistolN1984
+  - CentcommSwordFish
+  - CentcommPistolN1984ButtFish
+  - CentcommPistolN1984SheathFish
