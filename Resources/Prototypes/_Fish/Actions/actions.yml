@@ -9,4 +9,4 @@
       sprite: _Fish/Objects/Weapons/Guns/Pistols/N1984-holster-butt/tiny.rsi
       state: wielded-inhand-right
   - type: InstantAction
-    event: !type:ActionN1984DetachEvent
+    event: !type:ActionWeaponTransformDetachEvent

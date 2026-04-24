@@ -5,7 +5,7 @@ using Content.Shared.Actions;
 namespace Content.Shared._Fish.Weapons.Guns;
 
 [RegisterComponent]
-public sealed partial class N1984TransformComponent : Component
+public sealed partial class WeaponTransformComponent : Component
 {
     [DataField("targetPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? TargetPrototype;
@@ -21,6 +21,12 @@ public sealed partial class N1984TransformComponent : Component
     
     [DataField("isStocked")]
     public bool IsStocked = false;
+
+    [DataField("attachedPopup")]
+    public string AttachedPopup = "weapon-transform-attached";
+
+    [DataField("detachedPopup")]
+    public string DetachedPopup = "weapon-transform-detached";
 }
 
-public sealed partial class ActionN1984DetachEvent : InstantActionEvent { }
+public sealed partial class ActionWeaponTransformDetachEvent : InstantActionEvent { }

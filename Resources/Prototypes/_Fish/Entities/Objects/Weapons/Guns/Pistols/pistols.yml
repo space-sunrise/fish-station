@@ -15,8 +15,10 @@
   - type: GunWieldBonus
     minAngle: -10
     maxAngle: -10
-  - type: N1984Transform
+  - type: WeaponTransform
     targetPrototype: WeaponPistolN1984
     stockPrototype: ClothingBeltHolsterN1984ButtFish
     detachAction: ActionN1984Detach
+    attachedPopup: n1984-transform-attached
+    detachedPopup: n1984-transform-detached
     isStocked: true
