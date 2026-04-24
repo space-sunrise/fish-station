@@ -185,8 +185,11 @@
   id: JobSpecOpsOfficer
   groups:
   - SpecOpsOfficerJumpsuit
+  - SpecOpsOfficerHats
   - CentCommOperatorHatsFish
+  - SpecOpsOfficerShoes
   - CentCommOperatorShoesFish
+  - SpecOpsOfficerGloves
   - CentCommOperatorGlovesFish
   - CentCommOperatorOuterFish
   - CentCommOperatorNeckFish
