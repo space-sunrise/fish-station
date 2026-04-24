@@ -63,7 +63,13 @@ ent-WeaponPistolN1984ButtFish = N1984 (Stock)
     .desc = A reliable N1984 pistol equipped with a stock for improved stability.
 
 ent-ClothingBeltHolsterN1984ButtFish = N1984 stock
-    .desc = A specialized holster designed to carry an N1984 pistol with a stock.
+    .desc = A specialized holster designed to carry an N1984 pistol. Can act as a stock.
+
+ent-ClothingBeltHolsterN1984ButtFishFilled = N1984 stock
+    .desc = A specialized holster containing an N1984 pistol. Can act as a stock.
 
 ent-ClothingBeltSheathN1984Fish = N1984 sheath
     .desc = A standard sheath for an N1984 pistol.
+
+ent-ClothingBeltSheathN1984FishFilled = N1984 sheath
+    .desc = A standard sheath containing an N1984 pistol.

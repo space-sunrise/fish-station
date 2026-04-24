@@ -405,6 +405,7 @@
 - type: loadoutGroup
   id: CentCommOperatorOuter
   name: loadout-group-centcomm-outer
+  minLimit: 0 #Fish-Edit
   loadouts:
   - CentcommArmor
 # Fish start
@@ -417,6 +418,7 @@
 - type: loadoutGroup
   id: CentCommOperatorNeck
   name: loadout-group-centcomm-neck
+  minLimit: 0 # Fish-Edit
   loadouts:
 # Fish start
   - CentcommCloakFormalFish

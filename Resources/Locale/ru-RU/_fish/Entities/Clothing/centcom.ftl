@@ -63,8 +63,14 @@ loadout-group-centcomm-trinkets = Аксессуары ЦК
 ent-WeaponPistolN1984ButtFish = N1984(с прикладом)
     .desc = Надежный пистолет N1984, оснащенный прикладом для большей устойчивости.
 
-ent-ClothingBeltHolsterN1984ButtFish = Кобура N1984(с прикладом)
-    .desc = Специализированная кобура, предназначенная для ношения пистолета N1984 с прикладом.
+ent-ClothingBeltHolsterN1984ButtFish = Кобура-приклад N1984
+    .desc = Специализированная кобура, предназначенная для ношения пистолета N1984.
+
+ent-ClothingBeltHolsterN1984ButtFishFilled = Кобура-приклад N1984
+    .desc = Специализированная кобура, содержащая пистолет N1984. В присоединенном виде действует как приклад.
 
 ent-ClothingBeltSheathN1984Fish = Кобура для N1984
     .desc = Стандартная кобура для пистолета N1984.
+
+ent-ClothingBeltSheathN1984FishFilled = Кобура для N1984
+    .desc = Стандартная кобура, содержащая пистолет N1984.
