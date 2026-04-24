@@ -11,7 +11,11 @@
   radioBold: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
-  access: # Sunrise-Edit
+  alternativeTitles:
+  - job-alt-title-nt-diplomat
+  access:
+    - Cryogenics
+    - Lawyer
     - Command
     - Bar
     - Service
@@ -25,12 +29,15 @@
     - Chemistry
     - Engineering
     - Research
+    - Detective
     - Salvage
+    - Security
+    - Brig
     - Cargo
     - Atmospherics
+    - Cargo
     - Medical
-    - BlueShield
-    - BlueShieldEnsign
+    - Ntrep
   special:
     - !type:AddImplantSpecial
       implants: [ MindShieldImplant, TrackingImplant, DeathRattleImplantBlueShield ]
@@ -45,7 +52,7 @@
     eyes: ClothingEyesSunGlassesHudSkill
     head: ClothingHeadHatCapNtrep
     id: NanoTrasenRepresentativePDA
-    ears: ClothingHeadsetAltCommand
+    ears: ClothingHeadsetAltRepresentativeNT
     pocket1: FlippoEngravedLighter
     pocket2: PenCentcom
   storage:

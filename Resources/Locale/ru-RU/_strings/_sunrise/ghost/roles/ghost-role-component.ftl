@@ -6,7 +6,7 @@ ghost-role-information-syndicate-reaper-cyborg-name = Борг синдикат�
 ghost-role-information-syndicate-reaper-cyborg-description = Смерть NT.
 ghost-role-information-syndicate-heavy-cyborg-name = Тяжелый боевой борг синдиката
 ghost-role-information-syndicate-heavy-cyborg-description = Смерть NT.
-ghost-role-information-syndicate-spider-cyborg-name = Диверсионный борг синдиката
+ghost-role-information-syndicate-spider-cyborg-name = Диверсионный борг синдиката "Инфильтратор"
 ghost-role-information-syndicate-spider-cyborg-description = Смерть NT.
 ghost-role-information-syndicate-saboteur-cyborg-name = Диверсионный борг синдиката
 ghost-role-information-syndicate-saboteur-cyborg-description = Смерть NT.
@@ -47,3 +47,5 @@ job-rules-corporate-aligned = Вы на стороне {role-type-corporate-alig
 job-rules-tsf-aligned = Вы на стороне {role-type-tsf-aligned-name}.
                         Вы должны служить интересам Транс-Солнечной Федерации.
                         Помните: вы НЕ служите экипажу.
+ghost-role-information-sentient-carpholo-name = Разумный голокарп
+ghost-role-information-sentient-carpshark-name = Разумная карпоакула

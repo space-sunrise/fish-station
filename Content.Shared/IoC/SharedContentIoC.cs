@@ -8,7 +8,14 @@ namespace Content.Shared.IoC
     {
         public static void Register(IDependencyCollection deps)
         {
-            deps.Register<MarkingManager, MarkingManager>();
+            try
+            {
+                deps.Register<MarkingManager, MarkingManager>();
+            }
+            catch (InvalidOperationException)
+            {
+                // Already registered, skip
+            }
             deps.Register<ContentLocalizationManager, ContentLocalizationManager>();
             deps.Register<CultistWordGeneratorManager, CultistWordGeneratorManager>(); // Sunrise-Edit
         }
