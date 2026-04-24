@@ -69,10 +69,13 @@ public sealed class WeaponTransformSystem : EntitySystem
         
         InsertState(newGun, ammoEntities);
 
-        QueueDel(args.Used);
-        QueueDel(uid);
+        _hands.TryDrop(user, args.Used, checkActionBlocker: false);
+        _hands.TryDrop(user, uid, checkActionBlocker: false);
+        
+        Del(args.Used);
+        Del(uid);
 
-        _hands.TryPickupAnyHand(user, newGun);
+        _hands.TryPickupAnyHand(user, newGun, checkActionBlocker: false);
         _popups.PopupEntity(Loc.GetString(component.AttachedPopup), user, user);
     }
 
@@ -91,10 +94,11 @@ public sealed class WeaponTransformSystem : EntitySystem
 
         InsertState(newGun, ammoEntities);
 
-        QueueDel(uid);
+        _hands.TryDrop(user, uid, checkActionBlocker: false);
+        Del(uid);
 
-        _hands.TryPickupAnyHand(user, newGun);
-        _hands.TryPickupAnyHand(user, stock);
+        _hands.TryPickupAnyHand(user, newGun, checkActionBlocker: false);
+        _hands.TryPickupAnyHand(user, stock, checkActionBlocker: false);
         
         _popups.PopupEntity(Loc.GetString(component.DetachedPopup), user, user);
     }
@@ -127,9 +131,9 @@ public sealed class WeaponTransformSystem : EntitySystem
         {
             foreach (var (id, container) in containerManager.Containers)
             {
-                if (entities.ContainsKey(id))
+                if (id == "gun_magazine" || id == "gun_chamber" || id.StartsWith("item_slot"))
                 {
-                    // Clean out pre-existing default items in the new gun first
+                    // Clean out pre-existing default items in the new gun first, regardless of whether we are inserting something or not!
                     if (container.ContainedEntities.Count > 0)
                     {
                         foreach(var oldItem in container.ContainedEntities.ToArray())
@@ -139,9 +143,12 @@ public sealed class WeaponTransformSystem : EntitySystem
                         }
                     }
                     
-                    // Insert preserved item
-                    _container.Insert(entities[id], container);
-                    entities.Remove(id);
+                    if (entities.ContainsKey(id))
+                    {
+                        // Insert preserved item
+                        _container.Insert(entities[id], container);
+                        entities.Remove(id);
+                    }
                 }
             }
         }

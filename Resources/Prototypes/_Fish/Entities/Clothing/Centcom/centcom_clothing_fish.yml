@@ -174,7 +174,6 @@
 - type: entity
   parent: [ ClothingBeltBase, ClothingSlotBase, BaseCentcommContraband ]
   id: ClothingBeltHolsterN1984ButtFish
-  suffix: Filled
   components:
   - type: Sprite
     sprite: _Fish/Clothing/Belt/centcom_N1984_holster-butt.rsi
@@ -185,15 +184,20 @@
     slots:
       gun:
         name: Handgun
+
+- type: entity
+  parent: ClothingBeltHolsterN1984ButtFish
+  id: ClothingBeltHolsterN1984ButtFishFilled
+  suffix: Filled
+  components:
   - type: ContainerFill
     containers:
       gun:
-      - WeaponPistolN1984ButtFish
+      - WeaponPistolN1984
 
 - type: entity
   parent: [ ClothingBeltSheath, BaseCentcommContraband ]
   id: ClothingBeltSheathN1984Fish
-  suffix: Filled
   components:
   - type: Sprite
     sprite: _Fish/Clothing/Belt/centcom_N1984_sheath.rsi
@@ -214,7 +218,13 @@
         whitelist:
           tags:
           - Sidearm
+
+- type: entity
+  parent: ClothingBeltSheathN1984Fish
+  id: ClothingBeltSheathN1984FishFilled
+  suffix: Filled
+  components:
   - type: ContainerFill
     containers:
       item:
-      - WeaponPistolN1984ButtFish
+      - WeaponPistolN1984

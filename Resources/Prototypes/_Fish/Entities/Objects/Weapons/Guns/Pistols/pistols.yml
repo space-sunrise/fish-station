@@ -22,3 +22,5 @@
     attachedPopup: n1984-transform-attached
     detachedPopup: n1984-transform-detached
     isStocked: true
+  - type: Tag
+    tags: []

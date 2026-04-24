@@ -232,4 +232,9 @@
 - type: loadout
   id: CentcommPistolN1984ButtFish
   equipment:
-    belt: ClothingBeltHolsterN1984ButtFish
+    belt: ClothingBeltHolsterN1984ButtFishFilled
+
+- type: loadout
+  id: CentcommPistolN1984SheathFish
+  equipment:
+    belt: ClothingBeltSheathN1984FishFilled

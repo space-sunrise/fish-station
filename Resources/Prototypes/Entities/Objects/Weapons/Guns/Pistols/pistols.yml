@@ -275,3 +275,5 @@
     isStocked: false
     attachedPopup: n1984-transform-attached
     detachedPopup: n1984-transform-detached
+  - type: Tag
+    tags: []
