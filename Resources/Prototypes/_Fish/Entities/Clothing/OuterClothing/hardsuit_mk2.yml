@@ -1,0 +1,12 @@
+- type: entity
+  parent: ClothingOuterHardsuitBlueShield
+  id: ClothingOuterHardsuitBlueShieldMark2
+  name: mark 2 model blueshield hardsuit
+  description: Tough and reliable, just like its owner. Mark 2 model.
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/OuterClothing/Hardsuits/blueshield_mk2.rsi
+  - type: Clothing
+    sprite: _Fish/Clothing/OuterClothing/Hardsuits/blueshield_mk2.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitBlueshieldMark2

@@ -85,6 +85,7 @@
   id: JobBlueShieldEnsign
   groups:
   - BlueShieldNeck
+  - BlueShieldOuterClothing # Fish-add
   - BlueShieldJumpsuit
   - BlueShieldBackpack
   - BlueShieldBelt
@@ -101,6 +102,7 @@
   id: JobBlueShieldOfficer
   groups:
   - BlueShieldNeck
+  - BlueShieldOuterClothing # Fish-add
   - BlueShieldJumpsuit
   - BlueShieldBackpack
   - BlueShieldBelt
@@ -121,6 +123,7 @@
   - BlueShieldBackpack
   - BlueShieldBelt
   - BlueShieldNeck
+  - BlueShieldOuterClothing # Fish-add
   - Trinkets
   - BlueshieldGun
   - SunriseTrinkets
