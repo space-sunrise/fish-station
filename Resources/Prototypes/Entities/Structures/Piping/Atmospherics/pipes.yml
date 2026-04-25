@@ -63,11 +63,14 @@
   - type: Physics
     canCollide: false
     bodyType: static
-  # Sunrise-start
-  # Fish-start   
+  # Sunrise edit start - mapping replacement rules
+  - type: MappingReplacement
+    usePrototypeId: true
+    requireSameRotation: true
+  # Sunrise edit end
   - type: StaticPrice
-    price: 15
-  # Fish-end  
+    price: 30
+  # Sunrise-start
   - type: ContainerContainer
     containers:
       VentCrawTube: !type:Container

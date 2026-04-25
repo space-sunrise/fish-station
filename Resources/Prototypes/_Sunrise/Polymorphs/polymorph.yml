@@ -265,11 +265,3 @@
     revertOnDelete: true
     allowRepeatedMorphs: true
 
-- type: polymorph
-  id: KitsuneTransform
-  configuration:
-    entity: MobKitsunePlayerFox
-    revertOnDeath: true
-    revertOnDelete: true
-    transferDamage: true
-    transferName: true

@@ -16,11 +16,26 @@
   icon: JobIconBlueShield
   supervisors: job-supervisors-centcom
   canBeAntag: false
-  accessGroups:
-  - AllAccess
   access:
-  - CentralCommand
-    # Fish-End
+    - Command
+    - Bar
+    - Service
+    - Maintenance
+    - Janitor
+    - Theatre
+    - Kitchen
+    - Chapel
+    - Hydroponics
+    - External
+    - Chemistry
+    - Engineering
+    - Research
+    - Salvage
+    - Cargo
+    - Atmospherics
+    - Medical
+    - BlueShield
+    - BlueShieldEnsign
   special:
     - !type:AddImplantSpecial
       implants: [ MindShieldImplant ]

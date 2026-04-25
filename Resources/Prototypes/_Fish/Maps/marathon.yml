@@ -1,0 +1,102 @@
+- type: gameMap
+  id: FishMarathon
+  mapName: 'Marathon'
+  mapPath: /Maps/_Fish/Station/marathon.yml
+  maxRandomOffset: 0
+  randomRotation: false
+  minPlayers: 0
+  maxPlayers: 75
+  stations:
+    Marathon:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Марафон {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'FH'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_Case.yml
+        - type: SpawnGridAndDockToStation
+          grids:
+          - gridPath: /Maps/_Fish/Shuttles/mining.yml
+            priorityTag: DockMining
+          - gridPath: /Maps/_Fish/Shuttles/security_jay.yml
+            priorityTag: DockFishSecurity
+        - type: StationJobs
+          availableJobs:
+            #command
+            Captain: [ 1, 1 ]
+            Adjutant: [ 1, 1 ]
+            NanoTrasenRepresentative: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            ComMaid: [ 1, 1 ]
+            #service
+            Bartender: [ 2, 2 ]
+            Botanist: [ 3, 3 ]
+            Chef: [ 2, 2 ]
+            Janitor: [ 3, 3 ]
+            Chaplain: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
+            ServiceWorker: [ 2, 2 ]
+            Reporter: [ 1, 1 ]
+            Barber: [ 1, 1 ]
+            #engineering
+            ChiefEngineer: [ 1, 1 ]
+            SeniorEngineer: [ 1, 1 ]
+            AtmosphericTechnician: [ 3, 3 ]
+            StationEngineer: [ 4, 4 ]
+            TechnicalAssistant: [ 3, 3 ]
+            #medical
+            ChiefMedicalOfficer: [ 1, 1 ]
+            SeniorPhysician: [ 1, 1 ]
+            Chemist: [ 2, 2 ]
+            MedicalDoctor: [ 4, 4 ]
+            Paramedic: [ 1, 1 ]
+            MedicalIntern: [ 3, 3 ]
+            Psychologist: [ 1, 1 ]
+            MedicalPathologist: [ 1, 1 ]
+            #science
+            ResearchDirector: [ 1, 1 ]
+            SeniorResearcher: [ 1, 1 ]
+            Scientist: [ 4, 4 ]
+            ResearchAssistant: [ 3, 3 ]
+            Roboticist: [ 2, 2 ]
+            #security
+            HeadOfSecurity: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            SeniorOfficer: [ 1, 1 ]
+            Detective: [ 2, 2 ]
+            Brigmedic: [ 2, 2 ]
+            SecurityPilot: [ 1, 1 ]
+            SecurityOfficer: [ 4, 4 ]
+            SecurityCadet: [ 4, 4 ]
+            #supply
+            Quartermaster: [ 1, 1 ]
+            MiningSpecialist: [ 1, 1 ]
+            SalvageSpecialist: [ 3, 3 ]
+            CargoTechnician: [ 3, 3 ]
+            MailCarrier: [ 1, 1 ]
+            #civilian
+            Passenger: [ -1, -1 ]
+            Clown: [ 1, 1 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            #blueshield
+            BlueShieldOfficer: [ 1, 1 ]
+            #law
+            Magistrat: [ 1, 1 ]
+            IAA: [ 1, 1 ]
+            Lawyer: [ 1, 1 ]
+            NtrOfficer: [ 1, 1 ]
+            # silicon
+            StationAi: [ 1, 1 ]
+            Borg: [ 2, 2 ]
+            EngineerBorg: [ 1, 1 ]
+            MiningBorg: [ 1, 1 ]
+            JanitorBorg: [ 1, 1 ]
+            ServiceBorg: [ 1, 1 ]
+            ClownBorg: [ 1, 1 ]
+            PeaceBorg: [ 1, 1 ]
+            MedicalBorg: [ 1, 1 ]
+            SecurityBorg: [ 1, 1 ]

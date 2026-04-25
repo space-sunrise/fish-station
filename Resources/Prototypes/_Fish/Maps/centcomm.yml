@@ -20,7 +20,7 @@
           priorityTag: DockCentComm
         - gridPath: /Maps/_Fish/Shuttles/SpecialOperations/ert_shuttle_medium.yml
           priorityTag: DockFishERT
-        - gridPath: /Maps/_Fish/Shuttles/SpecialOperations/cburn_shuttle_large.yml
+        - gridPath: /Maps/_Fish/Shuttles/SpecialOperations/cburn_shuttle_small.yml
           priorityTag: DockFishCBURN
       - type: StationJobs
         availableJobs:

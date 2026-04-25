@@ -1502,6 +1502,14 @@
   loadouts:
   - ParamedicWindbreaker
   - ParamedicWintercoat
+# Sunrise-start
+  - SunriseWinterColorWhite
+  - SunriseWinterColorRed
+  - SunriseWinterColorGreen
+  - SunriseWinterColorCyan
+  - SunriseWinterColorBlue
+  - ClothingOuterHardsuitVoidParamedFish # Fish-edit
+# Sunrise-end
 
 - type: loadoutGroup
   id: ParamedicShoes

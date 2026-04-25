@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by eblewarka (discord iblewarka)",
+  "size": {"x": 32, "y": 32},
+  "states": [
+    {
+      "name": "blanfords-fox-tail",
+      "directions": 4
+    },
+    {
+      "name": "blanfords-fox-tail-second",
+      "directions": 4
+    }
+  ]
+}
