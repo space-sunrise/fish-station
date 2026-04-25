@@ -83,7 +83,9 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             #blueshield
+            BlueShieldEnsign: [ 1, 1 ]
             BlueShieldOfficer: [ 1, 1 ]
+            RepresentativeBlueShield: [ 1, 1 ]
             #law
             Magistrat: [ 1, 1 ]
             IAA: [ 1, 1 ]
