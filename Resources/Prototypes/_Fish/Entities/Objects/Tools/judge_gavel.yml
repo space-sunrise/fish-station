@@ -1,6 +1,6 @@
 - type: entity
   parent: GavelHammer
-  id: JudgeGavel
+  id: FishJudgeGavel
   suffix: admeme
   components:
   - type: JudgeGavel

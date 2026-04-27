@@ -1,20 +1,17 @@
 using Content.Server.Chat.Systems;
-using Content.Server.Damage.Systems;
 using Content.Shared._Fish.JudgeGavel;
 using Content.Shared.Chat;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind.Components;
 using Content.Shared.Pinpointer;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Server.Station.Components;
-using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Warps;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Server._Fish.JudgeGavel;
 
@@ -28,9 +25,7 @@ public sealed class JudgeGavelSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly TransformSystem _xformSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly GodmodeSystem _godmode = default!;
     [Dependency] private readonly PhysicsSystem _physics = default!;
 
     public override void Initialize()
@@ -41,27 +36,38 @@ public sealed class JudgeGavelSystem : EntitySystem
         SubscribeLocalEvent<JudgeGavelComponent, JudgeGavelDoAfterEvent>(OnDoAfter);
     }
 
-    private void OnUseInHand(EntityUid uid, JudgeGavelComponent component, UseInHandEvent args)
+    private void OnUseInHand(Entity<JudgeGavelComponent> ent, ref UseInHandEvent args)
     {
         if (args.Handled)
             return;
 
-        // Prevent multiple concurrent swings
-        if (component.ActiveDoAfter != null)
-            return;
-
-        StartActivation(uid, component, args.User);
-        args.Handled = true;
+        if (TryActivate(ent, args.User))
+            args.Handled = true;
     }
 
-    private void StartActivation(EntityUid uid, JudgeGavelComponent component, EntityUid user)
+    public bool TryActivate(Entity<JudgeGavelComponent> ent, EntityUid user)
+    {
+        if (!CanActivate(ent, user))
+            return false;
+
+        StartActivation(ent, user);
+        return true;
+    }
+
+    public bool CanActivate(Entity<JudgeGavelComponent> ent, EntityUid user, bool quiet = false)
+    {
+        // Prevent multiple concurrent swings
+        return ent.Comp.ActiveDoAfter == null;
+    }
+
+    private void StartActivation(Entity<JudgeGavelComponent> ent, EntityUid user)
     {
         // Force speech
-        var chant = Loc.GetString(component.Chant);
+        var chant = Loc.GetString(ent.Comp.Chant);
         _chat.TrySendInGameICMessage(user, chant, InGameICChatType.Speak, ChatTransmitRange.Normal);
 
         var ev = new JudgeGavelDoAfterEvent();
-        var doAfterArgs = new DoAfterArgs(EntityManager, user, component.DoAfterTime, ev, uid)
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, ent.Comp.DoAfterTime, ev, ent.Owner)
         {
             BreakOnMove = false,
             BreakOnDamage = true,
@@ -70,29 +76,29 @@ public sealed class JudgeGavelSystem : EntitySystem
 
         if (_doAfter.TryStartDoAfter(doAfterArgs, out var doAfterId))
         {
-            component.ActiveDoAfter = doAfterId;
+            ent.Comp.ActiveDoAfter = doAfterId;
         }
     }
 
-    private void OnDoAfter(EntityUid uid, JudgeGavelComponent component, JudgeGavelDoAfterEvent args)
+    private void OnDoAfter(Entity<JudgeGavelComponent> ent, ref JudgeGavelDoAfterEvent args)
     {
-        component.ActiveDoAfter = null;
+        ent.Comp.ActiveDoAfter = null;
 
         if (args.Cancelled || args.Handled)
             return;
 
         MapCoordinates? targetMapCoords = null;
-        var identifier = component.CourtroomBeaconId;
+        var identifier = ent.Comp.CourtroomBeaconId;
 
         // 1. Destination Discovery: WarpPoint or Beacon lookup
         var warpQuery = EntityQueryEnumerator<WarpPointComponent, TransformComponent>();
         while (warpQuery.MoveNext(out _, out var warp, out var xform))
         {
-            if (warp.Location == identifier || (identifier == "station-beacon-courtroom" && warp.Location == "Секторальный суд"))
-            {
-                targetMapCoords = _transform.ToMapCoordinates(xform.Coordinates);
-                break;
-            }
+            if (warp.Location != identifier &&
+                identifier != "station-beacon-courtroom")
+                continue;
+            targetMapCoords = _transform.ToMapCoordinates(xform.Coordinates);
+            break;
         }
 
         // Priority 2: NavMapBeacon
@@ -101,11 +107,10 @@ public sealed class JudgeGavelSystem : EntitySystem
             var beaconQuery = EntityQueryEnumerator<NavMapBeaconComponent, TransformComponent>();
             while (beaconQuery.MoveNext(out _, out var beacon, out var xform))
             {
-                if (beacon.DefaultText == identifier)
-                {
-                    targetMapCoords = _transform.ToMapCoordinates(xform.Coordinates);
-                    break;
-                }
+                if (beacon.DefaultText != identifier)
+                    continue;
+                targetMapCoords = _transform.ToMapCoordinates(xform.Coordinates);
+                break;
             }
         }
 
@@ -116,11 +121,10 @@ public sealed class JudgeGavelSystem : EntitySystem
             var stationQuery = EntityQueryEnumerator<BecomesStationComponent>();
             while (stationQuery.MoveNext(out var gridUid, out var becomes))
             {
-                if (becomes.Id == "centcomm")
-                {
-                    centcommGrid = gridUid;
-                    break;
-                }
+                if (becomes.Id != "centcomm")
+                    continue;
+                centcommGrid = gridUid;
+                break;
             }
 
             if (centcommGrid != null)
@@ -133,14 +137,14 @@ public sealed class JudgeGavelSystem : EntitySystem
         if (targetMapCoords == null)
             return;
 
-        var sourceCoords = _transform.GetMapCoordinates(uid);
+        var sourceCoords = _transform.GetMapCoordinates(ent.Owner);
 
         // Play effect at source
         Spawn("RadiationPulse", sourceCoords);
 
         // Deduplicate entities in range to avoid multiple teleports per entity (prevents gibbing/cloning)
         var processed = new HashSet<EntityUid>();
-        var ents = _lookup.GetEntitiesInRange(sourceCoords, component.Range);
+        var ents = _lookup.GetEntitiesInRange(sourceCoords, ent.Comp.Range);
 
         foreach (var mob in ents)
         {
@@ -151,18 +155,8 @@ public sealed class JudgeGavelSystem : EntitySystem
                 continue;
 
 
-            // Apply temporary Godmode to prevent collision deaths during teleport overlapping
-            /*_godmode.EnableGodmode(mob);
-
-            // Scheduling removal in 2 seconds
-            Timer.Spawn(TimeSpan.FromSeconds(2), () =>
-            {
-                if (Exists(mob))
-                    _godmode.DisableGodmode(mob);
-            });*/
-
             // Apply Pacified (using the exact same signature as GenericStatusEffectEntityEffectSystem does for Pax)
-            _statusEffects.TryAddStatusEffect(mob, "Pacified", TimeSpan.FromSeconds(component.Duration), true, "Pacified");
+            _statusEffects.TryAddStatusEffectDuration(mob, ent.Comp.PacifiedStatusEffect, TimeSpan.FromSeconds(ent.Comp.Duration));
             // Spread out targets within 3 tiles to prevent stacking
             var offset = _random.NextVector2(3.0f);
             var finalTarget = targetMapCoords.Value.Offset(offset);
@@ -175,7 +169,7 @@ public sealed class JudgeGavelSystem : EntitySystem
             }
 
             // Teleport
-            _xformSystem.SetMapCoordinates(mob, finalTarget);
+            _transform.SetMapCoordinates(mob, finalTarget);
 
             // Effect at individual destination
             Spawn("RadiationPulse", finalTarget);

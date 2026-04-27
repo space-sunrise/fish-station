@@ -1,8 +1,6 @@
-using System.Numerics;
 using Content.Shared.DoAfter;
-using Content.Shared.Pinpointer;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Fish.JudgeGavel;
 
@@ -24,9 +22,6 @@ public sealed partial class JudgeGavelComponent : Component
     public string CourtroomBeaconId = "station-beacon-courtroom";
 
     [DataField]
-    public float GodmodeDuration = 2f;
-
-    [DataField]
     public LocId Chant = "judge-gavel-chant";
 
     [DataField]
@@ -36,4 +31,7 @@ public sealed partial class JudgeGavelComponent : Component
     ///     Tracks the current active DoAfter to prevent multiple concurrent swings.
     /// </summary>
     public DoAfterId? ActiveDoAfter;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public EntProtoId PacifiedStatusEffect = "StatusEffectPacified";
 }

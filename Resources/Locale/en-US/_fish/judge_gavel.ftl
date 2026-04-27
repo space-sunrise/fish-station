@@ -1,4 +1,4 @@
-ent-JudgeGavel = judge gavel
+ent-FishJudgeGavel = judge gavel
     .desc = A special gavel for dispensing justice.
     .suffix = Admeme
 
