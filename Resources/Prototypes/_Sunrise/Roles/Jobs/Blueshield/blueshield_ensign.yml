@@ -17,7 +17,7 @@
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
-  - AllAccess
+  - AllAccess # Fish-edit
   special:
     - !type:AddImplantSpecial
       implants: [ MindShieldImplant ]
