@@ -62,8 +62,6 @@
   - PinkBra
   - PurpleBra
   - BlackBra
-  - BlueShieldBra
-  - AdjutantBra
 
 - type: loadoutGroup
   id: Pants
@@ -95,10 +93,6 @@
   - PinkWomanPants
   - PurpleWomanPants
   - BlackWomanPants
-  - BlueShieldThong
-  - BlueShieldBoxers
-  - AdjutantThong
-  - AdjutantBoxers
 
 - type: loadoutGroup
   id: BrigmedicBackpack
