@@ -1,46 +1,46 @@
-ent-ClothingUniformJumpsuitCentcomOfficialFish = centcom official's jumpsuit
+ent-ClothingUniformJumpsuitCentcomOfficialFish = official's jumpsuit
     .desc = It's a jumpsuit worn by CentComm officials.
 
-ent-ClothingUniformJumpskirtCentcomOfficialFish = centcom official's jumpskirt
+ent-ClothingUniformJumpskirtCentcomOfficialFish = official's jumpskirt
     .desc = It's a jumpskirt worn by CentComm officials.
 
-ent-ClothingUniformJumpsuitCentcomAssistantFish = CentComm trainee uniform
+ent-ClothingUniformJumpsuitCentcomAssistantFish = trainee uniform
     .desc = A distinctive green sweater denoting a CentComm trainee.
 
 ent-ClothingUniformJumpsuitCentcomOfficialBlackFish = special operations officer uniform
     .desc = A black uniform worn by special operations officers.
 
-ent-ClothingShoesBootsCentcomFish = centcom boots
+ent-ClothingShoesBootsCentcomFish = boots
     .desc = High-quality boots, polished to a mirror shine.
 
-ent-ClothingHandsGlovesCentcomWhiteFish = centcom white gloves
+ent-ClothingHandsGlovesCentcomWhiteFish = white gloves
     .desc = Pristine white gloves worn by CentComm officials.
 
-ent-ClothingOuterCoatCentcoatFish = centcom trench coat
+ent-ClothingOuterCoatCentcoatFish = trench coat
     .desc = A stylish and functional trench coat.
 
-ent-ClothingNeckCloakCentcomFormalFish = centcom formal cloak
+ent-ClothingNeckCloakCentcomFormalFish = formal cloak
     .desc = A formal cloak often worn by high-ranking officials.
 
-ent-ClothingNeckCloakCentcomFormalLongFish = centcom formal long cloak
+ent-ClothingNeckCloakCentcomFormalLongFish = formal long cloak
     .desc = An elegant, long falling cloak for CentComm representatives.
 
-ent-ClothingNeckMantleCentcomFish = centcom mantle
+ent-ClothingNeckMantleCentcomFish = mantle
     .desc = A ceremonial mantle worn over the shoulders.
 
-ent-ClothingNeckMantleCentcomShoulderFish = centcom shoulder mantle
+ent-ClothingNeckMantleCentcomShoulderFish = shoulder mantle
     .desc = A stylish one-shoulder mantle.
 
-ent-ClothingHeadHatCentcomFish = centcom hat
+ent-ClothingHeadHatCentcomFish = hat
     .desc = A peaked cap displaying the CentComm insignia.
 
-ent-ClothingHeadHatCentcomCapFish = centcom cap
+ent-ClothingHeadHatCentcomCapFish = cap
     .desc = A garrison cap.
 
-ent-ClothingBackpackSatchelCentcomFish = centcom satchel
+ent-ClothingBackpackSatchelCentcomFish = satchel
     .desc = A rugged satchel for carrying important documents.
 
-ent-ClothingOuterArmorCentcomFish = centcom armor
+ent-ClothingOuterArmorCentcomFish = armor
     .desc = High-tier protective armor with CentComm markings.
 
 ent-WeaponMeleeSwordCentcomFish = CentComm Rapier
@@ -50,14 +50,14 @@ ent-ClothingBeltSheathCentcomFish = CentComm rapier sheath
     .desc = An ornate sheath designed to hold an officer's rapier. This one comes with a matching rapier.
 
 # Loadout Groups
-loadout-group-centcomm-shoes = CentComm Shoes
-loadout-group-centcomm-gloves = CentComm Gloves
-loadout-group-centcomm-outer = CentComm Outer Clothing
-loadout-group-centcomm-neck = CentComm Neck
-loadout-group-centcomm-back = CentComm Back
-loadout-group-centcomm-eyes = CentComm Eyes
-loadout-group-centcomm-weapons = CentComm Weapons
-loadout-group-centcomm-trinkets = CentComm Trinkets
+loadout-group-centcomm-shoes = Shoes
+loadout-group-centcomm-gloves = Gloves
+loadout-group-centcomm-outer = Outer Clothing
+loadout-group-centcomm-neck = Neck
+loadout-group-centcomm-back = Back
+loadout-group-centcomm-eyes = Eyes
+loadout-group-centcomm-weapons = Weapons
+loadout-group-centcomm-trinkets = Trinkets
 
 ent-WeaponPistolN1984ButtFish = N1984 (Stock)
     .desc = A reliable N1984 pistol equipped with a stock for improved stability.

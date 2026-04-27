@@ -53,33 +53,37 @@
   - Socks
   - Contributors
 
-- type: roleLoadout
-  id: JobCentCommOfficial
-  groups:
-  - CentCommOperatorHats
-  - CentCommOperatorJumpsuit
-  - SunriseTrinkets
-  - SunriseSurvival
-  - GroupSpeciesBreathTool
-  - Bra
-  - Pants
-  - Socks
-  - Contributors
+# FIsh edit start
+# - type: roleLoadout
+#   id: JobCentCommOfficial
+#   groups:
+#   - CentCommOperatorHats
+#   - CentCommOperatorJumpsuit
+#   - SunriseTrinkets
+#   - SunriseSurvival
+#   - GroupSpeciesBreathTool
+#   - Bra
+#   - Pants
+#   - Socks
+#   - Contributors
+# FIsh edit end
 
-- type: roleLoadout
-  id: JobCentCommOperator
-  groups:
-  - CentCommOperatorHats
-  - CentCommOperatorJumpsuit
-  - SunriseTrinkets
-  - SunriseSurvival
-  - GroupSpeciesBreathTool
-  - Bra
-  - Pants
-  - BlueShieldBra # fish-edit
-  - BlueShieldPants # fish-edit
-  - Socks
-  - Contributors
+# FIsh edit start
+# - type: roleLoadout
+#   id: JobCentCommOperator
+#   groups:
+#   - CentCommOperatorHats
+#   - CentCommOperatorJumpsuit
+#   - SunriseTrinkets
+#   - SunriseSurvival
+#   - GroupSpeciesBreathTool
+#   - Bra
+#   - Pants
+#   - BlueShieldBra # fish-edit
+#   - BlueShieldPants # fish-edit
+#   - Socks
+#   - Contributors
+# FIsh edit end
 
 - type: roleLoadout
   id: JobBlueShieldEnsign
@@ -89,8 +93,10 @@
   - BlueShieldBackpack
   - BlueShieldBelt
   - BlueshieldGun
-  - BlueShieldBra
-  - BlueShieldPants
+  - Bra # Fish-Edit
+  - Pants # Fish-Edit
+# - BlueShieldBra # Fish-Edit
+# - BlueShieldPants # Fish-Edit
   - SunriseTrinkets
   - SurvivalSecurity
   - GroupSpeciesBreathTool
@@ -105,8 +111,10 @@
   - BlueShieldBackpack
   - BlueShieldBelt
   - BlueshieldGun
-  - BlueShieldBra
-  - BlueShieldPants
+  - Bra # Fish-Edit
+  - Pants # Fish-Edit
+# - BlueShieldBra # Fish-Edit
+# - BlueShieldPants # Fish-Edit
   - SunriseTrinkets
   - SurvivalSecurity
   - GroupSpeciesBreathTool
@@ -128,8 +136,8 @@
   - GroupSpeciesBreathTool
   - Bra
   - Pants
-  - BlueShieldBra
-  - BlueShieldPants
+# - BlueShieldBra # Fish-Edit
+# - BlueShieldPants # Fish-Edit
   - Socks
 # fish-end
 
@@ -456,8 +464,10 @@
   - AdjutantJumpsuit
   - AdjutantOuterClothing
   - AdjutantBackpack
-  - AdjutantBra
-  - AdjutantPants
+  - Bra # Fish-Edit
+  - Pants # Fish-Edit
+# - AdjutantBra # Fish-Edit
+# - AdjutantPants # Fish-Edit
   - SunriseSurvival
   - SunriseTrinkets
   - GroupSpeciesBreathTool

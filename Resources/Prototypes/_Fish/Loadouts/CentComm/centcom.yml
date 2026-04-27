@@ -1,6 +1,11 @@
-# Centcomm Loadouts (Fish)
-
 # --- Jumpsuits ---
+- type: loadoutEffectGroup
+  id: SpecOpsOnly
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSpecOpsOfficer
 
 - type: loadout
   id: CentCommOfficialJumpsuitFish
@@ -19,6 +24,9 @@
 
 - type: loadout
   id: SpecOpsOfficerUniformBlackFish
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SpecOpsOnly
   equipment:
     jumpsuit: ClothingUniformJumpsuitCentcomOfficialBlackFish
 
@@ -115,6 +123,9 @@
 
 - type: loadout
   id: SpecOpsShoesBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SpecOpsOnly
   equipment:
     shoes: ClothingShoesCentcomBlack
 
@@ -125,6 +136,9 @@
 
 - type: loadout
   id: SpecOpsGlovesCombat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SpecOpsOnly
   equipment:
     gloves: ClothingHandsGlovesCombat
 
@@ -180,6 +194,9 @@
 
 - type: loadout
   id: SpecOpsCapBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SpecOpsOnly
   equipment:
     head: ClothingHeadCapCentcomBlack
 

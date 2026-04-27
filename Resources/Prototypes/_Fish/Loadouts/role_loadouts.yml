@@ -68,8 +68,6 @@
   - GroupSpeciesBreathTool
   - Bra
   - Pants
-  - BlueShieldBra
-  - BlueShieldPants
   - Socks
 
 - type: roleLoadout
@@ -158,8 +156,6 @@
   - GroupSpeciesBreathTool
   - Bra
   - Pants
-  - BlueShieldBra
-  - BlueShieldPants
   - Socks
 
 - type: roleLoadout
@@ -184,18 +180,27 @@
 - type: roleLoadout
   id: JobSpecOpsOfficer
   groups:
-  - SpecOpsOfficerJumpsuit
-  - SpecOpsOfficerHats
+  - CentCommOperatorJumpsuitFish
   - CentCommOperatorHatsFish
-  - SpecOpsOfficerShoes
   - CentCommOperatorShoesFish
-  - SpecOpsOfficerGloves
   - CentCommOperatorGlovesFish
   - CentCommOperatorOuterFish
   - CentCommOperatorNeckFish
   - CentCommOperatorEyesFish
   - CentCommOperatorBackFish
   - CentCommOperatorWeaponsFish
+  - Trinkets
+  - Survival
+  - GroupSpeciesBreathTool
+  - Bra
+  - Pants
+  - Socks
+
+- type: roleLoadout
+  id: JobCentCommOperator
+  groups:
+  - CentCommOperatorHatsFish
+  - CentCommOperatorJumpsuitFish
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool

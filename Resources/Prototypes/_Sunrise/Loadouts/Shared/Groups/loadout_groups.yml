@@ -62,6 +62,8 @@
   - PinkBra
   - PurpleBra
   - BlackBra
+  - BlueShieldBra
+  - AdjutantBra
 
 - type: loadoutGroup
   id: Pants
@@ -93,6 +95,10 @@
   - PinkWomanPants
   - PurpleWomanPants
   - BlackWomanPants
+  - BlueShieldThong
+  - BlueShieldBoxers
+  - AdjutantThong
+  - AdjutantBoxers
 
 - type: loadoutGroup
   id: BrigmedicBackpack
@@ -195,119 +201,127 @@
   - BlueShieldMantle
   - BlueShieldCoat
 
-- type: loadoutGroup
-  id: BlueShieldBra
-  name: loadout-group-blueshield-bra
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - StraplessBra
-  - WhiteNekoBra
-  - BlackNekoBra
-  - AssblastusaBra
-  - BikiniBra
-  - BraletteBra
-  - CommieBra
-  - KinkyBra
-  - LaceBra
-  - SportBra
-  - ThongBra
-  - UkBra
-  - PinkBra
-  - PurpleBra
-  - BlackBra
-  - BlueShieldBra
+# FIsh edit start
+# - type: loadoutGroup
+#   id: BlueShieldBra
+#   name: loadout-group-blueshield-bra
+#   minLimit: 1
+#   maxLimit: 1
+#   loadouts:
+#   - StraplessBra
+#   - WhiteNekoBra
+#   - BlackNekoBra
+#   - AssblastusaBra
+#   - BikiniBra
+#   - BraletteBra
+#   - CommieBra
+#   - KinkyBra
+#   - LaceBra
+#   - SportBra
+#   - ThongBra
+#   - UkBra
+#   - PinkBra
+#   - PurpleBra
+#   - BlackBra
+#   - BlueShieldBra
+# FIsh edit end
 
-- type: loadoutGroup
-  id: BlueShieldPants
-  name: loadout-group-blueshield-pants
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - StraplessWomanPants
-  - BoxersManPants
-  - AssblastusaManPants
-  - BriefsManPants
-  - CommieManPants
-  - HeartsManPants
-  - KinkyManPants
-  - LongjohnsManPants
-  - MankiniManPants
-  - StripeManPants
-  - UkManPants
-  - NekoWhiteWomanPants
-  - NekoBlackWomanPants
-  - AssblastusaWomanPants
-  - BikiniWomanPants
-  - BraletteWomanPants
-  - CommieWomanPants
-  - KinkyWomanPants
-  - LaceWomanPants
-  - SportWomanPants
-  - ThongWomanPants
-  - UkWomanPants
-  - PinkWomanPants
-  - PurpleWomanPants
-  - BlackWomanPants
-  - BlueShieldThong
-  - BlueShieldBoxers
+# FIsh edit start
+# - type: loadoutGroup
+#   id: BlueShieldPants
+#   name: loadout-group-blueshield-pants
+#   minLimit: 1
+#   maxLimit: 1
+#   loadouts:
+#   - StraplessWomanPants
+#   - BoxersManPants
+#   - AssblastusaManPants
+#   - BriefsManPants
+#   - CommieManPants
+#   - HeartsManPants
+#   - KinkyManPants
+#   - LongjohnsManPants
+#   - MankiniManPants
+#   - StripeManPants
+#   - UkManPants
+#   - NekoWhiteWomanPants
+#   - NekoBlackWomanPants
+#   - AssblastusaWomanPants
+#   - BikiniWomanPants
+#   - BraletteWomanPants
+#   - CommieWomanPants
+#   - KinkyWomanPants
+#   - LaceWomanPants
+#   - SportWomanPants
+#   - ThongWomanPants
+#   - UkWomanPants
+#   - PinkWomanPants
+#   - PurpleWomanPants
+#   - BlackWomanPants
+#   - BlueShieldThong
+#   - BlueShieldBoxers
+# FIsh edit end
 
-- type: loadoutGroup
-  id: AdjutantBra
-  name: loadout-group-adj-bra
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - StraplessBra
-  - WhiteNekoBra
-  - BlackNekoBra
-  - AssblastusaBra
-  - BikiniBra
-  - BraletteBra
-  - CommieBra
-  - KinkyBra
-  - LaceBra
-  - SportBra
-  - ThongBra
-  - UkBra
-  - PinkBra
-  - PurpleBra
-  - BlackBra
-  - AdjutantBra
+# FIsh edit start
+# - type: loadoutGroup
+#   id: AdjutantBra
+#   name: loadout-group-adj-bra
+#   minLimit: 1
+#   maxLimit: 1
+#   loadouts:
+#   - StraplessBra
+#   - WhiteNekoBra
+#   - BlackNekoBra
+#   - AssblastusaBra
+#   - BikiniBra
+#   - BraletteBra
+#   - CommieBra
+#   - KinkyBra
+#   - LaceBra
+#   - SportBra
+#   - ThongBra
+#   - UkBra
+#   - PinkBra
+#   - PurpleBra
+#   - BlackBra
+#   - AdjutantBra
+# FIsh edit end
 
-- type: loadoutGroup
-  id: AdjutantPants
-  name: loadout-group-adj-pants
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - StraplessWomanPants
-  - BoxersManPants
-  - AssblastusaManPants
-  - BriefsManPants
-  - CommieManPants
-  - HeartsManPants
-  - KinkyManPants
-  - LongjohnsManPants
-  - MankiniManPants
-  - StripeManPants
-  - UkManPants
-  - NekoWhiteWomanPants
-  - NekoBlackWomanPants
-  - AssblastusaWomanPants
-  - BikiniWomanPants
-  - BraletteWomanPants
-  - CommieWomanPants
-  - KinkyWomanPants
-  - LaceWomanPants
-  - SportWomanPants
-  - ThongWomanPants
-  - UkWomanPants
-  - PinkWomanPants
-  - PurpleWomanPants
-  - BlackWomanPants
-  - AdjutantThong
-  - AdjutantBoxers
+# FIsh edit start
+# - type: loadoutGroup
+#   id: AdjutantPants
+#   name: loadout-group-adj-pants
+#   minLimit: 1
+#   maxLimit: 1
+#   loadouts:
+#   - StraplessWomanPants
+#   - BoxersManPants
+#   - AssblastusaManPants
+#   - BriefsManPants
+#   - CommieManPants
+#   - HeartsManPants
+#   - KinkyManPants
+#   - LongjohnsManPants
+#   - MankiniManPants
+#   - StripeManPants
+#   - UkManPants
+#   - NekoWhiteWomanPants
+#   - NekoBlackWomanPants
+#   - AssblastusaWomanPants
+#   - BikiniWomanPants
+#   - BraletteWomanPants
+#   - CommieWomanPants
+#   - KinkyWomanPants
+#   - LaceWomanPants
+#   - SportWomanPants
+#   - ThongWomanPants
+#   - UkWomanPants
+#   - PinkWomanPants
+#   - PurpleWomanPants
+#   - BlackWomanPants
+#   - AdjutantThong
+#   - AdjutantBoxers
+# FIsh edit end
 
 - type: loadoutGroup
   id: BlueshieldGun
@@ -350,65 +364,25 @@
   loadouts:
   - CorporateLaw
 
-- type: loadoutGroup
-  id: CentCommOperatorJumpsuit
-  name: loadout-group-centcomm-operator-jumpsuit
-  loadouts:
-  - CentCommOfficerJumpsuit
-  - CentCommOfficerJumpskirt
-  - CentCommOfficialJumpsuit
-  - CentCommOfficialJumpskirt
+# FIsh edit start
+# - type: loadoutGroup
+#   id: CentCommOperatorJumpsuit
+#   name: loadout-group-centcomm-operator-jumpsuit
+#   loadouts:
+#   - CentCommOfficerJumpsuit
+#   - CentCommOfficerJumpskirt
+#   - CentCommOfficialJumpsuit
+#   - CentCommOfficialJumpskirt
+# FIsh edit end
 
-- type: loadoutGroup
-  id: CentCommOperatorHats
-  name: loadout-group-centcomm-operator-head-hat
-  loadouts:
-  - HeadHatBeretCentcomNaval
-  - HeadHatCentcomcap
-
-- type: loadoutGroup
-  id: CentCommOperatorShoes
-  name: loadout-group-centcomm-shoes
-  loadouts:
-  - BlackShoes
-
-- type: loadoutGroup
-  id: CentCommOperatorGloves
-  name: loadout-group-centcomm-gloves
-  loadouts:
-  - LatexGloves
-  - SunriseBlackGloves
-
-- type: loadoutGroup
-  id: CentCommOperatorOuter
-  name: loadout-group-centcomm-outer
-  loadouts:
-  - CentcommArmor
-
-- type: loadoutGroup
-  id: CentCommOperatorNeck
-  name: loadout-group-centcomm-neck
-  loadouts: []
-
-- type: loadoutGroup
-  id: CentCommOperatorBack
-  name: loadout-group-centcomm-back
-  loadouts: []
-
-- type: loadoutGroup
-  id: CentCommOperatorEyes
-  name: loadout-group-centcomm-eyes
-  loadouts: []
-
-- type: loadoutGroup
-  id: CentCommOperatorWeapons
-  name: loadout-group-centcomm-weapons
-  loadouts: []
-- type: loadoutGroup
-  id: CentCommJobTrinkets
-  name: loadout-group-centcomm-trinkets
-  loadouts: []
-
+# FIsh edit start
+# - type: loadoutGroup
+#   id: CentCommOperatorHats
+#   name: loadout-group-centcomm-operator-head-hat
+#   loadouts:
+#   - HeadHatBeretCentcomNaval
+# # - HeadHatCentcomcap #Fish-Edit
+# FIsh edit end
 
 - type: loadoutGroup
   id: ChiefEngineerBackpack
