@@ -11,7 +11,7 @@
   radioBold: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
-  accessGroups:
+  accessGroups: # Fish-edit
   - AllAccess
   alternativeTitles:
   - job-alt-title-nt-diplomat
