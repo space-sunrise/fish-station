@@ -6,9 +6,14 @@
   - type: BorgSwitchableType
     selectedBorgType: security
   - type: Loadout
-    prototypes: [ BorgArmorSiliconLoadoutMk2 ]
+    prototypes: [ BorgArmorSiliconLoadout ]
   - type: Tag
     tags:
+    - DoorBumpOpener
+    - FootstepSound
+    - CanPilot
+    - SiliconEmotes
+    - Unimplantable
     - NoPaint
 
 - type: entity
@@ -179,7 +184,7 @@
     - Common
     - Science
     - Command
-    - CentCom
+    - ERT
   - type: ActiveRadio
     channels:
     - Security
@@ -187,7 +192,7 @@
     - Common
     - Science
     - Command
-    - CentCom
+    - ERT
   - type: AccessReader
     access: [["Security"], ["Command"], ["Research"]]
   - type: SiliconLawProvider
@@ -212,6 +217,7 @@
     - CanPilot
     - FootstepSound
     - EmagImmune
+    - NoPaint
   - type: InnateItem
     instantActions:
     - PortableSurveillanceCameraMonitorUnpowered
@@ -567,6 +573,10 @@
     - AccessBreaker
   - type: Construction
     node: derelictcyborg
+
+- type: entity
+  id: SyndicateSaboteurBorgChassisDerelict
+  parent: SyndicateSaboteurBorgChassisDerelictSunrise
 
 - type: entity
   parent: BaseBorgChassisSyndicateDerelict

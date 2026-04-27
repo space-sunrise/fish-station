@@ -28,11 +28,14 @@
   - BlueShieldBackpack
   - BlueShieldBelt
   - BlueShieldNeck
+  - BlueshieldGun
   - Trinkets
   - SurvivalSecurity
   - GroupSpeciesBreathTool
   - Bra
   - Pants
+  - BlueShieldBra
+  - BlueShieldPants
   - Socks
 
 - type: roleLoadout
@@ -115,11 +118,14 @@
   - BlueShieldBackpack
   - BlueShieldBelt
   - BlueShieldNeck
+  - BlueshieldGun
   - Trinkets
   - SurvivalSecurity
   - GroupSpeciesBreathTool
   - Bra
   - Pants
+  - BlueShieldBra
+  - BlueShieldPants
   - Socks
 
 - type: roleLoadout

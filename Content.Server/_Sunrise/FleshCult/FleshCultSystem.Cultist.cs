@@ -1,32 +1,23 @@
-﻿using System.Linq;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
-using Content.Server.Forensics;
-using Content.Server.Temperature.Components;
 using Content.Shared._Sunrise.NightVision.Components;
 using Content.Shared._Sunrise.CollectiveMind;
 using Content.Shared._Sunrise.FleshCult;
-using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Part;
-using Content.Shared.Chemistry.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Electrocution;
 using Content.Shared.FixedPoint;
 using Content.Shared.Flash.Components;
-using Content.Shared.Forensics.Components;
 using Content.Shared.Humanoid;
-using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Content.Shared.Tag;
 using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio;
-using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
@@ -105,7 +96,7 @@ public sealed partial class FleshCultSystem
 
     private void HandleDeadState(EntityUid uid, FleshCultistComponent component)
     {
-        if (component.IsDeathPending) // Fish-Edit
+        if (component.IsDeathPending)
             return;
 
         DeleteFleshBodyModComponent(uid, "shoes", component);
@@ -210,6 +201,7 @@ public sealed partial class FleshCultSystem
             {
                 _action.RemoveAction(uid, action);
             }
+            abilitiesComponent.Actions.Clear();
         }
     }
 
@@ -220,6 +212,8 @@ public sealed partial class FleshCultSystem
         RemCompDeferred<FlashImmunityComponent>(uid);
         RemCompDeferred<RespiratorImmunityComponent>(uid);
         RemCompDeferred<PressureImmunityComponent>(uid);
+        RemCompDeferred<StoreComponent>(uid);
+        RemCompDeferred<FleshAbilitiesComponent>(uid);
     }
 
     private void RemoveCollectiveMind(EntityUid uid)
@@ -292,16 +286,17 @@ public sealed partial class FleshCultSystem
 
     private bool ParasiteComesOut(EntityUid uid, FleshCultistComponent? component = null)
     {
-        if (Terminating(uid)) // Fish-edit
+        if (Terminating(uid))
             return false;
 
         if (!Resolve(uid, ref component))
             return false;
 
-        if (component.IsDeathPending) // Fish-Edit
+        if (component.IsDeathPending)
             return false;
 
-        component.IsDeathPending = true; // Fish-Edit
+        component.IsDeathPending = true;
+        component.IsTransformationPending = false;
 
         var coordinates = Transform(uid).Coordinates;
         var abommob = Spawn(component.FleshMutationMobId, _transformSystem.GetMapCoordinates(uid));
@@ -313,45 +308,28 @@ public sealed partial class FleshCultSystem
         _popup.PopupEntity(Loc.GetString("flesh-pudge-transform-others", ("Entity", uid), ("EntityTransform", abommob)), abommob, Filter.PvsExcept(abommob), true, PopupType.LargeCaution);
         _audioSystem.PlayPvs(component.SoundMutation, coordinates, AudioParams.Default.WithVariation(0.025f));
 
-        if (TryComp(uid, out ContainerManagerComponent? container))
-        {
-            foreach (var cont in container.GetAllContainers().ToArray())
-            {
-                // foreach (var entity in cont.ContainedEntities.Where(entity => !HasComp<BodyPartComponent>(entity) && !HasComp<UnremoveableComponent>(entity)))
-                foreach (var entity in cont.ContainedEntities.Where(entity => !HasComp<BodyPartComponent>(entity) && !HasComp<UnremoveableComponent>(entity)).ToList()) // Fish-Edit
-                {
-                    _containerSystem.Remove(entity, cont, force: true);
-                    Transform(entity).Coordinates = coordinates;
-                }
-            }
-        }
+        _body.GibBody(uid, true);
 
-        if (TryComp<BloodstreamComponent>(uid, out var bloodstream) && bloodstream.BloodSolution != null)
-        {
-            var tempSol = new Solution { MaxVolume = 5 };
-            tempSol.AddSolution(bloodstream.BloodSolution.Value.Comp.Solution, _prototypeManager);
-
-            if (_puddleSystem.TrySpillAt(uid, tempSol.SplitSolution(50), out var puddleUid) && TryComp<DnaComponent>(uid, out var dna) && dna.DNA != null)
-            {
-                var comp = EnsureComp<ForensicsComponent>(puddleUid);
-                comp.DNAs.Add(dna.DNA);
-            }
-        }
-
-        _body.GibBody(uid, true); // Fish-edit
         return true;
     }
 
     public void UpdateCultist(float frameTime)
     {
-        base.Update(frameTime);
-        // foreach (var cultist in EntityQuery<FleshCultistComponent>())
-        var query = EntityQueryEnumerator<FleshCultistComponent>(); // Fish-Edit
 
-        while (query.MoveNext(out var uid, out var cultist)) // Fish-Edit
+        // foreach (var cultist in EntityQuery<FleshCultistComponent>())
+        var query = EntityQueryEnumerator<FleshCultistComponent>();
+
+        while (query.MoveNext(out var uid, out var cultist))
         {
-            if (cultist.IsDeathPending) // Fish-Edit
+            if (cultist.IsTransformationPending)
+            {
+                // Check if entity is still dead and complete the transformation
+                if (TryComp<MobStateComponent>(uid, out var mobState) && mobState.CurrentState == MobState.Dead)
+                {
+                    ParasiteComesOut(uid, cultist);
+                }
                 continue;
+            }
 
             cultist.Accumulator += frameTime;
             if (cultist.Accumulator <= 1)
@@ -371,12 +349,12 @@ public sealed partial class FleshCultSystem
             if (cultist.Hunger < 0)
             {
                 // ParasiteComesOut(cultist.Owner, cultist);
-                ParasiteComesOut(uid, cultist); // Fish-Edit
-                continue; // Fish-Edit
+                cultist.IsTransformationPending = true;
+                ParasiteComesOut(uid, cultist);
+                continue;
             }
 
-            // ChangeParasiteHunger(cultist.Owner, cultist.HungerСonsumption, cultist);
-            ChangeParasiteHunger(uid, cultist.HungerСonsumption, cultist); // Fish-Edit
+            ChangeParasiteHunger(uid, cultist.HungerСonsumption, cultist);
         }
     }
 }

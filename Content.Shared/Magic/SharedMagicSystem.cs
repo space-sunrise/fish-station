@@ -284,7 +284,7 @@ public abstract class SharedMagicSystem : EntitySystem
         var ent = Spawn(ev.Prototype, fromMap);
         var direction = _transform.ToMapCoordinates(toCoords).Position -
                          fromMap.Position;
-        _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer, 25f);
+        _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer, ev.Speed); // Sunrise edit
     }
     // End Projectile Spells
     #endregion
@@ -493,7 +493,7 @@ public abstract class SharedMagicSystem : EntitySystem
             foreach (var spawn in EntitySpawnCollection.GetSpawns(spawns, _random))
             {
                 var spawned = Spawn(spawn, mapCoords);
-                _hands.PickupOrDrop(ent, spawned);
+                _hands.PickupOrDrop(ent, spawned, ignoreDelay: true); // Sunrise-Edit
             }
         }
 

@@ -108,8 +108,9 @@
   name: species-name-felinid
   text: "/ServerInfo/Guidebook/_Sunrise/Mobs/Felinid.xml"
 
-- type: guideEntry
-  id: Kitsune
-  name: species-name-kitsune
-  text: "/ServerInfo/Guidebook/_Sunrise/Mobs/Kitsune.xml"
-# Sunrise-End
+# - type: guideEntry # Fish-Edit
+#   id: Kitsune
+#   name: species-name-kitsune
+#   text: "/ServerInfo/Guidebook/_Fish/Mobs/Kitsune.xml"
+
+
