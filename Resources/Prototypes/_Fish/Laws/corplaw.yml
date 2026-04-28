@@ -1,21 +1,6 @@
-# Fish Station — Corporate Law set.
-#
-# This file intentionally defines a completely separate lawset from
-# the standard one in Resources/Prototypes/_Sunrise/Laws/corplaw.yml.
-# All IDs are prefixed with `Fish`/`LawFish`/`CircFish`/`SectionFish`
-# and all localization keys use the `corplaw-fish-*` namespace so the
-# two lawsets can coexist without any overlap.
-#
-# To use this lawset in-game, set the CVar `sunrise.corporate_law_set`
-# to `FishCorporateLaw` in the server configuration, or populate a
-# station's `StationCorporateLaw` component with the Fish articles
-# / provisions / circumstances listed below. No C# changes required.
+# Fish Station Corporate Law
 
-# -------------------------------------------------------------------------
-# Articles
-# -------------------------------------------------------------------------
-
-# 1xx — Малые нарушения (base: 5 minutes or warning)
+# Laws: 1xx
 - type: corporateLaw
   id: LawFish100
   lawIdentifier: "100"
@@ -79,7 +64,7 @@
   description: corplaw-fish-art109-desc
   baseSentence: 5
 
-# 2xx — Лёгкие нарушения (base: 10 minutes)
+# Laws: 2xx
 - type: corporateLaw
   id: LawFish200
   lawIdentifier: "200"
@@ -150,7 +135,7 @@
   description: corplaw-fish-art211-desc
   baseSentence: 10
 
-# 3xx — Тяжкие нарушения (base: 17 minutes)
+# Laws: 3xx
 - type: corporateLaw
   id: LawFish300
   lawIdentifier: "300"
@@ -242,7 +227,7 @@
   description: corplaw-fish-art312-desc
   baseSentence: 17
 
-# 4xx — Особо тяжкие нарушения (base: 40 minutes)
+# Laws: 4xx
 - type: corporateLaw
   id: LawFish400
   lawIdentifier: "400"
@@ -327,94 +312,92 @@
   description: corplaw-fish-art412-desc
   baseSentence: 40
 
-# 5xx — Критические нарушения (permanent imprisonment)
+# Laws: 5xx
 - type: corporateLaw
   id: LawFish500
   lawIdentifier: "500"
   title: corplaw-fish-art500-title
   description: corplaw-fish-art500-desc
-  baseSentence: 999
+  baseSentence: 50
 
 - type: corporateLaw
   id: LawFish501
   lawIdentifier: "501"
   title: corplaw-fish-art501-title
   description: corplaw-fish-art501-desc
-  baseSentence: 999
+  baseSentence: 50
 
 - type: corporateLaw
   id: LawFish502
   lawIdentifier: "502"
   title: corplaw-fish-art502-title
   description: corplaw-fish-art502-desc
-  baseSentence: 999
+  baseSentence: 50
 
 - type: corporateLaw
   id: LawFish503
   lawIdentifier: "503"
   title: corplaw-fish-art503-title
   description: corplaw-fish-art503-desc
-  baseSentence: 999
+  baseSentence: 50
 
 - type: corporateLaw
   id: LawFish504
   lawIdentifier: "504"
   title: corplaw-fish-art504-title
   description: corplaw-fish-art504-desc
-  baseSentence: 999
+  baseSentence: 50
 
 - type: corporateLaw
   id: LawFish505
   lawIdentifier: "505"
   title: corplaw-fish-art505-title
   description: corplaw-fish-art505-desc
-  baseSentence: 999
+  baseSentence: 50
 
 - type: corporateLaw
   id: LawFish506
   lawIdentifier: "506"
   title: corplaw-fish-art506-title
   description: corplaw-fish-art506-desc
-  baseSentence: 999
+  baseSentence: 50
 
 - type: corporateLaw
   id: LawFish507
   lawIdentifier: "507"
   title: corplaw-fish-art507-title
   description: corplaw-fish-art507-desc
-  baseSentence: 999
+  baseSentence: 50
 
 - type: corporateLaw
   id: LawFish509
   lawIdentifier: "509"
   title: corplaw-fish-art509-title
   description: corplaw-fish-art509-desc
-  baseSentence: 999
+  baseSentence: 50
 
 - type: corporateLaw
   id: LawFish510
   lawIdentifier: "510"
   title: corplaw-fish-art510-title
   description: corplaw-fish-art510-desc
-  baseSentence: 999
+  baseSentence: 50
 
 - type: corporateLaw
   id: LawFish511
   lawIdentifier: "511"
   title: corplaw-fish-art511-title
   description: corplaw-fish-art511-desc
-  baseSentence: 999
+  baseSentence: 50
 
 - type: corporateLaw
   id: LawFish512
   lawIdentifier: "512"
   title: corplaw-fish-art512-title
   description: corplaw-fish-art512-desc
-  baseSentence: 999
+  baseSentence: 50
 
-# -------------------------------------------------------------------------
 # General provisions
-# -------------------------------------------------------------------------
 - type: corporateLaw
   id: ProvisionFishOPRS
   category: Provision
@@ -427,21 +410,7 @@
   title: corplaw-fish-sentences-title
   description: corplaw-fish-sentences-desc
 
-# -------------------------------------------------------------------------
-# Circumstances
-#
-# NOTE: `sentenceFlatAddMin` (+N min) and `sentenceCapToFraction` (max/2,
-# max/4) from the Fish Station specification require engine-side support
-# that is not present in the shared CorporateLawPrototype. Until those
-# fields are added, the flat-add and cap-to-fraction circumstances keep
-# `sentenceMultiplier: 1.0` and rely on the description text so Security
-# can apply the effect manually. Multiplicative circumstances below
-# (Necessity, SelfSurrender, Cooperation, Admission, NoIntent,
-# PrisonerThreat, OfficialMisconduct) already work data-only through the
-# existing CalculateSentence logic.
-# -------------------------------------------------------------------------
-
-# Mitigating
+# Circumstances: mitigating
 - type: corporateLaw
   id: CircFishNecessity
   category: Mitigating
@@ -491,7 +460,7 @@
   description: corplaw-fish-circ-medicalreason-desc
   sentenceMultiplier: 1.0
 
-# Aggravating
+# Circumstances: aggravating
 - type: corporateLaw
   id: CircFishOfficialMisconduct
   category: Aggravating
@@ -534,11 +503,7 @@
   description: corplaw-fish-circ-threat-desc
   sentenceMultiplier: 1.0
 
-# -------------------------------------------------------------------------
-# Sections — distinct colour palette (aqua → crimson) so the PDA UI makes
-# it obvious at a glance that this is the Fish Station lawset and not the
-# standard one.
-# -------------------------------------------------------------------------
+# Sections
 - type: corporateLawSection
   id: SectionFishGeneral
   title: corplaw-fish-section-general
@@ -630,9 +595,7 @@
   - LawFish511
   - LawFish512
 
-# -------------------------------------------------------------------------
 # Lawset
-# -------------------------------------------------------------------------
 - type: corporateLawset
   id: FishCorporateLaw
   permanentSentenceThreshold: 50

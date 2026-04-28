@@ -1,6 +1,4 @@
-# Fish Station Corporate Law — RU localization.
-# Все ключи используют отдельный префикс `corplaw-fish-*`, чтобы
-# не пересекаться со стандартным `corplaw-*` из _sunrise/corplaw.ftl.
+# Fish Station Corporate Law Localization
 
 # Sections
 corplaw-fish-section-general = Общие положения
