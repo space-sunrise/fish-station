@@ -473,14 +473,14 @@
   category: Aggravating
   title: corplaw-fish-circ-nonviolentresistance-title
   description: corplaw-fish-circ-nonviolentresistance-desc
-  sentenceMultiplier: 1.0
+  sentenceMultiplier: 1.25
 
 - type: corporateLaw
   id: CircFishViolentResistance
   category: Aggravating
   title: corplaw-fish-circ-violentresistance-title
   description: corplaw-fish-circ-violentresistance-desc
-  sentenceMultiplier: 1.0
+  sentenceMultiplier: 1.5
 
 - type: corporateLaw
   id: CircFishAidAndAbetting
@@ -494,14 +494,14 @@
   category: Aggravating
   title: corplaw-fish-circ-attempt-title
   description: corplaw-fish-circ-attempt-desc
-  sentenceMultiplier: 1.0
+  sentenceMultiplier: 0.5
 
 - type: corporateLaw
   id: CircFishThreat
   category: Aggravating
   title: corplaw-fish-circ-threat-title
   description: corplaw-fish-circ-threat-desc
-  sentenceMultiplier: 1.0
+  sentenceMultiplier: 0.25
 
 # Sections
 - type: corporateLawSection

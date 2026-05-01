@@ -221,16 +221,16 @@ corplaw-fish-circ-necessity-title = Extreme Necessity (Self-Defense)
 corplaw-fish-circ-necessity-desc = Forced actions for self-defense, protecting the lives of colleagues, and station integrity. Charges dropped and immediate release.
 
 corplaw-fish-circ-selfsurrender-title = Self-Surrender
-corplaw-fish-circ-selfsurrender-desc = Voluntary personal appearance to Security before being formally charged or suspected. -50% from final sentence.
+corplaw-fish-circ-selfsurrender-desc = Voluntary personal appearance to Security before being formally charged or suspected.
 
 corplaw-fish-circ-cooperation-title = Plea Bargain
-corplaw-fish-circ-cooperation-desc = Disclosing full details of the crime, surrendering accomplices, and assisting in recovering stolen property. Information must be truthful. -50% from final sentence.
+corplaw-fish-circ-cooperation-desc = Disclosing full details of the crime, surrendering accomplices, and assisting in recovering stolen property. Information must be truthful.
 
 corplaw-fish-circ-admission-title = Admission of Guilt
-corplaw-fish-circ-admission-desc = Voluntary admission of guilt before or at the first interrogation. Does not apply to official misconduct. Does not stack with self-surrender. -25% from final sentence.
+corplaw-fish-circ-admission-desc = Voluntary admission of guilt before or at the first interrogation. Does not apply to official misconduct. Does not stack with self-surrender.
 
 corplaw-fish-circ-nointent-title = Lack of Intent
-corplaw-fish-circ-nointent-desc = Investigation-confirmed lack of intent to commit the alleged crime. -75% from final sentence.
+corplaw-fish-circ-nointent-desc = Investigation-confirmed lack of intent to commit the alleged crime.
 
 corplaw-fish-circ-prisonerthreat-title = Imminent Threat to Prisoner
 corplaw-fish-circ-prisonerthreat-desc = Imminent threat to the brig and the lives of prisoners. Immediate release; the prisoner must be moved to a safe location.
@@ -240,19 +240,19 @@ corplaw-fish-circ-medicalreason-desc = Prisoner requires urgent medical attentio
 
 # Circumstances (Aggravating)
 corplaw-fish-circ-officialmisconduct-title = Official Misconduct
-corplaw-fish-circ-officialmisconduct-desc = Violation of Corporate Law by an official who is expected to set an example. +50% to sentence.
+corplaw-fish-circ-officialmisconduct-desc = Violation of Corporate Law by an official who is expected to set an example.
 
 corplaw-fish-circ-nonviolentresistance-title = Non-Violent Resistance to Arrest
-corplaw-fish-circ-nonviolentresistance-desc = Attempting to break out of cuffs and flee without harming anyone. +5 minutes to base sentence (applied by Security manually).
+corplaw-fish-circ-nonviolentresistance-desc = Attempting to break out of cuffs and flee without harming anyone.
 
 corplaw-fish-circ-violentresistance-title = Violent Resistance to Arrest
-corplaw-fish-circ-violentresistance-desc = Use of force and/or weapons against Security during detention. Does not stack with non-violent. +10 minutes to base sentence (applied by Security manually).
+corplaw-fish-circ-violentresistance-desc = Use of force and/or weapons against Security during detention. Does not stack with non-violent resistance.
 
 corplaw-fish-circ-aidabetting-title = Aiding and/or Abetting
 corplaw-fish-circ-aidabetting-desc = Knowingly aiding a criminal or inciting a crime. Accomplices receive the articles they incited.
 
 corplaw-fish-circ-attempt-title = Attempted Crime
-corplaw-fish-circ-attempt-desc = Attempting to commit a crime (e.g., attempted murder). Final sentence is half of the maximum for the most severe article (applied by Security manually).
+corplaw-fish-circ-attempt-desc = Attempting to commit a crime (e.g., attempted murder).
 
 corplaw-fish-circ-threat-title = Threatening to Commit a Crime
-corplaw-fish-circ-threat-desc = Threatening to commit a violation (e.g., threatening mutiny). Final sentence is a quarter of the maximum for the most severe article (applied by Security manually).
+corplaw-fish-circ-threat-desc = Threatening to commit a violation (e.g., threatening mutiny).
