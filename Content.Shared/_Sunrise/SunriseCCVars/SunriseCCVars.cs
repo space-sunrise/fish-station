@@ -584,5 +584,5 @@ public sealed partial class SunriseCCVars : CVars
     /// The ID of the corporate law set prototype to use in the PDA application.
     /// </summary>
     public static readonly CVarDef<string> CorporateLawSet =
-        CVarDef.Create("sunrise.corporate_law_set", "StandardCorporateLaw", CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
+        CVarDef.Create("sunrise.corporate_law_set", "FishCorporateLaw", CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE); // Fish-Edit
 }
