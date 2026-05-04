@@ -15,13 +15,13 @@
   - type: GunWieldBonus
     minAngle: -10
     maxAngle: -10
-  - type: WeaponTransform
-    targetPrototype: WeaponPistolN1984
-    stockPrototype: ClothingBeltHolsterN1984ButtFish
+  - type: WeaponTransform # Fish edit - renamed fields
+    resulting: WeaponPistolN1984
+    initial: ClothingBeltHolsterN1984ButtFish
     detachAction: ActionN1984Detach
     attachedPopup: n1984-transform-attached
     detachedPopup: n1984-transform-detached
-    isStocked: true
+    isTransformed: true
   - type: Tag
     tags: []
 
@@ -69,10 +69,10 @@
         whitelist:
           tags:
             - CartridgeMagnum
-  - type: WeaponTransform # Fish edit
-    targetPrototype: WeaponPistolN1984ButtFish
-    stockPrototype: ClothingBeltHolsterN1984ButtFish
-    isStocked: false
+  - type: WeaponTransform # Fish edit - renamed fields
+    resulting: WeaponPistolN1984ButtFish
+    initial: ClothingBeltHolsterN1984ButtFish
+    isTransformed: false
     attachedPopup: n1984-transform-attached
     detachedPopup: n1984-transform-detached
 
