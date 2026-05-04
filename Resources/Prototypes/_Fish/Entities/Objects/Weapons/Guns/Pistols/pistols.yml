@@ -24,3 +24,58 @@
     isStocked: true
   - type: Tag
     tags: []
+
+- type: entity
+  name: N1984
+  parent: [BaseWeaponPistol, BaseSecurityContraband]
+  id: WeaponPistolN1984Fish
+  description: An exceptionally powerful ‘hand cannon’ designed as part of Nanotrasen's BFG initiative. Chambered in .45, the lord’s caliber, it is generally considered too unwieldy for standard use but has become something of a status symbol among Nanotrasen officials. Feeds from .45 pistol magazines.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
+  - type: Gun
+    minAngle: 1
+    maxAngle: 20
+    angleIncrease: 8
+    angleDecay: 9
+    fireRate: 4
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineMagnum
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineMagnum
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeMagnumSP
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeMagnum
+  - type: WeaponTransform # Fish edit
+    targetPrototype: WeaponPistolN1984ButtFish
+    stockPrototype: ClothingBeltHolsterN1984ButtFish
+    isStocked: false
+    attachedPopup: n1984-transform-attached
+    detachedPopup: n1984-transform-detached
+
+- type: entity
+  id: WeaponPistolN1984
+  parent: WeaponPistolN1984Fish
