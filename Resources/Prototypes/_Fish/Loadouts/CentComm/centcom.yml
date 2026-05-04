@@ -185,7 +185,7 @@
 - type: loadout
   id: CentCommPistolN1984
   equipment:
-    belt: WeaponPistolN1984
+    belt: WeaponPistolN1984Fish # Fish edit - use Fish variant with stock support
 
 - type: loadout
   id: CentCommOfficialHat

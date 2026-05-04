@@ -135,7 +135,7 @@
     id: NtrGuardPDA
     ears: ClothingHeadsetMagistrate
     belt: ClothingBeltSecurityFilled
-    pocket1: WeaponPistolN1984
+    pocket1: WeaponPistolN1984Fish # Fish edit - use Fish variant with stock support
     pocket2: MagazineMagnum
   inhand:
   - WeaponDisablerSMG

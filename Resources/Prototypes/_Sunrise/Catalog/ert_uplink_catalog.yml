@@ -519,7 +519,7 @@
 - type: listing
   id: ERTUplinkWeaponPistolN1984
   name: N1984
-  productEntity: WeaponPistolN1984
+  productEntity: WeaponPistolN1984Fish # Fish edit - use Fish variant with stock support
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: n1984 }
   cost:
     Bluecrystal: 8

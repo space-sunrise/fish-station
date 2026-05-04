@@ -34,7 +34,7 @@
     outerClothing: ClothingOuterArmorBasicSlim
     id: CentcomHeadPDA
     ears: ClothingHeadsetFishCentCom
-    belt: WeaponPistolN1984
+    belt: WeaponPistolN1984Fish # Fish edit - use Fish variant with stock support
   storage:
     back:
     - PenCentcom

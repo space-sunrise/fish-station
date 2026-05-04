@@ -193,7 +193,7 @@
   - type: ContainerFill
     containers:
       gun:
-      - WeaponPistolN1984
+      - WeaponPistolN1984Fish # Fish edit - use Fish variant with stock support
 
 - type: entity
   parent: [ ClothingBeltSheath, BaseCentcommContraband ]
@@ -227,4 +227,4 @@
   - type: ContainerFill
     containers:
       item:
-      - WeaponPistolN1984
+      - WeaponPistolN1984Fish # Fish edit - use Fish variant with stock support

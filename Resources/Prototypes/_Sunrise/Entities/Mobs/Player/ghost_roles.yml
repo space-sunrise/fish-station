@@ -70,7 +70,7 @@
     pocket1: MagazineMagnum
     pocket2: DoorRemoteOmni
   inhand:
-  - WeaponPistolN1984
+  - WeaponPistolN1984Fish # Fish edit - use Fish variant with stock support
   storage:
     back:
     - BoxErtLeaderKit

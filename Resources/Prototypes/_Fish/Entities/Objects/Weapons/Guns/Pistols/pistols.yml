@@ -76,6 +76,4 @@
     attachedPopup: n1984-transform-attached
     detachedPopup: n1984-transform-detached
 
-- type: entity
-  id: WeaponPistolN1984
-  parent: WeaponPistolN1984Fish
+# Fish edit - removed duplicate WeaponPistolN1984 alias; vanilla already defines it
