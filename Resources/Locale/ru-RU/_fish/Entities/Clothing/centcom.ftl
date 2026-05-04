@@ -22,7 +22,7 @@ ent-ClothingOuterCoatCentcoatFish = Тренч
 ent-ClothingNeckCloakCentcomFormalFish = Плащ (традиционный)
     .desc = Официальный плащ, который часто носят высокопоставленные лица.
 
-ent-ClothingNeckCloakCentcomFormalFish = Плащ (традиционный)
+ent-ClothingNeckCloakCentcomFormalLongFish = Плащ (длинный)
     .desc = Элегантный длинный плащ для представителей Центкома.
 
 ent-ClothingNeckMantleCentcomFish = Накидка

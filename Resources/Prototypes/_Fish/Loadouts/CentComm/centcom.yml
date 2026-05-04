@@ -6,6 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobSpecOpsOfficer
+      time: 0
 
 - type: loadout
   id: CentCommOfficialJumpsuitFish
@@ -106,6 +107,9 @@
 
 - type: loadout
   id: CentcommSwordFish
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SpecOpsOnly
   equipment:
     belt: ClothingBeltSheathCentcomFish
 
@@ -159,6 +163,9 @@
 
 - type: loadout
   id: SpecOpsPDA
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SpecOpsOnly
   equipment:
     id: SpecOpsOfficerPDA
 
@@ -174,6 +181,9 @@
 
 - type: loadout
   id: SpecOpsHeadsetAlt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SpecOpsOnly
   equipment:
     ears: ClothingHeadsetAltSpecOpsOfficer
 
@@ -207,10 +217,16 @@
 
 - type: loadout
   id: CentcommPistolN1984ButtFish
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SpecOpsOnly
   equipment:
     belt: ClothingBeltHolsterN1984ButtFishFilled
 
 - type: loadout
   id: CentcommPistolN1984SheathFish
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SpecOpsOnly
   equipment:
     belt: ClothingBeltSheathN1984FishFilled

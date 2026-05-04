@@ -9,6 +9,11 @@
   - CentCommOfficialJumpsuitFish
   - CentCommOfficialJumpskirtFish
   - CentCommAssistantJumpsuitFish
+
+- type: loadoutGroup
+  id: SpecOpsJumpsuitFish
+  name: loadout-group-centcomm-operator-jumpsuit
+  loadouts:
   - SpecOpsOfficerUniformMale
   - SpecOpsOfficerUniformFemale
   - SpecOpsOfficerUniformBlackFish
@@ -22,6 +27,11 @@
   - CentCommOfficialHat
   - CentcommHatFish
   - CentcommCapFish
+
+- type: loadoutGroup
+  id: SpecOpsHatsFish
+  name: loadout-group-centcomm-operator-head-hat
+  loadouts:
   - SpecOpsCapBlack
 
 - type: loadoutGroup
@@ -32,6 +42,11 @@
   - CentCommShoesLaceup
   - CentCommShoesCombat
   - CentCommBootsFish
+
+- type: loadoutGroup
+  id: SpecOpsShoesFish
+  name: loadout-group-centcomm-shoes
+  loadouts:
   - SpecOpsShoesBlack
 
 - type: loadoutGroup
@@ -42,6 +57,11 @@
   - SunriseBlackGloves
   - CentCommGlovesBlack
   - CentCommGlovesWhiteFish
+
+- type: loadoutGroup
+  id: SpecOpsGlovesFish
+  name: loadout-group-centcomm-gloves
+  loadouts:
   - SpecOpsGlovesCombat
 
 - type: loadoutGroup
@@ -85,3 +105,13 @@
   - CentcommSwordFish
   - CentcommPistolN1984ButtFish
   - CentcommPistolN1984SheathFish
+
+- type: loadoutGroup
+  id: CentCommOperatorTrinketsFish
+  name: loadout-group-centcomm-trinkets
+  loadouts:
+  - CentCommPDA
+  - SpecOpsPDA
+  - CentCommHeadset
+  - CentCommHeadsetAlt
+  - SpecOpsHeadsetAlt

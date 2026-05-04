@@ -10,6 +10,7 @@
   - CentCommOperatorEyesFish
   - CentCommOperatorBackFish
   - CentCommOperatorWeaponsFish
+  - CentCommOperatorTrinketsFish
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
@@ -29,6 +30,7 @@
   - CentCommOperatorEyesFish
   - CentCommOperatorBackFish
   - CentCommOperatorWeaponsFish
+  - CentCommOperatorTrinketsFish
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
@@ -48,6 +50,7 @@
   - CentCommOperatorEyesFish
   - CentCommOperatorBackFish
   - CentCommOperatorWeaponsFish
+  - CentCommOperatorTrinketsFish
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
@@ -170,6 +173,7 @@
   - CentCommOperatorEyesFish
   - CentCommOperatorBackFish
   - CentCommOperatorWeaponsFish
+  - CentCommOperatorTrinketsFish
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
@@ -180,15 +184,16 @@
 - type: roleLoadout
   id: JobSpecOpsOfficer
   groups:
-  - CentCommOperatorJumpsuitFish
-  - CentCommOperatorHatsFish
-  - CentCommOperatorShoesFish
-  - CentCommOperatorGlovesFish
   - CentCommOperatorOuterFish
   - CentCommOperatorNeckFish
   - CentCommOperatorEyesFish
   - CentCommOperatorBackFish
   - CentCommOperatorWeaponsFish
+  - CentCommOperatorTrinketsFish
+  - SpecOpsJumpsuitFish
+  - SpecOpsHatsFish
+  - SpecOpsShoesFish
+  - SpecOpsGlovesFish
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
