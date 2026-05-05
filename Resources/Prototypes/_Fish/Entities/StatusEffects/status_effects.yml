@@ -1,0 +1,12 @@
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectPacified
+  name: pacified
+  components:
+  - type: StatusEffect
+    whitelist:
+      components:
+      - MobState
+  - type: StatusEffectAlert
+    alert: Pacified
+  - type: Pacified
