@@ -39,9 +39,7 @@ ent-JugDyloveneSunrise = { ent-Jug }
 ent-JugSalineSunrise = { ent-Jug }
     .suffix = салин
     .desc = { ent-Jug.desc }
-# Fish-edit: Medical Chemistry Bottles localization
-ent-ChemistryBottleBicaridine = бутылочка бикаридина
-    .desc = Бутылочка с бикаридином, используется для лечения травматических повреждений.
+# Fish-start: Medical Chemistry Bottles localization
 ent-ChemistryBottleDermaline = бутылочка дермалина
     .desc = Бутылочка с дермалином, используется для лечения ожогов.
 ent-ChemistryBottleStimulants = бутылочка гиперзина
