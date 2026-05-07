@@ -21448,8 +21448,7 @@ entities:
           ent: null
     - type: UserInterface
       actors:
-        enum.StrippingUiKey.Key:
-        - invalid
+        enum.StrippingUiKey.Key: []
     - type: ActiveUserInterface
   - uid: 1102
     components:
@@ -21493,8 +21492,7 @@ entities:
           ent: null
     - type: UserInterface
       actors:
-        enum.StrippingUiKey.Key:
-        - invalid
+        enum.StrippingUiKey.Key: []
     - type: ActiveUserInterface
 - proto: MaterialBiomass
   entities:
@@ -21992,8 +21990,7 @@ entities:
         [italic]Место для печатей[/italic]
     - type: UserInterface
       actors:
-        enum.PaperUiKey.Key:
-        - invalid
+        enum.PaperUiKey.Key: []
     - type: ActiveUserInterface
     - type: Forensics
       residues: []
