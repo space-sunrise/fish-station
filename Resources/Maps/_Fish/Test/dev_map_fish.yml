@@ -12386,7 +12386,7 @@ entities:
     - type: Transform
       pos: 2.35,-1.35
       parent: 3094
-- proto: MagazineLightRifleBoxSP
+- proto: BoxMagazineLightRifle
   entities:
   - uid: 1501
     components:
