@@ -950,7 +950,6 @@ entities:
     - type: UserInterface
       actors:
         enum.StorageUiKey.Key:
-        - invalid
     - type: Physics
       canCollide: False
     - type: ActiveUserInterface
