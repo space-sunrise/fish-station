@@ -1,0 +1,625 @@
+# Fish Station Corporate Law
+
+# Laws: 1xx
+- type: corporateLaw
+  id: LawFish100
+  lawIdentifier: "100"
+  title: corplaw-fish-art100-title
+  description: corplaw-fish-art100-desc
+  baseSentence: 5
+
+- type: corporateLaw
+  id: LawFish101
+  lawIdentifier: "101"
+  title: corplaw-fish-art101-title
+  description: corplaw-fish-art101-desc
+  baseSentence: 5
+
+- type: corporateLaw
+  id: LawFish102
+  lawIdentifier: "102"
+  title: corplaw-fish-art102-title
+  description: corplaw-fish-art102-desc
+  baseSentence: 5
+
+- type: corporateLaw
+  id: LawFish103
+  lawIdentifier: "103"
+  title: corplaw-fish-art103-title
+  description: corplaw-fish-art103-desc
+  baseSentence: 5
+
+- type: corporateLaw
+  id: LawFish104
+  lawIdentifier: "104"
+  title: corplaw-fish-art104-title
+  description: corplaw-fish-art104-desc
+  baseSentence: 5
+
+- type: corporateLaw
+  id: LawFish105
+  lawIdentifier: "105"
+  title: corplaw-fish-art105-title
+  description: corplaw-fish-art105-desc
+  baseSentence: 5
+
+- type: corporateLaw
+  id: LawFish106
+  lawIdentifier: "106"
+  title: corplaw-fish-art106-title
+  description: corplaw-fish-art106-desc
+  baseSentence: 5
+
+- type: corporateLaw
+  id: LawFish107
+  lawIdentifier: "107"
+  title: corplaw-fish-art107-title
+  description: corplaw-fish-art107-desc
+  baseSentence: 5
+
+- type: corporateLaw
+  id: LawFish109
+  lawIdentifier: "109"
+  title: corplaw-fish-art109-title
+  description: corplaw-fish-art109-desc
+  baseSentence: 5
+
+# Laws: 2xx
+- type: corporateLaw
+  id: LawFish200
+  lawIdentifier: "200"
+  title: corplaw-fish-art200-title
+  description: corplaw-fish-art200-desc
+  baseSentence: 10
+
+- type: corporateLaw
+  id: LawFish201
+  lawIdentifier: "201"
+  title: corplaw-fish-art201-title
+  description: corplaw-fish-art201-desc
+  baseSentence: 10
+
+- type: corporateLaw
+  id: LawFish202
+  lawIdentifier: "202"
+  title: corplaw-fish-art202-title
+  description: corplaw-fish-art202-desc
+  baseSentence: 10
+
+- type: corporateLaw
+  id: LawFish204
+  lawIdentifier: "204"
+  title: corplaw-fish-art204-title
+  description: corplaw-fish-art204-desc
+  baseSentence: 10
+
+- type: corporateLaw
+  id: LawFish205
+  lawIdentifier: "205"
+  title: corplaw-fish-art205-title
+  description: corplaw-fish-art205-desc
+  baseSentence: 10
+
+- type: corporateLaw
+  id: LawFish206
+  lawIdentifier: "206"
+  title: corplaw-fish-art206-title
+  description: corplaw-fish-art206-desc
+  baseSentence: 10
+
+- type: corporateLaw
+  id: LawFish207
+  lawIdentifier: "207"
+  title: corplaw-fish-art207-title
+  description: corplaw-fish-art207-desc
+  baseSentence: 10
+
+- type: corporateLaw
+  id: LawFish208
+  lawIdentifier: "208"
+  title: corplaw-fish-art208-title
+  description: corplaw-fish-art208-desc
+  baseSentence: 10
+
+- type: corporateLaw
+  id: LawFish209
+  lawIdentifier: "209"
+  title: corplaw-fish-art209-title
+  description: corplaw-fish-art209-desc
+  baseSentence: 10
+
+- type: corporateLaw
+  id: LawFish211
+  lawIdentifier: "211"
+  title: corplaw-fish-art211-title
+  description: corplaw-fish-art211-desc
+  baseSentence: 10
+
+# Laws: 3xx
+- type: corporateLaw
+  id: LawFish300
+  lawIdentifier: "300"
+  title: corplaw-fish-art300-title
+  description: corplaw-fish-art300-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: LawFish301
+  lawIdentifier: "301"
+  title: corplaw-fish-art301-title
+  description: corplaw-fish-art301-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: LawFish302
+  lawIdentifier: "302"
+  title: corplaw-fish-art302-title
+  description: corplaw-fish-art302-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: LawFish303
+  lawIdentifier: "303"
+  title: corplaw-fish-art303-title
+  description: corplaw-fish-art303-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: LawFish304
+  lawIdentifier: "304"
+  title: corplaw-fish-art304-title
+  description: corplaw-fish-art304-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: LawFish305
+  lawIdentifier: "305"
+  title: corplaw-fish-art305-title
+  description: corplaw-fish-art305-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: LawFish306
+  lawIdentifier: "306"
+  title: corplaw-fish-art306-title
+  description: corplaw-fish-art306-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: LawFish307
+  lawIdentifier: "307"
+  title: corplaw-fish-art307-title
+  description: corplaw-fish-art307-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: LawFish308
+  lawIdentifier: "308"
+  title: corplaw-fish-art308-title
+  description: corplaw-fish-art308-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: LawFish309
+  lawIdentifier: "309"
+  title: corplaw-fish-art309-title
+  description: corplaw-fish-art309-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: LawFish310
+  lawIdentifier: "310"
+  title: corplaw-fish-art310-title
+  description: corplaw-fish-art310-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: LawFish311
+  lawIdentifier: "311"
+  title: corplaw-fish-art311-title
+  description: corplaw-fish-art311-desc
+  baseSentence: 17
+
+- type: corporateLaw
+  id: LawFish312
+  lawIdentifier: "312"
+  title: corplaw-fish-art312-title
+  description: corplaw-fish-art312-desc
+  baseSentence: 17
+
+# Laws: 4xx
+- type: corporateLaw
+  id: LawFish400
+  lawIdentifier: "400"
+  title: corplaw-fish-art400-title
+  description: corplaw-fish-art400-desc
+  baseSentence: 40
+
+- type: corporateLaw
+  id: LawFish401
+  lawIdentifier: "401"
+  title: corplaw-fish-art401-title
+  description: corplaw-fish-art401-desc
+  baseSentence: 40
+
+- type: corporateLaw
+  id: LawFish402
+  lawIdentifier: "402"
+  title: corplaw-fish-art402-title
+  description: corplaw-fish-art402-desc
+  baseSentence: 40
+
+- type: corporateLaw
+  id: LawFish403
+  lawIdentifier: "403"
+  title: corplaw-fish-art403-title
+  description: corplaw-fish-art403-desc
+  baseSentence: 40
+
+- type: corporateLaw
+  id: LawFish404
+  lawIdentifier: "404"
+  title: corplaw-fish-art404-title
+  description: corplaw-fish-art404-desc
+  baseSentence: 40
+
+- type: corporateLaw
+  id: LawFish405
+  lawIdentifier: "405"
+  title: corplaw-fish-art405-title
+  description: corplaw-fish-art405-desc
+  baseSentence: 40
+
+- type: corporateLaw
+  id: LawFish406
+  lawIdentifier: "406"
+  title: corplaw-fish-art406-title
+  description: corplaw-fish-art406-desc
+  baseSentence: 40
+
+- type: corporateLaw
+  id: LawFish408
+  lawIdentifier: "408"
+  title: corplaw-fish-art408-title
+  description: corplaw-fish-art408-desc
+  baseSentence: 40
+
+- type: corporateLaw
+  id: LawFish409
+  lawIdentifier: "409"
+  title: corplaw-fish-art409-title
+  description: corplaw-fish-art409-desc
+  baseSentence: 40
+
+- type: corporateLaw
+  id: LawFish410
+  lawIdentifier: "410"
+  title: corplaw-fish-art410-title
+  description: corplaw-fish-art410-desc
+  baseSentence: 40
+
+- type: corporateLaw
+  id: LawFish411
+  lawIdentifier: "411"
+  title: corplaw-fish-art411-title
+  description: corplaw-fish-art411-desc
+  baseSentence: 40
+
+- type: corporateLaw
+  id: LawFish412
+  lawIdentifier: "412"
+  title: corplaw-fish-art412-title
+  description: corplaw-fish-art412-desc
+  baseSentence: 40
+
+# Laws: 5xx
+- type: corporateLaw
+  id: LawFish500
+  lawIdentifier: "500"
+  title: corplaw-fish-art500-title
+  description: corplaw-fish-art500-desc
+  baseSentence: 50
+
+- type: corporateLaw
+  id: LawFish501
+  lawIdentifier: "501"
+  title: corplaw-fish-art501-title
+  description: corplaw-fish-art501-desc
+  baseSentence: 50
+
+- type: corporateLaw
+  id: LawFish502
+  lawIdentifier: "502"
+  title: corplaw-fish-art502-title
+  description: corplaw-fish-art502-desc
+  baseSentence: 50
+
+- type: corporateLaw
+  id: LawFish503
+  lawIdentifier: "503"
+  title: corplaw-fish-art503-title
+  description: corplaw-fish-art503-desc
+  baseSentence: 50
+
+- type: corporateLaw
+  id: LawFish504
+  lawIdentifier: "504"
+  title: corplaw-fish-art504-title
+  description: corplaw-fish-art504-desc
+  baseSentence: 50
+
+- type: corporateLaw
+  id: LawFish505
+  lawIdentifier: "505"
+  title: corplaw-fish-art505-title
+  description: corplaw-fish-art505-desc
+  baseSentence: 50
+
+- type: corporateLaw
+  id: LawFish506
+  lawIdentifier: "506"
+  title: corplaw-fish-art506-title
+  description: corplaw-fish-art506-desc
+  baseSentence: 50
+
+- type: corporateLaw
+  id: LawFish507
+  lawIdentifier: "507"
+  title: corplaw-fish-art507-title
+  description: corplaw-fish-art507-desc
+  baseSentence: 50
+
+- type: corporateLaw
+  id: LawFish509
+  lawIdentifier: "509"
+  title: corplaw-fish-art509-title
+  description: corplaw-fish-art509-desc
+  baseSentence: 50
+
+- type: corporateLaw
+  id: LawFish510
+  lawIdentifier: "510"
+  title: corplaw-fish-art510-title
+  description: corplaw-fish-art510-desc
+  baseSentence: 50
+
+- type: corporateLaw
+  id: LawFish511
+  lawIdentifier: "511"
+  title: corplaw-fish-art511-title
+  description: corplaw-fish-art511-desc
+  baseSentence: 50
+
+- type: corporateLaw
+  id: LawFish512
+  lawIdentifier: "512"
+  title: corplaw-fish-art512-title
+  description: corplaw-fish-art512-desc
+  baseSentence: 50
+
+# General provisions
+- type: corporateLaw
+  id: ProvisionFishOPRS
+  category: Provision
+  title: corplaw-fish-oprs-title
+  description: corplaw-fish-oprs-desc
+
+- type: corporateLaw
+  id: ProvisionFishSentences
+  category: Provision
+  title: corplaw-fish-sentences-title
+  description: corplaw-fish-sentences-desc
+
+# Circumstances: mitigating
+- type: corporateLaw
+  id: CircFishNecessity
+  category: Mitigating
+  title: corplaw-fish-circ-necessity-title
+  description: corplaw-fish-circ-necessity-desc
+  sentenceMultiplier: 0.0
+
+- type: corporateLaw
+  id: CircFishSelfSurrender
+  category: Mitigating
+  title: corplaw-fish-circ-selfsurrender-title
+  description: corplaw-fish-circ-selfsurrender-desc
+  sentenceMultiplier: 0.5
+
+- type: corporateLaw
+  id: CircFishCooperation
+  category: Mitigating
+  title: corplaw-fish-circ-cooperation-title
+  description: corplaw-fish-circ-cooperation-desc
+  sentenceMultiplier: 0.5
+
+- type: corporateLaw
+  id: CircFishAdmission
+  category: Mitigating
+  title: corplaw-fish-circ-admission-title
+  description: corplaw-fish-circ-admission-desc
+  sentenceMultiplier: 0.75
+
+- type: corporateLaw
+  id: CircFishNoIntent
+  category: Mitigating
+  title: corplaw-fish-circ-nointent-title
+  description: corplaw-fish-circ-nointent-desc
+  sentenceMultiplier: 0.25
+
+- type: corporateLaw
+  id: CircFishPrisonerThreat
+  category: Mitigating
+  title: corplaw-fish-circ-prisonerthreat-title
+  description: corplaw-fish-circ-prisonerthreat-desc
+  sentenceMultiplier: 0.0
+
+- type: corporateLaw
+  id: CircFishMedicalReason
+  category: Mitigating
+  title: corplaw-fish-circ-medicalreason-title
+  description: corplaw-fish-circ-medicalreason-desc
+  sentenceMultiplier: 1.0
+
+# Circumstances: aggravating
+- type: corporateLaw
+  id: CircFishOfficialMisconduct
+  category: Aggravating
+  title: corplaw-fish-circ-officialmisconduct-title
+  description: corplaw-fish-circ-officialmisconduct-desc
+  sentenceMultiplier: 1.5
+
+- type: corporateLaw
+  id: CircFishNonViolentResistance
+  category: Aggravating
+  title: corplaw-fish-circ-nonviolentresistance-title
+  description: corplaw-fish-circ-nonviolentresistance-desc
+  sentenceMultiplier: 1.25
+
+- type: corporateLaw
+  id: CircFishViolentResistance
+  category: Aggravating
+  title: corplaw-fish-circ-violentresistance-title
+  description: corplaw-fish-circ-violentresistance-desc
+  sentenceMultiplier: 1.5
+
+- type: corporateLaw
+  id: CircFishAidAndAbetting
+  category: Aggravating
+  title: corplaw-fish-circ-aidabetting-title
+  description: corplaw-fish-circ-aidabetting-desc
+  sentenceMultiplier: 1.0
+
+- type: corporateLaw
+  id: CircFishAttempt
+  category: Aggravating
+  title: corplaw-fish-circ-attempt-title
+  description: corplaw-fish-circ-attempt-desc
+  sentenceMultiplier: 0.5
+
+- type: corporateLaw
+  id: CircFishThreat
+  category: Aggravating
+  title: corplaw-fish-circ-threat-title
+  description: corplaw-fish-circ-threat-desc
+  sentenceMultiplier: 0.25
+
+# Sections
+- type: corporateLawSection
+  id: SectionFishGeneral
+  title: corplaw-fish-section-general
+  entries: [ProvisionFishOPRS, ProvisionFishSentences]
+
+- type: corporateLawSection
+  id: SectionFish1xx
+  title: corplaw-fish-section-1xx
+  color: "#64d2ff"
+  entries:
+  - LawFish100
+  - LawFish101
+  - LawFish102
+  - LawFish103
+  - LawFish104
+  - LawFish105
+  - LawFish106
+  - LawFish107
+  - LawFish109
+
+- type: corporateLawSection
+  id: SectionFish2xx
+  title: corplaw-fish-section-2xx
+  color: "#32ade6"
+  entries:
+  - LawFish200
+  - LawFish201
+  - LawFish202
+  - LawFish204
+  - LawFish205
+  - LawFish206
+  - LawFish207
+  - LawFish208
+  - LawFish209
+  - LawFish211
+
+- type: corporateLawSection
+  id: SectionFish3xx
+  title: corplaw-fish-section-3xx
+  color: "#0a84ff"
+  entries:
+  - LawFish300
+  - LawFish301
+  - LawFish302
+  - LawFish303
+  - LawFish304
+  - LawFish305
+  - LawFish306
+  - LawFish307
+  - LawFish308
+  - LawFish309
+  - LawFish310
+  - LawFish311
+  - LawFish312
+
+- type: corporateLawSection
+  id: SectionFish4xx
+  title: corplaw-fish-section-4xx
+  color: "#af52de"
+  entries:
+  - LawFish400
+  - LawFish401
+  - LawFish402
+  - LawFish403
+  - LawFish404
+  - LawFish405
+  - LawFish406
+  - LawFish408
+  - LawFish409
+  - LawFish410
+  - LawFish411
+  - LawFish412
+
+- type: corporateLawSection
+  id: SectionFish5xx
+  title: corplaw-fish-section-5xx
+  color: "#ff2d55"
+  entries:
+  - LawFish500
+  - LawFish501
+  - LawFish502
+  - LawFish503
+  - LawFish504
+  - LawFish505
+  - LawFish506
+  - LawFish507
+  - LawFish509
+  - LawFish510
+  - LawFish511
+  - LawFish512
+
+# Lawset
+- type: corporateLawset
+  id: FishCorporateLaw
+  permanentSentenceThreshold: 50
+  provisions:
+  - ProvisionFishOPRS
+  - ProvisionFishSentences
+  circumstances:
+  - CircFishNecessity
+  - CircFishSelfSurrender
+  - CircFishCooperation
+  - CircFishAdmission
+  - CircFishNoIntent
+  - CircFishPrisonerThreat
+  - CircFishMedicalReason
+  - CircFishOfficialMisconduct
+  - CircFishNonViolentResistance
+  - CircFishViolentResistance
+  - CircFishAidAndAbetting
+  - CircFishAttempt
+  - CircFishThreat
+  articles:
+  - SectionFishGeneral
+  - SectionFish1xx
+  - SectionFish2xx
+  - SectionFish3xx
+  - SectionFish4xx
+  - SectionFish5xx
