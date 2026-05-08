@@ -406,7 +406,7 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterDexalin
-  suffix: Dexalin 10u, 5
+  suffix: Dexalin 10u, 10
   components:
   - type: Label
     currentLabel: dexalin 10u
@@ -414,7 +414,7 @@
     containers:
       storagebase:
         id: PillDexalin
-        amount: 5
+        amount: 10
 
 - type: entity
   name: pill
