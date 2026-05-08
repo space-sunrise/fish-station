@@ -1266,7 +1266,7 @@ entities:
         reagents:
         - data: []
           ReagentId: Dexalin
-          Quantity: 10
+          Quantity: 5
     - type: ContainedSolution
       containerName: food
       container: 84
@@ -1283,7 +1283,7 @@ entities:
         reagents:
         - data: []
           ReagentId: Dexalin
-          Quantity: 10
+          Quantity: 5
     - type: ContainedSolution
       containerName: food
       container: 86
@@ -1300,7 +1300,7 @@ entities:
         reagents:
         - data: []
           ReagentId: Dexalin
-          Quantity: 10
+          Quantity: 5
     - type: ContainedSolution
       containerName: food
       container: 88
@@ -1317,7 +1317,7 @@ entities:
         reagents:
         - data: []
           ReagentId: Dexalin
-          Quantity: 10
+          Quantity: 5
     - type: ContainedSolution
       containerName: food
       container: 90
@@ -1334,7 +1334,7 @@ entities:
         reagents:
         - data: []
           ReagentId: Dexalin
-          Quantity: 10
+          Quantity: 5
     - type: ContainedSolution
       containerName: food
       container: 92
@@ -1351,7 +1351,7 @@ entities:
         reagents:
         - data: []
           ReagentId: Dexalin
-          Quantity: 10
+          Quantity: 5
     - type: ContainedSolution
       containerName: food
       container: 94
@@ -1368,7 +1368,7 @@ entities:
         reagents:
         - data: []
           ReagentId: Dexalin
-          Quantity: 10
+          Quantity: 5
     - type: ContainedSolution
       containerName: food
       container: 96
