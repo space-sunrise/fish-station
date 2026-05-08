@@ -17,28 +17,8 @@
 
   supervisors: job-supervisors-representative
   canBeAntag: false
-  access:
-   - Command
-   - Bar
-   - Service
-   - Maintenance
-   - Janitor
-   - Theatre
-   - Kitchen
-   - Chapel
-   - Hydroponics
-   - External
-   - Chemistry
-   - Engineering
-   - Research
-   - Salvage
-   - Cargo
-   - Atmospherics
-   - Cargo
-   - Medical
-   - BlueShield
-   - BlueShieldEnsign
-   - Ntrep
+  accessGroups:
+  - AllAccess
   special:
    - !type:AddImplantSpecial
      implants: [ MindShieldImplant ]

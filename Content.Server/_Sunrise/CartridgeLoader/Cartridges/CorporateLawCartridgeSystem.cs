@@ -24,15 +24,21 @@ public sealed class CorporateLawCartridgeSystem : EntitySystem
 
     private void OnUiReady(Entity<CorporateLawCartridgeComponent> ent, ref CartridgeUiReadyEvent args)
     {
-        _stationLaw.GetEffectiveLawset(args.Loader, out var provisions, out var articles, out var circumstances, out _);
+        var lawsetComp = _stationLaw.GetStationLawset(args.Loader);
+        if (lawsetComp == null)
+        {
+            _cartridgeLoader.UpdateCartridgeUiState(args.Loader, new CorporateLawUiState(new List<LawSection>(), connected: false));
+            return;
+        }
 
+        var lawset = lawsetComp.Value.Comp;
         var sections = new List<LawSection>();
 
         // 1. General Provisions
-        if (provisions.Count > 0)
+        if (lawset.Provisions.Count > 0)
         {
             var provisionEntries = new List<LawEntry>();
-            foreach (var entryId in provisions)
+            foreach (var entryId in lawset.Provisions)
             {
                 if (!_prototype.TryIndex(entryId, out var entry))
                     continue;
@@ -44,7 +50,7 @@ public sealed class CorporateLawCartridgeSystem : EntitySystem
         }
 
         // 2. Legal Articles (Categorized)
-        foreach (var sectionId in articles)
+        foreach (var sectionId in lawset.Articles)
         {
             if (!_prototype.TryIndex(sectionId, out var section))
                 continue;
@@ -62,12 +68,12 @@ public sealed class CorporateLawCartridgeSystem : EntitySystem
         }
 
         // 3. Modifiers (Circumstances)
-        if (circumstances.Count > 0)
+        if (lawset.Circumstances.Count > 0)
         {
             var mitEntries = new List<LawEntry>();
             var aggEntries = new List<LawEntry>();
 
-            foreach (var entryId in circumstances)
+            foreach (var entryId in lawset.Circumstances)
             {
                 if (!_prototype.TryIndex(entryId, out var entry) || entry.Category == LawCategory.Provision)
                     continue;
