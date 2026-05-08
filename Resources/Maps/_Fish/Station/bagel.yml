@@ -77155,15 +77155,6 @@ entities:
     - type: Transform
       pos: -48.338486,-17.319532
       parent: 2
-- proto: ClothingHeadHatDogEars
-  entities:
-  - uid: 10129
-    components:
-    - type: Transform
-      parent: 10128
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingHeadHatFedoraBrown
   entities:
   - uid: 10130
@@ -149623,22 +149614,6 @@ entities:
     - type: Transform
       pos: 24.148243,-13.192209
       parent: 2
-- proto: RubberStampMime
-  entities:
-  - uid: 20405
-    components:
-    - type: Transform
-      pos: 27.742582,-12.3142805
-      parent: 2
-- proto: RubberStampPsychologist
-  entities:
-  - uid: 1052
-    components:
-    - type: Transform
-      parent: 1043
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: RubberStampTrader
   entities:
   - uid: 20406
