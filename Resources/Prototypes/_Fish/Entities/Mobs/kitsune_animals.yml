@@ -62,8 +62,6 @@
   - type: HTN
     rootTask:
       task: RuminantHostileCompound
-  - type: Carriable
-    requiresNestingMob: true
   - type: CanEscapeInventory
   - type: TypingIndicator
     proto: kitsune

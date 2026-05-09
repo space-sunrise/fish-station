@@ -1,0 +1,14 @@
+- type: entity
+  parent: GavelHammer
+  id: FishJudgeGavel
+  suffix: admeme
+  components:
+  - type: JudgeGavel
+  - type: MeleeWeapon
+    attackRate: 0.5
+    damage:
+      groups:
+        Brute: 50 # Admin power
+  - type: Sprite
+    sprite: _Sunrise/Objects/Tools/gavelhammer.rsi
+    state: icon
