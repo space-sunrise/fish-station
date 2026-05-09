@@ -35880,28 +35880,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 22.5,31.5
       parent: 2
-- proto: Bible
-  entities:
-  - uid: 1404
-    components:
-    - type: Transform
-      rot: 6.283185307179586 rad
-      pos: 65.507,1.6198869
-      parent: 2
-    - type: Summonable
-      summonActionEntity: invalid
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - invalid
-    - type: ActionsContainer
 - proto: BikeHorn
   entities:
   - uid: 1405

@@ -43431,8 +43431,6 @@ entities:
       pos: 22.5,50.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
   - uid: 9342
     components:
     - type: Transform
@@ -43440,8 +43438,6 @@ entities:
       pos: 21.5,50.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
   - uid: 10855
     components:
     - type: Transform
@@ -43518,8 +43514,6 @@ entities:
       pos: 55.5,-37.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
 - proto: BlockGameArcade
   entities:
   - uid: 1571
@@ -110559,8 +110553,6 @@ entities:
       pos: 51.5,-32.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 33931
       - 9605
@@ -110576,8 +110568,6 @@ entities:
       pos: 51.5,-37.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 142
       - 9605
@@ -170848,8 +170838,6 @@ entities:
       pos: 42.5,-13.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
   - uid: 577
     components:
     - type: Transform
@@ -179146,27 +179134,6 @@ entities:
     - type: Transform
       pos: 46.54923,-4.4024677
       parent: 2
-- proto: RubberStampSyndicate
-  entities:
-  - uid: 32327
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      pos: -24.703205,-62.456562
-      parent: 2
-    - type: Stamp
-      stampedName: НТ Сосет! С любовью Синдикат
-    - type: EmitSoundOnCollide
-      nextSound: -6631.6145886
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
-    - type: StoreRefund
-      boughtTime: 6538.4601282
-      storeEntity: invalid
 - proto: SadTromboneImplanter
   entities:
   - uid: 20052
@@ -181211,8 +181178,6 @@ entities:
       pos: 20.5,50.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: Fixtures
       fixtures: {}
   - uid: 20302

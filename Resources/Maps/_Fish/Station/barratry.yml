@@ -13163,8 +13163,6 @@ entities:
       pos: -76.5,-10.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: DeviceLinkSink
       invokeCounter: 1
   - uid: 158
@@ -13174,8 +13172,6 @@ entities:
       pos: -78.5,-10.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: DeviceLinkSink
       invokeCounter: 1
   - uid: 159

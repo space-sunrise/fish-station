@@ -83618,8 +83618,6 @@ entities:
       pos: 33.5,57.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 11410
     - type: AtmosPipeColor
@@ -86599,8 +86597,6 @@ entities:
       pos: 31.5,57.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 11410
     - type: AtmosPipeColor
@@ -94348,7 +94344,6 @@ entities:
           occludes: True
           ents:
           - 20015
-          - invalid
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -94381,7 +94376,6 @@ entities:
           - 8954
           - 8953
           - 19996
-          - invalid
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -94411,7 +94405,6 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - invalid
           - 20016
         paper_label: !type:ContainerSlot
           showEnts: False
@@ -109645,8 +109638,6 @@ entities:
       pos: 49.5,8.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: DeviceLinkSource
       linkedPorts:
         19984:

@@ -23244,8 +23244,6 @@ entities:
       pos: -31.5,-60.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: DeviceLinkSink
       invokeCounter: 1
     - type: DeviceLinkSource
@@ -23260,8 +23258,6 @@ entities:
       pos: -33.5,-60.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: DeviceLinkSink
       invokeCounter: 1
     - type: DeviceLinkSource
@@ -25464,8 +25460,6 @@ entities:
       pos: -24.5,12.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 166
   - uid: 557
@@ -26057,8 +26051,6 @@ entities:
       accessListsOriginal:
       - - Atmospherics
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 167
   - uid: 626
@@ -86917,8 +86909,6 @@ entities:
       pos: 19.5,15.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 167
       - 145
@@ -87007,8 +86997,6 @@ entities:
       pos: 18.5,15.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 167
       - 145
@@ -87095,8 +87083,6 @@ entities:
       pos: 11.5,12.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 167
       - 96
@@ -87107,8 +87093,6 @@ entities:
       pos: 11.5,11.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 167
       - 96
@@ -87128,8 +87112,6 @@ entities:
       pos: -20.5,8.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 166
       - 157
@@ -87505,8 +87487,6 @@ entities:
       pos: -18.5,9.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 166
   - uid: 11690
@@ -115325,8 +115305,6 @@ entities:
       pos: -26.5,10.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 166
     - type: AtmosPipeColor
@@ -117412,8 +117390,6 @@ entities:
       pos: -24.5,9.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 166
     - type: AtmosPipeColor
