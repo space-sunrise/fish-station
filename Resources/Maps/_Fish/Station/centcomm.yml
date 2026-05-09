@@ -38956,8 +38956,6 @@ entities:
           showEnts: False
           occludes: False
           ent: null
-    - type: UserInterface
-    - type: ActiveUserInterface
   - uid: 1102
     components:
     - type: Transform
@@ -38998,8 +38996,6 @@ entities:
           showEnts: False
           occludes: False
           ent: null
-    - type: UserInterface
-    - type: ActiveUserInterface
 - proto: MaterialBiomass
   entities:
   - uid: 2704
@@ -39494,8 +39490,6 @@ entities:
         ⠀⠀
 
         [italic]Место для печатей[/italic]
-    - type: UserInterface
-    - type: ActiveUserInterface
     - type: Forensics
       residues: []
       dnas: []

@@ -18683,13 +18683,6 @@ entities:
     - type: Transform
       pos: 23.86028,27.575644
       parent: 2
-- proto: BoxFolderCentCom
-  entities:
-  - uid: 12276
-    components:
-    - type: Transform
-      pos: 1.3686604,21.664755
-      parent: 2
 - proto: BoxFolderClipboard
   entities:
   - uid: 1290

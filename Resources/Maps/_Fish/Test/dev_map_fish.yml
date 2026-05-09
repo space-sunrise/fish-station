@@ -12386,36 +12386,6 @@ entities:
     - type: Transform
       pos: 2.35,-1.35
       parent: 3094
-- proto: MagazineLightRifleBoxSP
-  entities:
-  - uid: 1501
-    components:
-    - type: Transform
-      parent: 1495
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 1502
-    components:
-    - type: Transform
-      parent: 1495
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 1503
-    components:
-    - type: Transform
-      parent: 1495
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 1504
-    components:
-    - type: Transform
-      parent: 1495
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: MagazineLightRifleIncendiary
   entities:
   - uid: 1471
