@@ -948,8 +948,6 @@ entities:
     - type: Transform
       parent: 176
     - type: UserInterface
-      actors:
-        enum.StorageUiKey.Key:
     - type: Physics
       canCollide: False
     - type: ActiveUserInterface
