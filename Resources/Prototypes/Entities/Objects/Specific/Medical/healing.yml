@@ -414,7 +414,7 @@
     containers:
       storagebase:
         id: PillDexalin
-        amount: 10
+        amount: 1
 
 - type: entity
   name: pill
