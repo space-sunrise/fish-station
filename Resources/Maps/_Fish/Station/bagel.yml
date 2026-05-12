@@ -27824,22 +27824,6 @@ entities:
     - type: Transform
       pos: 41.457203,-34.342594
       parent: 2
-- proto: BoxPillCanister
-  entities:
-  - uid: 1044
-    components:
-    - type: Transform
-      parent: 1043
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 1045
-    components:
-    - type: Transform
-      parent: 1043
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: BoxShellTranquilizer
   entities:
   - uid: 1053
@@ -78294,34 +78278,6 @@ entities:
       parent: 2
 - proto: ClothingOuterStraightjacket
   entities:
-  - uid: 1046
-    components:
-    - type: Transform
-      parent: 1043
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 1047
-    components:
-    - type: Transform
-      parent: 1043
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 1048
-    components:
-    - type: Transform
-      parent: 1043
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 1049
-    components:
-    - type: Transform
-      parent: 1043
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 16171
     components:
     - type: Transform
@@ -78554,15 +78510,6 @@ entities:
     - type: Transform
       pos: 34.474197,-9.333076
       parent: 2
-- proto: ClothingUniformJumpskirtPsychologist
-  entities:
-  - uid: 1050
-    components:
-    - type: Transform
-      parent: 1043
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingUniformJumpskirtPurpleElegantDress
   entities:
   - uid: 4397
@@ -78621,15 +78568,6 @@ entities:
     - type: Transform
       pos: 37.53859,15.558934
       parent: 2
-- proto: ClothingUniformJumpsuitPsychologist
-  entities:
-  - uid: 1051
-    components:
-    - type: Transform
-      parent: 1043
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingUniformJumpsuitReporter
   entities:
   - uid: 10299
@@ -80407,47 +80345,6 @@ entities:
     components:
     - type: Transform
       pos: 54.5,12.5
-      parent: 2
-- proto: CrateFreezer
-  entities:
-  - uid: 1911
-    components:
-    - type: Transform
-      pos: 40.5,-14.5
-      parent: 2
-  - uid: 10128
-    components:
-    - type: Transform
-      pos: -5.5,-44.5
-      parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.1495
-        moles:
-          Oxygen: 1.8959498
-          Nitrogen: 7.1323833
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 10129
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 10500
-    components:
-    - type: Transform
-      pos: 26.5,-28.5
-      parent: 2
-  - uid: 27609
-    components:
-    - type: Transform
-      pos: -15.5,-50.5
       parent: 2
 - proto: CrateGenericSteel
   entities:
@@ -137377,39 +137274,6 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-- proto: LockerWallMedical
-  entities:
-  - uid: 1043
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 22.5,-8.5
-      parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.1496
-        moles:
-          Oxygen: 1.7459903
-          Nitrogen: 6.568249
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 1044
-          - 1052
-          - 1046
-          - 1047
-          - 1050
-          - 1048
-          - 1051
-          - 1045
-          - 1049
-    - type: Fixtures
-      fixtures: {}
 - proto: LockerWallMedicalFilled
   entities:
   - uid: 17627
