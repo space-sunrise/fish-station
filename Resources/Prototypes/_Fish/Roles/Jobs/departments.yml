@@ -16,3 +16,4 @@
    - Magistrat
    - CentcommSectoralJudge
   weight: 55
+  primary: false
