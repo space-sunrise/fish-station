@@ -177709,13 +177709,6 @@ entities:
     - type: Transform
       pos: -38.93405,-53.339836
       parent: 2
-- proto: RubberStampChaplain
-  entities:
-  - uid: 25131
-    components:
-    - type: Transform
-      pos: 57.345524,-22.19329
-      parent: 2
 - proto: RubberStampDenied
   entities:
   - uid: 25133
@@ -258065,13 +258058,6 @@ entities:
     - CollisionWake
     - GunWieldBonus
     - Contraband
-- proto: WeaponMeleeToolboxRobust
-  entities:
-  - uid: 1910
-    components:
-    - type: Transform
-      pos: 35.54692,-54.591335
-      parent: 2
 - proto: WeaponPistolACP14
   entities:
   - uid: 20517
