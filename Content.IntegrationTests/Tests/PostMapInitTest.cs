@@ -60,6 +60,12 @@ namespace Content.IntegrationTests.Tests
             {"/Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml", ["RubberStampSyndicate"]},
             {"/Maps/Shuttles/ShuttleEvent/cruiser.yml", ["ShuttleGunPerforator"]},
             {"/Maps/Shuttles/ShuttleEvent/instigator.yml", ["ShuttleGunFriendship"]},
+            // Fish - Start
+            {"/Maps/_Fish/Station/box.yml", ["HandheldCrewMonitor"]},
+            {"/Maps/_Fish/Station/bagel.yml", ["ClothingHeadHatDogEars", "RubberStampMime"]},
+            {"/Maps/_Fish/Station/barratry.yml", ["RubberStampClown", "RubberStampMime", "ShuttleGunDusterCircuitboard"]},
+            {"/Maps/_Fish/Station/Irefit.yml", ["RubberStampChaplain", "WeaponMeleeToolboxRobust"]},
+            // Fish - End
         };
 
         /// <summary>
