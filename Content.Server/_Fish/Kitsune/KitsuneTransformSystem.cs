@@ -109,7 +109,7 @@ public sealed class KitsuneTransformSystem : EntitySystem
     private void OnShutdown(EntityUid uid, KitsuneTransformComponent component, ComponentShutdown args)
     {
         // Remove actions granted by this component
-        // Fish-edit: guard against QueueDel on already-terminating entities (client-side prediction error)
+        // guard against QueueDel on already-terminating entities (client-side prediction error)
         foreach (var actionEnt in component.ActionEntities)
         {
             if (TerminatingOrDeleted(actionEnt))
