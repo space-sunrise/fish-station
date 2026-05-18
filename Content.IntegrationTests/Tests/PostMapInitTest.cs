@@ -65,6 +65,7 @@ namespace Content.IntegrationTests.Tests
             {"/Maps/_Fish/Station/bagel.yml", ["ClothingHeadHatDogEars", "RubberStampMime"]},
             {"/Maps/_Fish/Station/barratry.yml", ["RubberStampClown", "RubberStampMime", "ShuttleGunDusterCircuitboard"]},
             {"/Maps/_Fish/Station/Irefit.yml", ["RubberStampChaplain", "WeaponMeleeToolboxRobust"]},
+            {"/Maps/_Fish/Shuttles/centcom_shuttle.yml", ["BoxFolderCentCom", "RubberStampCentcom"]},
             // Fish - End
         };
 
