@@ -29,7 +29,7 @@
     jumpsuit: ClothingUniformJumpsuitColorBrown
     back: ClothingBackpackDuffelCBURN
     eyes: ClothingEyesGlassesSecurity
-    ears: ClothingHeadsetAltCentCom
+    ears: ClothingHeadsetAltERT
     mask: ClothingMaskGasERT
     outerClothing: ClothingOuterHardsuitCBURNLeader
     id: CBURNPDA
