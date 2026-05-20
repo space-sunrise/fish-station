@@ -3446,8 +3446,9 @@ entities:
       name: SGL-596 гранатомёт
     - type: Transform
       parent: 81
-    - type: ProjectileBatteryAmmoProvider
-      fireCost: 350
+# Fish edit - removed ProjectileBatteryAmmoProvider component
+#     - type: ProjectileBatteryAmmoProvider
+#       fireCost: 350
     - type: Gun
       burstFireRate: 1
     - type: Physics
@@ -3463,9 +3464,10 @@ entities:
       maxAngle: 0.3490658503988659 rad
       minAngle: -0.3490658503988659 rad
       burstFireRate: 10
-    - type: ProjectileBatteryAmmoProvider
-      fireCost: 80
-      proto: CartridgeRifle
+# Fish edit - removed ProjectileBatteryAmmoProvider component
+#     - type: ProjectileBatteryAmmoProvider
+#       fireCost: 80
+#       proto: CartridgeRifle
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -3485,18 +3487,19 @@ entities:
     - type: BatterySelfRecharger
       autoRechargeRate: 20
       autoRecharge: True
-- proto: WeaponShotgunZauer
-  entities:
-  - uid: 121
-    components:
-    - type: MetaData
-      name: Zauer Eng ERT
-    - type: Transform
-      parent: 119
-    - type: Gun
-      fireRate: 2.5
-    - type: Physics
-      canCollide: False
+# Fish edit - removed WeaponShotgunZauer prototype
+# - proto: WeaponShotgunZauer
+#   entities:
+#   - uid: 121
+#     components:
+#     - type: MetaData
+#       name: Zauer Eng ERT
+#     - type: Transform
+#       parent: 119
+#     - type: Gun
+#       fireRate: 2.5
+#     - type: Physics
+#       canCollide: False
 - proto: WeaponSubMachineGunNewVector
   entities:
   - uid: 122
