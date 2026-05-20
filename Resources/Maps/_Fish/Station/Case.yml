@@ -97994,13 +97994,6 @@ entities:
     - type: Transform
       pos: 40.378246,2.465669
       parent: 2
-- proto: PillCanisterPotassiumIodide
-  entities:
-  - uid: 12767
-    components:
-    - type: Transform
-      pos: 40.159496,2.434419
-      parent: 2
 - proto: PillCanisterTricordrazine
   entities:
   - uid: 12306
