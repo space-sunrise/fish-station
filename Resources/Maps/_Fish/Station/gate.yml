@@ -185150,22 +185150,6 @@ entities:
     - type: Transform
       pos: 3.5,-0.5
       parent: 36028
-- proto: StationAiBrain
-  entities:
-  - uid: 27259
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -17.642565,182.4048
-      parent: 2
-    - type: MindContainer
-      showExamineInfo: True
-    - type: MobMover
-    - type: MovementSpeedModifier
-    - type: Emoting
-    missingComponents:
-    - ActionGrant
-    - UserInterface
 - proto: StationAiUploadCircuitboard
   entities:
   - uid: 27260

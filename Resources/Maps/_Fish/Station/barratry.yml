@@ -89203,26 +89203,12 @@ entities:
     - type: Transform
       pos: -19.639711,39.734726
       parent: 2
-- proto: RubberStampClown
-  entities:
-  - uid: 12846
-    components:
-    - type: Transform
-      pos: -41.031456,28.5956
-      parent: 2
 - proto: RubberStampDenied
   entities:
   - uid: 12847
     components:
     - type: Transform
       pos: -19.389711,39.609726
-      parent: 2
-- proto: RubberStampMime
-  entities:
-  - uid: 12848
-    components:
-    - type: Transform
-      pos: -41.209343,23.558546
       parent: 2
 - proto: SalvageMagnet
   entities:
@@ -89685,14 +89671,6 @@ entities:
     components:
     - type: Transform
       pos: 11.069245,-19.34999
-      parent: 2
-- proto: ShuttleGunDusterCircuitboard
-  entities:
-  - uid: 10167
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -49.57634,24.432323
       parent: 2
 - proto: SignAiUpload
   entities:
