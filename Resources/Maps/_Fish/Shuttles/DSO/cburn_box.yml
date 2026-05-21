@@ -5543,14 +5543,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 6.5,8.5
       parent: 1
-- proto: WeaponEnergyTurretSecurity
-  entities:
-  - uid: 35
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.5,-5.5
-      parent: 1
 - proto: WeaponTurretNanoTrasen
   entities:
   - uid: 18

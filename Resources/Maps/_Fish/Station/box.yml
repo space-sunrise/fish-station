@@ -170214,14 +170214,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 71.53831,-33.443554
       parent: 2
-- proto: HandheldCrewMonitor
-  entities:
-  - uid: 23178
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 44.585575,-46.600845
-      parent: 2
 - proto: HandheldCriminalRecordsMonitor
   entities:
   - uid: 23179
