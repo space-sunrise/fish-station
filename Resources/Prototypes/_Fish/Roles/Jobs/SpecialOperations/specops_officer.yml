@@ -56,7 +56,7 @@
   components:
   - type: Sprite
     layers:
-    - state: centcom
+    - state: green
   - type: Item
     heldPrefix: blue
   - type: PresetIdCard
