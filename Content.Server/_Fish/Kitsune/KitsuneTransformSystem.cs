@@ -109,8 +109,11 @@ public sealed class KitsuneTransformSystem : EntitySystem
     private void OnShutdown(EntityUid uid, KitsuneTransformComponent component, ComponentShutdown args)
     {
         // Remove actions granted by this component
+        // guard against QueueDel on already-terminating entities (client-side prediction error)
         foreach (var actionEnt in component.ActionEntities)
         {
+            if (TerminatingOrDeleted(actionEnt))
+                continue;
             _actions.RemoveAction(uid, actionEnt);
         }
     }

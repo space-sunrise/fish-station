@@ -161983,29 +161983,6 @@ entities:
             Quantity: 20
     - type: Physics
       canCollide: False
-- proto: PillBicaridine
-  entities:
-  - uid: 1585
-    components:
-    - type: Transform
-      parent: 1572
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 1586
-    components:
-    - type: Transform
-      parent: 1572
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 1587
-    components:
-    - type: Transform
-      parent: 1572
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: PillCanister
   entities:
   - uid: 22385

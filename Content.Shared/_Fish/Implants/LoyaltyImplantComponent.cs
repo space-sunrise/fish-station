@@ -17,7 +17,8 @@ public sealed partial class LoyaltyImplantComponent : Component
 
     /// <summary>
     /// The next time a message will be sent.
+    /// Not saved - this is set at runtime by LoyaltyImplantSystem.
     /// </summary>
-    [DataField("nextMessageTime")]
+    // removed [DataField] - this is runtime-only and changes every spawn, causing PrototypeSaveTest failure
     public TimeSpan NextMessageTime;
 }
