@@ -16,8 +16,6 @@
           prefixCreator: '-AHQ'
       - type: SpawnGridAndDockToStation
         grids:
-        - gridPath: /Maps/_Fish/Shuttles/centcom_shuttle.yml
-          priorityTag: DockCentComm
         - gridPath: /Maps/_Fish/Shuttles/SpecialOperations/ert_shuttle_medium.yml
           priorityTag: DockFishERT
         - gridPath: /Maps/_Fish/Shuttles/SpecialOperations/cburn_shuttle_small.yml
