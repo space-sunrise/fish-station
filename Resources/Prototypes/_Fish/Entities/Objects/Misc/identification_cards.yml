@@ -6,6 +6,6 @@
   - type: Sprite
     layers:
     - state: silver
-    - state: idmagistrat
+    - state: green
   - type: PresetIdCard
     job: CentcommSectoralJudge

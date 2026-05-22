@@ -1,0 +1,39 @@
+- type: chameleonOutfit
+  id: ChameleonOutfitCentcommChef
+  job: CentcommChef
+
+- type: chameleonOutfit
+  id: ChameleonOutfitSpecOpsOfficer
+  job: SpecOpsOfficer
+
+- type: chameleonOutfit
+  id: ChameleonOutfitCentcommSectoralJudge
+  job: CentcommSectoralJudge
+
+- type: chameleonOutfit
+  id: ChameleonOutfitCentCommOfficer
+  job: CentCommOfficer
+
+- type: chameleonOutfit
+  id: ChameleonOutfitOversightOfficer
+  job: OversightOfficer
+
+- type: chameleonOutfit
+  id: ChameleonOutfitCentcommBartender
+  job: CentcommBartender
+
+- type: chameleonOutfit
+  id: ChameleonOutfitCentcommBlueShield
+  job: CentcommBlueShield
+
+- type: chameleonOutfit
+  id: ChameleonOutfitCentCommTrainee
+  job: CentCommTrainee
+
+- type: chameleonOutfit
+  id: ChameleonOutfitCentcommMedicalDoctor
+  job: CentcommMedicalDoctor
+
+- type: chameleonOutfit
+  id: ChameleonOutfitRepresentativeBlueShield
+  job: RepresentativeBlueShield

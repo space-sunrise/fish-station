@@ -1079,7 +1079,6 @@
         Shock: 0.80 #Fish-edit
   - type: FlashImmunity
   - type: EyeProtection
-  - type: ToggleableNightVision #Fish-edit
 
 #MISC. HARDSUITS
 #Clown Hardsuit
