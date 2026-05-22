@@ -2,14 +2,8 @@
   id: FishMapPool
   maps:
   - FishDelta
-<<<<<<< Snowboll
-  - FishGate
-  # - FishBarratry
-  # - FishPacked
-=======
   - FishMarathon
   - FishPacked
->>>>>>> master
   - FishCase
   - FishOasis
   - FishPlasma

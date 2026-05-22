@@ -60,16 +60,6 @@ namespace Content.IntegrationTests.Tests
             {"/Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml", ["RubberStampSyndicate"]},
             {"/Maps/Shuttles/ShuttleEvent/cruiser.yml", ["ShuttleGunPerforator"]},
             {"/Maps/Shuttles/ShuttleEvent/instigator.yml", ["ShuttleGunFriendship"]},
-            // Fish - Start
-            {"/Maps/_Fish/Station/box.yml", ["HandheldCrewMonitor"]},
-            {"/Maps/_Fish/Station/bagel.yml", ["ClothingHeadHatDogEars", "RubberStampMime", "RubberStampPsychologist"]},
-            {"/Maps/_Fish/Station/barratry.yml", ["RubberStampClown", "RubberStampMime", "ShuttleGunDusterCircuitboard"]},
-            {"/Maps/_Fish/Station/gate.yml", ["StationAiBrain"]},
-            {"/Maps/_Fish/Station/oasis.yml", ["RubberStampSyndicate"]},
-            {"/Maps/_Fish/Station/Irefit.yml", ["RubberStampChaplain", "WeaponMeleeToolboxRobust"]},
-            {"/Maps/_Fish/Station/centcomm.yml", ["BoxFolderCentCom", "RubberStampCentcom", "RubberStampLawyer", "RubberStampQm", "RubberStampSyndicate"]},
-            {"/Maps/_Fish/Shuttles/centcom_shuttle.yml", ["BoxFolderCentCom", "RubberStampCentcom"]},
-            // Fish - End
         };
 
         /// <summary>
@@ -82,7 +72,13 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] DoNotMapWhitelist =
         {
             "/Maps/centcomm.yml",
-            "/Maps/Shuttles/AdminSpawn/**" // admin gaming
+            "/Maps/Shuttles/AdminSpawn/**", // admin gaming
+            // Fish - Start
+            "/Maps/_Fish/Station/centcomm.yml",
+            "/Maps/_Fish/Shuttles/**",
+            "/Maps/_Fish/Event/**",
+            "/Maps/_Fish/Nonstations/**",
+            // Fish - End
         };
 
         /// <summary>
@@ -112,6 +108,20 @@ namespace Content.IntegrationTests.Tests
             "dm01-entryway",
             "Exo",
             "Snowball",
+            // Fish - Start
+            "FishBagel",
+            "FishBarratry",
+            "FishBox",
+            "FishCase",
+            "FishGate",
+            "FishMarathon",
+            "FishDelta",
+            "FishIrefit",
+            "FishOasis",
+            "FishPlasma",
+            "FishPacked",
+            "FishSnowball",
+            // Fish - End
         };
 
         private static readonly ProtoId<EntityCategoryPrototype> DoNotMapCategory = "DoNotMap";
