@@ -7834,7 +7834,7 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
-- proto: Pacificator
+- proto: GravityGeneratorMini
   entities:
   - uid: 760
     components:
