@@ -69,7 +69,7 @@
     sprite: _Sunrise/Objects/Misc/id_cards.rsi
     layers:
     - state: silver
-    - state: ntr-captain
+    - state: green
   - type: Item
     heldPrefix: silver
   - type: PresetIdCard

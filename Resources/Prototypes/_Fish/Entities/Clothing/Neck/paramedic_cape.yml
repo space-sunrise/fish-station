@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingCloakBase
   id: ClothingNeckCloakParamedicFish
-  name: ent-ClothingNeckCloakParamedicFish
-  description: ent-ClothingNeckCloakParamedicFish
+  name: paramedic's cape
+  description: "A cape granted to seasoned paramedics dedicated to saving lives."
   suffix: Fish
   components:
   - type: Sprite

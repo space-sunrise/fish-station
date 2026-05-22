@@ -28,12 +28,16 @@ public sealed class LoyaltyImplantSystem : EntitySystem
 
     private void OnInit(Entity<LoyaltyImplantComponent> ent, ref ComponentInit args)
     {
-        ent.Comp.NextMessageTime = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.Interval);
+        // Don't initialize NextMessageTime here - it's runtime state
+        // Will be set when implant is actually implanted in an entity
     }
 
     private void OnImplanted(Entity<LoyaltyImplantComponent> ent, ref ImplantImplantedEvent args)
     {
         var implanted = args.Implanted;
+
+        // Initialize NextMessageTime when implant is actually implanted
+        ent.Comp.NextMessageTime = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.Interval);
 
         if (!TryComp<ActorComponent>(implanted, out var actor))
             return;

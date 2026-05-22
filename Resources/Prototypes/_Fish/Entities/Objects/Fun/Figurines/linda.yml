@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseFigurine
   id: FigurineLinda
-  name: ent-FigurineLinda
-  description: ent-FigurineLinda-desc
+  name: Linda figurine
+  description: "A figurine depicting the central command station chief. Looks threatening."
   components:
   - type: Sprite
     sprite: _Fish/Objects/Fun/Figurines/CentComm_head.rsi

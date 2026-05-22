@@ -108,6 +108,19 @@ namespace Content.IntegrationTests.Tests
             "dm01-entryway",
             "Exo",
             "Snowball",
+            // Fish - Start
+            "FishBagel",
+            "FishBarratry",
+            "FishBox",
+            "FishCase",
+            "FishGate",
+            "FishMarathon",
+            "FishDelta",
+            "FishIrefit",
+            "FishOasis",
+            "FishPlasma",
+            "FishPacked",
+            // Fish - End
         };
 
         private static readonly ProtoId<EntityCategoryPrototype> DoNotMapCategory = "DoNotMap";
@@ -690,3 +703,5 @@ namespace Content.IntegrationTests.Tests
         }
     }
 }
+
+
