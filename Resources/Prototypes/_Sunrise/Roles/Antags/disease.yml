@@ -10,7 +10,7 @@
     context: "ghost"
   - type: MovementSpeedModifier
     baseWalkSpeed: 6
-    baseSprintSpeed: 6
+    baseSprintSpeed: 10
   - type: Sprite
     noRot: true
     drawdepth: Ghosts
@@ -61,6 +61,8 @@
     interfaces:
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
+      enum.DiseaseInfoUiKey.Key:
+        type: DiseaseInfoBui
   - type: Visibility
     layer: 2 #ghost vis layer
   - type: Store

@@ -16,15 +16,19 @@
           prefixCreator: '-AHQ'
       - type: SpawnGridAndDockToStation
         grids:
-        - gridPath: /Maps/_Fish/Shuttles/SpecialOperations/ert_shuttle_medium.yml
+        - gridPath: /Maps/_Fish/Shuttles/DSO/CentCommOfficial.yml
+          priorityTag: DockCentComm
+        - gridPath: /Maps/_Fish/Shuttles/DSO/ert_striker.yml
           priorityTag: DockFishERT
-        - gridPath: /Maps/_Fish/Shuttles/SpecialOperations/cburn_shuttle_small.yml
+        - gridPath: /Maps/_Fish/Shuttles/DSO/cburn_box.yml
           priorityTag: DockFishCBURN
+        - gridPath: /Maps/_Fish/Shuttles/DSO/DS_maxtac.yml
+          priorityTag: DockFishDS
       - type: StationJobs
         availableJobs:
-          CentCommOfficer: [ 3, 3 ]
-          CentCommTrainee: [ 1, 1 ]
-          CentcommBlueShield: [ 2, 2 ]
+          CentCommOfficer: [ 2, 2 ]
+          CentCommTrainee: [ 3, 3 ]
+          CentcommBlueShield: [ 3, 3 ]
           CentcommMedicalDoctor: [ 1, 1 ]
           CentcommChef: [ 1, 1 ]
           CentcommBartender: [ 1, 1 ]
