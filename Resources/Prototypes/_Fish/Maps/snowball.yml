@@ -33,7 +33,6 @@
             HeadOfSecurity: [ 1, 1 ]
             ComMaid: [ 1, 1 ]
             #blueshield
-            BlueShieldEnsign: [ 1, 1 ]
             BlueShieldOfficer: [ 1, 1 ]
             RepresentativeBlueShield: [ 1, 1 ]
             #law
@@ -65,7 +64,7 @@
             ResearchDirector: [ 1, 1 ]
             SeniorResearcher: [ 1, 1 ]
             Scientist: [ 3, 3 ]
-            Roboticist: [ 1, 2 ]
+            Roboticist: [ 1, 1 ]
             ResearchAssistant: [ 3, 3 ]
             #security
             Warden: [ 1, 1 ]
