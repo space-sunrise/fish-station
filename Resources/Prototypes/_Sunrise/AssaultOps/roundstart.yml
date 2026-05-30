@@ -3,7 +3,7 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 35 # НЕ ТРОГАТЬ БЕЗ МОЕГО РАЗРЕШЕНИЯ!!! SplikZerys # Fish-edit
+    minPlayers: 40
     minCommandStaff: 3
   - type: AssaultOpsRule
     faction: Syndicate
