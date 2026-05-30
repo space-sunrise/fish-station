@@ -1,4 +1,6 @@
 using Content.Shared.GameTicking.Components;
+using Content.Shared.Store;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Sunrise.Disease;
 
@@ -10,4 +12,14 @@ public sealed partial class SmallDiseaseRuleComponent : Component
 
     [DataField]
     public int TargetSymptomPoints = 50;
+
+    [DataField]
+    public EntProtoId DiseasePrototype = "MobDisease";
+
+    [DataField]
+    public string SymptomCategory = "DiseaseSymptomsCategory";
+
+    [DataField]
+    public ProtoId<ListingPrototype> DefaultSymptom = "Cough";
 }
+
