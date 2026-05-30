@@ -22,7 +22,6 @@
     rules:
     - id: Thief
       prob: 0.5
-#    - id: Vampire
 #      prob: 0.3
     - id: SubWizard
       prob: 0.05
@@ -37,7 +36,6 @@
     rules:
     - id: Thief
       prob: 0.5
-#    - id: Vampire
 #      prob: 0.3
     - id: Xenoborgs
       prob: 0.05
@@ -146,9 +144,9 @@
   id: Nukeops
   components:
   - type: GameRule
-    minPlayers: 35 # Fish-edit
+    minPlayers: 50
   - type: LoadMapRule
-    mapPath: /Maps/_Sunrise/Nonstations/geigerComplex.yml #/Maps/_Sunrise/Nonstations/nukieplanet.yml # Sunrise-Edit
+    mapPath: /Maps/_Sunrise/Nonstations/nukieplanet.yml # Sunrise-Edit
   - type: AntagSelection
     selectionTime: PrePlayerSpawn
     definitions:
@@ -489,7 +487,7 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 35 # Fish-edit
+    minPlayers: 20
     delay:
       min: 600
       max: 900
@@ -602,7 +600,7 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 35 # Слишком тяжело для меньшего количества игроков. # Fish-edit
+    minPlayers: 50 # Слишком тяжело для меньшего количества игроков.
   - type: RampingStationEventScheduler
     scheduledGameRules: !type:NestedSelector
       tableId: BasicGameRulesTable
