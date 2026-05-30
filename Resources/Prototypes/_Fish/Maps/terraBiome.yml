@@ -1,5 +1,5 @@
 - type: gameMap
-  id: terra Biome
+  id: FishTerraBiome
   mapName: 'Terra Colony'
   mapPath: /Maps/_Fish/Station/terraBiome.yml 
   maxRandomOffset: 0
@@ -49,7 +49,7 @@
             IAA: [ 1, 1 ]
             Lawyer: [ 1, 1 ]
             #blueshield
-            BlueShieldBlueShieldOfficer: [ 1, 1 ]
+            BlueShieldOfficer: [ 1, 1 ]
             RepresentativeBlueShield: [ 1, 1 ]
             # engineering
             ChiefEngineer: [ 1, 1 ]
