@@ -180,6 +180,10 @@
     state: holster-butt
   - type: Clothing
     sprite: _Fish/Clothing/Belt/centcom_N1984_holster-butt.rsi
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot {}
+      gun: !type:ContainerSlot {}
   - type: ItemSlots
     slots:
       gun:
