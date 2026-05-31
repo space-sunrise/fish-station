@@ -21,7 +21,7 @@
         - gridPath: /Maps/_Fish/Shuttles/security_jay.yml
           priorityTag: DockFishSecurity
       - type: StationEmergencyShuttle
-        emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_delta.yml
+        emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_gate.yml
       - type: StationJobs
         availableJobs:
           #command

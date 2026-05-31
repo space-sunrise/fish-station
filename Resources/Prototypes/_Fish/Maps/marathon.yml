@@ -16,7 +16,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'FH'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_Case.yml
+          emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_delta.yml
         - type: SpawnGridAndDockToStation
           grids:
           - gridPath: /Maps/_Fish/Shuttles/mining.yml

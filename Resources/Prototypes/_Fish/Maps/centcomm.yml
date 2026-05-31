@@ -24,6 +24,8 @@
           priorityTag: DockFishCBURN
         - gridPath: /Maps/_Fish/Shuttles/DSO/DS_maxtac.yml
           priorityTag: DockFishDS
+        - gridPath: /Maps/_Fish/Shuttles/DSO/ert_large.yml
+          priorityTag: DockFishERTBig
       - type: StationJobs
         availableJobs:
           CentCommOfficer: [ 2, 2 ]
