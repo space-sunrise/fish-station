@@ -35,7 +35,7 @@
   abstract: true
   components:
   - type: StationTransitHub
-    map: /Maps/_Sunrise/Nonstations/transit_hub_big.yml # Временно, пока не домапят
+    map: /Maps/_Fish/Nonstations/transit_hub_FH.yml # Fish-edit
     biomes:
     - PlainGrasslands
     - PlainLowDesert

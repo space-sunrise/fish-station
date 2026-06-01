@@ -3,12 +3,12 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 35 # НЕ ТРОГАТЬ БЕЗ МОЕГО РАЗРЕШЕНИЯ!!! SplikZerys # Fish-edit
+    minPlayers: 40
     minCommandStaff: 3
   - type: AssaultOpsRule
     faction: Syndicate
   - type: LoadMapRule
-    gridPath: /Maps/_Sunrise/Shuttles/Antag/assaultops.yml
+    gridPath: /Maps/_Fish/Shuttles/Antag/assaultops.yml # Fish-edit
   - type: RuleGrids
   - type: AntagLoadProfileRule
     speciesOverride: Human

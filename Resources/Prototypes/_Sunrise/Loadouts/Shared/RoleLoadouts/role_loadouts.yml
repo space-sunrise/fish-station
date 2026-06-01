@@ -43,7 +43,7 @@
   - BrigmedicJumpsuit
   - BrigmedicBackpack
   - BrigmedicInjectors
-  - SurvivalSecurity
+  - SunriseSurvivalSecurity
   - SunriseTrinkets
   - SecurityTrinkets
   - GroupSpeciesBreathTool
@@ -98,7 +98,7 @@
 # - BlueShieldBra # Fish-Edit
 # - BlueShieldPants # Fish-Edit
   - SunriseTrinkets
-  - SurvivalSecurity
+  - SunriseSurvivalSecurity
   - GroupSpeciesBreathTool
   - Socks
   - Contributors
@@ -116,7 +116,7 @@
 # - BlueShieldBra # Fish-Edit
 # - BlueShieldPants # Fish-Edit
   - SunriseTrinkets
-  - SurvivalSecurity
+  - SunriseSurvivalSecurity
   - GroupSpeciesBreathTool
   - Socks
   - Contributors
@@ -150,7 +150,7 @@
   - SecurityBelt
   - SecurityShoes
   - SunriseSecurityGun
-  - SurvivalSecurity
+  - SunriseSurvivalSecurity
   - SunriseTrinkets
   - SecurityTrinkets
   - GroupSpeciesBreathTool
@@ -264,7 +264,7 @@
   - SecurityShoes
   - SecurityBackpack
   - SunriseSecurityGun
-  - SurvivalSecurity
+  - SunriseSurvivalSecurity
   - SunriseTrinkets
   - SecurityTrinkets
   - GroupSpeciesBreathTool
@@ -280,7 +280,7 @@
 #  - PrisonGuardJumpsuit
 #  - PrisonGuardBackpack
 #  - SecurityShoes
-#  - SurvivalSecurity
+#  - SunriseSurvivalSecurity
 #  - Trinkets
 #  - SecurityTrinkets
 #  - GroupSpeciesBreathTool
@@ -295,7 +295,7 @@
   - HeadOfPrisonJumpsuit
   #- PrisonGuardBackpack
   #- SecurityShoes
-  #- SurvivalSecurity
+  #- SunriseSurvivalSecurity
   #- Trinkets
   #- SecurityTrinkets
   #- GroupSpeciesBreathToolSecurity
@@ -422,7 +422,7 @@
 #  - PrisonGuardJumpsuit
 #  - PrisonGuardBackpack
 #  - SecurityShoes
-#  - SurvivalSecurity
+#  - SunriseSurvivalSecurity
 #  - Trinkets
 #  - SecurityTrinkets
 #  - GroupSpeciesBreathTool
@@ -498,6 +498,20 @@
   - GroupSpeciesBreathTool
   - GroupPocketTankDouble
   - Contributors
+
+- type: roleLoadout
+  id: SunriseRoleSurvivalSyndicate
+  groups:
+  - SunriseSurvivalSyndicate
+  - GroupSpeciesBreathTool
+  - GroupTankHarness
+
+- type: roleLoadout
+  id: SunriseRoleSurvivalNukie
+  groups:
+  - SunriseSurvivalSyndicate
+  - GroupSpeciesBreathTool
+  - GroupPocketTankDouble
 
 - type: roleLoadout
   id: JobMiningSpecialist
