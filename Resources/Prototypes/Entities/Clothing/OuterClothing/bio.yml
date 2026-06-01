@@ -7,6 +7,8 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Bio/general.rsi
+  - type: DiseaseImmuneClothing
+    prob: 0.8
   - type: Clothing
     sprite: Clothing/OuterClothing/Bio/general.rsi
   - type: HideLayerClothing
@@ -94,7 +96,7 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.95
-
+    
 - type: entity
   parent: ClothingOuterBioGeneral
   id: ClothingOuterBioVirology
