@@ -11,6 +11,7 @@
     earliestStart: 25
     reoccurrenceDelay: 20
     duration: null
+  - type: AntagRandomSpawn
   - type: AntagSpawner
     prototype: MobDisease
   - type: AntagSelection
