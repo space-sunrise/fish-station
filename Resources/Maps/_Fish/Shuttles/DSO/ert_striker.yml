@@ -4,8 +4,8 @@ meta:
   engineVersion: 271.1.0
   forkId: ""
   forkVersion: ""
-  time: 06/03/2026 20:29:09
-  entityCount: 601
+  time: 06/04/2026 12:10:26
+  entityCount: 603
 maps: []
 grids:
 - 1
@@ -132,6 +132,7 @@ entities:
             id: BrickTileWhiteCornerNw
           decals:
             172: 0,9
+            207: 3,5
         - node:
             color: '#96DAFFFF'
             id: BrickTileWhiteCornerNw
@@ -153,12 +154,16 @@ entities:
             id: BrickTileWhiteCornerSw
           decals:
             145: -1,-1
-            183: -3,5
         - node:
             color: '#96DAFFFF'
             id: BrickTileWhiteCornerSw
           decals:
             196: -4,-5
+        - node:
+            color: '#96A4EBFF'
+            id: BrickTileWhiteEndE
+          decals:
+            209: 4,5
         - node:
             color: '#FFFFFFFF'
             id: BrickTileWhiteEndN
@@ -176,12 +181,16 @@ entities:
             65: -3,-5
         - node:
             color: '#96A4EBFF'
+            id: BrickTileWhiteEndW
+          decals:
+            208: -3,5
+        - node:
+            color: '#96A4EBFF'
             id: BrickTileWhiteInnerNe
           decals:
             158: 0,2
             159: 3,2
             160: -2,2
-            185: -3,5
         - node:
             color: '#96DAFFFF'
             id: BrickTileWhiteInnerNe
@@ -206,6 +215,9 @@ entities:
             163: -3,0
             164: 0,6
             168: 2,0
+            211: 3,4
+            213: 3,5
+            219: 4,1
         - node:
             color: '#96DAFFFF'
             id: BrickTileWhiteInnerSe
@@ -219,6 +231,8 @@ entities:
             166: 0,6
             167: -1,0
             184: -2,5
+            212: 3,4
+            220: -3,1
         - node:
             color: '#96DAFFFF'
             id: BrickTileWhiteInnerSw
@@ -235,6 +249,7 @@ entities:
             171: 1,8
             179: -2,4
             180: -2,5
+            210: 3,4
         - node:
             color: '#96DAFFFF'
             id: BrickTileWhiteLineE
@@ -273,6 +288,7 @@ entities:
             175: 0,7
             176: 0,6
             177: -2,4
+            206: 3,4
         - node:
             color: '#96DAFFFF'
             id: BrickTileWhiteLineW
@@ -326,6 +342,15 @@ entities:
             6: 7,2
             7: 7,1
         - node:
+            color: '#96A4EBFF'
+            id: WarnFullGreyscale
+          decals:
+            214: -2,3
+            215: 3,3
+            216: 4,-1
+            217: -3,-1
+            218: 0,5
+        - node:
             color: '#FFFFFFFF'
             id: WarnLineE
           decals:
@@ -363,11 +388,6 @@ entities:
             11: -3,1
             12: -5,2
             13: -5,1
-        - node:
-            color: '#FFFFFFFF'
-            id: WarnLineW
-          decals:
-            182: -3,5
     - type: GridAtmosphere
       version: 2
       data:
@@ -4199,6 +4219,22 @@ entities:
     - type: Airtight
       airBlocked: True
   - uid: 547
+    components:
+    - type: Transform
+      anchored: True
+      pos: 5.5,1.5
+      parent: 1
+    - type: Airtight
+      airBlocked: True
+  - uid: 602
+    components:
+    - type: Transform
+      anchored: True
+      pos: -3.5,1.5
+      parent: 1
+    - type: Airtight
+      airBlocked: True
+  - uid: 603
     components:
     - type: Transform
       anchored: True
