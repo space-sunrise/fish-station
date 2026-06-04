@@ -6226,8 +6226,6 @@ entities:
     - type: Transform
       pos: -29.5,-74.5
       parent: 2
-    - type: PriorityDock
-      tag: DockFishERTBig
 - proto: AirlockExternalLocked
   entities:
   - uid: 21
