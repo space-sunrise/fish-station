@@ -4,6 +4,7 @@
   name: plushie ce vulpa
   components:
   - type: Sprite
+    scale: 2.0, 2.0
     sprite: _Fish/Objects/Fun/toys.rsi
     state: plushie-ce-vulpa
   - type: UseDelay
