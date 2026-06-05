@@ -5,7 +5,7 @@
   description: "A figurine depicting the central command station chief. Looks threatening."
   components:
   - type: Sprite
-    scale: 2.0, 2.0
+    scale: 1.1, 1.1
     sprite: _Fish/Objects/Fun/Figurines/CentComm_head.rsi
     state: CentComm_Head
   - type: SpeakOnTrigger
