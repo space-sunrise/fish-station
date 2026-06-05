@@ -22,13 +22,13 @@ action-disease-shop-description = Открыть меню мутации.
 
 disease-info-header = СТАТИСТИКА БОЛЕЗНЕЙ
 disease-info-core-statistics = Основная статистика
-disease-info-base-chance = Базовый шанс заражения
-disease-info-cough-sneeze-chance = Шанс заражения при кашле/чихании
-disease-info-lethal = Уровень летальности
-disease-info-shield = Уровень защиты
+disease-info-base-chance = Базовый шанс заражения:
+disease-info-cough-sneeze-chance = Шанс заражения при кашле/чихании:
+disease-info-lethal = Уровень летальности:
+disease-info-shield = Уровень защиты:
 disease-info-infection-statistics = Статистика заражения
-disease-info-infected-count = В настоящее время заражено
-disease-info-total-infected = Всего заражено (за всё время)
+disease-info-infected-count = В настоящее время заражено:
+disease-info-total-infected = Всего заражено (за всё время):
 
 disease-infect-charge-purchased = Заряд заражения успешно куплен!
 disease-infect-charge-max-reached = Уже максимальное количество зарядов ({ $maxCharges })! Покупка возвращена.

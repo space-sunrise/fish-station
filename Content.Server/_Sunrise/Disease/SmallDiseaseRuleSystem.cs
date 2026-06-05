@@ -26,8 +26,6 @@ public sealed class SmallDiseaseRuleSystem : GameRuleSystem<SmallDiseaseRuleComp
     public override void Initialize()
     {
         base.Initialize();
-
-        SubscribeLocalEvent<SmallDiseaseRuleComponent, AfterAntagEntitySelectedEvent>(AfterAntagEntitySelected);
     }
 
     protected override void Started(EntityUid uid, SmallDiseaseRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -41,12 +39,9 @@ public sealed class SmallDiseaseRuleSystem : GameRuleSystem<SmallDiseaseRuleComp
 
             _chatSystem.DispatchGlobalAnnouncement(message, sender, playDefault: true, colorOverride: Color.Red);
         });
-    }
 
-    private void AfterAntagEntitySelected(Entity<SmallDiseaseRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
-    {
-        var component = ent.Comp;
-        var diseaseUid = args.EntityUid;
+        // Spawn decoy disease entity
+        var diseaseUid = EntityManager.SpawnEntity(component.DiseasePrototype, MapCoordinates.Nullspace);
 
         if (!TryComp<DiseaseRoleComponent>(diseaseUid, out var diseaseComp))
         {
