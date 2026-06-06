@@ -158,8 +158,6 @@ namespace Content.Server.GameTicking
                     // Sunrise edit start - закрываем только userDb load, который стартовал Sunrise pipeline.
                     StopUserDbLoad(session);
                     // Sunrise edit end
-
-                    _adminLogger.Add(LogType.Connection, LogImpact.Low, $"User {args.Session:Player} attached to {(args.Session.AttachedEntity != null ? ToPrettyString(args.Session.AttachedEntity) : "nothing"):entity} disconnected from the game.");
                     break;
                 }
             }
