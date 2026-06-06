@@ -130,7 +130,7 @@
     - state: silver
     - state: department-side
       color: *color-centcomm
-    - sprite: *icon-rsi
+    - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: IAA
   - type: Item
@@ -149,7 +149,7 @@
     - state: blue
     - state: department-side
       color: *color-centcomm
-    - sprite: *icon-rsi
+    - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: Magistrat
   - type: Item
@@ -245,7 +245,7 @@
     - state: silver
     - state: department-side
       color: "#1b67a5"
-    - sprite: *icon-rsi
+    - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: Adjutant
   - type: Item
@@ -470,7 +470,7 @@
     - state: default
     - state: department-side
       color: *color-supply
-    - sprite: *icon-rsi
+    - sprite: *sunrise-icon-rsi
       offset: *icon-offset
       state: Miner
   - type: Item
