@@ -43,7 +43,7 @@
   - BrigmedicJumpsuit
   - BrigmedicBackpack
   - BrigmedicInjectors
-  - SurvivalSecurity
+  - SunriseSurvivalSecurity
   - SunriseTrinkets
   - SecurityTrinkets
   - GroupSpeciesBreathTool
@@ -92,7 +92,7 @@
   - BlueShieldBra
   - BlueShieldPants
   - SunriseTrinkets
-  - SurvivalSecurity
+  - SunriseSurvivalSecurity
   - GroupSpeciesBreathTool
   - Socks
   - Contributors
@@ -108,7 +108,7 @@
   - BlueShieldBra
   - BlueShieldPants
   - SunriseTrinkets
-  - SurvivalSecurity
+  - SunriseSurvivalSecurity
   - GroupSpeciesBreathTool
   - Socks
   - Contributors
@@ -142,7 +142,7 @@
   - SecurityBelt
   - SecurityShoes
   - SunriseSecurityGun
-  - SurvivalSecurity
+  - SunriseSurvivalSecurity
   - SunriseTrinkets
   - SecurityTrinkets
   - GroupSpeciesBreathTool
@@ -256,7 +256,7 @@
   - SecurityShoes
   - SecurityBackpack
   - SunriseSecurityGun
-  - SurvivalSecurity
+  - SunriseSurvivalSecurity
   - SunriseTrinkets
   - SecurityTrinkets
   - GroupSpeciesBreathTool
@@ -272,7 +272,7 @@
 #  - PrisonGuardJumpsuit
 #  - PrisonGuardBackpack
 #  - SecurityShoes
-#  - SurvivalSecurity
+#  - SunriseSurvivalSecurity
 #  - Trinkets
 #  - SecurityTrinkets
 #  - GroupSpeciesBreathTool
@@ -287,7 +287,7 @@
   - HeadOfPrisonJumpsuit
   #- PrisonGuardBackpack
   #- SecurityShoes
-  #- SurvivalSecurity
+  #- SunriseSurvivalSecurity
   #- Trinkets
   #- SecurityTrinkets
   #- GroupSpeciesBreathToolSecurity
@@ -414,7 +414,7 @@
 #  - PrisonGuardJumpsuit
 #  - PrisonGuardBackpack
 #  - SecurityShoes
-#  - SurvivalSecurity
+#  - SunriseSurvivalSecurity
 #  - Trinkets
 #  - SecurityTrinkets
 #  - GroupSpeciesBreathTool

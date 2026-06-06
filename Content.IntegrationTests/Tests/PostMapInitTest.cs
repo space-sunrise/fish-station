@@ -119,7 +119,6 @@ namespace Content.IntegrationTests.Tests
             "FishBarratry",
             "FishBox",
             "FishCase",
-            "FishGate",
             "FishMarathon",
             "FishDelta",
             "FishIrefit",

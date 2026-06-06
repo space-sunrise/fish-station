@@ -24,6 +24,7 @@
   alternativeTitles:
   - job-alt-title-inspector
   access:
+  - IAA
   - Command
   - Service
   - Brig
