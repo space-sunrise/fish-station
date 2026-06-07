@@ -127425,7 +127425,7 @@ entities:
     - type: Transform
       pos: 70.5,76.5
       parent: 2
-- proto: SyndicateComputerComms
+- proto: ComputerSurveillanceCameraMonitor
   entities:
   - uid: 14296
     components:
