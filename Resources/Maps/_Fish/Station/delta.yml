@@ -283380,7 +283380,7 @@ entities:
         358 Exchange Place, Lymos, LM. I000009 212 555
     - type: Physics
       canCollide: False
-- proto: SyndicateComputerComms
+- proto: ComputerSurveillanceCameraMonitor
   entities:
   - uid: 619
     components:
