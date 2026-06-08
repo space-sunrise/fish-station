@@ -41,10 +41,6 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] Grids =
         {
             "/Maps/centcomm.yml",
-            // Fish - Start
-            "/Maps/_Fish/Shuttles/Antag/**",
-            "/Maps/_Fish/Shuttles/DSO/**",
-            // Fish - End
             AdminTestArenaSystem.ArenaMapPath
         };
 
@@ -79,6 +75,8 @@ namespace Content.IntegrationTests.Tests
             "/Maps/Shuttles/AdminSpawn/**", // admin gaming
             // Fish - Start
             "/Maps/_Fish/Station/centcomm.yml",
+            "/Maps/_Fish/Shuttles/Antag/**",
+            "/Maps/_Fish/Shuttles/DSO/**",
             "/Maps/_Fish/Event/H3PO4/**",
             "/Maps/_Fish/Event/ANJEKNAVERNO/**",
             "/Maps/_Fish/Event/Masema/**",
