@@ -31321,8 +31321,6 @@ entities:
       pos: -82.5,14.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: DeviceLinkSink
       invokeCounter: 1
     - type: DeviceLinkSource
@@ -31337,8 +31335,6 @@ entities:
       pos: -78.5,14.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: DeviceLinkSink
       invokeCounter: 1
     - type: DeviceLinkSource
