@@ -32,14 +32,14 @@ storyteller-history-crew-death-3 = Роковой случай настиг [col
 storyteller-history-crew-death-4 = Возле [color=#ADFF2F]{$location}[/color] было обнаружено безжизненное тело [color=#FFD700]{$name}[/color] ({$job}), скончавшегося от [color=#FF69B4]{$cause}[/color].
 
 # Object/Anomaly/Engine spawns
-storyteller-history-singularity-spawned = В [color=#ADFF2F]{$location}[/color] материализовалась гравитационная сингулярность, искажая пространство вокруг себя.
+storyteller-history-singularity-spawned = В [color=#ADFF2F]{$location}[/color] материализовалась гравитационная [color=#FF00FF]сингулярность[/color], искажая пространство вокруг себя.
 storyteller-history-tesla-spawned = В [color=#ADFF2F]{$location}[/color] сокрушительно заискрился новорождённый энергетический шар Теслы.
-storyteller-history-supermatter-spawned = На территории [color=#ADFF2F]{$location}[/color] был запущен и успешно стабилизирован кристалл Суперматерии.
+storyteller-history-supermatter-spawned = На территории [color=#ADFF2F]{$location}[/color] был запущен и успешно стабилизирован [color=#FF00FF]кристалл Суперматерии[/color].
 
 # Containment breaches & collapses (literary, non-all-caps)
-storyteller-history-singularity-escaped = Гравитационная сингулярность вырвалась из сдерживающих полей в [color=#ADFF2F]{$location}[/color] и начала поглощать станцию.
+storyteller-history-singularity-escaped = Гравитационная [color=#FF00FF]сингулярность[/color] вырвалась из сдерживающих полей в [color=#ADFF2F]{$location}[/color] и начала поглощать станцию.
 storyteller-history-tesla-escaped = Энергетический шар Тесла преодолел сдерживающий барьер в [color=#ADFF2F]{$location}[/color], неся электрическую смерть.
-storyteller-history-supermatter-collapse = Кристалл Суперматерии в [color=#ADFF2F]{$location}[/color] достиг предела нестабильности и сколлапсировал.
+storyteller-history-supermatter-collapse = [color=#FF00FF]Кристалл Суперматерии[/color] в [color=#ADFF2F]{$location}[/color] достиг предела нестабильности и сколлапсировал.
 
 # Other timeline events
 storyteller-history-explosion-weak = слабый
@@ -53,11 +53,23 @@ storyteller-history-cryo-departure = [color=#FFD700]{$name}[/color] ({$job}) п�
 # Alert level codes
 storyteller-history-alert-level-changed = На станции установлен [color={$color}]{$level} код[/color] безопасности.
 storyteller-history-alert-level-ended = Действие [color={$color}]{$level} кода[/color] подошло к концу. Он продлился {$duration} мин.
+storyteller-history-alert-level-changed-with-prev = Действие [color={$prevColor}]{$prev} кода[/color] подошло к концу (он продлился {$duration} мин). На станции установлен [color={$color}]{$level} код[/color] безопасности.
 
 # Genitive prepositions helper
 storyteller-history-location-space-genitive = открытого космоса
 storyteller-history-location-unknown-genitive = неизвестного отсека
 storyteller-history-location-room-genitive = отсека {$room}
+
+# Filters
+storyteller-history-filter-events = События
+storyteller-history-filter-antagonists = Антагонисты
+storyteller-history-filter-station = Станция
+storyteller-history-filter-deaths = Смерти
+storyteller-history-filter-anomalies = Аномалии
+storyteller-history-filter-explosions = Взрывы
+storyteller-history-filter-research = Исследования
+storyteller-history-filter-arrivals = Прибытия
+storyteller-history-filter-cryo = Крио
 
 storyteller-history-arrival-no-job = Пассажир
 storyteller-history-location-unknown = Неизвестно
@@ -180,18 +192,15 @@ storyteller-metadata-assaultops-start = Прозвучал сигнал боев
 storyteller-metadata-powergridcheck-start = Инженеры объявили о начале масштабных профилактических работ в энергосети станции.
 storyteller-metadata-thief-start = В толпе экипажа скрылся ловкий карманник, нацеленный на личные вещи сотрудников.
 storyteller-metadata-terminatorspawn-start = Блюспейс-вспышка озарила отсек: из далёкого будущего прибыл безжалостный Терминатор, чтобы забрать жизнь своей цели.
-storyteller-metadata-diseaserule-start = Медицинский отсек забил тревогу: датчики зафиксировали вспышку опасного патогена среди экипажа.
 storyteller-metadata-spiderclownspawn-start = Безумный цирковой кошмар воплотился наяву: на борту материализовался ужасающий Паук-Клоун.
 storyteller-metadata-abductors-end = Чуждые сигналы утихли: биологическая активность Абдукторов в секторе прекратилась.
 storyteller-metadata-revolutionary-end = Волна мятежа спала, и революционный запал среди бунтовщиков сошёл на нет.
 storyteller-metadata-bloodcult-end = Тёмная скверна отступила: Кровавый культ был полностью изгнан со станции.
 storyteller-metadata-fleshcult-end = Пульсирующее гнездо плоти затихло и сгнило: органическое заражение станции полностью остановлено.
 storyteller-metadata-powergridcheck-end = Инженерная служба доложила об успешном завершении проверки стабильности энергосети.
-storyteller-metadata-diseaserule-end = Вспышка инфекции была успешно локализована и побеждена, карантин снят.
 
 # Final 12 storyteller descriptions
-storyteller-metadata-smalldisease-start = В медицинском отсеке скопилась небольшая очередь: среди экипажа распространилась лёгкая простуда.
-storyteller-metadata-bluespaceartifact-start = Приборы зафиксировали мощные блюспейс-колебания: в секторе обнаружен загадочный инопланетный артефакт.
+storyteller-metadata-bluespaceartifact-start = Приборы зафиксировали мощные блюспейс-колебания: в секторе обнаружен загадочный инопланетный [color=#FF00FF]артефакт[/color].
 storyteller-metadata-giftsjanitor-start = Уборщики ликуют: на станцию прибыла партия новеньких швабр и чистящих средств премиум-класса.
 storyteller-metadata-giftsancientguns-start = Коллекционеры оружия пришли в восторг: в руки экипажа попал ящик со старинным пороховым огнестрелом.
 storyteller-metadata-unknownshuttlecryptid-start = Датчики уловили странный, будто полупризрачный силуэт шаттла "Криптид", окутанного завесой тайны.
