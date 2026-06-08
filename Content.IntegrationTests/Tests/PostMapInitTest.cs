@@ -41,6 +41,14 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] Grids =
         {
             "/Maps/centcomm.yml",
+            "/Maps/_Fish/Shuttles/Antag/infiltrator.yml",
+            "/Maps/_Fish/Shuttles/Antag/abductor_shuttle.yml",
+            "/Maps/_Fish/Shuttles/Antag/assaultops.yml",
+            "/Maps/_Fish/Shuttles/DSO/cburn_box.yml",
+            "/Maps/_Fish/Shuttles/DSO/CentCommOfficial.yml",
+            "/Maps/_Fish/Shuttles/DSO/DS_maxtac.yml",
+            "/Maps/_Fish/Shuttles/DSO/ert_striker.yml",
+            "/Maps/_Fish/Shuttles/DSO/ert_large.yml",
             AdminTestArenaSystem.ArenaMapPath
         };
 
@@ -75,8 +83,6 @@ namespace Content.IntegrationTests.Tests
             "/Maps/Shuttles/AdminSpawn/**", // admin gaming
             // Fish - Start
             "/Maps/_Fish/Station/centcomm.yml",
-            "/Maps/_Fish/Shuttles/Antag/**",
-            "/Maps/_Fish/Shuttles/DSO/**",
             "/Maps/_Fish/Event/H3PO4/**",
             "/Maps/_Fish/Event/ANJEKNAVERNO/**",
             "/Maps/_Fish/Event/Masema/**",
