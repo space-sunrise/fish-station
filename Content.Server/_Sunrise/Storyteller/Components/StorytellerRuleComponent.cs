@@ -77,6 +77,24 @@ public sealed partial class StorytellerRuleComponent : Component
     public TimeSpan LastNeutralEventTime;
 
     /// <summary>
+    /// Last timestamp when a Major event (MajorAntag or MajorCalm) was triggered.
+    /// </summary>
+    [AutoPausedField, ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan LastMajorEventTime;
+
+    /// <summary>
+    /// Cooldown between Major events (in minutes).
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public float MajorEventCooldownMinutes = 3f;
+
+    /// <summary>
+    /// Last timestamp when a warning about events being disabled was logged.
+    /// </summary>
+    [AutoPausedField, ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan LastDisabledWarningTime;
+
+    /// <summary>
     /// Global cooldown between any storyteller events (in minutes).
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
