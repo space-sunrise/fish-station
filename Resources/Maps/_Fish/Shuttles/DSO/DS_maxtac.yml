@@ -1610,7 +1610,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 1.5,2.5
       parent: 1
-- proto: WeaponEnergyTurretAI
+- proto: WeaponEnergyTurretCentralCommand
   entities:
   - uid: 72
     components:
@@ -1656,7 +1656,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 111
-- proto: WeaponEnergyTurretAIControlPanel
+- proto: WeaponEnergyTurretCentralCommandControlPanel
   entities:
   - uid: 111
     components:

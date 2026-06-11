@@ -4845,7 +4845,7 @@ entities:
       parent: 1
     - type: Physics
       bodyType: Static
-- proto: WeaponEnergyTurretCommand
+- proto: WeaponEnergyTurretCentralCommand
   entities:
   - uid: 86
     components:
@@ -4859,7 +4859,7 @@ entities:
       fireCost: 1
     - type: Gun
       fireRate: 6
-- proto: WeaponEnergyTurretCommandControlPanel
+- proto: WeaponEnergyTurretCentralCommandControlPanel
   entities:
   - uid: 8
     components:
