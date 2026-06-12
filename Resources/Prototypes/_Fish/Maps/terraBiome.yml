@@ -5,9 +5,9 @@
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 0
-  maxPlayers: 30
+  maxPlayers: 25
   stations:
-    FishTerra:
+    FishTerraBiome:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
@@ -97,14 +97,17 @@
             SecurityBorg: [ 1, 1 ]
         - type: StationGoal
           goals:
-          - StationGoalPolymorph
+          - SolarPanels
           - Artifacts
+          - Bank
           - Zoo
           - MiningOutpost
-          - VirusologyAmbusol
+          - Tesla
           - Containment
           - WeaponsSecurity
+          - DormsBuild
           - Transit
+          - NukeRoom
           - Permabrig
           - Farm
           - Delegates
@@ -118,10 +121,11 @@
           - Saboteurs
           - Furs
           - Crew
-          - Virology
+          - HumanitarianAid
+          - PersonnelRecovery
+          - CrewEducation
           - SampleCollection
           - Examination
-          - VirusFlesh
 
 
 
