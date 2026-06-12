@@ -23,6 +23,47 @@
             priorityTag: DockFishSecurity
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_delta.yml
+        - type: StationGoal
+          goals:
+          - Shuttle
+          - Singularity
+          - SolarPanels
+          - Artifacts
+          - Bank
+          - Zoo
+          - MiningOutpost
+          - Tesla
+          - XenobiologyRepair
+          - VirusologyAmbusol
+          - Containment
+          - WeaponsSecurity
+          - MaintsRepair
+          - DormsBuild
+          - BattleShuttle
+          - Transit
+          - NukeRoom
+          - Permabrig
+          - Farm
+          - Delegates
+          - Cyborgs
+          - Testing
+          - Anomaly
+          - Replenishment
+          - IntelWeapons
+          - Reports
+          - Reconnaissance
+          - Saboteurs
+          - Furs
+          - Crew
+          - CleaningUp
+          - HumanitarianAid
+          - PersonnelRecovery
+          - CrewEducation
+          - Virology
+          - SampleCollection
+          - Examination
+          - StationGoalPolymorph
+          - VirusFlesh
         - type: StationJobs
           availableJobs:
             #command 5
@@ -84,7 +125,8 @@
             Musician: [ 1, 1 ]
             #blueshield
             BlueShieldEnsign: [ 1, 1 ]
-            BlueShieldOfficer: [ 2, 2 ]
+            BlueShieldOfficer: [ 1, 1 ]
+            RepresentativeBlueShield: [ 1, 1 ]
             #law
             Magistrat: [ 1, 1 ]
             IAA: [ 1, 1 ]
