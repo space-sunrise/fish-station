@@ -10,7 +10,7 @@
       stationProto: NanotrasenCentralCommand
       components:
       - type: StationNameSetup
-        mapNameTemplate: '{0} Врата Эдема {1}'
+        mapNameTemplate: '{0} Центральное Коммандование {1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '-AHQ'
@@ -24,9 +24,11 @@
           priorityTag: DockFishCBURN
         - gridPath: /Maps/_Fish/Shuttles/DSO/DS_maxtac.yml
           priorityTag: DockFishDS
+        - gridPath: /Maps/_Fish/Shuttles/DSO/ert_large.yml
+          priorityTag: DockFishERTBig
       - type: StationJobs
         availableJobs:
-          CentCommOfficer: [ 2, 2 ]
+          CentCommOfficer: [ 3, 3 ]
           CentCommTrainee: [ 3, 3 ]
           CentcommBlueShield: [ 3, 3 ]
           CentcommMedicalDoctor: [ 1, 1 ]
