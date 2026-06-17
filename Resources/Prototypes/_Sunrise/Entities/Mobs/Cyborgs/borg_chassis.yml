@@ -109,6 +109,12 @@
   - type: InnateItem
     entityTargetActions:
     - AccessBreaker
+# Fish-Start
+  - type: ActionGrant
+    actions:
+    - ActionViewLaws
+  - type: StandingState
+# Fish-End
 
 - type: startingGear
   id: SyndiReaperHardsuitGear
@@ -217,6 +223,12 @@
   - type: PowerCellDraw # Use it to increase battery life further
     drawRate: 0.5
   - type: ToggleableNightVision
+# Fish-Start
+  - type: ActionGrant
+    actions:
+    - ActionViewLaws
+  - type: StandingState
+# Fish-End
 
 - type: entity
   id: BorgChassisSyndicateHeavy
@@ -331,6 +343,12 @@
     placementOffset: 0,0
     leftBareFootState: [ footprint-tracked-heavy ]
     rightBareFootState: [ footprint-tracked-heavy ]
+# Fish-Start
+  - type: ActionGrant
+    actions:
+    - ActionViewLaws
+  - type: StandingState
+# Fish-End
 
 - type: entity
   id: BorgChassisSyndicateSpider
@@ -412,6 +430,12 @@
   - type: InnateItem
     entityTargetActions:
     - AccessBreaker
+# Fish-Start
+  - type: ActionGrant
+    actions:
+    - ActionViewLaws
+  - type: StandingState
+# Fish-End
 
 - type: entity
   parent: BaseBorgChassisSyndicateDerelict

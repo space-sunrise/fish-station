@@ -3,6 +3,7 @@
   parent: BaseBorgChassisNT
   components:
   - type: Sprite
+    sprite: _Fish/Mobs/Silicon/chassis.rsi # Fish-Edit
     layers:
     - state: robot
       map: ["enum.BorgVisualLayers.Body", "movement"]
