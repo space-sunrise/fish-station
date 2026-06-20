@@ -56,15 +56,15 @@
     - BaseStationJobsSpawning
     # Sunrise-Start
     - BaseCentCommShuttles
-    - BaseStationImmortal
+    # - BaseStationImmortal # Fish-Edit
     - BaseStationDontSelling
     - BaseStationCryoTeleport
     - BaseStationCorporateLaw # Sunrise-Edit
     # Sunrise-End
   components:
     - type: Transform
-    - type: ProtectedGrid
-    - type: UnbuildableGrid
+    # - type: ProtectedGrid # Fish-edit
+    # - type: UnbuildableGrid # Fish-edit
     - type: StationOnlyDirectSpawn # Sunrise added
 
 - type: entity
