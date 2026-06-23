@@ -62,6 +62,17 @@
   - PinkBra
   - PurpleBra
   - BlackBra
+  - BraTshirtWhite
+  - BraTshirtRed
+  - BraTshirtYellow
+  - BraTshirtGreen
+  - BraTshirtBlue
+  - BraTshirtLightBlue
+  - BraTshirtBlack
+  - BraTshirtGrey
+  - BraTshirtPurple
+  - BraTshirtBrown
+  - BraTshirtOrange
 
 - type: loadoutGroup
   id: Pants
@@ -101,6 +112,16 @@
   - BrigmedicBackpack
   - BrigmedicSatchel
   - BrigmedicDuffel
+
+- type: loadoutGroup
+  id: BrigmedicOuterClothing
+  name: loadout-group-brigmedic-outer-clothing
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BrigmedicCoatLab
+  - BrigmedicArmoredRobe
+  - BrigmedicBulletproof
 
 - type: loadoutGroup
   id: BrigmedicJumpsuit
@@ -977,6 +998,15 @@
   - TrinketsMedicalCNSG
 
 - type: loadoutGroup
+  id: SunrisePassengerJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - LizardPlushiePassenger
+  - SunriseRubberStampPassenger
+  - SunriseToyFigurinePassenger
+
+- type: loadoutGroup
   id: SeniorEngineerJumpsuit
   name: loadout-group-senior-engineer-jumpsuit
   loadouts:
@@ -1580,10 +1610,10 @@
 - type: loadoutGroup
   id: PlanetPrisonSecurityLoot
   name: loadout-group-prison-security-loot
-  minLimit: 0
+  minLimit: 1
   maxLimit: 1
   loadouts:
-  - PlanetPrisonSecurityMasterHandheldCamera
+  - PlanetPrisonSecurityHandheldCamera
   - PlanetPrisonSecurityMasterHandheldCamera
 
 # Planet Prison - Inspector

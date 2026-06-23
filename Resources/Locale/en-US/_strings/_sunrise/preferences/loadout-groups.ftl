@@ -19,6 +19,7 @@ loadout-group-blueshield-bra = { loadout-group-bra }
 loadout-group-blueshield-pants = { loadout-group-pants }
 loadout-group-blueshield-outerclothing = { loadout-group-outer-clothing }
 loadout-group-brigmedic-backpack = { loadout-group-back }
+loadout-group-brigmedic-outer-clothing = { loadout-group-outer-clothing }
 loadout-group-brigmedic-jumpsuit = { loadout-group-jumpsuit }
 loadout-group-sunrise-injectors = { loadout-group-trinkets }
 loadout-group-cargo-technician-gloves = { loadout-group-gloves }
