@@ -1969,15 +1969,17 @@
 
  # Pointless
 
-- type: listing
-  id: UplinkSnackBox
-  name: uplink-snack-box-name
-  description: uplink-snack-box-desc
-  productEntity: HappyHonkNukieSnacks
-  cost:
-    Telecrystal: 1
-  categories:
-  - UplinkPointless
+# Fish start
+#- type: listing
+#  id: UplinkSnackBox
+#  name: uplink-snack-box-name
+#  description: uplink-snack-box-desc
+#  productEntity: HappyHonkNukieSnacks
+#  cost:
+#    Telecrystal: 1
+#  categories:
+#  - UplinkPointless
+# Fish end
 
 - type: listing
   id: UplinkClothingConductingGloves

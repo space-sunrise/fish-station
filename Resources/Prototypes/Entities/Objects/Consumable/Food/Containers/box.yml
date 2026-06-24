@@ -570,6 +570,7 @@
       storagebase: !type:NestedSelector
         tableId: HappyHonkToyUnsafeEntityTable
 
+# Fish start
 #- type: entity
 #  parent: HappyHonkNukie
 #  id: HappyHonkNukieSnacks
@@ -603,6 +604,7 @@
 #            amount: 4
 #          - id: FoodSnackSyndi
 #            amount: 4
+# Fish end
 
 - type: entity
   id: HappyHonkCluwne
