@@ -570,39 +570,39 @@
       storagebase: !type:NestedSelector
         tableId: HappyHonkToyUnsafeEntityTable
 
-- type: entity
-  parent: HappyHonkNukie
-  id: HappyHonkNukieSnacks
-  suffix: Toy Unsafe, Snacks
-  name: syndicate snack box
-  components:
-  - type: Storage
-    grid:
-    - 0,0,5,2
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
+#- type: entity
+#  parent: HappyHonkNukie
+#  id: HappyHonkNukieSnacks
+#  suffix: Toy Unsafe, Snacks
+#  name: syndicate snack box
+#  components:
+#  - type: Storage
+#    grid:
+#    - 0,0,5,2
+#  - type: EntityTableContainerFill
+#    containers:
+#      storagebase: !type:AllSelector
+#        children:
         # toy
-        - !type:NestedSelector
-          tableId: HappyHonkToyUnsafeEntityTable
+#        - !type:NestedSelector
+#          tableId: HappyHonkToyUnsafeEntityTable
         # drinks - 4 cans, up to 2 blood-red brews
-        - !type:GroupSelector
-          rolls: 2
-          children:
-          - id: DrinkNukieCan
-            weight: 0.2
-          - id: DrinkColaCan
-        - id: DrinkColaCan
-          amount: 2
+#        - !type:GroupSelector
+#          rolls: 2
+#          children:
+#          - id: DrinkNukieCan
+#            weight: 0.2
+#          - id: DrinkColaCan
+#        - id: DrinkColaCan
+#          amount: 2
         # food
-        - !type:GroupSelector
-          children:
-          - id: FoodSaladValid
-            weight: 0.05
-            amount: 4
-          - id: FoodSnackSyndi
-            amount: 4
+#        - !type:GroupSelector
+#          children:
+#          - id: FoodSaladValid
+#            weight: 0.05
+#            amount: 4
+#          - id: FoodSnackSyndi
+#            amount: 4
 
 - type: entity
   id: HappyHonkCluwne
