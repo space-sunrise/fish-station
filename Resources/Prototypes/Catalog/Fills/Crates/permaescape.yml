@@ -209,7 +209,7 @@
         children:
         - id: ClothingEyesGlassesOutlawGlasses
         - id: ClothingHeadHatOutlawHat
-#        - id: HappyHonkNukieSnacks # Fish - edit
+        - id: HappyHonkNukieSnacks
         - id: CyberPen
           prob: 0.10
         - !type:GroupSelector
