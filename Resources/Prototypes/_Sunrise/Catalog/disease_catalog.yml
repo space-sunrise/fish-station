@@ -145,7 +145,7 @@
   icon: { sprite: /Textures/_Sunrise/Actions/disease.rsi, state: lethal }
   raiseProductEventOnUser: true
   cost:
-    DiseasePoints: 300
+    DiseasePoints: 400
   categories:
   - DiseaseSymptomsCategory
   conditions:
