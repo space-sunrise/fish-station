@@ -50,7 +50,6 @@
   equipment:
     shoes: ClothingShoesBootsBlueShieldFilled
     eyes: ClothingEyesGlassesBlueShield
-    outerClothing: ClothingOuterArmorBlueShield
     id: BlueShieldOfficerPDA
     ears: ClothingHeadsetAltCommand
     gloves: ClothingHandsGlovesCombat
