@@ -217544,12 +217544,6 @@ entities:
     - type: Transform
       pos: -36.5,61.5
       parent: 2
-    - type: ContainerContainer
-      containers:
-        stash: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: 29832
   - uid: 29833
     components:
     - type: Transform
@@ -299001,14 +298995,6 @@ entities:
     - type: Transform
       pos: -85.5,32.5
       parent: 2
-- proto: Telecrystal10
-  entities:
-  - uid: 29832
-    components:
-    - type: Transform
-      parent: 29831
-    - type: Physics
-      canCollide: False
 - proto: Telecrystal5
   entities:
   - uid: 29825
