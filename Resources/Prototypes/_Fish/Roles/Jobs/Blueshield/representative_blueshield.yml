@@ -29,7 +29,6 @@
    shoes: ClothingShoesBootsBlueShieldFilled
    eyes: ClothingEyesGlassesBlueShield
    head: ClothingHeadHatBeretBlueShield
-   outerClothing: ClothingOuterArmorBlueShield
    # outerClothing: ClothingOuterArmorBlueShield # Fish edit - commented out, managed via loadout
    id: BlueShieldOperativePDA
    ears: ClothingHeadsetCommand

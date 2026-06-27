@@ -12,3 +12,5 @@ ent-PlushieOlegmol = Olegmol
     .desc = { ent-BasePlushie.desc }
 ent-PlushieIsaacLow = Plushie Isaac Low
     .desc = { ent-BasePlushie.desc }
+ent-PlushieMina = Plushie Mina Armstrong
+    .desc = Plushie Mina Armstrong, kind but moderately strict, loves ice cream and warm communication, a loving and caring mother, very soft to the touch, place it on your desk to brighten up loneliness.

@@ -28,7 +28,6 @@
     shoes: ClothingShoesBootsBlueShieldFilled
     eyes: ClothingEyesGlassesBlueShield
     head: ClothingHeadHatBeretBlueShield
-    outerClothing: ClothingOuterArmorBlueShield
     id: BlueShieldEnsignPDA
     # outerClothing: ClothingOuterArmorBlueShield # Fish edit - commented out, managed via loadout
     ears: ClothingHeadsetBlueShieldEnsign
@@ -38,6 +37,7 @@
   storage:
     back:
     - HandheldBSOCrewMonitor
+    - RubberStampCommanderBlueShield
 
 - type: chameleonOutfit
   id: BlueShieldEnsignChameleonOutfit

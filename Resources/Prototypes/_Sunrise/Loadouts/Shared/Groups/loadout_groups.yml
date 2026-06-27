@@ -62,6 +62,17 @@
   - PinkBra
   - PurpleBra
   - BlackBra
+  - BraTshirtWhite
+  - BraTshirtRed
+  - BraTshirtYellow
+  - BraTshirtGreen
+  - BraTshirtBlue
+  - BraTshirtLightBlue
+  - BraTshirtBlack
+  - BraTshirtGrey
+  - BraTshirtPurple
+  - BraTshirtBrown
+  - BraTshirtOrange
 
 - type: loadoutGroup
   id: Pants
@@ -101,6 +112,16 @@
   - BrigmedicBackpack
   - BrigmedicSatchel
   - BrigmedicDuffel
+
+- type: loadoutGroup
+  id: BrigmedicOuterClothing
+  name: loadout-group-brigmedic-outer-clothing
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BrigmedicCoatLab
+  - BrigmedicArmoredRobe
+  - BrigmedicBulletproof
 
 - type: loadoutGroup
   id: BrigmedicJumpsuit
@@ -256,30 +277,40 @@
 #   - BlueShieldBoxers
 # FIsh edit end
 
-# FIsh edit start
-# - type: loadoutGroup
-#   id: AdjutantBra
-#   name: loadout-group-adj-bra
-#   minLimit: 1
-#   maxLimit: 1
-#   loadouts:
-#   - StraplessBra
-#   - WhiteNekoBra
-#   - BlackNekoBra
-#   - AssblastusaBra
-#   - BikiniBra
-#   - BraletteBra
-#   - CommieBra
-#   - KinkyBra
-#   - LaceBra
-#   - SportBra
-#   - ThongBra
-#   - UkBra
-#   - PinkBra
-#   - PurpleBra
-#   - BlackBra
-#   - AdjutantBra
-# FIsh edit end
+# Fish-start
+- type: loadoutGroup
+  id: BlueShieldOuterClothing
+  name: loadout-group-blueshield-outerclothing
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BlueShieldArmor
+  - BlueShieldHardsuit
+  - BlueShieldHardsuitMark2
+# Fish-end
+
+- type: loadoutGroup
+  id: AdjutantBra
+  name: loadout-group-adj-bra
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - StraplessBra
+  - WhiteNekoBra
+  - BlackNekoBra
+  - AssblastusaBra
+  - BikiniBra
+  - BraletteBra
+  - CommieBra
+  - KinkyBra
+  - LaceBra
+  - SportBra
+  - ThongBra
+  - UkBra
+  - PinkBra
+  - PurpleBra
+  - BlackBra
+  - AdjutantBra
 
 # FIsh edit start
 # - type: loadoutGroup
@@ -975,6 +1006,15 @@
   - TrinketsMedicalTFC
   - TrinketsMedicalTFCMO
   - TrinketsMedicalCNSG
+
+- type: loadoutGroup
+  id: SunrisePassengerJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - LizardPlushiePassenger
+  - SunriseRubberStampPassenger
+  - SunriseToyFigurinePassenger
 
 - type: loadoutGroup
   id: SeniorEngineerJumpsuit
