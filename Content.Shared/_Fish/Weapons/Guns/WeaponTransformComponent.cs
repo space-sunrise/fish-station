@@ -8,10 +8,10 @@ namespace Content.Shared._Fish.Weapons.Guns;
 public sealed partial class WeaponTransformComponent : Component
 {
     [DataField("resulting", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? TargetPrototype; // Fish edit - renamed from targetPrototype
+    public string? TargetPrototype; 
 
     [DataField("initial", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? StockPrototype; // Fish edit - renamed from stockPrototype
+    public string? StockPrototype;
 
     [DataField("detachAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? DetachAction;
@@ -20,7 +20,7 @@ public sealed partial class WeaponTransformComponent : Component
     public EntityUid? DetachActionEntity;
     
     [DataField("isTransformed")]
-    public bool IsStocked = false; // Fish edit - renamed from isStocked
+    public bool IsStocked = false;
 
     [DataField("attachedPopup")]
     public string AttachedPopup = "weapon-transform-attached";
