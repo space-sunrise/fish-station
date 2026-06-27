@@ -1,0 +1,20 @@
+- type: loadout
+  id: BlueShieldArmor
+  equipment:
+    outerClothing: ClothingOuterArmorBlueShield
+
+- type: loadout
+  id: BlueShieldHardsuit
+  equipment:
+    outerClothing: ClothingOuterHardsuitBlueShield
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MisterBlueShit
+
+- type: loadout
+  id: BlueShieldHardsuitMark2
+  equipment:
+    outerClothing: ClothingOuterHardsuitBlueShieldMark2
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MisterBlueShit50

@@ -273,6 +273,18 @@
   - BlueShieldThong
   - BlueShieldBoxers
 
+# Fish-start
+- type: loadoutGroup
+  id: BlueShieldOuterClothing
+  name: loadout-group-blueshield-outerclothing
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BlueShieldArmor
+  - BlueShieldHardsuit
+  - BlueShieldHardsuitMark2
+# Fish-end
+
 - type: loadoutGroup
   id: AdjutantBra
   name: loadout-group-adj-bra
