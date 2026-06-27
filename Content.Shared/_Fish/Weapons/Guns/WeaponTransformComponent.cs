@@ -22,7 +22,7 @@ public sealed partial class WeaponTransformComponent : Component
     [DataField("isTransformed")]
     public bool IsStocked = false;
 
-    [DataField("attachedPopup")]
+    [DataField]
     public string AttachedPopup = "weapon-transform-attached";
 
     [DataField]
