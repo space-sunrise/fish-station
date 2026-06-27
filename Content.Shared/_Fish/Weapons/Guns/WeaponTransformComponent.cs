@@ -25,7 +25,7 @@ public sealed partial class WeaponTransformComponent : Component
     [DataField("attachedPopup")]
     public string AttachedPopup = "weapon-transform-attached";
 
-    [DataField("detachedPopup")]
+    [DataField]
     public string DetachedPopup = "weapon-transform-detached";
 }
 
