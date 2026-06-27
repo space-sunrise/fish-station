@@ -77,12 +77,6 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Fish/Station/centcomm.yml",
             "/Maps/_Fish/Shuttles/Antag/**",
             "/Maps/_Fish/Shuttles/DSO/**",
-            "/Maps/_Fish/Event/H3PO4/**",
-            "/Maps/_Fish/Event/ANJEKNAVERNO/**",
-            "/Maps/_Fish/Event/Masema/**",
-            "/Maps/_Fish/Event/MineFlick/**",
-            "/Maps/_Fish/Event/Skif1/**",
-            "/Maps/_Fish/Event/Yarp0d/**",
             "/Maps/_Fish/Nonstations/**",
             // Fish - End
         };
@@ -97,7 +91,7 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] GameMaps =
         {
             // Fish - Start
-            //"Dev",
+            "Dev",
             //"TestTeg",
             //"Fland",
             //"Packed",
