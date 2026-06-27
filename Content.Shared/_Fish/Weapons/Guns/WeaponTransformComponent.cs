@@ -16,7 +16,7 @@ public sealed partial class WeaponTransformComponent : Component
     [DataField("detachAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? DetachAction;
 
-    [DataField("detachActionEntity")]
+    [DataField]
     public EntityUid? DetachActionEntity;
     
     [DataField("isTransformed")]
