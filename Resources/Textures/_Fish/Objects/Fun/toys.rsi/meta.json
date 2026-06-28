@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Made by Fish Station",
+    "copyright": "Made by Fish Station. Mina sprite by DeVa",
     "size": {
       "x": 32,
       "y": 32
@@ -49,6 +49,12 @@
       },
       {
         "name": "centcom_masa"
+      },
+      {
+        "name": "paradox"
+      },
+      {
+        "name": "mina"
       }
     ]
 }

@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingHeadHelmetHardsuitBlueshield
+  id: ClothingHeadHelmetHardsuitBlueshieldMark2
+  name: mark 2 model blueshield's hardsuit helmet
+  description: Blue. Mark 2 model.
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Head/Hardsuits/blueshield_mk2.rsi
+  - type: Clothing
+    sprite: _Fish/Clothing/Head/Hardsuits/blueshield_mk2.rsi
