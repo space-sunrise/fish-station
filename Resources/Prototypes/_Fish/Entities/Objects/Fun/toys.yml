@@ -4,6 +4,7 @@
   name: plushie ce vulpa
   components:
   - type: Sprite
+    scale: 1.5, 1.5
     sprite: _Fish/Objects/Fun/toys.rsi
     state: plushie-ce-vulpa
   - type: UseDelay
@@ -188,3 +189,30 @@
     sound:
       path: /Audio/_Sunrise/Voice/Felinid/cat_meow2.ogg
 
+- type: entity
+  parent: BasePlushie
+  id: PlushieParadox
+  name: Plushie Luna Paradoxical
+  components:
+  - type: Sprite
+    sprite: _Fish/Objects/Fun/toys.rsi
+    state: paradox
+  - type: UseDelay
+    delay: 6
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieMina
+  name: Plushie Mina Armstrong
+  components:
+  - type: Sprite
+    sprite: _Fish/Objects/Fun/toys.rsi
+    state: mina
+  - type: UseDelay
+    delay: 4
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Sunrise/Voice/Felinid/cat_meow2.ogg
