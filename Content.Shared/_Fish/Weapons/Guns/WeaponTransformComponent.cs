@@ -16,16 +16,16 @@ public sealed partial class WeaponTransformComponent : Component
     [DataField("detachAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? DetachAction;
 
-    [DataField("detachActionEntity")]
+    [DataField]
     public EntityUid? DetachActionEntity;
     
     [DataField("isTransformed")]
     public bool IsStocked = false;
 
-    [DataField("attachedPopup")]
+    [DataField]
     public string AttachedPopup = "weapon-transform-attached";
 
-    [DataField("detachedPopup")]
+    [DataField]
     public string DetachedPopup = "weapon-transform-detached";
 }
 
