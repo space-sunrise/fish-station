@@ -14,9 +14,9 @@ public abstract class SharedSunriseCriminalRecordsSystem : EntitySystem
     {
         [1] = (5, 10),
         [2] = (10, 15),
-        [3] = (15, 25),
-        [4] = (20, 35),
-        [5] = (30, 50),
+        [3] = (17, 25),
+        [4] = (40, 45), // Fish-edit
+        [5] = (30, 50), // Fish-edit
     };
 
     public int CalculateSentence(CriminalCase @case, List<CriminalCase> allCases)
@@ -69,7 +69,7 @@ public abstract class SharedSunriseCriminalRecordsSystem : EntitySystem
             if (int.TryParse(law.LawIdentifier, out int code))
             {
                 int cat = code / 100;
-                if (cat == 1 || cat == 2)
+                if (cat == 1) // Fish-edit
                 {
                     char block = law.LawIdentifier![0];
                     bool blockViolatedBefore = allCases
@@ -92,8 +92,8 @@ public abstract class SharedSunriseCriminalRecordsSystem : EntitySystem
             return 0;
 
         // --- Calculation ---
-        var normalCharges = finalEffectiveCharges.Where(l => (int.TryParse(l.LawIdentifier, out int c) ? c / 100 : 0) < 6).ToList();
-        var permaCharges = finalEffectiveCharges.Where(l => (int.TryParse(l.LawIdentifier, out int c) ? c / 100 : 0) == 6).ToList();
+        var normalCharges = finalEffectiveCharges.Where(l => (int.TryParse(l.LawIdentifier, out int c) ? c / 100 : 0) < 5).ToList(); // Fish-edit
+        var permaCharges = finalEffectiveCharges.Where(l => (int.TryParse(l.LawIdentifier, out int c) ? c / 100 : 0) == 5).ToList(); // Fish-edit
 
         float cappedBase = 0;
         if (normalCharges.Count > 0)
@@ -150,6 +150,7 @@ public abstract class SharedSunriseCriminalRecordsSystem : EntitySystem
 
         float finalMinutes = totalBase + totalModifierDelta;
         
+
         // If there's any Category 6, ensure it's at least threshold
         if (permaCharges.Count > 0)
             finalMinutes = Math.Max(finalMinutes, threshold);
