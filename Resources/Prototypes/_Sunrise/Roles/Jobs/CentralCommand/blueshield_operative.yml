@@ -32,7 +32,6 @@
     shoes: ClothingShoesBootsBlueShieldFilled
     eyes: ClothingEyesGlassesBlueShield
     head: ClothingHeadHatBeretBlueShield
-    outerClothing: ClothingOuterArmorBlueShield
     id: BlueShieldOperativePDA
     ears: ClothingHeadsetCentCom
     belt: ClothingBeltBlueShieldWebbingFilled
