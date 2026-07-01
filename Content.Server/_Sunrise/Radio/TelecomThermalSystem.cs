@@ -65,7 +65,7 @@ public sealed class TelecomThermalSystem : EntitySystem
             {
                 if (!server.Overheated)
                 {
-                    server.Overheated = true;
+                    //server.Overheated = true; // Fish-edit before they are made better
                     _appearance.SetData(uid, PowerDeviceVisuals.VisualState, 1);
                 }
             }
