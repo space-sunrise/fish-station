@@ -6,6 +6,18 @@
   - type: AnimalObjectivesRule
     agentName: animal-objectives-round-end-agent-name
     maxDifficulty: 2
+    eligiblePrototypes:
+    - MobMouse
+    - MobMouse1
+    - MobMouse2
+    - MobMouseCancer
+    - MobMothroach
+    - MobMoproach
+    - MobHamster
+    - MobHamsterHamlet
+    - MobSnail
+    - MobSnailSpeed
+    - MobSnailMoth
     sets:
     - groups: AnimalObjectiveGroups
       maxPicks: 2

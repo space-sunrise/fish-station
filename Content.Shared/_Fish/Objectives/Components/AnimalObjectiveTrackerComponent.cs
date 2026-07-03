@@ -6,9 +6,6 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Fish.Objectives.Components;
 
-/// <summary>
-/// Счётчики прогресса целей животного на сущности-игроке.
-/// </summary>
 [RegisterComponent]
 public sealed partial class AnimalObjectiveTrackerComponent : Component
 {
@@ -38,6 +35,9 @@ public sealed partial class AnimalObjectiveTrackerComponent : Component
 
     [DataField]
     public Dictionary<ProtoId<TagPrototype>, int> EatenTagCounts = new();
+
+    [DataField]
+    public Dictionary<ProtoId<EntityPrototype>, int> EatenFoodParentCounts = new();
 
     [ViewVariables]
     public EntityUid? LastGrid;

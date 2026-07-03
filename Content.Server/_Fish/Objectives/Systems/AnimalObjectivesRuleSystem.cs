@@ -6,9 +6,6 @@ using Content.Shared.Mind;
 
 namespace Content.Server._Fish.Objectives.Systems;
 
-/// <summary>
-/// Обрабатывает секцию «Животные» в итогах раунда.
-/// </summary>
 public sealed class AnimalObjectivesRuleSystem : GameRuleSystem<AnimalObjectivesRuleComponent>
 {
     public override void Initialize()

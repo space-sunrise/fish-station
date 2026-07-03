@@ -8,32 +8,13 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Objectives.Components;
-using Robust.Shared.GameObjects;
-using Content.Shared.Random.Helpers;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server._Fish.Objectives.Systems;
 
-/// <summary>
-/// Выдаёт случайные цели животным при появлении разума игрока.
-/// </summary>
 public sealed class AnimalObjectivesSystem : EntitySystem
 {
-    private static readonly HashSet<string> EligiblePrototypeIds = new()
-    {
-        "MobMouse",
-        "MobMouse1",
-        "MobMouse2",
-        "MobMouseCancer",
-        "MobMothroach",
-        "MobMoproach",
-        "MobHamster",
-        "MobHamsterHamlet",
-        "MobSnail",
-        "MobSnailSpeed",
-        "MobSnailMoth",
-    };
-
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ObjectivesSystem _objectives = default!;
@@ -46,6 +27,15 @@ public sealed class AnimalObjectivesSystem : EntitySystem
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStarting);
         SubscribeLocalEvent<RoundStartedEvent>(OnRoundStarted);
         SubscribeLocalEvent<MindContainerComponent, MindAddedMessage>(OnMindAdded);
+    }
+
+    public bool IsEligible(EntityUid uid, AnimalObjectivesRuleComponent? rule = null)
+    {
+        if (!TryComp<MetaDataComponent>(uid, out var meta) || meta.EntityPrototype is not { } proto)
+            return false;
+
+        rule ??= TryGetActiveRule(out var activeRule) ? activeRule : null;
+        return rule != null && rule.EligiblePrototypes.Contains(proto.ID);
     }
 
     private void OnRoundStarting(RoundStartingEvent ev)
@@ -61,7 +51,7 @@ public sealed class AnimalObjectivesSystem : EntitySystem
 
     private void OnMindAdded(EntityUid uid, MindContainerComponent comp, MindAddedMessage args)
     {
-        TryAssignObjectivesForEntity(uid, args.Mind.Owner, args.Mind.Comp);
+        TryAssignObjectives(uid, args.Mind.Owner, args.Mind.Comp);
     }
 
     private void AssignObjectivesToExistingMinds()
@@ -72,18 +62,16 @@ public sealed class AnimalObjectivesSystem : EntitySystem
             if (mindContainer.Mind is not { } mindId || !TryComp<MindComponent>(mindId, out var mind))
                 continue;
 
-            TryAssignObjectivesForEntity(uid, mindId, mind);
+            TryAssignObjectives(uid, mindId, mind);
         }
     }
 
-    private void TryAssignObjectivesForEntity(EntityUid uid, EntityUid mindId, MindComponent mind)
+    private void TryAssignObjectives(EntityUid uid, EntityUid mindId, MindComponent mind)
     {
-        if (!IsEligibleEntity(uid))
+        if (!IsEligible(uid))
             return;
 
         EnsureRuleStarted();
-
-        EnsureComp<AnimalObjectivesEligibleComponent>(uid);
 
         if (HasAnimalObjectives(mind))
         {
@@ -95,12 +83,12 @@ public sealed class AnimalObjectivesSystem : EntitySystem
         var assigned = AssignObjectives(mindId, mind);
         RegisterMind(mindId);
 
-        Log.Info($"Animal objectives: assigned {assigned} objective(s) to {ToPrettyString(uid)}");
+        Log.Debug($"Assigned {assigned} animal objective(s) to {ToPrettyString(uid)}");
     }
 
     private int AssignObjectives(EntityUid mindId, MindComponent mind)
     {
-        if (!TryGetRule(out var rule))
+        if (!TryGetActiveRule(out var rule))
             return 0;
 
         var difficulty = 0f;
@@ -128,13 +116,13 @@ public sealed class AnimalObjectivesSystem : EntitySystem
 
     private void RegisterMind(EntityUid mindId)
     {
-        if (!TryGetRule(out var rule) || rule.Minds.Contains(mindId))
+        if (!TryGetActiveRule(out var rule) || rule.Minds.Contains(mindId))
             return;
 
         rule.Minds.Add(mindId);
     }
 
-    private bool TryGetRule(out AnimalObjectivesRuleComponent rule)
+    private bool TryGetActiveRule(out AnimalObjectivesRuleComponent rule)
     {
         rule = default!;
 
@@ -162,20 +150,9 @@ public sealed class AnimalObjectivesSystem : EntitySystem
         return false;
     }
 
-    private bool IsEligibleEntity(EntityUid uid)
-    {
-        if (HasComp<AnimalObjectivesEligibleComponent>(uid))
-            return true;
-
-        if (!TryComp<MetaDataComponent>(uid, out var meta))
-            return false;
-
-        return meta.EntityPrototype is { } proto && EligiblePrototypeIds.Contains(proto.ID);
-    }
-
     private void EnsureRuleStarted()
     {
-        if (TryGetRule(out _))
+        if (TryGetActiveRule(out _))
             return;
 
         var rule = _gameTicker.AddGameRule("AnimalObjectives");

@@ -1,25 +1,28 @@
-using Content.Server._Fish.Objectives.Components;
 using Content.Shared._Fish.Objectives.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Maps;
 using Content.Shared.Nutrition;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Paper;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Fish.Objectives.Systems;
 
-/// <summary>
-/// Отслеживает прогресс целей животных: еда, питьё, бумага, перемещение.
-/// </summary>
 public sealed class AnimalObjectiveTrackerSystem : EntitySystem
 {
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+
+    private EntityQuery<EdibleComponent> _edibleQuery;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        _edibleQuery = GetEntityQuery<EdibleComponent>();
 
         SubscribeLocalEvent<MetaDataComponent, IngestedEvent>(OnIngested);
     }
@@ -29,7 +32,7 @@ public sealed class AnimalObjectiveTrackerSystem : EntitySystem
         base.Update(frameTime);
 
         var query = EntityQueryEnumerator<AnimalObjectiveTrackerComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var tracker, out var xform))
+        while (query.MoveNext(out _, out var tracker, out var xform))
         {
             if (xform.GridUid is not { } grid)
                 continue;
@@ -56,9 +59,6 @@ public sealed class AnimalObjectiveTrackerSystem : EntitySystem
         if (!TryComp<AnimalObjectiveTrackerComponent>(args.Target, out var tracker))
             return;
 
-        tracker.EatCount++;
-        tracker.DrinkVolume += args.Split.Volume;
-
         foreach (var (reagent, quantity) in args.Split.Contents)
         {
             var id = reagent.Prototype;
@@ -66,8 +66,19 @@ public sealed class AnimalObjectiveTrackerSystem : EntitySystem
             tracker.DrunkReagents[id] = existing + quantity;
         }
 
+        if (_edibleQuery.TryComp(food, out var edible) && edible.Edible == IngestionSystem.Drink)
+        {
+            tracker.DrinkVolume += args.Split.Volume;
+            return;
+        }
+
+        tracker.EatCount++;
+
         if (MetaData(food).EntityPrototype is { } foodProto)
+        {
             tracker.EatenFoodProtos.Add(foodProto.ID);
+            IncrementFoodParentCounts(tracker, foodProto);
+        }
 
         if (TryComp<TagComponent>(food, out var tagComp))
         {
@@ -78,12 +89,38 @@ public sealed class AnimalObjectiveTrackerSystem : EntitySystem
             }
         }
 
-        if (_tag.HasTag(food, "Paper"))
-        {
-            tracker.PaperEaten++;
+        if (!_tag.HasTag(food, "Paper"))
+            return;
 
-            if (IsBlankPaper(food))
-                tracker.BlankPaperEaten++;
+        if (IsBlankPaper(food))
+            tracker.BlankPaperEaten++;
+
+        tracker.PaperEaten++;
+    }
+
+    private void IncrementFoodParentCounts(AnimalObjectiveTrackerComponent tracker, EntityPrototype foodProto)
+    {
+        var ancestors = new HashSet<ProtoId<EntityPrototype>>();
+        CollectAncestors(foodProto, ancestors);
+
+        foreach (var ancestorId in ancestors)
+        {
+            tracker.EatenFoodParentCounts.TryGetValue(ancestorId, out var count);
+            tracker.EatenFoodParentCounts[ancestorId] = count + 1;
+        }
+    }
+
+    private void CollectAncestors(EntityPrototype prototype, HashSet<ProtoId<EntityPrototype>> ancestors)
+    {
+        if (!ancestors.Add(prototype.ID) || prototype.Parents == null)
+            return;
+
+        foreach (var parentId in prototype.Parents)
+        {
+            if (!_proto.TryIndex(parentId, out EntityPrototype? parent))
+                continue;
+
+            CollectAncestors(parent, ancestors);
         }
     }
 
@@ -93,56 +130,5 @@ public sealed class AnimalObjectiveTrackerSystem : EntitySystem
             return _tag.HasTag(paper, "Paper");
 
         return paperComp.StampedBy.Count == 0 && string.IsNullOrWhiteSpace(paperComp.Content);
-    }
-
-    public int GetEatCount(EntityUid uid, AnimalObjectiveTrackerComponent? tracker = null)
-    {
-        return Resolve(uid, ref tracker) ? tracker.EatCount : 0;
-    }
-
-    public float GetDrinkVolume(EntityUid uid, AnimalObjectiveTrackerComponent? tracker = null)
-    {
-        return Resolve(uid, ref tracker) ? (float) tracker.DrinkVolume : 0f;
-    }
-
-    public float GetReagentVolume(EntityUid uid, ProtoId<ReagentPrototype> reagent, AnimalObjectiveTrackerComponent? tracker = null)
-    {
-        if (!Resolve(uid, ref tracker))
-            return 0f;
-
-        return tracker.DrunkReagents.TryGetValue(reagent, out var volume) ? (float) volume : 0f;
-    }
-
-    public int GetTagEatCount(EntityUid uid, ProtoId<TagPrototype> tag, AnimalObjectiveTrackerComponent? tracker = null)
-    {
-        if (!Resolve(uid, ref tracker))
-            return 0;
-
-        return tracker.EatenTagCounts.GetValueOrDefault(tag);
-    }
-
-    public int GetPaperEaten(EntityUid uid, AnimalObjectiveTrackerComponent? tracker = null)
-    {
-        return Resolve(uid, ref tracker) ? tracker.PaperEaten : 0;
-    }
-
-    public int GetBlankPaperEaten(EntityUid uid, AnimalObjectiveTrackerComponent? tracker = null)
-    {
-        return Resolve(uid, ref tracker) ? tracker.BlankPaperEaten : 0;
-    }
-
-    public int GetTilesMoved(EntityUid uid, AnimalObjectiveTrackerComponent? tracker = null)
-    {
-        return Resolve(uid, ref tracker) ? tracker.TilesMoved : 0;
-    }
-
-    public int GetVisitedGridCount(EntityUid uid, AnimalObjectiveTrackerComponent? tracker = null)
-    {
-        return Resolve(uid, ref tracker) ? tracker.VisitedGrids.Count : 0;
-    }
-
-    public int GetUniqueFoodCount(EntityUid uid, AnimalObjectiveTrackerComponent? tracker = null)
-    {
-        return Resolve(uid, ref tracker) ? tracker.EatenFoodProtos.Count : 0;
     }
 }
