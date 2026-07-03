@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingOuterRobesJudge
+  id: ClothingOuterRobesSectoralJudgeFish
+  name: sectoral court robe
+  description: The Sectoral Court robe. It grants immense authority to its wearer.
+  suffix: Fish
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/OuterClothing/Clothing/sectjudge.rsi
+  - type: Clothing
+    sprite: _Fish/Clothing/OuterClothing/Clothing/sectjudge.rsi
