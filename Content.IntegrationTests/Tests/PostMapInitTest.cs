@@ -77,6 +77,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Fish/Station/centcomm.yml",
             "/Maps/_Fish/Shuttles/Antag/**",
             "/Maps/_Fish/Shuttles/DSO/**",
+            "/Maps/_Fish/Shuttles/DSO/ERT/**",
             "/Maps/_Fish/Nonstations/**",
             // Fish - End
         };
@@ -121,6 +122,7 @@ namespace Content.IntegrationTests.Tests
             "FishPacked",
             "FishSnowball",
             "FishSuharik",
+            "FishTerraBiome",
             // Fish - End
         };
 
