@@ -1,7 +1,16 @@
 - type: roleLoadout
   id: JobCentCommTrainee
   groups:
-  - CentCommOperatorJumpsuit
+  - CentCommOperatorJumpsuitFish
+  - CentCommOperatorHatsFish
+  - CentCommOperatorShoesFish
+  - CentCommOperatorGlovesFish
+  - CentCommOperatorOuterFish
+  - CentCommOperatorNeckFish
+  - CentCommOperatorEyesFish
+  - CentCommOperatorBackFish
+  - CentCommOperatorWeaponsFish
+  - CentCommOperatorTrinketsFish
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
@@ -12,8 +21,36 @@
 - type: roleLoadout
   id: JobCentCommOfficer
   groups:
-  - CentCommOperatorJumpsuit
-  - CentCommOperatorHats
+  - CentCommOperatorJumpsuitFish
+  - CentCommOperatorHatsFish
+  - CentCommOperatorShoesFish
+  - CentCommOperatorGlovesFish
+  - CentCommOperatorOuterFish
+  - CentCommOperatorNeckFish
+  - CentCommOperatorEyesFish
+  - CentCommOperatorBackFish
+  - CentCommOperatorWeaponsFish
+  - CentCommOperatorTrinketsFish
+  - Trinkets
+  - Survival
+  - GroupSpeciesBreathTool
+  - Bra
+  - Pants
+  - Socks
+
+- type: roleLoadout
+  id: JobCentCommOfficial
+  groups:
+  - CentCommOperatorJumpsuitFish
+  - CentCommOperatorHatsFish
+  - CentCommOperatorShoesFish
+  - CentCommOperatorGlovesFish
+  - CentCommOperatorOuterFish
+  - CentCommOperatorNeckFish
+  - CentCommOperatorEyesFish
+  - CentCommOperatorBackFish
+  - CentCommOperatorWeaponsFish
+  - CentCommOperatorTrinketsFish
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
@@ -35,8 +72,6 @@
   - GroupSpeciesBreathTool
   - Bra
   - Pants
-  - BlueShieldBra
-  - BlueShieldPants
   - Socks
 
 - type: roleLoadout
@@ -126,15 +161,21 @@
   - GroupSpeciesBreathTool
   - Bra
   - Pants
-  - BlueShieldBra
-  - BlueShieldPants
   - Socks
 
 - type: roleLoadout
   id: JobOversightOfficer
   groups:
   - LawyerJumpsuit
-  - CommonBackpack
+  - CentCommOperatorHatsFish
+  - CentCommOperatorShoesFish
+  - CentCommOperatorGlovesFish
+  - CentCommOperatorOuterFish
+  - CentCommOperatorNeckFish
+  - CentCommOperatorEyesFish
+  - CentCommOperatorBackFish
+  - CentCommOperatorWeaponsFish
+  - CentCommOperatorTrinketsFish
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
@@ -145,8 +186,28 @@
 - type: roleLoadout
   id: JobSpecOpsOfficer
   groups:
-  - SpecOpsOfficerJumpsuit
-  - CommonBackpack
+  - CentCommOperatorOuterFish
+  - CentCommOperatorNeckFish
+  - CentCommOperatorEyesFish
+  - CentCommOperatorBackFish
+  - CentCommOperatorWeaponsFish
+  - CentCommOperatorTrinketsFish
+  - SpecOpsJumpsuitFish
+  - SpecOpsHatsFish
+  - SpecOpsShoesFish
+  - SpecOpsGlovesFish
+  - Trinkets
+  - Survival
+  - GroupSpeciesBreathTool
+  - Bra
+  - Pants
+  - Socks
+
+- type: roleLoadout
+  id: JobCentCommOperator
+  groups:
+  - CentCommOperatorHatsFish
+  - CentCommOperatorJumpsuitFish
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool

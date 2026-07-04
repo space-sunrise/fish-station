@@ -29,6 +29,7 @@
     eyes: ClothingEyesGlassesBlueShield
     head: ClothingHeadHatBeretBlueShield
     id: BlueShieldEnsignPDA
+    # outerClothing: ClothingOuterArmorBlueShield # Fish edit - commented out, managed via loadout
     ears: ClothingHeadsetBlueShieldEnsign
     belt: ClothingBeltBlueShieldWebbingFilled
     gloves: ClothingHandsGlovesCombat
@@ -49,3 +50,4 @@
     outerClothing: ClothingOuterArmorBlueShield
     belt: ClothingBeltBlueShieldWebbingFilled
     gloves: ClothingHandsGlovesCombat
+    # outerClothing: ClothingOuterArmorBlueShield # Fish edit - commented out, managed via loadout
