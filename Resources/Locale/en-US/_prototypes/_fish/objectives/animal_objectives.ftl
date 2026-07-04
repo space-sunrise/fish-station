@@ -2,11 +2,16 @@ objective-issuer-animal = Station Wildlife
 
 animal-objectives-round-end-agent-name = animals
 
-animal-objective-survive-title = Survive the shift
-animal-objective-survive-description = Stay alive until the end of the round. A simple life is a good life.
+ent-BaseAnimalObjective = { ent-BaseObjective }
+    .desc = { ent-BaseObjective.desc }
+ent-BaseAnimalLivingObjective = { ent-BaseAnimalObjective }
+    .desc = { ent-BaseAnimalObjective.desc }
 
-animal-objective-escape-shuttle-title = Escape on the evacuation shuttle
-animal-objective-escape-shuttle-description = Board the evacuation shuttle alive and unrestrained when it leaves for CentCom.
+ent-AnimalSurviveObjective = Survive the shift
+    .desc = Stay alive until the end of the round. A simple life is a good life.
+
+ent-AnimalEscapeShuttleObjective = Escape on the evacuation shuttle
+    .desc = Board the evacuation shuttle alive and unrestrained when it leaves for CentCom.
 
 animal-objective-eat-count-title = Take { $count } bites of food
 animal-objective-eat-count-description = Nibble on anything edible you can find around the station.

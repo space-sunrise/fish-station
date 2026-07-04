@@ -2,11 +2,16 @@ objective-issuer-animal = Станционная фауна
 
 animal-objectives-round-end-agent-name = животные
 
-animal-objective-survive-title = Пережить смену
-animal-objective-survive-description = Оставайся в живых до конца раунда. Простая жизнь — хорошая жизнь.
+ent-BaseAnimalObjective = { ent-BaseObjective }
+    .desc = { ent-BaseObjective.desc }
+ent-BaseAnimalLivingObjective = { ent-BaseAnimalObjective }
+    .desc = { ent-BaseAnimalObjective.desc }
 
-animal-objective-escape-shuttle-title = Улететь на эвакуационном шаттле
-animal-objective-escape-shuttle-description = Поднимись на эвакуационный шаттл живым и свободным, когда он уходит на ЦентКом.
+ent-AnimalSurviveObjective = Пережить смену
+    .desc = Оставайся в живых до конца раунда. Простая жизнь — хорошая жизнь.
+
+ent-AnimalEscapeShuttleObjective = Улететь на эвакуационном шаттле
+    .desc = Поднимись на эвакуационный шаттл живым и свободным, когда он уходит на ЦентКом.
 
 animal-objective-eat-count-title = Откусить еду { $count } раз
 animal-objective-eat-count-description = Погрызи всё съедобное, что найдёшь на станции.

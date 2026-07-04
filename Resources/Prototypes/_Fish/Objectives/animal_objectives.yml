@@ -295,8 +295,6 @@
 - type: entity
   parent: [BaseAnimalObjective, BaseSurviveObjective]
   id: AnimalSurviveObjective
-  name: animal-objective-survive-title
-  description: animal-objective-survive-description
   components:
   - type: Objective
     difficulty: 0.5
@@ -306,8 +304,6 @@
 - type: entity
   parent: [BaseAnimalObjective, BaseLivingObjective]
   id: AnimalEscapeShuttleObjective
-  name: animal-objective-escape-shuttle-title
-  description: animal-objective-escape-shuttle-description
   components:
   - type: Objective
     difficulty: 1.2
