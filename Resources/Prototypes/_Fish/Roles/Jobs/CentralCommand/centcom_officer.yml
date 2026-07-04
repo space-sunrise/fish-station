@@ -42,14 +42,8 @@
   id: CentCommOfficerGear
   equipment:
     # jumpsuit: ClothingUniformJumpsuitCentcomOfficial #Fish-Edit
-    shoes: ClothingShoesBootsLaceup
-    # head: ClothingHeadHatCentcom  #Fish-Edit
-    eyes: ClothingEyesGlassesSunglasses
-    gloves: ClothingHandsGlovesColorBlack
-    outerClothing: ClothingOuterArmorBasicSlim
     id: CentcomPDA
     ears: ClothingHeadsetFishCentCom
-    belt: WeaponPistolN1984
   storage:
     back:
     - PenCentcom
