@@ -101,7 +101,6 @@
   id: CentCommOperatorWeaponsFish
   name: loadout-group-centcomm-weapons
   loadouts:
-  - CentCommPistolN1984
   - CentcommSwordFish
 
 - type: loadoutGroup
