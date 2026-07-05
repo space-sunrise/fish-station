@@ -201151,13 +201151,6 @@ entities:
     - type: Transform
       pos: -15.303802,58.180233
       parent: 2
-- proto: RubberStampChaplain
-  entities:
-  - uid: 25131
-    components:
-    - type: Transform
-      pos: 57.345524,-22.19329
-      parent: 2
 - proto: RubberStampDenied
   entities:
   - uid: 25133
