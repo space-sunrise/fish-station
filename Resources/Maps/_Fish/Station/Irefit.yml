@@ -116751,20 +116751,12 @@ entities:
     - type: MetaData
       name: маршрутизатор почтовой трубы ботаники
     - type: Transform
-      rot: 1.5707963267948966 rad
+      rot: -1.5707963267948966 rad
       pos: 0.5,-51.5
       parent: 2
     - type: DisposalRouter
       tags:
       - hydroponics
-  - uid: 27564
-    components:
-    - type: MetaData
-      name: маршрутизатор почтовой трубы брига
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 36.5,36.5
-      parent: 2
 - proto: DisposalRouterFlipped
   entities:
   - uid: 8231
@@ -116805,6 +116797,14 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 20.5,-32.5
+      parent: 2
+  - uid: 27564
+    components:
+    - type: MetaData
+      name: маршрутизатор почтовой трубы брига
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 36.5,36.5
       parent: 2
 - proto: DisposalTrunk
   entities:
