@@ -1,14 +1,19 @@
 - type: gameMapPool
   id: FishMapPool
   maps:
+# High-pop
   - FishDelta
+  - FishIrefit
+  - FishBox
+  - FishSuharik
+# Mid-pop
   - FishMarathon
-  - FishPacked
-  - FishCase
   - FishOasis
   - FishPlasma
-  - FishBox
   - FishBagel
-  - FishTerraBiome
+# Low-pop
+  - FishCase
   - FishSnowball
-  - FishSuharik
+  - FishPacked
+  - FishTerraBiome
+

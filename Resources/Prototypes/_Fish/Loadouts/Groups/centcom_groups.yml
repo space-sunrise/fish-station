@@ -1,0 +1,61 @@
+# Centcomm Loadout Groups (Fish Replacement for moved items)
+
+- type: loadoutGroup
+  id: CentCommOperatorJumpsuit
+  name: loadout-group-centcomm-operator-jumpsuit
+  loadouts:
+  - CentCommOfficerJumpsuit
+  - CentCommOfficerJumpskirt
+  - CentCommOfficialJumpsuit
+  - CentCommOfficialJumpskirt
+
+- type: loadoutGroup
+  id: CentCommOperatorHats
+  name: loadout-group-centcomm-operator-head-hat
+  loadouts:
+  - HeadHatBeretCentcomNaval
+  - HeadHatCentcomcap
+
+- type: loadoutGroup
+  id: CentCommOperatorShoes
+  name: loadout-group-centcomm-shoes
+  loadouts:
+  - BlackShoes
+
+- type: loadoutGroup
+  id: CentCommOperatorGloves
+  name: loadout-group-centcomm-gloves
+  loadouts:
+  - LatexGloves
+  - SunriseBlackGloves
+
+- type: loadoutGroup
+  id: CentCommOperatorOuter
+  name: loadout-group-centcomm-outer
+  loadouts:
+  - CentcommArmor
+
+- type: loadoutGroup
+  id: CentCommOperatorNeck
+  name: loadout-group-centcomm-neck
+  loadouts: []
+
+- type: loadoutGroup
+  id: CentCommOperatorBack
+  name: loadout-group-centcomm-back
+  loadouts: []
+
+- type: loadoutGroup
+  id: CentCommOperatorEyes
+  name: loadout-group-centcomm-eyes
+  loadouts: []
+
+- type: loadoutGroup
+  id: CentCommOperatorWeapons
+  name: loadout-group-centcomm-weapons
+  loadouts: []
+
+- type: loadoutGroup
+  id: CentCommJobTrinkets
+  name: loadout-group-centcomm-trinkets
+  loadouts: []

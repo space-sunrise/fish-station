@@ -48898,6 +48898,8 @@ entities:
     - type: Clothing
       inSlot: mask
       inSlotFlag: MASK
+    - type: DiseaseImmuneClothing
+      isActive: True
     - type: Physics
       canCollide: False
 - proto: ClothingMaskGasMerc
@@ -87572,6 +87574,8 @@ entities:
           ent: 6628
     - type: Physics
       bodyType: Static
+    - type: DiseaseTempImmune
+      prob: 0.35
 - proto: MaterialCloth
   entities:
   - uid: 12228
