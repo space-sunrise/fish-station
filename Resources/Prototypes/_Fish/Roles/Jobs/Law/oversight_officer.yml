@@ -40,7 +40,7 @@
     pocket2: PenCentcom
   storage:
     back:
-    # - ClothingOuterHardsuitNTRG
+    #  - ClothingOuterHardsuitNTRG
     - CrowbarRed
 
 - type: entity
