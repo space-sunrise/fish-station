@@ -1,0 +1,201 @@
+- type: gasReaction
+  id: ZenthiumSynthesis
+  priority: 2
+  minimumTemperature: 500
+  maximumTemperature: 20000
+  minimumRequirements:
+    frezon: 0.8   # frezon
+    healium: 0.2   # healium
+  effects:
+  - !type:ZenthiumSynthesisReaction {}
+
+- type: gasReaction
+  id: KrypiumSynthesis
+  priority: 3
+  minimumTemperature: 50
+  maximumTemperature: 100
+  minimumRequirements:
+    plasma: 0.9   # plasma
+    BZ: 0.3   # bz
+    healium: 0.3   # healium
+  effects:
+  - !type:KrypiumSynthesisReaction {}
+
+- type: gasReaction
+  id: PralliumSynthesis
+  priority: 2
+  minimumTemperature: 5000
+  maximumPressure: 800
+  minimumRequirements:
+    oxygen: 0.4   # oxygen
+    CarbonDioxide: 0.2   # carbon dioxide
+    nitrium: 0.2   # nitrium
+  effects:
+  - !type:PralliumSynthesisReaction {}
+
+- type: gasReaction
+  id: ChaosonSynthesis
+  priority: 3
+  maximumTemperature: 50
+  minimumRequirements:
+    NitrousOxide: 1.2   # n2o
+    frezon: 0.8   # frezon
+  effects:
+  - !type:ChaosonSynthesisReaction {}
+
+- type: gasReaction
+  id: GarodinSynthesis
+  priority: 2
+  minimumTemperature: 10000
+  maximumTemperature: 20000
+  minimumRequirements:
+    plasma: 0.05  # plasma
+    frezon: 0.05  # frezon
+  effects:
+  - !type:GarodinSynthesisReaction {}
+
+- type: gasReaction
+  id: BaratriumSynthesis
+  priority: 2
+  minimumTemperature: 500
+  maximumTemperature: 600
+  minimumRequirements:
+    tritium: 0.1   # tritium
+    garodin: 0.1   # garodin
+  effects:
+  - !type:BaratriumSynthesisReaction {}
+
+- type: gasReaction
+  id: EthyliumSynthesis
+  priority: 3
+  minimumPressure: 400
+  minimumRequirements:
+    Nitrogen: 0.2   # 1  Nitrogen
+    WaterVapor: 0.2   # 5  WaterVapor
+    Prallium: 0.4   # 14 Prallium (катализатор)
+    Garodin: 0.2   # 16 Garodin
+  effects:
+  - !type:EthyliumSynthesisReaction {}
+
+- type: gasReaction
+  id: ZimmeraSynthesis
+  priority: 3
+  maximumTemperature: 70
+  minimumPressure: 1000
+  minimumRequirements:
+    Oxygen: 0.2   # 0  Oxygen
+    CarbonDioxide: 0.2   # 2  CarbonDioxide
+    Garodin: 0.2   # 16 Garodin
+  effects:
+  - !type:ZimmeraSynthesisReaction {}
+
+- type: gasReaction
+  id: FramelSynthesis
+  priority: 3
+  minimumTemperature: 100
+  maximumTemperature: 200
+  minimumRequirements:
+    Healium: 0.4   # 10 Healium
+    Nitrium: 0.4   # 11 Nitrium
+    Garodin: 0.2   # 16 Garodin
+  effects:
+  - !type:FramelSynthesisReaction {}
+
+- type: gasReaction
+  id: KlemennonSynthesis
+  priority: 3
+  minimumTemperature: 0
+  maximumTemperature: 100
+  minimumPressure: 2000
+  minimumRequirements:
+    NitrousOxide: 0.4   # 7 NitrousOxide (N2O)
+    Nitrium: 0.4   # 11 Nitrium
+    Garodin: 0.2   # 16 Garodin
+  effects:
+  - !type:KlemennonSynthesisReaction {}
+
+- type: gasReaction
+  id: ProtoultimiumSynthesis
+  priority: 4
+  minimumPressure: 15000
+  minimumRequirements:
+    WaterVapor: 0.5   # 5 WaterVapor
+    Ammonia: 0.2   # 6 Ammonia
+    Garodin: 0.3   # 16 Garodin
+  effects:
+  - !type:ProtoUltimiumSynthesisReaction {}
+
+- type: gasReaction
+  id: ProtoUltimiumDecomposition
+  priority: 0
+  maximumPressure: 200
+  minimumRequirements:
+    ProtoUltimium: 0.01
+  effects:
+  - !type:ProtoUltimiumDecompositionReaction {}
+
+- type: gasReaction
+  id: ZimmerousFrezoniteSynthesis
+  priority: 4
+  maximumTemperature: 50
+  minimumRequirements:
+    frezon: 0.5   # frezon
+    zimmera: 0.5     # zimmera
+  effects:
+  - !type:ZimmerousFrezoniteSynthesisReaction {}
+
+- type: gasReaction
+  id: ZimmerousFrezoniteCoolant
+  priority: 5
+  minimumTemperature: 15
+  minimumRequirements:
+    Nitrogen: 0.01
+    ZimmerousFrezonite: 0.01
+  effects:
+  - !type:ZimmerousFrezoniteCoolantReaction {}
+
+- type: gasReaction
+  id: AntiUltimiumSynthesis
+  priority: 5
+  minimumTemperature: 40000
+  minimumRequirements:
+    Zenthium: 0.1   # 12 Zenthium
+    Krypium: 0.1   # 13 Krypium
+    Prallium: 0.1   # 14 Prallium
+    Chaoson: 0.1   # 15 Chaoson
+    Garodin: 0.1   # 16 Garodin
+    Baratrium: 0.1   # 17 Baratrium
+    Ethylium: 0.1   # 18 Ethylium
+    Zimmera: 0.1   # 19 Zimmera
+    Framel: 0.1   # 20 Framel
+    Klemennon: 0.1   # 21 Klemennon
+    Protoultimium: 0.1   # 22 Protoultimium
+  effects:
+  - !type:AntiUltimiumSynthesisReaction {}
+
+- type: gasReaction
+  id: UltimiumSynthesis
+  priority: 6
+  maximumTemperature: 20
+  minimumRequirements:
+    antiultimium: 0.01
+  effects:
+  - !type:UltimiumSynthesisReaction {}
+
+- type: gasReaction
+  id: PermafrostCoolant
+  priority: 6
+  minimumTemperature: 5
+  minimumRequirements:
+    permafrost: 0.01
+  effects:
+  - !type:PermafrostCoolantReaction {}
+
+- type: gasReaction
+  id: PermafrostDecomposition
+  priority: 6
+  maximumTemperature: 50
+  minimumRequirements:
+    permafrost: 0.01
+  effects:
+  - !type:PermafrostDecompositionReaction {}
