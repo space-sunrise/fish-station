@@ -257,7 +257,7 @@
   name: reagent-name-ethylium
   desc: reagent-desc-ethylium
   physicalDesc: reagent-physical-desc-gaseous
-  flavor: alcoholic
+  flavor: alcohol
   color: "#ff1493"
   metabolisms:
     Gas:
@@ -705,8 +705,8 @@
   id: Riminon
   name: reagent-name-riminon
   desc: reagent-desc-riminon
-  physicalDesc: reagent-physical-desc-suspicious
-  flavor: suspicious
+  physicalDesc: reagent-physical-desc-neural
+  flavor: mindful
   color: "#ff00ff"
   metabolisms:
     Gas:
