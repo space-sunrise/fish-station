@@ -4,7 +4,7 @@ reagent-desc-zenthium = поговаривают, что этот газ леч�
 reagent-name-krypium = Крипиум
 reagent-desc-krypium = Тяжёлый газ, который выводит радиацию из организма, нейтрализуя её. До сих пор идут споры, как это происходит.
 
-reagent-name-prallium = Праллиум
+reagent-name-prallium = Праллий
 reagent-desc-prallium = Лёгкий для вдыхания газ, который буквально является улучшенной версией плюоксиума. Приятный при вдыхании.
 
 reagent-name-chaoson = Хаосон
@@ -13,7 +13,7 @@ reagent-desc-chaoson = Сильно действующий нейродиста�
 reagent-name-garodin = Гародин
 reagent-desc-garodin = Следующая ступень в синтезе газов, после плазмы, и такой же загадочный. Является основным компонентом для многих газов.
 
-reagent-name-baratrium = Баратриум
+reagent-name-baratrium = Баратрий
 reagent-desc-baratrium = Довольно интересный газ, который создаёт защитную оболочку в клетках крови, не позволяя выпускать недостающее давление.
 
 reagent-name-ethylium = Этилиум
@@ -34,7 +34,7 @@ reagent-desc-protoultimium = Газ создавался как реагент �
 reagent-name-zimmerousfrezonite = Фрезонит Циммеры
 reagent-desc-zimmerousfrezonite = Следующая ступень в развитии газов гипер-низких температур после фрезона.
 
-reagent-name-anti-ultimium = Анти-Ультимиум.
+reagent-name-anti-ultimium = Анти-Ультимиум
 reagent-desc-anti-ultimium = Печально известный газ, который является одним из самых опасных известных. Вызывает сильную деструкцию живого организма. Газ военного назначения.
 
 reagent-name-ultimium = Ультимиум
@@ -51,10 +51,10 @@ reagent-desc-axonoblium = Является старшим братом гипе�
 
 gases-zenthium = Зентиум
 gases-krypium = Крипиум
-gases-prallium = Праллиум
+gases-prallium = Праллий
 gases-chaoson = Хаосон
 gases-garodin = Гародин
-gases-baratrium = Баратриум
+gases-baratrium = Баратрий
 gases-ethylium = Этилиум
 gases-zimmera = Циммера
 gases-framel = Фрамель

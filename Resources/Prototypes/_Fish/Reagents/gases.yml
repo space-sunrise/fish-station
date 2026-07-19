@@ -492,7 +492,7 @@
   id: AntiUltimium
   name: reagent-name-anti-ultimium
   desc: reagent-desc-anti-ultimium
-  physicalDesc: reagent-physical-desc-unstable
+  physicalDesc: reagent-physical-desc-volatile
   flavor: bitter
   color: "#1a1a1a"
   metabolisms:
@@ -609,7 +609,7 @@
   id: Permafrost
   name: reagent-name-permafrost
   desc: reagent-desc-permafrost
-  physicalDesc: reagent-physical-desc-divine
+  physicalDesc: reagent-physical-desc-cold
   flavor: sweet
   color: "#43ddff"
   metabolisms:
