@@ -39,6 +39,25 @@
       AntiNoblium: danger
       Electrovae: danger
       ChargedElectrovae: danger
+      #Fish - Start
+      Zenthium: danger
+      Krypium: unwanted
+      Prallium: unwanted
+      Chaoson: danger
+      Garodin: danger
+      Baratrium: unwanted
+      Ethylium: unwanted
+      Zimmera: danger
+      Framel: unwanted
+      Klemennon: danger
+      ProtoUltimium: danger
+      ZimmerousFrezonite: danger
+      AntiUltimium: danger
+      Ultimium: unwanted
+      Permafrost: danger
+      Riminon: unwanted
+      AxoNoblium: unwanted
+      #Fish - End
   - type: Tag
     tags:
     - AirSensor

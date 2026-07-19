@@ -174,18 +174,30 @@
   molarMass: 92
   color: 43ddff
   reagent: Permafrost
-  pricePerMole: 20.0
+  pricePerMole: 2.0
   gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
   gasOverlayState: bz
 
 - type: gas
   id: Riminon
   name: gases-riminon
-  specificHeat: 62
+  specificHeat: 69
   heatCapacityRatio: 1.18
-  molarMass: 92
+  molarMass: 420
   color: a5f2ff
   reagent: Riminon
-  pricePerMole: 10.0
+  pricePerMole: 69.0
+  gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
+  gasOverlayState: bz
+
+- type: gas
+  id: AxoNoblium
+  name: gases-axonoblium
+  specificHeat: 42
+  heatCapacityRatio: 1.35
+  molarMass: 48
+  color: ff4500
+  reagent: AxoNoblium
+  pricePerMole: 6.0
   gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
   gasOverlayState: bz

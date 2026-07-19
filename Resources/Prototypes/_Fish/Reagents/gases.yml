@@ -79,7 +79,7 @@
         - !type:ReagentCondition
           reagent: Krypium
           min: 1.5
-        jitteriness: 120
+        Amplitude: 120
 
 - type: reagent
   id: Prallium
@@ -390,11 +390,11 @@
       - !type:ModifyStatusEffect
         effectProto: StatusEffectStunned
         time: 0.5
-        Type: Remove
+        type: Remove
       - !type:ModifyStatusEffect
         effectProto: StatusEffectKnockDown
         time: 0.5
-        Type: Remove
+        type: Remove
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
@@ -512,16 +512,16 @@
         ignoreResistances: true
         damage:
           types:
-            Slash: 0.2
-            Piercing: 0.2
-            Blunt: 0.2
-            Poison: 0.2
-            Radiation: 0.2
-            Cellular: 0.2
-            Shock: 0.2
-            Heat: 0.2
-            Asphyxiation: 0.2
-            Bloodloss: 0.2
+            Slash: 0.5
+            Piercing: 0.5
+            Blunt: 0.5
+            Poison: 0.5
+            Radiation: 0.5
+            Cellular: 0.5
+            Shock: 0.5
+            Heat: 0.5
+            Asphyxiation: 0.5
+            Bloodloss: 0.5
       - !type:PopupMessage
         conditions:
         - !type:ReagentCondition
@@ -640,36 +640,136 @@
         messages: [ "Вы чувствуете невероятное облегчение во всём теле", "Все раны и боль быстро отступают" ]
         probability: 0.15
 
+# - type: reagent
+#   id: Riminon
+#   name: reagent-name-riminon
+#   desc: reagent-desc-riminon
+#   physicalDesc: reagent-physical-desc-frosty
+#   flavor: cold
+#   color: "#a5f2ff"
+#   metabolisms:
+#     Gas:
+#       metabolismRate: 0.4
+#       effects:
+#       # - !type:GenericStatusEffect
+#       #   conditions:
+#       #   - !type:ReagentCondition
+#       #     reagent: Riminon
+#       #     min: 0.25
+#       #   key: RiminonTemperatureResistance
+#       #   component: RiminonTemperatureResistance
+#       #   type: Add
+#       #   time: 6.0
+#       # - !type:ModifyStatusEffect
+#       #   effectProto: StatusEffectRiminonResistance
+#       #   time: 5.0
+#       #   Type: Remove
+#       - !type:PopupMessage
+#         conditions:
+#         - !type:ReagentCondition
+#           reagent: Riminon
+#           min: 0.3
+#         type: Local
+#         visualType: Medium
+#         messages: [ "Вы чувствуете, как тело становится устойчивее к холоду" ]
+#         probability: 0.1
+
+- type: reagent
+  id: AxoNoblium
+  name: reagent-name-axonoblium
+  desc: reagent-desc-axonoblium
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#ff4500"
+  metabolisms:
+    Gas:
+      metabolismRate: 0.6
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: AxoNoblium
+          min: 0.3
+        scaling: true
+        ignoreResistances: true
+        damage:
+          types:
+            Heat: 2.0
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentCondition
+          reagent: AxoNoblium
+          min: 0.3
+        type: Local
+        visualType: Medium
+        messages: [ "Вы чувствуете как ваши лёгкие выгорают!" ]
+        probability: 0.1
+
 - type: reagent
   id: Riminon
   name: reagent-name-riminon
   desc: reagent-desc-riminon
-  physicalDesc: reagent-physical-desc-frosty
-  flavor: cold
-  color: "#a5f2ff"
+  physicalDesc: reagent-physical-desc-suspicious
+  flavor: suspicious
+  color: "#ff00ff"
   metabolisms:
     Gas:
-      metabolismRate: 0.4
+      metabolismRate: 1
       effects:
       # - !type:GenericStatusEffect
       #   conditions:
       #   - !type:ReagentCondition
       #     reagent: Riminon
-      #     min: 0.25
-      #   key: RiminonTemperatureResistance
-      #   component: RiminonTemperatureResistance
+      #     min: 0.3
+      #   key: SeeingRainbows
+      #   component: SeeingRainbows
       #   type: Add
-      #   time: 6.0
-      # - !type:ModifyStatusEffect
-      #   effectProto: StatusEffectRiminonResistance
-      #   time: 5.0
-      #   Type: Remove
+      #   time: 15
+      - !type:MovementSpeedModifier
+        conditions:
+        - !type:ReagentCondition
+          reagent: Zenthium
+          min: 0.4
+        walkSpeedModifier: 0.5
+        sprintSpeedModifier: 0.5
+      - !type:HealthChange
+        ignoreResistances: true
+        damage:
+          types:
+            Cellular: 1
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 15
+      - !type:Drunk
+        boozePower: 15
+      - !type:Oxygenate
+        factor: 1
       - !type:PopupMessage
         conditions:
         - !type:ReagentCondition
           reagent: Riminon
-          min: 0.3
+          min: 0.1
         type: Local
-        visualType: Medium
-        messages: [ "Вы чувствуете, как тело становится устойчивее к холоду" ]
-        probability: 0.1
+        visualType: Large
+        messages: 
+          [
+          "Вы словили ОЧЕНЬ сильный трип",
+          "Робастность покидает вас...",
+          "Апстрим 'завтра'",
+          "ЭСы - это миф. Эсов не существует",
+          "Вы словили ОЧЕНЬ сильный трип",
+          "Не баг, это фича",
+          "Спектр вульпа",
+          "Разработчики тоже люди",
+          "Вы словили ОЧЕНЬ сильный трип",
+          "Антажко ликвидировано",
+          "ТЕСЛАЛУУУУУУУУУУЗ",
+          "когда-нибудь вам выпадет ядер",
+          "Вы словили ОЧЕНЬ сильный трип",
+          "Админы уже в курсе",
+          "Я делал эти газы слишком долго...",
+          "jgznm yt gjvtyzk hfcrkflre!!!",
+          "Вы словили ОЧЕНЬ сильный трип"
+          ]
+        probability: 1

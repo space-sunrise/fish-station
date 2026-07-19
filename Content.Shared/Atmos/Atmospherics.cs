@@ -209,6 +209,7 @@ namespace Content.Shared.Atmos
             [Gas.Ultimium] = Loc.GetString("gas-ultimium-abbreviation"), 
             [Gas.Permafrost] = Loc.GetString("gas-permafrost-abbreviation"), 
             [Gas.Riminon] = Loc.GetString("gas-riminon-abbreviation"),
+            [Gas.AxoNoblium] = Loc.GetString("gas-axonoblium-abbreviation"),
             //Fish - End
         };
 
@@ -239,7 +240,7 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     Total number of gases. Increase this if you want to add more!
         /// </summary>
-        public const int TotalNumberOfGases = 38; //SunRise edit
+        public const int TotalNumberOfGases = 39; //SunRise edit
 
         /// <summary>
         ///     This is the actual length of the gases arrays in mixtures.
@@ -438,21 +439,24 @@ namespace Content.Shared.Atmos
         Electrovae = 20,
         ChargedElectrovae = 21,
         //Sunrise - End
-        Zenthium = 22, //Fish edit
-        Krypium = 23, //Fish edit
-        Prallium = 24, //Fish edit
-        Chaoson = 25, //Fish edit
-        Garodin = 26, //Fish edit
-        Baratrium = 27, //Fish edit
-        Ethylium = 28, //Fish edit
-        Zimmera = 29, //Fish edit
-        Framel = 30, //Fish edit
-        Klemennon = 31, //Fish edit
-        ProtoUltimium = 32, //Fish edit
-        ZimmerousFrezonite = 33, //Fish edit
-        AntiUltimium = 34, //Fish edit
-        Ultimium = 35, //Fish edit
-        Permafrost = 36, //Fish edit
-        Riminon = 37 //Fish edit
+        //Fish - Start
+        Zenthium = 22,
+        Krypium = 23,
+        Prallium = 24,
+        Chaoson = 25,
+        Garodin = 26,
+        Baratrium = 27,
+        Ethylium = 28,
+        Zimmera = 29,
+        Framel = 30,
+        Klemennon = 31,
+        ProtoUltimium = 32,
+        ZimmerousFrezonite = 33,
+        AntiUltimium = 34,
+        Ultimium = 35,
+        Permafrost = 36,
+        Riminon = 37,
+        AxoNoblium = 38
+        //Fish - End
     }
 }

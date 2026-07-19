@@ -21,18 +21,18 @@ public sealed partial class PermafrostCoolantReaction : IGasReactionEffect
         float coolingPower;
         if (temperature > 50f)
         {
-            // Чем выше температура — тем сильнее охлаждает (но не переусердствуем)
+            // Чем выше температура - тем сильнее охлаждает
             coolingPower = 0.1f + (temperature - 50f) * 0.0002f;
             coolingPower = Math.Min(coolingPower, 6.0f);     // максимум при очень высокой температуре
         }
         else
         {
-            // Ниже 50 K — минимальная постоянная скорость охлаждения
+            // Ниже 50 K - минимальная постоянная скорость охлаждения
             coolingPower = 0.1f;
         }
 
         // Охлаждение
-        var energyAbsorbed = permafrost * 100f * coolingPower;   // умеренное значение
+        var energyAbsorbed = permafrost * 100f * coolingPower;
 
         var oldHeatCapacity = atmosphereSystem.GetHeatCapacity(mixture, true);
         var newHeatCapacity = atmosphereSystem.GetHeatCapacity(mixture, true);

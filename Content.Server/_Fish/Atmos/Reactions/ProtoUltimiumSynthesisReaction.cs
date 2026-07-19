@@ -23,8 +23,7 @@ public sealed partial class ProtoUltimiumSynthesisReaction : IGasReactionEffect
         if (vapor < 0.4f || garodin < 0.25f || ammonia < 0.15f)
             return ReactionResult.NoReaction;
 
-        // Медленная реакция
-        var efficiency = 0.45f;
+        var efficiency = 0.5f;
 
         var produce = new[] 
         { 
@@ -37,15 +36,15 @@ public sealed partial class ProtoUltimiumSynthesisReaction : IGasReactionEffect
             return ReactionResult.NoReaction;
 
         // Расход
-        mixture.AdjustMoles(Gas.WaterVapor, -produce * 2.1f);
-        mixture.AdjustMoles(Gas.Garodin,    -produce * 0.85f);
-        mixture.AdjustMoles(Gas.Ammonia,    -produce * 0.95f);
+        mixture.AdjustMoles(Gas.WaterVapor, -produce * 2.0f);
+        mixture.AdjustMoles(Gas.Garodin,    -produce * 0.8f);
+        mixture.AdjustMoles(Gas.Ammonia,    -produce * 0.9f);
 
-        // Производим Protoultimium
+        // Производим протоультимиум
         mixture.AdjustMoles(Gas.ProtoUltimium, produce);
 
-        // КРАЙНЕ ЭНДОТЕРМИЧЕСКАЯ реакция
-        var energyAbsorbed = produce * 1850f;   // сильное охлаждение
+        // сильно эндотермическая
+        var energyAbsorbed = produce * 1850f;
         var heatCap = atmosphereSystem.GetHeatCapacity(mixture, true);
 
         if (heatCap > Atmospherics.MinimumHeatCapacity)

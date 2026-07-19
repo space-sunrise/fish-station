@@ -18,23 +18,23 @@ public sealed partial class PermafrostDecompositionReaction : IGasReactionEffect
         if (temperature >= 50f || permafrost < 0.05f)
             return ReactionResult.NoReaction;
 
-        // Медленное разложение
-        var decompRate = (50f - temperature) * 0.102f;   // очень медленно
+        // медленное разложение
+        var decompRate = (50f - temperature) * 0.1f;   
 
         if (tritium > 0.04f)
         {
-            // При наличии трития — расходуется тритий вместо Permafrost
+            // при наличии трития - расходуется тритий вместо пермафроста
             var tritConsumed = Math.Min(decompRate * 0.75f, tritium);
             mixture.AdjustMoles(Gas.Tritium, -tritConsumed);
         }
         else
         {
-            // Разложение самого Permafrost
+            // Разложение самого пермафроста
             mixture.AdjustMoles(Gas.Permafrost, -decompRate);
-            mixture.AdjustMoles(Gas.Frezon, decompRate * 0.88f);
+            mixture.AdjustMoles(Gas.Frezon, decompRate * 0.8f);
         }
 
-        // Очень слабый нагрев (чтобы не была самоподдерживающейся)
+        // слабый нагрев (чтобы не была самоподдерживающейся, хотя делал давно, логику уже и не помню этой строки, может стоит убрать)
         var energyReleased = decompRate * 250f;
 
         var heatCap = atmosphereSystem.GetHeatCapacity(mixture, true);

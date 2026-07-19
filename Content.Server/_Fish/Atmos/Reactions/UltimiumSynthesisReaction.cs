@@ -19,19 +19,19 @@ public sealed partial class UltimiumSynthesisReaction : IGasReactionEffect
         if (antiultimium < 0.12f)
             return ReactionResult.NoReaction;
 
-        // Чем ниже температура — тем быстрее реакция
-        var efficiency = (25f - temperature) * 0.085f;   // очень сильная зависимость от холода
+        // чем ниже температура - тем быстрее реакция
+        var efficiency = (25f - temperature) * 0.06f;   // очень сильная зависимость от холода
 
         var produce = antiultimium * efficiency * 0.5f;
 
         if (produce < 0.05f)
             return ReactionResult.NoReaction;
 
-        mixture.AdjustMoles(Gas.AntiUltimium, -produce * 0.95f);
+        mixture.AdjustMoles(Gas.AntiUltimium, -produce * 0.9f);
 
         mixture.AdjustMoles(Gas.Ultimium, produce);
 
-        // Слегка экзотермическая (чуть-чуть греет)
+        // слегка экзотермическая
         var energyReleased = produce * 2000f;
         var heatCap = atmosphereSystem.GetHeatCapacity(mixture, true);
 

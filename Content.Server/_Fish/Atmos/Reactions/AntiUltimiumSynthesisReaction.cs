@@ -26,14 +26,15 @@ public sealed partial class AntiUltimiumSynthesisReaction : IGasReactionEffect
         var framel   = mixture.GetMoles(Gas.Framel);
         var klemennon = mixture.GetMoles(Gas.Klemennon);
         var protoult = mixture.GetMoles(Gas.ProtoUltimium);
+        var halon = mixture.GetMoles(Gas.Halon);
 
-        // Все 10 газов должны присутствовать в примерно равных количествах
+        // Все 11 газов должны присутствовать в примерно равных количествах
         if (zenthium < 0.08f || krypium < 0.08f || prallium < 0.08f || chaoson < 0.08f ||
             baratrium < 0.08f || ethylium < 0.08f || zimmera < 0.08f || framel < 0.08f ||
-            klemennon < 0.08f || protoult < 0.08f)
+            klemennon < 0.08f || protoult < 0.08f || halon < 0.08f)
             return ReactionResult.NoReaction;
 
-        var efficiency = 3.25f;
+        var efficiency = 3.0f;
 
         var produce = new[]
         {
@@ -46,13 +47,14 @@ public sealed partial class AntiUltimiumSynthesisReaction : IGasReactionEffect
             zimmera * efficiency,
             framel * efficiency,
             klemennon * efficiency,
-            protoult * efficiency
+            protoult * efficiency,
+            halon * efficiency
         }.Min();
 
         if (produce < 0.1f)
             return ReactionResult.NoReaction;
 
-        // Расход всех 10 газов (примерно поровну)
+        // Расход всех 11 газов (примерно поровну)
         mixture.AdjustMoles(Gas.Zenthium, -produce);
         mixture.AdjustMoles(Gas.Krypium, -produce);
         mixture.AdjustMoles(Gas.Prallium, -produce);
@@ -63,8 +65,9 @@ public sealed partial class AntiUltimiumSynthesisReaction : IGasReactionEffect
         mixture.AdjustMoles(Gas.Framel, -produce);
         mixture.AdjustMoles(Gas.Klemennon, -produce);
         mixture.AdjustMoles(Gas.ProtoUltimium, -produce);
+        mixture.AdjustMoles(Gas.Halon, -produce);
 
-        // Производим Ultimium
+        // Производим AntiUltimium
         mixture.AdjustMoles(Gas.AntiUltimium, produce);
 
         // Слегка экзотермическая

@@ -4,8 +4,8 @@
   minimumTemperature: 500
   maximumTemperature: 20000
   minimumRequirements:
-    frezon: 0.8   # frezon
-    healium: 0.2   # healium
+    Frezon: 0.8   # frezon
+    Healium: 0.2   # healium
   effects:
   - !type:ZenthiumSynthesisReaction {}
 
@@ -15,9 +15,9 @@
   minimumTemperature: 50
   maximumTemperature: 100
   minimumRequirements:
-    plasma: 0.9   # plasma
+    Plasma: 0.9   # plasma
     BZ: 0.3   # bz
-    healium: 0.3   # healium
+    Healium: 0.3   # healium
   effects:
   - !type:KrypiumSynthesisReaction {}
 
@@ -25,11 +25,12 @@
   id: PralliumSynthesis
   priority: 2
   minimumTemperature: 5000
-  maximumPressure: 800
+  # maximumPressure: 800
   minimumRequirements:
-    oxygen: 0.4   # oxygen
+    Oxygen: 0.4   # oxygen
     CarbonDioxide: 0.2   # carbon dioxide
-    nitrium: 0.2   # nitrium
+    Nitrium: 0.2   # nitrium
+    Pluoxium: 0.2
   effects:
   - !type:PralliumSynthesisReaction {}
 
@@ -39,7 +40,7 @@
   maximumTemperature: 50
   minimumRequirements:
     NitrousOxide: 1.2   # n2o
-    frezon: 0.8   # frezon
+    Frezon: 0.8   # frezon
   effects:
   - !type:ChaosonSynthesisReaction {}
 
@@ -49,8 +50,8 @@
   minimumTemperature: 10000
   maximumTemperature: 20000
   minimumRequirements:
-    plasma: 0.05  # plasma
-    frezon: 0.05  # frezon
+    Plasma: 0.05  # plasma
+    Frezon: 0.05  # frezon
   effects:
   - !type:GarodinSynthesisReaction {}
 
@@ -60,15 +61,15 @@
   minimumTemperature: 500
   maximumTemperature: 600
   minimumRequirements:
-    tritium: 0.1   # tritium
-    garodin: 0.1   # garodin
+    Tritium: 0.1   # tritium
+    Garodin: 0.1   # garodin
   effects:
   - !type:BaratriumSynthesisReaction {}
 
 - type: gasReaction
   id: EthyliumSynthesis
   priority: 3
-  minimumPressure: 400
+  # minimumPressure: 400
   minimumRequirements:
     Nitrogen: 0.2   # 1  Nitrogen
     WaterVapor: 0.2   # 5  WaterVapor
@@ -81,7 +82,7 @@
   id: ZimmeraSynthesis
   priority: 3
   maximumTemperature: 70
-  minimumPressure: 1000
+  # minimumPressure: 1000
   minimumRequirements:
     Oxygen: 0.2   # 0  Oxygen
     CarbonDioxide: 0.2   # 2  CarbonDioxide
@@ -98,6 +99,7 @@
     Healium: 0.4   # 10 Healium
     Nitrium: 0.4   # 11 Nitrium
     Garodin: 0.2   # 16 Garodin
+    Plueoxium: 0.2
   effects:
   - !type:FramelSynthesisReaction {}
 
@@ -106,7 +108,7 @@
   priority: 3
   minimumTemperature: 0
   maximumTemperature: 100
-  minimumPressure: 2000
+  # minimumPressure: 2000
   minimumRequirements:
     NitrousOxide: 0.4   # 7 NitrousOxide (N2O)
     Nitrium: 0.4   # 11 Nitrium
@@ -117,7 +119,7 @@
 - type: gasReaction
   id: ProtoultimiumSynthesis
   priority: 4
-  minimumPressure: 15000
+  # minimumPressure: 15000
   minimumRequirements:
     WaterVapor: 0.5   # 5 WaterVapor
     Ammonia: 0.2   # 6 Ammonia
@@ -128,7 +130,7 @@
 - type: gasReaction
   id: ProtoUltimiumDecomposition
   priority: 0
-  maximumPressure: 200
+  # maximumPressure: 200
   minimumRequirements:
     ProtoUltimium: 0.01
   effects:
@@ -139,8 +141,8 @@
   priority: 4
   maximumTemperature: 50
   minimumRequirements:
-    frezon: 0.5   # frezon
-    zimmera: 0.5     # zimmera
+    Frezon: 0.5   # frezon
+    Zimmera: 0.5     # zimmera
   effects:
   - !type:ZimmerousFrezoniteSynthesisReaction {}
 
@@ -178,7 +180,7 @@
   priority: 6
   maximumTemperature: 20
   minimumRequirements:
-    antiultimium: 0.01
+    Antiultimium: 0.01
   effects:
   - !type:UltimiumSynthesisReaction {}
 
@@ -187,7 +189,7 @@
   priority: 6
   minimumTemperature: 5
   minimumRequirements:
-    permafrost: 0.01
+    Permafrost: 0.01
   effects:
   - !type:PermafrostCoolantReaction {}
 
@@ -196,6 +198,52 @@
   priority: 6
   maximumTemperature: 50
   minimumRequirements:
-    permafrost: 0.01
+    Permafrost: 0.01
   effects:
   - !type:PermafrostDecompositionReaction {}
+
+- type: gasReaction
+  id: AxoNobliumSynthesis
+  priority: 3
+  minimumTemperature: 5000
+  # minimumPressure: 10000
+  minimumRequirements:
+    garodin: 0.3   # garodin
+    hydrogen: 0.1   # hydrogen
+  effects:
+  - !type:AxoNobliumSynthesisReaction {}
+
+- type: gasReaction
+  id: ANHN_WV
+  priority: 4
+  # maximumPressure: 100
+  minimumRequirements:
+    watervapor: 0.8   # 5 WaterVapor
+    axonoblium: 0.1  # 25 axonoblium
+    hypernoblium: 0.1  # 26 hypernoblium
+  effects:
+  - !type:ANHN_WV_Reaction {}
+
+- type: gasReaction
+  id: ANHN_O2_N2
+  priority: 4
+  maximumTemperature: 300
+  # minimumPressure: 0
+  minimumRequirements:
+    oxygen: 0.2   # 0 oxygen
+    nitrogen: 0.2   # 1 nitrogen
+    antinoblium: 0.1   # 25 axonoblium
+    hypernoblium: 0.1   # 26 hypernoblium
+  effects:
+  - !type:ANHN_O2_N2_Reaction {}
+
+- type: gasReaction
+  id: RiminonSynthesis
+  priority: 5
+  minimumRequirements:
+    frezon: 0.2   # frezon
+    bz: 0.2   # bz
+    healium: 0.15  # healium
+    nitrium: 0.15  # nitrium
+  effects:
+  - !type:RiminonSynthesisReaction {}

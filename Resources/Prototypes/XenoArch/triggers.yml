@@ -40,6 +40,25 @@
     TriggerProtoNitrate: 0.04
     TriggerHelium: 0.08
     # Sunrise-end
+    # Fish - Start
+    Zenthium: 0.01
+    Krypium: 0.01
+    Prallium: 0.01
+    Chaoson: 0.01
+    Garodin: 0.01
+    Baratrium: 0.01
+    Ethylium: 0.01
+    Zimmera: 0.01
+    Framel: 0.01
+    Klemennon: 0.01
+    ProtoUltimium: 0.01
+    ZimmerousFrezonite: 0.01
+    AntiUltimium: 0.01
+    Ultimium: 0.01
+    Permafrost: 0.01
+    Riminon: 0.01
+    AxoNoblium: 0.01
+    # Fish - End
 
 - type: xenoArchTrigger
   id: TriggerMusic
