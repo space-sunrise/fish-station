@@ -1,0 +1,16 @@
+xenoarch-trigger-tip-krypium = Крипиум
+xenoarch-trigger-tip-prallium = Праллиум
+xenoarch-trigger-tip-chaoson = Хаосон
+xenoarch-trigger-tip-garodin = Гародин
+xenoarch-trigger-tip-baratrium = Баратриум
+xenoarch-trigger-tip-ethylium = Этилиум
+xenoarch-trigger-tip-zimmera = Циммера
+xenoarch-trigger-tip-framel = Фрамель
+xenoarch-trigger-tip-klemennon = Клеменнон
+xenoarch-trigger-tip-proto-ultimium = Прото-Ультимиум
+xenoarch-trigger-tip-zimmerous-frezonite = Фрезонит-Циммеры
+xenoarch-trigger-tip-anti-ultimium = Анти-Ультимиум
+xenoarch-trigger-tip-ultimium = Ультимиум
+xenoarch-trigger-tip-permafrost = Пермафрост
+xenoarch-trigger-tip-riminon = Райминон
+xenoarch-trigger-tip-axo-noblium = Аксо-Ноблий

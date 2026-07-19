@@ -437,7 +437,7 @@
   id: ProtoUltimium
   name: reagent-name-protoultimium
   desc: reagent-desc-protoultimium
-  physicalDesc: reagent-physical-desc-unstable
+  physicalDesc: reagent-physical-desc-necrotic
   flavor: bitter
   color: "#b85959"
   metabolisms:
@@ -532,7 +532,7 @@
   id: Ultimium
   name: reagent-name-ultimium
   desc: reagent-desc-ultimium
-  physicalDesc: reagent-physical-desc-divine
+  physicalDesc: reagent-physical-desc-starry
   flavor: sweet
   color: "#62ff43"
   metabolisms:

@@ -218,7 +218,7 @@
   priority: 4
   # maximumPressure: 100
   minimumRequirements:
-    WaterBapor: 0.8   # 5 WaterVapor
+    WaterVapor: 0.8   # 5 WaterVapor
     AxoNoblium: 0.1  # 25 axonoblium
     HyperNoblium: 0.1  # 26 hypernoblium
   effects:

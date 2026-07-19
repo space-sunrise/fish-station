@@ -28,11 +28,11 @@ reagent-desc-framel = Восстанавливающий газ. Использ�
 reagent-name-klemennon = Клеменнон
 reagent-desc-klemennon = Клеменнон является предсшественником электровея. Он неспособен заряжать технику, но создаёт сильное статическое напряжение внутри живых организмов.
 
-reagent-name-proto-ultimium = Прото-Ультимиум
-reagent-desc-proto-ultimium = Газ создавался как реагент для последующего синтеза ультимиума - газа военного назначения. Сильно ядовит.
+reagent-name-protoultimium = Прото-Ультимиум
+reagent-desc-protoultimium = Газ создавался как реагент для последующего синтеза ультимиума - газа военного назначения. Сильно ядовит.
 
-reagent-name-zimmerous-frezonite = Фрезонит Циммеры
-reagent-desc-zimmerous-frezonite = Следующая ступень в развитии газов гипер-низких температур после фрезона.
+reagent-name-zimmerousfrezonite = Фрезонит Циммеры
+reagent-desc-zimmerousfrezonite = Следующая ступень в развитии газов гипер-низких температур после фрезона.
 
 reagent-name-anti-ultimium = Анти-Ультимиум.
 reagent-desc-anti-ultimium = Печально известный газ, который является одним из самых опасных известных. Вызывает сильную деструкцию живого организма. Газ военного назначения.
@@ -46,8 +46,8 @@ reagent-desc-permafrost = Загадочный газ, добывающийся 
 reagent-name-riminon = Райминон
 reagent-desc-riminon = Такой же загадочный газ, как и плазма, но является сильным наркотиком. Поговаривают, что он связан с другими вселенными.
 
-reagent-name-axo-noblium = Аксо-Ноблий
-reagent-desc-axo-noblium = Является старшим братом гипер-ноблия и способен останавливать реакции-производные от гардониа.
+reagent-name-axonoblium = Аксо-Ноблий
+reagent-desc-axonoblium = Является старшим братом гипер-ноблия и способен останавливать реакции-производные от гардониа.
 
 gases-zenthium = Зентиум
 gases-krypium = Крипиум
@@ -59,10 +59,10 @@ gases-ethylium = Этилиум
 gases-zimmera = Циммера
 gases-framel = Фрамель
 gases-klemennon = Клеменнон
-gases-proto-ultimium = Прото-Ультимиум
-gases-zimmerous-frezonite = Фрезонит Циммеры
+gases-protoultimium = Прото-Ультимиум
+gases-zimmerousfrezonite = Фрезонит Циммеры
 gases-anti-ultimium = Анти-Ультимиум
 gases-ultimium = Ультимиум
 gases-permafrost = Пермафрост
 gases-riminon = Райминон
-gases-axo-noblium = Аксо-Ноблий
+gases-axonoblium = Аксо-Ноблий
