@@ -78,8 +78,7 @@
         conditions:
         - !type:ReagentCondition
           reagent: Krypium
-          min: 1.5
-        Amplitude: 120
+          min: 1.5  
 
 - type: reagent
   id: Prallium
@@ -183,7 +182,6 @@
         - !type:ReagentCondition
           reagent: Chaoson
           min: 1.1
-        jitteriness: 90
       # Полиморф в ящерицу при очень высокой концентрации
       - !type:Polymorph
         conditions:
@@ -297,7 +295,6 @@
         - !type:ReagentCondition
           reagent: Ethylium
           min: 1.2
-        jitteriness: 70
 
 - type: reagent
   id: Zimmera
@@ -410,7 +407,6 @@
         - !type:ReagentCondition
           reagent: Klemennon
           min: 0.5
-        jitteriness: 140
       - !type:PopupMessage
         conditions:
         - !type:ReagentCondition

@@ -41,23 +41,23 @@
     TriggerHelium: 0.08
     # Sunrise-end
     # Fish - Start
-    Zenthium: 0.01
-    Krypium: 0.01
-    Prallium: 0.01
-    Chaoson: 0.01
-    Garodin: 0.01
-    Baratrium: 0.01
-    Ethylium: 0.01
-    Zimmera: 0.01
-    Framel: 0.01
-    Klemennon: 0.01
-    ProtoUltimium: 0.01
-    ZimmerousFrezonite: 0.01
-    AntiUltimium: 0.01
-    Ultimium: 0.01
-    Permafrost: 0.01
-    Riminon: 0.01
-    AxoNoblium: 0.01
+    TriggerZenthium: 0.01
+    TriggerKrypium: 0.01
+    TriggerPrallium: 0.01
+    TriggerChaoson: 0.01
+    TriggerGarodin: 0.01
+    TriggerBaratrium: 0.01
+    TriggerEthylium: 0.01
+    TriggerZimmera: 0.01
+    TriggerFramel: 0.01
+    TriggerKlemennon: 0.01
+    TriggerProtoUltimium: 0.01
+    TriggerZimmerousFrezonite: 0.01
+    TriggerAntiUltimium: 0.01
+    TriggerUltimium: 0.01
+    TriggerPermafrost: 0.01
+    TriggerRiminon: 0.01
+    TriggerAxoNoblium: 0.01
     # Fish - End
 
 - type: xenoArchTrigger
