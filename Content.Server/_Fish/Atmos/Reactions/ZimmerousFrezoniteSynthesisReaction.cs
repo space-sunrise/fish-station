@@ -11,6 +11,10 @@ public sealed partial class ZimmerousFrezoniteSynthesisReaction : IGasReactionEf
 {
     public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
     {
+        var initialAxoNoblium = mixture.GetMoles(Gas.AxoNoblium);
+        if (initialAxoNoblium >= 5.0f)
+            return ReactionResult.NoReaction;
+            
         var temperature = mixture.Temperature;
         if (temperature > 50f)
             return ReactionResult.NoReaction;
@@ -29,15 +33,15 @@ public sealed partial class ZimmerousFrezoniteSynthesisReaction : IGasReactionEf
         if (produce < 0.08f)
             return ReactionResult.NoReaction;
 
-        // Расход 50/50
-        mixture.AdjustMoles(Gas.Frezon, -produce * 0.5f);
-        mixture.AdjustMoles(Gas.Zimmera, -produce * 0.5f);
+        // расход 50/50
+        mixture.AdjustMoles(Gas.Frezon, -produce * 2f);
+        mixture.AdjustMoles(Gas.Zimmera, -produce * 2f);
 
-        // Производим ZimmerousFrezonite
+        // производим
         mixture.AdjustMoles(Gas.ZimmerousFrezonite, produce);
 
-        // КРАЙНЕ ЭНДОТЕРМИЧЕСКАЯ реакция — очень сильное охлаждение
-        var energyAbsorbed = produce * 28500f;     // сильно увеличил по сравнению с обычным фрезоном
+        // сильно эндотермическая
+        var energyAbsorbed = produce * 25000f;
 
         var heatCap = atmosphereSystem.GetHeatCapacity(mixture, true);
         if (heatCap > Atmospherics.MinimumHeatCapacity)

@@ -19,12 +19,10 @@ public sealed partial class GarodinSynthesisReaction : IGasReactionEffect
         var plasma = mixture.GetMoles(Gas.Plasma);
         var frezon = mixture.GetMoles(Gas.Frezon);
 
-        // низкий порог запуска 
         if (plasma < 0.05f || frezon < 0.05f)
             return ReactionResult.NoReaction;
 
-        // Соотношение примерно 75% Plasma + 25% Frezon
-        var efficiency = 2.8f;
+        var efficiency = 3.0f;
 
         var maxFromPlasma = plasma * efficiency * 0.75f;
         var maxFromFrezon = frezon * efficiency * 0.25f;
@@ -35,7 +33,7 @@ public sealed partial class GarodinSynthesisReaction : IGasReactionEffect
             return ReactionResult.NoReaction;
 
         // Потребляем
-        var consPlasma = produce / efficiency * 0.75f * 1.15f; // чуть больше расход плазмы
+        var consPlasma = produce / efficiency * 0.75f * 1.2f;
         var consFrezon = produce / efficiency * 0.25f;
 
         mixture.AdjustMoles(Gas.Plasma, -consPlasma);
@@ -43,8 +41,8 @@ public sealed partial class GarodinSynthesisReaction : IGasReactionEffect
 
         mixture.AdjustMoles(Gas.Garodin, produce);
 
-        // сильно эндотермическая реакция — температура резко падает
-        var energyAbsorbed = produce * 12000f;   // очень сильное охлаждение
+        // сильно эндотермическая
+        var energyAbsorbed = produce * 12000f;
         var heatCap = atmosphereSystem.GetHeatCapacity(mixture, true);
 
         if (heatCap > Atmospherics.MinimumHeatCapacity)

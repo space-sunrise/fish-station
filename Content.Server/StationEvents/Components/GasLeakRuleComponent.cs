@@ -27,8 +27,15 @@ public sealed partial class GasLeakRuleComponent : Component
         Gas.Helium,
         Gas.AntiNoblium,
         Gas.Electrovae,
-        Gas.ChargedElectrovae
+        Gas.ChargedElectrovae,
         //Sunrise - End
+        //Fish - Start
+        Gas.Zenthium,
+        Gas.Prallium,
+        Gas.Chaoson,
+        Gas.Garodin,
+        Gas.Ethylium
+        //Fish - End
     };
 
     /// <summary>

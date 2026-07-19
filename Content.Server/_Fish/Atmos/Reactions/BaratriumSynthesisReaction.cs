@@ -12,6 +12,10 @@ public sealed partial class BaratriumSynthesisReaction : IGasReactionEffect
 {
     public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
     {
+        var initialAxoNoblium = mixture.GetMoles(Gas.AxoNoblium);
+        if (initialAxoNoblium >= 5.0f)
+            return ReactionResult.NoReaction;
+            
         var temperature = mixture.Temperature;
         var pressure = mixture.Pressure;
 
@@ -19,12 +23,12 @@ public sealed partial class BaratriumSynthesisReaction : IGasReactionEffect
             return ReactionResult.NoReaction;
 
         var tritium = mixture.GetMoles(Gas.Tritium);
-        var garodin = mixture.GetMoles(Gas.Garodin);   // твой Garodin
+        var garodin = mixture.GetMoles(Gas.Garodin);
 
         if (tritium < 0.08f || garodin < 0.08f)
             return ReactionResult.NoReaction;
 
-        var efficiency = 3.2f;
+        var efficiency = 3.0f;
 
         var maxFromTritium = tritium * efficiency;
         var maxFromGarodin = garodin * efficiency;
@@ -42,11 +46,11 @@ public sealed partial class BaratriumSynthesisReaction : IGasReactionEffect
 
         mixture.AdjustMoles(Gas.Baratrium, produce);
 
-        // Немного азота как byproduct
+        // Немного азота как побочка
         mixture.AdjustMoles(Gas.Nitrogen, produce * 0.15f);
 
-        // Слабый нагрев (как ты просил "вырабатывает немного тепла")
-        var energyReleased = produce * 1800f;
+        // Слабый нагрев
+        var energyReleased = produce * 2000f;
         var heatCap = atmosphereSystem.GetHeatCapacity(mixture, true);
 
         if (heatCap > Atmospherics.MinimumHeatCapacity)

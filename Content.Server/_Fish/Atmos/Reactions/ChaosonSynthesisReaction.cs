@@ -12,6 +12,10 @@ public sealed partial class ChaosonSynthesisReaction : IGasReactionEffect
 {
     public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
     {
+        var initialAxoNoblium = mixture.GetMoles(Gas.AxoNoblium);
+        if (initialAxoNoblium >= 5.0f)
+            return ReactionResult.NoReaction;
+            
         var temperature = mixture.Temperature;
         var pressure = mixture.Pressure;
 
@@ -24,7 +28,7 @@ public sealed partial class ChaosonSynthesisReaction : IGasReactionEffect
         if (n2o < 1.0f || frezon < 0.7f)
             return ReactionResult.NoReaction;
 
-        var efficiency = 2.4f;
+        var efficiency = 2.5f;
 
         var maxFromN2O = n2o * efficiency;
         var maxFromFrezon = frezon * efficiency;
@@ -42,7 +46,7 @@ public sealed partial class ChaosonSynthesisReaction : IGasReactionEffect
 
         mixture.AdjustMoles(Gas.Chaoson, produce);
 
-        // Лёгкий нагрев
+        // легкий нагрев
         var energyReleased = produce * 1200f;
         var heatCap = atmosphereSystem.GetHeatCapacity(mixture, true);
 
