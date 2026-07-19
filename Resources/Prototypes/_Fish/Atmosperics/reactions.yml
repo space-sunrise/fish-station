@@ -99,7 +99,7 @@
     Healium: 0.4   # 10 Healium
     Nitrium: 0.4   # 11 Nitrium
     Garodin: 0.2   # 16 Garodin
-    Plueoxium: 0.2
+    Pluoxium: 0.2
   effects:
   - !type:FramelSynthesisReaction {}
 
@@ -171,7 +171,7 @@
     Zimmera: 0.1   # 19 Zimmera
     Framel: 0.1   # 20 Framel
     Klemennon: 0.1   # 21 Klemennon
-    Protoultimium: 0.1   # 22 Protoultimium
+    ProtoUltimium: 0.1   # 22 Protoultimium
   effects:
   - !type:AntiUltimiumSynthesisReaction {}
 
@@ -180,7 +180,7 @@
   priority: 6
   maximumTemperature: 20
   minimumRequirements:
-    Antiultimium: 0.01
+    AntiUltimium: 0.01
   effects:
   - !type:UltimiumSynthesisReaction {}
 
@@ -208,8 +208,8 @@
   minimumTemperature: 5000
   # minimumPressure: 10000
   minimumRequirements:
-    garodin: 0.3   # garodin
-    hydrogen: 0.1   # hydrogen
+    Garodin: 0.3   # garodin
+    Hydrogen: 0.1   # hydrogen
   effects:
   - !type:AxoNobliumSynthesisReaction {}
 
@@ -218,9 +218,9 @@
   priority: 4
   # maximumPressure: 100
   minimumRequirements:
-    watervapor: 0.8   # 5 WaterVapor
-    axonoblium: 0.1  # 25 axonoblium
-    hypernoblium: 0.1  # 26 hypernoblium
+    WaterBapor: 0.8   # 5 WaterVapor
+    AxoNoblium: 0.1  # 25 axonoblium
+    HyperNoblium: 0.1  # 26 hypernoblium
   effects:
   - !type:ANHN_WV_Reaction {}
 
@@ -230,10 +230,10 @@
   maximumTemperature: 300
   # minimumPressure: 0
   minimumRequirements:
-    oxygen: 0.2   # 0 oxygen
-    nitrogen: 0.2   # 1 nitrogen
-    antinoblium: 0.1   # 25 axonoblium
-    hypernoblium: 0.1   # 26 hypernoblium
+    Oxygen: 0.2   # 0 oxygen
+    Nitrogen: 0.2   # 1 nitrogen
+    AxoNoblium: 0.1   # 25 axonoblium
+    HyperNoblium: 0.1   # 26 hypernoblium
   effects:
   - !type:ANHN_O2_N2_Reaction {}
 
@@ -241,9 +241,9 @@
   id: RiminonSynthesis
   priority: 5
   minimumRequirements:
-    frezon: 0.2   # frezon
-    bz: 0.2   # bz
-    healium: 0.15  # healium
-    nitrium: 0.15  # nitrium
+    Frezon: 0.2   # frezon
+    BZ: 0.2   # bz
+    Healium: 0.15  # healium
+    Nitrium: 0.15  # nitrium
   effects:
   - !type:RiminonSynthesisReaction {}
