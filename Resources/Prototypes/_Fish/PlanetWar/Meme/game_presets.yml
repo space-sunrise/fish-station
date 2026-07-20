@@ -1,0 +1,16 @@
+#Vulpkanin PlanetWar Meme Mode
+
+- type: gamePreset
+  id: PlanetWarVulpkanin
+  name: Планета Вульп (ПВ)
+  description: Шутки кончились, теперь они тут
+  showInVote: false
+  rules:
+    - PlanetWarRule
+    - PlanetWarVulpkaninRule
+
+- type: entity
+  parent: BaseGameRule
+  id: PlanetWarVulpkaninRule
+  components:
+  - type: PlanetWarVulpkaninRule
