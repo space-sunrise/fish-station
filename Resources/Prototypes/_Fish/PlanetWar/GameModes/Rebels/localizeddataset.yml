@@ -1,0 +1,41 @@
+- type: localizedDataset
+  id: NameArmP0WM
+  values:
+    prefix: "Ополченец "
+    count: 999
+
+- type: localizedDataset
+  id: NameArmPC0I5WM
+  values:
+    prefix: "Предводитель "
+    count: 999
+
+- type: localizedDataset
+  id: NameArmP1WM
+  values:
+    prefix: "Коллектор "
+    count: 999
+
+- type: localizedDataset
+  id: NameArmPH5WM
+  values:
+    prefix: "Кульминат "
+    count: 999
+
+- type: localizedDataset
+  id: NameArmPM1WM
+  values:
+    prefix: "Аптекарь "
+    count: 999
+
+- type: localizedDataset
+  id: NameArmPE1WM
+  values:
+    prefix: "Строитель "
+    count: 999
+
+- type: localizedDataset
+  id: NameArmPS4WM
+  values:
+    prefix: "Ликвидатор "
+    count: 999

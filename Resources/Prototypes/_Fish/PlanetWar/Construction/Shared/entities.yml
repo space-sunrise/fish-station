@@ -2859,12 +2859,16 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: MobHuman
   id: BaseMobHumanWM
+  abstract: true
   components:
+    - type: RandomMetadata
+      nameFormat: name-format-ert
     - type: RemoveComponentsOnTrigger
       keysIn:
        - stop
       targetUser: true
       triggerOnce: false
+      
       components:
       - type: ExplosionResistance
     - type: AddComponentsOnTrigger
@@ -2872,6 +2876,7 @@
        - start
       targetUser: false
       triggerOnce: false
+      
       components:
       - type: ExplosionResistance
         damageCoefficient: 0.01
@@ -2978,8 +2983,8 @@
        #   sound:
         #    collection: MeatLaserImpact
    # - type: ShowJobIcons
-    - type: NameIdentifier
-      group: GenericNumber
+ #   - type: NameIdentifier
+ #     group: GenericNumber
     - type: GhostTakeoverAvailable
     - type: Damageable
 

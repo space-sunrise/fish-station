@@ -11,6 +11,7 @@
   access:
   - AssArmBase
   alwaysUseSpawner: true
+  supervisors: job-title-rebel-leader
 
 - type: job
   id: JobArmPC0I5
@@ -28,6 +29,7 @@
   - AssArmPE1
   - AssArmPM1
   alwaysUseSpawner: true
+  supervisors: job-supervisors-rebel-council
 
 - type: job
   id: JobArmPM1
@@ -43,6 +45,7 @@
   - AssArmBase
   - AssArmPM1
   alwaysUseSpawner: true
+  supervisors: job-title-rebel-leader
 
 - type: job
   id: JobArmPE1
@@ -58,6 +61,4 @@
   - AssArmBase
   - AssArmPE1
   alwaysUseSpawner: true
-
-
-#Icon
+  supervisors: job-title-rebel-leader

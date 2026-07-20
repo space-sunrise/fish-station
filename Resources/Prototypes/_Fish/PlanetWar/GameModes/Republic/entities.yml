@@ -252,7 +252,7 @@
       - state: green
       - state: centcom
   - type: TimedDespawn 
-    lifetime: 70
+    lifetime: 100
   - type: SpawnOnDespawn
     prototype: 4ReinforcementCorePC0I5WM
 
@@ -282,7 +282,7 @@
       - state: green
       - state: centcom
   - type: TimedDespawn 
-    lifetime: 135
+    lifetime: 200
   - type: SpawnOnDespawn
     prototype: 6ReinforcementCorePH5WM
 

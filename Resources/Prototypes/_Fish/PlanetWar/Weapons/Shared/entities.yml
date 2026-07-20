@@ -309,7 +309,7 @@
   categories: [ HideSpawnMenu ]
   parent: BaseItem
   id: ShtampMagazin
-  name: переработаная обойма (заготовка)
+  name: material-ShtampMagazin-name
   description: Печатает боезапас.
   components:
   - type: Sprite
@@ -865,7 +865,7 @@
     minAngle: -15
     maxAngle: 40
   #  fireRate: 18
-    fireRate: 0.09
+    fireRate: 0.125
 
 # РпГшник
 
@@ -1143,6 +1143,7 @@
      - stop
     targetUser: false
     triggerOnce: false
+    
     components:
     - type: AutoShootGun
   - type: AddComponentsOnTrigger
@@ -1150,6 +1151,7 @@
      - start
     targetUser: false
     triggerOnce: false
+    
     components:
     - type: AutoShootGun
       enabled: true

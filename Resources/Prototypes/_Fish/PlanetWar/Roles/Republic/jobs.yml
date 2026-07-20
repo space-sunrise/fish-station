@@ -11,6 +11,7 @@
   access:
   - AssCoreBase
   alwaysUseSpawner: true
+  supervisors: job-title-republic-lieutenant
 
 - type: job
   id: JobCorePC0I5
@@ -29,6 +30,7 @@
   - AssCorePM1
   - AssCorePE1
   alwaysUseSpawner: true
+  supervisors: job-supervisors-republic-council
 
 - type: job
   id: JobCorePM1
@@ -44,6 +46,7 @@
   - AssCoreBase
   - AssCorePM1
   alwaysUseSpawner: true
+  supervisors: job-title-republic-lieutenant
 
 - type: job
   id: JobCorePE1
@@ -59,3 +62,4 @@
   - AssCoreBase
   - AssCorePE1
   alwaysUseSpawner: true
+  supervisors: job-title-republic-lieutenant

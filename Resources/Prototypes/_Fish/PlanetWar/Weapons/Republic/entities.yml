@@ -289,7 +289,7 @@
     isBlind: false
   - type: ToggleableNightVision
     effect: EffectNightVisioCoreDron
-  - type: ShowJobIcons
+  #- type: ShowJobIcons
   - type: SpawnOnTrigger
     proto: GrenadeFlashEffect
     predicted: true

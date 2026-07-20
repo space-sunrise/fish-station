@@ -1,0 +1,41 @@
+- type: localizedDataset
+  id: NameCoreP0WM
+  values:
+    prefix: "Боевик "
+    count: 999
+
+- type: localizedDataset
+  id: NameCorePC0I5WM
+  values:
+    prefix: "Лейтенант "
+    count: 999
+
+- type: localizedDataset
+  id: NameCoreP1WM
+  values:
+    prefix: "Штурмовик "
+    count: 999
+
+- type: localizedDataset
+  id: NameCorePH5WM
+  values:
+    prefix: "Джагернаут "
+    count: 999
+
+- type: localizedDataset
+  id: NameCorePM1WM
+  values:
+    prefix: "Врач "
+    count: 999
+
+- type: localizedDataset
+  id: NameCorePE1WM
+  values:
+    prefix: "Инженер "
+    count: 999
+
+- type: localizedDataset
+  id: NameCorePS4WM
+  values:
+    prefix: "Снайпер "
+    count: 999

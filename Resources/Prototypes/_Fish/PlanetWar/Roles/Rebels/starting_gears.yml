@@ -64,11 +64,13 @@
     belt: ClothingBeltUtilityArmPE1WM
     head: ClothingHeadHatHardhatArmoredWM
  #   suitstorage: PortableRechargerWM
+    suitstorage: WeaponLauncherChinaLakeArmWM
     ears: ClothingHeadsetAltSyndicateWM
     neck: PortableRechargerWM
   inhand:
  # - WeaponTeslaGunWM
-  - WeaponLauncherChinaLakeArmWM
+  - WeaponPistolHIB88M4WM
+  - MagazineHIBrowningWM
 
 - type: startingGear
   id: ArmGearPS4
@@ -125,8 +127,3 @@
     neck: SecurityWhistleWM
   inhand:
   - MagazBagWM
-
-- type: startingGear
-  id: WMGearGrusArm
-  inhand:
-  - WMSpawnGrusYEEArm

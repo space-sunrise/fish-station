@@ -294,7 +294,7 @@
   categories: [ HideSpawnMenu ]
   parent: BaseItem
   id: MoneyWarMiz
-  name: кредит
+  name: material-MoneyWarMiz-name
   description: Увеличивают чей то гос долг.
   components:
   - type: Sprite
@@ -419,6 +419,16 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: AoEHeal  #лечение аура
+    threshold: 0.99
+    damage:
+      types:
+        Structural: 400
+    range: 6
+    whitelist:
+      components:
+      - Mech
+      - RadarConsole
  # - type: Physics
  #   bodyType: Static
   #- type: Destructible
@@ -744,6 +754,15 @@
   name: Ополченец  
   suffix: WM
   components:
+    - type: WarpPoint
+     # location: подкрепление Nontex
+      blacklist:
+        components:
+        - AdminMinigun
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMale
+      - NameArmP0WM
     - type: PirateIcon
       statusIcon: FactionIconArmBase
    # - type: RadarBlip
@@ -789,6 +808,15 @@
   name: Предводитель  
   suffix: WM
   components:
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMale
+      - NameArmPC0I5WM
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        200: Critical
+        300: Dead
     - type: PirateIcon
       statusIcon: FactionIconArmPC0I5
     - type: Loadout
@@ -830,6 +858,10 @@
   name: Коллектор  
   suffix: WM
   components:
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMale
+      - NameArmP1WM
     - type: PirateIcon
       statusIcon: FactionIconArmBase
     - type: Loadout
@@ -861,6 +893,10 @@
   name: Кульминат  
   suffix: WM
   components:
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMale
+      - NameArmPH5WM
     - type: PirateIcon
       statusIcon: FactionIconArmBase
     - type: MobThresholds
@@ -899,6 +935,10 @@
   name: Аптекарь  
   suffix: WM
   components:
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMale
+      - NameArmPM1WM
     - type: PirateIcon
       statusIcon: FactionIconArmPM1
     - type: MobThresholds
@@ -939,6 +979,10 @@
   name: Строитель  
   suffix: WM
   components:
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMale
+      - NameArmPE1WM
     - type: PirateIcon
       statusIcon: FactionIconArmPE1
     - type: Loadout
@@ -971,6 +1015,10 @@
   name: Ликвидатор  
   suffix: WM
   components:
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMale
+      - NameArmPS4WM
     - type: PirateIcon
       statusIcon: FactionIconArmBase
     - type: AutoImplant
@@ -1350,8 +1398,12 @@
     sprite: _Sunrise/Objects/Devices/pda.rsi
     layers:
     - state: pda-ussp
-  - type: PresetIdCard
-    job: JobArmBase
+  - type: IdCard
+    jobTitle: job-title-rebel-militia
+    jobIcon: IconArmBase
+  - type: Access
+    tags:
+    - AssArmBase
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1359,8 +1411,12 @@
   id: IDArmPC0I5
   name: КПК Предводителя Повстанцев
   components:
-  - type: PresetIdCard
-    job: JobArmPC0I5
+  - type: IdCard
+    jobTitle: job-title-rebel-leader
+    jobIcon: IconArmPC0I5
+  - type: Access
+    tags:
+    - AssArmBase
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1368,8 +1424,12 @@
   id: IDArmPM1
   name: КПК Аптекаря Повстанцев
   components:
-  - type: PresetIdCard
-    job: JobArmPM1
+  - type: IdCard
+    jobTitle: job-title-rebel-chemist
+    jobIcon: IconArmPM1
+  - type: Access
+    tags:
+    - AssArmBase
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1377,8 +1437,12 @@
   id: IDArmPE1
   name: КПК Строителя Повстанцев
   components:
-  - type: PresetIdCard
-    job: JobArmPE1
+  - type: IdCard
+    jobTitle: job-title-rebel-builder
+    jobIcon: IconArmPE1
+  - type: Access
+    tags:
+    - AssArmBase
 
 #иконки фаркций
 
@@ -1453,8 +1517,8 @@
         Blunt: 10
         Structural: 5
   - type: MovementSpeedModifier
-    baseWalkSpeed: 6.5
-    baseSprintSpeed: 5
+    baseWalkSpeed: 5
+    baseSprintSpeed: 4
   - type: ContainerFill
     containers:
       mech-battery-slot:
@@ -1558,11 +1622,18 @@
    - MechHeavyArmWM
   name: передвижное осадное орудие повстанцев
   components:
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepCyborgSpider
+      params:
+        pitch: 0.5
+        volume: 10
   - type: RemoveComponentsOnTrigger
     keysIn:
      - stop
     targetUser: true
     triggerOnce: false
+    
     components:
     - type: ExplosionResistance
       damageCoefficient: 0.01
@@ -1571,6 +1642,7 @@
      - start
     targetUser: true
     triggerOnce: false
+    
     components:
     - type: ExplosionResistance
       damageCoefficient: 0.01
@@ -1833,6 +1905,9 @@
   suffix: WM
   name: Врата Повстанцев
   components:
+  - type: Tag
+    tags:
+    - NoCoreAIInArm
  # - type: RadarBlip
  #   color: "#ff4040"
  #   scale: 1.5
@@ -2058,8 +2133,11 @@
 - type: entity
   id: MoneyHostArm
   parent: MoneyHostCore
-  name: Хост Lustoff
+  name: Хост анти-ии Lustoff
   components:
+  - type: Tag
+    tags:
+    - NoCoreAIInArm
   - type: Sprite
     layers:
     - state: telecom-nopower
@@ -2103,7 +2181,7 @@
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabArmWMFlatpack
   id: MoneyHostArmFlatpack
-  name: хост lustof
+  name: хост анти-ии lustof
   components:
   - type: SpawnAfterInteract
     prototype: MoneyHostArm

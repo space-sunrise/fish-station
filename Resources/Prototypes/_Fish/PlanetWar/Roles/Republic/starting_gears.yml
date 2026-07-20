@@ -66,8 +66,10 @@
   #  suitstorage: 
     ears: ClothingHeadsetAltCommandW
     neck: PortableRechargerWM
+    suitstorage: WeaponLauncherChinaLakeCoreWM
   inhand:
-  - WeaponLauncherChinaLakeCoreWM
+  - WeaponPistolVP78WM
+  - MagazineVP70WM
 
 - type: startingGear
   id: CoreGearPS4
@@ -124,8 +126,3 @@
     neck: SyndicateWhistleWM
   inhand:
   - MagazBagWM
-
-- type: startingGear
-  id: WMGearGrusCore
-  inhand:
-  - WMSpawnGrusYEECore

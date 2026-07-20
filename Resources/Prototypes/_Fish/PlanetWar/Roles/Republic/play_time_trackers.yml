@@ -9,3 +9,6 @@
 
 - type: playTimeTracker
   id: OverAllCorePE1
+
+- type: playTimeTracker
+  id: OverAllCoreAi

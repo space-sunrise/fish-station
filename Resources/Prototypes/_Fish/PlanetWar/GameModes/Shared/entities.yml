@@ -120,10 +120,11 @@
   - type: TriggerOnSpawn
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: Cryo
+    explosionType: DemolitionCharge
     maxIntensity: 50000
     intensitySlope: 1
     totalIntensity: 90000
+    maxTileBreak: 0
   - type: EntityTableSpawner
     deleteSpawnerAfterSpawn: false
     table: !type:AllSelector
@@ -174,10 +175,11 @@
   - type: TriggerOnSpawn
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: Cryo
+    explosionType: DemolitionCharge
     maxIntensity: 50000
     intensitySlope: 1
     totalIntensity: 90000
+    maxTileBreak: 0
   - type: EntityTableSpawner
     deleteSpawnerAfterSpawn: false
     table: !type:AllSelector

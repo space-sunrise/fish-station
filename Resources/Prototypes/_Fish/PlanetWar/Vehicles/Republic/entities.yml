@@ -285,8 +285,14 @@
    - MechHeavyCoreWM
   name: транспортник
   components:
-  - type: Rotatable
-    rotateWhileAnchored: true
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepCyborgSpider
+      params:
+        pitch: 0.5
+        volume: 10
+ # - type: Rotatable
+ #   rotateWhileAnchored: true
  # - type: RadarBlip
  #   scale: 0.9
   - type: RequireProjectileTarget
@@ -334,8 +340,9 @@
     openState: coregruz
     brokenState: coregruz
     mechToPilotDamageMultiplier: 0.1
-    maxEquipmentAmount: 1
+    maxEquipmentAmount: 2
     startingEquipment: 
+      - WeaponMechCombatLightWM
       - WeaponGrusWM
   - type: ExplosionResistance
     damageCoefficient: 0.5
@@ -392,29 +399,6 @@
  #   prototypes: [WMGearGrusCore]
   - type: Hands
     showInHands: false
-
-- type: entity
-  parent: BaseItem
-  id: WMSpawnGrusYEECore
-  name: автосборка деталей
-  description: A boб
-  components:
-  - type: TriggerOnGotEquippedHand
-  - type: TriggerOnActivate
-  - type: DeleteOnTrigger
-  - type: SpawnEntityTableOnTrigger
-    useMapCoords: false
-    table: !type:AllSelector
-      children:
-      - id: WMGrusBaseBackCore
-
-- type: entity
-  id: WMGrusBaseBackCore
-  name: посадка в транспортник
-  parent: WMGrusBaseBack
-  components:
-  - type: Sprite
-    state: coregruzBack
 
 - type: entity
   categories: [ HideSpawnMenu ]

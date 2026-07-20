@@ -5,7 +5,9 @@
     sprite: /Textures/_Fish/PlanetWar/WM/Icon.rsi
     state: ArmBase
   jobName: Повстанцы
-  isShaded: false
+  isShaded: true
+  offset: 0
+  priority: 1
 
 - type: jobIcon
   parent: IconArmBase
@@ -27,3 +29,10 @@
   icon:
     sprite: /Textures/_Fish/PlanetWar/WM/Icon.rsi
     state: ArmPE1
+
+- type: jobIcon
+  parent: IconArmBase
+  id: IconArmAi
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/Icon.rsi
+    state: ArmAi

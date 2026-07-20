@@ -8,7 +8,7 @@
   priority: 0
   showTo:
     components:
-      - ShowAntagIcons
+      - Spectral
       - Thruster
   icon:
     sprite: /Textures/_Fish/PlanetWar/WM/Icon.rsi
@@ -24,7 +24,7 @@
   priority: 0
   showTo:
     components:
-      - ShowAntagIcons
+      - Spectral
       - Thruster
   icon:
     sprite: /Textures/_Fish/PlanetWar/WM/Icon.rsi
@@ -40,7 +40,7 @@
   priority: 0
   showTo:
     components:
-      - ShowAntagIcons
+      - Spectral
       - Thruster
   icon:
     sprite: /Textures/_Fish/PlanetWar/WM/Icon.rsi
@@ -56,13 +56,27 @@
   priority: 0
   showTo:
     components:
-      - ShowAntagIcons
+      - Spectral
       - Thruster
   icon:
     sprite: /Textures/_Fish/PlanetWar/WM/Icon.rsi
     state: ArmPE1
 
-
+- type: factionIcon
+  id: FactionIconArmAi
+  hideInContainer: false
+  isShaded: false
+  hideOnStealth: false
+  offset: 0
+  locationPreference: Right
+  priority: 0
+  showTo:
+    components:
+      - Spectral
+      - Thruster
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/Icon.rsi
+    state: ArmAi
 
 
 #TimeTrecker

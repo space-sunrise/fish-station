@@ -372,6 +372,16 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: AoEHeal  #лечение аура
+    threshold: 0.99
+    damage:
+      types:
+        Structural: 400
+    range: 6
+    whitelist:
+      components:
+      - Mech
+      - RadarConsole
   - type: Sprite
     layers:
   #  - state: energyShildBase
@@ -451,7 +461,7 @@
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
   - type: UseDelay
-    delay: 240.0
+    delay: 10.0
   - type: InteractionOutline
   - type: DeviceNetwork
     deviceNetId: Wireless
@@ -473,7 +483,7 @@
     domePrototype: EnergyDomeCore
     canDeviceNetworkUse: true
   - type: Battery
-    maxCharge: 650
+    maxCharge: 850
     startingCharge: 0
   - type: ApcPowerReceiverBattery
     idleLoad: 5
@@ -626,6 +636,15 @@
   name: Боевик  
   suffix: WM
   components:
+    - type: WarpPoint
+     # location: подкрепление Nontex
+      blacklist:
+        components:
+        - Thruster
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMale
+      - NameCoreP0WM
     - type: AssaultOperative
       statusIcon: FactionIconCoreBase
    # - type: RadarBlip
@@ -671,6 +690,15 @@
   name: Лейтенант  
   suffix: WM
   components:
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMale
+      - NameCorePC0I5WM
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        200: Critical
+        300: Dead
     - type: AssaultOperative
       statusIcon: FactionIconCorePC0I5
     - type: Loadout
@@ -712,6 +740,10 @@
   name: Штурмовик  
   suffix: WM
   components:
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMale
+      - NameCoreP1WM
     - type: AssaultOperative
       statusIcon: FactionIconCoreBase
     - type: Loadout
@@ -743,6 +775,10 @@
   name: Джагернаут  
   suffix: WM
   components:
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMale
+      - NameCorePH5WM
     - type: AssaultOperative
       statusIcon: FactionIconCoreBase
     - type: MobThresholds
@@ -781,6 +817,10 @@
   name: Врач  
   suffix: WM
   components:
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMale
+      - NameCorePM1WM
     - type: AssaultOperative
       statusIcon: FactionIconCorePM1
     - type: MobThresholds
@@ -821,6 +861,10 @@
   name: Инженер  
   suffix: WM
   components:
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMale
+      - NameCorePE1WM
     - type: AssaultOperative
       statusIcon: FactionIconCorePE1
     - type: Loadout
@@ -853,6 +897,10 @@
   name: Снайпер  
   suffix: WM
   components:
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMale
+      - NameCorePS4WM
     - type: AssaultOperative
       statusIcon: FactionIconCoreBase
     - type: AutoImplant
@@ -1230,8 +1278,14 @@
     sprite: Objects/Devices/pda.rsi
     layers:
     - state: pda-ert
-  - type: PresetIdCard
-    job: JobCoreBase
+ # - type: PresetIdCard
+  #  job: JobCoreBase
+  - type: IdCard
+    jobTitle: job-title-republic-fighter
+    jobIcon: IconCoreBase 
+  - type: Access
+    tags:
+    - AssCoreBase
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1239,8 +1293,12 @@
   id: IDCorePC0I5
   name: КПК Лейтенанта Республиканцев
   components:
-  - type: PresetIdCard
-    job: JobCorePC0I5
+  - type: IdCard
+    jobTitle: job-title-republic-lieutenant
+    jobIcon: IconCorePC0I5
+  - type: Access
+    tags:
+    - AssCoreBase
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1248,8 +1306,12 @@
   id: IDCorePM1
   name: КПК Врача Республиканцев
   components:
-  - type: PresetIdCard
-    job: JobCorePM1
+  - type: IdCard
+    jobTitle: job-title-republic-doctor
+    jobIcon: IconCorePM1
+  - type: Access
+    tags:
+    - AssCoreBase
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1257,8 +1319,12 @@
   id: IDCorePE1
   name: КПК Инженера Республиканцев
   components:
-  - type: PresetIdCard
-    job: JobCorePE1
+  - type: IdCard
+    jobTitle: job-title-republic-engineer
+    jobIcon: IconCorePE1
+  - type: Access
+    tags:
+    - AssCoreBase
 
 - type: entity
   id: MechLightCoreWM
@@ -1332,8 +1398,8 @@
         Blunt: 30
         Structural: 5
   - type: MovementSpeedModifier
-    baseWalkSpeed: 6.5
-    baseSprintSpeed: 5
+    baseWalkSpeed: 5
+    baseSprintSpeed: 4
   - type: ContainerFill
     containers:
       mech-battery-slot:
@@ -1433,26 +1499,12 @@
    - MechHeavyCoreWM
   name: передвижное осадное орудие республики
   components:
-  - type: RemoveComponentsOnTrigger
-    keysIn:
-     - stop
-    targetUser: true
-    triggerOnce: false
-    components:
-    - type: ExplosionResistance
-      damageCoefficient: 0.01
-  - type: AddComponentsOnTrigger
-    keysIn:
-     - start
-    targetUser: true
-    triggerOnce: false
-    components:
-    - type: ExplosionResistance
-      damageCoefficient: 0.01
-  - type: TriggerOnUnstrapped
-    keyOut: stop
-  - type: TriggerOnStrapped
-    keyOut: start
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepCyborgSpider
+      params:
+        pitch: 0.2
+        volume: 10
   #- type: RadarBlip
   #  scale: 0.9
   - type: RequireProjectileTarget
@@ -1706,6 +1758,9 @@
   suffix: WM
   name: Врата Республиканцев
   components:
+    - type: Tag
+      tags:
+      - NoArmAIInCore
     #- type: RadarBlip
     #  color: "#0000e3"
     #  scale: 1.5
@@ -1979,9 +2034,12 @@
 - type: entity
   id: MoneyHostCore
   parent: BaseLatheLube
-  name: Хост Wegan
-  description: Даешь мало, получаешь много.
+  name: Хост анти-ии Wegan
+  description: Даешь мало, получаешь много. Защищает от разведки вражеского ии
   components:
+  - type: Tag
+    tags:
+    - NoArmAIInCore
   - type: Construction
     graph: CatwalkWM
     node: CatwalkWM
@@ -2051,7 +2109,7 @@
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabCoreWMFlatpack
   id: MoneyHostCoreFlatpack
-  name: хост wegan
+  name: хост анти-ии wegan
   components:
   - type: SpawnAfterInteract
     prototype: MoneyHostCore
