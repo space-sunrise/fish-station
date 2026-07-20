@@ -1,0 +1,7 @@
+- type: material
+  id: ShtampMagazinMaterial
+  stackEntity: ShtampMagazin
+  name: material-ShtampMagazin-name
+  unit: material-ShtampMagazin-unit
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: base }
+  price: 1

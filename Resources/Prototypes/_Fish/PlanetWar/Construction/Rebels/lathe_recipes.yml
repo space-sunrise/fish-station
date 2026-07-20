@@ -1,0 +1,232 @@
+- type: latheRecipe
+  id: 2GateArmLatheRecipe
+  result: AmmoTechFabArmWMFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    state: magfabArm
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 3GateArmLatheRecipe
+  result: FlatpackerFabricatorArmFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    state: engArm
+  completetime: 3
+  materials:
+    MoneyWarMizMaterial: 800
+
+- type: latheRecipe
+  id: 4GateArmLatheRecipe
+  result: MechFabricatorArmFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    state: mechArmidle
+  completetime: 5
+  materials:
+    MoneyWarMizMaterial: 3500
+
+- type: latheRecipe
+  id: 5GateArmLatheRecipe
+  result: MoneyHostArmFlatpack
+  icon:
+    sprite: Structures/Machines/telecomms.rsi
+    state: telecom-nopower
+  completetime: 20
+  materials:
+    MoneyWarMizMaterial: 2500
+
+- type: latheRecipe
+  id: 6GateArmLatheRecipe
+  result: CargoTechFabArmFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    state: cargofabArm
+  completetime: 5
+  materials:
+    MoneyWarMizMaterial: 1000
+
+
+#магазины
+
+- type: latheRecipe
+  id: 11MagArmLatheRecipe
+  result: MagazineHIBrowningWM
+  parent: 11MagCoreLatheRecipe
+
+- type: latheRecipe
+  id: 12MagArmLatheRecipe
+  result: MagazineLightRifleWM
+  parent: 12MagCoreLatheRecipe
+
+- type: latheRecipe
+  id: 13MagArmLatheRecipe
+  result: MagazinePistolSubMachineGunWM
+  parent: 13MagCoreLatheRecipe
+
+- type: latheRecipe
+  id: 17MagArmLatheRecipe
+  result: MagazineRPDWM
+  parent: 17MagCoreLatheRecipe
+
+- type: latheRecipe
+  id: 18MagArmLatheRecipe
+  result: MagazineDragunovWM
+  parent: 18MagCoreLatheRecipe
+
+- type: latheRecipe
+  id: 0LatheMechArm
+  result: BoxDronArmWM
+  completetime: 10
+  materials:
+    ShtampMagazinMaterial: 75
+    MoneyWarMizMaterial: 400
+
+- type: latheRecipe
+  id: 1LatheMechArm
+  result: MechLightArmFlatpack
+  icon:
+    sprite: Objects/Specific/Mech/gygax.rsi
+    state: darkgygax-open
+  completetime: 30
+  materials:
+    ShtampMagazinMaterial: 150
+    MoneyWarMizMaterial: 800
+
+- type: latheRecipe
+  id: 2LatheMechArm
+  result: MechNormalArmFlatpack
+  icon:
+    sprite: Objects/Specific/Mech/durand.rsi
+    state: darkdurand-open
+  completetime: 40
+  materials:
+    ShtampMagazinMaterial: 550
+    MoneyWarMizMaterial: 2600
+
+- type: latheRecipe
+  id: 3LatheMechArm
+  result: MechHeavyArmWMFlatpack
+  icon:
+    sprite: Objects/Specific/Mech/mecha.rsi
+    state: mauler-open
+  completetime: 60
+  materials:
+    ShtampMagazinMaterial: 1200
+    MoneyWarMizMaterial: 14500
+
+- type: latheRecipe
+  id: 4LatheMechArm
+  result: MechTankArmFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/79xSprait.rsi
+    state: armTank
+  completetime: 80
+  materials:
+    ShtampMagazinMaterial: 2800
+    MoneyWarMizMaterial: 13000
+
+- type: latheRecipe
+  id: 6LatheMechArm
+  result: MechGrusArmFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM2/100xSprait.rsi
+    state: armgruz
+  completetime: 60
+  materials:
+    ShtampMagazinMaterial: 1200
+    MoneyWarMizMaterial: 7000
+
+- type: latheRecipe
+  id: 5LatheMechArm
+  result: EnergyDomeArmFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    state: energyShildBase
+  completetime: 3
+  materials:
+    ShtampMagazinMaterial: 100
+    MoneyWarMizMaterial: 600
+
+- type: latheRecipe
+  id: 44LatheMechArm
+  result: WrapHandTeleporterArm
+  icon:
+    sprite: Objects/Devices/syndicate_teleporter.rsi
+    state: icon
+  completetime: 5
+  materials:
+    ShtampMagazinMaterial: 100
+    MoneyWarMizMaterial: 300
+
+- type: latheRecipe
+  id: 7LatheMechArm
+  result: GatewayArmMiniFlatpack
+  icon:
+    sprite: Structures/Machines/gateway.rsi
+    state: frame
+  completetime: 80
+  materials:
+    ShtampMagazinMaterial: 850
+    MoneyWarMizMaterial: 7500
+
+- type: latheRecipe
+  id: 10LatheMechArm
+  result: RCDRechargingGoodArmWM
+  completetime: 3
+  materials:
+    ShtampMagazinMaterial: 1500 #100
+    MoneyWarMizMaterial: 2000
+
+- type: latheRecipe
+  id: 11LatheMechArm
+  result: MechStationDronArmFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM2/32xSprait.rsi
+    state: stationDronRed
+  completetime: 60
+  materials:
+    ShtampMagazinMaterial: 2350
+    MoneyWarMizMaterial: 4550
+ 
+
+
+#BaseGateway
+#хосты
+
+- type: latheRecipe
+  id: 4Cargo3FabArm
+  result: SyndiHypoWM
+  completetime: 2
+  materials:
+    MoneyWarMizMaterial: 300
+
+- type: latheRecipe
+  id: 2Cargo5FabArm
+  result: BoxGlowstickRedWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 3Cargo5FabArm
+  result: TelescopicShieldWM
+  completetime: 2
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 3Cargo6FabArm
+  result: BoxCanabisArm
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 300
+
+- type: latheRecipe
+  id: 1Cargo7FabArm
+  result: RCDRechargingArmWM
+  completetime: 3
+  materials:
+    MoneyWarMizMaterial: 300

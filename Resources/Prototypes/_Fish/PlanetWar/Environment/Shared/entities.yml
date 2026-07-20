@@ -1,0 +1,202 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: CannabisSeeds
+  name: семена канабиса
+  description: "Технический сорт"
+  id: CannabisSeedsWM
+  components:
+    - type: Seed
+      seedId: cannabisWM
+    - type: PhysicalComposition
+      materialComposition:
+        MoneyWarMizMaterial: 20
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: лист канабис
+  parent: LeavesCannabis
+  id: LeavesCannabisWM
+  description: "Легализовано во многих галактиках..."
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: THCPW
+          Quantity: 10
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: SpawnItemsOnUse
+    uses: 1
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/unwrap.ogg
+    items:
+    - id: MoneyWarMiz100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: LeavesCannabisWM
+  id: LeavesCannabisDopWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 100
+  - type: SpawnItemsOnUse
+    items:
+    - id: ShtampMagazin
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseItem
+  id: MarkerLeavesCannabisWM
+  components:
+  - type: TimedDespawn 
+    lifetime: 3
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: true
+    table: !type:GroupSelector
+      children:
+      - id: LeavesCannabisDopWM
+        weight: 20
+      - id: LeavesCannabisWM
+        weight: 80
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: CottonSeeds
+  name: семена хлопка
+  id: CottonSeedsWM
+  components:
+    - type: Seed
+      seedId: cottonWM
+    - type: PhysicalComposition
+      materialComposition:
+        MoneyWarMizMaterial: 20
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: цветок хлопка
+  description: Любят моли и темный загорелые люди.
+  id: CottonBolWM
+  parent: FoodProduceBase
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/cotton.rsi
+  - type: FlavorProfile
+    flavors:
+      - cotton
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: FiberPW
+          Quantity: 10
+  - type: Produce
+    seedId: cottonWM
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: SpawnItemsOnUse
+    uses: 1
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/unwrap.ogg
+    items:
+    - id: MoneyWarMiz100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: CottonBolWM
+  id: CottonBolDopWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 100
+  - type: SpawnItemsOnUse
+    items:
+    - id: ShtampMagazin
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseItem
+  id: MarkerCottonBolWM
+  components:
+  - type: TimedDespawn 
+    lifetime: 3
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: true
+    table: !type:GroupSelector
+      children:
+      - id: CottonBolDopWM
+        weight: 20
+      - id: CottonBolWM
+        weight: 80
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: PlantBag
+  id: PlantBagWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 300
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: SmokeScreenImplanterWM
+  parent: SmokeScreenImplanter
+  components:
+  - type: Implanter
+    implant: SmokeScreenImplantWM
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ActionActivateBombGrenadeImplantWM
+  name: самоподрыв
+  parent: ActionActivateSmokeGrenadeImplant
+  components:
+  - type: Action
+    icon:
+      sprite: /Textures/Actions/Implants/implants.rsi
+      state: explosive
+  - type: LimitedCharges
+    maxCharges: 1
+  - type: AutoRecharge
+    rechargeDuration: 1000
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ActionActivateLandmineSpawnImplantWM
+  name: сброс мины
+  parent: ActionActivateSmokeGrenadeImplant
+  components:
+  - type: Action
+    icon:
+      sprite: Objects/Misc/landmine.rsi
+      state: landmine
+    useDelay: 1
+  - type: LimitedCharges
+    maxCharges: 2
+  - type: AutoRecharge
+    rechargeDuration: 7
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: SmokeScreenImplant
+  id: SmokeScreenImplantWM
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionActivateSmokeGrenadeImplant
+  - type: TriggerOnActivateImplant
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ActionActivateSmokeGrenadeImplantWM
+  parent: ActionActivateSmokeGrenadeImplant
+  components:
+  - type: LimitedCharges
+    maxCharges: 3
+  - type: AutoRecharge
+    rechargeDuration: 30

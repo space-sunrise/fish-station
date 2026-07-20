@@ -1,0 +1,17 @@
+- type: job
+  id: JobGhostWMBase
+  name: Наблюдать
+  description: Посмотрите что там за возня
+  playTimeTracker: OverAllGhostWMBase
+  setPreference: false
+  weight: 10
+  jobEntity: MobObserver
+  icon: "JobIconPassenger"
+  canBeAntag: false
+  access:
+  - AssCoreBase
+  - AssArmBase
+  alwaysUseSpawner: true
+
+
+#Job

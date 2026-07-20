@@ -1,0 +1,131 @@
+- type: startingGear
+  id: CoreGearP0
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRecruitNTWM
+    back: ClothingBackpackERTLeaderWM
+    mask: ClothingMaskGasSecurityWM
+    gloves: ClothingHandsGlovesColorBlueWM
+    outerClothing: ClothingOuterArmorBlueShieldWM
+    shoes: ClothingShoesCentcomBlackWM
+    id: IDCoreBase
+    pocket1: GrenadeShrapnelWM
+    pocket2: WeaponPistolVP78WM
+    belt: ClothingBeltBlueShieldWebbingP0WM
+    head: ClothingHeadHelmetSwatWM
+    suitstorage: WeaponSTG44WM
+    ears: ClothingHeadsetAltCommandW
+
+- type: startingGear
+  id: CoreGearP1
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRecruitNTWM
+    back: ClothingBackpackERTLeaderWM
+    mask: ClothingMaskGasSecurityWM
+    gloves: ClothingHandsGlovesColorBlueWM
+    outerClothing: ClothingOuterArmorAmberComWM
+    shoes: ClothingShoesCentcomBlackP1WM
+    id: IDCoreBase
+    pocket1: ExGrenadeWM
+    pocket2: WeaponPistolVP78WM
+    belt: ClothingBeltBlueShieldWebbingP1WM
+    head: ClothingHeadHelmetSwatWM
+    suitstorage: WeaponShotgunZauerWM
+    ears: ClothingHeadsetAltCommandW
+
+- type: startingGear
+  id: CoreGearPM1
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitParamedicWM
+    back: ClothingBackpackERTLeaderWM
+    mask: ClothingMaskBreathMedicalWM
+    gloves: ClothingHandsGlovesColorBlueWM
+    outerClothing: ClothingOuterVestArmorMedSecWM
+    shoes: ClothingShoesCentcomBlackWM
+    id: IDCorePM1
+    pocket1: HyposprayWM
+    pocket2: LauncherSyringeWM
+    belt: ClothingBeltMedicalCorePM1WM
+    head: ClothingHeadHatParamedicsoftWM
+    suitstorage: WeaponEarthGovLaserCarbineWM
+    ears: ClothingHeadsetAltCommandW
+
+- type: startingGear
+  id: CoreGearPE1
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitChiefEngineerWM
+    back: ClothingBackpackERTLeaderWM
+    mask: ClothingMaskGasSecurityWM
+    gloves: ClothingHandsGlovesColorYellowWM
+    outerClothing: ClothingOuterArmorBasicSlimWM
+    shoes: ClothingShoesCentcomBlackWM
+    id: IDCorePE1
+    pocket1: WeaponTeslaGunWM
+    pocket2: RemoteSignallerWM
+    belt: ClothingBeltUtilityCorePE1WM
+    head: ClothingHeadHatHardhatArmoredWM
+  #  suitstorage: 
+    ears: ClothingHeadsetAltCommandW
+    neck: PortableRechargerWM
+  inhand:
+  - WeaponLauncherChinaLakeCoreWM
+
+- type: startingGear
+  id: CoreGearPS4
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTSecurityWM
+    back: ClothingBackpackERTLeaderWM
+    mask: ClothingMaskGasNTRGLeadWM
+    gloves: ClothingHandsGlovesColorBlueWM
+    outerClothing: ClothingOuterEliteCoatHOPWM
+    shoes: ClothingShoesCentcomBlackWM
+    id: IDCoreBase
+    pocket1: WeaponShotgunGA12WM
+    pocket2: SmokeGrenadeWM
+    belt: ClothingBeltBlueShieldWebbingPS4WM
+    head: ClothingHeadHelmetSwatWM
+    suitstorage: WeaponRifleBauer127WM
+    ears: ClothingHeadsetAltCommandW
+    neck: ClothingOuterCoatBlueshieldWM
+    eyes: ClothingEyesGlassesThermalCoreWM
+
+- type: startingGear
+  id: CoreGearPH5
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTSecurityWM
+    back: ClothingBackpackERTLeaderWM
+    mask: ClothingMaskGasSecurityWM #ClothingMaskGasBlueShieldWM
+    gloves: ClothingHandsGlovesColorBlueWM
+    outerClothing: ClothingOuterArmorHeavyWM
+    shoes: ClothingShoesCentcomBlackWM
+    id: IDCoreBase
+    pocket1: EnergyShieldWM
+    pocket2: WeaponPistolVP78WM
+    belt: ClothingBeltBlueShieldWebbingPH5WM
+    head: ClothingHeadHelmetPubgWM
+    suitstorage: WeaponLightMachineGunMG60WM
+    ears: ClothingHeadsetAltCommandW
+
+- type: startingGear
+  id: CoreGearPC0I5
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTSecurityWM
+    back: ClothingBackpackERTLeaderWM
+    mask: ClothingMaskGasBlueShieldWM
+    gloves: ClothingHandsGlovesColorBlueWM
+    outerClothing: ClothingOuterArmorNTRGLeadWM
+    shoes: ClothingShoesCentcomBlackWM
+    id: IDCorePC0I5
+    pocket1: HandLabelerWM
+    pocket2: ExGrenadeWM
+    belt: ClothingBeltBlueShieldWebbingPC0I5WM
+    head: ClothingHeadHatBeretAdjutantWM
+    suitstorage: WeaponRifleFamasWM
+    ears: ClothingHeadsetAltCommandW
+    neck: SyndicateWhistleWM
+  inhand:
+  - MagazBagWM
+
+- type: startingGear
+  id: WMGearGrusCore
+  inhand:
+  - WMSpawnGrusYEECore

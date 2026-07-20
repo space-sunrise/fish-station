@@ -1,0 +1,63 @@
+- type: factionIcon
+  id: FactionIconCoreBase
+  hideInContainer: false
+  isShaded: false
+  hideOnStealth: false
+  offset: 0
+  locationPreference: Right
+  priority: 0
+  showTo:
+    components:
+      - ShowAntagIcons
+      - AdminMinigun      
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/Icon.rsi
+    state: CoreBase
+
+- type: factionIcon
+  id: FactionIconCorePC0I5
+  hideInContainer: false
+  isShaded: false
+  hideOnStealth: false
+  offset: 0
+  locationPreference: Right
+  priority: 0
+  showTo:
+    components:
+      - ShowAntagIcons
+      - AdminMinigun      
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/Icon.rsi
+    state: CorePC0I5
+
+- type: factionIcon
+  id: FactionIconCorePM1
+  hideInContainer: false
+  isShaded: false
+  hideOnStealth: false
+  offset: 0
+  locationPreference: Right
+  priority: 0
+  showTo:
+    components:
+      - ShowAntagIcons
+      - AdminMinigun      
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/Icon.rsi
+    state: CorePM1
+
+- type: factionIcon
+  id: FactionIconCorePE1
+  hideInContainer: false
+  isShaded: false
+  hideOnStealth: false
+  offset: 0
+  locationPreference: Right
+  priority: 0
+  showTo:
+    components:
+      - ShowAntagIcons
+      - AdminMinigun      
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/Icon.rsi
+    state: CorePE1

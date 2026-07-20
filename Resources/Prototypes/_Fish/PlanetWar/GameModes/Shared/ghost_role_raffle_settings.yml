@@ -1,0 +1,30 @@
+- type: ghostRoleRaffleSettings
+  id: WM2
+  settings:
+    initialDuration: 2
+    joinExtendsDurationBy: 1
+    maxDuration: 2
+
+- type: ghostRoleRaffleSettings
+  id: WM
+  settings:
+    initialDuration: 2
+    joinExtendsDurationBy: 2
+    maxDuration: 10
+
+- type: ghostRoleRaffleSettings
+  id: LongWM
+  settings:
+    initialDuration: 5
+    joinExtendsDurationBy: 2
+    maxDuration: 20
+
+- type: ghostRoleRaffleSettings
+  id: LifeWM
+  settings:
+    initialDuration: 0
+    joinExtendsDurationBy: 0
+    maxDuration: 1 
+
+
+#RSD

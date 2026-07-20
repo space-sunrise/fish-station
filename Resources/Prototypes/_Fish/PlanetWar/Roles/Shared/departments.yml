@@ -1,0 +1,7 @@
+- type: department
+  id: FractionGhostWM
+  name: department-FractionGhostWM-name
+  description: department-FractionGhostWM-desc
+  color: "#999999"
+  roles:
+  - JobGhostWMBase

@@ -1,0 +1,29 @@
+- type: latheRecipePack
+  id: PackLatheHost
+  recipes:
+  - 1LatheHost
+  - 3LatheHost
+
+- type: latheRecipePack
+  id: 1PackLatheCargo
+  recipes:
+  - 1Cargo1Fab
+  - 2Cargo1Fab
+  - 3Cargo1Fab
+  - 4Cargo1Fab
+
+- type: latheRecipePack
+  id: 2PackLatheCargo
+  recipes:
+  - 1Cargo2Fab
+  - 2Cargo2Fab
+  - 3Cargo2Fab
+  - 4Cargo2Fab
+
+- type: latheRecipePack
+  id: 4PackLatheCargo
+  recipes:
+  - 1Cargo4Fab
+  - 2Cargo4Fab
+  - 3Cargo4Fab
+  - 4Cargo4Fab

@@ -1,0 +1,63 @@
+- type: job
+  id: JobArmBase
+  name: Ополченец #Повстанец - стояло у всех первым столов в словосочетании джоба
+  description: Одноразовое мясо
+  playTimeTracker: OverAllArmBase
+  setPreference: false
+  weight: 2
+  jobEntity: MobHumanArmP0WMF5
+  icon: "IconArmBase"
+  canBeAntag: false
+  access:
+  - AssArmBase
+  alwaysUseSpawner: true
+
+- type: job
+  id: JobArmPC0I5
+  name: Предводитель
+  description: Воодушевляюший лидер
+  playTimeTracker: OverAllArmPC0I5
+  setPreference: false
+  weight: 5
+  jobEntity: MobHumanArmPC0I5WMF5
+  icon: "IconArmPC0I5"
+  canBeAntag: false
+  access:
+  - AssArmBase
+  - AssArmPC0I5
+  - AssArmPE1
+  - AssArmPM1
+  alwaysUseSpawner: true
+
+- type: job
+  id: JobArmPM1
+  name: Аптекарь
+  description: Оказывает лечебную помощь
+  playTimeTracker: OverAllArmPM1
+  setPreference: false
+  weight: 3
+  jobEntity: MobHumanArmPM1WMF5
+  icon: "IconArmPM1"
+  canBeAntag: false
+  access:
+  - AssArmBase
+  - AssArmPM1
+  alwaysUseSpawner: true
+
+- type: job
+  id: JobArmPE1
+  name: Строитель
+  description: Собирает защитные баррикады
+  playTimeTracker: OverAllArmPE1
+  setPreference: false
+  weight: 4
+  jobEntity: MobHumanArmPE1WMF5
+  icon: "IconArmPE1"
+  canBeAntag: false
+  access:
+  - AssArmBase
+  - AssArmPE1
+  alwaysUseSpawner: true
+
+
+#Icon

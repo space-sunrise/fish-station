@@ -1,0 +1,10 @@
+- type: jobIcon
+  parent: JobIcon
+  id: IconGhostWM
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/Icon.rsi
+    state: ArmPE1
+  jobName: Призрак
+
+
+#Id

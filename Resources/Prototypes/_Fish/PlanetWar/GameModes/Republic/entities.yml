@@ -1,0 +1,374 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseItem
+  id: MarkerPortableGeneratorJrPacmanCoreWM
+  components:
+  - type: TimedDespawn 
+    lifetime: 3
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: true
+    table: !type:AllSelector
+      children:
+      - id: AmmoTechFabCoreWMFlatpack
+      - id: MaterialReclaimerWMFlatpack
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: [ ReinforcementRadioSyndicateNukeops, MarkerBase ]
+  id: 1ReinforcementCoreWM
+  name: Призыв Боевика
+  description: Хули тут сказать.
+  suffix: WM
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Item
+    size: Huge
+  - type: Sprite
+    scale: 0.5, 0.5
+    sprite: Objects/Misc/Handy_Flags/NT_handy_flag.rsi
+    layers:
+    - state: icon
+  - type: GhostRole
+    name: Боевик
+    description: Фракция Республиканцы
+    mindRoles:
+    - MindRoleGhostRoleNeutral
+    raffle:
+      settings: LifeWM
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanCoreP0WM
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 3500
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+  - type: ExplosionResistance
+    damageCoefficient: 0.00001
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 1ReinforcementCoreWM
+  id: LongTime1ReinforcementCoreWM
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: LongTimeMobHumanCoreP0WM
+  - type: GhostRole
+    name: Боевик (малые врата)
+    raffle:
+      settings: LongWM
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 1ReinforcementCoreWM
+  id: 4ReinforcementCorePC0I5WM
+  name: Призыв Лейтенанта
+  suffix: WM
+  components:
+  - type: GhostRole
+    name: Лейтенант
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanCorePC0I5WM
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 4ReinforcementCorePC0I5WM
+  id: LongTime4ReinforcementCorePC0I5WM
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: LongTimeMobHumanCorePC0I5WM
+  - type: GhostRole
+    name: Лейтенант (малые врата)
+    raffle:
+      settings: LongWM
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 1ReinforcementCoreWM
+  id: 5ReinforcementCoreP1WM
+  name: Призыв Штурмовика
+  suffix: WM
+  components:
+  - type: GhostRole
+    name: Штурмовик
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanCoreP1WM
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 5ReinforcementCoreP1WM
+  id: LongTime5ReinforcementCoreP1WM
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: LongTimeMobHumanCoreP1WM
+  - type: GhostRole
+    name: Штурмовик (малые врата)
+    raffle:
+      settings: LongWM
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 1ReinforcementCoreWM
+  id: 6ReinforcementCorePH5WM
+  name: Призыв Джагернаута
+  suffix: WM
+  components:
+  - type: GhostRole
+    name: Джагернаут
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanCorePH5WM
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 6ReinforcementCorePH5WM
+  id: LongTime6ReinforcementCorePH5WM
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: LongTimeMobHumanCorePH5WM
+  - type: GhostRole
+    name: Джагернаут (малые врата)
+    raffle:
+      settings: LongWM
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 1ReinforcementCoreWM
+  id: 3ReinforcementCorePM1WM
+  name: Призыв Врача
+  suffix: WM
+  components:
+  - type: GhostRole
+    name: Врач
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanCorePM1WM
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 3ReinforcementCorePM1WM
+  id: LongTime3ReinforcementCorePM1WM
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: LongTimeMobHumanCorePM1WM
+  - type: GhostRole
+    name: Врач (малые врата)
+    raffle:
+      settings: LongWM
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 1ReinforcementCoreWM
+  id: 2ReinforcementCorePE1WM
+  name: Призыв Инженера
+  suffix: WM
+  components:
+  - type: GhostRole
+    name: Инженер
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanCorePE1WM
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 2ReinforcementCorePE1WM
+  id: LongTime2ReinforcementCorePE1WM
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: LongTimeMobHumanCorePE1WM
+  - type: GhostRole
+    name: Инженер (малые врата)
+    raffle:
+      settings: LongWM
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 1ReinforcementCoreWM
+  id: 7ReinforcementCorePS4WM
+  name: Призыв Снайпера
+  suffix: WM
+  components:
+  - type: GhostRole
+    name: Снайпер
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanCorePS4WM
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 7ReinforcementCorePS4WM
+  id: LongTime7ReinforcementCorePS4WM
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: LongTimeMobHumanCorePS4WM
+  - type: GhostRole
+    name: Снайпер (малые врата)
+    raffle:
+      settings: LongWM
+
+#Povstanez
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: MarkTimer1ReinforcementCoreWM
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: TimedDespawn 
+    lifetime: 45
+  - type: SpawnOnDespawn
+    prototype: 1ReinforcementCoreWM
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: MarkTimer3ReinforcementCorePM1WM
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: TimedDespawn 
+    lifetime: 30
+  - type: SpawnOnDespawn
+    prototype: 3ReinforcementCorePM1WM
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: MarkTimer4ReinforcementCorePC0I5WM
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: TimedDespawn 
+    lifetime: 70
+  - type: SpawnOnDespawn
+    prototype: 4ReinforcementCorePC0I5WM
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: MarkTimer5ReinforcementCoreP1WM
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: TimedDespawn 
+    lifetime: 40
+  - type: SpawnOnDespawn
+    prototype: 5ReinforcementCoreP1WM
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: MarkTimer6ReinforcementCorePH5WM
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: TimedDespawn 
+    lifetime: 135
+  - type: SpawnOnDespawn
+    prototype: 6ReinforcementCorePH5WM
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: MarkTimer7ReinforcementCorePS4WM
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: TimedDespawn 
+    lifetime: 80
+  - type: SpawnOnDespawn
+    prototype: 7ReinforcementCorePS4WM
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerGatewayArmJob
+  id: MarkerGatewayCoreJob
+  components:
+  - type: SpawnOnDespawn
+    prototype: GatewayCoreJob
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: Marker14567Start
+  suffix: Роняет сервер головй об кафель, использовать на свой страх и риск.
+  name: Core Broken host server fish
+  components:
+  - type: GhostRole
+    name: 01 Спавнер Фракции Республика
+    description: Возьмите эту роль.
+    raffle:
+      settings: WM2
+  - type: GhostRoleMobSpawner
+    prototype: Marker14567
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: MARKERMarkerStartItemGatewayCoreFlatpack
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: TimedDespawn 
+    lifetime: 10
+  - type: SpawnOnDespawn
+    prototype: MarkerStartItemGatewayCoreFlatpack
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MarkerBase
+  id: MarkerStartItemGatewayCore
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: true
+      table: !type:AllSelector
+        children:
+        - id: CrateGenericSteelPixarCoreWM
+        - id: CrateGenericSteelMechsCoreWM
+        - id: CrateGenericSteelRcdCoreWM
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MechHeavyCoreWMFlatpack
+  id: MarkerStartItemGatewayCoreFlatpack
+  name: набор сооружения оплота
+  components:
+  - type: SpawnAfterInteract
+    prototype: MarkerStartItemGatewayCore
+  - type: Flatpack
+    entity: MarkerStartItemGatewayCore
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: MultitoolWM

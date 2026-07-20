@@ -1,0 +1,323 @@
+- type: latheRecipe
+  id: 1GateLatheRecipe
+  result: MaterialReclaimerWMFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    state: reclaimer
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 14MagLatheRecipe
+  result: MagazineShotgunWM
+  completetime: 0
+  materials:
+    ShtampMagazinMaterial: 100
+   # MoneyWarMizMaterial: 200
+
+- type: latheRecipe
+  id: 15MagLatheRecipe
+  result: MagazineShotgunSlugWM
+  completetime: 0
+  materials:
+    ShtampMagazinMaterial: 200
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 199MagLatheRecipe
+  result: MagazineStructureWeaponGun
+  completetime: 0
+  materials:
+    ShtampMagazinMaterial: 50
+    MoneyWarMizMaterial: 100
+
+#пока что мусор
+
+- type: latheRecipe
+  id: 20MagLatheRecipe
+  result: GrenadeFragLightWM
+  completetime: 6
+  materials:
+    ShtampMagazinMaterial: 175
+    MoneyWarMizMaterial: 1100
+
+#гранаты
+
+- type: latheRecipe
+  id: 21MagLatheRecipe
+  result: TearGasGrenadeWM
+  completetime: 1 #1
+  materials:
+  #  ShtampMagazinMaterial: 50
+    MoneyWarMizMaterial: 20
+
+- type: latheRecipe
+  id: 22MagLatheRecipe
+  result: SeismicChargeWM
+  completetime: 3 #2
+  materials:
+  #  ShtampMagazinMaterial: 260
+    MoneyWarMizMaterial: 300
+
+- type: latheRecipe
+  id: 23MagLatheRecipe
+  result: GrenadeShrapnelWM
+  completetime: 2 #1
+  materials:
+  #  ShtampMagazinMaterial: 300
+    MoneyWarMizMaterial: 200
+
+- type: latheRecipe
+  id: 24MagLatheRecipe
+  result: ExGrenadeWM
+  completetime: 3 #2
+  materials:
+  #  ShtampMagazinMaterial: 600
+    MoneyWarMizMaterial: 400
+
+- type: latheRecipe
+  id: 25MagLatheRecipe
+  result: C4WM
+  completetime: 4 #3
+  materials:
+  #  ShtampMagazinMaterial: 600
+    MoneyWarMizMaterial: 500
+
+- type: latheRecipe
+  id: 26MagLatheRecipe
+  result: MetalFoamGrenadeWM
+  completetime: 2 #0
+  materials:
+    MoneyWarMizMaterial: 100
+
+
+
+#мехи
+
+- type: latheRecipe
+  id: 8LatheMech
+  result: ShuttleGunAutomatWMFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/64xSprait.rsi
+    state: exp-120g
+  completetime: 15
+  materials:
+    ShtampMagazinMaterial: 100
+    MoneyWarMizMaterial: 800
+
+- type: latheRecipe
+  id: 9LatheMech
+  result: ShuttleGunPulemetWMFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/64xSprait.rsi
+    state: exp-350g
+  completetime: 40
+  materials:
+    ShtampMagazinMaterial: 300
+    MoneyWarMizMaterial: 2000
+
+- type: latheRecipe
+  id: 3LatheHost
+  result: ShtampMagazin
+  completetime: 5
+  materials:
+    MoneyWarMizMaterial: 1000
+
+- type: latheRecipe
+  id: 2LatheHost
+  result: MoneyWarMiz500
+  completetime: 2
+  materials:
+    ShtampMagazinMaterial: 200
+
+- type: latheRecipe
+  id: 1LatheHost
+  result: MoneyWarMiz500
+  completetime: 40
+  materials:
+    MoneyWarMizMaterial: 200
+
+#карго фабо
+
+- type: latheRecipe
+  id: 1Cargo1Fab
+  result: FultonWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 3Cargo1Fab
+  result: FultonBeaconWM
+  completetime: 2
+  materials:
+    MoneyWarMizMaterial: 500
+
+- type: latheRecipe
+  id: 4Cargo1Fab
+  result: EnergyPickaxeWM
+  completetime: 3
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 2Cargo1Fab
+  result: MagazBagWM
+  completetime: 3
+  materials:
+    MoneyWarMizMaterial: 600
+
+- type: latheRecipe
+  id: 1Cargo2Fab
+  result: OintmentWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 20
+
+- type: latheRecipe
+  id: 2Cargo2Fab
+  result: BrutepackWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 30
+
+- type: latheRecipe
+  id: 3Cargo2Fab
+  result: MedicatedSutureWM
+  completetime: 2
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 4Cargo2Fab
+  result: RegenerativeMeshWM
+  completetime: 2
+  materials:
+    MoneyWarMizMaterial: 150
+
+- type: latheRecipe
+  id: 1Cargo3Fab
+  result: SyringeEphedrineWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 20
+
+- type: latheRecipe
+  id: 2Cargo3Fab
+  result: CheapRollerBedSpawnFoldedWM
+  completetime: 2
+  materials:
+    MoneyWarMizMaterial: 500
+
+- type: latheRecipe
+  id: 3Cargo3Fab
+  result: LauncherSyringeWM
+  completetime: 3
+  materials:
+    MoneyWarMizMaterial: 800
+
+- type: latheRecipe
+  id: 1Cargo4Fab
+  result: ChemistryBottleBicaridineWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 200
+
+- type: latheRecipe
+  id: 2Cargo4Fab
+  result: ChemistryBottlePuncturaseWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 200
+
+- type: latheRecipe
+  id: 3Cargo4Fab
+  result: ChemistryBottleDermalineWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 200
+
+- type: latheRecipe
+  id: 4Cargo4Fab
+  result: ChemistryBottleDexalinPlusWM
+  completetime: 2
+  materials:
+    MoneyWarMizMaterial: 600
+
+- type: latheRecipe
+  id: 1Cargo5Fab
+  result: BinocularsWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 200
+
+- type: latheRecipe
+  id: 1Cargo6Fab
+  result: HandheldSoilWM
+  completetime: 2
+  materials:
+    MoneyWarMizMaterial: 800
+
+- type: latheRecipe
+  id: 2Cargo6Fab
+  result: BoxBotanicToolWM
+  completetime: 2
+  materials:
+    MoneyWarMizMaterial: 1000
+
+- type: latheRecipe
+  id: 2Cargo7Fab
+  result: WelderExperimentalWM
+  completetime: 2
+  materials:
+    MoneyWarMizMaterial: 300
+
+- type: latheRecipe
+  id: 3Cargo7Fab
+  result: RemoteSignallerWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 4Cargo7Fab
+  result: MultitoolWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 5Cargo7Fab
+  result: WirecutterWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 6Cargo7Fab
+  result: WrenchWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 7Cargo7Fab
+  result: CrowbarWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 8Cargo7Fab
+  result: ScrewdriverWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 9Cargo7Fab
+  result: ClothingEyesGlassesWeldingWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100

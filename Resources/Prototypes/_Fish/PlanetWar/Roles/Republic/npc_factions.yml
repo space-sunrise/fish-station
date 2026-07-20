@@ -1,0 +1,8 @@
+- type: npcFaction
+  id: CoreFaction
+  friendly:
+  - CoreFaction
+  hostile:
+  - NanoTrasen
+  - ArmFaction
+  - Syndicate

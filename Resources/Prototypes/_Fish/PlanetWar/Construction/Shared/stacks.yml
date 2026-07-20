@@ -1,0 +1,14 @@
+- type: stack
+  id: ShtampMagazinStack
+  name: material-ShtampMagazin-name
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: base }
+  spawn: ShtampMagazin
+
+- type: stack
+  id: FultonWM
+  name: stack-Fulton-name
+  icon:
+    sprite: /Textures/Objects/Tools/fulton.rsi
+    state: extraction_pack
+  spawn: Fulton1WM
+  maxCount: 450

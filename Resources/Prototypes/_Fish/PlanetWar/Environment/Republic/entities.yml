@@ -1,0 +1,9 @@
+- type: entity
+  parent: DeathRattleImplant
+  id: DeathRattleImplantCore
+  name: республика смерть хрип имплант
+  description: ыыыы.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RattleOnTrigger
+    radioChannel: RadioChannelCore

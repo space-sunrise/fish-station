@@ -1,0 +1,11 @@
+- type: body
+  id: WMBodyGrus
+  name: "тело"
+  root: torso
+  slots:
+    torso:
+      part: TorsoBorg
+      connections:
+      - hand 1
+    hand 1:
+      part: LeftArmBorg

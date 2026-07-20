@@ -1,0 +1,15 @@
+- type: accessLevel
+  id: AssCoreBase
+  name: доступ Республиканцев
+
+- type: accessLevel
+  id: AssCorePC0I5
+  name: доступ Командования Республиканцев
+
+- type: accessLevel
+  id: AssCorePM1
+  name: доступ Медработ Республиканцев
+
+- type: accessLevel
+  id: AssCorePE1
+  name: доступ Техработ Республиканцев

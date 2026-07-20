@@ -1,0 +1,15 @@
+- type: accessLevel
+  id: AssArmBase
+  name: доступ Повстанцев
+
+- type: accessLevel
+  id: AssArmPC0I5
+  name: доступ Командования Повстанцев
+
+- type: accessLevel
+  id: AssArmPM1
+  name: доступ Медработ Повстанцев
+
+- type: accessLevel
+  id: AssArmPE1
+  name: доступ Техработ Повстанцев
