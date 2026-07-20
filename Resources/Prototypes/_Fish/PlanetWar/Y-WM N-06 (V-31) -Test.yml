@@ -1,0 +1,2934 @@
+
+
+#06
+#PortalSpawnerNoHight
+
+- type: gamePreset
+  id: PlanetWar
+  #alias:
+   # - nukeops
+  name: Planet War (WM)
+  description: Выберите професию или призрачную роль одной из сторон, выполняйте приказы своих лидеров, ваша цель — уничтожить все вражеские врата.
+  showInVote: false
+  rules:
+    - PlanetWarRule
+
+#добавить копию правил секрета
+- type: gamePreset
+  id: PlanetWarSecret
+  #alias:
+   # - nukeops
+  name: Планета Вульп (ПВ)
+  description: Веселый TDM - Team Dog Match
+  showInVote: false
+  rules:
+    - PlanetWarRule
+
+- type: entity
+  parent: BaseGameRule
+  id: PlanetWarRule
+  components:
+  #- type: NukeopsRule
+  #  roundEndBehavior: Nothing
+  - type: GameRule
+    minPlayers: 0
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  id: StationNoArrivalsWM
+  parent:
+    - BaseStation
+    - BaseStationJobsSpawning
+  #  - BaseStationRecords
+   # - BaseStationGateway
+  #  - BaseStationAlertLevels
+  #  - BaseStationNanotrasen
+#NightDayMapLightComponent
+
+
+- type: gameMap
+  id: WMGrassPlanet
+  mapName: 'WM Лесная планета'
+  mapPath: /Maps/_Fish/PlanetWar/PlanetStationMapWM.yml
+  randomRotation: false
+  minPlayers: 0
+  stations:
+    Ghost:
+      stationProto: StationNoArrivalsWM
+      components:
+        - type: StationBiome
+          biome: WMSpisdilSsvoegoJeFpoPlanetRari #WMGrasslands
+          mapLightColor: "#cfb06b"
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Обломок {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '???'
+        - type: StationJobs
+          availableJobs:
+            JobGhostWMBase: [ 0, -1 ]
+    PlanetMap:
+      stationProto: StationNoArrivalsWM
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Лесная планета {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'WM'
+    Core:
+      stationProto: StationNoArrivalsWM
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Врата Республики {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'Core'
+        - type: StationJobs
+          availableJobs:
+            JobCoreBase: [ 0, -1 ]
+            JobCorePC0I5: [ 0, 5 ]
+            JobCorePM1: [ 0, 25 ]
+            JobCorePE1: [ 0, -1 ]
+    Arm:
+      stationProto: StationNoArrivalsWM
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Врата Повстанцев {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'Arm'
+        - type: StationJobs
+          availableJobs:
+            JobArmBase: [ 0, -1 ]
+            JobArmPC0I5: [ 0, 5 ]
+            JobArmPM1: [ 0, 25 ]
+            JobArmPE1: [ 0, -1 ]
+
+
+
+
+
+
+
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: Marker24567
+  id: Marker24567Job
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: Marker24567BoomJob
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: Marker24567Boom
+  id: Marker24567BoomJob
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: MarkerGatewayArmJob
+      - id: MARKERMarkerStartItemGatewayArmFlatpack
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: GatewayArm
+  id: GatewayArmJob
+  components:
+  - type: AddGameRuleOnTrigger
+    gameRule: MaxTimeRoundRestartAfterGateDeadWM
+
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: Marker14567
+  id: Marker14567Job
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: Marker14567BoomJob
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: Marker14567Boom
+  id: Marker14567BoomJob
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: MarkerGatewayCoreJob 
+      - id: MARKERMarkerStartItemGatewayCoreFlatpack
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: GatewayCore
+  id: GatewayCoreJob
+  components:
+  - type: AddGameRuleOnTrigger
+    gameRule: MaxTimeRoundRestartAfterGateDeadWM
+
+
+- type: entity
+  id: MaxTimeRoundRestartAfterGateDeadWM
+  parent: BaseGameRule
+  components:
+  - type: MaxTimeRestartRule
+    roundMaxTime: 1
+    roundEndDelay: 60
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: MarkerGatewayArmJob
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: TimedDespawn 
+    lifetime: 5
+  - type: SpawnOnDespawn
+    prototype: GatewayArmJob
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerGatewayArmJob
+  id: MarkerGatewayCoreJob
+  components:
+  - type: SpawnOnDespawn
+    prototype: GatewayCoreJob
+
+
+
+
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: Marker14567Start
+  suffix: Роняет сервер головй об кафель, использовать на свой страх и риск.
+  name: Core Broken host server fish
+  components:
+  - type: GhostRole
+    name: 01 Спавнер Фракции Республика
+    description: Возьмите эту роль.
+    raffle:
+      settings: WM2
+  - type: GhostRoleMobSpawner
+    prototype: Marker14567
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: Marker14567
+  suffix: Роняет сервер головй об кафель, использовать на свой страх и риск.
+  name: Core Broken host server fish
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: Marker14567Boom
+  - type: TimedDespawn 
+    lifetime: 5
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: Marker14567Boom
+  suffix: Роняет сервер головй об кафель, использовать на свой страх и риск.
+  name: Core Broken host server fish
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: TimedDespawn 
+    lifetime: 5
+  - type: SpawnOnDespawn
+    prototype: GatewayCore
+  - type: TriggerOnSpawn
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Cryo
+    maxIntensity: 50000
+    intensitySlope: 1
+    totalIntensity: 90000
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: GatewayCore
+      - id: MARKERMarkerStartItemGatewayCoreFlatpack
+
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: Marker24567Start
+  suffix: Заливает сервер просроченым пивом, использовать на свой страх и риск.
+  name: Arm Broken host server fish
+  components:
+  - type: GhostRole
+    name: 02 Спавнер Фракции Повстанцы
+    description: Возьмите эту роль.
+    raffle:
+      settings: WM2
+  - type: GhostRoleMobSpawner
+    prototype: Marker24567
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: Marker24567
+  suffix: Заливает сервер просроченым пивом, использовать на свой страх и риск.
+  name: Arm Broken host server fish
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: Marker24567Boom
+  - type: TimedDespawn 
+    lifetime: 5
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: Marker24567Boom
+  suffix: Заливает сервер просроченым пивом, использовать на свой страх и риск.
+  name: Arm Broken host server fish
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: TimedDespawn 
+    lifetime: 5
+  - type: SpawnOnDespawn
+    prototype: GatewayArm
+  - type: TriggerOnSpawn
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Cryo
+    maxIntensity: 50000
+    intensitySlope: 1
+    totalIntensity: 90000
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: GatewayArm
+      - id: MARKERMarkerStartItemGatewayArmFlatpack
+
+
+
+- type: entity
+  id: HolosignForcefieldWM4567
+  parent: ContainmentField
+  name: дипломатическое поле PWM
+  description: Планетарная Война Гриба
+  suffix: WM
+  components:
+  - type: ContainmentField
+    throwForce: 1
+  - type: TimedDespawn
+    lifetime: 720 #500
+  - type: Sprite
+    sprite: Structures/Holo/field.rsi
+    state: icon
+    color: "#9E00FF"
+  - type: PointLight
+    enabled: true
+    radius: 10
+    color: "#9E00FF" #blue
+
+
+
+- type: entity
+  id: HolosignForcefieldWM4567Nulls
+  parent: WallPlastitaniumIndestructible #HolosignForcefieldWM4567
+  name: призрачное поле спавн
+  description: Планетарная Война Гриба
+  suffix: WM
+  components:
+  - type: Stealth
+    mirage: false
+    hadOutline: true
+    examineThreshold: 2
+  - type: StealthOnMove
+    passiveVisibilityRate: -2.00
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0
+        density: 100000
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: ContainmentField
+    throwForce: 0
+  - type: Occluder
+    enabled: false
+ # - type: TimedDespawn
+  #  lifetime: 99999999
+ # - type: Sprite
+  #  sprite: Structures/Holo/field.rsi
+   # state: icon
+   # color: "#9E00FF"
+  #- type: PointLight
+   # enabled: true
+   # radius: 0
+   # color: "#9E00FF" #blue
+  - type: RadiationBlocker
+    resistance: 5
+
+- type: entity
+  id: HolosignForcefieldWM4567Ghost
+  parent: HolosignForcefieldWM4567Nulls
+  name: призрачное поле спавн
+  description: Планетарная Война Гриба
+  suffix: WM
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: FloorNotSpawmDeleteWM
+
+- type: entity
+  id: HolosignForcefieldWM4567Core
+  parent: HolosignForcefieldWM4567Ghost
+  name: анти взрыв тайла джоба Core
+  description: Планетарная Война Гриба
+  suffix: WM
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: FloorNotSpawmDeleteWM
+
+ # - type: Sprite
+   # color: blue
+ # - type: PointLight
+  #  color: blue
+
+- type: entity
+  id: HolosignForcefieldWM4567Arm
+  parent: HolosignForcefieldWM4567Ghost
+  name: анти взрыв тайла джоба Arm
+  description: Планетарная Война Гриба
+  suffix: WM
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: FloorNotSpawmDeleteWM
+ # - type: Sprite
+   # color: red
+ # - type: PointLight
+   # color: red
+
+- type: entity
+  id: FloorNotSpawmDeleteWM
+  name: тайл анти удаления спавна
+  description: не ползуйся рсу
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: Sprite
+    sprite: Structures/catwalk.rsi
+    layers:
+      - state: catwalk_preview
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.6,-0.6,0.6,0.6"
+        layer:
+          - SlipLayer
+        mask:
+          - ItemMask
+        density: 1000
+        hard: false
+  - type: MaterialReclaimer
+    powered: true
+    minimumProcessDuration: 0
+    enabled: true
+    scaleProcessSpeed: false
+    whitelist:
+      components:
+       - PhysicalComposition
+      tags:
+       - SellTagWM
+       - TehfabTagWM
+    blacklist:
+      tags:
+       - TehfabTagMaterialWM
+    sound:
+      path: /Audio/Ambience/Objects/crushing.ogg
+      params:
+        volume: 5
+       # maxdistance: 5
+        loop: true
+  - type: MaterialStorage
+    insertOnInteract: false
+  - type: ContainerContainer
+    containers:
+      active-material-reclaimer-container: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: SolutionContainerManager
+    solutions:
+      output:
+        maxVol: 100
+  - type: DrainableSolution
+    solution: output
+  - type: ExaminableSolution
+    solution: output
+
+
+#Кир,не пв
+
+- type: entity
+  parent: MarkerBase
+  categories: [ HideSpawnMenu, Debug ]
+  id: huiC
+  name: кирC
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: true
+    table: !type:AllSelector
+      children:
+      - id: Marker14567Start
+
+
+
+- type: entity
+  parent: huiC
+  categories: [ HideSpawnMenu, Debug ]
+  id: huiA
+  name: кирA
+  components:
+  - type: EntityTableSpawner
+    table: !type:AllSelector
+      children:
+      - id: Marker24567Start
+
+- type: entity
+  parent: huiCJob
+  categories: [ HideSpawnMenu, Debug ]
+  id: huiAJob
+  name: кирA
+  components:
+  - type: SpawnOnTrigger
+    proto: Marker24567Job
+    predicted: true
+
+
+
+
+
+- type: entity
+  parent: HolosignForcefieldWM4567Nulls #MarkerBase
+  categories: [ HideSpawnMenu, Debug ]
+  id: huiCJob
+  name: кирC
+  components:
+  - type: TriggerOnProximity
+    enabled: true
+    cooldown: 5
+    shape:
+      !type:PhysShapeCircle
+        radius: 20
+    repeating: true
+    requiresAnchored: false
+    triggerSpeed: 1
+  - type: DeleteOnTrigger
+  - type: SpawnOnTrigger
+    proto: Marker14567Job
+    predicted: true
+
+
+
+
+
+#GateItem
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: MARKERMarkerStartItemGatewayCoreFlatpack
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: TimedDespawn 
+    lifetime: 10
+  - type: SpawnOnDespawn
+    prototype: MarkerStartItemGatewayCoreFlatpack
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MARKERMarkerStartItemGatewayCoreFlatpack
+  id: MARKERMarkerStartItemGatewayArmFlatpack
+  components:
+  - type: SpawnOnDespawn
+    prototype: MarkerStartItemGatewayArmFlatpack
+
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MarkerBase
+  id: MarkerStartItemGatewayCore
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: true
+      table: !type:AllSelector
+        children:
+        - id: CrateGenericSteelPixarCoreWM
+        - id: CrateGenericSteelMechsCoreWM
+        - id: CrateGenericSteelRcdCoreWM
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MarkerBase
+  id: MarkerStartItemGatewayArm
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: true
+      table: !type:AllSelector
+        children:
+        - id: CrateGenericSteelPixarArmWM
+        - id: CrateGenericSteelMechsArmWM
+        - id: CrateGenericSteelRcdArmWM
+
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: CrateGenericSteelWM
+  name: Кирки
+  id: CrateGenericSteelPixarCoreWM
+  components:
+  - type: StorageFill
+    contents:
+        - id: EnergyPickaxeWM
+          amount: 20
+        - id: WrenchWM
+          amount: 1
+        - id: CheapRollerBedSpawnFoldedWM
+          amount: 3
+        - id: AmmoTechFabCoreWMFlatpack
+          amount: 1
+        - id: MaterialReclaimerWMFlatpack
+          amount: 2
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: CrateGenericSteelWM
+  id: CrateGenericSteelMechsCoreWM
+  name: Мехи
+  components:
+  - type: StorageFill
+    contents:
+        - id: MechLightCoreFlatpack
+          amount: 4
+        - id: MechNormalCoreFlatpack
+          amount: 1
+        - id: MagazineStructureWeaponGun
+          amount: 4
+        - id: EnergyDomeCoreFlatpack
+          amount: 6
+        - id: ShuttleGunAutomatWMFlatpack
+          amount: 6
+        - id: ShuttleGunPulemetWMFlatpack
+          amount: 4
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: CrateGenericSteelWM
+  id: CrateGenericSteelRcdCoreWM
+  name: Рсд
+  components:
+  - type: StorageFill
+    contents:
+        - id: RCDRechargingGoodCoreWM
+          amount: 10
+        - id: RCDRechargingCoreWM
+          amount: 20 #10
+        - id: CargoTechFabCoreFlatpack
+        - id: FlatpackerFabricatorCoreFlatpack
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: CrateGenericSteelWM
+  id: CrateGenericSteelPixarArmWM
+  name: Кирки
+  components:
+  - type: StorageFill
+    contents:
+        - id: EnergyPickaxeWM
+          amount: 20
+        - id: WrenchWM
+          amount: 1
+        - id: CheapRollerBedSpawnFoldedWM
+          amount: 3
+        - id: AmmoTechFabArmWMFlatpack
+          amount: 1
+        - id: MaterialReclaimerWMFlatpack
+          amount: 2
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: CrateGenericSteelWM
+  id: CrateGenericSteelMechsArmWM
+  name: Мехи
+  components:
+  - type: StorageFill
+    contents:
+        - id: MechLightArmFlatpack
+          amount: 4
+        - id: MechNormalArmFlatpack
+          amount: 1
+        - id: MagazineStructureWeaponGun
+          amount: 4
+        - id: EnergyDomeArmFlatpack
+          amount: 4
+        - id: ShuttleGunAutomatWMFlatpack
+          amount: 6
+        - id: ShuttleGunPulemetWMFlatpack
+          amount: 4
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: CrateGenericSteelWM
+  id: CrateGenericSteelRcdArmWM
+  name: Рсд
+  components:
+  - type: StorageFill
+    contents:
+        - id: RCDRechargingArmWM
+          amount: 20
+        - id: RCDRechargingGoodArmWM
+          amount: 10
+        - id: CargoTechFabArmFlatpack
+        - id: FlatpackerFabricatorArmFlatpack
+
+
+
+#Gate
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: BaseGateway
+  id: BaseGatewayWM
+  components:
+  #  - type: RadarBlip
+  #    color: "#48a4fb"
+  #    scale: 0.4
+  #    shape: Circle
+  #    requireInSpace: false
+    - type: Fixtures
+      fixtures:
+        portalFixture:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.8
+          mask:
+          - FullTileMask
+          layer:
+          - BulletImpassable
+          - Opaque
+         # layer:
+          #- WallLayer
+         # hard: false
+    - type: MaterialStorage
+      whitelist:
+        tags:
+          - TehfabTagMaterialWM
+    - type: Animateable
+    - type: InteractionOutline
+    - type: WiresPanel
+    - type: ActivatableUI
+      key: enum.LatheUiKey.Key
+    - type: ActivatableUIRequiresPower
+    - type: UserInterface
+      interfaces:
+        enum.LatheUiKey.Key:
+          type: LatheBoundUserInterface
+        enum.ResearchClientUiKey.Key:
+          type: ResearchClientBoundUserInterface
+    - type: Damageable
+      damageContainer: Inorganic
+    - type: TimedSpawner
+      chance: 1
+      intervalSeconds: 9000
+      minimumEntitiesSpawned: 1
+      maximumEntitiesSpawned: 1
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 5000
+          behaviors:
+            - !type:TriggerBehavior
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                SingularityWM:
+                  min: 10
+                  max: 10
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ] 
+    - type: Repairable
+      qualityNeeded: "Anchoring"
+      doAfterDelay: 1
+      damage:
+        groups:
+          Brute: -2
+          Burn: -2
+   # - type: ExplodeOnTrigger
+ #   - type: Explosive
+  #    explosionType: Minibomb
+   #   maxIntensity: 50
+     # intensitySlope: 5
+    #  totalIntensity: 20000
+#
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: BaseGatewayWM
+  id: GatewayCore
+  suffix: WM
+  name: Врата Республиканцев
+  components:
+    #- type: RadarBlip
+    #  color: "#0000e3"
+    #  scale: 1.5
+    - type: WarpPoint
+      follow: true
+      location: Врата Республиканцев
+    - type: Sprite
+      layers:
+      - state: frame
+    #  - state: portal
+    #    shader: unshaded
+    #    map: ["enum.GatewayVisualLayers.Portal"]
+      - state: on
+        shader: unshaded
+        map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - type: Lathe
+      staticPacks:
+      - PackLatheCorePortal
+    - type: TimedSpawner
+      prototypes:
+      - PortalGatewayCoreWN
+    - type: NukeDisk
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:AllSelector
+        children:
+        - id: 4ReinforcementCorePC0I5WM
+        - id: 2ReinforcementCorePE1WM
+        - id: MarkTimer1ReinforcementCoreWM
+        - id: MarkTimer3ReinforcementCorePM1WM
+        - id: MarkTimer5ReinforcementCoreP1WM
+        - id: MarkTimer6ReinforcementCorePH5WM
+        - id: MarkTimer7ReinforcementCorePS4WM
+       # - id: MarkerStartItemGatewayCoreFlatpack
+
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: BaseGatewayWM
+  id: GatewayArm
+  suffix: WM
+  name: Врата Повстанцев
+  components:
+ # - type: RadarBlip
+ #   color: "#ff4040"
+ #   scale: 1.5
+  - type: WarpPoint
+    follow: true
+    location: Врата Повстанцев
+  - type: Lathe
+    staticPacks:
+    - PackLatheArmPortal
+  - type: NukeLabel
+  - type: TimedSpawner
+    prototypes:
+    - PortalGatewayArmWM
+  - type: Sprite
+    layers:
+    - state: frame
+  #  - state: portal
+  #    color: "#e60000"
+  #    shader: unshaded
+  #    map: ["enum.GatewayVisualLayers.Portal"]
+    - state: on
+      color: "#e60000"
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: 4ReinforcementArmPC0I5WM
+      - id: 2ReinforcementArmPE1WM
+      - id: MarkTimer1ReinforcementArmWM
+      - id: MarkTimer3ReinforcementArmPM1WM
+      - id: MarkTimer5ReinforcementArmP1WM
+      - id: MarkTimer6ReinforcementArmPH5WM
+      - id: MarkTimer7ReinforcementArmPS4WM
+     # - id: MarkerStartItemGatewayArmFlatpack
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: PortalGatewayBlue
+  id: PortalGatewayCoreWN
+  components:
+  - type: Portal
+    maxRandomRadius: 0.01
+  - type: TimedDespawn
+    lifetime: 10.0
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: MechLightCoreFlatpack
+        amount: 2
+      - id: MechNormalCoreFlatpack
+      - id: EnergyDomeCoreFlatpack
+        amount: 2
+      - id: ShuttleGunPulemetWMFlatpack
+      - id: ShuttleGunAutomatWMFlatpack
+        amount: 4
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: PortalGatewayBlue
+  id: PortalGatewayArmWM
+  components:
+  - type: Sprite
+    color: "#e60000"
+  - type: PointLight
+    color: "#e60000"
+  - type: Portal
+    maxRandomRadius: 0.01
+  - type: TimedDespawn
+    lifetime: 10.0
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: MechLightArmFlatpack
+        amount: 2
+      - id: MechNormalArmFlatpack
+      - id: EnergyDomeArmFlatpack
+        amount: 2
+      - id: ShuttleGunPulemetWMFlatpack
+      - id: ShuttleGunAutomatWMFlatpack
+        amount: 4
+
+#PortalMini
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: GatewayCore
+  id: GatewayCoreMini
+  name: Малые Врата Республиканцев
+  components:
+  #  - type: RadarBlip
+  #    color: "#48a4fb"
+  #    scale: 0.9
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 1000
+          behaviors:
+            - !type:TriggerBehavior
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                SingularityMiniWM:
+                  min: 1
+                  max: 1
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ] 
+   # - type: Explosive
+  #    explosionType: Default
+  #    totalIntensity: 100
+   #   intensitySlope: 30 
+   #   maxIntensity: 25
+    - type: Sprite
+      scale: 0.72, 0.72
+    - type: TimedSpawner
+      intervalSeconds: 540
+      prototypes:
+      - PortalGatewayCoreMiniWN
+    - type: EntityTableSpawner
+      table: !type:AllSelector
+        children:
+        - id: MarkTimer1ReinforcementCoreWM
+        - id: SopawnerCorePortalMini
+        - id: ZopawnerCorePortalMini
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: GatewayArm
+  id: GatewayArmMini
+  name: Малые Врата Повстанцев
+  components:
+  #- type: RadarBlip
+  #  color: "#ff4040"
+  #  scale: 0.9
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 1000
+        behaviors:
+          - !type:TriggerBehavior
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              SingularityMiniWM:
+                min: 1
+                max: 1
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ] 
+ # - type: Explosive
+  #  explosionType: Default
+  #  totalIntensity: 100
+  #  intensitySlope: 30 
+  #  maxIntensity: 25
+  - type: Sprite
+    scale: 0.72, 0.72
+  - type: TimedSpawner
+    intervalSeconds: 5400
+    prototypes:
+    - PortalGatewayArmMiniWM
+  - type: EntityTableSpawner
+    table: !type:AllSelector
+      children:
+      - id: MarkTimer1ReinforcementArmWM
+      - id: SopawnerArmPortalMini
+      - id: ZopawnerArmPortalMini
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: PortalGatewayCoreWN
+  id: PortalGatewayCoreMiniWN
+  components:
+  - type: EntityTableSpawner
+    table: !type:AllSelector
+      children:
+      - id: BoxDronCoreWM  #SopawnerCorePortalMini
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: PortalGatewayArmWM
+  id: PortalGatewayArmMiniWM
+  components:
+  - type: EntityTableSpawner
+    table: !type:AllSelector
+      children:
+      - id: BoxDronArmWM
+
+ 
+
+
+#TehFab
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  id: MaterialReclaimerWM
+  name: переработчик продаж
+  description: Засунь сюда для переработки в валюту () огнестрельное оружие, лазерное оружие, мех оружие, рсу, шприцемет, мозг.
+  components:
+  - type: Construction
+    graph: CatwalkWMDop
+    node: CatwalkWMDop
+  - type: Sprite
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    snapCardinals: true
+    netsync: false
+    layers:
+    - state: reclaimer
+  - type: Appearance
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    enabled: false
+    color: "#da824d"
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    offset: "0, 0.4"
+    castShadows: false
+  - type: PowerSwitch
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: MaterialReclaimer
+    minimumProcessDuration: 0
+    enabled: true
+    scaleProcessSpeed: false
+    whitelist:
+      components:
+       - PhysicalComposition
+      tags:
+       - SellTagWM
+       - TehfabTagWM
+    blacklist:
+      tags:
+       - TehfabTagMaterialWM
+    sound:
+      path: /Audio/Ambience/Objects/crushing.ogg
+      params:
+        volume: 5
+       # maxdistance: 5
+        loop: true
+  - type: MaterialStorage
+    insertOnInteract: false
+  - type: ContainerContainer
+    containers:
+      active-material-reclaimer-container: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: SolutionContainerManager
+    solutions:
+      output:
+        maxVol: 100
+  - type: DrainableSolution
+    solution: output
+  - type: ExaminableSolution
+    solution: output
+  - type: StaticPrice
+    price: 500
+  - type: ApcPowerReceiver
+    powerLoad: 500
+
+#карго
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: CargoTechFabCoreWM
+  parent: AmmoTechFabCoreWM
+  name: склад фаб республики
+  description: Йоу
+  components:
+    - type: ApcPowerReceiver
+      powerLoad: 800
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 150
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+    - type: Sprite
+      sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+      layers:
+        - state: cargofabCore
+          map: ["enum.LatheVisualLayers.IsRunning"]
+        - state: cargofabCoreuntil
+          shader: unshaded
+          map: ["enum.PowerDeviceVisualLayers.Powered"]
+        - state: magfabinserting
+          map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - type: Lathe
+      idleState: cargofabCore
+      runningState: cargofabCore
+      staticPacks:
+      - 1PackLatheCargo
+      - 2PackLatheCargo
+      - 3PackLatheCargoCore
+      - 4PackLatheCargo
+      - 5PackLatheCargoCore
+      - 6PackLatheCargoCore
+      - 7PackLatheCargoCore
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: CargoTechFabArmWM
+  parent: AmmoTechFabArmWM
+  name: склад фаб повстанцев
+  components:
+    - type: Sprite
+      sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+      layers:
+        - state: cargofabArm
+          map: ["enum.LatheVisualLayers.IsRunning"]
+        - state: cargofabArmuntil
+          shader: unshaded
+          map: ["enum.PowerDeviceVisualLayers.Powered"]
+        - state: magfabinserting
+          map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - type: Lathe
+      idleState: cargofabArm
+      runningState: cargofabArm
+      staticPacks:
+      - 1PackLatheCargo
+      - 2PackLatheCargo
+      - 3PackLatheCargoArm
+      - 4PackLatheCargo
+      - 5PackLatheCargoArm
+      - 6PackLatheCargoArm
+      - 7PackLatheCargoArm
+
+#патроны
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: AmmoTechFabCoreWM
+  parent: BaseLatheLube
+  name: техфаб боеприпасов республики
+  description: Йоу
+  components:
+    - type: Construction
+      graph: CatwalkWMDop
+      node: CatwalkWMDop
+    - type: ApcPowerReceiver
+      powerLoad: 800
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 150
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+    - type: Sprite
+      sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+      layers:
+        - state: magfabCore
+          map: ["enum.LatheVisualLayers.IsRunning"]
+        - state: magfabCoreunlit
+          shader: unshaded
+          map: ["enum.PowerDeviceVisualLayers.Powered"]
+        - state: magfabinserting
+          map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - type: Lathe
+      idleState: magfabCore
+      runningState: magfabCore
+      staticPacks:
+      - PackLatheAmmoCore
+      - PackLatheGrenCore
+    - type: MaterialStorage
+      whitelist:
+        tags:
+          - TehfabTagMaterialWM
+    - type: Anchorable
+      delay: 30
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: AmmoTechFabArmWM
+  parent: AmmoTechFabCoreWM
+  name: техфаб боеприпасов повстанцев
+  description: Йоу
+  components:
+    - type: Construction
+      graph: CatwalkWMDop
+      node: CatwalkWMDop
+    - type: Sprite
+      sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+      layers:
+        - state: magfabArm
+          map: ["enum.LatheVisualLayers.IsRunning"]
+        - state: magfabArmunlit
+          shader: unshaded
+          map: ["enum.PowerDeviceVisualLayers.Powered"]
+        - state: magfabinserting
+          map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - type: Lathe
+      idleState: magfabArm
+      runningState: magfabArm
+      staticPacks:
+      - PackLatheAmmoArm
+      - PackLatheGrenArm
+
+- type: entity
+  id: FlatpackerFabricatorCore
+  parent: BaseLatheLube
+  name: упаковшик фабрикаторов республики
+  description: Производит фабрикаторы.
+  components:
+  - type: Construction
+    graph: CatwalkWM
+    node: CatwalkWM
+  - type: Sprite
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    layers:
+    - state: engCore
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: engCorescreen
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      shader: unshaded
+  - type: ApcPowerReceiver
+    powerLoad: 500
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 150
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+  - type: Lathe
+    idleState: engCore
+    runningState: engCore
+    staticPacks:
+    - PackLatheCorePortal
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - TehfabTagMaterialWM
+  - type: Anchorable
+    delay: 30
+
+- type: entity
+  id: FlatpackerFabricatorArm
+  parent: BaseLatheLube
+  name: упаковшик фабрикаторов повстанцев
+  description: Производит фабрикаторы.
+  components:
+  - type: Construction
+    graph: CatwalkWM
+    node: CatwalkWM
+  - type: Sprite
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    layers:
+    - state: engArm
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: engArmscreen
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      shader: unshaded
+  - type: Lathe
+    idleState: engArm
+    runningState: engArm
+    staticPacks:
+    - PackLatheArmPortal
+
+- type: entity
+  id: MechFabricatorCore
+  parent: BaseLatheLube
+  name: фабрикатор юнитов республики
+  description: Производит дронов, боргов, мехов и прочее говно.
+  components:
+  - type: Construction
+    graph: CatwalkWM
+    node: CatwalkWM
+  - type: Sprite
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    layers:
+    - state: mechCoreidle
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: mechload
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: mechCorescreen
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      shader: unshaded
+  - type: ApcPowerReceiver
+    powerLoad: 5000
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 250
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+  - type: Lathe
+    idleState: mechCoreidle
+    runningState: mechCoreidle
+    staticPacks:
+    - PackLatheMechCore
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - TehfabTagMaterialWM
+  - type: Anchorable
+    delay: 30
+
+- type: entity
+  id: MechFabricatorArm
+  parent: MechFabricatorCore
+  name: фабрикатор юнитов повстанцев
+  components:
+  - type: Sprite
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    layers:
+    - state: mechArmidle
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: mechload
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: mechArmscreen
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      shader: unshaded
+  - type: Lathe
+    idleState: mechArmidle
+    runningState: mechArmidle
+    staticPacks:
+    - PackLatheMechArm
+
+- type: entity
+  id: MoneyHostCore
+  parent: BaseLatheLube
+  name: Хост Wegan
+  description: Даешь мало, получаешь много.
+  components:
+  - type: Construction
+    graph: CatwalkWM
+    node: CatwalkWM
+  - type: Sprite
+    sprite: Structures/Machines/telecomms.rsi
+    snapCardinals: true
+    layers:
+    - state: telecom-nopower
+    - state: telecom-stripe
+    - state: telecom-on
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: variant-default
+      shader: unshaded
+  - type: ApcPowerReceiver
+    powerLoad: 1000
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+  - type: Lathe
+    idleState: telecom-nopower
+    runningState: telecom-nopower
+    staticPacks:
+    - PackLatheHost
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - TehfabTagMaterialWM 
+  - type: Anchorable
+    delay: 10
+#  - type: TimedSpawner
+ #   chance: 1
+  #  intervalSeconds: 45
+ #   minimumEntitiesSpawned: 1
+  #  maximumEntitiesSpawned: 1
+ #   prototypes:
+ #    - MoneyWarMiz100
+
+- type: entity
+  id: MoneyHostArm
+  parent: MoneyHostCore
+  name: Хост Lustoff
+  components:
+  - type: Sprite
+    layers:
+    - state: telecom-nopower
+    - state: telecom-stripe
+    - state: telecom-on
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: variant-nokey
+      shader: unshaded
+  - type: Lathe
+    idleState: telecom-nopower
+    runningState: telecom-nopower
+    staticPacks:
+    - PackLatheHost
+
+#Flatpack
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseFlatpack
+  id: MaterialReclaimerWMFlatpack
+  name: переработчик продаж
+  description: Распакуй.
+  components:
+  - type: SpawnAfterInteract
+    prototype: MaterialReclaimerWM
+    doAfter: 7
+    removeOnInteract: true
+  - type: Clickable
+  - type: Item
+    size: Normal
+  - type: Flatpack
+    entity: MaterialReclaimerWM
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#d0c28f"
+      map: ["enum.FlatpackVisualLayers.Overlay"]
+    - state: icon-default
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MaterialReclaimerWMFlatpack
+  id: AmmoTechFabCoreWMFlatpack
+  name: техфаб боеприпасов республики
+  description: Распакуй.
+  components:
+  - type: SpawnAfterInteract
+    prototype: AmmoTechFabCoreWM
+  - type: Flatpack
+    entity: AmmoTechFabCoreWM
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#0057e7"
+      map: ["enum.FlatpackVisualLayers.Overlay"]
+    - state: icon-default
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MaterialReclaimerWMFlatpack
+  id: AmmoTechFabArmWMFlatpack
+  name: техфаб боеприпасов повстанцев
+  description: Распакуй.
+  components:
+  - type: SpawnAfterInteract
+    prototype: AmmoTechFabArmWM
+  - type: Flatpack
+    entity: AmmoTechFabArmWM
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#e60000"
+      map: ["enum.FlatpackVisualLayers.Overlay"]
+    - state: icon-default
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: AmmoTechFabCoreWMFlatpack
+  id: FlatpackerFabricatorCoreFlatpack
+  name: упаковшик фабрикаторов республики
+  components:
+  - type: SpawnAfterInteract
+    prototype: FlatpackerFabricatorCore
+  - type: Flatpack
+    entity: FlatpackerFabricatorCore
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: AmmoTechFabArmWMFlatpack
+  id: FlatpackerFabricatorArmFlatpack
+  name: упаковшик фабрикаторов повстанцев
+  components:
+  - type: SpawnAfterInteract
+    prototype: FlatpackerFabricatorArm
+  - type: Flatpack
+    entity: FlatpackerFabricatorArm
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: AmmoTechFabCoreWMFlatpack
+  id: MechFabricatorCoreFlatpack
+  name: фабрикатор юнитов республики
+  components:
+  - type: SpawnAfterInteract
+    prototype: MechFabricatorCore
+  - type: Flatpack
+    entity: MechFabricatorCore
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: AmmoTechFabArmWMFlatpack
+  id: MechFabricatorArmFlatpack
+  name: фабрикатор юнитов повстанцев
+  components:
+  - type: SpawnAfterInteract
+    prototype: MechFabricatorArm
+  - type: Flatpack
+    entity: MechFabricatorArm
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: AmmoTechFabCoreWMFlatpack
+  id: MoneyHostCoreFlatpack
+  name: хост wegan
+  components:
+  - type: SpawnAfterInteract
+    prototype: MoneyHostCore
+  - type: Flatpack
+    entity: MoneyHostCore
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: AmmoTechFabArmWMFlatpack
+  id: MoneyHostArmFlatpack
+  name: хост lustof
+  components:
+  - type: SpawnAfterInteract
+    prototype: MoneyHostArm
+  - type: Flatpack
+    entity: MoneyHostArm
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MechHeavyCoreWMFlatpack
+  id: MechLightCoreFlatpack
+  name: легкий двухместный гиродерм
+  components:
+  - type: SpawnAfterInteract
+    prototype: MechLightCoreWM
+  - type: Flatpack
+    entity: MechLightCoreWM
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MechHeavyArmWMFlatpack
+  id: MechLightArmFlatpack
+  name: легкий двухместный гиродерм
+  components:
+  - type: SpawnAfterInteract
+    prototype: MechLightArmWM
+  - type: Flatpack
+    entity: MechLightArmWM
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MechHeavyCoreWMFlatpack
+  id: MarkerStartItemGatewayCoreFlatpack
+  name: набор сооружения оплота
+  components:
+  - type: SpawnAfterInteract
+    prototype: MarkerStartItemGatewayCore
+  - type: Flatpack
+    entity: MarkerStartItemGatewayCore
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: MultitoolWM
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MechHeavyArmWMFlatpack
+  id: MarkerStartItemGatewayArmFlatpack
+  name: набор сооружения оплота
+  components:
+  - type: SpawnAfterInteract
+    prototype: MarkerStartItemGatewayArm
+  - type: Flatpack
+    entity: MarkerStartItemGatewayArm
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: MultitoolWM
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MechHeavyCoreWMFlatpack
+  id: MechNormalCoreFlatpack
+  name: штурмовой механизированый доспех
+  components:
+  - type: SpawnAfterInteract
+    prototype: MechNormCoreWM
+  - type: Flatpack
+    entity: MechNormCoreWM
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MechHeavyArmWMFlatpack
+  id: MechNormalArmFlatpack
+  name: штурмовой мехпнищированый доспех
+  components:
+  - type: SpawnAfterInteract
+    prototype: MechNormArmWM
+  - type: Flatpack
+    entity: MechNormArmWM
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MechHeavyCoreWMFlatpack
+  id: MechTankCoreFlatpack
+  name: передвижное осадное орудие 
+  components:
+  - type: SpawnAfterInteract
+    prototype: TankCoreWM
+  - type: Flatpack
+    entity: TankCoreWM
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MechHeavyCoreWMFlatpack
+  id: MechGrusCoreFlatpack
+  name: транспортник 
+  components:
+  - type: SpawnAfterInteract
+    prototype: GrusCoreWM
+  - type: Flatpack
+    entity: GrusCoreWM
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MechHeavyArmWMFlatpack
+  id: MechTankArmFlatpack
+  name: передвижное осадное орудие 
+  components:
+  - type: SpawnAfterInteract
+    prototype: TankArmWM
+  - type: Flatpack
+    entity: TankArmWM
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MechHeavyArmWMFlatpack
+  id: MechGrusArmFlatpack
+  name: транспортник 
+  components:
+  - type: SpawnAfterInteract
+    prototype: GrusArmWM
+  - type: Flatpack
+    entity: GrusArmWM
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: AmmoTechFabCoreWMFlatpack
+  id: MechHeavyCoreWMFlatpack
+  name: тяжелый боевой мех республики
+  description: Распакуй.
+  components:
+  - type: SpawnAfterInteract
+    prototype: MechHeavyCoreWM
+  - type: Flatpack
+    entity: MechHeavyCoreWM
+  - type: Sprite
+    scale: 1.6, 1.6
+  - type: Item
+    size: Ginormous
+  - type: HeldSpeedModifier
+    walkModifier: 0.4
+    sprintModifier: 0.4
+  - type: MultiHandedItem
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: AmmoTechFabArmWMFlatpack
+  id: MechHeavyArmWMFlatpack
+  name: тяжелый боевой мех повстанцев
+  description: Распакуй.
+  components:
+  - type: SpawnAfterInteract
+    prototype: MechHeavyArmWM
+  - type: Flatpack
+    entity: MechHeavyArmWM
+  - type: Sprite
+    scale: 1.6, 1.6
+  - type: Item
+    size: Ginormous
+  - type: HeldSpeedModifier
+    walkModifier: 0.4
+    sprintModifier: 0.4
+  - type: MultiHandedItem
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: AmmoTechFabCoreWMFlatpack
+  id: WeaponPrismaCoreWMTestBlaFlatpack
+  name: призма республики
+  components:
+  - type: SpawnAfterInteract
+    prototype: WeaponPrismaCoreWMTestBla 
+  - type: Flatpack
+    entity: WeaponPrismaCoreWMTestBla
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: AmmoTechFabArmWMFlatpack
+  id: WeaponPrismaArmWMTestBlaFlatpack
+  name: призма повстанцев
+  components:
+  - type: SpawnAfterInteract
+    prototype: WeaponPrismaArmWMTestBla 
+  - type: Flatpack
+    entity: WeaponPrismaArmWMTestBla
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: AmmoTechFabCoreWMFlatpack
+  id: EnergyDomeCoreFlatpack
+  name: установка защитного поля
+  components:
+  - type: SpawnAfterInteract
+    prototype: EnergyDomeCoreWM #EnergyDomeCoreWM
+  - type: Flatpack
+    entity: EnergyDomeCoreWM
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: AmmoTechFabArmWMFlatpack
+  id: EnergyDomeArmFlatpack
+  name: установка защитного поля
+  components:
+  - type: SpawnAfterInteract
+    prototype: EnergyDomeArmWM #EnergyDomeArmWM
+  - type: Flatpack
+    entity: EnergyDomeArmWM
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MechHeavyCoreWMFlatpack
+  id: MechStationDronCoreFlatpack
+  name: станция БПЛА
+  components:
+  - type: SpawnAfterInteract
+    prototype: StationDronBeaconCore
+  - type: Flatpack
+    entity: StationDronBeaconCore
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MechHeavyArmWMFlatpack
+  id: MechStationDronArmFlatpack
+  name: станция Квадракоптер
+  components:
+  - type: SpawnAfterInteract
+    prototype: StationDronBeaconArm
+  - type: Flatpack
+    entity: StationDronBeaconArm
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MechHeavyCoreWMFlatpack
+  id: GatewayCoreMiniFlatpack
+  name: малые врата республиканцев
+  components:
+  - type: SpawnAfterInteract
+    prototype: GatewayCoreMini
+  - type: Flatpack
+    entity: GatewayCoreMini
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MechHeavyArmWMFlatpack
+  id: GatewayArmMiniFlatpack
+  name: малые врата повстанцев
+  components:
+  - type: SpawnAfterInteract
+    prototype: GatewayArmMini
+  - type: Flatpack
+    entity: GatewayArmMini
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MaterialReclaimerWMFlatpack
+  id: ShuttleGunAutomatWMFlatpack
+  name: стационарный точечный автомат
+  components:
+  - type: SpawnAfterInteract
+    prototype: ShuttleGunAutomatWM
+  - type: Flatpack
+    entity: ShuttleGunAutomatWM
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MaterialReclaimerWMFlatpack
+  id: ShuttleGunPulemetWMFlatpack
+  name: стационарный подавляющий пулемет
+  components:
+  - type: SpawnAfterInteract
+    prototype: ShuttleGunPulemetWM
+  - type: Flatpack
+    entity: ShuttleGunPulemetWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: AmmoTechFabCoreWMFlatpack
+  id: CargoTechFabCoreFlatpack
+  name: склад фаб
+  components:
+  - type: SpawnAfterInteract
+    prototype: CargoTechFabCoreWM
+  - type: Flatpack
+    entity: CargoTechFabCoreWM
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: AmmoTechFabArmWMFlatpack
+  id: CargoTechFabArmFlatpack
+  name: склад фаб
+  components:
+  - type: SpawnAfterInteract
+    prototype: CargoTechFabArmWM
+  - type: Flatpack
+    entity: CargoTechFabArmWM
+
+
+
+#LatheRecipe
+
+#упаковки производителей
+
+
+- type: latheRecipePack
+  id: PackLatheCorePortal
+  recipes:
+  - 1GateLatheRecipe
+  - 2GateCoreLatheRecipe
+  - 3GateCoreLatheRecipe
+  - 4GateCoreLatheRecipe
+  - 5GateCoreLatheRecipe
+  - 6GateCoreLatheRecipe
+
+- type: latheRecipePack
+  id: PackLatheArmPortal
+  recipes:
+  - 1GateLatheRecipe
+  - 2GateArmLatheRecipe
+  - 3GateArmLatheRecipe
+  - 4GateArmLatheRecipe
+  - 5GateArmLatheRecipe
+  - 6GateArmLatheRecipe
+  
+
+- type: latheRecipe
+  id: 1GateLatheRecipe
+  result: MaterialReclaimerWMFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    state: reclaimer
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 2GateCoreLatheRecipe
+  result: AmmoTechFabCoreWMFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    state: magfabCore
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 2GateArmLatheRecipe
+  result: AmmoTechFabArmWMFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    state: magfabArm
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 3GateCoreLatheRecipe
+  result: FlatpackerFabricatorCoreFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    state: engCore
+  completetime: 3
+  materials:
+    MoneyWarMizMaterial: 800
+
+- type: latheRecipe
+  id: 3GateArmLatheRecipe
+  result: FlatpackerFabricatorArmFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    state: engArm
+  completetime: 3
+  materials:
+    MoneyWarMizMaterial: 800
+
+- type: latheRecipe
+  id: 4GateCoreLatheRecipe
+  result: MechFabricatorCoreFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    state: mechCoreidle
+  completetime: 5
+  materials:
+    MoneyWarMizMaterial: 3500
+
+- type: latheRecipe
+  id: 4GateArmLatheRecipe
+  result: MechFabricatorArmFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    state: mechArmidle
+  completetime: 5
+  materials:
+    MoneyWarMizMaterial: 3500
+
+- type: latheRecipe
+  id: 5GateCoreLatheRecipe
+  result: MoneyHostCoreFlatpack
+  icon:
+    sprite: Structures/Machines/telecomms.rsi
+    state: telecom-nopower
+  completetime: 20
+  materials:
+    MoneyWarMizMaterial: 2500
+
+- type: latheRecipe
+  id: 5GateArmLatheRecipe
+  result: MoneyHostArmFlatpack
+  icon:
+    sprite: Structures/Machines/telecomms.rsi
+    state: telecom-nopower
+  completetime: 20
+  materials:
+    MoneyWarMizMaterial: 2500
+
+- type: latheRecipe
+  id: 6GateCoreLatheRecipe
+  result: CargoTechFabCoreFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    state: cargofabCore
+  completetime: 5
+  materials:
+    MoneyWarMizMaterial: 1000
+
+- type: latheRecipe
+  id: 6GateArmLatheRecipe
+  result: CargoTechFabArmFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    state: cargofabArm
+  completetime: 5
+  materials:
+    MoneyWarMizMaterial: 1000
+
+
+#магазины
+- type: latheRecipePack
+  id: PackLatheAmmoCore
+  recipes:
+  - 11MagCoreLatheRecipe
+  - 12MagCoreLatheRecipe
+  - 13MagCoreLatheRecipe
+  - 14MagLatheRecipe
+  #- 15MagLatheRecipe
+  - 17MagCoreLatheRecipe
+  - 18MagCoreLatheRecipe
+  #- 19MagLatheRecipe
+  - 199MagLatheRecipe
+  
+- type: latheRecipePack
+  id: PackLatheAmmoArm
+  recipes:
+  - 11MagArmLatheRecipe
+  - 12MagArmLatheRecipe
+  - 13MagArmLatheRecipe
+  - 14MagLatheRecipe
+  #- 15MagLatheRecipe
+  - 17MagArmLatheRecipe
+  - 18MagArmLatheRecipe
+  #- 19MagLatheRecipe
+  - 199MagLatheRecipe
+
+- type: latheRecipe
+  id: 11MagCoreLatheRecipe
+  result: MagazineVP70WM
+  completetime: 0
+  materials:
+    ShtampMagazinMaterial: 20
+  #  MoneyWarMizMaterial: 20
+
+- type: latheRecipe
+  id: 11MagArmLatheRecipe
+  result: MagazineHIBrowningWM
+  parent: 11MagCoreLatheRecipe
+
+- type: latheRecipe
+  id: 12MagCoreLatheRecipe
+  result: MagazineSTG44WM
+  completetime: 0
+  materials:
+    ShtampMagazinMaterial: 100
+   # MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 12MagArmLatheRecipe
+  result: MagazineLightRifleWM
+  parent: 12MagCoreLatheRecipe
+
+- type: latheRecipe
+  id: 13MagCoreLatheRecipe
+  result: MagazineRifleWM
+  completetime: 0
+  materials:
+    ShtampMagazinMaterial: 100
+  #  MoneyWarMizMaterial: 250
+
+- type: latheRecipe
+  id: 13MagArmLatheRecipe
+  result: MagazinePistolSubMachineGunWM
+  parent: 13MagCoreLatheRecipe
+
+- type: latheRecipe
+  id: 14MagLatheRecipe
+  result: MagazineShotgunWM
+  completetime: 0
+  materials:
+    ShtampMagazinMaterial: 100
+   # MoneyWarMizMaterial: 200
+
+- type: latheRecipe
+  id: 15MagLatheRecipe
+  result: MagazineShotgunSlugWM
+  completetime: 0
+  materials:
+    ShtampMagazinMaterial: 200
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 17MagCoreLatheRecipe
+  result: MagazineLightMachineGunMG60WM
+  completetime: 0
+  materials:
+    ShtampMagazinMaterial: 400
+  #  MoneyWarMizMaterial: 600
+
+- type: latheRecipe
+  id: 17MagArmLatheRecipe
+  result: MagazineRPDWM
+  parent: 17MagCoreLatheRecipe
+
+- type: latheRecipe
+  id: 18MagCoreLatheRecipe
+  result: MagazineBauer127WM
+  completetime: 0
+  materials:
+    ShtampMagazinMaterial: 300
+  #  MoneyWarMizMaterial: 500
+
+- type: latheRecipe
+  id: 18MagArmLatheRecipe
+  result: MagazineDragunovWM
+  parent: 18MagCoreLatheRecipe
+
+- type: latheRecipe
+  id: 199MagLatheRecipe
+  result: MagazineStructureWeaponGun
+  completetime: 0
+  materials:
+    ShtampMagazinMaterial: 50
+    MoneyWarMizMaterial: 100
+
+#пока что мусор
+- type: latheRecipe
+  id: 20MagLatheRecipe
+  result: GrenadeFragLightWM
+  completetime: 6
+  materials:
+    ShtampMagazinMaterial: 175
+    MoneyWarMizMaterial: 1100
+
+#гранаты
+
+- type: latheRecipePack
+  id: PackLatheGrenCore
+  recipes:
+  - 21MagLatheRecipe
+  - 22MagLatheRecipe
+  - 23MagLatheRecipe
+  - 24MagLatheRecipe
+  - 25MagLatheRecipe
+  - 26MagLatheRecipe
+
+- type: latheRecipePack
+  id: PackLatheGrenArm
+  recipes:
+  - 21MagLatheRecipe
+  - 22MagLatheRecipe
+  - 23MagLatheRecipe
+  - 24MagLatheRecipe
+  - 25MagLatheRecipe
+  - 26MagLatheRecipe
+
+- type: latheRecipe
+  id: 21MagLatheRecipe
+  result: TearGasGrenadeWM
+  completetime: 1 #1
+  materials:
+  #  ShtampMagazinMaterial: 50
+    MoneyWarMizMaterial: 20
+
+- type: latheRecipe
+  id: 22MagLatheRecipe
+  result: SeismicChargeWM
+  completetime: 3 #2
+  materials:
+  #  ShtampMagazinMaterial: 260
+    MoneyWarMizMaterial: 300
+
+- type: latheRecipe
+  id: 23MagLatheRecipe
+  result: GrenadeShrapnelWM
+  completetime: 2 #1
+  materials:
+  #  ShtampMagazinMaterial: 300
+    MoneyWarMizMaterial: 200
+
+- type: latheRecipe
+  id: 24MagLatheRecipe
+  result: ExGrenadeWM
+  completetime: 3 #2
+  materials:
+  #  ShtampMagazinMaterial: 600
+    MoneyWarMizMaterial: 400
+
+- type: latheRecipe
+  id: 25MagLatheRecipe
+  result: C4WM
+  completetime: 4 #3
+  materials:
+  #  ShtampMagazinMaterial: 600
+    MoneyWarMizMaterial: 500
+
+- type: latheRecipe
+  id: 26MagLatheRecipe
+  result: MetalFoamGrenadeWM
+  completetime: 2 #0
+  materials:
+    MoneyWarMizMaterial: 100
+
+
+
+#мехи
+
+- type: latheRecipePack
+  id: PackLatheMechCore
+  recipes:
+  - 0LatheMechCore
+  - 1LatheMechCore
+  - 2LatheMechCore
+  - 3LatheMechCore
+  - 4LatheMechCore
+  - 5LatheMechCore
+  - 6LatheMechCore
+  - 7LatheMechCore
+  - 8LatheMech
+  - 9LatheMech
+  - 10LatheMechCore
+  - 11LatheMechCore
+
+- type: latheRecipePack
+  id: PackLatheMechArm
+  recipes:
+  - 0LatheMechArm
+  - 1LatheMechArm
+  - 2LatheMechArm
+  - 3LatheMechArm
+  - 4LatheMechArm
+  - 5LatheMechArm
+  - 6LatheMechArm
+  - 7LatheMechArm
+  - 8LatheMech
+  - 9LatheMech
+  - 10LatheMechArm
+  - 11LatheMechArm
+
+- type: latheRecipe
+  id: 0LatheMechCore
+  result: BoxDronCoreWM
+  completetime: 10
+  materials:
+    ShtampMagazinMaterial: 75
+    MoneyWarMizMaterial: 400
+
+- type: latheRecipe
+  id: 0LatheMechArm
+  result: BoxDronArmWM
+  completetime: 10
+  materials:
+    ShtampMagazinMaterial: 75
+    MoneyWarMizMaterial: 400
+
+- type: latheRecipe
+  id: 1LatheMechCore
+  result: MechLightCoreFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM2/32xSprait.rsi
+    state: mechGygaxCoreOpen
+  completetime: 30
+  materials:
+    ShtampMagazinMaterial: 150
+    MoneyWarMizMaterial: 800
+
+- type: latheRecipe
+  id: 1LatheMechArm
+  result: MechLightArmFlatpack
+  icon:
+    sprite: Objects/Specific/Mech/gygax.rsi
+    state: darkgygax-open
+  completetime: 30
+  materials:
+    ShtampMagazinMaterial: 150
+    MoneyWarMizMaterial: 800
+
+- type: latheRecipe
+  id: 2LatheMechCore
+  result: MechNormalCoreFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM2/32xSprait.rsi
+    state: mechDurandCoreOpen
+  completetime: 40
+  materials:
+    ShtampMagazinMaterial: 550
+    MoneyWarMizMaterial: 2600
+
+- type: latheRecipe
+  id: 2LatheMechArm
+  result: MechNormalArmFlatpack
+  icon:
+    sprite: Objects/Specific/Mech/durand.rsi
+    state: darkdurand-open
+  completetime: 40
+  materials:
+    ShtampMagazinMaterial: 550
+    MoneyWarMizMaterial: 2600
+
+- type: latheRecipe
+  id: 3LatheMechCore
+  result: MechHeavyCoreWMFlatpack
+  icon:
+    sprite: Objects/Specific/Mech/mecha.rsi
+    state: marauder-open
+  completetime: 60
+  materials:
+    ShtampMagazinMaterial: 1200
+    MoneyWarMizMaterial: 14500
+
+- type: latheRecipe
+  id: 3LatheMechArm
+  result: MechHeavyArmWMFlatpack
+  icon:
+    sprite: Objects/Specific/Mech/mecha.rsi
+    state: mauler-open
+  completetime: 60
+  materials:
+    ShtampMagazinMaterial: 1200
+    MoneyWarMizMaterial: 14500
+
+- type: latheRecipe
+  id: 4LatheMechCore
+  result: MechTankCoreFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/79xSprait.rsi
+    state: coreTank
+  completetime: 80
+  materials:
+    ShtampMagazinMaterial: 2800
+    MoneyWarMizMaterial: 13000
+
+- type: latheRecipe
+  id: 4LatheMechArm
+  result: MechTankArmFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/79xSprait.rsi
+    state: armTank
+  completetime: 80
+  materials:
+    ShtampMagazinMaterial: 2800
+    MoneyWarMizMaterial: 13000
+
+- type: latheRecipe
+  id: 6LatheMechCore
+  result: MechGrusCoreFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM2/100xSprait.rsi
+    state: coregruz
+  completetime: 60
+  materials:
+    ShtampMagazinMaterial: 1200
+    MoneyWarMizMaterial: 7000
+
+- type: latheRecipe
+  id: 6LatheMechArm
+  result: MechGrusArmFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM2/100xSprait.rsi
+    state: armgruz
+  completetime: 60
+  materials:
+    ShtampMagazinMaterial: 1200
+    MoneyWarMizMaterial: 7000
+
+
+
+- type: latheRecipe
+  id: 5LatheMechCore
+  result: EnergyDomeCoreFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    state: energyShildBase
+  completetime: 3
+  materials:
+    ShtampMagazinMaterial: 100
+    MoneyWarMizMaterial: 600
+
+- type: latheRecipe
+  id: 5LatheMechArm
+  result: EnergyDomeArmFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    state: energyShildBase
+  completetime: 3
+  materials:
+    ShtampMagazinMaterial: 100
+    MoneyWarMizMaterial: 600
+
+- type: latheRecipe
+  id: 44LatheMechCore
+  result: WrapHandTeleporterCore
+  icon:
+    sprite: /Textures/Objects/Devices/hand_teleporter.rsi
+    state: icon
+  completetime: 5
+  materials:
+    ShtampMagazinMaterial: 100
+    MoneyWarMizMaterial: 300
+
+- type: latheRecipe
+  id: 44LatheMechArm
+  result: WrapHandTeleporterArm
+  icon:
+    sprite: Objects/Devices/syndicate_teleporter.rsi
+    state: icon
+  completetime: 5
+  materials:
+    ShtampMagazinMaterial: 100
+    MoneyWarMizMaterial: 300
+
+- type: latheRecipe
+  id: 7LatheMechCore
+  result: GatewayCoreMiniFlatpack
+  icon:
+    sprite: Structures/Machines/gateway.rsi
+    state: frame
+  completetime: 80
+  materials:
+    ShtampMagazinMaterial: 850
+    MoneyWarMizMaterial: 7500
+
+- type: latheRecipe
+  id: 7LatheMechArm
+  result: GatewayArmMiniFlatpack
+  icon:
+    sprite: Structures/Machines/gateway.rsi
+    state: frame
+  completetime: 80
+  materials:
+    ShtampMagazinMaterial: 850
+    MoneyWarMizMaterial: 7500
+
+- type: latheRecipe
+  id: 8LatheMech
+  result: ShuttleGunAutomatWMFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/64xSprait.rsi
+    state: exp-120g
+  completetime: 15
+  materials:
+    ShtampMagazinMaterial: 100
+    MoneyWarMizMaterial: 800
+    
+
+- type: latheRecipe
+  id: 9LatheMech
+  result: ShuttleGunPulemetWMFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM/64xSprait.rsi
+    state: exp-350g
+  completetime: 40
+  materials:
+    ShtampMagazinMaterial: 300
+    MoneyWarMizMaterial: 2000
+
+- type: latheRecipe
+  id: 10LatheMechCore
+  result: RCDRechargingGoodCoreWM
+  completetime: 3
+  materials:
+    ShtampMagazinMaterial: 1500
+    MoneyWarMizMaterial: 2000
+
+- type: latheRecipe
+  id: 10LatheMechArm
+  result: RCDRechargingGoodArmWM
+  completetime: 3
+  materials:
+    ShtampMagazinMaterial: 1500 #100
+    MoneyWarMizMaterial: 2000
+
+
+- type: latheRecipe
+  id: 11LatheMechCore
+  result: MechStationDronCoreFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM2/32xSprait.rsi
+    state: stationDronBlue
+  completetime: 60
+  materials:
+    ShtampMagazinMaterial: 2350
+    MoneyWarMizMaterial: 4550
+
+- type: latheRecipe
+  id: 11LatheMechArm
+  result: MechStationDronArmFlatpack
+  icon:
+    sprite: /Textures/_Fish/PlanetWar/WM2/32xSprait.rsi
+    state: stationDronRed
+  completetime: 60
+  materials:
+    ShtampMagazinMaterial: 2350
+    MoneyWarMizMaterial: 4550
+ 
+
+
+#BaseGateway
+#хосты
+- type: latheRecipePack
+  id: PackLatheHost
+  recipes:
+  - 1LatheHost
+  - 3LatheHost
+
+- type: latheRecipe
+  id: 3LatheHost
+  result: ShtampMagazin
+  completetime: 5
+  materials:
+    MoneyWarMizMaterial: 1000
+
+- type: latheRecipe
+  id: 2LatheHost
+  result: MoneyWarMiz500
+  completetime: 2
+  materials:
+    ShtampMagazinMaterial: 200
+
+- type: latheRecipe
+  id: 1LatheHost
+  result: MoneyWarMiz500
+  completetime: 40
+  materials:
+    MoneyWarMizMaterial: 200
+
+#карго фабо
+
+- type: latheRecipePack
+  id: 1PackLatheCargo
+  recipes:
+  - 1Cargo1Fab
+  - 2Cargo1Fab
+  - 3Cargo1Fab
+  - 4Cargo1Fab
+
+- type: latheRecipe
+  id: 1Cargo1Fab
+  result: FultonWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 3Cargo1Fab
+  result: FultonBeaconWM
+  completetime: 2
+  materials:
+    MoneyWarMizMaterial: 500
+
+- type: latheRecipe
+  id: 4Cargo1Fab
+  result: EnergyPickaxeWM
+  completetime: 3
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 2Cargo1Fab
+  result: MagazBagWM
+  completetime: 3
+  materials:
+    MoneyWarMizMaterial: 600
+
+- type: latheRecipePack
+  id: 2PackLatheCargo
+  recipes:
+  - 1Cargo2Fab
+  - 2Cargo2Fab
+  - 3Cargo2Fab
+  - 4Cargo2Fab
+
+- type: latheRecipe
+  id: 1Cargo2Fab
+  result: OintmentWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 20
+
+- type: latheRecipe
+  id: 2Cargo2Fab
+  result: BrutepackWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 30
+
+- type: latheRecipe
+  id: 3Cargo2Fab
+  result: MedicatedSutureWM
+  completetime: 2
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 4Cargo2Fab
+  result: RegenerativeMeshWM
+  completetime: 2
+  materials:
+    MoneyWarMizMaterial: 150
+
+- type: latheRecipePack
+  id: 3PackLatheCargoCore
+  recipes:
+  - 1Cargo3Fab
+  - 2Cargo3Fab
+  - 3Cargo3Fab
+  - 4Cargo3FabCore
+
+- type: latheRecipePack
+  id: 3PackLatheCargoArm
+  recipes:
+  - 1Cargo3Fab
+  - 2Cargo3Fab
+  - 3Cargo3Fab
+  - 4Cargo3FabArm
+
+- type: latheRecipe
+  id: 1Cargo3Fab
+  result: SyringeEphedrineWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 20
+
+- type: latheRecipe
+  id: 2Cargo3Fab
+  result: CheapRollerBedSpawnFoldedWM
+  completetime: 2
+  materials:
+    MoneyWarMizMaterial: 500
+
+- type: latheRecipe
+  id: 3Cargo3Fab
+  result: LauncherSyringeWM
+  completetime: 3
+  materials:
+    MoneyWarMizMaterial: 800
+
+- type: latheRecipe
+  id: 4Cargo3FabCore
+  result: HyposprayWM
+  completetime: 2
+  materials:
+    MoneyWarMizMaterial: 300
+
+- type: latheRecipe
+  id: 4Cargo3FabArm
+  result: SyndiHypoWM
+  completetime: 2
+  materials:
+    MoneyWarMizMaterial: 300
+
+- type: latheRecipePack
+  id: 4PackLatheCargo
+  recipes:
+  - 1Cargo4Fab
+  - 2Cargo4Fab
+  - 3Cargo4Fab
+  - 4Cargo4Fab
+
+- type: latheRecipe
+  id: 1Cargo4Fab
+  result: ChemistryBottleBicaridineWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 200
+
+- type: latheRecipe
+  id: 2Cargo4Fab
+  result: ChemistryBottlePuncturaseWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 200
+
+- type: latheRecipe
+  id: 3Cargo4Fab
+  result: ChemistryBottleDermalineWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 200
+
+- type: latheRecipe
+  id: 4Cargo4Fab
+  result: ChemistryBottleDexalinPlusWM
+  completetime: 2
+  materials:
+    MoneyWarMizMaterial: 600
+
+- type: latheRecipePack
+  id: 5PackLatheCargoCore
+  recipes:
+  - 1Cargo5Fab
+  - 2Cargo5FabCore
+  - 3Cargo5FabCore
+
+- type: latheRecipePack
+  id: 5PackLatheCargoArm
+  recipes:
+  - 1Cargo5Fab
+  - 2Cargo5FabArm
+  - 3Cargo5FabArm
+
+- type: latheRecipe
+  id: 1Cargo5Fab
+  result: BinocularsWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 200
+
+- type: latheRecipe
+  id: 2Cargo5FabCore
+  result: BoxGlowstickBlueWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 2Cargo5FabArm
+  result: BoxGlowstickRedWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 3Cargo5FabCore
+  result: EnergyShieldWM
+  completetime: 2
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 3Cargo5FabArm
+  result: TelescopicShieldWM
+  completetime: 2
+  materials:
+    MoneyWarMizMaterial: 100
+
+
+- type: latheRecipePack
+  id: 6PackLatheCargoCore
+  recipes:
+  - 1Cargo6Fab
+  - 2Cargo6Fab
+  - 3Cargo6FabCore
+
+- type: latheRecipePack
+  id: 6PackLatheCargoArm
+  recipes:
+  - 1Cargo6Fab
+  - 2Cargo6Fab
+  - 3Cargo6FabArm
+
+- type: latheRecipe
+  id: 1Cargo6Fab
+  result: HandheldSoilWM
+  completetime: 2
+  materials:
+    MoneyWarMizMaterial: 800
+
+- type: latheRecipe
+  id: 2Cargo6Fab
+  result: BoxBotanicToolWM
+  completetime: 2
+  materials:
+    MoneyWarMizMaterial: 1000
+
+- type: latheRecipe
+  id: 3Cargo6FabCore
+  result: BoxXlopokCore
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 300
+
+- type: latheRecipe
+  id: 3Cargo6FabArm
+  result: BoxCanabisArm
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 300
+
+- type: latheRecipePack
+  id: 7PackLatheCargoCore
+  recipes:
+  - 1Cargo7FabCore
+  - 2Cargo7Fab
+  - 3Cargo7Fab
+  - 4Cargo7Fab
+  - 5Cargo7Fab
+  - 6Cargo7Fab
+  - 7Cargo7Fab
+  - 8Cargo7Fab
+  - 9Cargo7Fab
+
+- type: latheRecipePack
+  id: 7PackLatheCargoArm
+  recipes:
+  - 1Cargo7FabArm
+  - 2Cargo7Fab
+  - 3Cargo7Fab
+  - 4Cargo7Fab
+  - 5Cargo7Fab
+  - 6Cargo7Fab
+  - 7Cargo7Fab
+  - 8Cargo7Fab
+  - 9Cargo7Fab
+
+- type: latheRecipe
+  id: 1Cargo7FabCore
+  result: RCDRechargingCoreWM
+  completetime: 3
+  materials:
+    MoneyWarMizMaterial: 300
+
+- type: latheRecipe
+  id: 1Cargo7FabArm
+  result: RCDRechargingArmWM
+  completetime: 3
+  materials:
+    MoneyWarMizMaterial: 300
+
+- type: latheRecipe
+  id: 2Cargo7Fab
+  result: WelderExperimentalWM
+  completetime: 2
+  materials:
+    MoneyWarMizMaterial: 300
+
+- type: latheRecipe
+  id: 3Cargo7Fab
+  result: RemoteSignallerWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 4Cargo7Fab
+  result: MultitoolWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 5Cargo7Fab
+  result: WirecutterWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 6Cargo7Fab
+  result: WrenchWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 7Cargo7Fab
+  result: CrowbarWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 8Cargo7Fab
+  result: ScrewdriverWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100
+
+- type: latheRecipe
+  id: 9Cargo7Fab
+  result: ClothingEyesGlassesWeldingWM
+  completetime: 1
+  materials:
+    MoneyWarMizMaterial: 100

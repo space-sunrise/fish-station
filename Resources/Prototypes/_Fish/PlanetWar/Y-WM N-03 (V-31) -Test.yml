@@ -1,0 +1,2693 @@
+#03
+
+#Item
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: HandLabeler
+  id: HandLabelerWM
+  name: Переименовщик состава
+  components:
+    - type: HandLabeler
+      whitelist:
+        components:
+          - HumanoidAppearance
+          - Thirst
+          - Hunger
+          - Item
+        tags:
+          - Structure
+    - type: PhysicalComposition
+      materialComposition:
+        MoneyWarMizMaterial: 200
+
+
+- type: seed
+  id: cannabisWM
+  name: канабис
+  noun: канабис
+  displayName: канабис
+  plantRsi: Objects/Specific/Hydroponics/cannabis.rsi
+  packetPrototype: CannabisSeedsWM
+  productPrototypes:
+    - MarkerLeavesCannabisWM
+  harvestRepeat: Repeat
+  lifespan: 75
+  maturation: 8
+  production: 12
+  yield: 5 #10
+  potency: 20
+  growthStages: 3
+  waterConsumption: 0
+  idealLight: 9
+  idealHeat: 298
+ # chemicals:
+   # THCPW:
+   #   Min: 5
+     # Max: 10
+     # PotencyDivisor: 20
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: CannabisSeeds
+  name: семена канабиса
+  description: "Технический сорт"
+  id: CannabisSeedsWM
+  components:
+    - type: Seed
+      seedId: cannabisWM
+    - type: PhysicalComposition
+      materialComposition:
+        MoneyWarMizMaterial: 20
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: лист канабис
+  parent: LeavesCannabis
+  id: LeavesCannabisWM
+  description: "Легализовано во многих галактиках..."
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: THCPW
+          Quantity: 10
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: SpawnItemsOnUse
+    uses: 1
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/unwrap.ogg
+    items:
+    - id: MoneyWarMiz100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: LeavesCannabisWM
+  id: LeavesCannabisDopWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 100
+  - type: SpawnItemsOnUse
+    items:
+    - id: ShtampMagazin
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseItem
+  id: MarkerLeavesCannabisWM
+  components:
+  - type: TimedDespawn 
+    lifetime: 3
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: true
+    table: !type:GroupSelector
+      children:
+      - id: LeavesCannabisDopWM
+        weight: 20
+      - id: LeavesCannabisWM
+        weight: 80
+
+
+
+- type: seed
+  id: cottonWM
+  name: хлопок
+  noun: хлопок
+  displayName: хлопок
+  plantRsi: Objects/Specific/Hydroponics/cotton.rsi
+  packetPrototype: CottonSeedsWM
+  productPrototypes:
+    - MarkerCottonBolWM
+  harvestRepeat: Repeat
+  lifespan: 75
+  maturation: 8
+  production: 12
+  yield: 5 #10
+  potency: 20
+  growthStages: 3
+  waterConsumption: 0
+  idealLight: 9
+  idealHeat: 298
+  #chemicals:
+   # FiberPW:
+   #   Min: 5
+     # Max: 10
+     # PotencyDivisor: 20
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: CottonSeeds
+  name: семена хлопка
+  id: CottonSeedsWM
+  components:
+    - type: Seed
+      seedId: cottonWM
+    - type: PhysicalComposition
+      materialComposition:
+        MoneyWarMizMaterial: 20
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: цветок хлопка
+  description: Любят моли и темный загорелые люди.
+  id: CottonBolWM
+  parent: FoodProduceBase
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/cotton.rsi
+  - type: FlavorProfile
+    flavors:
+      - cotton
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: FiberPW
+          Quantity: 10
+  - type: Produce
+    seedId: cottonWM
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: SpawnItemsOnUse
+    uses: 1
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/unwrap.ogg
+    items:
+    - id: MoneyWarMiz100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: CottonBolWM
+  id: CottonBolDopWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 100
+  - type: SpawnItemsOnUse
+    items:
+    - id: ShtampMagazin
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseItem
+  id: MarkerCottonBolWM
+  components:
+  - type: TimedDespawn 
+    lifetime: 3
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: true
+    table: !type:GroupSelector
+      children:
+      - id: CottonBolDopWM
+        weight: 20
+      - id: CottonBolWM
+        weight: 80
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: hydroponicsSoil
+  id: hydroponicsSoilWM
+  components:
+  - type: Flatpack
+    entity: HandheldSoilWM
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: мешок земли (мультитул/кликни пол)
+  parent: BaseItem
+  id: HandheldSoilWM
+  description: Высыпает землю на поверхность.
+  components:
+  - type: Flatpack
+    entity: hydroponicsSoilWM
+  - type: Sprite
+    sprite: _Sunrise/Objects/Misc/soil.rsi
+    layers:
+    - state: item
+  - type: Item
+    size: Normal
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 800
+  - type: SpawnAfterInteract
+    prototype: hydroponicsSoilWM
+    doAfter: 1
+    removeOnInteract: true
+  - type: Clickable
+  - type: Tag
+    tags:
+    - Inflatable
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: набор семян для выращивания
+  parent: BaseItem
+  id: BoxCanabisArm
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    layers:
+    - state: base
+    - state: green_bit
+      shader: unshaded
+    - state: refill_plant
+  - type: SpawnItemsOnUse
+    uses: 1
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/unwrap.ogg
+    items:
+    - id: CannabisSeedsWM
+      amount: 8
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: набор семян для выращивания
+  parent: BoxCanabisArm
+  id: BoxXlopokCore
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: CottonSeedsWM
+      amount: 8
+
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: набор ботанический инструментов
+  parent: BoxCanabisArm
+  id: BoxBotanicToolWM
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_bit
+      shader: unshaded
+    - state: refill_plant
+  - type: SpawnItemsOnUse
+    items:
+    - id: BucketWM
+    - id: HydroponicsToolMiniHoeWM
+    - id: HydroponicsToolClippersWM
+    - id: HydroponicsToolScytheWM
+    - id: HydroponicsToolHatchetWM
+    - id: HydroponicsToolSpadeWM
+    - id: PlantBagWM
+    - id: ChemistryBottleEZNutrientWM
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: HydroponicsToolMiniHoe
+  id: HydroponicsToolMiniHoeWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: HydroponicsToolClippers
+  id: HydroponicsToolClippersWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: HydroponicsToolScythe
+  id: HydroponicsToolScytheWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: HydroponicsToolHatchet
+  id: HydroponicsToolHatchetWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: HydroponicsToolSpade
+  id: HydroponicsToolSpadeWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: PlantBag
+  id: PlantBagWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 300
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: SignalButtonAutoWM
+  parent: SignalButton
+  name: кнопка активации
+  suffix: Autolink
+  components:
+   # - type: AutoLinkReceiver
+    #  channel: EnergyDomeAutoLink
+    - type: AutoLinkTransmitter
+      channel: EnergyDomeAutoLink
+    - type: WirelessNetworkConnection
+      range: 1
+ 
+
+
+- type: entity
+  id: EnergyDomeArm
+  name: стационарное силовое поле повстанцев
+  categories: [ HideSpawnMenu ]
+  parent: EnergyDomeBase
+  placement:
+    mode: SnapgridCenter
+  components:
+ # - type: Physics
+ #   bodyType: Static
+  #- type: Destructible
+ #   thresholds:
+ #   - trigger:
+  #      !type:DamageTrigger
+   ##     damage: 750
+   #   behaviors:
+    ##  - !type:DoActsBehavior
+    #    acts: [ "Destruction" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 5 #2.5
+        density: 0
+        mask:
+      #  - ItemMask
+        - None
+        layer:
+     #   - LowImpassable
+        - BulletImpassable
+        - Opaque
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    scale: 2, 2
+    sprite: _Sunrise/Effects/EnergyDome/energydome_big.rsi
+    layers:
+  #  - state: energyShildBase
+  #    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+  #  - state: energyShildArmUntil
+ #     sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+ #     shader: unshaded
+    - state: big
+      color: "#b00000"
+      shader: unshaded
+  - type: PointLight
+    enabled: true
+    energy: 7
+    radius: 6
+    power: 30
+    color: "#b00000"
+  - type: DamageContacts
+    damage:
+      types:
+        Heat: 8
+    ignoreWhitelist:
+      components:
+      - Thruster
+  - type: SpeedModifierContacts
+    affectAirborne: true
+    walkSpeedModifier: 0.1
+    sprintSpeedModifier: 0.1
+    ignoreWhitelist:
+      components:
+      - Thruster
+
+- type: entity
+  id: EnergyDomeCore
+  categories: [ HideSpawnMenu ]
+  name: стационарное силовое поле республики
+  parent: EnergyDomeArm
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    layers:
+  #  - state: energyShildBase
+   #   sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+  #  - state: energyShildCoreUntil
+#      sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+#      shader: unshaded
+    - state: big
+      color: "#64b9de"
+      shader: unshaded
+  - type: PointLight
+    color: "#64b9de"
+  - type: DamageContacts
+    ignoreWhitelist:
+      components:
+      - AdminMinigun
+  - type: SpeedModifierContacts
+    ignoreWhitelist:
+      components:
+      - AdminMinigun
+
+- type: entity
+  id: EnergyDomeCoreWM
+  name: стационарное силовое поле республики
+  description: поле, питание от кабеля 
+  parent: BaseMachine
+  placement:
+    mode: SnapgridCenter
+  components:
+  #- type: RadarBlip
+  #  color: "#0000e3"
+  #  scale: 0.5
+  #  shape: Square
+  #  requireInSpace: false
+  - type: AutoLinkReceiver
+    channel: EnergyDomeAutoLink
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: SignalButtonAutoWM
+  - type: Anchorable
+    delay: 60
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 99999999
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Sprite
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    snapCardinals: true
+    noRot: true
+    layers:
+      - state: energyShildBase
+      - state: energyShildCoreUntil
+        shader: unshaded
+ #тут вырезка была 
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 750
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+  - type: UseDelay
+    delay: 240.0
+  - type: InteractionOutline
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 1
+#  - type: Signaller
+  #- type: TriggerOnSpawn
+  #- type: SignalOnTrigger
+ #   port: Toggle
+  - type: DeviceLinkSink
+    ports:
+    - Toggle
+    - On
+    - Off
+  - type: EnergyDomeGenerator
+    enabled: true
+    damageEnergyDraw: 1
+    domePrototype: EnergyDomeCore
+    canDeviceNetworkUse: true
+  - type: Battery
+    maxCharge: 650
+    startingCharge: 0
+  - type: ApcPowerReceiverBattery
+    idleLoad: 5
+    batteryRechargeRate: 50
+    batteryRechargeEfficiency: 3
+  - type: ExtensionCableReceiver
+  - type: BatterySelfRecharger
+    autoRechargeRate: 200
+   # autoRecharge: True
+  - type: ApcPowerReceiver
+    powerLoad: 40
+
+- type: entity
+  id: EnergyDomeArmWM
+  name: стационарное силовое поле повстанцев
+  parent: EnergyDomeCoreWM
+  placement:
+    mode: SnapgridCenter
+  components:
+ # - type: RadarBlip
+ #   color: "#e50000"
+  - type: Sprite
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    layers:
+      - state: energyShildBase
+      - state: energyShildArmUntil
+        shader: unshaded
+  - type: EnergyDomeGenerator
+    domePrototype: EnergyDomeArm
+
+
+- type: entity
+  parent: BaseItem
+  id: WrapHandTeleporterCore
+  name: телепорт Республики (прочтите описание)
+  description: Распадается на атомы через 60 секунд после активации.
+  components:
+  - type: SpawnItemsOnUse
+    uses: 1
+    sound: !type:SoundPathSpecifier
+      path: "/Audio/Items/beep.ogg"
+    items:
+    - id: HandTeleporterCore
+  - type: Sprite
+    sprite: /Textures/Objects/Devices/hand_teleporter.rsi
+    layers:
+    - state: icon
+  - type: Item
+    sprite: /Textures/Objects/Devices/hand_teleporter.rsi
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 1000 # стоит 60 кредитов
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: HandTeleporterCore
+  parent: BaseItem
+  name: телепорт Республики (прочтите описание)
+  description: Распадается на атомы через 60 секунд после активации.
+  components:
+  - type: Sprite
+    sprite: /Textures/Objects/Devices/hand_teleporter.rsi
+    layers:
+    - state: icon
+  - type: Item
+    sprite: /Textures/Objects/Devices/hand_teleporter.rsi
+  - type: HandTeleporter
+    allowPortalsOnDifferentGrids: true
+    allowPortalsOnDifferentMaps: true
+    firstPortalPrototype: PortalCoreTeleportStartWM
+    secondPortalPrototype: PortalCoreTeleportWM
+  - type: TimedDespawn 
+    lifetime: 300
+  - type: Beeper
+    isMuted: true
+    minBeepInterval: 5
+    maxBeepInterval: 5
+    beepSound:
+      path: "/Audio/Effects/Grenades/Supermatter/smbeep.ogg"
+      #params:
+       # maxDistance: 2
+       # volume: -8
+
+
+
+- type: entity
+  parent: WrapHandTeleporterCore
+  name: телепорт Повстанцев (прочтите описание)
+  id: WrapHandTeleporterArm
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: HandTeleporterArm
+  - type: Sprite
+    sprite: Objects/Devices/syndicate_teleporter.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Devices/syndicate_teleporter.rsi
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: HandTeleporterArm
+  parent: HandTeleporterCore
+  name: телепорт Повстанцев (прочтите описание)
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/syndicate_teleporter.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Devices/syndicate_teleporter.rsi
+  - type: HandTeleporter
+    firstPortalPrototype: PortalArmTeleportStartWM
+    secondPortalPrototype: PortalArmTeleportWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: SmokeScreenImplanterWM
+  parent: SmokeScreenImplanter
+  components:
+  - type: Implanter
+    implant: SmokeScreenImplantWM
+
+- type: entity
+  parent: DeathRattleImplant
+  id: DeathRattleImplantCore
+  name: республика смерть хрип имплант
+  description: ыыыы.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RattleOnTrigger
+    radioChannel: RadioChannelCore
+
+- type: entity
+  parent: DeathRattleImplant
+  id: DeathRattleImplantArm
+  name: повстанцы смерть хрип имплант
+  description: ыыыы.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RattleOnTrigger
+    radioChannel: RadioChannelArm
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseSubdermalImplant
+  id: BombImplantWM
+  components:
+  - type: SpawnOnTrigger
+    proto: GrenadeFlashEffect
+    predicted: true
+  - type: CartridgeAmmo
+    proto: BulletGrenadeFlashBang
+    deleteOnSpawn: true
+  - type: SubdermalImplant
+    implantAction: ActionActivateBombGrenadeImplantWM
+  - type: TriggerOnActivateImplant
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 50
+    intensitySlope: 5
+    totalIntensity: 300
+    maxTileBreak: 1
+  #- type: DeleteOnTrigger
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ActionActivateBombGrenadeImplantWM
+  name: самоподрыв
+  parent: ActionActivateSmokeGrenadeImplant
+  components:
+  - type: Action
+    icon:
+      sprite: /Textures/Actions/Implants/implants.rsi
+      state: explosive
+  - type: LimitedCharges
+    maxCharges: 1
+  - type: AutoRecharge
+    rechargeDuration: 1000
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseSubdermalImplant
+  id: LandmineImplantCoreWM
+  components:
+  - type: SpawnOnTrigger
+    proto: SpawnDronLandmineCore
+    predicted: true
+  - type: SubdermalImplant
+    implantAction: ActionActivateLandmineSpawnImplantWM
+  - type: TriggerOnActivateImplant
+ 
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: LandmineImplantCoreWM
+  id: LandmineImplantArmWM
+  components:
+  - type: SpawnOnTrigger
+    proto: SpawnDronLandmineArm
+    predicted: true
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ActionActivateLandmineSpawnImplantWM
+  name: сброс мины
+  parent: ActionActivateSmokeGrenadeImplant
+  components:
+  - type: Action
+    icon:
+      sprite: Objects/Misc/landmine.rsi
+      state: landmine
+    useDelay: 1
+  - type: LimitedCharges
+    maxCharges: 2
+  - type: AutoRecharge
+    rechargeDuration: 7
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MarkerBase
+  id: SpawnDronLandmineCore
+  components:
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: LandMineFleshCoreWM
+        weight: 70
+      - id: LandMineExplosiveCoreWM
+        weight: 30
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MarkerBase
+  id: SpawnDronLandmineArm
+  components:
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: LandMineFleshArmWM
+        weight: 70
+      - id: LandMineExplosiveArmWM
+        weight: 30
+
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: SmokeScreenImplant
+  id: SmokeScreenImplantWM
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionActivateSmokeGrenadeImplant
+  - type: TriggerOnActivateImplant
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ActionActivateSmokeGrenadeImplantWM
+  parent: ActionActivateSmokeGrenadeImplant
+  components:
+  - type: LimitedCharges
+    maxCharges: 3
+  - type: AutoRecharge
+    rechargeDuration: 30
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: emergency medipen
+  parent: EmergencyMedipen
+  id: EmergencyMedipenWM
+  components:
+  - type: Label
+    currentLabel: эпинефрин
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 20
+        reagents:
+        - ReagentId: EpinephrinePW
+          Quantity: 20
+  - type: DeleteOnSolutionEmpty
+    solution: pen
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: [ SyringeEphedrine, DeleteOnFloreFichaNoRichItemWM ]
+  id: SyringeEphedrineWM
+  components:
+  - type: Item
+    size: Tiny
+  - type: Label
+    currentLabel: эфедрин
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 30
+        reagents:
+        - ReagentId: EphedrinePW
+          Quantity: 30
+  - type: DeleteOnSolutionEmpty
+    solution: injector
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: DrinkMREFlask
+  id: DrinkMREFlaskWM
+  components:
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: WaterPW
+        Quantity: 1
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+        reagents:
+        - ReagentId: WaterPW
+          Quantity: 100
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 200
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: Bucket
+  id: BucketWM
+  components:
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: WaterPW
+        Quantity: 0.1
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 2000
+        reagents:
+        - ReagentId: WaterPW
+          Quantity: 2000
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 200
+
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ClothingEyesGlassesWeldingWM
+  parent: ClothingEyesGlassesWelding
+  components:
+    - type: PhysicalComposition
+      materialComposition:
+        MoneyWarMizMaterial: 100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: RemoteSignallerWM
+  parent: RemoteSignaller
+  components:
+    - type: PhysicalComposition
+      materialComposition:
+        MoneyWarMizMaterial: 100
+    - type: WirelessNetworkConnection
+      range: 20
+
+- type: entity
+  id: CheapRollerBedWM
+  categories: [ HideSpawnMenu ]
+  name: лечебная койка
+  parent: CheapRollerBed
+  components:
+  - type: HealOnBuckle
+    sleepMultiplier: 1.0
+    damage:
+      types:
+        Asphyxiation: -8
+        Bloodloss: -8
+        Blunt: -8
+        Slash: -8
+        Cellular: -8
+        Caustic: -8
+        Cold: -8
+        Heat: -8
+        Piercing: -8
+        Poison: -8
+        Radiation: -8
+        Shock: -8
+        Mangleness: -8
+  - type: CanSleepOnBuckle
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: CheapRollerBedWM
+  id: CheapRollerBedSpawnFoldedWM
+  suffix: folded
+  components:
+  - type: Item
+    size: Small
+  - type: Foldable
+    folded: true
+  - type: Strap
+    enabled: False
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 500
+
+- type: entity
+  parent: BaseItem
+  name: Развертка химсвета
+  id: BoxGlowstickBlueWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: SpawnItemsOnUse
+    uses: 12
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/unwrap.ogg
+    items:
+    - id: GlowstickBlueWM
+  - type: Item
+    sprite: Objects/Storage/boxes.rsi
+    size: Small
+  - type: Sprite
+    sprite: Objects/Storage/boxes.rsi
+    layers:
+      - state: box
+      - state: flare
+        color: "#0057e7"
+
+- type: entity
+  parent: GlowstickBase
+  id: GlowstickBlueWM
+  components:
+    - type: TimedDespawn
+      lifetime: 450
+    - type: ExpendableLight
+      glowDuration: 350
+      fadeOutDuration: 300
+      spentName: expendable-light-spent-blue-glowstick-name
+      glowColorLit: "#0057e7"
+    - type: PointLight
+      radius: 15
+      energy: 1
+      color: "#0057e7"
+
+- type: entity
+  parent: BoxGlowstickBlueWM
+  name: Развертка химсвета
+  id: BoxGlowstickRedWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: SpawnItemsOnUse
+    items:
+    - id: GlowstickRedWM
+  - type: Sprite
+    layers:
+      - state: box
+      - state: flare
+        color: "#e60000"
+
+- type: entity
+  parent: GlowstickBlueWM
+  id: GlowstickRedWM
+  components:
+    - type: ExpendableLight
+      spentName: expendable-light-spent-red-glowstick-name
+      glowColorLit: "#e60000"
+    - type: PointLight
+      color: "#e60000"
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: SingularityWM #добавить глобал обьявление (проверить можно ли его только на одной карты сделать) обьявление о унчитожении основного портала, а также spawn on despawn другово юнита и анаонс им победы протвопоожной команды ( )
+  parent: Singularity
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components: 
+  - type: Transform
+    anchored: true
+  - type: TimedDespawn 
+    lifetime: 10.0
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: SingularityMiniWM # добавить глобал обьявление о унчитожении мелкого портала
+  parent: Singularity 
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Transform
+    anchored: true
+  - type: TimedDespawn 
+    lifetime: 3.0
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: EnergyPickaxeWM
+  parent: EnergyPickaxe #Pickaxe
+  name: энерго кирка
+  components:
+  - type: ItemToggle
+    onUse: false 
+    onActivate: false
+  - type: Wieldable
+  - type: MeleeWeapon
+    attackRate: 1
+    autoAttack: true
+    angle: 160
+    damage:
+      types:
+        Blunt: 4.5
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+        types:
+          Heat: 8
+          Piercing: 2
+          Structural: 30
+          Holy: 75
+    deactivatedSecret: true
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: Сборщик трофеев (повесте на спину-шею)
+  id: MagazBagWM
+  parent: OreBag
+  description: Собирите сюда магазины и другие трофеи на продажу.
+  components:
+  - type: Item
+    size: Small #Ginormous #Large
+  - type: Storage
+    maxItemSize: Ginormous
+    grid:
+    - 0,0,38,28
+  #  - 0,0,25,8
+    whitelist:
+      components:
+        - Item
+    blacklist:
+      components:
+        - Storage
+  #  whitelist:
+    #  tags:
+      #  - TehfabTagWM
+  - type: MagnetPickup
+    range: 2
+    slotFlags: 
+    - suitstorage
+  - type: Sprite
+    sprite: Objects/Specific/Mining/ore_bag_holding.rsi
+    state: icon
+  - type: Clothing
+    sprite: Objects/Specific/Mining/ore_bag_holding.rsi
+    quickEquip: true
+    slots:
+    - neck
+    - back
+    - suitstorage
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: Нашейный доступ пилотирования
+  id: PilotCollarWhiteCore
+  parent: ExplosiveCollarWhite
+  description: Наденьте его для пилотирования мехом.
+  #components:
+
+
+
+- type: entity
+  parent: Foam
+  id: FoamWM
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Stealth
+    mirage: false
+    hadOutline: true
+    examineThreshold: 2
+  - type: StealthOnMove
+    passiveVisibilityRate: -2.00
+  - type: TimedDespawn
+    lifetime: 3
+  - type: Timer
+
+- type: entity
+  id: MedkitFilledWM
+  suffix: Filled
+  parent: [ Medkit, DeleteOnFloreFichaNoRichItemWM ]
+  components:
+  - type: Storage
+    grid:
+    - 0,0,6,1
+  - type: Item
+    heldPrefix: blackkit
+    size: Normal
+  - type: StorageFill
+    contents:
+      - id: BrutepackWM
+      - id: OintmentWM
+      - id: Pill1WM
+        amount: 3
+      - id: EmergencyMedipenWM
+      - id: SyringeEphedrineWM
+      - id: Pill4WM
+        amount: 2
+      - id: Pill5WM
+        amount: 2
+      - id: Pill6WM
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+- type: entity
+  name: таблетка трикордразина
+  parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
+  id: Pill1WM
+  components:
+  - type: Pill
+    pillType: 2
+  - type: Sprite
+    state: pill3
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 26
+        reagents:
+        - ReagentId: TricordrazinePW
+          Quantity: 25
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 10
+
+- type: entity
+  name: таблетка эпинефрина
+  parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
+  id: Pill2WM
+  components:
+  - type: Pill
+    pillType: 15
+  - type: Sprite
+    state: pill16
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 26
+        reagents:
+        - ReagentId: EpinephrinePW
+          Quantity: 10
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 10
+
+- type: entity
+  name: таблетка эфедрина
+  parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
+  id: Pill3WM
+  components:
+  - type: Pill
+    pillType: 17
+  - type: Sprite
+    state: pill18
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 26
+        reagents:
+        - ReagentId: EphedrinePW
+          Quantity: 19
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 10
+
+- type: entity
+  name: таблекта бикаридина
+  parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
+  id: Pill4WM
+  components:
+  - type: Pill
+    pillType: 3
+  - type: Sprite
+    state: pill4
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: BicaridinePW
+          Quantity: 10
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+- type: entity
+  name: таблетка келотана
+  parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
+  id: Pill5WM
+  components:
+  - type: Pill
+    pillType: 4
+  - type: Sprite
+    state: pill5
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: KelotanePW
+          Quantity: 10
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+- type: entity
+  name: таблетка диловена
+  parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
+  id: Pill6WM
+  components:
+  - type: Pill
+    pillType: 9
+  - type: Sprite
+    state: pill10
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: DylovenePW
+          Quantity: 10
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: Ointment
+  id: OintmentWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 2
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: Brutepack
+  id: BrutepackWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 3 #умнож на десять так как в стаке
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: Bloodpack
+  id: BloodpackWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 5
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MedicatedSuture
+  id: MedicatedSutureWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 10
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: RegenerativeMesh
+  id: RegenerativeMeshWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 15
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: Crowbar
+  id: CrowbarWM
+  components:
+  - type: ToolTileCompatible
+    delay: 99999
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: Wrench
+  id: WrenchWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: Wirecutter
+  id: WirecutterWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: WelderExperimental
+  id: WelderExperimentalWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 300
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: Multitool
+  id: MultitoolWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodSnackNutribrickOpen
+  id: FoodSnackNutribrickOpenWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MetalFoamGrenade
+  id: MetalFoamGrenadeWM
+  components:
+  - type: ExplosionResistance
+    damageCoefficient: 0
+  - type: SmokeOnTrigger
+    smokePrototype: AluminiumMetalFoamWM
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+- type: entity
+  id: AluminiumMetalFoamWM
+  categories: [ HideSpawnMenu ]
+  parent: AluminiumMetalFoam
+  components:
+  - type: SpawnOnDespawn
+    prototype: FoamedAluminiumMetalWM
+
+- type: entity
+  id: FoamedAluminiumMetalWM
+  categories: [ HideSpawnMenu ]
+  parent: FoamedAluminiumMetal
+  components:
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Reflect
+    reflectProb: 0.56
+    spread: 360
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: GrenadeFlashBang
+  id: GrenadeFlashBangWM
+  components:
+  - type: MovementIgnoreGravity
+    weightless: True
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 200
+  - type: CartridgeAmmo
+    proto: BulletGrenadeFlashBangWM
+    deleteOnSpawn: true
+
+- type: entity
+  id: BulletGrenadeFlashBangWM
+  parent: BulletGrenadeFlashBang
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: FlashOnTrigger
+    range: 1
+    duration: 20
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: TearGasGrenade
+  id: TearGasGrenadeWM
+  components:
+  - type: MovementIgnoreGravity
+    weightless: True
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 20
+  - type: SmokeOnTrigger
+    duration: 25
+    spreadAmount: 15
+
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: TelescopicShield
+  id: TelescopicShieldWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: Reflect
+    reflectProb: 0.15
+    overrideAngle: 180
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 280
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FultonBeacon
+  id: FultonBeaconWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: EnergyShield
+  id: EnergyShieldWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: Screwdriver
+  id: ScrewdriverWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: SyndicateWhistle
+  id: SyndicateWhistleWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 400
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: SecurityWhistle
+  id: SecurityWhistleWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 400
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingOuterVestArmorSec
+  id: ClothingOuterArmorBlueShieldWM
+  components:
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+  - type: Sprite
+    sprite: _Sunrise/Clothing/OuterClothing/Armor/blueshield.rsi
+  - type: Clothing
+    sprite: _Sunrise/Clothing/OuterClothing/Armor/blueshield.rsi
+  - type: Unremoveable
+  - type: Armor 
+    modifiers:
+      coefficients:
+        Blunt: 0.63
+        Slash: 0.63
+        Piercing: 0.63
+        Heat: 0.73
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingOuterArmorBlueShield
+  id: ClothingOuterArmorNTRGLeadWM
+  components:
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+  - type: Sprite
+    sprite: _Sunrise/Clothing/OuterClothing/Coats/ntrg_coat.rsi
+  - type: Clothing
+    sprite: _Sunrise/Clothing/OuterClothing/Coats/ntrg_coat.rsi
+  - type: Unremoveable
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingOuterArmorBlueShield
+  id: ClothingOuterCoatSyndieCapWM
+  components:
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecap.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecap.rsi
+  - type: Unremoveable
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingMaskGasSecurity
+  id: ClothingMaskGasSecurityWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingUniformJumpsuitRecruitNT
+  id: ClothingUniformJumpsuitRecruitNTWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHeadHelmetSwat
+  id: ClothingHeadHelmetSwatWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+  - type: Reflect
+    reflectProb: 0.05
+    overrideAngle: 270
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHeadHelmetPubg
+  id: ClothingHeadHelmetPubgWM
+  components:
+  - type: Reflect
+    reflectProb: 0.1
+    overrideAngle: 270
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHeadHelmetLing
+  id: ClothingHeadHelmetLingWM
+  components:
+  - type: Reflect
+    reflectProb: 0.1
+    overrideAngle: 270
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingOuterArmorAmberCom
+  id: ClothingOuterArmorAmberComWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+  - type: Armor 
+    modifiers:
+      coefficients:
+        Blunt: 0.49
+        Slash: 0.49
+        Piercing: 0.49
+        Heat: 0.5
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingMaskGasBlueShield
+  id: ClothingMaskGasBlueShieldWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingOuterArmorHeavy
+  id: ClothingOuterArmorHeavyWM
+  components:
+  - type: Unremoveable
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.275
+        Slash: 0.275
+        Piercing: 0.275
+        Heat: 0.3
+        Radiation: 0
+        Caustic: 0.75
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: Hypospray
+  id: HyposprayWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 200
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 20
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: SyndiHypo
+  id: SyndiHypoWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 200
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 20
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ExGrenade
+  id: ExGrenadeWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: ExplosionResistance
+    damageCoefficient: 0.0001
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: GrenadeShrapnel
+  id: GrenadeShrapnelWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: ExplosionResistance
+    damageCoefficient: 0.0001
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: C4
+  id: C4WM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 300
+  - type: ExplosionResistance
+    damageCoefficient: 0.0001
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: SeismicCharge
+  id: SeismicChargeWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: ExplosionResistance
+    damageCoefficient: 0.0001
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: Acidifier
+  id: AcidifierWM
+  components:
+ # - type: EntityTableSpawner
+  #  deleteSpawnerAfterSpawn: false
+  #  table: !type:AllSelector
+   #   children:
+    #  - id: PuddleBloodWN
+  - type: TriggerOnSpawn
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/gib2.ogg
+     # volume: 13
+
+ # - type: TriggerOnSpawn
+  #- type: SmokeOnTrigger
+    #duration: 25
+   # spreadAmount: 25
+   # smokePrototype: FoamWM
+   # solution:
+    #  reagents:
+      #- ReagentId: SpaceCleaner
+       # Quantity: 30
+ 
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: шприцемёт
+  parent: BaseItem
+  id: LauncherSyringeWM
+  description: Бахает шпицем в омнезине
+  components:
+  - type: Biocode
+    factions:
+    - ClassMedic
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 800
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    layers:
+    - state: syringe_gun
+  - type: Item
+    size: Small
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Gun
+    fireRate: 2
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/syringe_gun.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+    clumsyProof: true
+  - type: RechargeBasicEntityAmmo 
+    rechargeCooldown: 4
+  - type: BasicEntityAmmoProvider
+    proto: MiniSyringeWM
+    capacity: 12
+    count: 12
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MiniSyringe
+  id: MiniSyringeWM
+  components:
+  #- type: Sprite
+  #  sprite: Objects/Specific/Chemistry/syringe.rsi
+  #  layers:
+   #   - state: syringe1
+    #    visible: false
+    #  - state: syringe_base0
+  - type: Projectile
+    damage:
+      groups:
+        Airloss: -100
+      types:
+        Cellular: -50
+        Mangleness: -30
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 50
+        reagents:
+        - ReagentId: OmnizinePW
+          Quantity: 20
+        - ReagentId: EphedrinePW
+          Quantity: 5
+        - ReagentId: EpinephrinePW
+          Quantity: 5
+  - type: RefillableSolution
+    solution: ammo
+  - type: InjectableSolution
+    solution: ammo
+  - type: SolutionInjectOnEmbed
+    transferAmount: 10
+    solution: ammo
+  - type: SolutionTransfer
+    maxTransferAmount: 300
+  - type: Appearance
+ # - type: SolutionContainerVisuals
+   # maxFillLevels: 1
+   # fillBaseName: solution
+  - type: TimedDespawn
+    lifetime: 30
+  - type: Timer
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingUniformJumpsuitERTSecurity
+  id: ClothingUniformJumpsuitERTSecurityWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHeadHatBeretAdjutant
+  id: ClothingHeadHatBeretAdjutantWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingUniformJumpsuitRecruitSyndie
+  id: ClothingUniformJumpsuitRecruitSyndieWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingOuterVestArmorSec
+  id: ClothingOuterVestArmorSecWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+  - type: Armor 
+    modifiers:
+      coefficients:
+        Blunt: 0.63
+        Slash: 0.63
+        Piercing: 0.63
+        Heat: 0.73
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHeadHelmetSwatSyndicate
+  id: ClothingHeadHelmetSwatSyndicateWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+  - type: Reflect
+    reflectProb: 0.05
+    overrideAngle: 270
+
+- type: entity
+  parent: PortableRecharger
+  id: PortableRechargerWM
+  components:
+  - type: Clothing
+    equippedPrefix: charging
+    quickEquip: false
+    slots:
+    - back
+    - suitstorage
+    - neck
+  - type: ItemSlots
+    slots:
+      charger_slot:
+        ejectOnInteract: true
+        whitelist:
+          components:
+          - BatteryAmmoProvider
+          - BatteryAmmoProvider
+  - type: SelfUnremovableClothing
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingOuterArmorRaid
+  id: ClothingOuterArmorRaidWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+  - type: Armor 
+    modifiers:
+      coefficients:
+        Blunt: 0.49
+        Slash: 0.49
+        Piercing: 0.49
+        Heat: 0.5
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingMaskGasSwat
+  id: ClothingMaskGasSwatWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingOuterArmorHeavyRed
+  id: ClothingOuterArmorHeavyRedWM
+  components:
+  - type: Unremoveable
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.275
+        Slash: 0.275
+        Piercing: 0.275
+        Heat: 0.3
+        Radiation: 0
+        Caustic: 0.75
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingUniformJumpsuitOperative
+  id: ClothingUniformJumpsuitOperativeWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHeadHatBeretSecurityMedic
+  id: ClothingHeadHatBeretSecurityMedicWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: SmokeGrenade
+  id: SmokeGrenadeWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 850
+  - type: ExplosionResistance
+    damageCoefficient: 0.0001
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseItem
+  id: BinocularsWM
+  components:
+  - type: Wieldable
+  - type: Sprite
+    sprite: Objects/Tools/binoculars.rsi
+    state: icon
+  - type: Clothing
+    sprite: Objects/Tools/binoculars.rsi
+    quickEquip: false
+    slots:
+    - Neck
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 35
+    pvsIncrease: 1.5 
+  - type: Item
+    size: Tiny
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+#работает
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingMaskGasNTRGLead
+  id: ClothingMaskGasNTRGLeadWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingMaskGasSyndicate
+  id: ClothingMaskGasSyndicateWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingOuterCoatBlueshield
+  id: ClothingOuterCoatBlueshieldWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingNeckCloakAlpha
+  id: ClothingCloakAlphaWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingOuterArmorBlueShield
+  id: ClothingOuterEliteCoatHOPWM
+  components:
+  - type: Unremoveable
+  - type: Sprite
+    sprite: _Sunrise/Clothing/OuterClothing/Coats/hopcoat.rsi
+  - type: Clothing
+    sprite: _Sunrise/Clothing/OuterClothing/Coats/hopcoat.rsi
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingOuterArmorBlueShield
+  id: ClothingOuterCoatHOSOvercoatBlackWM
+  components:
+  - type: Unremoveable
+  - type: Sprite
+    sprite: _Sunrise/Clothing/OuterClothing/Coats/hos_coat.rsi
+  - type: Clothing
+    sprite: _Sunrise/Clothing/OuterClothing/Coats/hos_coat.rsi
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: [ClothingEyesBase, BaseToggleClothing]
+  id: ClothingEyesGlassesThermalArmWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 400
+  - type: SelfUnremovableClothing
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/thermal.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/thermal.rsi
+  - type: GroupExamine
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: ToggleClothing
+    action: ActionToggleThermalVision
+    disableOnUnequip: true
+    targetSlot: eyes
+  - type: ComponentToggler
+    parent: true
+    components:
+    - type: ThermalVision
+  - type: ItemToggle
+    predictable: false
+    onUse: false
+    canActivateInhand: false
+    soundActivate:
+      path: /Audio/_Sunrise/Items/Goggles/activate.ogg
+    soundDeactivate:
+      path: /Audio/_Sunrise/Items/Goggles/deactivate.ogg
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingEyesGlassesThermalArmWM
+  id: ClothingEyesGlassesThermalCoreWM
+  components:
+  - type: SelfUnremovableClothing
+  - type: Sprite
+    sprite: Clothing/Eyes/Hud/syndagent.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Hud/syndagent.rsi
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingShoesSwat
+  name: обувь
+  id: ClothingShoesSwatWM
+  components:
+  - type: Unremoveable
+  - type: ClothingSpeedModifier
+    walkModifier: 1.7
+    sprintModifier: 0.77
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingShoesCentcomBlack
+  name: обувь
+  id: ClothingShoesCentcomBlackWM
+  components:
+  - type: Unremoveable
+  - type: ClothingSpeedModifier
+    walkModifier: 1.7
+    sprintModifier: 0.77
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingShoesSwat
+  id: ClothingShoesSwatP1WM
+  name: обувь
+  components:
+  - type: Unremoveable
+  - type: ClothingSpeedModifier
+    walkModifier: 1.9
+    sprintModifier: 0.77
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingShoesCentcomBlack
+  name: обувь
+  id: ClothingShoesCentcomBlackP1WM
+  components:
+  - type: Unremoveable
+  - type: ClothingSpeedModifier
+    walkModifier: 1.9
+    sprintModifier: 0.77
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingUniformJumpsuitParamedic
+  id: ClothingUniformJumpsuitParamedicWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingMaskBreathMedical
+  id: ClothingMaskBreathMedicalWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingOuterVestArmorMedSec
+  id: ClothingOuterVestArmorMedSecWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHeadHatParamedicsoft
+  id: ClothingHeadHatParamedicsoftWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingUniformJumpsuitParamedicSyndie
+  id: ClothingUniformJumpsuitParamedicSyndieWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingMaskBreathMedicalRed
+  id: ClothingMaskBreathMedicalRedWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHeadHatRedsoft
+  id: ClothingHeadHatRedsoftWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHandsGlovesColorRed
+  id: ClothingHandsGlovesColorRedWM
+  components:
+  - type: Unremoveable
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/tacticalmaidgloves.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/tacticalmaidgloves.rsi
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHandsGlovesColorBlue
+  id: ClothingHandsGlovesColorBlueWM
+  components:
+  - type: Unremoveable
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/powerglove.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/powerglove.rsi
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHandsGlovesColorYellow
+  id: ClothingHandsGlovesColorYellowWM
+  components:
+  - type: Unremoveable
+  - type: Insulated
+    preventOpperatinGuns: false
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingOuterVest
+  id: ClothingOuterVestWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingUniformJumpsuitChiefEngineerSyndie
+  id: ClothingUniformJumpsuitChiefEngineerSyndieWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHeadHatHardhatArmored
+  id: ClothingHeadHatHardhatArmoredWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingOuterArmorBasicSlim
+  id: ClothingOuterArmorBasicSlimWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingUniformJumpsuitChiefEngineer
+  id: ClothingUniformJumpsuitChiefEngineerWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: WeaponTeslaGun
+  id: WeaponTeslaGunWM
+  components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,3,1
+  - type: BatteryAmmoProvider
+    proto: TeslaGunBulletWM
+    fireCost: 1000
+  - type: BatterySelfRecharger
+    autoRechargeRate: 8
+   # autoRecharge: True
+  - type: Battery
+    maxCharge: 1500
+    startingCharge: 1000
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 600
+
+- type: entity
+  id: TeslaGunBulletWM
+  parent: TeslaGunBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Shock: 25
+  - type: LightningArcShooter
+    lightningPrototype: LightningWM
+  - type: Electrified
+    shockTime: 3
+    requirePower: false
+
+- type: entity
+  id: LightningWM
+  parent: Lightning
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Lightning
+      canArc: true
+    - type: Electrified
+      shockTime: 1
+      requirePower: false
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: CombatKnife
+  id: CombatKnifeWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 300
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: KukriKnife
+  id: KukriKnifeWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 300
+
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHeadsetAltCommand
+  id: ClothingHeadsetAltCommandW
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-name
+        startingItem: PowerCellMicroreactor 
+  - type: Unremoveable
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCore
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: EncryptionKeyCommand
+  id: EncryptionKeyCore
+  components:
+  - type: EncryptionKey
+    channels:
+    - RadioChannelCore
+    defaultChannel: RadioChannelCore
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHeadsetAltSyndicate
+  id: ClothingHeadsetAltSyndicateWM
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-name
+        startingItem: PowerCellMicroreactor
+  - type: Unremoveable
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyArm
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: EncryptionKeySyndie
+  id: EncryptionKeyArm
+  components:
+  - type: EncryptionKey
+    channels:
+    - RadioChannelArm
+    defaultChannel: RadioChannelArm
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ChemistryBottlePuncturaseWM
+  parent: BaseChemistryBottleFilled
+  name: Бутылочка ЭП
+  components:
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: EpinephrinePW
+        Quantity: 1
+  - type: ExplosionResistance
+    damageCoefficient: 0.00001
+  - type: Label
+    currentLabel: Эпинефрен
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 80
+        reagents:
+        - ReagentId: EpinephrinePW
+          Quantity: 80
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+         # params:
+         #  volume: -4
+      - !type:SpillBehavior { }
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ChemistryBottleBicaridineWM
+  parent: ChemistryBottlePuncturaseWM
+  name: Бутылочка БИ
+  components:
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: BicaridinePW
+        Quantity: 4
+      - ReagentId: PuncturasePW
+        Quantity: 1
+  - type: ExplosionResistance
+    damageCoefficient: 0.00001
+  - type: Label
+    currentLabel: Бикаридин-Пункта
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 200
+        reagents:
+        - ReagentId: BicaridinePW
+          Quantity: 150
+        - ReagentId: PuncturasePW
+          Quantity: 50
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ChemistryBottleDexalinPlusWM
+  parent: ChemistryBottlePuncturaseWM
+  name: Бутылочка ТР
+  components:
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: TricordrazinePW
+        Quantity: 0.2
+      - ReagentId: StimulantsPW
+        Quantity: 0.2
+  - type: ExplosionResistance
+    damageCoefficient: 0.00001
+  - type: Label
+    currentLabel: Трикомет
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 200
+        reagents:
+        - ReagentId: TricordrazinePW
+          Quantity: 50
+        - ReagentId: StimulantsPW
+          Quantity: 50
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ChemistryBottleDermalineWM
+  parent: ChemistryBottlePuncturaseWM
+  name: Бутылочка ДЕ
+  components:
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: DermalinePW
+        Quantity: 1
+  - type: ExplosionResistance
+    damageCoefficient: 0.00001
+  - type: Label
+    currentLabel: Дермалин
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+        reagents:
+        - ReagentId: DermalinePW
+          Quantity: 100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ChemistryBottleEZNutrientWM
+  parent: ChemistryBottlePuncturaseWM
+  components:
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: EZNutrientPW
+        Quantity: 10
+  - type: ExplosionResistance
+    damageCoefficient: 0.00001
+  - type: Label
+    currentLabel: EZNutrient
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+        reagents:
+        - ReagentId: EZNutrientPW
+          Quantity: 100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: PinpointerBase
+  id: PinpointerCoreWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: Sprite
+    noRot: True
+    sprite: Objects/Devices/pinpointer.rsi
+    layers:
+    - state: pinpointer-crewprox
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinpointer-crewprox
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    sprite: Objects/Devices/pinpointer.rsi
+    state: pinpointer-crewprox
+  - type: Item
+    sprite: Objects/Devices/pinpointer.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+        color: "#0057e7"
+      - state: inhand-left-stripe
+        color: "#8e1518"
+      - state: inhand-left-top
+      right:
+      - state: inhand-right-base
+        color: "#0057e7"
+      - state: inhand-right-stripe
+        color: "#8e1518"
+      - state: inhand-right-top
+  - type: Pinpointer
+    component: NukeLabel
+    targetName: Врата Повстанцев
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: PinpointerNuclear
+  id: PinpointerArmWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: Pinpointer
+    component: NukeDisk
+    targetName: Врата Республиканцев
+
+

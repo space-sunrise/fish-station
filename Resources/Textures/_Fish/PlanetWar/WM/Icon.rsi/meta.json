@@ -1,0 +1,35 @@
+{
+    "size": {
+        "x": 8,
+        "y": 8
+    },
+    "states": [
+        {
+            "name": "null"
+        },
+        {
+            "name": "CoreBase"
+        },
+        {
+            "name": "CorePC0I5"
+        },
+        {
+            "name": "CorePM1"
+        },
+        {
+            "name": "CorePE1"
+        },
+        {
+            "name": "ArmBase"
+        },
+        {
+            "name": "ArmPC0I5"
+        },
+        {
+            "name": "ArmPM1"
+        },
+        {
+            "name": "ArmPE1"
+        }
+    ]
+}
