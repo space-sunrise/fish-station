@@ -41,6 +41,7 @@ job-title-republic-lieutenant = Лейтенант
 job-title-republic-doctor = Врач
 job-title-republic-engineer = Инженер
 job-supervisors-republic-council = Совет лейтенантов
+job-title-ghostwmbase = Призрак
 
 job-name-armbase = Ополченец
 job-description-armbase = Одноразовое мясо
