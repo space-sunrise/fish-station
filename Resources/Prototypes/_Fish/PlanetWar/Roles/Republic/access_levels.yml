@@ -1,18 +1,14 @@
 - type: accessLevel
   id: AssCoreBase
-  name: pw-roles-republic-asscorebase-name
 
 
 - type: accessLevel
   id: AssCorePC0I5
-  name: pw-roles-republic-asscorepc0i5-name
 
 
 - type: accessLevel
   id: AssCorePM1
-  name: pw-roles-republic-asscorepm1-name
 
 
 - type: accessLevel
   id: AssCorePE1
-  name: pw-roles-republic-asscorepe1-name

@@ -237,7 +237,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: GrenadeFragLightWM
-  name: pw-weapons-shared-timerfraggrenade-name
   parent: BaseGrenade
   components:
   - type: TriggerOnProximity
@@ -307,7 +306,6 @@
   parent: BaseBullet
   id: AntiMaterielBulletWM
   categories: [ HideSpawnMenu ]
-  name: pw-weapons-shared-bullet60caseless-name
   components:
   - type: Projectile
     damage:
@@ -323,8 +321,6 @@
   categories: [ HideSpawnMenu ]
   parent: BaseItem
   id: ShtampMagazin
-  name: material-shtampmagazin-name
-  description: pw-weapons-shared-shtampmagazin-desc
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi
@@ -940,10 +936,8 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: pw-weapons-shared-launchersyringe-name
   parent: BaseItem
   id: LauncherSyringeWM
-  description: pw-weapons-shared-launchersyringe-desc
   components:
   - type: Biocode
     factions:
@@ -1149,7 +1143,6 @@
 - type: entity
   id: SurveillanceCameraSecurityWM
   parent: SurveillanceCameraSecurity
-  name: pw-weapons-shared-surveillancecamerasecurity-name
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn 
@@ -1172,7 +1165,6 @@
 - type: entity
   id: ShuttleGunAutomatWM
   parent: ShuttleGunDuster
-  name: pw-construction-shared-shuttlegunautomatflatpack-name
   categories: [ HideSpawnMenu ]
   components:
   - type: RemoveComponentsOnTrigger
@@ -1330,7 +1322,6 @@
 - type: entity
   id: ShuttleGunPulemetWM
   parent: ShuttleGunAutomatWM
-  name: pw-construction-shared-shuttlegunpulemetflatpack-name
   categories: [ HideSpawnMenu ]
   components:
  # - type: Fixtures

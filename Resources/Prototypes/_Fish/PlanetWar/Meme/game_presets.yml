@@ -1,7 +1,7 @@
 - type: gamePreset
   id: PlanetWarVulpkanin
-  name: pw-gamemodes-shared-planetwarsecret-name
-  description: pw-meme-game-presets-yml-planetwarvulpkanin-desc
+  name: planetwar-vulpkanin-preset-name
+  description: planetwar-vulpkanin-preset-description
   showInVote: false
   rules:
     - PlanetWarRule

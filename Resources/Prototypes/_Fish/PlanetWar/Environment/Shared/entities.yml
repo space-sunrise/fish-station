@@ -1,8 +1,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: CannabisSeeds
-  name: pw-environment-shared-cannabisseeds-name
-  description: pw-environment-shared-cannabisseeds-desc
   id: CannabisSeedsWM
   components:
     - type: Seed
@@ -14,10 +12,8 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: pw-environment-shared-leavescannabis-name
   parent: LeavesCannabis
   id: LeavesCannabisWM
-  description: pw-environment-shared-leavescannabis-desc
   components:
   - type: SolutionContainerManager
     solutions:
@@ -69,7 +65,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: CottonSeeds
-  name: pw-environment-shared-cottonseeds-name
   id: CottonSeedsWM
   components:
     - type: Seed
@@ -81,8 +76,6 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: pw-environment-shared-cottonbol-name
-  description: pw-environment-shared-cottonbol-desc
   id: CottonBolWM
   parent: FoodProduceBase
   components:
@@ -164,7 +157,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ActionActivateBombGrenadeImplantWM
-  name: pw-environment-shared-actionactivatebombgrenadeimplant-name
   parent: ActionActivateSmokeGrenadeImplant
   components:
   - type: Action
@@ -180,7 +172,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ActionActivateLandmineSpawnImplantWM
-  name: pw-environment-shared-actionactivatelandminespawnimplant-name
   parent: ActionActivateSmokeGrenadeImplant
   components:
   - type: Action

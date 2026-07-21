@@ -36,11 +36,39 @@ job-title-rebel-chemist = Аптекарь
 job-title-rebel-builder = Строитель
 job-supervisors-rebel-council = Совет предводителей
 
-job-title-republic-fighter = Боевик
-job-title-republic-lieutenant = Лейтенант
-job-title-republic-doctor = Врач
-job-title-republic-engineer = Инженер
-job-supervisors-republic-council = Совет лейтенантов
+job-name-armbase = Ополченец
+job-description-armbase = Одноразовое мясо
+
+job-name-armpc0i5 = Предводитель
+job-description-armpc0i5 = Воодушевляюший лидер
+
+job-name-armpm1 = Аптекарь
+job-description-armpm1 = Оказывает лечебную помощь
+
+job-name-armpe1 = Строитель
+job-description-armpe1 = Собирает защитные баррикады
+
+job-name-corebase = Боевик
+job-description-corebase = Подготовленный расходник
+
+job-name-corepc0i5 = Лейтенант
+job-description-corepc0i5 = Командуюший офицер
+
+job-name-corepm1 = Врач
+job-description-corepm1 = Предоставляет медицинскую услугу
+
+job-name-corepe1 = Инженер
+job-description-corepe1 = Возводит оборонительные сооружения
+
+job-name-ghostwmbase = Наблюдать
+job-description-ghostwmbase = Посмотрите что там за возня
+
+planetwar-preset-name = Planet War (WM)
+planetwar-preset-description = Выберите професию или призрачную роль одной из сторон, выполняйте приказы своих лидеров, ваша цель — уничтожить все вражеские врата.
+planetwar-secret-preset-name = Планета Вульп (ПВ)
+planetwar-secret-preset-description = Веселый TDM - Team Dog Match
+planetwar-vulpkanin-preset-name = Planet War (Вульпканины)
+planetwar-vulpkanin-preset-description = Масштабное противостояние Повстанцев и Республики с проклятием вульпканинов.
 
 # Automatically extracted Russian localization
 pw-construction-rebels-ammotechfabarm-desc = Йоу
@@ -275,7 +303,6 @@ pw-weapons-shared-launchersyringe-name = шприцемёт
 pw-weapons-shared-shtampmagazin-desc = Печатает боезапас.
 pw-weapons-shared-surveillancecamerasecurity-name = камера наведения (используй сканнер плюс эту камеру)
 
-pw-construction-shared-fulton-name = Фултон
 pw-construction-shared-earthgovlasercore-name = Лазер Правительства Земли
 pw-weapons-rebels-lasercarbinearm-name = Лазерный карабин Повстанцев
 pw-weapons-shared-timerfraggrenade-name = Осколочная граната с таймером

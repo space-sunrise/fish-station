@@ -1,7 +1,7 @@
 - type: job
   id: JobCoreBase
-  name: pw-roles-republic-jobcorebase-name
-  description: pw-roles-republic-jobcorebase-desc
+  name: job-name-corebase
+  description: job-description-corebase
   playTimeTracker: OverAllCoreBase
   setPreference: false
   weight: 2
@@ -16,13 +16,12 @@
 
 - type: job
   id: JobCorePC0I5
-  name: pw-construction-republic-mobhumancorepc0i5-name
-  description: pw-roles-republic-jobcorepc0i5-desc
+  name: job-name-corepc0i5
+  description: job-description-corepc0i5
   playTimeTracker: OverAllCorePC0I5
   setPreference: false
   weight: 5
   jobEntity: MobHumanCorePC0I5WMF5
-  #startingGear: SkeletonBiker
   icon: "IconCorePC0I5"
   canBeAntag: false
   access:
@@ -36,8 +35,8 @@
 
 - type: job
   id: JobCorePM1
-  name: pw-construction-republic-mobhumancorepm1-name
-  description: pw-roles-republic-jobcorepm1-desc
+  name: job-name-corepm1
+  description: job-description-corepm1
   playTimeTracker: OverAllCorePM1
   setPreference: false
   weight: 3
@@ -53,8 +52,8 @@
 
 - type: job
   id: JobCorePE1
-  name: pw-construction-republic-mobhumancorepe1-name
-  description: pw-roles-republic-jobcorepe1-desc
+  name: job-name-corepe1
+  description: job-description-corepe1
   playTimeTracker: OverAllCorePE1
   setPreference: false
   weight: 4

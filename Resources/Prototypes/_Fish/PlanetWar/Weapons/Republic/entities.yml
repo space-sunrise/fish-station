@@ -1,6 +1,5 @@
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: pw-weapons-rebels-landmineflesharm-name
   parent: BaseLandMineWM
   id: LandMineFleshCoreWM
   components:
@@ -47,7 +46,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseWeaponTurret
-  name: pw-weapons-republic-weaponturretcoretestbla-name
   id: WeaponTurretCoreWMTestBla
   components:
     #- type: RadarBlip
@@ -133,6 +131,7 @@
     - type: Battery
       maxCharge: 4000
       startingCharge: 0
+      netSync: false
     - type: ApcPowerReceiverBattery
       idleLoad: 5
       batteryRechargeRate: 300
@@ -148,7 +147,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseWeaponTurret
-  name: pw-weapons-republic-weaponprismacoretestbla-name
   id: WeaponPrismaCoreWMTestBla
   components:
  # - type: RadarBlip
@@ -256,6 +254,7 @@
   - type: Battery
     maxCharge: 3000
     startingCharge: 0
+    netSync: false
   - type: ApcPowerReceiverBattery
     idleLoad: 5
     batteryRechargeRate: 200
@@ -270,7 +269,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: DronCoreWM
-  name: pw-weapons-republic-droncore-name
   parent: MobSiliconBase
   components:
   - type: UserInterface
@@ -420,7 +418,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: DronCoreTurretMineWM
-  name: pw-weapons-republic-droncore-name
   parent: DronCoreWM
   components:
   - type: ExplosionResistance
@@ -518,8 +515,6 @@
   categories: [ HideSpawnMenu ]
   parent: MaterialReclaimerWMFlatpack
   id: AmmoTechFabCoreWMFlatpack
-  name: pw-construction-republic-ammotechfabcore-name
-  description: pw-construction-rebels-mechheavyarmflatpack-desc
   components:
   - type: SpawnAfterInteract
     prototype: AmmoTechFabCoreWM
@@ -538,7 +533,6 @@
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabCoreWMFlatpack
   id: WeaponPrismaCoreWMTestBlaFlatpack
-  name: pw-weapons-republic-weaponprismacoretestblaflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: WeaponPrismaCoreWMTestBla 

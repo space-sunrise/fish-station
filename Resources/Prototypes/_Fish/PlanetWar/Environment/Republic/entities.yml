@@ -1,8 +1,6 @@
 - type: entity
   parent: DeathRattleImplant
   id: DeathRattleImplantCore
-  name: pw-environment-republic-deathrattleimplantcore-name
-  description: pw-environment-rebels-deathrattleimplantarm-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: RattleOnTrigger

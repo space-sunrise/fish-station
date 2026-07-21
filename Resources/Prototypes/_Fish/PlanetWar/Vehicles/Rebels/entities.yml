@@ -15,7 +15,6 @@
 - type: entity
   parent: BoxDronCoreWM
   id: BoxDronArmWM
-  name: pw-vehicles-rebels-boxdronarm-name
   components:
   - type: SpawnItemsOnUse
     items:
@@ -25,7 +24,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: DronArmWM
-  name: pw-vehicles-rebels-dronarm-name
   parent: DronCoreWM
   components:
   #- type: RadarBlip
@@ -83,7 +81,6 @@
 - type: entity
   id: StationDronBeaconArm
   parent: StationDronBeaconCore
-  name: pw-vehicles-rebels-stationdronbeaconarm-name
   placement:
     mode: SnapgridCenter
     snap:
@@ -171,7 +168,6 @@
   suffix: WM
   parent: 
    - MechMaulerSyndie
-  name: pw-construction-rebels-mechheavyarmflatpack-name
   components:
  # - type: Physics
   #  bodyType: Dynamic
@@ -279,7 +275,6 @@
   suffix: WM
   parent: 
    - MechHeavyArmWM
-  name: pw-vehicles-rebels-grusarm-name
   components:
   - type: FootstepModifier
     footstepSoundCollection:
@@ -401,7 +396,6 @@
   categories: [ HideSpawnMenu ]
   parent: MechHeavyArmWMFlatpack
   id: MechGrusArmFlatpack
-  name: pw-vehicles-rebels-grusarm-name
   components:
   - type: SpawnAfterInteract
     prototype: GrusArmWM
@@ -413,7 +407,6 @@
   categories: [ HideSpawnMenu ]
   parent: MechHeavyArmWMFlatpack
   id: MechStationDronArmFlatpack
-  name: pw-vehicles-rebels-mechstationdronarmflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: StationDronBeaconArm

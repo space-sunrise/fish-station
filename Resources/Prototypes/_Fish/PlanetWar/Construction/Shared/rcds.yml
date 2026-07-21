@@ -78,7 +78,6 @@
 
 - type: rcd
   id: RsdDeconstructWM
-  name: pw-construction-shared-rsddeconstruct-name
   category: Main
   sprite: /Textures/Interface/Radial/RCD/deconstruct.png
   mode: Deconstruct
@@ -88,7 +87,6 @@
 
 - type: rcd
   id: RsdFloorPlatingWM
-  name: pw-construction-shared-rsdfloorplating-name
   category: Main
   sprite: /Textures/Interface/Radial/RCD/plating.png
   mode: ConstructTile

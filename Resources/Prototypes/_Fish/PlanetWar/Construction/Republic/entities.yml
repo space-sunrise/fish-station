@@ -1,7 +1,6 @@
 - type: entity
   #categories: [ HideSpawnMenu ]
   parent: RCD
-  name: pw-construction-republic-rcdrechargingcore-name
   id: RCDRechargingCoreWM
   components:
   - type: PhysicalComposition
@@ -41,7 +40,6 @@
 - type: entity
   #categories: [ HideSpawnMenu ]
   parent: RCD
-  name: pw-construction-republic-rcdrecharginggoodcore-name
   id: RCDRechargingGoodCoreWM
   components:
   - type: Sprite
@@ -194,7 +192,6 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: pw-construction-rebels-landmineexplosivearm-name
   parent: BaseLandMineWM
   id: LandMineExplosiveCoreWM
   components:
@@ -294,7 +291,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: EffectNightVisioCore
-  name: pw-construction-rebels-effectnightvisioarm-name
   components:
   - type: PointLight
     color: "#0057e7"
@@ -347,7 +343,6 @@
   categories: [ HideSpawnMenu ]
   parent: WeaponLauncherChinaLakeArmWM
   id: WeaponLauncherChinaLakeCoreWM
-  name: pw-construction-republic-weaponlauncherchinalakecore-name
   components:
   - type: PhysicalComposition
     materialComposition:
@@ -371,7 +366,6 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: pw-construction-rebels-boxcanabisarm-name
   parent: BoxCanabisArm
   id: BoxXlopokCore
   components:
@@ -384,7 +378,6 @@
 - type: entity
   id: EnergyDomeCore
   categories: [ HideSpawnMenu ]
-  name: pw-construction-republic-energydomecore-name
   parent: EnergyDomeArm
   placement:
     mode: SnapgridCenter
@@ -423,8 +416,6 @@
 
 - type: entity
   id: EnergyDomeCoreWM
-  name: pw-construction-republic-energydomecore-name
-  description: pw-construction-republic-energydomecore-desc
   parent: BaseMachine
   placement:
     mode: SnapgridCenter
@@ -503,6 +494,7 @@
   - type: Battery
     maxCharge: 850
     startingCharge: 0
+    netSync: false
   - type: ApcPowerReceiverBattery
     idleLoad: 5
     batteryRechargeRate: 50
@@ -518,8 +510,6 @@
 - type: entity
   parent: BaseItem
   id: WrapHandTeleporterCore
-  name: pw-construction-republic-wraphandteleportercore-name
-  description: pw-construction-republic-wraphandteleportercore-desc
   components:
   - type: SpawnItemsOnUse
     uses: 1
@@ -542,8 +532,6 @@
   categories: [ HideSpawnMenu ]
   id: HandTeleporterCore
   parent: BaseItem
-  name: pw-construction-republic-wraphandteleportercore-name
-  description: pw-construction-republic-wraphandteleportercore-desc
   components:
   - type: Sprite
     sprite: /Textures/Objects/Devices/hand_teleporter.rsi
@@ -584,10 +572,8 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: pw-construction-republic-pilotcollarwhitecore-name
   id: PilotCollarWhiteCore
   parent: ExplosiveCollarWhite
-  description: pw-construction-republic-pilotcollarwhitecore-desc
   #components:
 
 
@@ -659,7 +645,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: BaseMobHumanWM
   id: MobHumanCoreP0WM
-  name: pw-construction-republic-mobhumancorep0-name
   suffix: WM
   components:
     - type: WarpPoint
@@ -715,7 +700,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: MobHumanCoreP0WM
   id: MobHumanCorePC0I5WM
-  name: pw-construction-republic-mobhumancorepc0i5-name
   suffix: WM
   components:
     - type: RandomMetadata
@@ -767,7 +751,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: MobHumanCoreP0WM
   id: MobHumanCoreP1WM
-  name: pw-construction-republic-mobhumancorep1-name
   suffix: WM
   components:
     - type: RandomMetadata
@@ -804,7 +787,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: MobHumanCoreP0WM
   id: MobHumanCorePH5WM
-  name: pw-construction-republic-mobhumancoreph5-name
   suffix: WM
   components:
     - type: RandomMetadata
@@ -848,7 +830,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: MobHumanCoreP0WM
   id: MobHumanCorePM1WM
-  name: pw-construction-republic-mobhumancorepm1-name
   suffix: WM
   components:
     - type: RandomMetadata
@@ -894,7 +875,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: MobHumanCoreP0WM
   id: MobHumanCorePE1WM
-  name: pw-construction-republic-mobhumancorepe1-name
   suffix: WM
   components:
     - type: RandomMetadata
@@ -932,7 +912,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: MobHumanCoreP0WM
   id: MobHumanCorePS4WM
-  name: pw-construction-republic-mobhumancoreps4-name
   suffix: WM
   components:
     - type: RandomMetadata
@@ -1291,7 +1270,6 @@
 - type: entity
   id: SpawnPointJobCoreBase
   parent: SpawnPointJobBase
-  name: pw-construction-republic-jobspawner-name
   components:
   - type: ContainmentField
     throwForce: 0
@@ -1335,7 +1313,6 @@
   categories: [ HideSpawnMenu ]
   parent: [ IDCardStandard, MusicianPDAForWM]
   id: IDCoreBase
-  name: pw-construction-republic-idcorebase-name
   components:
   - type: Unremoveable
   - type: Sprite
@@ -1356,7 +1333,6 @@
   categories: [ HideSpawnMenu ]
   parent: IDCoreBase
   id: IDCorePC0I5
-  name: pw-construction-republic-idcorepc0i5-name
   components:
   - type: IdCard
     jobTitle: job-title-republic-lieutenant
@@ -1370,7 +1346,6 @@
   categories: [ HideSpawnMenu ]
   parent: IDCoreBase
   id: IDCorePM1
-  name: pw-construction-republic-idcorepm1-name
   components:
   - type: IdCard
     jobTitle: job-title-republic-doctor
@@ -1384,7 +1359,6 @@
   categories: [ HideSpawnMenu ]
   parent: IDCoreBase
   id: IDCorePE1
-  name: pw-construction-republic-idcorepe1-name
   components:
   - type: IdCard
     jobTitle: job-title-republic-engineer
@@ -1399,7 +1373,6 @@
   suffix: WM
   parent: 
    - MechHeavyCoreWM
-  name: pw-construction-republic-mechlightcore-name
   components:
  # - type: RadarBlip
  #   scale: 0.6
@@ -1488,7 +1461,6 @@
   suffix: WM
   parent: 
    - MechHeavyCoreWM
-  name: pw-construction-republic-mechnormcore-name
   components:
   #- type: RadarBlip
   #  scale: 0.7
@@ -1567,7 +1539,6 @@
   suffix: WM
   parent: 
    - MechHeavyCoreWM
-  name: pw-construction-republic-tankcore-name
   components:
   - type: FootstepModifier
     footstepSoundCollection:
@@ -1760,8 +1731,6 @@
 - type: entity
   id: HolosignForcefieldWM4567Core
   parent: HolosignForcefieldWM4567Ghost
-  name: pw-construction-republic-holosignforcefield4567core-name
-  description: pw-construction-rebels-holosignforcefield4567arm-desc
   suffix: WM
   components:
   - type: EntityTableSpawner
@@ -1779,7 +1748,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: CrateGenericSteelWM
-  name: pw-construction-rebels-crategenericsteelpixararm-name
   id: CrateGenericSteelPixarCoreWM
   components:
   - type: StorageFill
@@ -1800,7 +1768,6 @@
   categories: [ HideSpawnMenu ]
   parent: CrateGenericSteelWM
   id: CrateGenericSteelMechsCoreWM
-  name: pw-construction-rebels-crategenericsteelmechsarm-name
   components:
   - type: StorageFill
     contents:
@@ -1822,7 +1789,6 @@
   categories: [ HideSpawnMenu ]
   parent: CrateGenericSteelWM
   id: CrateGenericSteelRcdCoreWM
-  name: pw-construction-rebels-crategenericsteelrcdarm-name
   components:
   - type: StorageFill
     contents:
@@ -1839,7 +1805,6 @@
   parent: BaseGatewayWM
   id: GatewayCore
   suffix: WM
-  name: pw-construction-rebels-pinpointerarm-targetname
   components:
     - type: Tag
       tags:
@@ -1907,7 +1872,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: GatewayCore
   id: GatewayCoreMini
-  name: pw-construction-republic-gatewaycoremini-name
   components:
   #  - type: RadarBlip
   #    color: "#48a4fb"
@@ -1960,8 +1924,6 @@
   categories: [ HideSpawnMenu ]
   id: CargoTechFabCoreWM
   parent: AmmoTechFabCoreWM
-  name: pw-construction-republic-cargotechfabcore-name
-  description: pw-construction-rebels-ammotechfabarm-desc
   components:
     - type: ApcPowerReceiver
       powerLoad: 800
@@ -2000,8 +1962,6 @@
   categories: [ HideSpawnMenu ]
   id: AmmoTechFabCoreWM
   parent: BaseLatheLube
-  name: pw-construction-republic-ammotechfabcore-name
-  description: pw-construction-rebels-ammotechfabarm-desc
   components:
     - type: Construction
       graph: CatwalkWMDop
@@ -2043,8 +2003,6 @@
 - type: entity
   id: FlatpackerFabricatorCore
   parent: BaseLatheLube
-  name: pw-construction-republic-flatpackerfabricatorcore-name
-  description: pw-construction-rebels-flatpackerfabricatorarm-desc
   components:
   - type: Construction
     graph: CatwalkWM
@@ -2083,8 +2041,6 @@
 - type: entity
   id: MechFabricatorCore
   parent: BaseLatheLube
-  name: pw-construction-republic-mechfabricatorcore-name
-  description: pw-construction-republic-mechfabricatorcore-desc
   components:
   - type: Construction
     graph: CatwalkWM
@@ -2125,8 +2081,6 @@
 - type: entity
   id: MoneyHostCore
   parent: BaseLatheLube
-  name: pw-construction-republic-moneyhostcore-name
-  description: pw-construction-republic-moneyhostcore-desc
   components:
   - type: Tag
     tags:
@@ -2179,7 +2133,6 @@
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabCoreWMFlatpack
   id: FlatpackerFabricatorCoreFlatpack
-  name: pw-construction-republic-flatpackerfabricatorcore-name
   components:
   - type: SpawnAfterInteract
     prototype: FlatpackerFabricatorCore
@@ -2191,7 +2144,6 @@
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabCoreWMFlatpack
   id: MechFabricatorCoreFlatpack
-  name: pw-construction-republic-mechfabricatorcore-name
   components:
   - type: SpawnAfterInteract
     prototype: MechFabricatorCore
@@ -2203,7 +2155,6 @@
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabCoreWMFlatpack
   id: MoneyHostCoreFlatpack
-  name: pw-construction-republic-moneyhostcoreflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: MoneyHostCore
@@ -2215,7 +2166,6 @@
   categories: [ HideSpawnMenu ]
   parent: MechHeavyCoreWMFlatpack
   id: MechLightCoreFlatpack
-  name: pw-construction-rebels-mechlightarmflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: MechLightCoreWM
@@ -2227,7 +2177,6 @@
   categories: [ HideSpawnMenu ]
   parent: MechHeavyCoreWMFlatpack
   id: MechNormalCoreFlatpack
-  name: pw-construction-republic-mechnormalcoreflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: MechNormCoreWM
@@ -2239,7 +2188,6 @@
   categories: [ HideSpawnMenu ]
   parent: MechHeavyCoreWMFlatpack
   id: MechTankCoreFlatpack
-  name: pw-construction-rebels-mechtankarmflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: TankCoreWM
@@ -2251,8 +2199,6 @@
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabCoreWMFlatpack
   id: MechHeavyCoreWMFlatpack
-  name: pw-construction-republic-mechheavycoreflatpack-name
-  description: pw-construction-rebels-mechheavyarmflatpack-desc
   components:
   - type: SpawnAfterInteract
     prototype: MechHeavyCoreWM
@@ -2272,7 +2218,6 @@
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabCoreWMFlatpack
   id: EnergyDomeCoreFlatpack
-  name: pw-construction-rebels-energydomearmflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: EnergyDomeCoreWM #EnergyDomeCoreWM
@@ -2284,7 +2229,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: MechHeavyCoreWMFlatpack
   id: GatewayCoreMiniFlatpack
-  name: pw-construction-republic-gatewaycoreminiflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: GatewayCoreMini
@@ -2296,7 +2240,6 @@
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabCoreWMFlatpack
   id: CargoTechFabCoreFlatpack
-  name: pw-construction-rebels-cargotechfabarmflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: CargoTechFabCoreWM

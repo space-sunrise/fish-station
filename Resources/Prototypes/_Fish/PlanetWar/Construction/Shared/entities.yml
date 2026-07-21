@@ -40,7 +40,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: WallShuttleWMTime
-  name: pw-construction-shared-wallshuttletime-name
   parent: WallShuttleWM
   components:
   - type: Sprite
@@ -65,7 +64,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: WallShuttleWM
-  name: pw-construction-shared-wallshuttletime-name
   parent: WallShuttle
   components:
   #- type: RadarBlip
@@ -99,7 +97,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: WallPlastitaniumWMTime
-  name: pw-construction-shared-wallshuttletime-name
   parent: WallPlastitaniumWM
   components:
   - type: Sprite
@@ -125,7 +122,6 @@
   categories: [ HideSpawnMenu ]
   id: WallPlastitaniumWM
   parent: WallPlastitanium
-  name: pw-construction-shared-wallshuttletime-name
   components:
  # - type: RadarBlip
  #   color: "#806161"
@@ -181,7 +177,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: GirderWM
-  name: pw-construction-shared-girder-name
   parent: Girder
   components:
   - type: RCDDeconstructable
@@ -212,7 +207,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ReinforcedGirderWM
-  name: pw-construction-shared-reinforcedgirder-name
   parent: ReinforcedGirder
   components:
   - type: RCDDeconstructable
@@ -268,7 +262,6 @@
   categories: [ HideSpawnMenu ]
   id: ShuttleWindowWM
   parent: ShuttleWindow
-  name: pw-construction-shared-shuttlewindow-name
   components:
   #- type: RadarBlip
   #  color: "#647289"
@@ -321,7 +314,6 @@
   categories: [ HideSpawnMenu ]
   id: PlastitaniumWindowWM
   parent: PlastitaniumWindow
-  name: pw-construction-shared-shuttlewindow-name
   components:
  # - type: RadarBlip
  #   color: "#806161"
@@ -374,7 +366,6 @@
   categories: [ HideSpawnMenu ]
   id: WallSolidWM
   parent: WallSolid
-  name: pw-construction-shared-wallsolid-name
   components:
  # - type: RadarBlip
  #   color: "#999999"
@@ -410,7 +401,6 @@
   categories: [ HideSpawnMenu ]
   id: CableApcExtensionWM
   parent: CableApcExtension
-  name: pw-construction-shared-cableapcextension-name
   components:
   - type: Cable
     cableDroppedOnCutPrototype: MarkerZaglushks
@@ -428,7 +418,6 @@
   categories: [ HideSpawnMenu ]
   id: PoweredlightWM
   parent: Poweredlight
-  name: pw-construction-shared-poweredlight-name
   components:
   - type: RCDDeconstructable
     cost: 1
@@ -452,7 +441,6 @@
   categories: [ HideSpawnMenu ]
   id: CatwalkWM
   parent: Catwalk
-  name: pw-construction-shared-catwalk-name
   components:
     - type: Construction
       graph: CatwalkWM
@@ -471,7 +459,6 @@
   categories: [ HideSpawnMenu ]
   id: GrilleWM
   parent: Grille
-  name: pw-construction-shared-grille-name
   components:
     - type: Construction
       graph: CatwalkWM
@@ -726,8 +713,6 @@
   id: FultonWM
   parent: BaseItem
   suffix: Full
-  name: pw-construction-shared-fulton-name
-  description: pw-construction-shared-fulton-desc
   components:
   - type: Fulton
     whitelist:
@@ -769,7 +754,6 @@
 - type: entity
   id: Fulton1WM
   parent: FultonWM
-  name: pw-construction-shared-fulton-name
   suffix: One
   components:
   - type: Stack
@@ -780,7 +764,6 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: pw-construction-shared-earthgovlasercore-name
   parent: WeaponEarthGovLaserCarbine
   id: WeaponEarthGovLaserCarbineWM
   components:
@@ -1260,8 +1243,6 @@
 
 - type: entity
   id: FloorFireEntityWM
-  name: pw-construction-shared-floorfireentity-name
-  description: pw-construction-shared-floorfireentity-desc
   placement:
     mode: SnapgridCenter
     snap:
@@ -1315,7 +1296,6 @@
   categories: [ HideSpawnMenu ]
   parent: HandLabeler
   id: HandLabelerWM
-  name: pw-construction-shared-handlabeler-name
   components:
     - type: HandLabeler
       whitelist:
@@ -1342,10 +1322,8 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: pw-construction-shared-handheldsoil-name
   parent: BaseItem
   id: HandheldSoilWM
-  description: pw-construction-shared-handheldsoil-desc
   components:
   - type: Flatpack
     entity: hydroponicsSoilWM
@@ -1370,7 +1348,6 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: pw-construction-shared-boxbotanictool-name
   parent: BoxCanabisArm
   id: BoxBotanicToolWM
   components:
@@ -1446,7 +1423,6 @@
   categories: [ HideSpawnMenu ]
   id: SignalButtonAutoWM
   parent: SignalButton
-  name: pw-construction-shared-signalbuttonauto-name
   suffix: Autolink
   components:
    # - type: AutoLinkReceiver
@@ -1567,7 +1543,6 @@
 - type: entity
   id: CheapRollerBedWM
   categories: [ HideSpawnMenu ]
-  name: pw-construction-shared-cheaprollerbed-name
   parent: CheapRollerBed
   components:
   - type: HealOnBuckle
@@ -1609,7 +1584,6 @@
 
 - type: entity
   parent: BaseItem
-  name: pw-construction-shared-boxglowstickblue-name
   id: BoxGlowstickBlueWM
   components:
   - type: PhysicalComposition
@@ -1651,7 +1625,6 @@
 
 - type: entity
   parent: BoxGlowstickBlueWM
-  name: pw-construction-shared-boxglowstickblue-name
   id: BoxGlowstickRedWM
   components:
   - type: PhysicalComposition
@@ -1712,7 +1685,6 @@
   categories: [ HideSpawnMenu ]
   id: EnergyPickaxeWM
   parent: EnergyPickaxe #Pickaxe
-  name: pw-construction-shared-energypickaxe-name
   components:
   - type: ItemToggle
     onUse: false 
@@ -1740,10 +1712,8 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: pw-construction-shared-magazbag-name
   id: MagazBagWM
   parent: OreBag
-  description: pw-construction-shared-magazbag-desc
   components:
   - type: Item
     size: Small #Ginormous #Large
@@ -1823,7 +1793,6 @@
 
 
 - type: entity
-  name: pw-construction-shared-pill1-name
   parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
   id: Pill1WM
   components:
@@ -1844,7 +1813,6 @@
 
 
 - type: entity
-  name: pw-construction-shared-pill2-name
   parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
   id: Pill2WM
   components:
@@ -1865,7 +1833,6 @@
 
 
 - type: entity
-  name: pw-construction-shared-pill3-name
   parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
   id: Pill3WM
   components:
@@ -1886,7 +1853,6 @@
 
 
 - type: entity
-  name: pw-construction-shared-pill4-name
   parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
   id: Pill4WM
   components:
@@ -1907,7 +1873,6 @@
 
 
 - type: entity
-  name: pw-construction-shared-pill5-name
   parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
   id: Pill5WM
   components:
@@ -1928,7 +1893,6 @@
 
 
 - type: entity
-  name: pw-construction-shared-pill6-name
   parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
   id: Pill6WM
   components:
@@ -2606,7 +2570,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingShoesSwat
-  name: pw-construction-shared-clothingshoesswat-name
   id: ClothingShoesSwatWM
   components:
   - type: Unremoveable
@@ -2620,7 +2583,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingShoesCentcomBlack
-  name: pw-construction-shared-clothingshoesswat-name
   id: ClothingShoesCentcomBlackWM
   components:
   - type: Unremoveable
@@ -2635,7 +2597,6 @@
   categories: [ HideSpawnMenu ]
   parent: ClothingShoesSwat
   id: ClothingShoesSwatP1WM
-  name: pw-construction-shared-clothingshoesswat-name
   components:
   - type: Unremoveable
   - type: ClothingSpeedModifier
@@ -2648,7 +2609,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingShoesCentcomBlack
-  name: pw-construction-shared-clothingshoesswat-name
   id: ClothingShoesCentcomBlackP1WM
   components:
   - type: Unremoveable
@@ -2886,7 +2846,6 @@
   categories: [ HideSpawnMenu ]
   id: ChemistryBottlePuncturaseWM
   parent: BaseChemistryBottleFilled
-  name: pw-construction-shared-chemistrybottlepuncturase-name
   components:
   - type: SolutionRegeneration
     solution: drink
@@ -2925,7 +2884,6 @@
   categories: [ HideSpawnMenu ]
   id: ChemistryBottleBicaridineWM
   parent: ChemistryBottlePuncturaseWM
-  name: pw-construction-shared-chemistrybottlebicaridine-name
   components:
   - type: SolutionRegeneration
     solution: drink
@@ -2954,7 +2912,6 @@
   categories: [ HideSpawnMenu ]
   id: ChemistryBottleDexalinPlusWM
   parent: ChemistryBottlePuncturaseWM
-  name: pw-construction-shared-chemistrybottledexalinplus-name
   components:
   - type: SolutionRegeneration
     solution: drink
@@ -2983,7 +2940,6 @@
   categories: [ HideSpawnMenu ]
   id: ChemistryBottleDermalineWM
   parent: ChemistryBottlePuncturaseWM
-  name: pw-construction-shared-chemistrybottledermaline-name
   components:
   - type: SolutionRegeneration
     solution: drink
@@ -3406,7 +3362,6 @@
 - type: entity
   id: SpawnPointJobGhostBase
   parent: SpawnPointJobBase
-  name: pw-construction-shared-ghostspawner-name
   components:
   - type: ContainmentField
     throwForce: 0
@@ -3424,7 +3379,6 @@
 - type: entity
   id: WallRockWM
   parent: WallRock
-  name: pw-construction-shared-wallrock-name
   components:
  # - type: RadarBlip
  #   color: "#FFD700FF"
@@ -3456,7 +3410,6 @@
 - type: entity
   id: WallRockSnowWM
   parent: WallRockSnow
-  name: pw-construction-shared-wallrocksnow-name
   components:
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -3531,7 +3484,6 @@
 - type: entity
   parent: BaseTreeWM
   id: FloraTreeWM
-  name: pw-construction-shared-tree-name
   components:
   - type: Sprite
     layers:
@@ -3551,7 +3503,6 @@
 - type: entity
   parent: BaseTreeSnowWM
   id: FloraTreeSnowWM
-  name: pw-construction-shared-snowytree-name
   components:
   - type: Sprite
     layers:
@@ -3571,7 +3522,6 @@
 - type: entity
   parent: BaseTreeLargeWM
   id: FloraTreeLargeWM
-  name: pw-construction-shared-largetree-name
   components:
   - type: Sprite
     layers:
@@ -3594,7 +3544,6 @@
   categories: [ HideSpawnMenu ]
   parent: BaseItem
   id: MagazineStructureWeaponGun
-  name: pw-construction-shared-magazinestructureweapongun-name
   components:
   - type: PhysicalComposition
     materialComposition:
@@ -3661,8 +3610,6 @@
 - type: entity
   id: HolosignForcefieldWM4567
   parent: ContainmentField
-  name: pw-construction-shared-holosignforcefield4567-name
-  description: pw-construction-rebels-holosignforcefield4567arm-desc
   suffix: WM
   components:
   - type: ContainmentField
@@ -3682,8 +3629,6 @@
 - type: entity
   id: HolosignForcefieldWM4567Nulls
   parent: WallPlastitaniumIndestructible #HolosignForcefieldWM4567
-  name: pw-construction-shared-holosignforcefield4567nulls-name
-  description: pw-construction-rebels-holosignforcefield4567arm-desc
   suffix: WM
   components:
   - type: Stealth
@@ -3724,8 +3669,6 @@
 - type: entity
   id: HolosignForcefieldWM4567Ghost
   parent: HolosignForcefieldWM4567Nulls
-  name: pw-construction-shared-holosignforcefield4567nulls-name
-  description: pw-construction-rebels-holosignforcefield4567arm-desc
   suffix: WM
   components:
   - type: EntityTableSpawner
@@ -3737,8 +3680,6 @@
 
 - type: entity
   id: FloorNotSpawmDeleteWM
-  name: pw-construction-shared-floornotspawmdelete-name
-  description: pw-construction-shared-floornotspawmdelete-desc
   placement:
     mode: SnapgridCenter
     snap:
@@ -3809,7 +3750,6 @@
   parent: MarkerBase
   categories: [ HideSpawnMenu, Debug ]
   id: huiC
-  name: pw-construction-shared-huic-name
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi
@@ -3827,7 +3767,6 @@
   parent: huiC
   categories: [ HideSpawnMenu, Debug ]
   id: huiA
-  name: pw-construction-shared-huia-name
   components:
   - type: EntityTableSpawner
     table: !type:AllSelector
@@ -3839,7 +3778,6 @@
   parent: huiCJob
   categories: [ HideSpawnMenu, Debug ]
   id: huiAJob
-  name: pw-construction-shared-huia-name
   components:
   - type: SpawnOnTrigger
     proto: Marker24567Job
@@ -3850,7 +3788,6 @@
   parent: HolosignForcefieldWM4567Nulls #MarkerBase
   categories: [ HideSpawnMenu, Debug ]
   id: huiCJob
-  name: pw-construction-shared-huic-name
   components:
   - type: TriggerOnProximity
     enabled: true
@@ -3954,8 +3891,6 @@
   categories: [ HideSpawnMenu ]
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   id: MaterialReclaimerWM
-  name: pw-construction-shared-materialreclaimer-name
-  description: pw-construction-shared-materialreclaimer-desc
   components:
   - type: Construction
     graph: CatwalkWMDop
@@ -4031,8 +3966,6 @@
   categories: [ HideSpawnMenu ]
   parent: BaseFlatpack
   id: MaterialReclaimerWMFlatpack
-  name: pw-construction-shared-materialreclaimer-name
-  description: pw-construction-rebels-mechheavyarmflatpack-desc
   components:
   - type: SpawnAfterInteract
     prototype: MaterialReclaimerWM
@@ -4056,7 +3989,6 @@
   categories: [ HideSpawnMenu ]
   parent: MaterialReclaimerWMFlatpack
   id: ShuttleGunAutomatWMFlatpack
-  name: pw-construction-shared-shuttlegunautomatflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: ShuttleGunAutomatWM
@@ -4068,7 +4000,6 @@
   categories: [ HideSpawnMenu ]
   parent: MaterialReclaimerWMFlatpack
   id: ShuttleGunPulemetWMFlatpack
-  name: pw-construction-shared-shuttlegunpulemetflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: ShuttleGunPulemetWM

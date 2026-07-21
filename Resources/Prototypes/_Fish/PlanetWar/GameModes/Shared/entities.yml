@@ -89,7 +89,6 @@
   parent: MarkerBase
   id: Marker14567
   suffix: Drops the server headfirst on tile, use at your own risk.
-  name: pw-gamemodes-republic-brokenhostserver-name
   placement:
     mode: SnapgridCenter
     snap:
@@ -114,7 +113,6 @@
   parent: MarkerBase
   id: Marker14567Boom
   suffix: Drops the server headfirst on tile, use at your own risk.
-  name: pw-gamemodes-republic-brokenhostserver-name
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi
@@ -146,7 +144,6 @@
   parent: MarkerBase
   id: Marker24567
   suffix: Floods the server with expired beer, use at your own risk.
-  name: pw-gamemodes-rebels-brokenhostserver-name
   placement:
     mode: SnapgridCenter
     snap:
@@ -171,7 +168,6 @@
   parent: MarkerBase
   id: Marker24567Boom
   suffix: Floods the server with expired beer, use at your own risk.
-  name: pw-gamemodes-rebels-brokenhostserver-name
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi

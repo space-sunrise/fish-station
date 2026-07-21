@@ -29,7 +29,6 @@
 - type: entity
   parent: BaseItem
   id: BoxDronCoreWM
-  name: pw-vehicles-republic-boxdroncore-name
   components:
   - type: PhysicalComposition
     materialComposition:
@@ -64,7 +63,6 @@
 - type: entity
   id: StationDronBeaconCore
   parent: BaseMachinePowered
-  name: pw-vehicles-republic-stationdronbeaconcore-name
   placement:
     mode: SnapgridCenter
     snap:
@@ -188,7 +186,6 @@
   suffix: WM
   parent: 
    - MechMarauder
-  name: pw-construction-republic-mechheavycoreflatpack-name
   components:
  # - type: Physics
   #  bodyType: Dynamic
@@ -293,7 +290,6 @@
   suffix: WM
   parent: 
    - MechHeavyCoreWM
-  name: pw-vehicles-rebels-grusarm-name
   components:
   - type: FootstepModifier
     footstepSoundCollection:
@@ -415,7 +411,6 @@
   categories: [ HideSpawnMenu ]
   parent: MechHeavyCoreWMFlatpack
   id: MechGrusCoreFlatpack
-  name: pw-vehicles-rebels-grusarm-name
   components:
   - type: SpawnAfterInteract
     prototype: GrusCoreWM
@@ -427,7 +422,6 @@
   categories: [ HideSpawnMenu ]
   parent: MechHeavyCoreWMFlatpack
   id: MechStationDronCoreFlatpack
-  name: pw-vehicles-republic-mechstationdroncoreflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: StationDronBeaconCore

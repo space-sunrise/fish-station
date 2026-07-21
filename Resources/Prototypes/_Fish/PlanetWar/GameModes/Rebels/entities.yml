@@ -23,7 +23,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementCoreWM
   id: 1ReinforcementArmWM
-  name: pw-gamemodes-rebels-1reinforcementarm-name
   suffix: WM
   components:
   - type: Sprite
@@ -69,7 +68,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementArmWM
   id: 4ReinforcementArmPC0I5WM
-  name: pw-gamemodes-rebels-4reinforcementarmpc0i5-name
   suffix: WM
   components:
   - type: GhostRole
@@ -95,7 +93,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementArmWM
   id: 5ReinforcementArmP1WM
-  name: pw-gamemodes-rebels-5reinforcementarmp1-name
   suffix: WM
   components:
   - type: GhostRole
@@ -121,7 +118,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementArmWM
   id: 6ReinforcementArmPH5WM
-  name: pw-gamemodes-rebels-6reinforcementarmph5-name
   suffix: WM
   components:
   - type: GhostRole
@@ -147,7 +143,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementArmWM
   id: 3ReinforcementArmPM1WM
-  name: pw-gamemodes-rebels-3reinforcementarmpm1-name
   suffix: WM
   components:
   - type: GhostRole
@@ -173,7 +168,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementArmWM
   id: 2ReinforcementArmPE1WM
-  name: pw-gamemodes-rebels-2reinforcementarmpe1-name
   suffix: WM
   components:
   - type: GhostRole
@@ -199,7 +193,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementArmWM
   id: 7ReinforcementArmPS4WM
-  name: pw-gamemodes-rebels-7reinforcementarmps4-name
   suffix: WM
   components:
   - type: GhostRole
@@ -346,7 +339,6 @@
   parent: MarkerBase
   id: Marker24567Start
   suffix: Floods the server with expired beer, use at your own risk.
-  name: pw-gamemodes-rebels-brokenhostserver-name
   components:
   - type: GhostRole
     name: pw-gamemodes-rebels-marker24567start-name
@@ -389,7 +381,6 @@
   categories: [ HideSpawnMenu ]
   parent: MechHeavyArmWMFlatpack
   id: MarkerStartItemGatewayArmFlatpack
-  name: pw-gamemodes-rebels-markerstartitemgatewayarmflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: MarkerStartItemGatewayArm

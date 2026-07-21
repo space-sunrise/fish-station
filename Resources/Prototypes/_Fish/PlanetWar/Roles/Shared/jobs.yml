@@ -1,7 +1,7 @@
 - type: job
   id: JobGhostWMBase
-  name: pw-roles-shared-jobghostbase-name
-  description: pw-roles-shared-jobghostbase-desc
+  name: job-title-ghostwmbase
+  description: job-description-ghostwmbase
   playTimeTracker: OverAllGhostWMBase
   setPreference: false
   weight: 10
@@ -12,6 +12,3 @@
   - AssCoreBase
   - AssArmBase
   alwaysUseSpawner: true
-
-
-#Job

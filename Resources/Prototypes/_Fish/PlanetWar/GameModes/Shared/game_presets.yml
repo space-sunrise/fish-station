@@ -1,22 +1,16 @@
 - type: gamePreset
   id: PlanetWar
-  #alias:
-   # - nukeops
-  name: Planet War (WM)
-  description: pw-gamemodes-shared-planetwar-desc
+  name: planetwar-preset-name
+  description: planetwar-preset-description
   showInVote: false
   rules:
     - PlanetWarRule
 
-#добавить копию правил секрета
-
 
 - type: gamePreset
   id: PlanetWarSecret
-  #alias:
-   # - nukeops
-  name: pw-gamemodes-shared-planetwarsecret-name
-  description: pw-gamemodes-shared-planetwarsecret-desc
+  name: planetwar-secret-preset-name
+  description: planetwar-secret-preset-description
   showInVote: false
   rules:
     - PlanetWarRule

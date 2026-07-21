@@ -17,8 +17,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: [ ReinforcementRadioSyndicateNukeops, MarkerBase ]
   id: 1ReinforcementCoreWM
-  name: pw-gamemodes-republic-1reinforcementcore-name
-  description: pw-gamemodes-republic-1reinforcementcore-desc
   suffix: WM
   placement:
     mode: SnapgridCenter
@@ -72,7 +70,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementCoreWM
   id: 4ReinforcementCorePC0I5WM
-  name: pw-gamemodes-republic-4reinforcementcorepc0i5-name
   suffix: WM
   components:
   - type: GhostRole
@@ -98,7 +95,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementCoreWM
   id: 5ReinforcementCoreP1WM
-  name: pw-gamemodes-republic-5reinforcementcorep1-name
   suffix: WM
   components:
   - type: GhostRole
@@ -124,7 +120,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementCoreWM
   id: 6ReinforcementCorePH5WM
-  name: pw-gamemodes-republic-6reinforcementcoreph5-name
   suffix: WM
   components:
   - type: GhostRole
@@ -150,7 +145,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementCoreWM
   id: 3ReinforcementCorePM1WM
-  name: pw-gamemodes-republic-3reinforcementcorepm1-name
   suffix: WM
   components:
   - type: GhostRole
@@ -176,7 +170,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementCoreWM
   id: 2ReinforcementCorePE1WM
-  name: pw-gamemodes-republic-2reinforcementcorepe1-name
   suffix: WM
   components:
   - type: GhostRole
@@ -202,7 +195,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementCoreWM
   id: 7ReinforcementCorePS4WM
-  name: pw-gamemodes-republic-7reinforcementcoreps4-name
   suffix: WM
   components:
   - type: GhostRole
@@ -336,7 +328,6 @@
   parent: MarkerBase
   id: Marker14567Start
   suffix: Drops the server headfirst on tile, use at your own risk.
-  name: pw-gamemodes-republic-brokenhostserver-name
   components:
   - type: GhostRole
     name: pw-gamemodes-republic-marker14567start-name
@@ -386,7 +377,6 @@
   categories: [ HideSpawnMenu ]
   parent: MechHeavyCoreWMFlatpack
   id: MarkerStartItemGatewayCoreFlatpack
-  name: pw-gamemodes-rebels-markerstartitemgatewayarmflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: MarkerStartItemGatewayCore

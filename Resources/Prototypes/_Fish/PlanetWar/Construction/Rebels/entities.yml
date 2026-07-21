@@ -1,7 +1,6 @@
 - type: entity
   #categories: [ HideSpawnMenu ]
   parent: RCD
-  name: pw-construction-rebels-rcdrechargingarm-name
   id: RCDRechargingArmWM
   components:
   - type: PhysicalComposition
@@ -41,7 +40,6 @@
 - type: entity
   #categories: [ HideSpawnMenu ]
   parent: RCD
-  name: pw-construction-rebels-rcdrecharginggoodarm-name
   id: RCDRechargingGoodArmWM
   components:
   - type: Sprite
@@ -157,7 +155,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseLandMineWM
-  name: pw-construction-rebels-landmineexplosivearm-name
   id: LandMineExplosiveArmWM
   components:
   - type: RCDDeconstructable
@@ -252,7 +249,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: EffectNightVisioArm
-  name: pw-construction-rebels-effectnightvisioarm-name
   components:
   - type: PointLight
     color: "#e60000"
@@ -275,7 +271,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: WeaponTurretCoreWMTestBla
-  name: pw-construction-rebels-weaponturretarmtestbla-name
   id: WeaponTurretArmWMTestBla
   components:
   #  - type: RadarBlip
@@ -309,8 +304,6 @@
   categories: [ HideSpawnMenu ]
   parent: BaseItem
   id: MoneyWarMiz
-  name: material-moneywarmiz-name
-  description: pw-construction-rebels-moneywarmiz-desc
   components:
   - type: Sprite
     sprite: Objects/Economy/cash.rsi
@@ -386,7 +379,6 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: pw-construction-rebels-weaponlauncherchinalakearm-name
   parent: WeaponLauncherChinaLake
   id: WeaponLauncherChinaLakeArmWM
   components:
@@ -411,7 +403,6 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: pw-construction-rebels-boxcanabisarm-name
   parent: BaseItem
   id: BoxCanabisArm
   components:
@@ -435,7 +426,6 @@
 
 - type: entity
   id: EnergyDomeArm
-  name: pw-construction-rebels-energydomearm-name
   categories: [ HideSpawnMenu ]
   parent: EnergyDomeBase
   placement:
@@ -513,7 +503,6 @@
 
 - type: entity
   id: EnergyDomeArmWM
-  name: pw-construction-rebels-energydomearm-name
   parent: EnergyDomeCoreWM
   placement:
     mode: SnapgridCenter
@@ -532,7 +521,6 @@
 
 - type: entity
   parent: WrapHandTeleporterCore
-  name: pw-construction-rebels-wraphandteleporterarm-name
   id: WrapHandTeleporterArm
   components:
   - type: SpawnItemsOnUse
@@ -549,7 +537,6 @@
   categories: [ HideSpawnMenu ]
   id: HandTeleporterArm
   parent: HandTeleporterCore
-  name: pw-construction-rebels-wraphandteleporterarm-name
   components:
   - type: Sprite
     sprite: Objects/Devices/syndicate_teleporter.rsi
@@ -791,7 +778,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: BaseMobHumanWM
   id: MobHumanArmP0WM
-  name: pw-construction-rebels-mobhumanarmp0-name
   suffix: WM
   components:
     - type: WarpPoint
@@ -847,7 +833,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: MobHumanArmP0WM
   id: MobHumanArmPC0I5WM
-  name: pw-construction-rebels-mobhumanarmpc0i5-name
   suffix: WM
   components:
     - type: RandomMetadata
@@ -899,7 +884,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: MobHumanArmP0WM
   id: MobHumanArmP1WM
-  name: pw-construction-rebels-mobhumanarmp1-name
   suffix: WM
   components:
     - type: RandomMetadata
@@ -936,7 +920,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: MobHumanArmP0WM
   id: MobHumanArmPH5WM
-  name: pw-construction-rebels-mobhumanarmph5-name
   suffix: WM
   components:
     - type: RandomMetadata
@@ -980,7 +963,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: MobHumanArmP0WM
   id: MobHumanArmPM1WM
-  name: pw-construction-rebels-mobhumanarmpm1-name
   suffix: WM
   components:
     - type: RandomMetadata
@@ -1026,7 +1008,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: MobHumanArmP0WM
   id: MobHumanArmPE1WM
-  name: pw-construction-rebels-mobhumanarmpe1-name
   suffix: WM
   components:
     - type: RandomMetadata
@@ -1064,7 +1045,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: MobHumanArmP0WM
   id: MobHumanArmPS4WM
-  name: pw-construction-rebels-mobhumanarmps4-name
   suffix: WM
   components:
     - type: RandomMetadata
@@ -1424,7 +1404,6 @@
 - type: entity
   id: SpawnPointJobArmBase
   parent: SpawnPointJobBase
-  name: pw-construction-rebels-jobspawner-name
   components:
   - type: ContainmentField
     throwForce: 0
@@ -1467,7 +1446,6 @@
   categories: [ HideSpawnMenu ]
   parent: IDCoreBase
   id: IDArmBase
-  name: pw-construction-rebels-idarmbase-name
   components:
   - type: PdaBorderColor
     borderColor: "#e50000"
@@ -1488,7 +1466,6 @@
   categories: [ HideSpawnMenu ]
   parent: IDArmBase
   id: IDArmPC0I5
-  name: pw-construction-rebels-idarmpc0i5-name
   components:
   - type: IdCard
     jobTitle: job-title-rebel-leader
@@ -1502,7 +1479,6 @@
   categories: [ HideSpawnMenu ]
   parent: IDArmBase
   id: IDArmPM1
-  name: pw-construction-rebels-idarmpm1-name
   components:
   - type: IdCard
     jobTitle: job-title-rebel-chemist
@@ -1516,7 +1492,6 @@
   categories: [ HideSpawnMenu ]
   parent: IDArmBase
   id: IDArmPE1
-  name: pw-construction-rebels-idarmpe1-name
   components:
   - type: IdCard
     jobTitle: job-title-rebel-builder
@@ -1533,7 +1508,6 @@
   suffix: WM
   parent: 
    - MechHeavyArmWM
-  name: pw-construction-rebels-mechlightarm-name
   components:
   #- type: RadarBlip
   #  scale: 0.6
@@ -1623,7 +1597,6 @@
   suffix: WM
   parent: 
    - MechHeavyArmWM
-  name: pw-construction-rebels-mechnormarm-name
   components:
   #- type: RadarBlip
   #  scale: 0.7
@@ -1704,7 +1677,6 @@
   suffix: WM
   parent: 
    - MechHeavyArmWM
-  name: pw-construction-rebels-tankarm-name
   components:
   - type: FootstepModifier
     footstepSoundCollection:
@@ -1918,8 +1890,6 @@
 - type: entity
   id: HolosignForcefieldWM4567Arm
   parent: HolosignForcefieldWM4567Ghost
-  name: pw-construction-rebels-holosignforcefield4567arm-name
-  description: pw-construction-rebels-holosignforcefield4567arm-desc
   suffix: WM
   components:
   - type: EntityTableSpawner
@@ -1937,7 +1907,6 @@
   categories: [ HideSpawnMenu ]
   parent: CrateGenericSteelWM
   id: CrateGenericSteelPixarArmWM
-  name: pw-construction-rebels-crategenericsteelpixararm-name
   components:
   - type: StorageFill
     contents:
@@ -1957,7 +1926,6 @@
   categories: [ HideSpawnMenu ]
   parent: CrateGenericSteelWM
   id: CrateGenericSteelMechsArmWM
-  name: pw-construction-rebels-crategenericsteelmechsarm-name
   components:
   - type: StorageFill
     contents:
@@ -1979,7 +1947,6 @@
   categories: [ HideSpawnMenu ]
   parent: CrateGenericSteelWM
   id: CrateGenericSteelRcdArmWM
-  name: pw-construction-rebels-crategenericsteelrcdarm-name
   components:
   - type: StorageFill
     contents:
@@ -2000,7 +1967,6 @@
   parent: BaseGatewayWM
   id: GatewayArm
   suffix: WM
-  name: pw-construction-rebels-gatewayarm-name
   components:
   - type: Tag
     tags:
@@ -2076,7 +2042,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: GatewayArm
   id: GatewayArmMini
-  name: pw-construction-rebels-gatewayarmmini-name
   components:
   #- type: RadarBlip
   #  color: "#ff4040"
@@ -2134,7 +2099,6 @@
   categories: [ HideSpawnMenu ]
   id: CargoTechFabArmWM
   parent: AmmoTechFabArmWM
-  name: pw-construction-rebels-cargotechfabarm-name
   components:
     - type: Sprite
       sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
@@ -2165,8 +2129,6 @@
   categories: [ HideSpawnMenu ]
   id: AmmoTechFabArmWM
   parent: AmmoTechFabCoreWM
-  name: pw-construction-rebels-ammotechfabarm-name
-  description: pw-construction-rebels-ammotechfabarm-desc
   components:
     - type: Construction
       graph: CatwalkWMDop
@@ -2192,8 +2154,6 @@
 - type: entity
   id: FlatpackerFabricatorArm
   parent: BaseLatheLube
-  name: pw-construction-rebels-flatpackerfabricatorarm-name
-  description: pw-construction-rebels-flatpackerfabricatorarm-desc
   components:
   - type: Construction
     graph: CatwalkWM
@@ -2216,7 +2176,6 @@
 - type: entity
   id: MechFabricatorArm
   parent: MechFabricatorCore
-  name: pw-construction-rebels-mechfabricatorarm-name
   components:
   - type: Sprite
     sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
@@ -2238,7 +2197,6 @@
 - type: entity
   id: MoneyHostArm
   parent: MoneyHostCore
-  name: pw-construction-rebels-moneyhostarm-name
   components:
   - type: Tag
     tags:
@@ -2265,7 +2223,6 @@
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabArmWMFlatpack
   id: FlatpackerFabricatorArmFlatpack
-  name: pw-construction-rebels-flatpackerfabricatorarm-name
   components:
   - type: SpawnAfterInteract
     prototype: FlatpackerFabricatorArm
@@ -2277,7 +2234,6 @@
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabArmWMFlatpack
   id: MechFabricatorArmFlatpack
-  name: pw-construction-rebels-mechfabricatorarm-name
   components:
   - type: SpawnAfterInteract
     prototype: MechFabricatorArm
@@ -2289,7 +2245,6 @@
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabArmWMFlatpack
   id: MoneyHostArmFlatpack
-  name: pw-construction-rebels-moneyhostarmflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: MoneyHostArm
@@ -2301,7 +2256,6 @@
   categories: [ HideSpawnMenu ]
   parent: MechHeavyArmWMFlatpack
   id: MechLightArmFlatpack
-  name: pw-construction-rebels-mechlightarmflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: MechLightArmWM
@@ -2313,7 +2267,6 @@
   categories: [ HideSpawnMenu ]
   parent: MechHeavyArmWMFlatpack
   id: MechNormalArmFlatpack
-  name: pw-construction-rebels-mechnormalarmflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: MechNormArmWM
@@ -2325,7 +2278,6 @@
   categories: [ HideSpawnMenu ]
   parent: MechHeavyArmWMFlatpack
   id: MechTankArmFlatpack
-  name: pw-construction-rebels-mechtankarmflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: TankArmWM
@@ -2337,8 +2289,6 @@
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabArmWMFlatpack
   id: MechHeavyArmWMFlatpack
-  name: pw-construction-rebels-mechheavyarmflatpack-name
-  description: pw-construction-rebels-mechheavyarmflatpack-desc
   components:
   - type: SpawnAfterInteract
     prototype: MechHeavyArmWM
@@ -2358,7 +2308,6 @@
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabArmWMFlatpack
   id: EnergyDomeArmFlatpack
-  name: pw-construction-rebels-energydomearmflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: EnergyDomeArmWM #EnergyDomeArmWM
@@ -2370,7 +2319,6 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: MechHeavyArmWMFlatpack
   id: GatewayArmMiniFlatpack
-  name: pw-construction-rebels-gatewayarmminiflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: GatewayArmMini
@@ -2382,7 +2330,6 @@
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabArmWMFlatpack
   id: CargoTechFabArmFlatpack
-  name: pw-construction-rebels-cargotechfabarmflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: CargoTechFabArmWM
