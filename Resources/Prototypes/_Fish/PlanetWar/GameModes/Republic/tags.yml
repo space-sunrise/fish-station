@@ -1,8 +1,10 @@
 - type: Tag
   id: NoCoreAIInArm
 
+
 - type: Tag
   id: NoArmAIInCore
+
 
 - type: Tag
   id: CoreMineIgnoreTag

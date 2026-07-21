@@ -5,6 +5,7 @@
     joinExtendsDurationBy: 1
     maxDuration: 2
 
+
 - type: ghostRoleRaffleSettings
   id: WM
   settings:
@@ -12,12 +13,14 @@
     joinExtendsDurationBy: 2
     maxDuration: 10
 
+
 - type: ghostRoleRaffleSettings
   id: LongWM
   settings:
     initialDuration: 5
     joinExtendsDurationBy: 2
     maxDuration: 20
+
 
 - type: ghostRoleRaffleSettings
   id: LifeWM

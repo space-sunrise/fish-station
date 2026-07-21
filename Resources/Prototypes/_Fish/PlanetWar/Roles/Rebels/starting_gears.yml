@@ -15,6 +15,7 @@
     suitstorage: WeaponRifleAKMWM
     ears: ClothingHeadsetAltSyndicateWM
 
+
 - type: startingGear
   id: ArmGearP1
   equipment:
@@ -32,6 +33,7 @@
     suitstorage: WeaponShotgunBulldogWM
     ears: ClothingHeadsetAltSyndicateWM
 
+
 - type: startingGear
   id: ArmGearPM1
   equipment:
@@ -48,6 +50,7 @@
     head: ClothingHeadHatRedsoftWM
     suitstorage: WeaponEarthGovLaserCarbineArmWM
     ears: ClothingHeadsetAltSyndicateWM
+
 
 - type: startingGear
   id: ArmGearPE1
@@ -72,6 +75,7 @@
   - WeaponPistolHIB88M4WM
   - MagazineHIBrowningWM
 
+
 - type: startingGear
   id: ArmGearPS4
   equipment:
@@ -91,6 +95,7 @@
     neck: ClothingCloakAlphaWM
     eyes: ClothingEyesGlassesThermalArmWM
 
+
 - type: startingGear
   id: ArmGearPH5
   equipment:
@@ -107,6 +112,7 @@
     head: ClothingHeadHelmetLingWM
     suitstorage: WeaponLightMachineGunRPDWM
     ears: ClothingHeadsetAltSyndicateWM
+
 
 - type: startingGear
   id: ArmGearPC0I5

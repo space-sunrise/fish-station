@@ -11,19 +11,21 @@
       - id: LandMineExplosiveArmWM
         weight: 30
 
+
 - type: entity
   parent: BoxDronCoreWM
   id: BoxDronArmWM
-  name: Развертка Квадракоптер
+  name: pw-vehicles-rebels-boxdronarm-name
   components:
   - type: SpawnItemsOnUse
     items:
     - id: DronArmWM
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: DronArmWM
-  name: Квадракоптер
+  name: pw-vehicles-rebels-dronarm-name
   parent: DronCoreWM
   components:
   #- type: RadarBlip
@@ -32,8 +34,8 @@
   #  shape: Circle
   #  requireInSpace: false
   - type: GhostRole
-    name: Взрывной Квадракоптер
-    description: Фракция Повстанцы
+    name: pw-vehicles-rebels-dronarm-name-1
+    description: pw-construction-rebels-mobhumanarmp0-desc
     raffle:
       settings: WM
   - type: StepTrigger
@@ -65,6 +67,7 @@
         shader: unshaded
         offset: 0, 0
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: DronArmPortalWM
@@ -76,10 +79,11 @@
         children:
         - id: PortalArmTinyWM
 
+
 - type: entity
   id: StationDronBeaconArm
   parent: StationDronBeaconCore
-  name: станция запуска Квадракоптер повстанцев
+  name: pw-vehicles-rebels-stationdronbeaconarm-name
   placement:
     mode: SnapgridCenter
     snap:
@@ -104,12 +108,14 @@
       children:
       - id: MarkerSpawnDronStationArm
 
+
 - type: entity
   id: StationDronBeaconArmWMMizeliy
   parent: StationDronBeaconArm
   components:
   - type: TimedSpawner
     intervalSeconds: 30
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -124,14 +130,15 @@
           amount: 2
         - id: MarkerDronArmTurretMineWM
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
   id: MarkerDronArmWM
   components:
   - type: GhostRole
-    name: Взрывной Квадракоптер
-    description: Фракция Повстанцы
+    name: pw-vehicles-rebels-dronarm-name-1
+    description: pw-construction-rebels-mobhumanarmp0-desc
     raffle:
       settings: WM
   - type: GhostRoleMobSpawner
@@ -139,14 +146,15 @@
   - type: TimedDespawn 
     lifetime: 400
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
   id: MarkerDronArmTurretMineWM
   components:
   - type: GhostRole
-    name: Вооруженый Квадракоптер
-    description: Фракция Повстанцы
+    name: pw-vehicles-rebels-markerdronarmturretmine-name
+    description: pw-construction-rebels-mobhumanarmp0-desc
     raffle:
       settings: WM
   - type: GhostRoleMobSpawner
@@ -157,12 +165,13 @@
 
 #Легкий двухместный гиродерм
 
+
 - type: entity
   id: MechHeavyArmWM
   suffix: WM
   parent: 
    - MechMaulerSyndie
-  name: тяжелый боевой мех повстанцев
+  name: pw-construction-rebels-mechheavyarmflatpack-name
   components:
  # - type: Physics
   #  bodyType: Dynamic
@@ -264,12 +273,13 @@
 
 #передвижное осадное орудие - танк
 
+
 - type: entity
   id: GrusArmWM
   suffix: WM
   parent: 
    - MechHeavyArmWM
-  name: транспортник
+  name: pw-vehicles-rebels-grusarm-name
   components:
   - type: FootstepModifier
     footstepSoundCollection:
@@ -386,22 +396,24 @@
   - type: Hands
     showInHands: false
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MechHeavyArmWMFlatpack
   id: MechGrusArmFlatpack
-  name: транспортник 
+  name: pw-vehicles-rebels-grusarm-name
   components:
   - type: SpawnAfterInteract
     prototype: GrusArmWM
   - type: Flatpack
     entity: GrusArmWM
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MechHeavyArmWMFlatpack
   id: MechStationDronArmFlatpack
-  name: станция Квадракоптер
+  name: pw-vehicles-rebels-mechstationdronarmflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: StationDronBeaconArm

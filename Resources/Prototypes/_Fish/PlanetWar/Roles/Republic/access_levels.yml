@@ -1,15 +1,18 @@
 - type: accessLevel
   id: AssCoreBase
-  name: доступ Республиканцев
+  name: pw-roles-republic-asscorebase-name
+
 
 - type: accessLevel
   id: AssCorePC0I5
-  name: доступ Командования Республиканцев
+  name: pw-roles-republic-asscorepc0i5-name
+
 
 - type: accessLevel
   id: AssCorePM1
-  name: доступ Медработ Республиканцев
+  name: pw-roles-republic-asscorepm1-name
+
 
 - type: accessLevel
   id: AssCorePE1
-  name: доступ Техработ Республиканцев
+  name: pw-roles-republic-asscorepe1-name

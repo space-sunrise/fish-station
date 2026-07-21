@@ -1,7 +1,7 @@
 - type: job
   id: JobArmBase
-  name: Ополченец #Повстанец - стояло у всех первым столов в словосочетании джоба
-  description: Одноразовое мясо
+  name: pw-roles-rebels-jobarmbase-name
+  description: pw-roles-rebels-jobarmbase-desc
   playTimeTracker: OverAllArmBase
   setPreference: false
   weight: 2
@@ -13,10 +13,11 @@
   alwaysUseSpawner: true
   supervisors: job-title-rebel-leader
 
+
 - type: job
   id: JobArmPC0I5
-  name: Предводитель
-  description: Воодушевляюший лидер
+  name: pw-construction-rebels-mobhumanarmpc0i5-name
+  description: pw-roles-rebels-jobarmpc0i5-desc
   playTimeTracker: OverAllArmPC0I5
   setPreference: false
   weight: 5
@@ -31,10 +32,11 @@
   alwaysUseSpawner: true
   supervisors: job-supervisors-rebel-council
 
+
 - type: job
   id: JobArmPM1
-  name: Аптекарь
-  description: Оказывает лечебную помощь
+  name: pw-construction-rebels-mobhumanarmpm1-name
+  description: pw-roles-rebels-jobarmpm1-desc
   playTimeTracker: OverAllArmPM1
   setPreference: false
   weight: 3
@@ -47,10 +49,11 @@
   alwaysUseSpawner: true
   supervisors: job-title-rebel-leader
 
+
 - type: job
   id: JobArmPE1
-  name: Строитель
-  description: Собирает защитные баррикады
+  name: pw-construction-rebels-mobhumanarmpe1-name
+  description: pw-roles-rebels-jobarmpe1-desc
   playTimeTracker: OverAllArmPE1
   setPreference: false
   weight: 4

@@ -4,6 +4,7 @@
   - 1LatheHost
   - 3LatheHost
 
+
 - type: latheRecipePack
   id: 1PackLatheCargo
   recipes:
@@ -12,6 +13,7 @@
   - 3Cargo1Fab
   - 4Cargo1Fab
 
+
 - type: latheRecipePack
   id: 2PackLatheCargo
   recipes:
@@ -19,6 +21,7 @@
   - 2Cargo2Fab
   - 3Cargo2Fab
   - 4Cargo2Fab
+
 
 - type: latheRecipePack
   id: 4PackLatheCargo

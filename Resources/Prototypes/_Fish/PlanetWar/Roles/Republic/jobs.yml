@@ -1,7 +1,7 @@
 - type: job
   id: JobCoreBase
-  name: Боевик #Республиканец - стояло у всех первым столов в словосочетании джоба
-  description: Подготовленный расходник
+  name: pw-roles-republic-jobcorebase-name
+  description: pw-roles-republic-jobcorebase-desc
   playTimeTracker: OverAllCoreBase
   setPreference: false
   weight: 2
@@ -13,10 +13,11 @@
   alwaysUseSpawner: true
   supervisors: job-title-republic-lieutenant
 
+
 - type: job
   id: JobCorePC0I5
-  name: Лейтенант
-  description: Командуюший офицер 
+  name: pw-construction-republic-mobhumancorepc0i5-name
+  description: pw-roles-republic-jobcorepc0i5-desc
   playTimeTracker: OverAllCorePC0I5
   setPreference: false
   weight: 5
@@ -32,10 +33,11 @@
   alwaysUseSpawner: true
   supervisors: job-supervisors-republic-council
 
+
 - type: job
   id: JobCorePM1
-  name: Врач
-  description: Предоставляет медицинскую услугу
+  name: pw-construction-republic-mobhumancorepm1-name
+  description: pw-roles-republic-jobcorepm1-desc
   playTimeTracker: OverAllCorePM1
   setPreference: false
   weight: 3
@@ -48,10 +50,11 @@
   alwaysUseSpawner: true
   supervisors: job-title-republic-lieutenant
 
+
 - type: job
   id: JobCorePE1
-  name: Инженер
-  description: Возводит оборонительные сооружения
+  name: pw-construction-republic-mobhumancorepe1-name
+  description: pw-roles-republic-jobcorepe1-desc
   playTimeTracker: OverAllCorePE1
   setPreference: false
   weight: 4

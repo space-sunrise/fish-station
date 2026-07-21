@@ -6,6 +6,7 @@
   - type: TimedDespawn 
     lifetime: 3
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MarkerBase
@@ -22,6 +23,7 @@
 #Respublic
 #Замена Пехоты
 
+
 - type: entity
   parent: BaseGameRule
   id: PlanetWarRule
@@ -30,6 +32,7 @@
   #  roundEndBehavior: Nothing
   - type: GameRule
     minPlayers: 0
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -41,6 +44,7 @@
     table: !type:AllSelector
       children:
       - id: Marker24567BoomJob
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -54,6 +58,7 @@
       - id: MarkerGatewayArmJob
       - id: MARKERMarkerStartItemGatewayArmFlatpack
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: Marker14567
@@ -64,6 +69,7 @@
     table: !type:AllSelector
       children:
       - id: Marker14567BoomJob
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -77,12 +83,13 @@
       - id: MarkerGatewayCoreJob 
       - id: MARKERMarkerStartItemGatewayCoreFlatpack
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
   id: Marker14567
   suffix: Роняет сервер головй об кафель, использовать на свой страх и риск.
-  name: Core Broken host server fish
+  name: pw-gamemodes-republic-brokenhostserver-name
   placement:
     mode: SnapgridCenter
     snap:
@@ -101,12 +108,13 @@
   - type: TimedDespawn 
     lifetime: 5
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
   id: Marker14567Boom
   suffix: Роняет сервер головй об кафель, использовать на свой страх и риск.
-  name: Core Broken host server fish
+  name: pw-gamemodes-republic-brokenhostserver-name
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi
@@ -132,12 +140,13 @@
       - id: GatewayCore
       - id: MARKERMarkerStartItemGatewayCoreFlatpack
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
   id: Marker24567
   suffix: Заливает сервер просроченым пивом, использовать на свой страх и риск.
-  name: Arm Broken host server fish
+  name: pw-gamemodes-rebels-brokenhostserver-name
   placement:
     mode: SnapgridCenter
     snap:
@@ -156,12 +165,13 @@
   - type: TimedDespawn 
     lifetime: 5
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
   id: Marker24567Boom
   suffix: Заливает сервер просроченым пивом, использовать на свой страх и риск.
-  name: Arm Broken host server fish
+  name: pw-gamemodes-rebels-brokenhostserver-name
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi

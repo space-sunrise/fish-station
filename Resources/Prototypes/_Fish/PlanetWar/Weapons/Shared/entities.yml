@@ -26,6 +26,7 @@
     keysIn:
     - timer
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ShellShotgunWM
@@ -50,6 +51,7 @@
   - type: TriggerOnStepTrigger
   - type: DeleteOnTrigger
 
+
 - type: entity
   id: PelletShotgunSpreadTraceWM
   parent: PelletShotgunSpreadTrace
@@ -57,6 +59,7 @@
   components:
   - type: ProjectileSpread
     proto: PelletShotgunTraceWM
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -82,6 +85,7 @@
   - type: TriggerOnStepTrigger
   - type: DeleteOnTrigger
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ShellTranquilizerWM
@@ -104,6 +108,7 @@
     stepOn: true
   - type: TriggerOnStepTrigger
   - type: DeleteOnTrigger
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -129,6 +134,7 @@
   - type: TriggerOnStepTrigger
   - type: DeleteOnTrigger
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: SunriseCartridgeLightRifleWM
@@ -152,6 +158,7 @@
     stepOn: true
   - type: TriggerOnStepTrigger
   - type: DeleteOnTrigger
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -177,6 +184,7 @@
   - type: TriggerOnStepTrigger
   - type: DeleteOnTrigger
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: CartridgeMagnumWM
@@ -199,6 +207,7 @@
     stepOn: true
   - type: TriggerOnStepTrigger
   - type: DeleteOnTrigger
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -224,10 +233,11 @@
   - type: TriggerOnStepTrigger
   - type: DeleteOnTrigger
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: GrenadeFragLightWM
-  name: timer frag grenade
+  name: pw-weapons-shared-timerfraggrenade-name
   parent: BaseGrenade
   components:
   - type: TriggerOnProximity
@@ -256,6 +266,7 @@
   - type: TriggerOnStepTrigger
   - type: DeleteOnTrigger
 
+
 - type: entity
   id: BulletGrenadeFragTimerWM
   parent: BulletGrenadeFragTimer
@@ -268,6 +279,7 @@
   #  requireInSpace: false
   - type: ProjectileGrenade
     fillPrototype: PelletClusterLessLethalWM
+
 
 - type: entity
   parent: CartridgeAntiMateriel
@@ -290,11 +302,12 @@
     requiresAnchored: false
     triggerSpeed: 1
 
+
 - type: entity
   parent: BaseBullet
   id: AntiMaterielBulletWM
   categories: [ HideSpawnMenu ]
-  name: bullet (.60 caseless)
+  name: pw-weapons-shared-bullet60caseless-name
   components:
   - type: Projectile
     damage:
@@ -305,12 +318,13 @@
   - type: TimedDespawn
     lifetime: 40
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseItem
   id: ShtampMagazin
-  name: material-ShtampMagazin-name
-  description: Печатает боезапас.
+  name: material-shtampmagazin-name
+  description: pw-weapons-shared-shtampmagazin-desc
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi
@@ -339,6 +353,7 @@
           bounds: "-0.3,-0.3,0.3,0.3"
         mask:
         - ItemMask
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -377,6 +392,7 @@
           tags:
           - CartridgeLightRifle
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: WeaponRifleFamas
@@ -410,6 +426,7 @@
           tags:
             - CartridgeRifle
 
+
 - type: entity
   categories: [ HideSpawnMenu ] 
   parent: WeaponShotgunBulldogWM
@@ -424,6 +441,7 @@
     sprite: _Sunrise/Objects/Weapons/Guns/Shotguns/zauer/tiny.rsi
   - type: Item
     sprite: _Sunrise/Objects/Weapons/Guns/Shotguns/zauer/tiny.rsi
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -453,6 +471,7 @@
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 450
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -486,6 +505,7 @@
         whitelist:
           tags:
           - CartridgePistol
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -531,6 +551,7 @@
         whitelist:
           tags:
           - CartridgeAntiMateriel
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -579,6 +600,7 @@
   - type: EyeCursorOffset
     maxOffset: 25
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: WeaponLightMachineGunRPD
@@ -620,6 +642,7 @@
           tags:
           - CartridgeLightRifle
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: WeaponShotgunBulldog
@@ -653,6 +676,7 @@
         insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: WeaponShotgunSawn
@@ -672,6 +696,7 @@
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 450
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -719,6 +744,7 @@
     materialComposition:
       MoneyWarMizMaterial: 500
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: WeaponMechCombatShotgunWM
@@ -765,6 +791,7 @@
     materialComposition:
       MoneyWarMizMaterial: 1000
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: WeaponMechCombatMGWM
@@ -808,6 +835,7 @@
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 1500
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -854,6 +882,7 @@
     materialComposition:
       MoneyWarMizMaterial: 1500
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: WeaponGrusWM
@@ -868,6 +897,7 @@
     fireRate: 0.125
 
 # РпГшник
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -892,6 +922,7 @@
     maxTileBreak: 1
   #- type: DeleteOnTrigger
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: GrenadeFlashBang
@@ -906,12 +937,13 @@
     proto: BulletGrenadeFlashBangWM
     deleteOnSpawn: true
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: шприцемёт
+  name: pw-weapons-shared-launchersyringe-name
   parent: BaseItem
   id: LauncherSyringeWM
-  description: Бахает шпицем в омнезине
+  description: pw-weapons-shared-launchersyringe-desc
   components:
   - type: Biocode
     factions:
@@ -947,6 +979,7 @@
     proto: MiniSyringeWM
     capacity: 12
     count: 12
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -994,6 +1027,7 @@
     lifetime: 30
   - type: Timer
 
+
 - type: entity
   id: TeslaGunBulletWM
   parent: TeslaGunBullet
@@ -1008,6 +1042,7 @@
   - type: Electrified
     shockTime: 3
     requirePower: false
+
 
 - type: entity
   parent: BaseItem #BasePDA
@@ -1110,10 +1145,11 @@
       enum.PlantAnalyzerUiKey.Key:
         type: PlantAnalyzerBoundUserInterface
 
+
 - type: entity
   id: SurveillanceCameraSecurityWM
   parent: SurveillanceCameraSecurity
-  name: камера наведения (используй сканнер плюс эту камеру)
+  name: pw-weapons-shared-surveillancecamerasecurity-name
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn 
@@ -1132,10 +1168,11 @@
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
 
+
 - type: entity
   id: ShuttleGunAutomatWM
   parent: ShuttleGunDuster
-  name: стационарный точечный автомат
+  name: pw-construction-shared-shuttlegunautomatflatpack-name
   categories: [ HideSpawnMenu ]
   components:
   - type: RemoveComponentsOnTrigger
@@ -1289,10 +1326,11 @@
     rotateWhileAnchored: true
     increment: 15
 
+
 - type: entity
   id: ShuttleGunPulemetWM
   parent: ShuttleGunAutomatWM
-  name: стационарный подавляющий пулемет
+  name: pw-construction-shared-shuttlegunpulemetflatpack-name
   categories: [ HideSpawnMenu ]
   components:
  # - type: Fixtures

@@ -4,11 +4,13 @@
     prefix: "Ополченец "
     count: 999
 
+
 - type: localizedDataset
   id: NameArmPC0I5WM
   values:
     prefix: "Предводитель "
     count: 999
+
 
 - type: localizedDataset
   id: NameArmP1WM
@@ -16,11 +18,13 @@
     prefix: "Коллектор "
     count: 999
 
+
 - type: localizedDataset
   id: NameArmPH5WM
   values:
     prefix: "Кульминат "
     count: 999
+
 
 - type: localizedDataset
   id: NameArmPM1WM
@@ -28,11 +32,13 @@
     prefix: "Аптекарь "
     count: 999
 
+
 - type: localizedDataset
   id: NameArmPE1WM
   values:
     prefix: "Строитель "
     count: 999
+
 
 - type: localizedDataset
   id: NameArmPS4WM

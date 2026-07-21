@@ -8,6 +8,7 @@
   - 5GateArmLatheRecipe
   - 6GateArmLatheRecipe
 
+
 - type: latheRecipePack
   id: PackLatheAmmoArm
   recipes:
@@ -21,6 +22,7 @@
   #- 19MagLatheRecipe
   - 199MagLatheRecipe
 
+
 - type: latheRecipePack
   id: PackLatheGrenArm
   recipes:
@@ -30,6 +32,7 @@
   - 24MagLatheRecipe
   - 25MagLatheRecipe
   - 26MagLatheRecipe
+
 
 - type: latheRecipePack
   id: PackLatheMechArm
@@ -47,6 +50,7 @@
   - 10LatheMechArm
   - 11LatheMechArm
 
+
 - type: latheRecipePack
   id: 3PackLatheCargoArm
   recipes:
@@ -55,6 +59,7 @@
   - 3Cargo3Fab
   - 4Cargo3FabArm
 
+
 - type: latheRecipePack
   id: 5PackLatheCargoArm
   recipes:
@@ -62,12 +67,14 @@
   - 2Cargo5FabArm
   - 3Cargo5FabArm
 
+
 - type: latheRecipePack
   id: 6PackLatheCargoArm
   recipes:
   - 1Cargo6Fab
   - 2Cargo6Fab
   - 3Cargo6FabArm
+
 
 - type: latheRecipePack
   id: 7PackLatheCargoArm

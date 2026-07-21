@@ -18,6 +18,7 @@
     keysIn:
     - timer
 
+
 - type: entity
   id: DeleteOnFloreFichaNoRichItemWM
   abstract: true
@@ -35,10 +36,11 @@
 
 #раб
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: WallShuttleWMTime
-  name: бронированая стена
+  name: pw-construction-shared-wallshuttletime-name
   parent: WallShuttleWM
   components:
   - type: Sprite
@@ -59,10 +61,11 @@
         sound:
           collection: MetalSlam
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: WallShuttleWM
-  name: бронированая стена
+  name: pw-construction-shared-wallshuttletime-name
   parent: WallShuttle
   components:
   #- type: RadarBlip
@@ -92,10 +95,11 @@
             min: 1
             max: 1
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: WallPlastitaniumWMTime
-  name: бронированая стена
+  name: pw-construction-shared-wallshuttletime-name
   parent: WallPlastitaniumWM
   components:
   - type: Sprite
@@ -116,11 +120,12 @@
         sound:
           collection: MetalSlam
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: WallPlastitaniumWM
   parent: WallPlastitanium
-  name: бронированая стена
+  name: pw-construction-shared-wallshuttletime-name
   components:
  # - type: RadarBlip
  #   color: "#806161"
@@ -149,6 +154,7 @@
             min: 1
             max: 1
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: CrateGenericSteel
@@ -171,10 +177,11 @@
   - type: AdminMinigun
   - type: Thruster
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: GirderWM
-  name: каркас
+  name: pw-construction-shared-girder-name
   parent: Girder
   components:
   - type: RCDDeconstructable
@@ -201,10 +208,11 @@
       types:
         Blunt: -2500
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ReinforcedGirderWM
-  name: бронированый каркас
+  name: pw-construction-shared-reinforcedgirder-name
   parent: ReinforcedGirder
   components:
   - type: RCDDeconstructable
@@ -231,6 +239,7 @@
       types:
         Blunt: -2500
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ShuttleWindowWMTime
@@ -254,11 +263,12 @@
         sound:
           collection: WindowShatter
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ShuttleWindowWM
   parent: ShuttleWindow
-  name: бронированое окно
+  name: pw-construction-shared-shuttlewindow-name
   components:
   #- type: RadarBlip
   #  color: "#647289"
@@ -281,6 +291,7 @@
       - !type:PlaySoundBehavior
         sound:
           collection: WindowShatter
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -305,11 +316,12 @@
         sound:
           collection: WindowShatter
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: PlastitaniumWindowWM
   parent: PlastitaniumWindow
-  name: бронированое окно
+  name: pw-construction-shared-shuttlewindow-name
   components:
  # - type: RadarBlip
  #   color: "#806161"
@@ -332,6 +344,7 @@
       - !type:PlaySoundBehavior
         sound:
           collection: WindowShatter
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -356,11 +369,12 @@
         sound:
           collection: MetalSlam
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: WallSolidWM
   parent: WallSolid
-  name: стена
+  name: pw-construction-shared-wallsolid-name
   components:
  # - type: RadarBlip
  #   color: "#999999"
@@ -391,11 +405,12 @@
             min: 1
             max: 1
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: CableApcExtensionWM
   parent: CableApcExtension
-  name: кабель
+  name: pw-construction-shared-cableapcextension-name
   components:
   - type: Cable
     cableDroppedOnCutPrototype: MarkerZaglushks
@@ -408,11 +423,12 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: PoweredlightWM
   parent: Poweredlight
-  name: светильник
+  name: pw-construction-shared-poweredlight-name
   components:
   - type: RCDDeconstructable
     cost: 1
@@ -431,11 +447,12 @@
         sound:
           collection: GlassBreak
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: CatwalkWM
   parent: Catwalk
-  name: мостик
+  name: pw-construction-shared-catwalk-name
   components:
     - type: Construction
       graph: CatwalkWM
@@ -449,11 +466,12 @@
             - !type:DoActsBehavior
               acts: ["Destruction"]
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: GrilleWM
   parent: Grille
-  name: решетка
+  name: pw-construction-shared-grille-name
   components:
     - type: Construction
       graph: CatwalkWM
@@ -466,6 +484,7 @@
           behaviors:
             - !type:DoActsBehavior
               acts: ["Destruction"]
+
 
 - type: entity
   id: BaseLandMineWM
@@ -541,6 +560,7 @@
 
 #LandMine
 
+
 - type: entity
   id: PelletShotgunTraceWM
   parent: PelletShotgunTrace
@@ -551,6 +571,7 @@
   #  scale: 0.1
   #  shape: Triangle
   #  requireInSpace: false
+
 
 - type: entity
   id: PelletShotgunSlugTraceWM
@@ -563,6 +584,7 @@
   #  shape: Triangle
   #  requireInSpace: false
 
+
 - type: entity
   id: BulletPistolTraceSPWM
   parent: BulletPistolTraceSP
@@ -573,6 +595,7 @@
   #  scale: 0.1
   #  shape: Triangle
   #  requireInSpace: false
+
 
 - type: entity
   id: BulletLightRifleTraceSPWM
@@ -585,6 +608,7 @@
  #   shape: Triangle
  #   requireInSpace: false
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: SunriseCartridgeLightRifleStructureWM
@@ -593,6 +617,7 @@
   - type: Tag
     tags:
     - ArtilleryShell
+
 
 - type: entity
   id: BulletRifleTraceHeavySPWM
@@ -605,6 +630,7 @@
    # shape: Triangle
    # requireInSpace: false
 
+
 - type: entity
   id: BulletRifleTraceSPWM
   parent: BulletRifleTraceSP
@@ -616,6 +642,7 @@
   #  shape: Triangle
   #  requireInSpace: false
 
+
 - type: entity
   id: PelletClusterLessLethalWM
   categories: [ HideSpawnMenu ]
@@ -626,6 +653,7 @@
  #   scale: 0.1
  #   shape: Triangle
  #   requireInSpace: false
+
 
 - type: entity
   parent: AntiMaterielBulletTrace #BulletTrace
@@ -659,6 +687,7 @@
 
 #NightVisionEffect
 
+
 - type: entity
   parent: RedLightLaser
   id: RedLightLaserWM
@@ -668,6 +697,7 @@
     damage:
       types:
         Heat: 17
+
 
 - type: entity
   parent: Pulse
@@ -681,6 +711,7 @@
 
 #Material
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ShtampMagazin
@@ -689,13 +720,14 @@
   - type: Stack
     count: 999999999
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: FultonWM
   parent: BaseItem
   suffix: Full
-  name: фултон
-  description: Привяжите фултон к порталу.
+  name: pw-construction-shared-fulton-name
+  description: pw-construction-shared-fulton-desc
   components:
   - type: Fulton
     whitelist:
@@ -733,10 +765,11 @@
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
 
+
 - type: entity
   id: Fulton1WM
   parent: FultonWM
-  name: fulton
+  name: pw-construction-shared-fulton-name
   suffix: One
   components:
   - type: Stack
@@ -744,9 +777,10 @@
 
 #Tag
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: EarthGov laser Core
+  name: pw-construction-shared-earthgovlasercore-name
   parent: WeaponEarthGovLaserCarbine
   id: WeaponEarthGovLaserCarbineWM
   components:
@@ -763,6 +797,7 @@
   - type: BatteryAmmoProvider #HitscanBatteryAmmoProvider
     proto: XrayLaserCore
     fireCost: 100
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -795,6 +830,7 @@
           tags:
           - CartridgePistol
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: WeaponLightMachineGunMG60
@@ -826,6 +862,7 @@
           tags:
           - CartridgeHeavyRifle
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MagazineVP78
@@ -842,6 +879,7 @@
     tags:
     - MagazineVP78
     - TehfabTagWM
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -860,6 +898,7 @@
     - MagazineBR64
     - TehfabTagWM
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MagazineLightMachineGunMG60
@@ -876,6 +915,7 @@
     tags:
     - MagazineLightMachineGunMG60
     - TehfabTagWM
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -894,6 +934,7 @@
     - MagazineRifle
     - TehfabTagWM
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: SpeedLoaderMagnumFMJ
@@ -910,6 +951,7 @@
     - SpeedLoaderMagnum
     - TehfabTagWM
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: SpeedLoaderMagnumFMJ
@@ -925,6 +967,7 @@
     tags:
     - SpeedLoaderMagnum
     - TehfabTagWM
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -943,6 +986,7 @@
     - MagazineShotgun
     - TehfabTagWM
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MagazineShotgun
@@ -959,6 +1003,7 @@
     tags:
     - MagazineShotgun
     - TehfabTagWM
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -977,6 +1022,7 @@
   #  - MagazineShotgun
     - TehfabTagWM
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MagazineBauer127
@@ -991,6 +1037,7 @@
   - type: PhysicalComposition
     materialComposition:
       ShtampMagazinMaterial: 300
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1009,6 +1056,7 @@
       ShtampMagazinMaterial: 300
   - type: Item
     size: Normal
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1041,6 +1089,7 @@
           tags:
             - CartridgeLightRifle
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: WeaponPistolHIB88M4
@@ -1072,6 +1121,7 @@
           tags:
           - CartridgePistol
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MagazineHIBrowning
@@ -1089,6 +1139,7 @@
     - MagazineHIBrowning
     - TehfabTagWM
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MagazineLightRifleHP
@@ -1104,6 +1155,7 @@
     tags:
     - MagazineLightRifle
     - TehfabTagWM
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1122,6 +1174,7 @@
     - MagazineRPD
     - TehfabTagWM
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MagazinePistolSubMachineGunHP
@@ -1139,6 +1192,7 @@
     - MagazinePistolSubMachineGun
     - TehfabTagWM
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: PowerCageTankWM
@@ -1150,6 +1204,7 @@
   - type: BatterySelfRecharger
  #   autoRecharge: true
     autoRechargeRate: 25000000
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1163,6 +1218,7 @@
   #  autoRecharge: true
     autoRechargeRate: 2500000
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: PowerCageNormalWM
@@ -1174,6 +1230,7 @@
   - type: BatterySelfRecharger
   #  autoRecharge: true
     autoRechargeRate: 30000
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1187,6 +1244,7 @@
    # autoRecharge: true
     autoRechargeRate: 10000
 
+
 - type: entity
   id: BulletRocketWM
   name: rocket
@@ -1199,10 +1257,11 @@
   #  shape: Circle
   #  requireInSpace: false
 
+
 - type: entity
   id: FloorFireEntityWM
-  name: горящая смесь 
-  description: Страшная вещь
+  name: pw-construction-shared-floorfireentity-name
+  description: pw-construction-shared-floorfireentity-desc
   placement:
     mode: SnapgridCenter
     snap:
@@ -1251,11 +1310,12 @@
     tags:
       - HideContextMenu
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: HandLabeler
   id: HandLabelerWM
-  name: Переименовщик состава
+  name: pw-construction-shared-handlabeler-name
   components:
     - type: HandLabeler
       whitelist:
@@ -1270,6 +1330,7 @@
       materialComposition:
         MoneyWarMizMaterial: 200
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: hydroponicsSoil
@@ -1278,12 +1339,13 @@
   - type: Flatpack
     entity: HandheldSoilWM
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: мешок земли (мультитул/кликни пол)
+  name: pw-construction-shared-handheldsoil-name
   parent: BaseItem
   id: HandheldSoilWM
-  description: Высыпает землю на поверхность.
+  description: pw-construction-shared-handheldsoil-desc
   components:
   - type: Flatpack
     entity: hydroponicsSoilWM
@@ -1305,9 +1367,10 @@
     tags:
     - Inflatable
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: набор ботанический инструментов
+  name: pw-construction-shared-boxbotanictool-name
   parent: BoxCanabisArm
   id: BoxBotanicToolWM
   components:
@@ -1328,6 +1391,7 @@
     - id: PlantBagWM
     - id: ChemistryBottleEZNutrientWM
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: HydroponicsToolMiniHoe
@@ -1336,6 +1400,7 @@
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 100
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1346,6 +1411,7 @@
     materialComposition:
       MoneyWarMizMaterial: 100
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: HydroponicsToolScythe
@@ -1354,6 +1420,7 @@
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 100
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1364,6 +1431,7 @@
     materialComposition:
       MoneyWarMizMaterial: 100
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: HydroponicsToolSpade
@@ -1373,11 +1441,12 @@
     materialComposition:
       MoneyWarMizMaterial: 100
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: SignalButtonAutoWM
   parent: SignalButton
-  name: кнопка активации
+  name: pw-construction-shared-signalbuttonauto-name
   suffix: Autolink
   components:
    # - type: AutoLinkReceiver
@@ -1386,6 +1455,7 @@
       channel: EnergyDomeAutoLink
     - type: WirelessNetworkConnection
       range: 1
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1405,6 +1475,7 @@
   - type: DeleteOnSolutionEmpty
     solution: pen
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: [ SyringeEphedrine, DeleteOnFloreFichaNoRichItemWM ]
@@ -1423,6 +1494,7 @@
           Quantity: 30
   - type: DeleteOnSolutionEmpty
     solution: injector
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1446,6 +1518,7 @@
     materialComposition:
       MoneyWarMizMaterial: 200
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: Bucket
@@ -1468,6 +1541,7 @@
     materialComposition:
       MoneyWarMizMaterial: 200
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ClothingEyesGlassesWeldingWM
@@ -1476,6 +1550,7 @@
     - type: PhysicalComposition
       materialComposition:
         MoneyWarMizMaterial: 100
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1488,10 +1563,11 @@
     - type: WirelessNetworkConnection
       range: 20
 
+
 - type: entity
   id: CheapRollerBedWM
   categories: [ HideSpawnMenu ]
-  name: лечебная койка
+  name: pw-construction-shared-cheaprollerbed-name
   parent: CheapRollerBed
   components:
   - type: HealOnBuckle
@@ -1513,6 +1589,7 @@
         Mangleness: -8
   - type: CanSleepOnBuckle
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: CheapRollerBedWM
@@ -1529,9 +1606,10 @@
     materialComposition:
       MoneyWarMizMaterial: 500
 
+
 - type: entity
   parent: BaseItem
-  name: Развертка химсвета
+  name: pw-construction-shared-boxglowstickblue-name
   id: BoxGlowstickBlueWM
   components:
   - type: PhysicalComposition
@@ -1553,6 +1631,7 @@
       - state: flare
         color: "#0057e7"
 
+
 - type: entity
   parent: GlowstickBase
   id: GlowstickBlueWM
@@ -1569,9 +1648,10 @@
       energy: 1
       color: "#0057e7"
 
+
 - type: entity
   parent: BoxGlowstickBlueWM
-  name: Развертка химсвета
+  name: pw-construction-shared-boxglowstickblue-name
   id: BoxGlowstickRedWM
   components:
   - type: PhysicalComposition
@@ -1586,6 +1666,7 @@
       - state: flare
         color: "#e60000"
 
+
 - type: entity
   parent: GlowstickBlueWM
   id: GlowstickRedWM
@@ -1595,6 +1676,7 @@
       glowColorLit: "#e60000"
     - type: PointLight
       color: "#e60000"
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1610,6 +1692,7 @@
   - type: TimedDespawn 
     lifetime: 10.0
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: SingularityMiniWM # добавить глобал обьявление о унчитожении мелкого портала
@@ -1624,11 +1707,12 @@
   - type: TimedDespawn 
     lifetime: 3.0
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: EnergyPickaxeWM
   parent: EnergyPickaxe #Pickaxe
-  name: энерго кирка
+  name: pw-construction-shared-energypickaxe-name
   components:
   - type: ItemToggle
     onUse: false 
@@ -1653,12 +1737,13 @@
     materialComposition:
       MoneyWarMizMaterial: 100
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: Сборщик трофеев (повесте на спину-шею)
+  name: pw-construction-shared-magazbag-name
   id: MagazBagWM
   parent: OreBag
-  description: Собирите сюда магазины и другие трофеи на продажу.
+  description: pw-construction-shared-magazbag-desc
   components:
   - type: Item
     size: Small #Ginormous #Large
@@ -1691,6 +1776,7 @@
     - back
     - suitstorage
 
+
 - type: entity
   parent: Foam
   id: FoamWM
@@ -1705,6 +1791,7 @@
   - type: TimedDespawn
     lifetime: 3
   - type: Timer
+
 
 - type: entity
   id: MedkitFilledWM
@@ -1734,8 +1821,9 @@
     materialComposition:
       MoneyWarMizMaterial: 100
 
+
 - type: entity
-  name: таблетка трикордразина
+  name: pw-construction-shared-pill1-name
   parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
   id: Pill1WM
   components:
@@ -1754,8 +1842,9 @@
     materialComposition:
       MoneyWarMizMaterial: 10
 
+
 - type: entity
-  name: таблетка эпинефрина
+  name: pw-construction-shared-pill2-name
   parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
   id: Pill2WM
   components:
@@ -1774,8 +1863,9 @@
     materialComposition:
       MoneyWarMizMaterial: 10
 
+
 - type: entity
-  name: таблетка эфедрина
+  name: pw-construction-shared-pill3-name
   parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
   id: Pill3WM
   components:
@@ -1794,8 +1884,9 @@
     materialComposition:
       MoneyWarMizMaterial: 10
 
+
 - type: entity
-  name: таблекта бикаридина
+  name: pw-construction-shared-pill4-name
   parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
   id: Pill4WM
   components:
@@ -1814,8 +1905,9 @@
     materialComposition:
       MoneyWarMizMaterial: 100
 
+
 - type: entity
-  name: таблетка келотана
+  name: pw-construction-shared-pill5-name
   parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
   id: Pill5WM
   components:
@@ -1834,8 +1926,9 @@
     materialComposition:
       MoneyWarMizMaterial: 100
 
+
 - type: entity
-  name: таблетка диловена
+  name: pw-construction-shared-pill6-name
   parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
   id: Pill6WM
   components:
@@ -1854,6 +1947,7 @@
     materialComposition:
       MoneyWarMizMaterial: 100
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: Ointment
@@ -1862,6 +1956,7 @@
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 2
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1872,6 +1967,7 @@
     materialComposition:
       MoneyWarMizMaterial: 3 #умнож на десять так как в стаке
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: Bloodpack
@@ -1880,6 +1976,7 @@
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 5
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1890,6 +1987,7 @@
     materialComposition:
       MoneyWarMizMaterial: 10
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: RegenerativeMesh
@@ -1898,6 +1996,7 @@
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 15
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1910,6 +2009,7 @@
     materialComposition:
       MoneyWarMizMaterial: 100
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: Wrench
@@ -1918,6 +2018,7 @@
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 100
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1928,6 +2029,7 @@
     materialComposition:
       MoneyWarMizMaterial: 100
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: WelderExperimental
@@ -1936,6 +2038,7 @@
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 300
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1946,6 +2049,7 @@
     materialComposition:
       MoneyWarMizMaterial: 100
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: FoodSnackNutribrickOpen
@@ -1954,6 +2058,7 @@
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 100
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1968,6 +2073,7 @@
     materialComposition:
       MoneyWarMizMaterial: 100
 
+
 - type: entity
   id: AluminiumMetalFoamWM
   categories: [ HideSpawnMenu ]
@@ -1975,6 +2081,7 @@
   components:
   - type: SpawnOnDespawn
     prototype: FoamedAluminiumMetalWM
+
 
 - type: entity
   id: FoamedAluminiumMetalWM
@@ -1995,6 +2102,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
+
 - type: entity
   id: BulletGrenadeFlashBangWM
   parent: BulletGrenadeFlashBang
@@ -2003,6 +2111,7 @@
   - type: FlashOnTrigger
     range: 1
     duration: 20
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2017,6 +2126,7 @@
   - type: SmokeOnTrigger
     duration: 25
     spreadAmount: 15
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2038,6 +2148,7 @@
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: FultonBeacon
@@ -2046,6 +2157,7 @@
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 100
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2056,6 +2168,7 @@
     materialComposition:
       MoneyWarMizMaterial: 100
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: Screwdriver
@@ -2064,6 +2177,7 @@
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 100
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2074,6 +2188,7 @@
     materialComposition:
       MoneyWarMizMaterial: 400
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: SecurityWhistle
@@ -2082,6 +2197,7 @@
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 400
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2096,6 +2212,7 @@
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecap.rsi
   - type: Unremoveable
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingMaskGasSecurity
@@ -2105,6 +2222,7 @@
   - type: ProtectedFromStepTriggers
     slots: SOCKS
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingUniformJumpsuitRecruitNT
@@ -2113,6 +2231,7 @@
   - type: Unremoveable
   - type: ProtectedFromStepTriggers
     slots: SOCKS
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2125,6 +2244,7 @@
   - type: Reflect
     reflectProb: 0.05
     overrideAngle: 270
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2143,6 +2263,7 @@
         Blunt: 0.95
         Slash: 0.95
         Piercing: 0.95
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2164,6 +2285,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.95
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingMaskGasBlueShield
@@ -2172,6 +2294,7 @@
   - type: Unremoveable
   - type: ProtectedFromStepTriggers
     slots: SOCKS
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2186,6 +2309,7 @@
       hypospray:
         maxVol: 20
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: SyndiHypo
@@ -2199,6 +2323,7 @@
       hypospray:
         maxVol: 20
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ExGrenade
@@ -2209,6 +2334,7 @@
       MoneyWarMizMaterial: 100
   - type: ExplosionResistance
     damageCoefficient: 0.0001
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2221,6 +2347,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.0001
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: C4
@@ -2232,6 +2359,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.0001
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: SeismicCharge
@@ -2242,6 +2370,7 @@
       MoneyWarMizMaterial: 100
   - type: ExplosionResistance
     damageCoefficient: 0.0001
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2269,6 +2398,7 @@
       #- ReagentId: SpaceCleaner
        # Quantity: 30
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingUniformJumpsuitERTSecurity
@@ -2277,6 +2407,7 @@
   - type: Unremoveable
   - type: ProtectedFromStepTriggers
     slots: SOCKS
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2287,6 +2418,7 @@
   - type: ProtectedFromStepTriggers
     slots: SOCKS
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingUniformJumpsuitRecruitSyndie
@@ -2295,6 +2427,7 @@
   - type: Unremoveable
   - type: ProtectedFromStepTriggers
     slots: SOCKS
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2307,6 +2440,7 @@
   - type: Reflect
     reflectProb: 0.05
     overrideAngle: 270
+
 
 - type: entity
   parent: PortableRecharger
@@ -2331,6 +2465,7 @@
   - type: ProtectedFromStepTriggers
     slots: SOCKS
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingMaskGasSwat
@@ -2339,6 +2474,7 @@
   - type: Unremoveable
   - type: ProtectedFromStepTriggers
     slots: SOCKS
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2349,6 +2485,7 @@
   - type: ProtectedFromStepTriggers
     slots: SOCKS
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingHeadHatBeretSecurityMedic
@@ -2357,6 +2494,7 @@
   - type: Unremoveable
   - type: ProtectedFromStepTriggers
     slots: SOCKS
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2368,6 +2506,7 @@
       MoneyWarMizMaterial: 850
   - type: ExplosionResistance
     damageCoefficient: 0.0001
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2395,6 +2534,7 @@
 
 #работает
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingMaskGasNTRGLead
@@ -2403,6 +2543,7 @@
   - type: Unremoveable
   - type: ProtectedFromStepTriggers
     slots: SOCKS
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2413,6 +2554,7 @@
   - type: ProtectedFromStepTriggers
     slots: SOCKS
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingOuterCoatBlueshield
@@ -2422,6 +2564,7 @@
   - type: ProtectedFromStepTriggers
     slots: SOCKS
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingNeckCloakAlpha
@@ -2430,6 +2573,7 @@
   - type: Unremoveable
   - type: ProtectedFromStepTriggers
     slots: SOCKS
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2444,6 +2588,7 @@
   - type: ProtectedFromStepTriggers
     slots: SOCKS
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingOuterArmorBlueShield
@@ -2457,10 +2602,11 @@
   - type: ProtectedFromStepTriggers
     slots: SOCKS
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingShoesSwat
-  name: обувь
+  name: pw-construction-shared-clothingshoesswat-name
   id: ClothingShoesSwatWM
   components:
   - type: Unremoveable
@@ -2470,10 +2616,11 @@
   - type: ProtectedFromStepTriggers
     slots: SOCKS
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingShoesCentcomBlack
-  name: обувь
+  name: pw-construction-shared-clothingshoesswat-name
   id: ClothingShoesCentcomBlackWM
   components:
   - type: Unremoveable
@@ -2483,11 +2630,12 @@
   - type: ProtectedFromStepTriggers
     slots: SOCKS
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingShoesSwat
   id: ClothingShoesSwatP1WM
-  name: обувь
+  name: pw-construction-shared-clothingshoesswat-name
   components:
   - type: Unremoveable
   - type: ClothingSpeedModifier
@@ -2496,10 +2644,11 @@
   - type: ProtectedFromStepTriggers
     slots: SOCKS
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingShoesCentcomBlack
-  name: обувь
+  name: pw-construction-shared-clothingshoesswat-name
   id: ClothingShoesCentcomBlackP1WM
   components:
   - type: Unremoveable
@@ -2508,6 +2657,7 @@
     sprintModifier: 0.77
   - type: ProtectedFromStepTriggers
     slots: SOCKS
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2518,6 +2668,7 @@
   - type: ProtectedFromStepTriggers
     slots: SOCKS
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingMaskBreathMedical
@@ -2526,6 +2677,7 @@
   - type: Unremoveable
   - type: ProtectedFromStepTriggers
     slots: SOCKS
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2536,6 +2688,7 @@
   - type: ProtectedFromStepTriggers
     slots: SOCKS
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingUniformJumpsuitParamedicSyndie
@@ -2544,6 +2697,7 @@
   - type: Unremoveable
   - type: ProtectedFromStepTriggers
     slots: SOCKS
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2554,6 +2708,7 @@
   - type: ProtectedFromStepTriggers
     slots: SOCKS
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingHeadHatRedsoft
@@ -2562,6 +2717,7 @@
   - type: Unremoveable
   - type: ProtectedFromStepTriggers
     slots: SOCKS
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2576,6 +2732,7 @@
   - type: ProtectedFromStepTriggers
     slots: SOCKS
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingHandsGlovesColorBlue
@@ -2589,6 +2746,7 @@
   - type: ProtectedFromStepTriggers
     slots: SOCKS
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingHandsGlovesColorYellow
@@ -2600,6 +2758,7 @@
   - type: ProtectedFromStepTriggers
     slots: SOCKS
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingOuterVest
@@ -2608,6 +2767,7 @@
   - type: Unremoveable
   - type: ProtectedFromStepTriggers
     slots: SOCKS
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2618,6 +2778,7 @@
   - type: ProtectedFromStepTriggers
     slots: SOCKS
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingUniformJumpsuitChiefEngineer
@@ -2626,6 +2787,7 @@
   - type: Unremoveable
   - type: ProtectedFromStepTriggers
     slots: SOCKS
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2649,6 +2811,7 @@
     materialComposition:
       MoneyWarMizMaterial: 600
 
+
 - type: entity
   id: LightningWM
   parent: Lightning
@@ -2660,6 +2823,7 @@
       shockTime: 1
       requirePower: false
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: CombatKnife
@@ -2669,6 +2833,7 @@
     materialComposition:
       MoneyWarMizMaterial: 300
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: KukriKnife
@@ -2677,6 +2842,7 @@
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 300
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2696,6 +2862,7 @@
   - type: ProtectedFromStepTriggers
     slots: SOCKS
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: ClothingHeadsetAltSyndicate
@@ -2714,11 +2881,12 @@
   - type: ProtectedFromStepTriggers
     slots: SOCKS
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ChemistryBottlePuncturaseWM
   parent: BaseChemistryBottleFilled
-  name: Бутылочка ЭП
+  name: pw-construction-shared-chemistrybottlepuncturase-name
   components:
   - type: SolutionRegeneration
     solution: drink
@@ -2752,11 +2920,12 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ChemistryBottleBicaridineWM
   parent: ChemistryBottlePuncturaseWM
-  name: Бутылочка БИ
+  name: pw-construction-shared-chemistrybottlebicaridine-name
   components:
   - type: SolutionRegeneration
     solution: drink
@@ -2780,11 +2949,12 @@
         - ReagentId: PuncturasePW
           Quantity: 50
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ChemistryBottleDexalinPlusWM
   parent: ChemistryBottlePuncturaseWM
-  name: Бутылочка ТР
+  name: pw-construction-shared-chemistrybottledexalinplus-name
   components:
   - type: SolutionRegeneration
     solution: drink
@@ -2808,11 +2978,12 @@
         - ReagentId: StimulantsPW
           Quantity: 50
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ChemistryBottleDermalineWM
   parent: ChemistryBottlePuncturaseWM
-  name: Бутылочка ДЕ
+  name: pw-construction-shared-chemistrybottledermaline-name
   components:
   - type: SolutionRegeneration
     solution: drink
@@ -2831,6 +3002,7 @@
         reagents:
         - ReagentId: DermalinePW
           Quantity: 100
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -2855,12 +3027,15 @@
         - ReagentId: EZNutrientPW
           Quantity: 100
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MobHuman
   id: BaseMobHumanWM
   abstract: true
   components:
+    # Fish edit - for meme gamemode, do not remove
+    - type: PWVulpkaninCursePending
     - type: RandomMetadata
       nameFormat: name-format-ert
     - type: RemoveComponentsOnTrigger
@@ -2988,6 +3163,7 @@
     - type: GhostTakeoverAvailable
     - type: Damageable
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ClothingBeltBlueShieldWebbingP0WM
@@ -3003,6 +3179,7 @@
       amount: 2
     - id: MagazineSTG44WM
       amount: 6
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -3029,6 +3206,7 @@
 
 #P1
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ClothingBeltBlueShieldWebbingP1WM
@@ -3049,6 +3227,7 @@
 
 #PM1
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ClothingBeltBlueShieldWebbingPS4WM
@@ -3065,6 +3244,7 @@
       amount: 3
 
 #PH5
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -3084,6 +3264,7 @@
 
 #PC0I5
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ClothingBeltBlueShieldWebbingPC0I5WM
@@ -3101,6 +3282,7 @@
 #Povstanez
 #P0
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ClothingBeltSecurityWebbingP0WM
@@ -3116,6 +3298,7 @@
       amount: 2
     - id: MagazineLightRifleWM
       amount: 6
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -3142,6 +3325,7 @@
 
 #P1
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ClothingBeltSecurityWebbingP1WM
@@ -3162,6 +3346,7 @@
 
 #PM1
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ClothingBeltSecurityWebbingPS4WM
@@ -3178,6 +3363,7 @@
       amount: 3
 
 #PH5
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -3197,6 +3383,7 @@
 
 #PC0I5
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ClothingBeltSecurityWebbingPCOI5WM
@@ -3215,10 +3402,11 @@
 
 #HowMany
 
+
 - type: entity
   id: SpawnPointJobGhostBase
   parent: SpawnPointJobBase
-  name: Ghost JobSpawner
+  name: pw-construction-shared-ghostspawner-name
   components:
   - type: ContainmentField
     throwForce: 0
@@ -3232,10 +3420,11 @@
       - state: green
       - state: captain
 
+
 - type: entity
   id: WallRockWM
   parent: WallRock
-  name: камень
+  name: pw-construction-shared-wallrock-name
   components:
  # - type: RadarBlip
  #   color: "#FFD700FF"
@@ -3263,10 +3452,11 @@
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
 
+
 - type: entity
   id: WallRockSnowWM
   parent: WallRockSnow
-  name: снег
+  name: pw-construction-shared-wallrocksnow-name
   components:
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -3275,6 +3465,7 @@
     level: HardenedMetal
   - type: Ricochetable
     chance: 0.2
+
 
 - type: entity
   id: BaseTreeWM
@@ -3298,6 +3489,7 @@
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
 
+
 - type: entity
   parent: BaseTreeWM
   id: BaseTreeSnowWM
@@ -3315,6 +3507,7 @@
         density: 4000
         layer:
         - WallLayer
+
 
 - type: entity
   parent: BaseTreeWM
@@ -3334,10 +3527,11 @@
         layer:
         - WallLayer
 
+
 - type: entity
   parent: BaseTreeWM
   id: FloraTreeWM
-  name: tree
+  name: pw-construction-shared-tree-name
   components:
   - type: Sprite
     layers:
@@ -3353,10 +3547,11 @@
         tree05: ""
         tree06: ""
 
+
 - type: entity
   parent: BaseTreeSnowWM
   id: FloraTreeSnowWM
-  name: snowy tree
+  name: pw-construction-shared-snowytree-name
   components:
   - type: Sprite
     layers:
@@ -3372,10 +3567,11 @@
         treesnow05: ""
         treesnow06: ""
 
+
 - type: entity
   parent: BaseTreeLargeWM
   id: FloraTreeLargeWM
-  name: large tree
+  name: pw-construction-shared-largetree-name
   components:
   - type: Sprite
     layers:
@@ -3393,11 +3589,12 @@
 
 #стационарное орудие
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseItem
   id: MagazineStructureWeaponGun
-  name: обойма боеприпасов стационарного орудия
+  name: pw-construction-shared-magazinestructureweapongun-name
   components:
   - type: PhysicalComposition
     materialComposition:
@@ -3438,6 +3635,7 @@
 #HumanSpawnF5
 #Core
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   id: StationNoArrivalsWM
@@ -3450,6 +3648,7 @@
   #  - BaseStationNanotrasen
 #NightDayMapLightComponent
 
+
 - type: entity
   id: MaxTimeRoundRestartAfterGateDeadWM
   parent: BaseGameRule
@@ -3458,11 +3657,12 @@
     roundMaxTime: 1
     roundEndDelay: 60
 
+
 - type: entity
   id: HolosignForcefieldWM4567
   parent: ContainmentField
-  name: дипломатическое поле PWM
-  description: Планетарная Война Гриба
+  name: pw-construction-shared-holosignforcefield4567-name
+  description: pw-construction-rebels-holosignforcefield4567arm-desc
   suffix: WM
   components:
   - type: ContainmentField
@@ -3478,11 +3678,12 @@
     radius: 10
     color: "#9E00FF" #blue
 
+
 - type: entity
   id: HolosignForcefieldWM4567Nulls
   parent: WallPlastitaniumIndestructible #HolosignForcefieldWM4567
-  name: призрачное поле спавн
-  description: Планетарная Война Гриба
+  name: pw-construction-shared-holosignforcefield4567nulls-name
+  description: pw-construction-rebels-holosignforcefield4567arm-desc
   suffix: WM
   components:
   - type: Stealth
@@ -3519,11 +3720,12 @@
   - type: RadiationBlocker
     resistance: 5
 
+
 - type: entity
   id: HolosignForcefieldWM4567Ghost
   parent: HolosignForcefieldWM4567Nulls
-  name: призрачное поле спавн
-  description: Планетарная Война Гриба
+  name: pw-construction-shared-holosignforcefield4567nulls-name
+  description: pw-construction-rebels-holosignforcefield4567arm-desc
   suffix: WM
   components:
   - type: EntityTableSpawner
@@ -3532,10 +3734,11 @@
       children:
       - id: FloorNotSpawmDeleteWM
 
+
 - type: entity
   id: FloorNotSpawmDeleteWM
-  name: тайл анти удаления спавна
-  description: не ползуйся рсу
+  name: pw-construction-shared-floornotspawmdelete-name
+  description: pw-construction-shared-floornotspawmdelete-desc
   placement:
     mode: SnapgridCenter
     snap:
@@ -3601,11 +3804,12 @@
 
 #Кир,не пв
 
+
 - type: entity
   parent: MarkerBase
   categories: [ HideSpawnMenu, Debug ]
   id: huiC
-  name: кирC
+  name: pw-construction-shared-huic-name
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi
@@ -3618,32 +3822,35 @@
       children:
       - id: Marker14567Start
 
+
 - type: entity
   parent: huiC
   categories: [ HideSpawnMenu, Debug ]
   id: huiA
-  name: кирA
+  name: pw-construction-shared-huia-name
   components:
   - type: EntityTableSpawner
     table: !type:AllSelector
       children:
       - id: Marker24567Start
 
+
 - type: entity
   parent: huiCJob
   categories: [ HideSpawnMenu, Debug ]
   id: huiAJob
-  name: кирA
+  name: pw-construction-shared-huia-name
   components:
   - type: SpawnOnTrigger
     proto: Marker24567Job
     predicted: true
 
+
 - type: entity
   parent: HolosignForcefieldWM4567Nulls #MarkerBase
   categories: [ HideSpawnMenu, Debug ]
   id: huiCJob
-  name: кирC
+  name: pw-construction-shared-huic-name
   components:
   - type: TriggerOnProximity
     enabled: true
@@ -3664,6 +3871,7 @@
 
 
 #GateItem
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -3741,12 +3949,13 @@
     #  totalIntensity: 20000
 #
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   id: MaterialReclaimerWM
-  name: переработчик продаж
-  description: Засунь сюда для переработки в валюту () огнестрельное оружие, лазерное оружие, мех оружие, рсу, шприцемет, мозг.
+  name: pw-construction-shared-materialreclaimer-name
+  description: pw-construction-shared-materialreclaimer-desc
   components:
   - type: Construction
     graph: CatwalkWMDop
@@ -3817,12 +4026,13 @@
 
 #карго
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseFlatpack
   id: MaterialReclaimerWMFlatpack
-  name: переработчик продаж
-  description: Распакуй.
+  name: pw-construction-shared-materialreclaimer-name
+  description: pw-construction-rebels-mechheavyarmflatpack-desc
   components:
   - type: SpawnAfterInteract
     prototype: MaterialReclaimerWM
@@ -3841,22 +4051,24 @@
       map: ["enum.FlatpackVisualLayers.Overlay"]
     - state: icon-default
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MaterialReclaimerWMFlatpack
   id: ShuttleGunAutomatWMFlatpack
-  name: стационарный точечный автомат
+  name: pw-construction-shared-shuttlegunautomatflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: ShuttleGunAutomatWM
   - type: Flatpack
     entity: ShuttleGunAutomatWM
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MaterialReclaimerWMFlatpack
   id: ShuttleGunPulemetWMFlatpack
-  name: стационарный подавляющий пулемет
+  name: pw-construction-shared-shuttlegunpulemetflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: ShuttleGunPulemetWM

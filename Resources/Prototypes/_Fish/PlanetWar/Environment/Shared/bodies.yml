@@ -1,6 +1,6 @@
 - type: body
   id: WMBodyGrus
-  name: "тело"
+  name: pw-environment-shared-bodygrus-name
   root: torso
   slots:
     torso:

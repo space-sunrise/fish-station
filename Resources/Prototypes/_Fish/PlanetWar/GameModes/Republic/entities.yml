@@ -12,12 +12,13 @@
       - id: AmmoTechFabCoreWMFlatpack
       - id: MaterialReclaimerWMFlatpack
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: [ ReinforcementRadioSyndicateNukeops, MarkerBase ]
   id: 1ReinforcementCoreWM
-  name: Призыв Боевика
-  description: Хули тут сказать.
+  name: pw-gamemodes-republic-1reinforcementcore-name
+  description: pw-gamemodes-republic-1reinforcementcore-desc
   suffix: WM
   placement:
     mode: SnapgridCenter
@@ -32,8 +33,8 @@
     layers:
     - state: icon
   - type: GhostRole
-    name: Боевик
-    description: Фракция Республиканцы
+    name: pw-construction-republic-mobhumancorep0-name
+    description: pw-construction-republic-mobhumancorep0-desc
     mindRoles:
     - MindRoleGhostRoleNeutral
     raffle:
@@ -53,6 +54,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.00001
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementCoreWM
@@ -61,21 +63,23 @@
   - type: GhostRoleMobSpawner
     prototype: LongTimeMobHumanCoreP0WM
   - type: GhostRole
-    name: Боевик (малые врата)
+    name: pw-gamemodes-republic-longtime1reinforcementcore-name
     raffle:
       settings: LongWM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementCoreWM
   id: 4ReinforcementCorePC0I5WM
-  name: Призыв Лейтенанта
+  name: pw-gamemodes-republic-4reinforcementcorepc0i5-name
   suffix: WM
   components:
   - type: GhostRole
-    name: Лейтенант
+    name: pw-construction-republic-mobhumancorepc0i5-name
   - type: GhostRoleMobSpawner
     prototype: MobHumanCorePC0I5WM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -85,21 +89,23 @@
   - type: GhostRoleMobSpawner
     prototype: LongTimeMobHumanCorePC0I5WM
   - type: GhostRole
-    name: Лейтенант (малые врата)
+    name: pw-gamemodes-republic-longtime4reinforcementcorepc0i5-name
     raffle:
       settings: LongWM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementCoreWM
   id: 5ReinforcementCoreP1WM
-  name: Призыв Штурмовика
+  name: pw-gamemodes-republic-5reinforcementcorep1-name
   suffix: WM
   components:
   - type: GhostRole
-    name: Штурмовик
+    name: pw-construction-republic-mobhumancorep1-name
   - type: GhostRoleMobSpawner
     prototype: MobHumanCoreP1WM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -109,21 +115,23 @@
   - type: GhostRoleMobSpawner
     prototype: LongTimeMobHumanCoreP1WM
   - type: GhostRole
-    name: Штурмовик (малые врата)
+    name: pw-gamemodes-republic-longtime5reinforcementcorep1-name
     raffle:
       settings: LongWM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementCoreWM
   id: 6ReinforcementCorePH5WM
-  name: Призыв Джагернаута
+  name: pw-gamemodes-republic-6reinforcementcoreph5-name
   suffix: WM
   components:
   - type: GhostRole
-    name: Джагернаут
+    name: pw-construction-republic-mobhumancoreph5-name
   - type: GhostRoleMobSpawner
     prototype: MobHumanCorePH5WM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -133,21 +141,23 @@
   - type: GhostRoleMobSpawner
     prototype: LongTimeMobHumanCorePH5WM
   - type: GhostRole
-    name: Джагернаут (малые врата)
+    name: pw-gamemodes-republic-longtime6reinforcementcoreph5-name
     raffle:
       settings: LongWM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementCoreWM
   id: 3ReinforcementCorePM1WM
-  name: Призыв Врача
+  name: pw-gamemodes-republic-3reinforcementcorepm1-name
   suffix: WM
   components:
   - type: GhostRole
-    name: Врач
+    name: pw-construction-republic-mobhumancorepm1-name
   - type: GhostRoleMobSpawner
     prototype: MobHumanCorePM1WM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -157,21 +167,23 @@
   - type: GhostRoleMobSpawner
     prototype: LongTimeMobHumanCorePM1WM
   - type: GhostRole
-    name: Врач (малые врата)
+    name: pw-gamemodes-republic-longtime3reinforcementcorepm1-name
     raffle:
       settings: LongWM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementCoreWM
   id: 2ReinforcementCorePE1WM
-  name: Призыв Инженера
+  name: pw-gamemodes-republic-2reinforcementcorepe1-name
   suffix: WM
   components:
   - type: GhostRole
-    name: Инженер
+    name: pw-construction-republic-mobhumancorepe1-name
   - type: GhostRoleMobSpawner
     prototype: MobHumanCorePE1WM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -181,21 +193,23 @@
   - type: GhostRoleMobSpawner
     prototype: LongTimeMobHumanCorePE1WM
   - type: GhostRole
-    name: Инженер (малые врата)
+    name: pw-gamemodes-republic-longtime2reinforcementcorepe1-name
     raffle:
       settings: LongWM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementCoreWM
   id: 7ReinforcementCorePS4WM
-  name: Призыв Снайпера
+  name: pw-gamemodes-republic-7reinforcementcoreps4-name
   suffix: WM
   components:
   - type: GhostRole
-    name: Снайпер
+    name: pw-construction-republic-mobhumancoreps4-name
   - type: GhostRoleMobSpawner
     prototype: MobHumanCorePS4WM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -205,11 +219,12 @@
   - type: GhostRoleMobSpawner
     prototype: LongTimeMobHumanCorePS4WM
   - type: GhostRole
-    name: Снайпер (малые врата)
+    name: pw-gamemodes-republic-longtime7reinforcementcoreps4-name
     raffle:
       settings: LongWM
 
 #Povstanez
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -226,6 +241,7 @@
   - type: SpawnOnDespawn
     prototype: 1ReinforcementCoreWM
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
@@ -240,6 +256,7 @@
     lifetime: 30
   - type: SpawnOnDespawn
     prototype: 3ReinforcementCorePM1WM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -256,6 +273,7 @@
   - type: SpawnOnDespawn
     prototype: 4ReinforcementCorePC0I5WM
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
@@ -270,6 +288,7 @@
     lifetime: 40
   - type: SpawnOnDespawn
     prototype: 5ReinforcementCoreP1WM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -286,6 +305,7 @@
   - type: SpawnOnDespawn
     prototype: 6ReinforcementCorePH5WM
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
@@ -301,6 +321,7 @@
   - type: SpawnOnDespawn
     prototype: 7ReinforcementCorePS4WM
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerGatewayArmJob
@@ -309,16 +330,17 @@
   - type: SpawnOnDespawn
     prototype: GatewayCoreJob
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
   id: Marker14567Start
   suffix: Роняет сервер головй об кафель, использовать на свой страх и риск.
-  name: Core Broken host server fish
+  name: pw-gamemodes-republic-brokenhostserver-name
   components:
   - type: GhostRole
-    name: 01 Спавнер Фракции Республика
-    description: Возьмите эту роль.
+    name: pw-gamemodes-republic-marker14567start-name
+    description: pw-gamemodes-rebels-marker24567start-desc
     raffle:
       settings: WM2
   - type: GhostRoleMobSpawner
@@ -328,6 +350,7 @@
     layers:
       - state: green
       - state: centcom
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -344,6 +367,7 @@
   - type: SpawnOnDespawn
     prototype: MarkerStartItemGatewayCoreFlatpack
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MarkerBase
@@ -357,11 +381,12 @@
         - id: CrateGenericSteelMechsCoreWM
         - id: CrateGenericSteelRcdCoreWM
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MechHeavyCoreWMFlatpack
   id: MarkerStartItemGatewayCoreFlatpack
-  name: набор сооружения оплота
+  name: pw-gamemodes-rebels-markerstartitemgatewayarmflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: MarkerStartItemGatewayCore

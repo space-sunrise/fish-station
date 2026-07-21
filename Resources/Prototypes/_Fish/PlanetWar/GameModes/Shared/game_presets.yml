@@ -3,19 +3,20 @@
   #alias:
    # - nukeops
   name: Planet War (WM)
-  description: Выберите професию или призрачную роль одной из сторон, выполняйте приказы своих лидеров, ваша цель — уничтожить все вражеские врата.
+  description: pw-gamemodes-shared-planetwar-desc
   showInVote: false
   rules:
     - PlanetWarRule
 
 #добавить копию правил секрета
 
+
 - type: gamePreset
   id: PlanetWarSecret
   #alias:
    # - nukeops
-  name: Планета Вульп (ПВ)
-  description: Веселый TDM - Team Dog Match
+  name: pw-gamemodes-shared-planetwarsecret-name
+  description: pw-gamemodes-shared-planetwarsecret-desc
   showInVote: false
   rules:
     - PlanetWarRule

@@ -14,6 +14,7 @@
     sprite: /Textures/_Fish/PlanetWar/WM/Icon.rsi
     state: CoreBase
 
+
 - type: factionIcon
   id: FactionIconCorePC0I5
   hideInContainer: false
@@ -29,6 +30,7 @@
   icon:
     sprite: /Textures/_Fish/PlanetWar/WM/Icon.rsi
     state: CorePC0I5
+
 
 - type: factionIcon
   id: FactionIconCorePM1
@@ -46,6 +48,7 @@
     sprite: /Textures/_Fish/PlanetWar/WM/Icon.rsi
     state: CorePM1
 
+
 - type: factionIcon
   id: FactionIconCorePE1
   hideInContainer: false
@@ -61,6 +64,7 @@
   icon:
     sprite: /Textures/_Fish/PlanetWar/WM/Icon.rsi
     state: CorePE1
+
 
 - type: factionIcon
   id: FactionIconCoreAi

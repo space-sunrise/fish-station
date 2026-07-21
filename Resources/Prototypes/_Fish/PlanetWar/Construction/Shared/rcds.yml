@@ -9,6 +9,7 @@
   collisionMask: FullTileMask
   rotation: Fixed
 
+
 - type: rcd
   id: RsdShuttleGunPulemetWM
   category: Electrical
@@ -20,6 +21,7 @@
   collisionMask: FullTileMask
   rotation: Fixed
 
+
 - type: rcd
   id: RsdMaterialReclaimerWM
   category: Electrical
@@ -30,6 +32,7 @@
   delay: 3
   collisionMask: FullTileMask
   rotation: Fixed
+
 
 - type: rcd
   id: RsdCatwalkWMSpeed
@@ -45,6 +48,7 @@
     - IsCatwalk
   rotation: Fixed
 
+
 - type: rcd
   id: RsdWallSolidWMSpeed
   category: Main
@@ -55,6 +59,7 @@
   delay: 0
   collisionMask: FullTileMask
   rotation: Fixed
+
 
 - type: rcd
   id: RsdCatwalkWM
@@ -70,18 +75,20 @@
     - IsCatwalk
   rotation: Fixed
 
+
 - type: rcd
   id: RsdDeconstructWM
-  name: деконструкция
+  name: pw-construction-shared-rsddeconstruct-name
   category: Main
   sprite: /Textures/Interface/Radial/RCD/deconstruct.png
   mode: Deconstruct
   prototype: EffectRCDDeconstructPreview
   rotation: Camera
 
+
 - type: rcd
   id: RsdFloorPlatingWM
-  name: покрытие
+  name: pw-construction-shared-rsdfloorplating-name
   category: Main
   sprite: /Textures/Interface/Radial/RCD/plating.png
   mode: ConstructTile
@@ -91,6 +98,7 @@
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
+
 
 - type: rcd
   id: RsdLVCableWM
@@ -104,6 +112,7 @@
   - MustBuildOnSubfloor
   rotation: Fixed
 
+
 - type: rcd
   id: RsdTubeLightWM
   category: Lighting
@@ -116,6 +125,7 @@
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
 
+
 - type: rcd
   id: RsdCrateWM
   category: Lighting
@@ -127,6 +137,7 @@
   collisionMask: FullTileMask
   rotation: User
 
+
 - type: rcd
   id: RsdGrilleWM
   category: Main
@@ -137,6 +148,7 @@
   delay: 0
   collisionMask: Impassable
   rotation: Fixed
+
 
 - type: rcd
   id: RsdWallSolidWM

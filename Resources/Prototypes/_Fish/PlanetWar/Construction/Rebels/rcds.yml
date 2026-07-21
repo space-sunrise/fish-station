@@ -9,6 +9,7 @@
   collisionMask: FullTileMask
   rotation: Fixed
 
+
 - type: rcd
   id: RsdEnergyDomeArmWM
   category: Electrical
@@ -20,6 +21,7 @@
   collisionMask: FullTileMask
   rotation: Fixed
 
+
 - type: rcd
   id: RsdPrismaArmWM
   category: Electrical
@@ -30,6 +32,7 @@
   delay: 20
   collisionMask: FullTileMask
   rotation: Fixed
+
 
 - type: rcd
   id: RsdWindowArmWMSpeed
@@ -44,6 +47,7 @@
     - IsWindow
   rotation: Fixed
 
+
 - type: rcd
   id: RsdWallRelifArmWMSpeed
   category: Main
@@ -54,6 +58,7 @@
   delay: 0
   collisionMask: FullTileMask
   rotation: Fixed
+
 
 - type: rcd
   id: RsdAirlocArmWMSpeed
@@ -68,6 +73,7 @@
 
 #раб
 
+
 - type: rcd
   id: RsdFloorSteelArmWM
   name: rcd-component-floor-steel
@@ -81,6 +87,7 @@
   rules:
     - CanBuildOnEmptyTile
 
+
 - type: rcd
   id: RsdAirlocArmWM
   category: Main
@@ -91,6 +98,7 @@
   delay: 2
   collisionMask: FullTileMask
   rotation: User
+
 
 - type: rcd
   id: RsdWindowArmWM
@@ -105,6 +113,7 @@
     - IsWindow
   rotation: Fixed
 
+
 - type: rcd
   id: RsdWallRelifArmWM
   category: Main
@@ -115,6 +124,7 @@
   delay: 2
   collisionMask: FullTileMask
   rotation: Fixed
+
 
 - type: rcd
   id: RsdGenArmWM
@@ -127,6 +137,7 @@
   collisionMask: FullTileMask
   rotation: Fixed
 
+
 - type: rcd
   id: RsdTuretArmWM
   category: Main
@@ -138,6 +149,7 @@
   collisionMask: FullTileMask
   rotation: Fixed
 
+
 - type: rcd
   id: RsdLandMineFleshArmWM
   category: Electrical
@@ -148,6 +160,7 @@
   cost: 3
   delay: 1
   rotation: Fixed
+
 
 - type: rcd
   id: RsdLandMineExplosiveArmWM

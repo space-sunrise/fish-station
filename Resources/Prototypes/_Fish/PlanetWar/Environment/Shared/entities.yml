@@ -1,8 +1,8 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: CannabisSeeds
-  name: семена канабиса
-  description: "Технический сорт"
+  name: pw-environment-shared-cannabisseeds-name
+  description: pw-environment-shared-cannabisseeds-desc
   id: CannabisSeedsWM
   components:
     - type: Seed
@@ -11,12 +11,13 @@
       materialComposition:
         MoneyWarMizMaterial: 20
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: лист канабис
+  name: pw-environment-shared-leavescannabis-name
   parent: LeavesCannabis
   id: LeavesCannabisWM
-  description: "Легализовано во многих галактиках..."
+  description: pw-environment-shared-leavescannabis-desc
   components:
   - type: SolutionContainerManager
     solutions:
@@ -34,6 +35,7 @@
     items:
     - id: MoneyWarMiz100
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: LeavesCannabisWM
@@ -45,6 +47,7 @@
   - type: SpawnItemsOnUse
     items:
     - id: ShtampMagazin
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -62,10 +65,11 @@
       - id: LeavesCannabisWM
         weight: 80
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: CottonSeeds
-  name: семена хлопка
+  name: pw-environment-shared-cottonseeds-name
   id: CottonSeedsWM
   components:
     - type: Seed
@@ -74,10 +78,11 @@
       materialComposition:
         MoneyWarMizMaterial: 20
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: цветок хлопка
-  description: Любят моли и темный загорелые люди.
+  name: pw-environment-shared-cottonbol-name
+  description: pw-environment-shared-cottonbol-desc
   id: CottonBolWM
   parent: FoodProduceBase
   components:
@@ -106,6 +111,7 @@
     items:
     - id: MoneyWarMiz100
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: CottonBolWM
@@ -117,6 +123,7 @@
   - type: SpawnItemsOnUse
     items:
     - id: ShtampMagazin
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -134,6 +141,7 @@
       - id: CottonBolWM
         weight: 80
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: PlantBag
@@ -143,6 +151,7 @@
     materialComposition:
       MoneyWarMizMaterial: 300
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: SmokeScreenImplanterWM
@@ -151,10 +160,11 @@
   - type: Implanter
     implant: SmokeScreenImplantWM
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ActionActivateBombGrenadeImplantWM
-  name: самоподрыв
+  name: pw-environment-shared-actionactivatebombgrenadeimplant-name
   parent: ActionActivateSmokeGrenadeImplant
   components:
   - type: Action
@@ -166,10 +176,11 @@
   - type: AutoRecharge
     rechargeDuration: 1000
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ActionActivateLandmineSpawnImplantWM
-  name: сброс мины
+  name: pw-environment-shared-actionactivatelandminespawnimplant-name
   parent: ActionActivateSmokeGrenadeImplant
   components:
   - type: Action
@@ -182,6 +193,7 @@
   - type: AutoRecharge
     rechargeDuration: 7
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: SmokeScreenImplant
@@ -190,6 +202,7 @@
   - type: SubdermalImplant
     implantAction: ActionActivateSmokeGrenadeImplant
   - type: TriggerOnActivateImplant
+
 
 - type: entity
   categories: [ HideSpawnMenu ]

@@ -1,7 +1,7 @@
 - type: job
   id: JobGhostWMBase
-  name: Наблюдать
-  description: Посмотрите что там за возня
+  name: pw-roles-shared-jobghostbase-name
+  description: pw-roles-shared-jobghostbase-desc
   playTimeTracker: OverAllGhostWMBase
   setPreference: false
   weight: 10

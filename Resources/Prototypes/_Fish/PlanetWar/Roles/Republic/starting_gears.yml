@@ -15,6 +15,7 @@
     suitstorage: WeaponSTG44WM
     ears: ClothingHeadsetAltCommandW
 
+
 - type: startingGear
   id: CoreGearP1
   equipment:
@@ -32,6 +33,7 @@
     suitstorage: WeaponShotgunZauerWM
     ears: ClothingHeadsetAltCommandW
 
+
 - type: startingGear
   id: CoreGearPM1
   equipment:
@@ -48,6 +50,7 @@
     head: ClothingHeadHatParamedicsoftWM
     suitstorage: WeaponEarthGovLaserCarbineWM
     ears: ClothingHeadsetAltCommandW
+
 
 - type: startingGear
   id: CoreGearPE1
@@ -71,6 +74,7 @@
   - WeaponPistolVP78WM
   - MagazineVP70WM
 
+
 - type: startingGear
   id: CoreGearPS4
   equipment:
@@ -90,6 +94,7 @@
     neck: ClothingOuterCoatBlueshieldWM
     eyes: ClothingEyesGlassesThermalCoreWM
 
+
 - type: startingGear
   id: CoreGearPH5
   equipment:
@@ -106,6 +111,7 @@
     head: ClothingHeadHelmetPubgWM
     suitstorage: WeaponLightMachineGunMG60WM
     ears: ClothingHeadsetAltCommandW
+
 
 - type: startingGear
   id: CoreGearPC0I5

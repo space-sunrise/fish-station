@@ -8,6 +8,7 @@
   materials:
     MoneyWarMizMaterial: 100
 
+
 - type: latheRecipe
   id: 3GateCoreLatheRecipe
   result: FlatpackerFabricatorCoreFlatpack
@@ -17,6 +18,7 @@
   completetime: 3
   materials:
     MoneyWarMizMaterial: 800
+
 
 - type: latheRecipe
   id: 4GateCoreLatheRecipe
@@ -28,6 +30,7 @@
   materials:
     MoneyWarMizMaterial: 3500
 
+
 - type: latheRecipe
   id: 5GateCoreLatheRecipe
   result: MoneyHostCoreFlatpack
@@ -37,6 +40,7 @@
   completetime: 20
   materials:
     MoneyWarMizMaterial: 2500
+
 
 - type: latheRecipe
   id: 6GateCoreLatheRecipe
@@ -48,6 +52,7 @@
   materials:
     MoneyWarMizMaterial: 1000
 
+
 - type: latheRecipe
   id: 11MagCoreLatheRecipe
   result: MagazineVP70WM
@@ -55,6 +60,7 @@
   materials:
     ShtampMagazinMaterial: 20
   #  MoneyWarMizMaterial: 20
+
 
 - type: latheRecipe
   id: 12MagCoreLatheRecipe
@@ -64,6 +70,7 @@
     ShtampMagazinMaterial: 100
    # MoneyWarMizMaterial: 100
 
+
 - type: latheRecipe
   id: 13MagCoreLatheRecipe
   result: MagazineRifleWM
@@ -71,6 +78,7 @@
   materials:
     ShtampMagazinMaterial: 100
   #  MoneyWarMizMaterial: 250
+
 
 - type: latheRecipe
   id: 17MagCoreLatheRecipe
@@ -80,6 +88,7 @@
     ShtampMagazinMaterial: 400
   #  MoneyWarMizMaterial: 600
 
+
 - type: latheRecipe
   id: 18MagCoreLatheRecipe
   result: MagazineBauer127WM
@@ -88,6 +97,7 @@
     ShtampMagazinMaterial: 300
   #  MoneyWarMizMaterial: 500
 
+
 - type: latheRecipe
   id: 0LatheMechCore
   result: BoxDronCoreWM
@@ -95,6 +105,7 @@
   materials:
     ShtampMagazinMaterial: 75
     MoneyWarMizMaterial: 400
+
 
 - type: latheRecipe
   id: 1LatheMechCore
@@ -107,6 +118,7 @@
     ShtampMagazinMaterial: 150
     MoneyWarMizMaterial: 800
 
+
 - type: latheRecipe
   id: 2LatheMechCore
   result: MechNormalCoreFlatpack
@@ -117,6 +129,7 @@
   materials:
     ShtampMagazinMaterial: 550
     MoneyWarMizMaterial: 2600
+
 
 - type: latheRecipe
   id: 3LatheMechCore
@@ -129,6 +142,7 @@
     ShtampMagazinMaterial: 1200
     MoneyWarMizMaterial: 14500
 
+
 - type: latheRecipe
   id: 4LatheMechCore
   result: MechTankCoreFlatpack
@@ -139,6 +153,7 @@
   materials:
     ShtampMagazinMaterial: 2800
     MoneyWarMizMaterial: 13000
+
 
 - type: latheRecipe
   id: 6LatheMechCore
@@ -151,6 +166,7 @@
     ShtampMagazinMaterial: 1200
     MoneyWarMizMaterial: 7000
 
+
 - type: latheRecipe
   id: 5LatheMechCore
   result: EnergyDomeCoreFlatpack
@@ -161,6 +177,7 @@
   materials:
     ShtampMagazinMaterial: 100
     MoneyWarMizMaterial: 600
+
 
 - type: latheRecipe
   id: 44LatheMechCore
@@ -173,6 +190,7 @@
     ShtampMagazinMaterial: 100
     MoneyWarMizMaterial: 300
 
+
 - type: latheRecipe
   id: 7LatheMechCore
   result: GatewayCoreMiniFlatpack
@@ -184,6 +202,7 @@
     ShtampMagazinMaterial: 850
     MoneyWarMizMaterial: 7500
 
+
 - type: latheRecipe
   id: 10LatheMechCore
   result: RCDRechargingGoodCoreWM
@@ -191,6 +210,7 @@
   materials:
     ShtampMagazinMaterial: 1500
     MoneyWarMizMaterial: 2000
+
 
 - type: latheRecipe
   id: 11LatheMechCore
@@ -203,12 +223,14 @@
     ShtampMagazinMaterial: 2350
     MoneyWarMizMaterial: 4550
 
+
 - type: latheRecipe
   id: 4Cargo3FabCore
   result: HyposprayWM
   completetime: 2
   materials:
     MoneyWarMizMaterial: 300
+
 
 - type: latheRecipe
   id: 2Cargo5FabCore
@@ -217,6 +239,7 @@
   materials:
     MoneyWarMizMaterial: 100
 
+
 - type: latheRecipe
   id: 3Cargo5FabCore
   result: EnergyShieldWM
@@ -224,12 +247,14 @@
   materials:
     MoneyWarMizMaterial: 100
 
+
 - type: latheRecipe
   id: 3Cargo6FabCore
   result: BoxXlopokCore
   completetime: 1
   materials:
     MoneyWarMizMaterial: 300
+
 
 - type: latheRecipe
   id: 1Cargo7FabCore

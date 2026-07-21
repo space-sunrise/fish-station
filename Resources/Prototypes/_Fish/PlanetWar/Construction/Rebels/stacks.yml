@@ -1,5 +1,5 @@
 - type: stack
   id: MoneyWarMizStack
-  name: material-MoneyWarMiz-name
+  name: material-moneywarmiz-name
   icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash }
   spawn: MoneyWarMiz

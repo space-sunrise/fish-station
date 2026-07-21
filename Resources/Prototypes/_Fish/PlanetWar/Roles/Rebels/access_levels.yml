@@ -1,17 +1,20 @@
 - type: accessLevel
   id: AssArmBase
-  name: доступ Повстанцев
+  name: pw-roles-rebels-assarmbase-name
+
 
 - type: accessLevel
   id: AssArmPC0I5
-  name: доступ Командования Повстанцев
+  name: pw-roles-rebels-assarmpc0i5-name
+
 
 - type: accessLevel
   id: AssArmPM1
-  name: доступ Медработ Повстанцев
+  name: pw-roles-rebels-assarmpm1-name
+
 
 - type: accessLevel
   id: AssArmPE1
-  name: доступ Техработ Повстанцев
+  name: pw-roles-rebels-assarmpe1-name
 
 #имена

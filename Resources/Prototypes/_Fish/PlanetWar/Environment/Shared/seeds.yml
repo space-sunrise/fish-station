@@ -1,6 +1,6 @@
 - type: seed
   id: cannabisWM
-  name: канабис
+  name: pw-environment-shared-cannabis-name
   noun: канабис
   displayName: канабис
   plantRsi: Objects/Specific/Hydroponics/cannabis.rsi
@@ -23,9 +23,10 @@
      # Max: 10
      # PotencyDivisor: 20
 
+
 - type: seed
   id: cottonWM
-  name: хлопок
+  name: pw-environment-shared-cotton-name
   noun: хлопок
   displayName: хлопок
   plantRsi: Objects/Specific/Hydroponics/cotton.rsi

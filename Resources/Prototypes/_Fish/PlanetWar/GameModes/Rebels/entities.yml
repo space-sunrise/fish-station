@@ -18,11 +18,12 @@
 
 #Portal
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementCoreWM
   id: 1ReinforcementArmWM
-  name: Призыв Ополченца
+  name: pw-gamemodes-rebels-1reinforcementarm-name
   suffix: WM
   components:
   - type: Sprite
@@ -31,8 +32,8 @@
     layers:
     - state: icon
   - type: GhostRole
-    name: Ополченец
-    description: Фракция Повстанцы
+    name: pw-construction-rebels-mobhumanarmp0-name
+    description: pw-construction-rebels-mobhumanarmp0-desc
     raffle:
       settings: LifeWM
   - type: GhostRoleMobSpawner
@@ -50,6 +51,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.00001
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementArmWM
@@ -58,21 +60,23 @@
   - type: GhostRoleMobSpawner
     prototype: LongTimeMobHumanArmP0WM
   - type: GhostRole
-    name: Ополченец (малые врата)
+    name: pw-gamemodes-rebels-longtime1reinforcementarm-name
     raffle:
       settings: LongWM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementArmWM
   id: 4ReinforcementArmPC0I5WM
-  name: Призыв Предводителя
+  name: pw-gamemodes-rebels-4reinforcementarmpc0i5-name
   suffix: WM
   components:
   - type: GhostRole
-    name: Предводитель
+    name: pw-construction-rebels-mobhumanarmpc0i5-name
   - type: GhostRoleMobSpawner
     prototype: MobHumanArmPC0I5WM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -82,21 +86,23 @@
   - type: GhostRoleMobSpawner
     prototype: LongTimeMobHumanArmPC0I5WM
   - type: GhostRole
-    name: Предводитель (малые врата)
+    name: pw-gamemodes-rebels-longtime4reinforcementarmpc0i5-name
     raffle:
       settings: LongWM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementArmWM
   id: 5ReinforcementArmP1WM
-  name: Призыв Коллектор
+  name: pw-gamemodes-rebels-5reinforcementarmp1-name
   suffix: WM
   components:
   - type: GhostRole
-    name: Коллектор
+    name: pw-construction-rebels-mobhumanarmp1-name
   - type: GhostRoleMobSpawner
     prototype: MobHumanArmP1WM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -106,21 +112,23 @@
   - type: GhostRoleMobSpawner
     prototype: LongTimeMobHumanArmP1WM
   - type: GhostRole
-    name: Коллектор (малые врата)
+    name: pw-gamemodes-rebels-longtime5reinforcementarmp1-name
     raffle:
       settings: LongWM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementArmWM
   id: 6ReinforcementArmPH5WM
-  name: Призыв Кульмината
+  name: pw-gamemodes-rebels-6reinforcementarmph5-name
   suffix: WM
   components:
   - type: GhostRole
-    name: Кульминат
+    name: pw-construction-rebels-mobhumanarmph5-name
   - type: GhostRoleMobSpawner
     prototype: MobHumanArmPH5WM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -130,21 +138,23 @@
   - type: GhostRoleMobSpawner
     prototype: LongTimeMobHumanArmPH5WM
   - type: GhostRole
-    name: Кульминат (малые врата)
+    name: pw-gamemodes-rebels-longtime6reinforcementarmph5-name
     raffle:
       settings: LongWM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementArmWM
   id: 3ReinforcementArmPM1WM
-  name: Призыв Аптекаря
+  name: pw-gamemodes-rebels-3reinforcementarmpm1-name
   suffix: WM
   components:
   - type: GhostRole
-    name: Аптекарь
+    name: pw-construction-rebels-mobhumanarmpm1-name
   - type: GhostRoleMobSpawner
     prototype: MobHumanArmPM1WM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -154,21 +164,23 @@
   - type: GhostRoleMobSpawner
     prototype: LongTimeMobHumanArmPM1WM
   - type: GhostRole
-    name: Аптекарь (малые врата)
+    name: pw-gamemodes-rebels-longtime3reinforcementarmpm1-name
     raffle:
       settings: LongWM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementArmWM
   id: 2ReinforcementArmPE1WM
-  name: Призыв Строителя
+  name: pw-gamemodes-rebels-2reinforcementarmpe1-name
   suffix: WM
   components:
   - type: GhostRole
-    name: Строитель
+    name: pw-construction-rebels-mobhumanarmpe1-name
   - type: GhostRoleMobSpawner
     prototype: MobHumanArmPE1WM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -178,21 +190,23 @@
   - type: GhostRoleMobSpawner
     prototype: LongTimeMobHumanArmPE1WM
   - type: GhostRole
-    name: Строитель (малые врата)
+    name: pw-gamemodes-rebels-longtime2reinforcementarmpe1-name
     raffle:
       settings: LongWM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementArmWM
   id: 7ReinforcementArmPS4WM
-  name: Призыв Ликвидатора
+  name: pw-gamemodes-rebels-7reinforcementarmps4-name
   suffix: WM
   components:
   - type: GhostRole
-    name: Ликвидатор
+    name: pw-construction-rebels-mobhumanarmps4-name
   - type: GhostRoleMobSpawner
     prototype: MobHumanArmPS4WM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -202,12 +216,13 @@
   - type: GhostRoleMobSpawner
     prototype: LongTimeMobHumanArmPS4WM
   - type: GhostRole
-    name: Ликвидатор (малые врата)
+    name: pw-gamemodes-rebels-longtime7reinforcementarmps4-name
     raffle:
       settings: LongWM
 
 #Human
 #Respublic
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -224,6 +239,7 @@
   - type: SpawnOnDespawn
     prototype: 1ReinforcementArmWM
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
@@ -238,6 +254,7 @@
     lifetime: 30
   - type: SpawnOnDespawn
     prototype: 3ReinforcementArmPM1WM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -254,6 +271,7 @@
   - type: SpawnOnDespawn
     prototype: 4ReinforcementArmPC0I5WM
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
@@ -269,6 +287,7 @@
   - type: SpawnOnDespawn
     prototype: 5ReinforcementArmP1WM
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
@@ -283,6 +302,7 @@
     lifetime: 200
   - type: SpawnOnDespawn
     prototype: 6ReinforcementArmPH5WM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -304,6 +324,7 @@
 #Respublic
 #P0
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
@@ -319,16 +340,17 @@
   - type: SpawnOnDespawn
     prototype: GatewayArmJob
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
   id: Marker24567Start
   suffix: Заливает сервер просроченым пивом, использовать на свой страх и риск.
-  name: Arm Broken host server fish
+  name: pw-gamemodes-rebels-brokenhostserver-name
   components:
   - type: GhostRole
-    name: 02 Спавнер Фракции Повстанцы
-    description: Возьмите эту роль.
+    name: pw-gamemodes-rebels-marker24567start-name
+    description: pw-gamemodes-rebels-marker24567start-desc
     raffle:
       settings: WM2
   - type: GhostRoleMobSpawner
@@ -339,6 +361,7 @@
       - state: green
       - state: centcom
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MARKERMarkerStartItemGatewayCoreFlatpack
@@ -346,6 +369,7 @@
   components:
   - type: SpawnOnDespawn
     prototype: MarkerStartItemGatewayArmFlatpack
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -360,11 +384,12 @@
         - id: CrateGenericSteelMechsArmWM
         - id: CrateGenericSteelRcdArmWM
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MechHeavyArmWMFlatpack
   id: MarkerStartItemGatewayArmFlatpack
-  name: набор сооружения оплота
+  name: pw-gamemodes-rebels-markerstartitemgatewayarmflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: MarkerStartItemGatewayArm

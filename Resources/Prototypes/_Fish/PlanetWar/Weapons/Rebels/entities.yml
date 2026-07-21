@@ -1,7 +1,7 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseLandMineWM
-  name: дезеорентирующая мина
+  name: pw-weapons-rebels-landmineflesharm-name
   id: LandMineFleshArmWM
   components:
   - type: FlashOnTrigger
@@ -40,10 +40,11 @@
       shader: unshaded
       map: [ "enum.ToggleableVisuals.Layer" ]
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: WeaponPrismaCoreWMTestBla
-  name: Призма Повстанцев
+  name: pw-weapons-rebels-weaponprismaarmtestbla-name
   id: WeaponPrismaArmWMTestBla
   components:
  # - type: RadarBlip
@@ -75,9 +76,10 @@
      # color: Red
       shader: unshaded
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: laser carbine Arm
+  name: pw-weapons-rebels-lasercarbinearm-name
   parent: WeaponEarthGovLaserCarbine
   id: WeaponEarthGovLaserCarbineArmWM
   components:
@@ -116,10 +118,11 @@
   #  autoRecharge: true
     autoRechargeRate: 40
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: DronArmTurretMineWM
-  name: Квадракоптер
+  name: pw-vehicles-rebels-dronarm-name
   parent: DronArmWM
   components:
   - type: ExplosionResistance
@@ -128,8 +131,8 @@
     implants:
     - LandmineImplantArmWM
   - type: GhostRole
-    name: Вооруженый Квадракоптер
-    description: Фракция Повстацны
+    name: pw-vehicles-rebels-markerdronarmturretmine-name
+    description: pw-weapons-rebels-dronarmturretmine-desc
     raffle:
       settings: WM
   - type: Sprite
@@ -212,12 +215,13 @@
       children:
       - id: PortalArmTinyWM
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MaterialReclaimerWMFlatpack
   id: AmmoTechFabArmWMFlatpack
-  name: техфаб боеприпасов повстанцев
-  description: Распакуй.
+  name: pw-construction-rebels-ammotechfabarm-name
+  description: pw-construction-rebels-mechheavyarmflatpack-desc
   components:
   - type: SpawnAfterInteract
     prototype: AmmoTechFabArmWM
@@ -231,11 +235,12 @@
       map: ["enum.FlatpackVisualLayers.Overlay"]
     - state: icon-default
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabArmWMFlatpack
   id: WeaponPrismaArmWMTestBlaFlatpack
-  name: призма повстанцев
+  name: pw-weapons-rebels-weaponprismaarmtestblaflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: WeaponPrismaArmWMTestBla 

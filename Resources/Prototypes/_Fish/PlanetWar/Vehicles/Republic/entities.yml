@@ -11,6 +11,7 @@
 
 #Radio
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MarkerBase
@@ -24,10 +25,11 @@
       - id: LandMineExplosiveCoreWM
         weight: 30
 
+
 - type: entity
   parent: BaseItem
   id: BoxDronCoreWM
-  name: Развертка дрона
+  name: pw-vehicles-republic-boxdroncore-name
   components:
   - type: PhysicalComposition
     materialComposition:
@@ -46,6 +48,7 @@
     layers:
       - state: droneAnim
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: DronCorePortalWM
@@ -57,10 +60,11 @@
         children:
         - id: PortalCoreTinyWM
 
+
 - type: entity
   id: StationDronBeaconCore
   parent: BaseMachinePowered
-  name: станция запуска Дрон республики
+  name: pw-vehicles-republic-stationdronbeaconcore-name
   placement:
     mode: SnapgridCenter
     snap:
@@ -124,12 +128,14 @@
       children:
       - id: MarkerSpawnDronStationCore
 
+
 - type: entity
   id: StationDronBeaconCoreWMMizeliy
   parent: StationDronBeaconCore
   components:
   - type: TimedSpawner
     intervalSeconds: 30
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -144,14 +150,15 @@
           amount: 2
         - id: MarkerDronCoreTurretMineWM
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
   id: MarkerDronCoreWM
   components:
   - type: GhostRole
-    name: Взрывной Дрон
-    description: Фракция Республиканцы
+    name: pw-vehicles-republic-markerdroncore-name
+    description: pw-construction-republic-mobhumancorep0-desc
     raffle:
       settings: WM
   - type: GhostRoleMobSpawner
@@ -159,14 +166,15 @@
   - type: TimedDespawn 
     lifetime: 400
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
   id: MarkerDronCoreTurretMineWM
   components:
   - type: GhostRole
-    name: Вооруженый Дрон
-    description: Фракция Республиканцы
+    name: pw-vehicles-republic-markerdroncoreturretmine-name
+    description: pw-construction-republic-mobhumancorep0-desc
     raffle:
       settings: WM
   - type: GhostRoleMobSpawner
@@ -174,12 +182,13 @@
   - type: TimedDespawn 
     lifetime: 200
 
+
 - type: entity
   id: MechHeavyCoreWM
   suffix: WM
   parent: 
    - MechMarauder
-  name: тяжелый боевой мех республики
+  name: pw-construction-republic-mechheavycoreflatpack-name
   components:
  # - type: Physics
   #  bodyType: Dynamic
@@ -278,12 +287,13 @@
     reflectProb: 0.25
     spread: 260
 
+
 - type: entity
   id: GrusCoreWM
   suffix: WM
   parent: 
    - MechHeavyCoreWM
-  name: транспортник
+  name: pw-vehicles-rebels-grusarm-name
   components:
   - type: FootstepModifier
     footstepSoundCollection:
@@ -400,22 +410,24 @@
   - type: Hands
     showInHands: false
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MechHeavyCoreWMFlatpack
   id: MechGrusCoreFlatpack
-  name: транспортник 
+  name: pw-vehicles-rebels-grusarm-name
   components:
   - type: SpawnAfterInteract
     prototype: GrusCoreWM
   - type: Flatpack
     entity: GrusCoreWM
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MechHeavyCoreWMFlatpack
   id: MechStationDronCoreFlatpack
-  name: станция БПЛА
+  name: pw-vehicles-republic-mechstationdroncoreflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: StationDronBeaconCore

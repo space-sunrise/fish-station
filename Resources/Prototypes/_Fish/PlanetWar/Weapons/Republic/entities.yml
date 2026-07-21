@@ -1,6 +1,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: дезеорентирующая мина
+  name: pw-weapons-rebels-landmineflesharm-name
   parent: BaseLandMineWM
   id: LandMineFleshCoreWM
   components:
@@ -43,10 +43,11 @@
       components:
         - AdminMinigun
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseWeaponTurret
-  name: Турель Республиканцев
+  name: pw-weapons-republic-weaponturretcoretestbla-name
   id: WeaponTurretCoreWMTestBla
   components:
     #- type: RadarBlip
@@ -143,10 +144,11 @@
     - type: ApcPowerReceiver
       powerLoad: 950
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseWeaponTurret
-  name: Призма Республиканцев
+  name: pw-weapons-republic-weaponprismacoretestbla-name
   id: WeaponPrismaCoreWMTestBla
   components:
  # - type: RadarBlip
@@ -264,10 +266,11 @@
   - type: ApcPowerReceiver
     powerLoad: 1200
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: DronCoreWM
-  name: Дрон
+  name: pw-weapons-republic-droncore-name
   parent: MobSiliconBase
   components:
   - type: UserInterface
@@ -307,8 +310,8 @@
   - type: GhostTakeoverAvailable
 #  - type: Muted
   - type: GhostRole
-    name: Взрывной Дрон
-    description: Фракция Республиканцы
+    name: pw-vehicles-republic-markerdroncore-name
+    description: pw-construction-republic-mobhumancorep0-desc
     raffle:
       settings: WM
   - type: CombatMode
@@ -413,10 +416,11 @@
   #  rotationSpeed: 180
   #  simple4DirMode: false
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: DronCoreTurretMineWM
-  name: Дрон
+  name: pw-weapons-republic-droncore-name
   parent: DronCoreWM
   components:
   - type: ExplosionResistance
@@ -425,8 +429,8 @@
     implants:
     - LandmineImplantCoreWM
   - type: GhostRole
-    name: Вооруженый Дрон
-    description: Фракция Республиканцы
+    name: pw-vehicles-republic-markerdroncoreturretmine-name
+    description: pw-construction-republic-mobhumancorep0-desc
     raffle:
       settings: WM
   - type: Sprite
@@ -509,12 +513,13 @@
       children:
       - id: PortalCoreTinyWM
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MaterialReclaimerWMFlatpack
   id: AmmoTechFabCoreWMFlatpack
-  name: техфаб боеприпасов республики
-  description: Распакуй.
+  name: pw-construction-republic-ammotechfabcore-name
+  description: pw-construction-rebels-mechheavyarmflatpack-desc
   components:
   - type: SpawnAfterInteract
     prototype: AmmoTechFabCoreWM
@@ -528,11 +533,12 @@
       map: ["enum.FlatpackVisualLayers.Overlay"]
     - state: icon-default
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabCoreWMFlatpack
   id: WeaponPrismaCoreWMTestBlaFlatpack
-  name: призма республики
+  name: pw-weapons-republic-weaponprismacoretestblaflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: WeaponPrismaCoreWMTestBla 

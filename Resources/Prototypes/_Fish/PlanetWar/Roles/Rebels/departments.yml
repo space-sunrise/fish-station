@@ -1,7 +1,7 @@
 - type: department
   id: FractionArmWM
-  name: department-FractionArmWM-name
-  description: department-FractionArmWM-desc
+  name: department-fractionarmwm-name
+  description: department-fractionarmwm-desc
   color: "#e50000"
   roles:
   - JobArmBase

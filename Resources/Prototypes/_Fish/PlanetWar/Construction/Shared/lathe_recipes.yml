@@ -8,6 +8,7 @@
   materials:
     MoneyWarMizMaterial: 100
 
+
 - type: latheRecipe
   id: 14MagLatheRecipe
   result: MagazineShotgunWM
@@ -16,6 +17,7 @@
     ShtampMagazinMaterial: 100
    # MoneyWarMizMaterial: 200
 
+
 - type: latheRecipe
   id: 15MagLatheRecipe
   result: MagazineShotgunSlugWM
@@ -23,6 +25,7 @@
   materials:
     ShtampMagazinMaterial: 200
     MoneyWarMizMaterial: 100
+
 
 - type: latheRecipe
   id: 199MagLatheRecipe
@@ -34,6 +37,7 @@
 
 #пока что мусор
 
+
 - type: latheRecipe
   id: 20MagLatheRecipe
   result: GrenadeFragLightWM
@@ -44,6 +48,7 @@
 
 #гранаты
 
+
 - type: latheRecipe
   id: 21MagLatheRecipe
   result: TearGasGrenadeWM
@@ -51,6 +56,7 @@
   materials:
   #  ShtampMagazinMaterial: 50
     MoneyWarMizMaterial: 20
+
 
 - type: latheRecipe
   id: 22MagLatheRecipe
@@ -60,6 +66,7 @@
   #  ShtampMagazinMaterial: 260
     MoneyWarMizMaterial: 300
 
+
 - type: latheRecipe
   id: 23MagLatheRecipe
   result: GrenadeShrapnelWM
@@ -67,6 +74,7 @@
   materials:
   #  ShtampMagazinMaterial: 300
     MoneyWarMizMaterial: 200
+
 
 - type: latheRecipe
   id: 24MagLatheRecipe
@@ -76,6 +84,7 @@
   #  ShtampMagazinMaterial: 600
     MoneyWarMizMaterial: 400
 
+
 - type: latheRecipe
   id: 25MagLatheRecipe
   result: C4WM
@@ -83,6 +92,7 @@
   materials:
   #  ShtampMagazinMaterial: 600
     MoneyWarMizMaterial: 500
+
 
 - type: latheRecipe
   id: 26MagLatheRecipe
@@ -95,6 +105,7 @@
 
 #мехи
 
+
 - type: latheRecipe
   id: 8LatheMech
   result: ShuttleGunAutomatWMFlatpack
@@ -105,6 +116,7 @@
   materials:
     ShtampMagazinMaterial: 100
     MoneyWarMizMaterial: 800
+
 
 - type: latheRecipe
   id: 9LatheMech
@@ -117,6 +129,7 @@
     ShtampMagazinMaterial: 300
     MoneyWarMizMaterial: 2000
 
+
 - type: latheRecipe
   id: 3LatheHost
   result: ShtampMagazin
@@ -124,12 +137,14 @@
   materials:
     MoneyWarMizMaterial: 1000
 
+
 - type: latheRecipe
   id: 2LatheHost
   result: MoneyWarMiz500
   completetime: 2
   materials:
     ShtampMagazinMaterial: 200
+
 
 - type: latheRecipe
   id: 1LatheHost
@@ -140,12 +155,14 @@
 
 #карго фабо
 
+
 - type: latheRecipe
   id: 1Cargo1Fab
   result: FultonWM
   completetime: 1
   materials:
     MoneyWarMizMaterial: 100
+
 
 - type: latheRecipe
   id: 3Cargo1Fab
@@ -154,12 +171,14 @@
   materials:
     MoneyWarMizMaterial: 500
 
+
 - type: latheRecipe
   id: 4Cargo1Fab
   result: EnergyPickaxeWM
   completetime: 3
   materials:
     MoneyWarMizMaterial: 100
+
 
 - type: latheRecipe
   id: 2Cargo1Fab
@@ -168,12 +187,14 @@
   materials:
     MoneyWarMizMaterial: 600
 
+
 - type: latheRecipe
   id: 1Cargo2Fab
   result: OintmentWM
   completetime: 1
   materials:
     MoneyWarMizMaterial: 20
+
 
 - type: latheRecipe
   id: 2Cargo2Fab
@@ -182,12 +203,14 @@
   materials:
     MoneyWarMizMaterial: 30
 
+
 - type: latheRecipe
   id: 3Cargo2Fab
   result: MedicatedSutureWM
   completetime: 2
   materials:
     MoneyWarMizMaterial: 100
+
 
 - type: latheRecipe
   id: 4Cargo2Fab
@@ -196,12 +219,14 @@
   materials:
     MoneyWarMizMaterial: 150
 
+
 - type: latheRecipe
   id: 1Cargo3Fab
   result: SyringeEphedrineWM
   completetime: 1
   materials:
     MoneyWarMizMaterial: 20
+
 
 - type: latheRecipe
   id: 2Cargo3Fab
@@ -210,12 +235,14 @@
   materials:
     MoneyWarMizMaterial: 500
 
+
 - type: latheRecipe
   id: 3Cargo3Fab
   result: LauncherSyringeWM
   completetime: 3
   materials:
     MoneyWarMizMaterial: 800
+
 
 - type: latheRecipe
   id: 1Cargo4Fab
@@ -224,12 +251,14 @@
   materials:
     MoneyWarMizMaterial: 200
 
+
 - type: latheRecipe
   id: 2Cargo4Fab
   result: ChemistryBottlePuncturaseWM
   completetime: 1
   materials:
     MoneyWarMizMaterial: 200
+
 
 - type: latheRecipe
   id: 3Cargo4Fab
@@ -238,12 +267,14 @@
   materials:
     MoneyWarMizMaterial: 200
 
+
 - type: latheRecipe
   id: 4Cargo4Fab
   result: ChemistryBottleDexalinPlusWM
   completetime: 2
   materials:
     MoneyWarMizMaterial: 600
+
 
 - type: latheRecipe
   id: 1Cargo5Fab
@@ -252,12 +283,14 @@
   materials:
     MoneyWarMizMaterial: 200
 
+
 - type: latheRecipe
   id: 1Cargo6Fab
   result: HandheldSoilWM
   completetime: 2
   materials:
     MoneyWarMizMaterial: 800
+
 
 - type: latheRecipe
   id: 2Cargo6Fab
@@ -266,12 +299,14 @@
   materials:
     MoneyWarMizMaterial: 1000
 
+
 - type: latheRecipe
   id: 2Cargo7Fab
   result: WelderExperimentalWM
   completetime: 2
   materials:
     MoneyWarMizMaterial: 300
+
 
 - type: latheRecipe
   id: 3Cargo7Fab
@@ -280,12 +315,14 @@
   materials:
     MoneyWarMizMaterial: 100
 
+
 - type: latheRecipe
   id: 4Cargo7Fab
   result: MultitoolWM
   completetime: 1
   materials:
     MoneyWarMizMaterial: 100
+
 
 - type: latheRecipe
   id: 5Cargo7Fab
@@ -294,12 +331,14 @@
   materials:
     MoneyWarMizMaterial: 100
 
+
 - type: latheRecipe
   id: 6Cargo7Fab
   result: WrenchWM
   completetime: 1
   materials:
     MoneyWarMizMaterial: 100
+
 
 - type: latheRecipe
   id: 7Cargo7Fab
@@ -308,12 +347,14 @@
   materials:
     MoneyWarMizMaterial: 100
 
+
 - type: latheRecipe
   id: 8Cargo7Fab
   result: ScrewdriverWM
   completetime: 1
   materials:
     MoneyWarMizMaterial: 100
+
 
 - type: latheRecipe
   id: 9Cargo7Fab

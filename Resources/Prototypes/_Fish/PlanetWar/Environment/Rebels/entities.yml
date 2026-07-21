@@ -1,8 +1,8 @@
 - type: entity
   parent: DeathRattleImplant
   id: DeathRattleImplantArm
-  name: повстанцы смерть хрип имплант
-  description: ыыыы.
+  name: pw-environment-rebels-deathrattleimplantarm-name
+  description: pw-environment-rebels-deathrattleimplantarm-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: RattleOnTrigger

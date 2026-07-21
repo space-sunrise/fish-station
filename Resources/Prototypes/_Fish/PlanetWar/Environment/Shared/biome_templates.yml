@@ -9,6 +9,7 @@
         frequency: 0 #0.02
         fractalType: None
 
+
 - type: biomeTemplate
   id: WMGrasslands
   layers:
@@ -89,6 +90,7 @@
         cellularDistanceFunction: Euclidean
         cellularReturnType: Distance2
 
+
 - type: biomeTemplate
   id: WMSnow 
   layers:
@@ -153,6 +155,7 @@
         seed: 0
         frequency: 0.02
         fractalType: None
+
 
 - type: biomeTemplate
   id: WMSpisdilSsvoegoJeFpoPlanetRari

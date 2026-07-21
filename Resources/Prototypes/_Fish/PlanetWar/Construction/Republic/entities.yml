@@ -1,7 +1,7 @@
 - type: entity
   #categories: [ HideSpawnMenu ]
   parent: RCD
-  name: РСУ Республиканцев
+  name: pw-construction-republic-rcdrechargingcore-name
   id: RCDRechargingCoreWM
   components:
   - type: PhysicalComposition
@@ -37,10 +37,11 @@
     - RsdMaterialReclaimerWM
     - RsdAmmoTechFabCoreWM
 
+
 - type: entity
   #categories: [ HideSpawnMenu ]
   parent: RCD
-  name: продвинутый РСУ Республиканцев
+  name: pw-construction-republic-rcdrecharginggoodcore-name
   id: RCDRechargingGoodCoreWM
   components:
   - type: Sprite
@@ -79,6 +80,7 @@
     - RsdEnergyDomeCoreWM
     - RsdMaterialReclaimerWM
     - RsdAmmoTechFabCoreWM
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -122,6 +124,7 @@
           - !type:SolutionExplosionBehavior
             solution: tank
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: PortalCoreWM
@@ -132,6 +135,7 @@
   - type: TimedDespawn
     lifetime: 0.9
   - type: Timer
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -151,6 +155,7 @@
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: PortalCoreTeleportStartWM
@@ -166,6 +171,7 @@
     - state: portal-blue
       shader: unshaded
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: PortalCoreMiniWM
@@ -176,6 +182,7 @@
   - type: Sprite
     scale: 0.72, 0.72
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: PortalCoreTinyWM
@@ -184,9 +191,10 @@
   - type: Sprite
     scale: 0.6, 0.6
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: взрывная мина
+  name: pw-construction-rebels-landmineexplosivearm-name
   parent: BaseLandMineWM
   id: LandMineExplosiveCoreWM
   components:
@@ -219,6 +227,7 @@
       components:
         - AdminMinigun
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: AirlockCoreTime
@@ -241,6 +250,7 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -267,6 +277,7 @@
         sound:
           collection: MetalSlam
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: DoorElectronics
@@ -279,16 +290,18 @@
 #раб
 #Faction
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: EffectNightVisioCore
-  name: Ночное зрение
+  name: pw-construction-rebels-effectnightvisioarm-name
   components:
   - type: PointLight
     color: "#0057e7"
     energy: 1.6
     radius: 6
     softness: 20
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -299,6 +312,7 @@
     energy: 3
     radius: 100
     softness: 40
+
 
 - type: entity
   parent: XrayLaser
@@ -328,11 +342,12 @@
 
 #Weapon
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: WeaponLauncherChinaLakeArmWM
   id: WeaponLauncherChinaLakeCoreWM
-  name: GL-79 #(автозарядный)
+  name: pw-construction-republic-weaponlauncherchinalakecore-name
   components:
   - type: PhysicalComposition
     materialComposition:
@@ -353,9 +368,10 @@
     - 0,0,6,2
     sprite: _Sunrise/Objects/Weapons/Guns/HMGs/gl-64/tiny.rsi
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: набор семян для выращивания
+  name: pw-construction-rebels-boxcanabisarm-name
   parent: BoxCanabisArm
   id: BoxXlopokCore
   components:
@@ -364,10 +380,11 @@
     - id: CottonSeedsWM
       amount: 8
 
+
 - type: entity
   id: EnergyDomeCore
   categories: [ HideSpawnMenu ]
-  name: стационарное силовое поле республики
+  name: pw-construction-republic-energydomecore-name
   parent: EnergyDomeArm
   placement:
     mode: SnapgridCenter
@@ -403,10 +420,11 @@
       components:
       - AdminMinigun
 
+
 - type: entity
   id: EnergyDomeCoreWM
-  name: стационарное силовое поле республики
-  description: поле, питание от кабеля 
+  name: pw-construction-republic-energydomecore-name
+  description: pw-construction-republic-energydomecore-desc
   parent: BaseMachine
   placement:
     mode: SnapgridCenter
@@ -496,11 +514,12 @@
   - type: ApcPowerReceiver
     powerLoad: 40
 
+
 - type: entity
   parent: BaseItem
   id: WrapHandTeleporterCore
-  name: телепорт Республики (прочтите описание)
-  description: Распадается на атомы через 60 секунд после активации.
+  name: pw-construction-republic-wraphandteleportercore-name
+  description: pw-construction-republic-wraphandteleportercore-desc
   components:
   - type: SpawnItemsOnUse
     uses: 1
@@ -518,12 +537,13 @@
     materialComposition:
       MoneyWarMizMaterial: 1000 # стоит 60 кредитов
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: HandTeleporterCore
   parent: BaseItem
-  name: телепорт Республики (прочтите описание)
-  description: Распадается на атомы через 60 секунд после активации.
+  name: pw-construction-republic-wraphandteleportercore-name
+  description: pw-construction-republic-wraphandteleportercore-desc
   components:
   - type: Sprite
     sprite: /Textures/Objects/Devices/hand_teleporter.rsi
@@ -548,6 +568,7 @@
        # maxDistance: 2
        # volume: -8
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseSubdermalImplant
@@ -560,13 +581,15 @@
     implantAction: ActionActivateLandmineSpawnImplantWM
   - type: TriggerOnActivateImplant
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: Нашейный доступ пилотирования
+  name: pw-construction-republic-pilotcollarwhitecore-name
   id: PilotCollarWhiteCore
   parent: ExplosiveCollarWhite
-  description: Наденьте его для пилотирования мехом.
+  description: pw-construction-republic-pilotcollarwhitecore-desc
   #components:
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -579,6 +602,7 @@
   - type: Clothing
     sprite: Clothing/Eyes/Hud/syndagent.rsi
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: EncryptionKeyCommand
@@ -588,6 +612,7 @@
     channels:
     - RadioChannelCore
     defaultChannel: RadioChannelCore
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -627,13 +652,14 @@
       - state: inhand-right-top
   - type: Pinpointer
     component: NukeLabel
-    targetName: Врата Повстанцев
+    targetName: pw-construction-rebels-gatewayarm-name
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: BaseMobHumanWM
   id: MobHumanCoreP0WM
-  name: Боевик  
+  name: pw-construction-republic-mobhumancorep0-name
   suffix: WM
   components:
     - type: WarpPoint
@@ -669,8 +695,9 @@
     - type: Loadout
       prototypes: [CoreGearP0]
     - type: GhostRole
-      name: Боевик
-      description: Фракция Республиканцы
+      name: pw-construction-republic-mobhumancorep0-name
+      description: pw-construction-republic-mobhumancorep0-desc
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -683,11 +710,12 @@
         - id: PortalCoreMiniWM
         - id: LongTime1ReinforcementCoreWM
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MobHumanCoreP0WM
   id: MobHumanCorePC0I5WM
-  name: Лейтенант  
+  name: pw-construction-republic-mobhumancorepc0i5-name
   suffix: WM
   components:
     - type: RandomMetadata
@@ -704,7 +732,7 @@
     - type: Loadout
       prototypes: [CoreGearPC0I5]
     - type: GhostRole
-      name: Лейтенант
+      name: pw-construction-republic-mobhumancorepc0i5-name
     - type: EntityTableSpawner
       deleteSpawnerAfterSpawn: false
       table: !type:AllSelector
@@ -722,6 +750,7 @@
    # - type: RadarConsole
    #   followEntity: true
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MobHumanCorePC0I5WM
@@ -733,11 +762,12 @@
         - id: PortalCoreMiniWM
         - id: MarkTimer4ReinforcementCorePC0I5WM
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MobHumanCoreP0WM
   id: MobHumanCoreP1WM
-  name: Штурмовик  
+  name: pw-construction-republic-mobhumancorep1-name
   suffix: WM
   components:
     - type: RandomMetadata
@@ -749,13 +779,14 @@
     - type: Loadout
       prototypes: [CoreGearP1]
     - type: GhostRole
-      name: Штурмовик
+      name: pw-construction-republic-mobhumancorep1-name
     - type: EntityTableSpawner
       deleteSpawnerAfterSpawn: false
       table: !type:AllSelector
         children:
         - id: PortalCoreWM
         - id: MarkTimer5ReinforcementCoreP1WM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -768,11 +799,12 @@
         - id: PortalCoreMiniWM
         - id: MarkTimer5ReinforcementCoreP1WM
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MobHumanCoreP0WM
   id: MobHumanCorePH5WM
-  name: Джагернаут  
+  name: pw-construction-republic-mobhumancoreph5-name
   suffix: WM
   components:
     - type: RandomMetadata
@@ -789,7 +821,7 @@
     - type: Loadout
       prototypes: [CoreGearPH5]
     - type: GhostRole
-      name: Джагернаут
+      name: pw-construction-republic-mobhumancoreph5-name
     - type: ScaleVisuals
       scale: 1.2, 1.3
     - type: EntityTableSpawner
@@ -798,6 +830,7 @@
         children:
         - id: PortalCoreWM
         - id: MarkTimer6ReinforcementCorePH5WM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -810,11 +843,12 @@
         - id: PortalCoreMiniWM
         - id: MarkTimer6ReinforcementCorePH5WM
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MobHumanCoreP0WM
   id: MobHumanCorePM1WM
-  name: Врач  
+  name: pw-construction-republic-mobhumancorepm1-name
   suffix: WM
   components:
     - type: RandomMetadata
@@ -834,7 +868,7 @@
     - type: Loadout
       prototypes: [CoreGearPM1]
     - type: GhostRole
-      name: Врач
+      name: pw-construction-republic-mobhumancorepm1-name
     - type: ShowHealthBars
     - type: EntityTableSpawner
       deleteSpawnerAfterSpawn: false
@@ -842,6 +876,7 @@
         children:
         - id: PortalCoreWM
         - id: MarkTimer3ReinforcementCorePM1WM #3ReinforcementCorePM1WM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -854,11 +889,12 @@
         - id: PortalCoreMiniWM
         - id: MarkTimer3ReinforcementCorePM1WM # LongTime3ReinforcementCorePM1WM
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MobHumanCoreP0WM
   id: MobHumanCorePE1WM
-  name: Инженер  
+  name: pw-construction-republic-mobhumancorepe1-name
   suffix: WM
   components:
     - type: RandomMetadata
@@ -870,7 +906,7 @@
     - type: Loadout
       prototypes: [CoreGearPE1]
     - type: GhostRole
-      name: Инженер
+      name: pw-construction-republic-mobhumancorepe1-name
     - type: EyeProtection
     - type: EntityTableSpawner
       deleteSpawnerAfterSpawn: false
@@ -878,6 +914,7 @@
         children:
         - id: PortalCoreWM
         - id: 2ReinforcementCorePE1WM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -890,11 +927,12 @@
         - id: PortalCoreMiniWM
         - id: LongTime2ReinforcementCorePE1WM
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MobHumanCoreP0WM
   id: MobHumanCorePS4WM
-  name: Снайпер  
+  name: pw-construction-republic-mobhumancoreps4-name
   suffix: WM
   components:
     - type: RandomMetadata
@@ -911,13 +949,14 @@
     - type: Loadout
       prototypes: [CoreGearPS4]
     - type: GhostRole
-      name: Снайпер
+      name: pw-construction-republic-mobhumancoreps4-name
     - type: EntityTableSpawner
       deleteSpawnerAfterSpawn: false
       table: !type:AllSelector
         children:
         - id: PortalCoreWM
         - id: MarkTimer7ReinforcementCorePS4WM
+
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
@@ -931,6 +970,7 @@
         - id: MarkTimer7ReinforcementCorePS4WM
 
 #Povstanez
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -964,6 +1004,7 @@
 
 #PE1
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ClothingBeltUtilityCorePE1WM
@@ -995,6 +1036,7 @@
 
 #PS4
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MarkerZaglushks
@@ -1014,6 +1056,7 @@
       - id: HowManySpawnN5CoreP1
         weight: 9
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MarkerHowMany
@@ -1024,6 +1067,7 @@
       children:
       - id: 5ReinforcementCoreP1WM
         amount: 1
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1036,6 +1080,7 @@
       - id: 5ReinforcementCoreP1WM
         amount: 2
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: HowManySpawnN1CoreP1
@@ -1046,6 +1091,7 @@
       children:
       - id: 5ReinforcementCoreP1WM
         amount: 4
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1058,6 +1104,7 @@
       - id: 5ReinforcementCoreP1WM
         amount: 5
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: HowManySpawnN1CoreP1
@@ -1068,6 +1115,7 @@
       children:
       - id: 5ReinforcementCoreP1WM
         amount: 6
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1086,6 +1134,7 @@
       - id: HowManySpawnN4CorePH5
         weight: 10
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MarkerHowMany
@@ -1096,6 +1145,7 @@
       children:
       - id: 6ReinforcementCorePH5WM
         amount: 1
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1108,6 +1158,7 @@
       - id: 6ReinforcementCorePH5WM
         amount: 2
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: HowManySpawnN1CorePH5
@@ -1119,6 +1170,7 @@
       - id: 6ReinforcementCorePH5WM
         amount: 3
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: HowManySpawnN1CorePH5
@@ -1129,6 +1181,7 @@
       children:
       - id: 6ReinforcementCorePH5WM
         amount: 4
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1147,6 +1200,7 @@
       - id: HowManySpawnN4CorePS4
         weight: 9
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MarkerHowMany
@@ -1157,6 +1211,7 @@
       children:
       - id: 7ReinforcementCorePS4WM
         amount: 1
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1169,6 +1224,7 @@
       - id: 7ReinforcementCorePS4WM
         amount: 2
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: HowManySpawnN1CorePS4
@@ -1179,6 +1235,7 @@
       children:
       - id: 7ReinforcementCorePS4WM
         amount: 3
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1192,6 +1249,7 @@
         amount: 4
 
 #Замена Врачей и Инженеров
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1207,6 +1265,7 @@
         weight: 35
       - id: MarkerZaglushks
         weight: 45
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -1228,10 +1287,11 @@
 #Povstanez
 #Замена Пехоты
 
+
 - type: entity
   id: SpawnPointJobCoreBase
   parent: SpawnPointJobBase
-  name: Core JobSpawner
+  name: pw-construction-republic-jobspawner-name
   components:
   - type: ContainmentField
     throwForce: 0
@@ -1245,6 +1305,7 @@
       - state: green
       - state: captain
 
+
 - type: entity
   id: SpawnPointJobCorePC0I5
   parent: SpawnPointJobCoreBase
@@ -1252,12 +1313,14 @@
   - type: SpawnPoint
     job_id: JobCorePC0I5
 
+
 - type: entity
   id: SpawnPointJobCorePM1
   parent: SpawnPointJobCoreBase
   components:
   - type: SpawnPoint
     job_id: JobCorePM1
+
 
 - type: entity
   id: SpawnPointJobCorePE1
@@ -1267,11 +1330,12 @@
     job_id: JobCorePE1
 #Arm
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: [ IDCardStandard, MusicianPDAForWM]
   id: IDCoreBase
-  name: КПК Республиканца
+  name: pw-construction-republic-idcorebase-name
   components:
   - type: Unremoveable
   - type: Sprite
@@ -1287,11 +1351,12 @@
     tags:
     - AssCoreBase
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: IDCoreBase
   id: IDCorePC0I5
-  name: КПК Лейтенанта Республиканцев
+  name: pw-construction-republic-idcorepc0i5-name
   components:
   - type: IdCard
     jobTitle: job-title-republic-lieutenant
@@ -1300,11 +1365,12 @@
     tags:
     - AssCoreBase
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: IDCoreBase
   id: IDCorePM1
-  name: КПК Врача Республиканцев
+  name: pw-construction-republic-idcorepm1-name
   components:
   - type: IdCard
     jobTitle: job-title-republic-doctor
@@ -1313,11 +1379,12 @@
     tags:
     - AssCoreBase
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: IDCoreBase
   id: IDCorePE1
-  name: КПК Инженера Республиканцев
+  name: pw-construction-republic-idcorepe1-name
   components:
   - type: IdCard
     jobTitle: job-title-republic-engineer
@@ -1326,12 +1393,13 @@
     tags:
     - AssCoreBase
 
+
 - type: entity
   id: MechLightCoreWM
   suffix: WM
   parent: 
    - MechHeavyCoreWM
-  name: легкий двухместный гиродерм республики
+  name: pw-construction-republic-mechlightcore-name
   components:
  # - type: RadarBlip
  #   scale: 0.6
@@ -1414,12 +1482,13 @@
       components:
        - AdminMinigun
 
+
 - type: entity
   id: MechNormCoreWM
   suffix: WM
   parent: 
    - MechHeavyCoreWM
-  name: штурмовой механизированый доспех республики
+  name: pw-construction-republic-mechnormcore-name
   components:
   #- type: RadarBlip
   #  scale: 0.7
@@ -1492,12 +1561,13 @@
       mech-battery-slot:
       - PowerCageNormalWM
 
+
 - type: entity
   id: TankCoreWM
   suffix: WM
   parent: 
    - MechHeavyCoreWM
-  name: передвижное осадное орудие республики
+  name: pw-construction-republic-tankcore-name
   components:
   - type: FootstepModifier
     footstepSoundCollection:
@@ -1598,6 +1668,7 @@
       components:
        - AdminMinigun
 
+
 - type: entity
   parent: MobHumanCoreP0WM
   id: MobHumanCoreP0WMF5
@@ -1607,6 +1678,7 @@
       table: !type:AllSelector
         children:
         - id: PortalCoreMiniWM
+
 
 - type: entity
   parent: MobHumanCorePC0I5WM
@@ -1618,6 +1690,7 @@
         children:
         - id: PortalCoreMiniWM
 
+
 - type: entity
   parent: MobHumanCoreP1WM
   id: MobHumanCoreP1WMF5
@@ -1627,6 +1700,7 @@
       table: !type:AllSelector
         children:
         - id: PortalCoreMiniWM
+
 
 - type: entity
   parent: MobHumanCorePH5WM
@@ -1638,6 +1712,7 @@
         children:
         - id: PortalCoreMiniWM
 
+
 - type: entity
   parent: MobHumanCorePM1WM
   id: MobHumanCorePM1WMF5
@@ -1648,6 +1723,7 @@
         children:
         - id: PortalCoreMiniWM
 
+
 - type: entity
   parent: MobHumanCorePE1WM
   id: MobHumanCorePE1WMF5
@@ -1657,6 +1733,7 @@
       table: !type:AllSelector
         children:
         - id: PortalCoreMiniWM
+
 
 - type: entity
   parent: MobHumanCorePS4WM
@@ -1670,6 +1747,7 @@
 
 #Arm
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: GatewayCore
@@ -1678,11 +1756,12 @@
   - type: AddGameRuleOnTrigger
     gameRule: MaxTimeRoundRestartAfterGateDeadWM
 
+
 - type: entity
   id: HolosignForcefieldWM4567Core
   parent: HolosignForcefieldWM4567Ghost
-  name: анти взрыв тайла джоба Core
-  description: Планетарная Война Гриба
+  name: pw-construction-republic-holosignforcefield4567core-name
+  description: pw-construction-rebels-holosignforcefield4567arm-desc
   suffix: WM
   components:
   - type: EntityTableSpawner
@@ -1696,10 +1775,11 @@
  # - type: PointLight
   #  color: blue
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: CrateGenericSteelWM
-  name: Кирки
+  name: pw-construction-rebels-crategenericsteelpixararm-name
   id: CrateGenericSteelPixarCoreWM
   components:
   - type: StorageFill
@@ -1715,11 +1795,12 @@
         - id: MaterialReclaimerWMFlatpack
           amount: 2
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: CrateGenericSteelWM
   id: CrateGenericSteelMechsCoreWM
-  name: Мехи
+  name: pw-construction-rebels-crategenericsteelmechsarm-name
   components:
   - type: StorageFill
     contents:
@@ -1736,11 +1817,12 @@
         - id: ShuttleGunPulemetWMFlatpack
           amount: 4
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: CrateGenericSteelWM
   id: CrateGenericSteelRcdCoreWM
-  name: Рсд
+  name: pw-construction-rebels-crategenericsteelrcdarm-name
   components:
   - type: StorageFill
     contents:
@@ -1751,12 +1833,13 @@
         - id: CargoTechFabCoreFlatpack
         - id: FlatpackerFabricatorCoreFlatpack
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: BaseGatewayWM
   id: GatewayCore
   suffix: WM
-  name: Врата Республиканцев
+  name: pw-construction-rebels-pinpointerarm-targetname
   components:
     - type: Tag
       tags:
@@ -1796,6 +1879,7 @@
         - id: MarkTimer7ReinforcementCorePS4WM
        # - id: MarkerStartItemGatewayCoreFlatpack
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: PortalGatewayBlue
@@ -1818,11 +1902,12 @@
       - id: ShuttleGunAutomatWMFlatpack
         amount: 4
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: GatewayCore
   id: GatewayCoreMini
-  name: Малые Врата Республиканцев
+  name: pw-construction-republic-gatewaycoremini-name
   components:
   #  - type: RadarBlip
   #    color: "#48a4fb"
@@ -1859,6 +1944,7 @@
         - id: SopawnerCorePortalMini
         - id: ZopawnerCorePortalMini
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: PortalGatewayCoreWN
@@ -1869,12 +1955,13 @@
       children:
       - id: BoxDronCoreWM  #SopawnerCorePortalMini
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: CargoTechFabCoreWM
   parent: AmmoTechFabCoreWM
-  name: склад фаб республики
-  description: Йоу
+  name: pw-construction-republic-cargotechfabcore-name
+  description: pw-construction-rebels-ammotechfabarm-desc
   components:
     - type: ApcPowerReceiver
       powerLoad: 800
@@ -1908,12 +1995,13 @@
       - 6PackLatheCargoCore
       - 7PackLatheCargoCore
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: AmmoTechFabCoreWM
   parent: BaseLatheLube
-  name: техфаб боеприпасов республики
-  description: Йоу
+  name: pw-construction-republic-ammotechfabcore-name
+  description: pw-construction-rebels-ammotechfabarm-desc
   components:
     - type: Construction
       graph: CatwalkWMDop
@@ -1951,11 +2039,12 @@
     - type: Anchorable
       delay: 30
 
+
 - type: entity
   id: FlatpackerFabricatorCore
   parent: BaseLatheLube
-  name: упаковшик фабрикаторов республики
-  description: Производит фабрикаторы.
+  name: pw-construction-republic-flatpackerfabricatorcore-name
+  description: pw-construction-rebels-flatpackerfabricatorarm-desc
   components:
   - type: Construction
     graph: CatwalkWM
@@ -1990,11 +2079,12 @@
   - type: Anchorable
     delay: 30
 
+
 - type: entity
   id: MechFabricatorCore
   parent: BaseLatheLube
-  name: фабрикатор юнитов республики
-  description: Производит дронов, боргов, мехов и прочее говно.
+  name: pw-construction-republic-mechfabricatorcore-name
+  description: pw-construction-republic-mechfabricatorcore-desc
   components:
   - type: Construction
     graph: CatwalkWM
@@ -2031,11 +2121,12 @@
   - type: Anchorable
     delay: 30
 
+
 - type: entity
   id: MoneyHostCore
   parent: BaseLatheLube
-  name: Хост анти-ии Wegan
-  description: Даешь мало, получаешь много. Защищает от разведки вражеского ии
+  name: pw-construction-republic-moneyhostcore-name
+  description: pw-construction-republic-moneyhostcore-desc
   components:
   - type: Tag
     tags:
@@ -2083,78 +2174,85 @@
  #   prototypes:
  #    - MoneyWarMiz100
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabCoreWMFlatpack
   id: FlatpackerFabricatorCoreFlatpack
-  name: упаковшик фабрикаторов республики
+  name: pw-construction-republic-flatpackerfabricatorcore-name
   components:
   - type: SpawnAfterInteract
     prototype: FlatpackerFabricatorCore
   - type: Flatpack
     entity: FlatpackerFabricatorCore
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabCoreWMFlatpack
   id: MechFabricatorCoreFlatpack
-  name: фабрикатор юнитов республики
+  name: pw-construction-republic-mechfabricatorcore-name
   components:
   - type: SpawnAfterInteract
     prototype: MechFabricatorCore
   - type: Flatpack
     entity: MechFabricatorCore
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabCoreWMFlatpack
   id: MoneyHostCoreFlatpack
-  name: хост анти-ии wegan
+  name: pw-construction-republic-moneyhostcoreflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: MoneyHostCore
   - type: Flatpack
     entity: MoneyHostCore
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MechHeavyCoreWMFlatpack
   id: MechLightCoreFlatpack
-  name: легкий двухместный гиродерм
+  name: pw-construction-rebels-mechlightarmflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: MechLightCoreWM
   - type: Flatpack
     entity: MechLightCoreWM
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MechHeavyCoreWMFlatpack
   id: MechNormalCoreFlatpack
-  name: штурмовой механизированый доспех
+  name: pw-construction-republic-mechnormalcoreflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: MechNormCoreWM
   - type: Flatpack
     entity: MechNormCoreWM
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: MechHeavyCoreWMFlatpack
   id: MechTankCoreFlatpack
-  name: передвижное осадное орудие 
+  name: pw-construction-rebels-mechtankarmflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: TankCoreWM
   - type: Flatpack
     entity: TankCoreWM
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabCoreWMFlatpack
   id: MechHeavyCoreWMFlatpack
-  name: тяжелый боевой мех республики
-  description: Распакуй.
+  name: pw-construction-republic-mechheavycoreflatpack-name
+  description: pw-construction-rebels-mechheavyarmflatpack-desc
   components:
   - type: SpawnAfterInteract
     prototype: MechHeavyCoreWM
@@ -2169,33 +2267,36 @@
     sprintModifier: 0.4
   - type: MultiHandedItem
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabCoreWMFlatpack
   id: EnergyDomeCoreFlatpack
-  name: установка защитного поля
+  name: pw-construction-rebels-energydomearmflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: EnergyDomeCoreWM #EnergyDomeCoreWM
   - type: Flatpack
     entity: EnergyDomeCoreWM
 
+
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
   parent: MechHeavyCoreWMFlatpack
   id: GatewayCoreMiniFlatpack
-  name: малые врата республиканцев
+  name: pw-construction-republic-gatewaycoreminiflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: GatewayCoreMini
   - type: Flatpack
     entity: GatewayCoreMini
 
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: AmmoTechFabCoreWMFlatpack
   id: CargoTechFabCoreFlatpack
-  name: склад фаб
+  name: pw-construction-rebels-cargotechfabarmflatpack-name
   components:
   - type: SpawnAfterInteract
     prototype: CargoTechFabCoreWM
