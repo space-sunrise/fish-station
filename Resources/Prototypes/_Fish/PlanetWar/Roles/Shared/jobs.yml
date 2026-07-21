@@ -3,7 +3,7 @@
   name: job-title-ghostwmbase
   description: job-description-ghostwmbase
   playTimeTracker: OverAllGhostWMBase
-  setPreference: false
+  setPreference: true
   weight: 10
   jobEntity: MobObserver
   icon: "JobIconPassenger"
