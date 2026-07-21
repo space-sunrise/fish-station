@@ -31,7 +31,7 @@
   id: BoxDronCoreWM
   components:
   - type: StaticPrice
-    price: 100
+    price: 200
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 100
@@ -74,7 +74,7 @@
  #   color: "#0000e3"
  #   scale: 0.5
  #   shape: Square
- #   requireInSpace: false  
+ #   requireInSpace: false
   - type: Transform
     anchored: true
   - type: Sprite
@@ -163,7 +163,7 @@
       settings: WM
   - type: GhostRoleMobSpawner
     prototype: DronCorePortalWM
-  - type: TimedDespawn 
+  - type: TimedDespawn
     lifetime: 400
 
 
@@ -179,14 +179,14 @@
       settings: WM
   - type: GhostRoleMobSpawner
     prototype: DronCoreTurretMineWM
-  - type: TimedDespawn 
+  - type: TimedDespawn
     lifetime: 200
 
 
 - type: entity
   id: MechHeavyCoreWM
   suffix: WM
-  parent: 
+  parent:
    - MechMarauder
   components:
  # - type: Physics
@@ -290,7 +290,7 @@
 - type: entity
   id: GrusCoreWM
   suffix: WM
-  parent: 
+  parent:
    - MechHeavyCoreWM
   components:
   - type: FootstepModifier
@@ -349,7 +349,7 @@
     brokenState: coregruz
     mechToPilotDamageMultiplier: 0.1
     maxEquipmentAmount: 2
-    startingEquipment: 
+    startingEquipment:
       - WeaponMechCombatLightWM
       - WeaponGrusWM
   - type: ExplosionResistance
