@@ -1041,6 +1041,7 @@
 
 
 - type: entity
+  abstract: true
   parent: BaseItem #BasePDA
   id: MusicianPDAForWM
   categories: [ HideSpawnMenu ]

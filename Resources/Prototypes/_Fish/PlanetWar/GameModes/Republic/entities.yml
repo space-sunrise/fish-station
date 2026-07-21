@@ -1,6 +1,6 @@
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseItem
+  parent: MarkerBase
   id: MarkerPortableGeneratorJrPacmanCoreWM
   components:
   - type: TimedDespawn 

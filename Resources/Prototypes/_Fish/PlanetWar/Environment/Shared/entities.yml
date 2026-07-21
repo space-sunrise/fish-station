@@ -47,7 +47,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseItem
+  parent: MarkerBase
   id: MarkerLeavesCannabisWM
   components:
   - type: TimedDespawn 
@@ -120,7 +120,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseItem
+  parent: MarkerBase
   id: MarkerCottonBolWM
   components:
   - type: TimedDespawn 
