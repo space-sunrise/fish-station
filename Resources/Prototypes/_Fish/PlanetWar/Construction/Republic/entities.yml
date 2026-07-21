@@ -3,6 +3,8 @@
   parent: RCD
   id: RCDRechargingCoreWM
   components:
+  - type: StaticPrice
+    price: 300
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 300
@@ -42,6 +44,8 @@
   parent: RCD
   id: RCDRechargingGoodCoreWM
   components:
+  - type: StaticPrice
+    price: 500
   - type: Sprite
     sprite: _Sunrise/Objects/Tools/advanced_rcd.rsi
   - type: Clothing
@@ -1795,7 +1799,7 @@
         - id: RCDRechargingGoodCoreWM
           amount: 10
         - id: RCDRechargingCoreWM
-          amount: 20 #10
+          amount: 18
         - id: CargoTechFabCoreFlatpack
         - id: FlatpackerFabricatorCoreFlatpack
 

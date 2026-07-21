@@ -3,6 +3,8 @@
   parent: RCD
   id: RCDRechargingArmWM
   components:
+  - type: StaticPrice
+    price: 300
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 300
@@ -42,6 +44,8 @@
   parent: RCD
   id: RCDRechargingGoodArmWM
   components:
+  - type: StaticPrice
+    price: 500
   - type: Sprite
     sprite: _Sunrise/Objects/Tools/advanced_rcd.rsi
   - type: Clothing
@@ -1951,7 +1955,7 @@
   - type: StorageFill
     contents:
         - id: RCDRechargingArmWM
-          amount: 20
+          amount: 18
         - id: RCDRechargingGoodArmWM
           amount: 10
         - id: CargoTechFabArmFlatpack

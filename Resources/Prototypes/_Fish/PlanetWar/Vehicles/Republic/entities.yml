@@ -30,6 +30,8 @@
   parent: BaseItem
   id: BoxDronCoreWM
   components:
+  - type: StaticPrice
+    price: 100
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 100
