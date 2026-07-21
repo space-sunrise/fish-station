@@ -21,6 +21,9 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: Physics
+    bodyType: Static
+    canCollide: false
   - type: Transform
     anchored: true
   - type: Item

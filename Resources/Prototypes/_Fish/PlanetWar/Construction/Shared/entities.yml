@@ -1660,6 +1660,8 @@
     snap:
     - Wall
   components: 
+  - type: Physics
+    bodyType: Static
   - type: Transform
     anchored: true
   - type: TimedDespawn 
@@ -1675,6 +1677,8 @@
     snap:
     - Wall
   components:
+  - type: Physics
+    bodyType: Static
   - type: Transform
     anchored: true
   - type: TimedDespawn 
@@ -2809,6 +2813,10 @@
   parent: ClothingHeadsetAltCommand
   id: ClothingHeadsetAltCommandW
   components:
+  - type: ContainerContainer
+    containers:
+      key_slots: !type:Container
+      cell_slot: !type:ContainerSlot
   - type: ItemSlots
     slots:
       cell_slot:
@@ -2828,6 +2836,10 @@
   parent: ClothingHeadsetAltSyndicate
   id: ClothingHeadsetAltSyndicateWM
   components:
+  - type: ContainerContainer
+    containers:
+      key_slots: !type:Container
+      cell_slot: !type:ContainerSlot
   - type: ItemSlots
     slots:
       cell_slot:
