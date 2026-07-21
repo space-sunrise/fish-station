@@ -1739,7 +1739,7 @@
   - type: RequireProjectileTarget
     active: true
   - type: Physics
-    bodyType: Dynamic
+    bodyType: KinematicController
   - type: ContainmentField
     throwForce: 0
   - type: CombatMode

@@ -105,8 +105,8 @@ ent-BinocularsWM = бинокль
 ent-BloodpackWM = пакет крови
     .desc = Содержит новый инновационный универсальный кровезаменитель, разработанный передовыми учёными компании NanoTrasen.
 
-ent-BombImplantWM = implant
-    .desc = A microscopic chip that's injected under the skin.
+ent-BombImplantWM = имплант бомбы
+    .desc = Микроскопический чип, вживляемый под кожу.
 
 ent-BoxBotanicToolWM = набор ботанический инструментов
     .desc = { "" }
@@ -450,7 +450,7 @@ ent-CrateGenericSteelRcdArmWM = Рсд
 ent-CrateGenericSteelRcdCoreWM = Рсд
     .desc = { ent-CrateGeneric.desc }
 
-ent-CrateGenericSteelWM = crate
+ent-CrateGenericSteelWM = стальной ящик
     .desc = { ent-CrateGeneric.desc }
 
 ent-CrowbarWM = { ent-BaseCrowbar }
@@ -786,11 +786,11 @@ ent-LandMineFleshArmWM = дезеорентирующая мина
 
 ent-LandMineFleshCoreWM = дезеорентирующая мина
 
-ent-LandmineImplantArmWM = implant
-    .desc = A microscopic chip that's injected under the skin.
+ent-LandmineImplantArmWM = имплант мины
+    .desc = Микроскопический чип, вживляемый под кожу.
 
-ent-LandmineImplantCoreWM = implant
-    .desc = A microscopic chip that's injected under the skin.
+ent-LandmineImplantCoreWM = имплант мины
+    .desc = Микроскопический чип, вживляемый под кожу.
 
 ent-LauncherSyringeWM = шприцемёт
     .desc = Бахает шпицем в омнезине

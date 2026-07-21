@@ -335,7 +335,7 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
   id: Marker14567Start
-  suffix: Роняет сервер головй об кафель, использовать на свой страх и риск.
+  suffix: Drops the server headfirst on tile, use at your own risk.
   name: pw-gamemodes-republic-brokenhostserver-name
   components:
   - type: GhostRole

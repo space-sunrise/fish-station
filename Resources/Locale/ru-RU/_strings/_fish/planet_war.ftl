@@ -1,13 +1,19 @@
 # PlanetWar Localization
 
-department-fractionghostwm-name = Наблюдатели
-department-fractionghostwm-desc = Эуэ?
+department-FractionArmWM = Повстанцы
+department-FractionArmWM-description = Слабооборудованная, но многочисленная фракция, геройственная смерть в нищете.
+department-fractionarmwm-name = Повстанцы
+department-fractionarmwm-desc = Слабооборудованная, но многочисленная фракция, геройственная смерть в нищете.
 
+department-FractionCoreWM = Республиканцы
+department-FractionCoreWM-description = Могущественная, но неповоротливая фракция - скучный покой в богатстве.
 department-fractioncorewm-name = Республиканцы
 department-fractioncorewm-desc = Могущественная, но неповоротливая фракция - скучный покой в богатстве.
 
-department-fractionarmwm-name = Повстанцы
-department-fractionarmwm-desc = Слабооборудованная, но многочисленная фракция, геройственная смерть в нищете.
+department-FractionGhostWM = Наблюдатели
+department-FractionGhostWM-description = Эуэ?
+department-fractionghostwm-name = Наблюдатели
+department-fractionghostwm-desc = Эуэ?
 
 radio-channel-core-name = Республиканцы
 radio-channel-arm-name = Повстанцы

@@ -88,7 +88,7 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
   id: Marker14567
-  suffix: Роняет сервер головй об кафель, использовать на свой страх и риск.
+  suffix: Drops the server headfirst on tile, use at your own risk.
   name: pw-gamemodes-republic-brokenhostserver-name
   placement:
     mode: SnapgridCenter
@@ -113,7 +113,7 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
   id: Marker14567Boom
-  suffix: Роняет сервер головй об кафель, использовать на свой страх и риск.
+  suffix: Drops the server headfirst on tile, use at your own risk.
   name: pw-gamemodes-republic-brokenhostserver-name
   components:
   - type: Sprite
@@ -145,7 +145,7 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
   id: Marker24567
-  suffix: Заливает сервер просроченым пивом, использовать на свой страх и риск.
+  suffix: Floods the server with expired beer, use at your own risk.
   name: pw-gamemodes-rebels-brokenhostserver-name
   placement:
     mode: SnapgridCenter
@@ -170,7 +170,7 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
   id: Marker24567Boom
-  suffix: Заливает сервер просроченым пивом, использовать на свой страх и риск.
+  suffix: Floods the server with expired beer, use at your own risk.
   name: pw-gamemodes-rebels-brokenhostserver-name
   components:
   - type: Sprite

@@ -309,7 +309,7 @@
     active: true
   - type: Physics
     bodyStatus: InAir
-    bodyType: Dynamic
+    bodyType: KinematicController
     fixedRotation: false
   - type: ContainmentField
     throwForce: 0

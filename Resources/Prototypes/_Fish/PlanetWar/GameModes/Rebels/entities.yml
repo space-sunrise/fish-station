@@ -345,7 +345,7 @@
   categories: [ HideSpawnMenu, Debug ]
   parent: MarkerBase
   id: Marker24567Start
-  suffix: Заливает сервер просроченым пивом, использовать на свой страх и риск.
+  suffix: Floods the server with expired beer, use at your own risk.
   name: pw-gamemodes-rebels-brokenhostserver-name
   components:
   - type: GhostRole
