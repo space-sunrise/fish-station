@@ -131,7 +131,7 @@
     - type: Battery
       maxCharge: 4000
       startingCharge: 0
-      netSync: false
+      netsync: false
     - type: ApcPowerReceiverBattery
       idleLoad: 5
       batteryRechargeRate: 300
@@ -254,7 +254,7 @@
   - type: Battery
     maxCharge: 3000
     startingCharge: 0
-    netSync: false
+    netsync: false
   - type: ApcPowerReceiverBattery
     idleLoad: 5
     batteryRechargeRate: 200

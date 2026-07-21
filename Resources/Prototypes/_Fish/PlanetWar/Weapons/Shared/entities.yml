@@ -687,6 +687,8 @@
     proto: ShellShotgunSlugWM
   - type: Gun
     selectedMode: FullAuto
+    availableModes:
+      - FullAuto
     pump: false
     fireRate: 3.5
   - type: PhysicalComposition
