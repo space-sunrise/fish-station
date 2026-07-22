@@ -24,8 +24,11 @@ public sealed partial class AnimalObjectiveTrackerComponent : Component
     [DataField]
     public int TilesMoved;
 
+    /// <summary>
+    /// Именованные WarpPoint.Location, которые животное посетило (как spider charge).
+    /// </summary>
     [DataField]
-    public HashSet<EntityUid> VisitedGrids = new();
+    public HashSet<string> VisitedLocations = new();
 
     [DataField]
     public HashSet<ProtoId<EntityPrototype>> EatenFoodProtos = new();

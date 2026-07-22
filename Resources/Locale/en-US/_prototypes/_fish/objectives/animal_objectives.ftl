@@ -58,8 +58,8 @@ animal-objective-tile-distance-description = Explore the station one tiny step a
 animal-objective-long-walk-title = Walk a long route: { $count } tiles
 animal-objective-long-walk-description = Set out on a bigger little journey through the station.
 
-animal-objective-explore-grids-title = Visit { $count } different areas
-animal-objective-explore-grids-description = Wander into new parts of the station you haven't seen yet.
+animal-objective-visit-locations-title = Visit { $count } different station locations
+animal-objective-visit-locations-description = Wander to named places around the station — kitchens, medbay, bridges, and the rest.
 
 animal-objective-try-new-food-title = Try { $count } different foods
 animal-objective-try-new-food-description = Expand your palate by tasting new kinds of snacks.

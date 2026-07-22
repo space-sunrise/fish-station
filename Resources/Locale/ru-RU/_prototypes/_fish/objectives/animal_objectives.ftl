@@ -58,8 +58,8 @@ animal-objective-tile-distance-description = Исследуй станцию к�
 animal-objective-long-walk-title = Пройти длинный маршрут: { $count } плиток
 animal-objective-long-walk-description = Устрой себе большое путешествие по станции.
 
-animal-objective-explore-grids-title = Посетить { $count } разных зон
-animal-objective-explore-grids-description = Забреди в новые части станции, где ещё не был.
+animal-objective-visit-locations-title = Посетить { $count } разных мест станции
+animal-objective-visit-locations-description = Доберись до именованных точек станции — кухня, медотсек, мостик и прочие warp-локации.
 
 animal-objective-try-new-food-title = Попробовать { $count } разных блюд
 animal-objective-try-new-food-description = Расширь кругозор, попробовав новые виды еды.

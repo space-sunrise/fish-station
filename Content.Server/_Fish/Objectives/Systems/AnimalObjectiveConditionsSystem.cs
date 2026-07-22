@@ -3,6 +3,7 @@ using Content.Server.Objectives.Systems;
 using Content.Shared._Fish.Objectives.Components;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
+using Content.Shared.Warps;
 
 namespace Content.Server._Fish.Objectives.Systems;
 
@@ -20,7 +21,8 @@ public sealed class AnimalObjectiveConditionsSystem : EntitySystem
         SubscribeLocalEvent<AnimalEatFoodConditionComponent, ObjectiveGetProgressEvent>(OnEatFood);
         SubscribeLocalEvent<AnimalEatPaperConditionComponent, ObjectiveGetProgressEvent>(OnEatPaper);
         SubscribeLocalEvent<AnimalTileDistanceConditionComponent, ObjectiveGetProgressEvent>(OnTileDistance);
-        SubscribeLocalEvent<AnimalExploreGridsConditionComponent, ObjectiveGetProgressEvent>(OnExploreGrids);
+        SubscribeLocalEvent<AnimalVisitLocationsConditionComponent, RequirementCheckEvent>(OnVisitLocationsRequirement);
+        SubscribeLocalEvent<AnimalVisitLocationsConditionComponent, ObjectiveGetProgressEvent>(OnVisitLocations);
         SubscribeLocalEvent<AnimalTryNewFoodConditionComponent, ObjectiveGetProgressEvent>(OnTryNewFood);
     }
 
@@ -84,12 +86,32 @@ public sealed class AnimalObjectiveConditionsSystem : EntitySystem
         args.Progress = GetProgress(tracker.TilesMoved, _number.GetTarget(uid));
     }
 
-    private void OnExploreGrids(EntityUid uid, AnimalExploreGridsConditionComponent comp, ref ObjectiveGetProgressEvent args)
+    private void OnVisitLocationsRequirement(EntityUid uid, AnimalVisitLocationsConditionComponent comp, ref RequirementCheckEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        // Как у spider charge: без именованных WarpPoint цель не выдаём.
+        var namedLocations = 0;
+        var query = EntityQueryEnumerator<WarpPointComponent>();
+        while (query.MoveNext(out _, out var warp))
+        {
+            if (!string.IsNullOrWhiteSpace(warp.Location))
+                namedLocations++;
+        }
+
+        // RequirementCheck идёт до NumberObjective.OnAssigned — Target ещё 0, поэтому Min из прототипа.
+        const int minLocations = 3;
+        if (namedLocations < minLocations)
+            args.Cancelled = true;
+    }
+
+    private void OnVisitLocations(EntityUid uid, AnimalVisitLocationsConditionComponent comp, ref ObjectiveGetProgressEvent args)
     {
         if (GetTracker(args) is not { } tracker)
             return;
 
-        args.Progress = GetProgress(tracker.VisitedGrids.Count, _number.GetTarget(uid));
+        args.Progress = GetProgress(tracker.VisitedLocations.Count, _number.GetTarget(uid));
     }
 
     private void OnTryNewFood(EntityUid uid, AnimalTryNewFoodConditionComponent comp, ref ObjectiveGetProgressEvent args)

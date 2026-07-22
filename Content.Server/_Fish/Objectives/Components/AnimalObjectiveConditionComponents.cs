@@ -41,8 +41,11 @@ public sealed partial class AnimalEatPaperConditionComponent : Component
 [RegisterComponent, Access(typeof(AnimalObjectiveConditionsSystem))]
 public sealed partial class AnimalTileDistanceConditionComponent : Component;
 
+/// <summary>
+/// Посетить N именованных мест станции (<see cref="Content.Shared.Warps.WarpPointComponent.Location"/>).
+/// </summary>
 [RegisterComponent, Access(typeof(AnimalObjectiveConditionsSystem))]
-public sealed partial class AnimalExploreGridsConditionComponent : Component;
+public sealed partial class AnimalVisitLocationsConditionComponent : Component;
 
 [RegisterComponent, Access(typeof(AnimalObjectiveConditionsSystem))]
 public sealed partial class AnimalTryNewFoodConditionComponent : Component;

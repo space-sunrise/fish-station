@@ -6,33 +6,50 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Paper;
 using Content.Shared.Tag;
+using Content.Shared.Warps;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Fish.Objectives.Systems;
 
 public sealed class AnimalObjectiveTrackerSystem : EntitySystem
 {
     private static readonly ProtoId<TagPrototype> PaperTag = "Paper";
+    private static readonly TimeSpan LocationScanInterval = TimeSpan.FromSeconds(1);
+    private const float LocationVisitRange = 6f;
 
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly TagSystem _tag = default!;
 
     private EntityQuery<EdibleComponent> _edibleQuery;
+    private TimeSpan _nextLocationScan;
 
     public override void Initialize()
     {
         base.Initialize();
 
         _edibleQuery = GetEntityQuery<EdibleComponent>();
-
-        SubscribeLocalEvent<MetaDataComponent, IngestedEvent>(OnIngested);
+        SubscribeLocalEvent<AnimalObjectiveTrackerComponent, IngestingEvent>(OnIngesting);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
+        UpdateMovement();
+
+        if (_timing.CurTime < _nextLocationScan)
+            return;
+
+        _nextLocationScan = _timing.CurTime + LocationScanInterval;
+        UpdateVisitedLocations();
+    }
+
+    private void UpdateMovement()
+    {
         var query = EntityQueryEnumerator<AnimalObjectiveTrackerComponent, TransformComponent>();
         while (query.MoveNext(out _, out var tracker, out var xform))
         {
@@ -52,14 +69,45 @@ public sealed class AnimalObjectiveTrackerSystem : EntitySystem
 
             tracker.LastGrid = grid;
             tracker.LastTile = tile;
-            tracker.VisitedGrids.Add(grid);
         }
     }
 
-    private void OnIngested(EntityUid food, MetaDataComponent comp, ref IngestedEvent args)
+    /// <summary>
+    /// Посещение именованных WarpPoint — тот же источник «мест станции», что у spider charge.
+    /// </summary>
+    private void UpdateVisitedLocations()
     {
-        if (!TryComp<AnimalObjectiveTrackerComponent>(args.Target, out var tracker))
+        var animals = new List<(EntityUid Uid, AnimalObjectiveTrackerComponent Tracker, TransformComponent Xform)>();
+        var animalQuery = EntityQueryEnumerator<AnimalObjectiveTrackerComponent, TransformComponent>();
+        while (animalQuery.MoveNext(out var uid, out var tracker, out var xform))
+            animals.Add((uid, tracker, xform));
+
+        if (animals.Count == 0)
             return;
+
+        var warpQuery = EntityQueryEnumerator<WarpPointComponent, TransformComponent>();
+        while (warpQuery.MoveNext(out var warpUid, out var warp, out var warpXform))
+        {
+            if (string.IsNullOrWhiteSpace(warp.Location))
+                continue;
+
+            foreach (var (animalUid, tracker, animalXform) in animals)
+            {
+                if (animalXform.MapID != warpXform.MapID)
+                    continue;
+
+                if (!_transform.InRange((animalUid, animalXform), (warpUid, warpXform), LocationVisitRange))
+                    continue;
+
+                tracker.VisitedLocations.Add(warp.Location);
+            }
+        }
+    }
+
+    private void OnIngesting(Entity<AnimalObjectiveTrackerComponent> ent, ref IngestingEvent args)
+    {
+        var tracker = ent.Comp;
+        var food = args.Food;
 
         foreach (var (reagent, quantity) in args.Split.Contents)
         {

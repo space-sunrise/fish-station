@@ -44,8 +44,7 @@ public sealed class AnimalObjectivesSystem : EntitySystem
 
     private void OnRoundStarted(RoundStartedEvent ev)
     {
-        // Game rule стартуем лениво только при наличии подходящих животных,
-        // иначе ломаются тесты, ожидающие ровно одно активное правило.
+        // На случай пресетов без SubGamemodes — правило поднимем лениво при наличии животных.
         AssignObjectivesToExistingMinds();
     }
 
@@ -73,16 +72,20 @@ public sealed class AnimalObjectivesSystem : EntitySystem
 
         EnsureRuleStarted();
 
+        // Трекер всегда на текущем теле — в т.ч. при переносе Mind / повторном MindAdded.
+        EnsureComp<AnimalObjectiveTrackerComponent>(uid);
+
         if (HasAnimalObjectives(mind))
         {
             RegisterMind(mindId);
             return;
         }
 
-        EnsureComp<AnimalObjectiveTrackerComponent>(uid);
         var assigned = AssignObjectives(mindId, mind);
-        RegisterMind(mindId);
+        if (assigned <= 0)
+            return;
 
+        RegisterMind(mindId);
         Log.Debug($"Assigned {assigned} animal objective(s) to {ToPrettyString(uid)}");
     }
 

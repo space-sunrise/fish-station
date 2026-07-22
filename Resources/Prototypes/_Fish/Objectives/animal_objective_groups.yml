@@ -47,7 +47,7 @@
   weights:
     AnimalTileDistanceObjective: 1.5
     AnimalLongWalkObjective: 0.8
-    AnimalExploreGridsObjective: 1
+    AnimalVisitLocationsObjective: 1
 
 - type: weightedRandom
   id: AnimalObjectiveGroupRoundEnd

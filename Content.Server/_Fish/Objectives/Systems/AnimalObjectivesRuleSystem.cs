@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Server._Fish.Objectives.Components;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Objectives;
@@ -17,15 +16,16 @@ public sealed class AnimalObjectivesRuleSystem : GameRuleSystem<AnimalObjectives
 
     private void OnObjectivesTextGetInfo(Entity<AnimalObjectivesRuleComponent> ent, ref ObjectivesTextGetInfoEvent args)
     {
-        args.Minds = ent.Comp.Minds
-            .Where(mindId => Exists(mindId) && TryComp<MindComponent>(mindId, out _))
-            .Select(mindId =>
-            {
-                var mind = Comp<MindComponent>(mindId);
-                return (mindId, mind.CharacterName ?? "?");
-            })
-            .ToList();
+        var minds = new List<(EntityUid, string)>(ent.Comp.Minds.Count);
+        foreach (var mindId in ent.Comp.Minds)
+        {
+            if (!Exists(mindId) || !TryComp<MindComponent>(mindId, out var mind))
+                continue;
 
+            minds.Add((mindId, mind.CharacterName ?? "?"));
+        }
+
+        args.Minds = minds;
         args.AgentName = Loc.GetString(ent.Comp.AgentName);
     }
 }

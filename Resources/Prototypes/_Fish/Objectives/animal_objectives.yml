@@ -249,7 +249,7 @@
 
 - type: entity
   parent: BaseAnimalLivingObjective
-  id: AnimalExploreGridsObjective
+  id: AnimalVisitLocationsObjective
   components:
   - type: Objective
     difficulty: 1
@@ -258,9 +258,9 @@
   - type: NumberObjective
     min: 3
     max: 5
-    title: animal-objective-explore-grids-title
-    description: animal-objective-explore-grids-description
-  - type: AnimalExploreGridsCondition
+    title: animal-objective-visit-locations-title
+    description: animal-objective-visit-locations-description
+  - type: AnimalVisitLocationsCondition
 
 - type: entity
   parent: BaseAnimalLivingObjective
