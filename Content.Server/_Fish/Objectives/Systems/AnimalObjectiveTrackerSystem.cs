@@ -77,22 +77,15 @@ public sealed class AnimalObjectiveTrackerSystem : EntitySystem
     /// </summary>
     private void UpdateVisitedLocations()
     {
-        var animals = new List<(EntityUid Uid, AnimalObjectiveTrackerComponent Tracker, TransformComponent Xform)>();
         var animalQuery = EntityQueryEnumerator<AnimalObjectiveTrackerComponent, TransformComponent>();
-        while (animalQuery.MoveNext(out var uid, out var tracker, out var xform))
-            animals.Add((uid, tracker, xform));
-
-        if (animals.Count == 0)
-            return;
-
-        var warpQuery = EntityQueryEnumerator<WarpPointComponent, TransformComponent>();
-        while (warpQuery.MoveNext(out var warpUid, out var warp, out var warpXform))
+        while (animalQuery.MoveNext(out var animalUid, out var tracker, out var animalXform))
         {
-            if (string.IsNullOrWhiteSpace(warp.Location))
-                continue;
-
-            foreach (var (animalUid, tracker, animalXform) in animals)
+            var warpQuery = EntityQueryEnumerator<WarpPointComponent, TransformComponent>();
+            while (warpQuery.MoveNext(out var warpUid, out var warp, out var warpXform))
             {
+                if (string.IsNullOrWhiteSpace(warp.Location))
+                    continue;
+
                 if (animalXform.MapID != warpXform.MapID)
                     continue;
 
@@ -108,16 +101,18 @@ public sealed class AnimalObjectiveTrackerSystem : EntitySystem
     {
         var tracker = ent.Comp;
         var food = args.Food;
+        var isDrink = _edibleQuery.TryComp(food, out var edible) && edible.Edible == IngestionSystem.Drink;
 
-        foreach (var (reagent, quantity) in args.Split.Contents)
+        // Реагенты/объём напитков — только для Drink, иначе еда с Coffee засчитывает drink-цели.
+        if (isDrink)
         {
-            var id = reagent.Prototype;
-            tracker.DrunkReagents.TryGetValue(id, out var existing);
-            tracker.DrunkReagents[id] = existing + quantity;
-        }
+            foreach (var (reagent, quantity) in args.Split.Contents)
+            {
+                var id = reagent.Prototype;
+                tracker.DrunkReagents.TryGetValue(id, out var existing);
+                tracker.DrunkReagents[id] = existing + quantity;
+            }
 
-        if (_edibleQuery.TryComp(food, out var edible) && edible.Edible == IngestionSystem.Drink)
-        {
             tracker.DrinkVolume += args.Split.Volume;
             return;
         }

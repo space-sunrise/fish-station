@@ -1,7 +1,6 @@
 using Content.Server._Fish.Objectives.Components;
 using Content.Server.Objectives.Systems;
 using Content.Shared._Fish.Objectives.Components;
-using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Warps;
 
@@ -22,30 +21,35 @@ public sealed class AnimalObjectiveConditionsSystem : EntitySystem
         SubscribeLocalEvent<AnimalEatPaperConditionComponent, ObjectiveGetProgressEvent>(OnEatPaper);
         SubscribeLocalEvent<AnimalTileDistanceConditionComponent, ObjectiveGetProgressEvent>(OnTileDistance);
         SubscribeLocalEvent<AnimalVisitLocationsConditionComponent, RequirementCheckEvent>(OnVisitLocationsRequirement);
+        // После NumberObjectiveSystem — Target уже выбран.
+        SubscribeLocalEvent<AnimalVisitLocationsConditionComponent, ObjectiveAssignedEvent>(
+            OnVisitLocationsAssigned,
+            after: [typeof(NumberObjectiveSystem)]);
         SubscribeLocalEvent<AnimalVisitLocationsConditionComponent, ObjectiveGetProgressEvent>(OnVisitLocations);
         SubscribeLocalEvent<AnimalTryNewFoodConditionComponent, ObjectiveGetProgressEvent>(OnTryNewFood);
     }
 
     private void OnEatCount(EntityUid uid, AnimalEatCountConditionComponent comp, ref ObjectiveGetProgressEvent args)
     {
-        if (GetTracker(args) is not { } tracker)
-            return;
-
-        args.Progress = GetProgress(tracker.EatCount, _number.GetTarget(uid));
+        args.Progress = GetTracker(args) is { } tracker
+            ? GetProgress(tracker.EatCount, _number.GetTarget(uid))
+            : 0f;
     }
 
     private void OnDrinkVolume(EntityUid uid, AnimalDrinkVolumeConditionComponent comp, ref ObjectiveGetProgressEvent args)
     {
-        if (GetTracker(args) is not { } tracker)
-            return;
-
-        args.Progress = GetProgress((float) tracker.DrinkVolume, _number.GetTarget(uid));
+        args.Progress = GetTracker(args) is { } tracker
+            ? GetProgress((float) tracker.DrinkVolume, _number.GetTarget(uid))
+            : 0f;
     }
 
     private void OnDrinkReagent(EntityUid uid, AnimalDrinkReagentConditionComponent comp, ref ObjectiveGetProgressEvent args)
     {
         if (GetTracker(args) is not { } tracker)
+        {
+            args.Progress = 0f;
             return;
+        }
 
         var volume = tracker.DrunkReagents.GetValueOrDefault(comp.Reagent);
 
@@ -58,7 +62,10 @@ public sealed class AnimalObjectiveConditionsSystem : EntitySystem
     private void OnEatFood(EntityUid uid, AnimalEatFoodConditionComponent comp, ref ObjectiveGetProgressEvent args)
     {
         if (GetTracker(args) is not { } tracker)
+        {
+            args.Progress = 0f;
             return;
+        }
 
         var current = comp.Tag is { } tag
             ? tracker.EatenTagCounts.GetValueOrDefault(tag)
@@ -72,7 +79,10 @@ public sealed class AnimalObjectiveConditionsSystem : EntitySystem
     private void OnEatPaper(EntityUid uid, AnimalEatPaperConditionComponent comp, ref ObjectiveGetProgressEvent args)
     {
         if (GetTracker(args) is not { } tracker)
+        {
+            args.Progress = 0f;
             return;
+        }
 
         var current = comp.RequireBlank ? tracker.BlankPaperEaten : tracker.PaperEaten;
         args.Progress = GetProgress(current, _number.GetTarget(uid));
@@ -80,10 +90,9 @@ public sealed class AnimalObjectiveConditionsSystem : EntitySystem
 
     private void OnTileDistance(EntityUid uid, AnimalTileDistanceConditionComponent comp, ref ObjectiveGetProgressEvent args)
     {
-        if (GetTracker(args) is not { } tracker)
-            return;
-
-        args.Progress = GetProgress(tracker.TilesMoved, _number.GetTarget(uid));
+        args.Progress = GetTracker(args) is { } tracker
+            ? GetProgress(tracker.TilesMoved, _number.GetTarget(uid))
+            : 0f;
     }
 
     private void OnVisitLocationsRequirement(EntityUid uid, AnimalVisitLocationsConditionComponent comp, ref RequirementCheckEvent args)
@@ -91,35 +100,47 @@ public sealed class AnimalObjectiveConditionsSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        // Как у spider charge: без именованных WarpPoint цель не выдаём.
-        var namedLocations = 0;
-        var query = EntityQueryEnumerator<WarpPointComponent>();
-        while (query.MoveNext(out _, out var warp))
-        {
-            if (!string.IsNullOrWhiteSpace(warp.Location))
-                namedLocations++;
-        }
+        // Как spider charge: без именованных мест цель не выдаём.
+        // Считаем уникальные Location — прогресс тоже по уникальным строкам.
+        if (CountUniqueNamedWarpLocations() == 0)
+            args.Cancelled = true;
+    }
 
-        // RequirementCheck идёт до NumberObjective.OnAssigned — Target ещё 0, поэтому Min из прототипа.
-        const int minLocations = 3;
-        if (namedLocations < minLocations)
+    private void OnVisitLocationsAssigned(EntityUid uid, AnimalVisitLocationsConditionComponent comp, ref ObjectiveAssignedEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        var unique = CountUniqueNamedWarpLocations();
+        if (_number.GetTarget(uid) > unique)
             args.Cancelled = true;
     }
 
     private void OnVisitLocations(EntityUid uid, AnimalVisitLocationsConditionComponent comp, ref ObjectiveGetProgressEvent args)
     {
-        if (GetTracker(args) is not { } tracker)
-            return;
-
-        args.Progress = GetProgress(tracker.VisitedLocations.Count, _number.GetTarget(uid));
+        args.Progress = GetTracker(args) is { } tracker
+            ? GetProgress(tracker.VisitedLocations.Count, _number.GetTarget(uid))
+            : 0f;
     }
 
     private void OnTryNewFood(EntityUid uid, AnimalTryNewFoodConditionComponent comp, ref ObjectiveGetProgressEvent args)
     {
-        if (GetTracker(args) is not { } tracker)
-            return;
+        args.Progress = GetTracker(args) is { } tracker
+            ? GetProgress(tracker.EatenFoodProtos.Count, _number.GetTarget(uid))
+            : 0f;
+    }
 
-        args.Progress = GetProgress(tracker.EatenFoodProtos.Count, _number.GetTarget(uid));
+    private int CountUniqueNamedWarpLocations()
+    {
+        var locations = new HashSet<string>();
+        var query = EntityQueryEnumerator<WarpPointComponent>();
+        while (query.MoveNext(out _, out var warp))
+        {
+            if (!string.IsNullOrWhiteSpace(warp.Location))
+                locations.Add(warp.Location);
+        }
+
+        return locations.Count;
     }
 
     private AnimalObjectiveTrackerComponent? GetTracker(ObjectiveGetProgressEvent args)

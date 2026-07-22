@@ -44,7 +44,9 @@ public sealed class AnimalObjectivesSystem : EntitySystem
 
     private void OnRoundStarted(RoundStartedEvent ev)
     {
-        // На случай пресетов без SubGamemodes — правило поднимем лениво при наличии животных.
+        // Ленивый старт по паттерну GenericAntag: правило поднимается при MindAdded / здесь,
+        // если на карте уже есть eligible животные. Не в SubGamemodes — иначе двойной путь
+        // и лишний GameRule без животных (ломает тесты вроде RuleMaxTimeRestartTest при автостарте).
         AssignObjectivesToExistingMinds();
     }
 
