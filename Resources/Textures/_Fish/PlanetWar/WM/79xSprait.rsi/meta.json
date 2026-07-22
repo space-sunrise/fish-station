@@ -1,0 +1,16 @@
+{
+  "size": {
+    "x": 158,
+    "y": 158
+  },
+  "states": [
+    {
+      "name": "armTank",
+      "directions": 4
+    },
+    {
+      "name": "coreTank",
+      "directions": 4
+    }
+  ]
+}

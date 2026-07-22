@@ -1,0 +1,10 @@
+- type: department
+  id: FractionArmWM
+  name: department-FractionArmWM
+  description: department-FractionArmWM-description
+  color: "#e50000"
+  roles:
+  - JobArmBase
+  - JobArmPC0I5
+  - JobArmPM1
+  - JobArmPE1
