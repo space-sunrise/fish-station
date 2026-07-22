@@ -2,46 +2,46 @@
   id: NameArmP0WM
   values:
     prefix: pw-name-armp0-
-    count: 10
+    count: 1
 
 
 - type: localizedDataset
   id: NameArmPC0I5WM
   values:
     prefix: pw-name-armpc0i5-
-    count: 10
+    count: 1
 
 
 - type: localizedDataset
   id: NameArmP1WM
   values:
     prefix: pw-name-armp1-
-    count: 10
+    count: 1
 
 
 - type: localizedDataset
   id: NameArmPH5WM
   values:
     prefix: pw-name-armph5-
-    count: 10
+    count: 1
 
 
 - type: localizedDataset
   id: NameArmPM1WM
   values:
     prefix: pw-name-armpm1-
-    count: 10
+    count: 1
 
 
 - type: localizedDataset
   id: NameArmPE1WM
   values:
     prefix: pw-name-armpe1-
-    count: 10
+    count: 1
 
 
 - type: localizedDataset
   id: NameArmPS4WM
   values:
     prefix: pw-name-armps4-
-    count: 10
+    count: 1

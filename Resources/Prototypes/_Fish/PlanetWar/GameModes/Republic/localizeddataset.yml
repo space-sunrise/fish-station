@@ -2,46 +2,46 @@
   id: NameCoreP0WM
   values:
     prefix: pw-name-corep0-
-    count: 10
+    count: 1
 
 
 - type: localizedDataset
   id: NameCorePC0I5WM
   values:
     prefix: pw-name-corepc0i5-
-    count: 10
+    count: 1
 
 
 - type: localizedDataset
   id: NameCoreP1WM
   values:
     prefix: pw-name-corep1-
-    count: 10
+    count: 1
 
 
 - type: localizedDataset
   id: NameCorePH5WM
   values:
     prefix: pw-name-coreph5-
-    count: 10
+    count: 1
 
 
 - type: localizedDataset
   id: NameCorePM1WM
   values:
     prefix: pw-name-corepm1-
-    count: 10
+    count: 1
 
 
 - type: localizedDataset
   id: NameCorePE1WM
   values:
     prefix: pw-name-corepe1-
-    count: 10
+    count: 1
 
 
 - type: localizedDataset
   id: NameCorePS4WM
   values:
     prefix: pw-name-coreps4-
-    count: 10
+    count: 1
