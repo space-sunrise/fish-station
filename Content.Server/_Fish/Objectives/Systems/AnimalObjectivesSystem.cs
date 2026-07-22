@@ -1,6 +1,5 @@
 using Content.Server._Fish.Objectives.Components;
 using Content.Server.GameTicking;
-using Content.Server.GameTicking.Events;
 using Content.Server.Objectives;
 using Content.Shared._Fish.Objectives.Components;
 using Content.Shared.GameTicking;
@@ -15,7 +14,10 @@ namespace Content.Server._Fish.Objectives.Systems;
 
 public sealed class AnimalObjectivesSystem : EntitySystem
 {
+    private static readonly EntProtoId AnimalObjectivesRuleId = "AnimalObjectives";
+
     [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ObjectivesSystem _objectives = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
@@ -24,7 +26,6 @@ public sealed class AnimalObjectivesSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RoundStartingEvent>(OnRoundStarting);
         SubscribeLocalEvent<RoundStartedEvent>(OnRoundStarted);
         SubscribeLocalEvent<MindContainerComponent, MindAddedMessage>(OnMindAdded);
     }
@@ -34,18 +35,17 @@ public sealed class AnimalObjectivesSystem : EntitySystem
         if (MetaData(uid).EntityPrototype is not { } proto)
             return false;
 
-        rule ??= TryGetActiveRule(out var activeRule) ? activeRule : null;
-        return rule != null && rule.EligiblePrototypes.Contains(proto.ID);
-    }
+        rule ??= TryGetActiveRule(out var activeRule)
+            ? activeRule
+            : TryGetRulePrototype(out var protoRule) ? protoRule : null;
 
-    private void OnRoundStarting(RoundStartingEvent ev)
-    {
-        EnsureRuleStarted();
+        return rule != null && rule.EligiblePrototypes.Contains(proto.ID);
     }
 
     private void OnRoundStarted(RoundStartedEvent ev)
     {
-        EnsureRuleStarted();
+        // Game rule стартуем лениво только при наличии подходящих животных,
+        // иначе ломаются тесты, ожидающие ровно одно активное правило.
         AssignObjectivesToExistingMinds();
     }
 
@@ -139,6 +139,21 @@ public sealed class AnimalObjectivesSystem : EntitySystem
         return false;
     }
 
+    private bool TryGetRulePrototype(out AnimalObjectivesRuleComponent rule)
+    {
+        rule = default!;
+
+        if (!_proto.TryIndex(AnimalObjectivesRuleId, out EntityPrototype? ruleProto))
+            return false;
+
+        if (!ruleProto.TryGetComponent(out AnimalObjectivesRuleComponent? config, EntityManager.ComponentFactory)
+            || config == null)
+            return false;
+
+        rule = config;
+        return true;
+    }
+
     private bool HasAnimalObjectives(MindComponent mind)
     {
         foreach (var objective in mind.Objectives)
@@ -155,7 +170,7 @@ public sealed class AnimalObjectivesSystem : EntitySystem
         if (TryGetActiveRule(out _))
             return;
 
-        var rule = _gameTicker.AddGameRule("AnimalObjectives");
+        var rule = _gameTicker.AddGameRule(AnimalObjectivesRuleId);
         _gameTicker.StartGameRule(rule);
     }
 }
