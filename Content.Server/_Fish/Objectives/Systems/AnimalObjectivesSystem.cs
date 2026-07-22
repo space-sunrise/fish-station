@@ -31,7 +31,7 @@ public sealed class AnimalObjectivesSystem : EntitySystem
 
     public bool IsEligible(EntityUid uid, AnimalObjectivesRuleComponent? rule = null)
     {
-        if (!TryComp<MetaDataComponent>(uid, out var meta) || meta.EntityPrototype is not { } proto)
+        if (MetaData(uid).EntityPrototype is not { } proto)
             return false;
 
         rule ??= TryGetActiveRule(out var activeRule) ? activeRule : null;

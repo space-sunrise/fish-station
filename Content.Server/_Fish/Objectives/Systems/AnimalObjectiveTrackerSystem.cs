@@ -12,6 +12,8 @@ namespace Content.Server._Fish.Objectives.Systems;
 
 public sealed class AnimalObjectiveTrackerSystem : EntitySystem
 {
+    private static readonly ProtoId<TagPrototype> PaperTag = "Paper";
+
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly TagSystem _tag = default!;
@@ -54,7 +56,7 @@ public sealed class AnimalObjectiveTrackerSystem : EntitySystem
         }
     }
 
-    private void OnIngested(EntityUid food, MetaDataComponent comp, IngestedEvent args)
+    private void OnIngested(EntityUid food, MetaDataComponent comp, ref IngestedEvent args)
     {
         if (!TryComp<AnimalObjectiveTrackerComponent>(args.Target, out var tracker))
             return;
@@ -89,7 +91,7 @@ public sealed class AnimalObjectiveTrackerSystem : EntitySystem
             }
         }
 
-        if (!_tag.HasTag(food, "Paper"))
+        if (!_tag.HasTag(food, PaperTag))
             return;
 
         if (IsBlankPaper(food))
@@ -127,7 +129,7 @@ public sealed class AnimalObjectiveTrackerSystem : EntitySystem
     private bool IsBlankPaper(EntityUid paper)
     {
         if (!TryComp<PaperComponent>(paper, out var paperComp))
-            return _tag.HasTag(paper, "Paper");
+            return _tag.HasTag(paper, PaperTag);
 
         return paperComp.StampedBy.Count == 0 && string.IsNullOrWhiteSpace(paperComp.Content);
     }
