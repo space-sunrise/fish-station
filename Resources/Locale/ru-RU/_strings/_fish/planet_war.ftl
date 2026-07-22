@@ -74,8 +74,8 @@ planetwar-preset-name = Planet War (WM)
 planetwar-preset-description = Выберите професию или призрачную роль одной из сторон, выполняйте приказы своих лидеров, ваша цель — уничтожить все вражеские врата.
 planetwar-secret-preset-name = Планета Вульп (ПВ)
 planetwar-secret-preset-description = Веселый TDM - Team Dog Match
-planetwar-vulpkanin-preset-name = Planet War (Вульпканины)
-planetwar-vulpkanin-preset-description = Масштабное противостояние Повстанцев и Республики с проклятием вульпканинов.
+planetwar-vulpkanin-preset-name = Планета вульп (ПВ)
+planetwar-vulpkanin-preset-description = Шутки кончились.
 
 # Automatically extracted Russian localization
 pw-construction-rebels-ammotechfabarm-desc = Йоу
