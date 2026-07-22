@@ -322,3 +322,159 @@ pw-construction-republic-jobspawner-name = Спавнер Республики
 pw-construction-shared-ghostspawner-name = Спавнер Призраков
 pw-gamemodes-rebels-brokenhostserver-name = Сломанный сервер Повстанцев
 pw-gamemodes-republic-brokenhostserver-name = Сломанный сервер Республики
+
+# Rebel names
+pw-name-armp0-1 = Ополченец Альфа
+pw-name-armp0-2 = Ополченец Бета
+pw-name-armp0-3 = Ополченец Гамма
+pw-name-armp0-4 = Ополченец Дельта
+pw-name-armp0-5 = Ополченец Эпсилон
+pw-name-armp0-6 = Ополченец Дзета
+pw-name-armp0-7 = Ополченец Эта
+pw-name-armp0-8 = Ополченец Тета
+pw-name-armp0-9 = Ополченец Йота
+pw-name-armp0-10 = Ополченец Каппа
+
+pw-name-armpc0i5-1 = Предводитель Альфа
+pw-name-armpc0i5-2 = Предводитель Бета
+pw-name-armpc0i5-3 = Предводитель Гамма
+pw-name-armpc0i5-4 = Предводитель Дельта
+pw-name-armpc0i5-5 = Предводитель Эпсилон
+pw-name-armpc0i5-6 = Предводитель Дзета
+pw-name-armpc0i5-7 = Предводитель Эта
+pw-name-armpc0i5-8 = Предводитель Тета
+pw-name-armpc0i5-9 = Предводитель Йота
+pw-name-armpc0i5-10 = Предводитель Каппа
+
+pw-name-armp1-1 = Коллектор Альфа
+pw-name-armp1-2 = Коллектор Бета
+pw-name-armp1-3 = Коллектор Гамма
+pw-name-armp1-4 = Коллектор Дельта
+pw-name-armp1-5 = Коллектор Эпсилон
+pw-name-armp1-6 = Коллектор Дзета
+pw-name-armp1-7 = Коллектор Эта
+pw-name-armp1-8 = Коллектор Тета
+pw-name-armp1-9 = Коллектор Йота
+pw-name-armp1-10 = Коллектор Каппа
+
+pw-name-armph5-1 = Кульминат Альфа
+pw-name-armph5-2 = Кульминат Бета
+pw-name-armph5-3 = Кульминат Гамма
+pw-name-armph5-4 = Кульминат Дельта
+pw-name-armph5-5 = Кульминат Эпсилон
+pw-name-armph5-6 = Кульминат Дзета
+pw-name-armph5-7 = Кульминат Эта
+pw-name-armph5-8 = Кульминат Тета
+pw-name-armph5-9 = Кульминат Йота
+pw-name-armph5-10 = Кульминат Каппа
+
+pw-name-armpm1-1 = Аптекарь Альфа
+pw-name-armpm1-2 = Аптекарь Бета
+pw-name-armpm1-3 = Аптекарь Гамма
+pw-name-armpm1-4 = Аптекарь Дельта
+pw-name-armpm1-5 = Аптекарь Эпсилон
+pw-name-armpm1-6 = Аптекарь Дзета
+pw-name-armpm1-7 = Аптекарь Эта
+pw-name-armpm1-8 = Аптекарь Тета
+pw-name-armpm1-9 = Аптекарь Йота
+pw-name-armpm1-10 = Аптекарь Каппа
+
+pw-name-armpe1-1 = Строитель Альфа
+pw-name-armpe1-2 = Строитель Бета
+pw-name-armpe1-3 = Строитель Гамма
+pw-name-armpe1-4 = Строитель Дельта
+pw-name-armpe1-5 = Строитель Эпсилон
+pw-name-armpe1-6 = Строитель Дзета
+pw-name-armpe1-7 = Строитель Эта
+pw-name-armpe1-8 = Строитель Тета
+pw-name-armpe1-9 = Строитель Йота
+pw-name-armpe1-10 = Строитель Каппа
+
+pw-name-armps4-1 = Ликвидатор Альфа
+pw-name-armps4-2 = Ликвидатор Бета
+pw-name-armps4-3 = Ликвидатор Гамма
+pw-name-armps4-4 = Ликвидатор Дельта
+pw-name-armps4-5 = Ликвидатор Эпсилон
+pw-name-armps4-6 = Ликвидатор Дзета
+pw-name-armps4-7 = Ликвидатор Эта
+pw-name-armps4-8 = Ликвидатор Тета
+pw-name-armps4-9 = Ликвидатор Йота
+pw-name-armps4-10 = Ликвидатор Каппа
+
+# Republic names
+pw-name-corep0-1 = Боевик Альфа
+pw-name-corep0-2 = Боевик Бета
+pw-name-corep0-3 = Боевик Гамма
+pw-name-corep0-4 = Боевик Дельта
+pw-name-corep0-5 = Боевик Эпсилон
+pw-name-corep0-6 = Боевик Дзета
+pw-name-corep0-7 = Боевик Эта
+pw-name-corep0-8 = Боевик Тета
+pw-name-corep0-9 = Боевик Йота
+pw-name-corep0-10 = Боевик Каппа
+
+pw-name-corepc0i5-1 = Лейтенант Альфа
+pw-name-corepc0i5-2 = Лейтенант Бета
+pw-name-corepc0i5-3 = Лейтенант Гамма
+pw-name-corepc0i5-4 = Лейтенант Дельта
+pw-name-corepc0i5-5 = Лейтенант Эпсилон
+pw-name-corepc0i5-6 = Лейтенант Дзета
+pw-name-corepc0i5-7 = Лейтенант Эта
+pw-name-corepc0i5-8 = Лейтенант Тета
+pw-name-corepc0i5-9 = Лейтенант Йота
+pw-name-corepc0i5-10 = Лейтенант Каппа
+
+pw-name-corep1-1 = Штурмовик Альфа
+pw-name-corep1-2 = Штурмовик Бета
+pw-name-corep1-3 = Штурмовик Гамма
+pw-name-corep1-4 = Штурмовик Дельта
+pw-name-corep1-5 = Штурмовик Эпсилон
+pw-name-corep1-6 = Штурмовик Дзета
+pw-name-corep1-7 = Штурмовик Эта
+pw-name-corep1-8 = Штурмовик Тета
+pw-name-corep1-9 = Штурмовик Йота
+pw-name-corep1-10 = Штурмовик Каппа
+
+pw-name-coreph5-1 = Джагернаут Альфа
+pw-name-coreph5-2 = Джагернаут Бета
+pw-name-coreph5-3 = Джагернаут Гамма
+pw-name-coreph5-4 = Джагернаут Дельта
+pw-name-coreph5-5 = Джагернаут Эпсилон
+pw-name-coreph5-6 = Джагернаут Дзета
+pw-name-coreph5-7 = Джагернаут Эта
+pw-name-coreph5-8 = Джагернаут Тета
+pw-name-coreph5-9 = Джагернаут Йота
+pw-name-coreph5-10 = Джагернаут Каппа
+
+pw-name-corepm1-1 = Врач Альфа
+pw-name-corepm1-2 = Врач Бета
+pw-name-corepm1-3 = Врач Гамма
+pw-name-corepm1-4 = Врач Дельта
+pw-name-corepm1-5 = Врач Эпсилон
+pw-name-corepm1-6 = Врач Дзета
+pw-name-corepm1-7 = Врач Эта
+pw-name-corepm1-8 = Врач Тета
+pw-name-corepm1-9 = Врач Йота
+pw-name-corepm1-10 = Врач Каппа
+
+pw-name-corepe1-1 = Инженер Альфа
+pw-name-corepe1-2 = Инженер Бета
+pw-name-corepe1-3 = Инженер Гамма
+pw-name-corepe1-4 = Инженер Дельта
+pw-name-corepe1-5 = Инженер Эпсилон
+pw-name-corepe1-6 = Инженер Дзета
+pw-name-corepe1-7 = Инженер Эта
+pw-name-corepe1-8 = Инженер Тета
+pw-name-corepe1-9 = Инженер Йота
+pw-name-corepe1-10 = Инженер Каппа
+
+pw-name-coreps4-1 = Снайпер Альфа
+pw-name-coreps4-2 = Снайпер Бета
+pw-name-coreps4-3 = Снайпер Гамма
+pw-name-coreps4-4 = Снайпер Дельта
+pw-name-coreps4-5 = Снайпер Эпсилон
+pw-name-coreps4-6 = Снайпер Дзета
+pw-name-coreps4-7 = Снайпер Эта
+pw-name-coreps4-8 = Снайпер Тета
+pw-name-coreps4-9 = Снайпер Йота
+pw-name-coreps4-10 = Снайпер Каппа
