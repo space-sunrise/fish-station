@@ -1,0 +1,25 @@
+- type: entity
+  parent: [BaseSecurityContraband, ClothingOuterArmorBasic]
+  id: ClothingArmoredOuterCoatBlueShield
+  name: blue shield armored greatcoat
+  description: Stylish Armored greatcoat for soldiers of the Asset Protection Department. Reinforced with a special alloy for extra protection while maintaining a professional appearance.
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/OuterClothing/Coats/blueshield_coat.rsi
+  - type: Clothing
+    sprite: _Fish/Clothing/OuterClothing/Coats/blueshield_coat.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - Vest
+    - NudeBottom
+  - type: Pierceable
+    level: Metal
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.7
+        Caustic: 0.75

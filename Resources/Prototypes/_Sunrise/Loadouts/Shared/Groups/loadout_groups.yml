@@ -295,6 +295,7 @@
   maxLimit: 1
   loadouts:
   - BlueShieldArmor
+  - ArmoredOuterCoatBlueShield
   - BlueShieldHardsuit
   - BlueShieldHardsuitMark2
 # Fish-end
