@@ -1,0 +1,23 @@
+{
+  "size": {
+    "x": 64,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "exp-350g"
+    },
+    {
+      "name": "exp-120g"
+    },
+    {
+      "name": "exp-1800g"
+    },
+    {
+      "name": "portTelepUnshaded"
+    },
+    {
+      "name": "portTelepBase"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+- type: constructionGraph
+  id: CatwalkWM
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: CatwalkWM
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: MetalRod
+              amount: 0
+
+    - node: CatwalkWM
+      entity: CatwalkWM
+      edges:
+        - to: start
+          completed:
+          - !type:SpawnPrototype
+                prototype: PartRodMetal1
+                amount: 0
+          - !type:DeleteEntity {}
+          steps:
+            - tool: Cutting
+              doAfter: 1
+
+
+- type: constructionGraph
+  id: CatwalkWMDop
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: CatwalkWMDop
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: MetalRod
+              amount: 0
+
+    - node: CatwalkWMDop
+      entity: CatwalkWM
+      edges:
+        - to: start
+          completed:
+          - !type:SpawnPrototype
+                prototype: PartRodMetal1
+                amount: 0
+          - !type:DeleteEntity {}
+          steps:
+            - tool: Screwing
+              doAfter: 7

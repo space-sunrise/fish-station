@@ -1,0 +1,16 @@
+- type: accessLevel
+  id: AssArmBase
+
+
+- type: accessLevel
+  id: AssArmPC0I5
+
+
+- type: accessLevel
+  id: AssArmPM1
+
+
+- type: accessLevel
+  id: AssArmPE1
+
+#имена

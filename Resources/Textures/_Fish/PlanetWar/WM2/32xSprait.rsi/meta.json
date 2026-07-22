@@ -1,0 +1,54 @@
+{
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "stationDronBlue"
+    },
+    {
+      "name": "stationDronRed"
+    },
+    {
+      "name": "stationDronBluePimp"
+    },
+    {
+      "name": "stationDronRedPimp"
+    },
+    {
+      "name": "coreDogDead"
+    },
+    {
+      "name": "armDogDead"
+    },
+    {
+      "name": "mechDurandCoreDead" 
+    },
+    {
+      "name": "mechGygaxCoreDead"
+    },
+    {
+      "name": "mechDurandCoreOpen" 
+    },
+    {
+      "name": "mechGygaxCoreOpen"
+    },
+    {
+      "name": "coreDog",
+      "directions": 4
+    },
+    {
+      "name": "armDog",
+      "directions": 4
+    },
+    {
+      "name": "mechDurandCore",
+      "directions": 4
+    },
+    {
+      "name": "mechGygaxCore",
+      "directions": 4
+    }
+  ]
+}

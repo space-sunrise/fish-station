@@ -1,0 +1,48 @@
+{
+  "size": {
+    "x": 33,
+    "y": 33
+  },
+  "states": [
+    {
+      "name": "droneP1pimpblue",
+      "delays": [
+        [
+          0.75,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "droneP1pimpred",
+      "delays": [
+        [
+          0.75,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "droneP1Anim",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "droneP1shedow",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}
