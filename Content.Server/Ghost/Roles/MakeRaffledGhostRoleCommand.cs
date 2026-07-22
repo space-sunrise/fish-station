@@ -4,7 +4,7 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Ghost.Roles.Raffles;
 using Content.Shared.Administration;
 using Content.Shared.Ghost.Roles.Raffles;
-using Content.Shared.Mind.Components;
+using Content.Shared.Mind;
 using Robust.Shared.Console;
 using Robust.Shared.Prototypes;
 
@@ -41,14 +41,17 @@ namespace Content.Server.Ghost.Roles
                 return;
             }
 
-            if (_entManager.TryGetComponent(uid, out MindContainerComponent? mind) &&
-                mind.HasMind)
+            // Fish edit start - TryGetMind + общий ForceMake API (MakeSentient, очистка stale Mind)
+            var mindSystem = _entManager.System<SharedMindSystem>();
+            var ghostRoleSystem = _entManager.System<GhostRoleSystem>();
+
+            if (mindSystem.TryGetMind(uid.Value, out _, out _))
             {
                 shell.WriteLine($"Entity {metaData.EntityName} with id {uid} already has a mind.");
                 return;
             }
 
-            if (_entManager.TryGetComponent(uid, out GhostRoleComponent? ghostRole))
+            if (_entManager.TryGetComponent(uid, out GhostRoleComponent? _))
             {
                 shell.WriteLine($"Entity {metaData.EntityName} with id {uid} already has a {nameof(GhostRoleComponent)}");
                 return;
@@ -59,11 +62,11 @@ namespace Content.Server.Ghost.Roles
                 shell.WriteLine($"Entity {metaData.EntityName} with id {uid} already has a {nameof(GhostTakeoverAvailableComponent)}");
                 return;
             }
-
-            var name = args[1];
-            var description = args[2];
+            // Fish edit end
 
             // if the rules are specified then use those, otherwise use the default
+            var name = args[1];
+            var description = args[2];
             var rules = args.Length switch
             {
                 5 => args[4],
@@ -114,12 +117,22 @@ namespace Content.Server.Ghost.Roles
                 };
             }
 
-            ghostRole = _entManager.AddComponent<GhostRoleComponent>(uid.Value);
-            _entManager.AddComponent<GhostTakeoverAvailableComponent>(uid.Value);
-            ghostRole.RoleName = name;
-            ghostRole.RoleDescription = description;
-            ghostRole.RoleRules = rules;
-            ghostRole.RaffleConfig = new GhostRoleRaffleConfig(settings);
+            // Fish edit start
+            if (!ghostRoleSystem.TryForceMakeGhostRole(
+                    uid.Value,
+                    name,
+                    description,
+                    rules,
+                    makeSentient: true,
+                    allowMovement: true,
+                    allowSpeech: true,
+                    ejectExistingMind: false,
+                    raffleConfig: new GhostRoleRaffleConfig(settings)))
+            {
+                shell.WriteLine($"Failed to make entity {metaData.EntityName} a raffled ghost role.");
+                return;
+            }
+            // Fish edit end
 
             shell.WriteLine($"Made entity {metaData.EntityName} a raffled ghost role.");
         }

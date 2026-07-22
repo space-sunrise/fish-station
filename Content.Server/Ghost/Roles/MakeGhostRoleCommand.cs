@@ -1,7 +1,7 @@
 ﻿using Content.Server.Administration;
 using Content.Server.Ghost.Roles.Components;
 using Content.Shared.Administration;
-using Content.Shared.Mind.Components;
+using Content.Shared.Mind;
 using Robust.Shared.Console;
 
 namespace Content.Server.Ghost.Roles
@@ -35,18 +35,17 @@ namespace Content.Server.Ghost.Roles
                 return;
             }
 
-            if (_entManager.TryGetComponent(uid, out MindContainerComponent? mind) &&
-                mind.HasMind)
+            // Fish edit start - TryGetMind вместо HasMind (устаревший Mind UID), MakeSentient как у cognizine
+            var mindSystem = _entManager.System<SharedMindSystem>();
+            var ghostRoleSystem = _entManager.System<GhostRoleSystem>();
+
+            if (mindSystem.TryGetMind(uid.Value, out _, out _))
             {
                 shell.WriteLine($"Entity {metaData.EntityName} with id {uid} already has a mind.");
                 return;
             }
 
-            var name = args[1];
-            var description = args[2];
-            var rules = args.Length >= 4 ? args[3] : Loc.GetString("ghost-role-component-default-rules");
-
-            if (_entManager.TryGetComponent(uid, out GhostRoleComponent? ghostRole))
+            if (_entManager.TryGetComponent(uid, out GhostRoleComponent? _))
             {
                 shell.WriteLine($"Entity {metaData.EntityName} with id {uid} already has a {nameof(GhostRoleComponent)}");
                 return;
@@ -58,11 +57,24 @@ namespace Content.Server.Ghost.Roles
                 return;
             }
 
-            ghostRole = _entManager.AddComponent<GhostRoleComponent>(uid.Value);
-            _entManager.AddComponent<GhostTakeoverAvailableComponent>(uid.Value);
-            ghostRole.RoleName = name;
-            ghostRole.RoleDescription = description;
-            ghostRole.RoleRules = rules;
+            var name = args[1];
+            var description = args[2];
+            var rules = args.Length >= 4 ? args[3] : Loc.GetString("ghost-role-component-default-rules");
+
+            if (!ghostRoleSystem.TryForceMakeGhostRole(
+                    uid.Value,
+                    name,
+                    description,
+                    rules,
+                    makeSentient: true,
+                    allowMovement: true,
+                    allowSpeech: true,
+                    ejectExistingMind: false))
+            {
+                shell.WriteLine($"Failed to make entity {metaData.EntityName} a ghost role.");
+                return;
+            }
+            // Fish edit end
 
             shell.WriteLine($"Made entity {metaData.EntityName} a ghost role.");
         }

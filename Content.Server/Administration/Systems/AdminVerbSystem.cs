@@ -465,9 +465,11 @@ namespace Content.Server.Administration.Systems
             }
 
             // Make Sentient verb
+            // Fish edit start - MindContainer есть у всех мобов; скрываем только если разум уже занят
             if (_groupController.CanCommand(player, "makesentient") &&
                 args.User != args.Target &&
-                !HasComp<MindContainerComponent>(args.Target))
+                !_mindSystem.TryGetMind(args.Target, out _, out _))
+            // Fish edit end
             {
                 Verb verb = new()
                 {
@@ -546,8 +548,10 @@ namespace Content.Server.Administration.Systems
             }
 
             // Make ghost role verb
+            // Fish edit start - TryGetMind вместо HasMind (устаревший Mind UID)
             if (_groupController.CanCommand(player, "makeghostrole") &&
-                !(EntityManager.GetComponentOrNull<MindContainerComponent>(args.Target)?.HasMind ?? false))
+                !_mindSystem.TryGetMind(args.Target, out _, out _))
+            // Fish edit end
             {
                 Verb verb = new();
                 verb.Text = Loc.GetString("make-ghost-role-verb-get-data-text");
