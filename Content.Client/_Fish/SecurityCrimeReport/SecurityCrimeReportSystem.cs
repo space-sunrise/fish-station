@@ -22,20 +22,16 @@ public sealed class SecurityCrimeReportSystem : SharedSecurityCrimeReportSystem
     private static readonly SpriteSpecifier.Rsi ArticleIcon =
         new(new ResPath("Clothing/Mask/gassecurity.rsi"), "icon");
 
-    public override void Initialize()
-    {
-        base.Initialize();
-        SubscribeLocalEvent<SecurityCrimeReportComponent, OpenSecurityCrimeReportEvent>(OnOpenMenu);
-    }
-
     public override void Shutdown()
     {
         CloseMenu();
         base.Shutdown();
     }
 
-    private void OnOpenMenu(Entity<SecurityCrimeReportComponent> ent, ref OpenSecurityCrimeReportEvent args)
+    protected override void HandleOpenAction(Entity<SecurityCrimeReportComponent> ent, ref OpenSecurityCrimeReportEvent args)
     {
+        base.HandleOpenAction(ent, ref args);
+
         var local = _player.LocalEntity;
         if (local == null || args.Performer != local.Value)
             return;

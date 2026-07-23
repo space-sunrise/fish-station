@@ -50,7 +50,14 @@ public abstract class SharedSecurityCrimeReportSystem : EntitySystem
 
     private void OnOpenAction(Entity<SecurityCrimeReportComponent> ent, ref OpenSecurityCrimeReportEvent args)
     {
-        // Starts action cooldown; client opens SimpleRadialMenu. Message is sent only after selection.
+        HandleOpenAction(ent, ref args);
+    }
+
+    /// <summary>
+    /// Marks the InstantAction handled. Client overrides to open SimpleRadialMenu.
+    /// </summary>
+    protected virtual void HandleOpenAction(Entity<SecurityCrimeReportComponent> ent, ref OpenSecurityCrimeReportEvent args)
+    {
         if (args.Handled)
             return;
 
