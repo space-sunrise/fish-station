@@ -1,0 +1,48 @@
+- type: entity
+  parent: MarkerBase
+  id: SpawnPointFishGhostCharacterSpawner
+  name: ghost character spawner
+  suffix: 1 Slot
+  description: Spawns one ghost as their own naked character from Character Setup.
+  components:
+  - type: GhostRole
+    name: ghost-role-information-fish-ghost-character-spawner-name
+    description: ghost-role-information-fish-ghost-character-spawner-description
+    rules: ghost-role-information-nonantagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleNeutral
+    raffle:
+      settings: default
+  - type: GhostRoleProfileSpawner
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - state: passenger
+
+- type: entity
+  parent: SpawnPointFishGhostCharacterSpawner
+  id: SpawnPointFishGhostCharacterSpawnerSyndicate
+  name: ghost character spawner
+  suffix: Syndicate, 1 Slot
+  components:
+  - type: GhostRole
+    name: ghost-role-information-fish-ghost-character-spawner-syndicate-name
+    description: ghost-role-information-fish-ghost-character-spawner-syndicate-description
+  - type: GhostRoleProfileSpawner
+    factions:
+    - Syndicate
+    - Pirate
+
+- type: entity
+  parent: SpawnPointFishGhostCharacterSpawner
+  id: SpawnPointFishGhostCharacterSpawnerPirate
+  name: ghost character spawner
+  suffix: Pirate, 1 Slot
+  components:
+  - type: GhostRole
+    name: ghost-role-information-fish-ghost-character-spawner-pirate-name
+    description: ghost-role-information-fish-ghost-character-spawner-pirate-description
+  - type: GhostRoleProfileSpawner
+    factions:
+    - Pirate

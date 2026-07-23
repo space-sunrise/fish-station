@@ -1,0 +1,50 @@
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.FixedPoint;
+using Content.Shared.Tag;
+using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
+
+namespace Content.Shared._Fish.Objectives.Components;
+
+[RegisterComponent]
+public sealed partial class AnimalObjectiveTrackerComponent : Component
+{
+    [DataField]
+    public int EatCount;
+
+    [DataField]
+    public FixedPoint2 DrinkVolume;
+
+    [DataField]
+    public int PaperEaten;
+
+    [DataField]
+    public int BlankPaperEaten;
+
+    [DataField]
+    public int TilesMoved;
+
+    /// <summary>
+    /// Именованные WarpPoint.Location, которые животное посетило (как spider charge).
+    /// </summary>
+    [DataField]
+    public HashSet<string> VisitedLocations = new();
+
+    [DataField]
+    public HashSet<ProtoId<EntityPrototype>> EatenFoodProtos = new();
+
+    [DataField]
+    public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> DrunkReagents = new();
+
+    [DataField]
+    public Dictionary<ProtoId<TagPrototype>, int> EatenTagCounts = new();
+
+    [DataField]
+    public Dictionary<ProtoId<EntityPrototype>, int> EatenFoodParentCounts = new();
+
+    [ViewVariables]
+    public EntityUid? LastGrid;
+
+    [ViewVariables]
+    public Vector2i? LastTile;
+}

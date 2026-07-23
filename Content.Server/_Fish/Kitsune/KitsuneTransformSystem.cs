@@ -23,8 +23,6 @@ namespace Content.Server._Fish.Kitsune;
 
 public sealed class KitsuneTransformSystem : EntitySystem
 {
-    private const float TransformDurationSeconds = 240f; // 4 minutes
-    private const float TransformDoAfterDurationSeconds = 3f;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
@@ -116,6 +114,8 @@ public sealed class KitsuneTransformSystem : EntitySystem
                 continue;
             _actions.RemoveAction(uid, actionEnt);
         }
+
+        _transformDurations.Remove(uid);
     }
 
     private void OnKitsuneTransform(EntityUid uid, KitsuneTransformComponent component, KitsuneTransformActionEvent args)
@@ -129,7 +129,7 @@ public sealed class KitsuneTransformSystem : EntitySystem
         }
 
         // Start the do-after
-        var doAfterArgs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(TransformDoAfterDurationSeconds),
+        var doAfterArgs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(component.Delay),
             new KitsuneTransformDoAfterEvent(),
             uid)
         {
@@ -169,9 +169,6 @@ public sealed class KitsuneTransformSystem : EntitySystem
         // Store the original entity reference before polymorph
         component.StashedHumanoid = uid;
 
-        // Set transform duration timer
-        _transformDurations[uid] = TransformDurationSeconds;
-
         // Extract radio channels from ears slot before polymorph
         var channels = new HashSet<ProtoId<RadioChannelPrototype>>();
         if (TryComp<InventoryComponent>(uid, out var invComp) &&
@@ -185,6 +182,9 @@ public sealed class KitsuneTransformSystem : EntitySystem
 
         // Perform polymorph
         var newUid = _polymorph.PolymorphEntity(uid, prototype) ?? throw new ArgumentNullException("_polymorph.PolymorphEntity(uid, prototype)");
+
+        // Set transform duration timer
+        _transformDurations[newUid] = component.Duration;
 
         // Apply intrinsic radio if we found any channels
         if (channels.Count > 0)

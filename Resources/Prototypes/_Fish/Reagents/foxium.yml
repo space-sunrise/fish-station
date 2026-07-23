@@ -1,0 +1,18 @@
+- type: reagent
+  id: Foxium
+  name: reagent-name-foxium
+  group: Fun
+  desc: reagent-desc-foxium
+  physicalDesc: reagent-physical-desc-vibrant
+  flavor: weh
+  color: "#e2722b"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.25
+      effects:
+      - !type:Emote
+        emote: Fox
+        showInChat: true
+        showInGuidebook: true
+        force: true
+        probability: 0.5

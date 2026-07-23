@@ -1,0 +1,57 @@
+- type: gameMap
+  id: WMGrassPlanet
+  mapName: 'WM Лесная планета'
+  mapPath: /Maps/_Fish/PlanetWar/PlanetStationMapWM.yml
+  randomRotation: false
+  minPlayers: 0
+  stations:
+    Ghost:
+      stationProto: StationNoArrivalsWM
+      components:
+        - type: StationBiome
+          biome: WMSpisdilSsvoegoJeFpoPlanetRari #WMGrasslands
+          mapLightColor: "#cfb06b"
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Обломок {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '???'
+        - type: StationJobs
+          availableJobs:
+            JobGhostWMBase: [ 0, -1 ]
+    PlanetMap:
+      stationProto: StationNoArrivalsWM
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Лесная планета {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'WM'
+    Core:
+      stationProto: StationNoArrivalsWM
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Врата Республики {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'Core'
+        - type: StationJobs
+          availableJobs:
+            JobCoreBase: [ 0, -1 ]
+            JobCorePC0I5: [ 0, 5 ]
+            JobCorePM1: [ 0, 25 ]
+            JobCorePE1: [ 0, -1 ]
+    Arm:
+      stationProto: StationNoArrivalsWM
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Врата Повстанцев {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'Arm'
+        - type: StationJobs
+          availableJobs:
+            JobArmBase: [ 0, -1 ]
+            JobArmPC0I5: [ 0, 5 ]
+            JobArmPM1: [ 0, 25 ]
+            JobArmPE1: [ 0, -1 ]

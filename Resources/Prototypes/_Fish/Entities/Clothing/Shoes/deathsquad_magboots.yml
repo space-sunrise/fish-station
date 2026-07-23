@@ -1,8 +1,7 @@
 - type: entity
   parent: [ClothingShoesBootsMagSyndie, BaseCentcommContraband]
-  id: ClothingShoesBootsMagDeathSquad
-  name: death squad magboots
-  description: Advanced magnetic boots designed for Death Squad operations. Provides magnetic grip without any mobility penalty.
+  id: ClothingShoesBootsMagDeathSquadFish
+  suffix: Fish
   components:
   - type: Sprite
     sprite: _Fish/Clothing/Shoes/Boots/deathsquad.rsi

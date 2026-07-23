@@ -34,15 +34,8 @@
 - type: startingGear
   id: OversightOfficerGear
   equipment:
-    neck: ClothingNeckLawDepbadge
-    shoes: ClothingShoesBootsLaceup
-    head: ClothingHeadCapNTGR
-    eyes: ClothingEyesGlassesHiddenSecurity
-    gloves: ClothingHandsGlovesColorWhite
-    outerClothing: ClothingOuterArmorNTRGLeadOpened
     id: OversightOfficerPDA
     ears: ClothingHeadsetFishCentCom
-    belt: BoxFolderCentComClipboard
     pocket1: WeaponEnergyGunPulseRevolver
     pocket2: PenCentcom
   storage:

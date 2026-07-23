@@ -62,7 +62,7 @@
     duration: 1
   - type: RuleGrids
   - type: LoadMapRule
-    gridPath: /Maps/_Sunrise/Shuttles/Antag/abductor_shuttle.yml
+    gridPath: /Maps/_Fish/Shuttles/Antag/abductor_shuttle.yml # Fish-edit
   - type: AntagObjectives
     objectives:
     - AbductObjective

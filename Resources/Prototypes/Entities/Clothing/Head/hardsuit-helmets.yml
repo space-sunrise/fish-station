@@ -1057,8 +1057,6 @@
     sprite: Clothing/Head/Hardsuits/deathsquad.rsi
   - type: PointLight
     color: cyan
-    radius: 9
-    energy: 9
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
@@ -1075,8 +1073,6 @@
         Heat: 0.80
         Radiation: 0.80
         Caustic: 0.95
-        Poison: 0.80 #Fish-edit
-        Shock: 0.80 #Fish-edit
   - type: FlashImmunity
   - type: EyeProtection
 

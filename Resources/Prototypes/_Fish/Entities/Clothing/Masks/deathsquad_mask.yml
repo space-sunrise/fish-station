@@ -1,0 +1,32 @@
+- type: entity
+  parent: ClothingMaskGasDeathSquad
+  id: ClothingMaskGasDeathSquadFish
+  suffix: Fish
+  components:
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: ItemToggle
+    predictable: false
+    onUse: false
+    canActivateInhand: false
+    soundActivate:
+      path: /Audio/_Sunrise/Items/Goggles/activate.ogg
+    soundDeactivate:
+      path: /Audio/_Sunrise/Items/Goggles/deactivate.ogg
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+  - type: ComponentToggler
+    parent: true
+    components:
+    - type: ThermalVision
+  - type: ToggleClothing
+    action: ActionToggleThermalVision
+    disableOnUnequip: true
+    targetSlot: mask
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.90
+        Heat: 0.90

@@ -18,3 +18,11 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MisterBlueShit50
+
+- type: loadout
+  id: ArmoredOuterCoatBlueShield
+  equipment:
+    outerClothing: ClothingArmoredOuterCoatBlueShield
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MisterBlueShit50

@@ -58,7 +58,6 @@
         - HumanitarianAid
         - PersonnelRecovery
         - CrewEducation
-        - Virology
         - SampleCollection
         - Examination
         - StationGoalPolymorph
@@ -73,7 +72,7 @@
           ComMaid: [ 1, 1 ] # Горничная командования
           #service
           Bartender: [ 2, 2 ]
-          Botanist: [ 3, 3 ]
+          Botanist: [ 4, 4 ]
           Chef: [ 2, 2 ]
           Janitor: [ 3, 4 ]
           Chaplain: [ 1, 1 ]
@@ -103,7 +102,7 @@
           Roboticist: [ 2, 2 ]
           #security
           HeadOfSecurity: [ 1, 1 ]
-          Warden: [ 1, 1 ]
+          Warden: [ 2, 2 ]
           SeniorOfficer: [ 1, 1 ]
           Detective: [ 2, 2 ]
           Brigmedic: [ 1, 1 ]
@@ -133,11 +132,11 @@
           # silicon
           StationAi: [ 1, 1 ]
           Borg: [ 2, 2 ]
-          MedicalBorg: [ 4, 4 ]
+          MedicalBorg: [ 2, 2 ]
           EngineerBorg: [ 2, 2 ]
           MiningBorg: [ 2, 2 ]
           JanitorBorg: [ 2, 2 ]
           ServiceBorg: [ 2, 2 ]
           ClownBorg: [ 2, 2 ]
           PeaceBorg: [ 2, 2 ]
-          SecurityBorg: [ 4, 4 ]
+          SecurityBorg: [ 2, 2 ]

@@ -1,0 +1,7 @@
+- type: radioChannel
+  id: RadioChannelCore
+  name: radio-channel-core-name
+  keycode: '1'
+  frequency: 9879
+  color: "#0057e7"
+  longRange: true

@@ -18,13 +18,13 @@
         grids:
         - gridPath: /Maps/_Fish/Shuttles/DSO/CentCommOfficial.yml
           priorityTag: DockCentComm
-        - gridPath: /Maps/_Fish/Shuttles/DSO/ert_striker.yml
+        - gridPath: /Maps/_Fish/Shuttles/DSO/ERT/ert_striker.yml
           priorityTag: DockFishERT
-        - gridPath: /Maps/_Fish/Shuttles/DSO/cburn_box.yml
+        - gridPath: /Maps/_Fish/Shuttles/DSO/CBURN/cburn_box.yml
           priorityTag: DockFishCBURN
         - gridPath: /Maps/_Fish/Shuttles/DSO/DS_maxtac.yml
           priorityTag: DockFishDS
-        - gridPath: /Maps/_Fish/Shuttles/DSO/ert_large.yml
+        - gridPath: /Maps/_Fish/Shuttles/DSO/ERT/ert_large.yml
           priorityTag: DockFishERTBig
       - type: StationJobs
         availableJobs:

@@ -20,3 +20,25 @@
       - state: equipped-OUTERCLOTHING-dog
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetVoidParamedFish
+
+- type: entity
+  parent: ClothingOuterHardsuitDeathsquad
+  id: ClothingOuterHardsuitDeathsquadFish
+  suffix: Fish
+  components:
+  - type: StaminaResistance
+    damageCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+        Heat: 0.1
+        Radiation: 0.1
+        Caustic: 0.1
+        Poison: 0.1
+        Cellular: 0.1
+        Shock: 0.1
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitDeathsquadFish
