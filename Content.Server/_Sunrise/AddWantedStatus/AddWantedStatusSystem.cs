@@ -1,16 +1,20 @@
 using Content.Server.Actions;
 using Content.Server.CriminalRecords.Systems;
+using Content.Server.Popups;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords.Systems;
 using Content.Server._Sunrise.Messenger;
 using Content.Shared._Sunrise.AddWantedStatus;
+using Content.Shared.Access;
+using Content.Shared.Access.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Security;
 using Content.Shared.StationRecords;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Sunrise.AddWantedStatus;
 
@@ -22,6 +26,11 @@ public sealed partial class AddWantedStatusSystem : EntitySystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly MessengerServerSystem _messenger = default!;
+    // Fish edit start - проверка access Security как у консоли criminal records
+    [Dependency] private readonly AccessReaderSystem _access = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    private static readonly ProtoId<AccessLevelPrototype> SecurityAccess = "Security";
+    // Fish edit end
 
     public override void Initialize()
     {
@@ -47,6 +56,14 @@ public sealed partial class AddWantedStatusSystem : EntitySystem
         var performer = args.Performer;
         if (!HasComp<HumanoidAppearanceComponent>(target))
             return;
+
+        // Fish edit start - без Security access нельзя менять розыск с HUD
+        if (!_access.FindAccessTags(performer).Contains(SecurityAccess))
+        {
+            _popup.PopupEntity(Loc.GetString("criminal-records-permission-denied"), performer, performer);
+            return;
+        }
+        // Fish edit end
 
         if (_station.GetOwningStation(performer) is not { } station)
             return;
