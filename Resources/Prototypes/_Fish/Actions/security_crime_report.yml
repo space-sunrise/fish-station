@@ -1,0 +1,14 @@
+# Fish-edit: quick crime report InstantAction for the security gas mask Action Hotbar
+- type: entity
+  id: ActionSecurityCrimeReport
+  name: Report crime
+  description: Open a radial menu to announce a Space Law article on the security channel.
+  components:
+  - type: Action
+    useDelay: 1
+    icon:
+      sprite: Clothing/Mask/gassecurity.rsi
+      state: icon
+    itemIconStyle: BigItem
+  - type: InstantAction
+    event: !type:OpenSecurityCrimeReportEvent

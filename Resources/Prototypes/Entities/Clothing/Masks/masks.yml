@@ -50,6 +50,8 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
+  # Fish-edit: Action Hotbar crime report while worn
+  - type: SecurityCrimeReport
 
 - type: entity
   parent: [ClothingMaskGas, BaseSyndicateContraband]
