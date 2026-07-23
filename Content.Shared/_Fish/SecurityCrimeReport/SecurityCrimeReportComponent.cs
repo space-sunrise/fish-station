@@ -23,8 +23,8 @@ public sealed partial class SecurityCrimeReportComponent : Component
     /// Curated quick-report articles from FishCorporateLaw / Fish Station Wiki Space Law.
     /// </summary>
     [DataField]
-    public List<ProtoId<CorporateLawPrototype>> Articles =
-    [
+    public List<ProtoId<CorporateLawPrototype>> Articles = new()
+    {
         "LawFish101",
         "LawFish201",
         "LawFish301",
@@ -34,7 +34,7 @@ public sealed partial class SecurityCrimeReportComponent : Component
         "LawFish304",
         "LawFish401",
         "LawFish502",
-    ];
+    };
 
     [DataField]
     public TimeSpan MalfunctionDuration = TimeSpan.FromSeconds(60);

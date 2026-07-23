@@ -30,7 +30,7 @@ public sealed class SecurityCrimeReportSystem : SharedSecurityCrimeReportSystem
     [Dependency] private readonly StationSystem _station = default!;
 
     private static readonly ProtoId<RadioChannelPrototype> SecurityChannel = "Security";
-    private static readonly char[] InterferenceChars = ['@', '#', '%', '&', '*', '$'];
+    private static readonly char[] InterferenceChars = new[] { '@', '#', '%', '&', '*', '$' };
 
     public override void Initialize()
     {
