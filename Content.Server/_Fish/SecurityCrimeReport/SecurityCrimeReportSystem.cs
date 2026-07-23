@@ -5,7 +5,6 @@ using Content.Server.Radio.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Shared._Fish.SecurityCrimeReport;
 using Content.Shared._Sunrise.Laws;
-using Content.Shared._Sunrise.Laws.Systems;
 using Content.Shared.Inventory;
 using Content.Shared.Radio;
 using Robust.Shared.Prototypes;
@@ -26,7 +25,6 @@ public sealed class SecurityCrimeReportSystem : SharedSecurityCrimeReportSystem
     [Dependency] private readonly MessengerServerSystem _messenger = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly SharedStationCorporateLawSystem _corporateLaw = default!;
     [Dependency] private readonly StationSystem _station = default!;
 
     private static readonly ProtoId<RadioChannelPrototype> SecurityChannel = "Security";
@@ -55,11 +53,7 @@ public sealed class SecurityCrimeReportSystem : SharedSecurityCrimeReportSystem
             return;
 
         if (!_prototype.TryIndex(msg.Law, out var law) ||
-            law.Category != LawCategory.Article ||
             string.IsNullOrEmpty(law.LawIdentifier))
-            return;
-
-        if (!_corporateLaw.IsLawInEffectiveLawset(law.ID, device))
             return;
 
         var code = law.LawIdentifier;
@@ -91,17 +85,18 @@ public sealed class SecurityCrimeReportSystem : SharedSecurityCrimeReportSystem
 
     private void SendSecurityAnnounce(EntityUid device, EntityUid officer, string message)
     {
-        var sentToMessenger = false;
-        if (_messenger.GetServerEntity(_station.GetOwningStation(device)) is var (server, _) &&
+        var station = _station.GetOwningStation(device) ?? _station.GetOwningStation(officer);
+
+        // Optional messenger mirror.
+        if (_messenger.GetServerEntity(station) is var (server, _) &&
             _messenger.GetGroupIdByRadioChannel(SecurityChannel) is { } groupId)
         {
             _messenger.SendSystemMessageToGroup(server, groupId, message);
-            sentToMessenger = true;
         }
 
-        // Use the officer as radio source so EmpDisabled on the mask does not cancel the fallback send.
-        if (!sentToMessenger)
-            _radio.SendRadioMessage(officer, message, SecurityChannel, officer);
+        // Always push to the Security radio channel (headset listeners).
+        // Use the officer as radioSource so EmpDisabled on mask/headset does not cancel the send.
+        _radio.SendRadioMessage(officer, message, SecurityChannel, officer);
     }
 
     private string GarbleTitle(string title)
