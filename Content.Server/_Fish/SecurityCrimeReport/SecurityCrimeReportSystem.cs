@@ -99,8 +99,9 @@ public sealed class SecurityCrimeReportSystem : SharedSecurityCrimeReportSystem
             sentToMessenger = true;
         }
 
+        // Use the officer as radio source so EmpDisabled on the mask does not cancel the fallback send.
         if (!sentToMessenger)
-            _radio.SendRadioMessage(officer, message, SecurityChannel, device);
+            _radio.SendRadioMessage(officer, message, SecurityChannel, officer);
     }
 
     private string GarbleTitle(string title)

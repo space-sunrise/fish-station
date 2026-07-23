@@ -28,6 +28,7 @@ public abstract class SharedSecurityCrimeReportSystem : EntitySystem
     private void OnMapInit(Entity<SecurityCrimeReportComponent> ent, ref MapInitEvent args)
     {
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEntity, ent.Comp.Action);
+        Dirty(ent);
     }
 
     private void OnShutdown(Entity<SecurityCrimeReportComponent> ent, ref ComponentShutdown args)

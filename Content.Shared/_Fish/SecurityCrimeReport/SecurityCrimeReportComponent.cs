@@ -1,4 +1,3 @@
-using Content.Shared.Actions.Components;
 using Content.Shared._Sunrise.Laws;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
