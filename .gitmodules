@@ -1,4 +1,4 @@
 [submodule "RobustToolbox"]
 	path = RobustToolbox
-	url = https://github.com/kotainfelix/RobustToolbox.git
-	branch = feature/transparent-tile-grid-collision
+	url = https://github.com/space-wizards/RobustToolbox.git
+	branch = master
