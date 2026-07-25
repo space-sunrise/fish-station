@@ -1,6 +1,6 @@
 # Маска СБ: быстрый доклад о преступлении (Security Crime Report)
 
-**Автор:** AndreySmirnov  
+**Автор:** Pifagor/Cursor
 **Ветка / PR:** `feature/sec-quick-crime-report` / [#313](https://github.com/space-sunrise/fish-station/pull/313)  
 **Префикс кодовой базы:** `_Fish` / маркеры `Fish-edit` / `FIsh edit`  
 **Дата оформления документации:** 2026-07-25
