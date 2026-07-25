@@ -20,7 +20,7 @@ public sealed class PlanetWarGuideSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        _guidebookSystem.OpenHelp(new() { "PlanetWarHowToPlay" });
+        _guidebookSystem.OpenHelp(new() { "PlanetWar" });
         args.Handled = true;
     }
 }
