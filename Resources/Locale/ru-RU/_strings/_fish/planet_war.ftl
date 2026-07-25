@@ -31,16 +31,16 @@ reagent-clearblood-physicaldesc = йоу
 
 # Job supervisors and card titles
 job-title-rebel-militia = Ополченец
-job-title-rebel-leader = Предводитель
+job-title-rebel-leader = Предводителю
 job-title-rebel-chemist = Аптекарь
 job-title-rebel-builder = Строитель
-job-supervisors-rebel-council = Совет предводителей
+job-supervisors-rebel-council = Совету предводителей
 
 job-title-republic-fighter = Боевик
-job-title-republic-lieutenant = Лейтенант
+job-title-republic-lieutenant = Лейтенанту
 job-title-republic-doctor = Врач
 job-title-republic-engineer = Инженер
-job-supervisors-republic-council = Совет лейтенантов
+job-supervisors-republic-council = Совету лейтенантов
 job-title-ghostwmbase = Призрак
 
 job-name-armbase = Ополченец
@@ -109,13 +109,33 @@ pw-construction-rebels-mechlightarmflatpack-name = легкий двухмест
 pw-construction-rebels-mechnormalarmflatpack-name = штурмовой мехпнищированый доспех
 pw-construction-rebels-mechnormarm-name = штурмовой механизированый доспех повстанцев
 pw-construction-rebels-mechtankarmflatpack-name = передвижное осадное орудие
-pw-construction-rebels-mobhumanarmp0-desc = Фракция Повстанцы
+pw-ghost-role-rebels-rules =
+    Вы - [color=#b31414][bold]Ополченец (Повстанец)[/bold][/color]. Ваша цель — уничтожить вражеские врата и защитить свои.
+    1. [bold]Убийство своих товарищей (своей фракции) строго запрещено.[/bold] Конфликты должны решаться через Предводителя.
+    2. [bold]Запрещено наносить вред структурам своей базы и вратам.[/bold]
+    3. [bold]Подчиняйтесь приказам Предводителя.[/bold] Власть предводителя неоспорима.
+    4. Вы не помните ничего из своей предыдущей жизни и того, что узнали в призраке.
+
+pw-ghost-role-republic-rules =
+    Вы - [color=#1b67a5][bold]Боевик (Республиканец)[/bold][/color]. Ваша цель — уничтожить вражеские врата и защитить свои.
+    1. [bold]Убийство своих коллег (своей фракции) строго запрещено.[/bold] Конфликты должны решаться через Лейтенанта.
+    2. [bold]Запрещено наносить вред структурам своей базы и вратам.[/bold]
+    3. [bold]Подчиняйтесь приказам Лейтенанта.[/bold] Власть лейтенанта неоспорима.
+    4. Вы не помните ничего из своей предыдущей жизни и того, что узнали в призраке.
+
+pw-construction-rebels-mobhumanarmp0-desc = Вы, обычный член повстанческого движения — полуподготовленный идеологический человек, борющийся за правое дело свободы. Соберитесь в отряд и свергните навязанную власть республиканцев!
 pw-construction-rebels-mobhumanarmp0-name = Ополченец
+pw-construction-rebels-mobhumanarmp1-desc = Вы, идеологически преданный ополченец восстания — вам не знаком ужас, вы не знаете, что такое утрата. Будьте готовы в любой момент героически пасть в борьбе за вашу и братскую свободу.
 pw-construction-rebels-mobhumanarmp1-name = Коллектор
+pw-construction-rebels-mobhumanarmpc0i5-desc = Вы, признанный руководитель стандартной иерархии всех ополченцев — главенствующее звено в сплочении всей фракции. Создайте отделение из подчинённых повстанцев и прямо руководите процессом.
 pw-construction-rebels-mobhumanarmpc0i5-name = Предводитель
+pw-construction-rebels-mobhumanarmpe1-desc = Вы, важнейшая опора всего сопротивления — его фундамент. Отстройте оборонительный корпус вокруг телепортационных врат в несколько слоёв, используя РСУ.
 pw-construction-rebels-mobhumanarmpe1-name = Строитель
+pw-construction-rebels-mobhumanarmph5-desc = Вы, специализированно оторванный ополченец — щит и броня ваших товарищей. Имея несокрушаемый бронежилет и высокоскорострельную огневую мощь, поддерживайте стрельбу атакующих.
 pw-construction-rebels-mobhumanarmph5-name = Кульминат
+pw-construction-rebels-mobhumanarmpm1-desc = Вы, ознакомленный с лечением ополченец — ангел, спасающий жизни. Лишь вы способны, взирая на подавляющий вражеский огонь, уделить внимание умирающему.
 pw-construction-rebels-mobhumanarmpm1-name = Аптекарь
+pw-construction-rebels-mobhumanarmps4-desc = Вы, дальнобойный боец ополченцев — спасение товарищей, ужас врагов. Имея великолепные навыки стрельбы, выцеливайте тяжелобронированные и высокопоставленные цели.
 pw-construction-rebels-mobhumanarmps4-name = Ликвидатор
 pw-construction-rebels-moneyhostarm-name = Хост анти-ии Lustoff
 pw-construction-rebels-moneyhostarmflatpack-name = хост анти-ии lustof
@@ -145,13 +165,19 @@ pw-construction-republic-mechheavycoreflatpack-name = тяжелый боево�
 pw-construction-republic-mechlightcore-name = легкий двухместный гиродерм республики
 pw-construction-republic-mechnormalcoreflatpack-name = штурмовой механизированый доспех
 pw-construction-republic-mechnormcore-name = штурмовой механизированый доспех республики
-pw-construction-republic-mobhumancorep0-desc = Фракция Республиканцы
+pw-construction-republic-mobhumancorep0-desc = Вы, стандартная боевая единица республиканской коалиции — специализированно подготовленный наёмник, сражающийся ради всеобщего республиканского единства.
 pw-construction-republic-mobhumancorep0-name = Боевик
+pw-construction-republic-mobhumancorep1-desc = Вы, высокоморализованный боевик коалиции — вам не знаком страх, вы не знаете, что такое сомнение. Будьте готовы в любой момент самоотверженно броситься в штурм.
 pw-construction-republic-mobhumancorep1-name = Штурмовик
+pw-construction-republic-mobhumancorepc0i5-desc = Вы, назначенный командир стандартной иерархии всех боевиков — главенствующее звено в кооперации всей фракции. Создайте отряд и прямо руководите процессом.
 pw-construction-republic-mobhumancorepc0i5-name = Лейтенант
+pw-construction-republic-mobhumancorepe1-desc = Вы, важнейшая опора всей коалиции — её фундамент. Отстройте оборонительный корпус вокруг телепортационных врат в несколько слоёв, используя РСУ.
 pw-construction-republic-mobhumancorepe1-name = Инженер
+pw-construction-republic-mobhumancoreph5-desc = Вы, генетически усовершенствованный боевик — щит и броня ваших коллег. Имея несокрушаемый экзоскелет и высокопробивную огневую мощь, поддерживайте стрельбу.
 pw-construction-republic-mobhumancoreph5-name = Джагернаут
+pw-construction-republic-mobhumancorepm1-desc = Вы обученный по медпомощи боевик — герой в мире живых. Только вы, не взирая на подавляющий вражеский огонь, можете обратить внимание на пострадавшего.
 pw-construction-republic-mobhumancorepm1-name = Врач
+pw-construction-republic-mobhumancoreps4-desc = Вы, дальнобойный боец коалиции — помощь товарищам, кошмар врагов. Имея отточенные навыки стрельбы, выцеливайте тяжелобронированные и высокопоставленные цели.
 pw-construction-republic-mobhumancoreps4-name = Снайпер
 pw-construction-republic-moneyhostcore-desc = Даешь мало, получаешь много. Защищает от разведки вражеского ии
 pw-construction-republic-moneyhostcore-name = Хост анти-ии Wegan
