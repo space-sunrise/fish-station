@@ -1,4 +1,4 @@
-# Fish-edit: звуковое уведомление слушателям канала СБ при доложении с маски
+# Fish-edit: уведомление слушателям при докладе с маски СБ
 - type: chatNotification
   id: SecurityCrimeReport
   message: security-crime-report-chat-notification
