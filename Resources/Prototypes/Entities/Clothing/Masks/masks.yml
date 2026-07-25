@@ -123,6 +123,9 @@
   - type: SecurityCrimeReport
   - type: AccessReader
     access: [["Security"]]
+  # Fish-edit: EMP-устойчивость спецмаски ЦК (как ClothingHeadsetNinja)
+  - type: EmpResistance
+    strengthMultiplier: 0
 
 - type: entity
   parent: [ClothingMaskGas, BaseCargoContraband]
@@ -510,6 +513,9 @@
   - type: SecurityCrimeReport
   - type: AccessReader
     access: [["Security"]]
+  # Fish-edit: EMP-устойчивость ОБР/ДСО (DeathSquad наследует); обычная Sec-маска без этого
+  - type: EmpResistance
+    strengthMultiplier: 0
 
 - type: entity
   parent: ClothingMaskGasERT
