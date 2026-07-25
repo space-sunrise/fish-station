@@ -52267,7 +52267,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerDeathSquad
+      proto: RandomHumanoidSpawnerDeathSquadFish
   - uid: 8877
     components:
     - type: MetaData
@@ -52289,7 +52289,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerDeathSquad
+      proto: RandomHumanoidSpawnerDeathSquadFish
   - uid: 8878
     components:
     - type: MetaData
@@ -52311,7 +52311,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerDeathSquad
+      proto: RandomHumanoidSpawnerDeathSquadFish
   - uid: 8879
     components:
     - type: MetaData
@@ -52333,7 +52333,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerDeathSquad
+      proto: RandomHumanoidSpawnerDeathSquadFish
   - uid: 8880
     components:
     - type: MetaData
@@ -52355,7 +52355,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerDeathSquad
+      proto: RandomHumanoidSpawnerDeathSquadFish
   - uid: 8881
     components:
     - type: MetaData
@@ -52377,7 +52377,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerDeathSquad
+      proto: RandomHumanoidSpawnerDeathSquadFish
   - uid: 8987
     components:
     - type: MetaData

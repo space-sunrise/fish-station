@@ -78,6 +78,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Fish/Shuttles/Antag/**",
             "/Maps/_Fish/Shuttles/DSO/**",
             "/Maps/_Fish/Shuttles/DSO/ERT/**",
+            "/Maps/_Fish/Shuttles/DSO/CBURN/**",
             "/Maps/_Fish/Nonstations/**",
             // Fish - End
         };
@@ -92,7 +93,7 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] GameMaps =
         {
             // Fish - Start
-            "Dev",
+            //"Dev",
             //"TestTeg",
             //"Fland",
             //"Packed",
@@ -122,6 +123,7 @@ namespace Content.IntegrationTests.Tests
             "FishPacked",
             "FishSnowball",
             "FishSuharik",
+            "FishGelta",
             "FishTerraBiome",
             // Fish - End
         };

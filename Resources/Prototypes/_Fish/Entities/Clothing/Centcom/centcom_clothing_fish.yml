@@ -1,0 +1,172 @@
+- type: entity
+  parent: [ ClothingUniformBase, BaseCentcommContraband ]
+  id: ClothingUniformJumpsuitCentcomOfficialFish
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Uniforms/Jumpsuit/centcom_official.rsi
+  - type: Clothing
+    sprite: _Fish/Clothing/Uniforms/Jumpsuit/centcom_official.rsi
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseCentcommContraband ]
+  id: ClothingUniformJumpskirtCentcomOfficialFish
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Uniforms/Jumpskirt/centcom_official.rsi
+  - type: Clothing
+    sprite: _Fish/Clothing/Uniforms/Jumpskirt/centcom_official.rsi
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseCentcommContraband ]
+  id: ClothingUniformJumpsuitCentcomAssistantFish
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Uniforms/Jumpsuit/centcom_assistant.rsi
+  - type: Clothing
+    sprite: _Fish/Clothing/Uniforms/Jumpsuit/centcom_assistant.rsi
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseCentcommContraband ]
+  id: ClothingUniformJumpsuitCentcomOfficialBlackFish
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Uniforms/Jumpsuit/centcom_official_black.rsi
+  - type: Clothing
+    sprite: _Fish/Clothing/Uniforms/Jumpsuit/centcom_official_black.rsi
+
+- type: entity
+  parent: [ ClothingShoesBase, BaseCentcommContraband ]
+  id: ClothingShoesBootsCentcomFish
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Shoes/Boots/centcom.rsi
+  - type: Clothing
+    sprite: _Fish/Clothing/Shoes/Boots/centcom.rsi
+
+- type: entity
+  parent: [ ClothingHandsBase, BaseCentcommContraband ]
+  id: ClothingHandsGlovesCentcomWhiteFish
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Hands/Gloves/centcom_white.rsi
+  - type: Clothing
+    sprite: _Fish/Clothing/Hands/Gloves/centcom_white.rsi
+
+- type: entity
+  parent: [ ClothingOuterBaseLarge, BaseCentcommContraband ]
+  id: ClothingOuterCoatCentcoatFish
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/OuterClothing/Coats/centcoat.rsi
+  - type: Clothing
+    sprite: _Fish/Clothing/OuterClothing/Coats/centcoat.rsi
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCentcommContraband ]
+  id: ClothingNeckCloakCentcomFormalFish
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Neck/Cloaks/centcomcloakformal.rsi
+  - type: Clothing
+    sprite: _Fish/Clothing/Neck/Cloaks/centcomcloakformal.rsi
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCentcommContraband ]
+  id: ClothingNeckCloakCentcomFormalLongFish
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Neck/Cloaks/centcomcloakformal_long.rsi
+  - type: Clothing
+    sprite: _Fish/Clothing/Neck/Cloaks/centcomcloakformal_long.rsi
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCentcommContraband ]
+  id: ClothingNeckMantleCentcomFish
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Neck/Mantles/centcommantle.rsi
+  - type: Clothing
+    sprite: _Fish/Clothing/Neck/Mantles/centcommantle.rsi
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCentcommContraband ]
+  id: ClothingNeckMantleCentcomShoulderFish
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Neck/Mantles/centcommantle_shoulder.rsi
+  - type: Clothing
+    sprite: _Fish/Clothing/Neck/Mantles/centcommantle_shoulder.rsi
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseCentcommContraband ]
+  id: ClothingHeadHatCentcomFish
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Head/Hats/centcom.rsi
+  - type: Clothing
+    sprite: _Fish/Clothing/Head/Hats/centcom.rsi
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseCentcommContraband ]
+  id: ClothingHeadHatCentcomCapFish
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Head/Hats/centcom_cap.rsi
+  - type: Clothing
+    sprite: _Fish/Clothing/Head/Hats/centcom_cap.rsi
+
+- type: entity
+  parent: [ ClothingBackpackSatchel, BaseCentcommContraband ]
+  id: ClothingBackpackSatchelCentcomFish
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Back/Satchels/centcom.rsi
+  - type: Item
+    sprite: _Fish/Clothing/Back/Satchels/centcom.rsi
+  - type: Clothing
+    sprite: _Fish/Clothing/Back/Satchels/centcom.rsi
+
+- type: entity
+  parent: [ ClothingOuterArmorBase, BaseCentcommContraband ]
+  id: ClothingOuterArmorCentcomFish
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/OuterClothing/Armor/centcom_armor.rsi
+  - type: Clothing
+    sprite: _Fish/Clothing/OuterClothing/Armor/centcom_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.4
+        Heat: 0.8
+
+- type: entity
+  parent: [ClothingBeltSheath, BaseCentcommContraband]
+  id: ClothingBeltSheathCentcomFish
+  suffix: Filled
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Belt/centcom_sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: _Fish/Clothing/Belt/centcom_sheath.rsi
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        whitelist:
+          tags:
+          - CentCommRapier
+  - type: ItemMapper
+    sprite: _Fish/Clothing/Belt/centcom_sheath.rsi
+    mapLayers:
+      sheath-sword:
+        whitelist:
+          tags:
+          - CentCommRapier
+  - type: ContainerFill
+    containers:
+      item:
+      - WeaponMeleeSwordCentcomFish

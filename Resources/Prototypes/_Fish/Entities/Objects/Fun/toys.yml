@@ -99,17 +99,24 @@
   components:
   - type: Sprite
     sprite: _Fish/Objects/Fun/toys.rsi
-    state: plushie-mikhail-beerbeard-oboronovich
+    layers:
+    - state: plushie-mikhail-beerbeard-oboronovich
+    - state: plushie-mikhail-beerbeard-oboronovich-on
+      visible: false
+      map: [ "active" ]
   - type: UseDelay
     delay: 4
   - type: TTS
     voice: HearthstoneTekahn
-  - type: TriggerOnUse
-  - type: SpeakOnTrigger
-    text: plushie-mikhail-beerbeard-oboronovich-on-use
   - type: EmitSoundOnLand
     sound:
       path: /Audio/_Fish/Items/MikhailThrow.ogg
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/_Fish/Items/mikhail_active.ogg
+  - type: Appearance
+  - type: ToggleableVisuals
+    spriteLayer: active
 
 - type: entity
   parent: BasePlushie

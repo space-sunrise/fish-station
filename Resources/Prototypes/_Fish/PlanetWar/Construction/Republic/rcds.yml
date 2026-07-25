@@ -1,0 +1,172 @@
+- type: rcd
+  id: RsdAmmoTechFabCoreWM
+  category: Electrical
+  sprite: /Textures/_Fish/PlanetWar/WM2/RSD/magfabCore.png
+  mode: ConstructObject
+  prototype: AmmoTechFabCoreWM
+  cost: 15
+  delay: 5
+  collisionMask: FullTileMask
+  rotation: Fixed
+
+
+- type: rcd
+  id: RsdEnergyDomeCoreWM
+  category: Electrical
+  sprite: /Textures/_Fish/PlanetWar/WM2/RSD/energyShildBase.png
+  mode: ConstructObject
+  prototype: EnergyDomeCoreWM
+  cost: 100
+  delay: 30
+  collisionMask: FullTileMask
+  rotation: Fixed
+
+
+- type: rcd
+  id: RsdPrismaCoreWM
+  category: Electrical
+  sprite: /Textures/_Fish/PlanetWar/WM2/RSD/prisma.png
+  mode: ConstructObject
+  prototype: WeaponPrismaCoreWMTestBla
+  cost: 45
+  delay: 20
+  collisionMask: FullTileMask
+  rotation: Fixed
+
+
+- type: rcd
+  id: RsdWindowCoreWMSpeed
+  category: Main
+  sprite: /Textures/_Fish/PlanetWar/WM/RSD/shutwindow.png
+  mode: ConstructObject
+  prototype: ShuttleWindowWM
+  cost: 1
+  delay: 0
+  collisionMask: Impassable
+  rules:
+    - IsWindow
+  rotation: Fixed
+
+
+- type: rcd
+  id: RsdWallRelifCoreWMSpeed
+  category: Main
+  sprite: /Textures/_Fish/PlanetWar/WM/RSD/shutwall.png
+  mode: ConstructObject
+  prototype: WallShuttleWMTime
+  cost: 2
+  delay: 0
+  collisionMask: FullTileMask
+  rotation: Fixed
+
+
+- type: rcd
+  id: RsdAirlocCoreWMSpeed
+  category: Main
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: AirlockCoreTime
+  cost: 10
+  delay: 0
+  collisionMask: FullTileMask
+  rotation: User
+
+
+- type: rcd
+  id: RsdFloorSteelCoreWM
+  name: rcd-component-floor-steel
+  category: Main
+  sprite: /Textures/_Fish/PlanetWar/WM/RSD/white_mono.png
+  mode: ConstructTile
+  prototype: FloorWhiteMono
+  cost: 0
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+
+
+- type: rcd
+  id: RsdAirlocCoreWM
+  category: Main
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: AirlockCore
+  cost: 4
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: User
+
+
+- type: rcd
+  id: RsdWindowCoreWM
+  category: Main
+  sprite: /Textures/_Fish/PlanetWar/WM/RSD/shutwindow.png
+  mode: ConstructObject
+  prototype: ShuttleWindowWM
+  cost: 2
+  delay: 1
+  collisionMask: Impassable
+  rules:
+    - IsWindow
+  rotation: Fixed
+
+
+- type: rcd
+  id: RsdWallRelifCoreWM
+  category: Main
+  sprite: /Textures/_Fish/PlanetWar/WM/RSD/shutwall.png
+  mode: ConstructObject
+  prototype: WallShuttleWM
+  cost: 6
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Fixed
+
+
+- type: rcd
+  id: RsdGenCoreWM
+  category: Main
+  sprite: /Textures/_Fish/PlanetWar/WM/RSD/gen.png
+  mode: ConstructObject
+  prototype: PortableGeneratorJrPacmanCoreWM
+  cost: 15
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Fixed
+
+
+- type: rcd
+  id: RsdTuretCoreWM
+  category: Main 
+  sprite: /Textures/_Fish/PlanetWar/WM/RSD/turret.png
+  mode: ConstructObject
+  prototype: WeaponTurretCoreWMTestBla
+  cost: 17
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: Fixed
+
+
+- type: rcd
+  id: RsdLandMineFleshCoreWM
+  category: Electrical
+  sprite: /Textures/_Fish/PlanetWar/WM/RSD/fleshmine.png
+  mode: ConstructObject
+  prototype: LandMineFleshCoreWM
+  collisionMask: TabletopMachineMask
+  cost: 3
+  delay: 1
+  rotation: Fixed
+
+
+- type: rcd
+  id: RsdLandMineExplosiveCoreWM
+  category: Electrical
+  sprite: /Textures/_Fish/PlanetWar/WM/RSD/bombmine.png
+  mode: ConstructObject
+  prototype: LandMineExplosiveCoreWM
+  collisionMask: TabletopMachineMask
+  cost: 10
+  delay: 4
+  rotation: Fixed

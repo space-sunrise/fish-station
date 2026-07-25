@@ -1,0 +1,171 @@
+{
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "reclaimer"
+    },
+    {
+      "name": "energyShildBase"
+    },
+    {
+      "name": "energyShildCoreUntil"
+    },
+    {
+      "name": "energyShildArmUntil"
+    },
+    {
+      "name": "cargofabCoreuntil"
+    },
+    {
+      "name": "cargofabArmuntil" 
+    },
+    {
+      "name": "cargofabCore"
+    },
+    {
+      "name": "cargofabArm" 
+    },
+    {
+      "name": "magfabCore"
+    },
+    {
+      "name": "magfabCoreunlit"
+    },
+    {
+      "name": "engCore"
+    },
+    {
+      "name": "engArm"
+    },
+    {
+      "name": "engCorescreen"
+    },
+    {
+      "name": "engArmscreen" 
+    },
+    {
+      "name": "mechCoreidle"
+    },
+    {
+      "name": "mechArmidle" 
+    },
+    {
+      "name": "mechCorescreen"
+    },
+    {
+      "name": "mechArmscreen" 
+    },
+    {
+      "name": "magfabunlit"
+    },
+    {
+      "name": "magfabArm"
+    },
+    {
+      "name": "magfabArmunlit"
+    },
+    {
+      "name": "landmineCoreLayers"
+    },
+    {
+      "name": "turretCoreUnshaded",
+      "directions": 8
+    },
+    {
+      "name": "turretArmUnshaded",
+      "directions": 8
+    },
+    {
+      "name": "turretCore",
+      "directions": 8
+    },
+    {
+      "name": "turretArm",
+      "directions": 8
+    },
+    {
+      "name": "magfabinserting",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "mechload",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "dronepimpblue",
+      "delays": [
+        [
+          0.75,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "dronepimpred",
+      "delays": [
+        [
+          0.75,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "droneAnim",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "shedow",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "landmineCoreUnshaded",
+      "delays": [
+        [
+          0.75,
+          0.15,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

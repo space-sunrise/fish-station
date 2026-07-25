@@ -2,7 +2,7 @@
   parent: BaseAction
   id: ActionKitsuneTransform
   name: Fox Transform
-  description: "Transform into a nine-tailed fox form, taking 9 slash damage. Takes 5 seconds. Duration: 5 minutes. Cooldown: 15 seconds."
+  description: "Transform into a nine-tailed fox form, taking 9 slash damage. Takes 5 seconds. Duration: 4 minutes. Cooldown: 15 seconds."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

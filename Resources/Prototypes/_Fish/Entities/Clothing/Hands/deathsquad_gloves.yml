@@ -1,9 +1,7 @@
 - type: entity
-  parent: [BaseClothingHandsPowerGlovesUplinkNTERT, BaseCentcommContraband]
-  id: ClothingHandsGlovesDeathSquad
-  name: death squad combat gloves
-  description: Elite tactical gloves with enhanced striking power. These gloves are fireproof, shock resistant, and significantly amplify melee damage.
-  suffix: Uplink
+  parent: [ClothingHandsPowerGlovesUplinkNTERTEpsilon, BaseCentcommContraband]
+  id: ClothingHandsGlovesDeathSquadFish
+  suffix: Fish, Uplink, 200BC 200C
   components:
   - type: Sprite
     sprite: _Fish/Clothing/Hands/Gloves/deathsquad.rsi
@@ -13,8 +11,8 @@
     refundAllowed: false
     ownerOnly: true
     balance:
-      Bluecrystal: 210
-      Crystallite: 210
+      Bluecrystal: 200
+      Crystallite: 200
   - type: Tag
     tags:
     - NTUplink
@@ -36,9 +34,9 @@
     bluntStaminaDamageFactor: 3.0
 
 - type: entity
-  parent: ClothingHandsGlovesDeathSquad
-  id: ClothingHandsPowerGlovesUplinkNTERTDeathSquad
-  suffix: Uplink, 80BC 80C
+  parent: ClothingHandsGlovesDeathSquadFish
+  id: ClothingHandsPowerGlovesUplinkNTERTDeathSquadFish
+  suffix: Fish, Uplink, 80BC 80C
   components:
   - type: Store
     refundAllowed: false
@@ -46,4 +44,3 @@
     balance:
       Bluecrystal: 80
       Crystallite: 80
-

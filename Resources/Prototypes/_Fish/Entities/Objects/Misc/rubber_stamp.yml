@@ -32,11 +32,11 @@
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-leading-hos
-    stampedColor: "#FF33CCFF"
+    stampedColor: "#cc0000"
     stampState: "paper_stamp-hos"
   - type: Sprite
-    sprite: _Fish/Objects/Misc/stamps.rsi
-    state: stamp-senior-hos
+    sprite: Objects/Misc/stamps.rsi
+    state: stamp-hos
 
 - type: entity
   name: Lead Engineer rubber stamp

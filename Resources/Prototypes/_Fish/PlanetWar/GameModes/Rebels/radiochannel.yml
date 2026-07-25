@@ -1,0 +1,10 @@
+- type: radioChannel
+  id: RadioChannelArm
+  name: radio-channel-arm-name
+  keycode: '2'
+  frequency: 8769
+  color: "#e60000"
+  longRange: true
+
+
+#Turret

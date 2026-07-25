@@ -3,7 +3,7 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 40
+    minPlayers: 35 # Fish-edit
     minCommandStaff: 3
   - type: AssaultOpsRule
     faction: Syndicate

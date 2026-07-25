@@ -1,0 +1,13 @@
+- type: emote
+  id: Fox
+  name: chat-emote-name-fox
+  category: Vocal
+  icon: Interface/Emotes/weh.png
+  chatMessages: ["chat-emote-msg-fox"]
+
+- type: emoteSounds
+  id: Fox
+  sound:
+    collection: Fox
+    params:
+      variation: 0.125

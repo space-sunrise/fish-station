@@ -25,4 +25,16 @@ public sealed partial class KitsuneTransformComponent : Component
 
     [ViewVariables]
     public List<EntityUid> ActionEntities = new();
+
+    /// <summary>
+    /// How long the fox transformation lasts (seconds)
+    /// </summary>
+    [DataField("duration")]
+    public float Duration = 240f;
+
+    /// <summary>
+    /// Duration of the do-after for transformation (seconds)
+    /// </summary>
+    [DataField("delay")]
+    public float Delay = 3f;
 }
