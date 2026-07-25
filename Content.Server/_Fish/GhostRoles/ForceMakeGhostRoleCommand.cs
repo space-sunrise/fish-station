@@ -1,5 +1,4 @@
 using Content.Server.Administration;
-using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Raffles;
 using Content.Shared.Administration;
 using Content.Shared.Ghost.Roles.Raffles;
@@ -9,12 +8,12 @@ using Robust.Shared.Prototypes;
 namespace Content.Server._Fish.GhostRoles;
 
 /// <summary>
-/// Принудительно делает любую сущность ghost role по UID (NPC, пустой MindContainer и т.д.).
+/// Админ-команда forceghostrole — принудительная ghost role по UID.
 /// </summary>
 [AdminCommand(AdminFlags.Admin)]
 public sealed class ForceMakeGhostRoleCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly GhostRoleSystem _ghostRole = default!;
+    [Dependency] private readonly ForceMakeGhostRoleSystem _forceMake = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     public override string Command => "forceghostrole";
@@ -44,7 +43,6 @@ public sealed class ForceMakeGhostRoleCommand : LocalizedEntityCommands
 
         if (args.Length == 4)
         {
-            // либо rules, либо raffle prototype
             if (_prototype.TryIndex<GhostRoleRaffleSettingsPrototype>(args[3], out var raffleProto))
                 raffleConfig = new GhostRoleRaffleConfig(raffleProto.Settings);
             else
@@ -52,7 +50,6 @@ public sealed class ForceMakeGhostRoleCommand : LocalizedEntityCommands
         }
         else if (args.Length == 5)
         {
-            // raffle proto + rules
             if (!_prototype.TryIndex<GhostRoleRaffleSettingsPrototype>(args[3], out var raffleProto))
             {
                 shell.WriteLine(Loc.GetString("cmd-forceghostrole-invalid-raffle", ("proto", args[3])));
@@ -90,7 +87,7 @@ public sealed class ForceMakeGhostRoleCommand : LocalizedEntityCommands
                 rules = args[6];
         }
 
-        if (!_ghostRole.TryForceMakeGhostRole(
+        if (!_forceMake.TryForceMakeGhostRole(
                 uid.Value,
                 name,
                 description,
@@ -106,6 +103,6 @@ public sealed class ForceMakeGhostRoleCommand : LocalizedEntityCommands
         }
 
         var entityName = EntityManager.GetComponent<MetaDataComponent>(uid.Value).EntityName;
-        shell.WriteLine(Loc.GetString("cmd-forceghostrole-success", ("name", entityName), ("uid", uid)));
+        shell.WriteLine(Loc.GetString("cmd-forceghostrole-success", ("name", entityName), ("uid", uid.Value)));
     }
 }

@@ -42,21 +42,8 @@ public sealed class MindSystem : SharedMindSystem
             mind.UserId = null;
         }
 
-        // Fish edit start - всегда очищаем MindContainer, иначе при Terminating OwnedEntity
-        // ссылка Mind остаётся и HasMind ложно блокирует makeghostrole / takeover
-        if (mind.OwnedEntity != null)
-        {
-            var owned = mind.OwnedEntity.Value;
-            if (!TerminatingOrDeleted(owned))
-            {
-                TransferTo(uid, null, mind: mind, createGhost: false);
-            }
-            else if (TryComp(owned, out MindContainerComponent? container) && container.Mind == uid)
-            {
-                container.Mind = null;
-            }
-        }
-        // Fish edit end
+        if (mind.OwnedEntity != null && !TerminatingOrDeleted(mind.OwnedEntity.Value))
+            TransferTo(uid, null, mind: mind, createGhost: false);
 
         mind.OwnedEntity = null;
     }
@@ -197,15 +184,8 @@ public sealed class MindSystem : SharedMindSystem
         {
             component = EnsureComp<MindContainerComponent>(entity.Value);
 
-            // Fish edit start - не вызывать OnGhostAttempt по устаревшему Mind UID
-            if (component.Mind != null)
-            {
-                if (TryComp(component.Mind.Value, out MindComponent? _))
-                    _ghosts.OnGhostAttempt(component.Mind.Value, false);
-                else
-                    component.Mind = null;
-            }
-            // Fish edit end
+            if (component.HasMind)
+                _ghosts.OnGhostAttempt(component.Mind.Value, false);
 
             if (TryComp<ActorComponent>(entity.Value, out var actor))
             {

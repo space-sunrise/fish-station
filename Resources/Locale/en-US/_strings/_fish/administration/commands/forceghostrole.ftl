@@ -1,7 +1,11 @@
-cmd-forceghostrole-desc = Forcefully turns any entity into a ghost role by UID, including NPCs with an empty MindContainer.
-cmd-forceghostrole-help = Usage: forceghostrole <entityUid> <name> <description> [<rules> | <rafflePrototype> [<rules>] | <initial> <extends> <max> [<rules>]]
-cmd-forceghostrole-success = Made entity {$name} ({$uid}) a ghost role.
-cmd-forceghostrole-failed = Failed to make entity {$uid} a ghost role.
-cmd-forceghostrole-invalid-raffle = {$proto} is not a valid ghost role raffle settings prototype.
-cmd-forceghostrole-invalid-duration = Raffle initial/extends/max must be positive numbers (seconds).
-cmd-forceghostrole-initial-gt-max = Initial duration must be less than or equal to max duration.
+cmd-forceghostrole-desc = Force an entity into a ghost role by UID.
+cmd-forceghostrole-help = Usage: forceghostrole <uid> <name> <description> [<rules> | <rafflePrototype> [<rules>] | <initial> <extends> <max> [<rules>]]
+cmd-forceghostrole-success = {$name} ({$uid}) is now a ghost role.
+cmd-forceghostrole-failed = Failed to make {$uid} a ghost role.
+cmd-forceghostrole-invalid-raffle = {$proto} is not a valid raffle settings prototype.
+cmd-forceghostrole-invalid-duration = Raffle durations must be positive numbers (seconds).
+cmd-forceghostrole-initial-gt-max = Initial duration must not exceed max duration.
+
+force-ghost-role-verb-get-data-text = Force ghost role
+force-ghost-role-verb-get-data-desc = Make this entity an available ghost role (ejects any current mind).
+force-ghost-role-verb-default-description = Admin ghost role: {$name}

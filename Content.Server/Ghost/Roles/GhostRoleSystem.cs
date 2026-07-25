@@ -43,8 +43,7 @@ using Content.Sunrise.Interfaces.Shared; // Sunrise-Sponsors
 namespace Content.Server.Ghost.Roles;
 
 [UsedImplicitly]
-// Fish edit - partial для API принудительного создания ghost role в _Fish
-public sealed partial class GhostRoleSystem : EntitySystem
+public sealed class GhostRoleSystem : EntitySystem
 {
     [Dependency] private readonly IBanManager _ban = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
@@ -884,15 +883,13 @@ public sealed partial class GhostRoleSystem : EntitySystem
 
         ghostRole.Taken = true;
 
-        // Fish edit start - TryGetMind вместо HasMind; сброс Taken при отказе
-        _mindSystem.ClearStaleMind(uid);
-        if (_mindSystem.TryGetMind(uid, out _, out _))
+        var mind = EnsureComp<MindContainerComponent>(uid);
+
+        if (mind.HasMind)
         {
-            ghostRole.Taken = false;
             args.TookRole = false;
             return;
         }
-        // Fish edit end
 
         if (ghostRole.MakeSentient)
             _mindSystem.MakeSentient(uid, ghostRole.AllowMovement, ghostRole.AllowSpeech);
