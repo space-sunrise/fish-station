@@ -1,0 +1,148 @@
+- type: entity
+  id: BattleShuttleFrame
+  name: battle shuttle frame
+  description: An unfinished battle shuttle hull.
+  parent: BaseStructure
+  components:
+  - type: Sprite
+    sprite: _Fish/Objects/Specific/SpacePods/construction.rsi
+    layers:
+    - state: pod_1
+      map: ["enum.ConstructionVisuals.Layer"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ConstructionVisuals.Key:
+        enum.ConstructionVisuals.Layer:
+          1: { state: pod_1 }
+          2: { state: pod_2 }
+          3: { state: pod_3 }
+          4: { state: pod_4 }
+          5: { state: pod_5 }
+          6: { state: pod_6 }
+          7: { state: pod_7 }
+          8: { state: pod_8 }
+          9: { state: pod_9 }
+          10: { state: pod_10 }
+          11: { state: pod_11 }
+          12: { state: pod_12 }
+  - type: Construction
+    graph: BattleShuttle
+    node: frame
+  - type: Anchorable
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 80
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Tag
+    tags:
+    - BattleShuttleFrame
+
+- type: constructionGraph
+  id: BattleShuttle
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: frame
+      steps:
+      - material: Steel
+        amount: 10
+        completed:
+        - !type:SnapToGrid
+          southRotation: true
+
+  - node: frame
+    entity: BattleShuttleFrame
+    edges:
+    - to: complete
+      steps:
+      - material: Cable
+        amount: 5
+        completed:
+        - !type:VisualizerDataInt
+          key: "enum.ConstructionVisuals.Key"
+          data: 2
+      - tool: Screwing
+        doAfter: 2
+        completed:
+        - !type:VisualizerDataInt
+          key: "enum.ConstructionVisuals.Key"
+          data: 3
+      - tag: BattleShuttleCircuitboard
+        name: construction-graph-tag-battle-shuttle-board
+        icon:
+          sprite: Objects/Misc/module.rsi
+          state: mainboard
+        completed:
+        - !type:VisualizerDataInt
+          key: "enum.ConstructionVisuals.Key"
+          data: 4
+      - tool: Screwing
+        doAfter: 2
+        completed:
+        - !type:VisualizerDataInt
+          key: "enum.ConstructionVisuals.Key"
+          data: 5
+      - tag: BattleShuttleCore
+        name: construction-graph-tag-battle-shuttle-core
+        icon:
+          sprite: _Fish/Objects/Specific/SpacePods/parts.rsi
+          state: core
+        completed:
+        - !type:VisualizerDataInt
+          key: "enum.ConstructionVisuals.Key"
+          data: 6
+      - tool: Anchoring
+        doAfter: 2
+        completed:
+        - !type:VisualizerDataInt
+          key: "enum.ConstructionVisuals.Key"
+          data: 7
+      - material: Steel
+        amount: 5
+        completed:
+        - !type:VisualizerDataInt
+          key: "enum.ConstructionVisuals.Key"
+          data: 8
+      - tool: Anchoring
+        doAfter: 2
+        completed:
+        - !type:VisualizerDataInt
+          key: "enum.ConstructionVisuals.Key"
+          data: 9
+      - tool: Welding
+        doAfter: 3
+        completed:
+        - !type:VisualizerDataInt
+          key: "enum.ConstructionVisuals.Key"
+          data: 10
+      - tag: BattleShuttleArmor
+        name: construction-graph-tag-battle-shuttle-armor
+        icon:
+          sprite: _Fish/Objects/Specific/SpacePods/parts.rsi
+          state: pod_armor_civ
+        completed:
+        - !type:VisualizerDataInt
+          key: "enum.ConstructionVisuals.Key"
+          data: 11
+      - tool: Anchoring
+        doAfter: 2
+        completed:
+        - !type:VisualizerDataInt
+          key: "enum.ConstructionVisuals.Key"
+          data: 12
+      - tool: Welding
+        doAfter: 4
+
+  - node: complete
+    entity: BattleShuttleCivilian

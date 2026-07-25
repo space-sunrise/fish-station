@@ -1,0 +1,28 @@
+- type: entity
+  name: Civilian Battle Shuttle Spawner
+  id: SpawnBattleShuttleCivilian
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _Fish/Objects/Specific/SpacePods/pods.rsi
+      state: pod_civ
+  - type: ConditionalSpawner
+    prototypes:
+    - BattleShuttleCivilian
+
+- type: entity
+  name: Security Battle Shuttle Spawner
+  suffix: Filled
+  id: SpawnBattleShuttleSecurityFilled
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _Fish/Objects/Specific/SpacePods/pods.rsi
+      state: pod_mil
+  - type: ConditionalSpawner
+    prototypes:
+    - BattleShuttleSecurityFilled

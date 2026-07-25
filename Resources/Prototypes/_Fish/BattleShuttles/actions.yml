@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseMechAction
+  id: ActionBattleShuttleToggleLock
+  name: Toggle Shuttle Lock
+  description: Locks or unlocks the battle shuttle hatch.
+  components:
+  - type: Action
+    useDelay: 1
+    icon:
+      sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
+      state: lock_tumbler
+  - type: InstantAction
+    event: !type:ToggleBattleShuttleLockEvent

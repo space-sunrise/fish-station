@@ -1,0 +1,13 @@
+﻿{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Ported from SS220 Paradise icons/goonstation/pods/ship.dmi",
+  "size": { "x": 32, "y": 32 },
+  "states": [
+    { "name": "pod_b_taser" },
+    { "name": "pod_locator", "delays": [[0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2]] },
+    { "name": "pod_m_laser" },
+    { "name": "pod_taser" },
+    { "name": "pod_w_laser" }
+  ]
+}
