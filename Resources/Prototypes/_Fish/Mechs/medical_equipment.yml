@@ -1,0 +1,100 @@
+- type: Tag
+  id: MedicalMech
+
+- type: Tag
+  id: Odysseus
+
+- type: entity
+  id: MedicalMechEquipment
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - MedicalMech
+
+- type: entity
+  id: MechEquipmentSleeper
+  parent: [ BaseMechEquipment, MedicalMechEquipment ]
+  name: mounted sleeper
+  description: A medical sleeper module that can hold and stabilize a patient.
+  components:
+  - type: Sprite
+    state: mecha_sleeper
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: MechGrabber
+    maxContents: 1
+    grabDelay: 3
+    grabEnergyDelta: -20
+  - type: MechMedicalSleeper
+    healPerSecond:
+      groups:
+        Brute: -2
+        Burn: -2
+        Toxin: -1
+        Airloss: -2
+  - type: UIFragment
+    ui: !type:MechGrabberUi
+  - type: ContainerContainer
+    containers:
+      item-container: !type:Container
+
+- type: entity
+  id: MechEquipmentRescueJaw
+  parent: [ BaseMechEquipment, MedicalMechEquipment ]
+  name: rescue jaws
+  description: Hydraulic jaws for forcing doors and clearing obstacles during rescue.
+  components:
+  - type: Sprite
+    state: mecha_clamp
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-big
+      right:
+      - state: inhand-right-big
+  - type: MultiHandedItem
+  - type: Prying
+    enabled: true
+    pryPowered: true
+    useSound: /Audio/Items/jaws_pry.ogg
+
+- type: entity
+  id: MechEquipmentSyringeGun
+  parent: [ BaseMechEquipment, MedicalMechEquipment ]
+  name: mech syringe gun
+  description: A mounted pneumatic syringe launcher for rapid reagent delivery.
+  components:
+  - type: Sprite
+    state: mecha_syringegun
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/syringe_gun.ogg
+  - type: ContainerAmmoProvider
+    container: storagebase
+  - type: Storage
+    maxItemSize: Small
+    whitelist:
+      tags:
+      - SyringeGunAmmo
+    grid:
+    - 0,0,3,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: Appearance
