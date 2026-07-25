@@ -36,6 +36,12 @@ public sealed partial class SecurityCrimeReportComponent : Component
         "LawFish502",
     };
 
+    /// <summary>
+    /// Cooldown после успешной отправки доклада (UI Action + UseDelay на носителе).
+    /// </summary>
+    [DataField]
+    public TimeSpan ReportCooldown = TimeSpan.FromSeconds(30);
+
     [DataField]
     public TimeSpan MalfunctionDuration = TimeSpan.FromSeconds(60);
 

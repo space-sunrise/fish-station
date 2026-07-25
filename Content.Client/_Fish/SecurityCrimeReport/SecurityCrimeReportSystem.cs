@@ -30,10 +30,8 @@ public sealed class SecurityCrimeReportSystem : SharedSecurityCrimeReportSystem
         base.Shutdown();
     }
 
-    protected override void HandleOpenAction(Entity<SecurityCrimeReportComponent> ent, ref OpenSecurityCrimeReportEvent args)
+    protected override void OnOpenAuthorized(Entity<SecurityCrimeReportComponent> ent, ref OpenSecurityCrimeReportEvent args)
     {
-        base.HandleOpenAction(ent, ref args);
-
         var local = _player.LocalEntity;
         if (local == null || args.Performer != local.Value)
             return;
@@ -71,7 +69,7 @@ public sealed class SecurityCrimeReportSystem : SharedSecurityCrimeReportSystem
 
         _menu = new SimpleRadialMenu();
         _menu.SetButtons(buttons);
-        _menu.OpenOverMouseScreenPosition();
+        _menu.OpenCentered();
         _menu.OnClose += CloseMenu;
     }
 
