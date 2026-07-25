@@ -120,6 +120,14 @@ namespace Content.Shared.Maps
         [DataField("sturdy")] public bool Sturdy { get; private set; } = true;
 
         /// <summary>
+        /// When false, this tile does not create hard grid fixtures for grid-grid collision unless a dense
+        /// anchored entity blocks the cell (see grid chunk collision fill).
+        /// </summary>
+        // FIsh edit - прозрачные тайлы без собственной grid collision
+        [DataField("enableGridCollision")]
+        public bool EnableGridCollision { get; private set; } = true;
+
+        /// <summary>
         /// Can weather affect this tile.
         /// </summary>
         [DataField("weather")] public bool Weather = false;
