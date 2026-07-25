@@ -1,0 +1,17 @@
+gas-zenthium-abbreviation = Zn
+gas-krypium-abbreviation = Kr
+gas-prallium-abbreviation = Pr₂
+gas-chaoson-abbreviation = Ch
+gas-garodin-abbreviation = Gr₃
+gas-baratrium-abbreviation = Ba₂
+gas-ethylium-abbreviation = Et
+gas-zimmera-abbreviation = Zm₂
+gas-framel-abbreviation = Fr
+gas-klemennon-abbreviation = Kl
+gas-proto-ultimium-abbreviation = PUlt₂
+gas-zimmerous-frezonite-abbreviation = ZmF
+gas-anti-ultimium-abbreviation = AUlt₂
+gas-ultimium-abbreviation = Ult₂
+gas-permafrost-abbreviation = F₅I₂Jd₈Op₇
+gas-riminon-abbreviation = RMN
+gas-axo-noblium-abbreviation = AxoN

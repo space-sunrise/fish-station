@@ -1,0 +1,9 @@
+ent-SpawnPointFishGhostCharacterSpawner = Ghost Character Spawner (1 Slot)
+    .suffix = 1 Slot
+    .desc = Spawns one ghost as their own naked character from Character Setup. Place one spawner per participant.
+ent-SpawnPointFishGhostCharacterSpawnerSyndicate = Ghost Character Spawner (1 Slot)
+    .suffix = Syndicate, 1 Slot
+    .desc = { ent-SpawnPointFishGhostCharacterSpawner.desc } Grants Syndicate and Pirate factions for biocode and turret recognition at mixed events.
+ent-SpawnPointFishGhostCharacterSpawnerPirate = Ghost Character Spawner (1 Slot)
+    .suffix = Pirate, 1 Slot
+    .desc = { ent-SpawnPointFishGhostCharacterSpawner.desc } Grants the Pirate faction for turret recognition at pirate events.

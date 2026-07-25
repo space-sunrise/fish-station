@@ -1,0 +1,312 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseAnimalObjective
+  components:
+  - type: Objective
+    issuer: objective-issuer-animal
+    difficulty: 1
+  - type: AnimalRoleRequirement
+
+- type: entity
+  abstract: true
+  parent: [BaseAnimalObjective, BaseLivingObjective]
+  id: BaseAnimalLivingObjective
+
+- type: entity
+  parent: BaseAnimalLivingObjective
+  id: AnimalEatCountObjective
+  components:
+  - type: Objective
+    difficulty: 0.75
+    icon:
+      entity: FoodBurgerPlain
+  - type: NumberObjective
+    min: 3
+    max: 7
+    title: animal-objective-eat-count-title
+    description: animal-objective-eat-count-description
+  - type: AnimalEatCountCondition
+
+- type: entity
+  parent: BaseAnimalLivingObjective
+  id: AnimalDrinkVolumeObjective
+  components:
+  - type: Objective
+    difficulty: 0.75
+    icon:
+      entity: DrinkGlass
+  - type: NumberObjective
+    min: 15
+    max: 40
+    title: animal-objective-drink-volume-title
+    description: animal-objective-drink-volume-description
+  - type: AnimalDrinkVolumeCondition
+
+- type: entity
+  abstract: true
+  parent: BaseAnimalLivingObjective
+  id: BaseAnimalDrinkReagentObjective
+  components:
+  - type: Objective
+    difficulty: 0.8
+  - type: NumberObjective
+    min: 10
+    max: 25
+  - type: AnimalDrinkReagentCondition
+
+- type: entity
+  parent: BaseAnimalDrinkReagentObjective
+  id: AnimalDrinkCoffeeObjective
+  components:
+  - type: Objective
+    icon:
+      entity: DrinkCoffee
+  - type: NumberObjective
+    title: animal-objective-drink-coffee-title
+    description: animal-objective-drink-coffee-description
+  - type: AnimalDrinkReagentCondition
+    reagent: Coffee
+
+- type: entity
+  parent: BaseAnimalDrinkReagentObjective
+  id: AnimalDrinkTeaObjective
+  components:
+  - type: Objective
+    icon:
+      entity: DrinkTeaGlass
+  - type: NumberObjective
+    title: animal-objective-drink-tea-title
+    description: animal-objective-drink-tea-description
+  - type: AnimalDrinkReagentCondition
+    reagent: Tea
+
+- type: entity
+  parent: BaseAnimalDrinkReagentObjective
+  id: AnimalDrinkColaObjective
+  components:
+  - type: Objective
+    icon:
+      entity: DrinkColaCan
+  - type: NumberObjective
+    title: animal-objective-drink-cola-title
+    description: animal-objective-drink-cola-description
+  - type: AnimalDrinkReagentCondition
+    reagent: Cola
+    alsoReagents:
+    - ColaSunrise
+
+- type: entity
+  parent: BaseAnimalDrinkReagentObjective
+  id: AnimalDrinkWaterObjective
+  components:
+  - type: Objective
+    icon:
+      entity: DrinkWaterJug
+  - type: NumberObjective
+    title: animal-objective-drink-water-title
+    description: animal-objective-drink-water-description
+  - type: AnimalDrinkReagentCondition
+    reagent: Water
+
+- type: entity
+  parent: BaseAnimalDrinkReagentObjective
+  id: AnimalDrinkMilkObjective
+  components:
+  - type: Objective
+    icon:
+      entity: DrinkGlassWhite
+  - type: NumberObjective
+    title: animal-objective-drink-milk-title
+    description: animal-objective-drink-milk-description
+  - type: AnimalDrinkReagentCondition
+    reagent: Milk
+
+- type: entity
+  parent: BaseAnimalDrinkReagentObjective
+  id: AnimalDrinkAppleJuiceObjective
+  components:
+  - type: Objective
+    icon:
+      entity: FoodApple
+  - type: NumberObjective
+    title: animal-objective-drink-apple-juice-title
+    description: animal-objective-drink-apple-juice-description
+  - type: AnimalDrinkReagentCondition
+    reagent: JuiceApple
+
+- type: entity
+  abstract: true
+  parent: BaseAnimalLivingObjective
+  id: BaseAnimalEatFoodObjective
+  components:
+  - type: Objective
+    difficulty: 0.85
+  - type: NumberObjective
+    min: 1
+    max: 2
+  - type: AnimalEatFoodCondition
+
+- type: entity
+  parent: BaseAnimalEatFoodObjective
+  id: AnimalEatDonutObjective
+  components:
+  - type: Objective
+    icon:
+      entity: FoodDonutPlain
+  - type: NumberObjective
+    title: animal-objective-eat-donut-title
+    description: animal-objective-eat-donut-description
+  - type: AnimalEatFoodCondition
+    tag: Donut
+
+- type: entity
+  parent: BaseAnimalEatFoodObjective
+  id: AnimalEatBurgerObjective
+  components:
+  - type: Objective
+    icon:
+      entity: FoodBurgerPlain
+  - type: NumberObjective
+    title: animal-objective-eat-burger-title
+    description: animal-objective-eat-burger-description
+  - type: AnimalEatFoodCondition
+    foodParent: FoodBurgerBase
+
+- type: entity
+  parent: BaseAnimalEatFoodObjective
+  id: AnimalEatPizzaObjective
+  components:
+  - type: Objective
+    icon:
+      entity: FoodPizzaMargheritaSlice
+  - type: NumberObjective
+    title: animal-objective-eat-pizza-title
+    description: animal-objective-eat-pizza-description
+  - type: AnimalEatFoodCondition
+    tag: Pizza
+
+- type: entity
+  parent: BaseAnimalLivingObjective
+  id: AnimalEatPaperObjective
+  components:
+  - type: Objective
+    difficulty: 0.7
+    icon:
+      entity: Paper
+  - type: NumberObjective
+    min: 2
+    max: 5
+    title: animal-objective-eat-paper-title
+    description: animal-objective-eat-paper-description
+  - type: AnimalEatPaperCondition
+
+- type: entity
+  parent: BaseAnimalLivingObjective
+  id: AnimalEatBlankPaperObjective
+  components:
+  - type: Objective
+    difficulty: 0.65
+    icon:
+      entity: Paper
+  - type: NumberObjective
+    min: 1
+    max: 3
+    title: animal-objective-eat-blank-paper-title
+    description: animal-objective-eat-blank-paper-description
+  - type: AnimalEatPaperCondition
+    requireBlank: true
+
+- type: entity
+  parent: BaseAnimalLivingObjective
+  id: AnimalTileDistanceObjective
+  components:
+  - type: Objective
+    difficulty: 0.9
+    icon:
+      entity: MobMouse
+  - type: NumberObjective
+    min: 40
+    max: 120
+    title: animal-objective-tile-distance-title
+    description: animal-objective-tile-distance-description
+  - type: AnimalTileDistanceCondition
+
+- type: entity
+  parent: BaseAnimalLivingObjective
+  id: AnimalLongWalkObjective
+  components:
+  - type: Objective
+    difficulty: 1
+    icon:
+      entity: MobMouse
+  - type: NumberObjective
+    min: 120
+    max: 220
+    title: animal-objective-long-walk-title
+    description: animal-objective-long-walk-description
+  - type: AnimalTileDistanceCondition
+
+- type: entity
+  parent: BaseAnimalLivingObjective
+  id: AnimalVisitLocationsObjective
+  components:
+  - type: Objective
+    difficulty: 1
+    icon:
+      entity: PassengerPDA
+  - type: NumberObjective
+    min: 3
+    max: 5
+    title: animal-objective-visit-locations-title
+    description: animal-objective-visit-locations-description
+  - type: AnimalVisitLocationsCondition
+
+- type: entity
+  parent: BaseAnimalLivingObjective
+  id: AnimalTryNewFoodObjective
+  components:
+  - type: Objective
+    difficulty: 0.8
+    icon:
+      entity: FoodSnackBoritos
+  - type: NumberObjective
+    min: 2
+    max: 4
+    title: animal-objective-try-new-food-title
+    description: animal-objective-try-new-food-description
+  - type: AnimalTryNewFoodCondition
+
+- type: entity
+  parent: BaseAnimalLivingObjective
+  id: AnimalTryManyFoodsObjective
+  components:
+  - type: Objective
+    difficulty: 1
+    icon:
+      entity: FoodSnackChips
+  - type: NumberObjective
+    min: 4
+    max: 7
+    title: animal-objective-try-many-foods-title
+    description: animal-objective-try-many-foods-description
+  - type: AnimalTryNewFoodCondition
+
+- type: entity
+  parent: [BaseAnimalObjective, BaseSurviveObjective]
+  id: AnimalSurviveObjective
+  components:
+  - type: Objective
+    difficulty: 0.5
+    icon:
+      entity: MobMouse
+
+- type: entity
+  parent: [BaseAnimalObjective, BaseLivingObjective]
+  id: AnimalEscapeShuttleObjective
+  components:
+  - type: Objective
+    difficulty: 1.2
+    icon:
+      entity: ChairPilotSeat
+  - type: EscapeShuttleCondition

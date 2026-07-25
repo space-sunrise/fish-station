@@ -1,0 +1,169 @@
+- type: xenoArchTrigger
+  id: TriggerZenthium
+  tip: xenoarch-trigger-tip-zenthium
+  components:
+  - type: XATGas
+    targetGas: Zenthium
+  - type: XATReactive
+    reagents:
+    - Zenthium
+
+- type: xenoArchTrigger
+  id: TriggerKrypium
+  tip: xenoarch-trigger-tip-krypium
+  components:
+  - type: XATGas
+    targetGas: Krypium
+  - type: XATReactive
+    reagents:
+    - Krypium
+
+- type: xenoArchTrigger
+  id: TriggerPrallium
+  tip: xenoarch-trigger-tip-prallium
+  components:
+  - type: XATGas
+    targetGas: Prallium
+  - type: XATReactive
+    reagents:
+    - Prallium
+
+- type: xenoArchTrigger
+  id: TriggerChaoson
+  tip: xenoarch-trigger-tip-chaoson
+  components:
+  - type: XATGas
+    targetGas: Chaoson
+  - type: XATReactive
+    reagents:
+    - Chaoson
+
+- type: xenoArchTrigger
+  id: TriggerGarodin
+  tip: xenoarch-trigger-tip-garodin
+  components:
+  - type: XATGas
+    targetGas: Garodin
+  - type: XATReactive
+    reagents:
+    - Garodin
+
+- type: xenoArchTrigger
+  id: TriggerBaratrium
+  tip: xenoarch-trigger-tip-baratrium
+  components:
+  - type: XATGas
+    targetGas: Baratrium
+  - type: XATReactive
+    reagents:
+    - Baratrium
+
+- type: xenoArchTrigger
+  id: TriggerEthylium
+  tip: xenoarch-trigger-tip-ethylium
+  components:
+  - type: XATGas
+    targetGas: Ethylium
+  - type: XATReactive
+    reagents:
+    - Ethylium
+
+- type: xenoArchTrigger
+  id: TriggerZimmera
+  tip: xenoarch-trigger-tip-zimmera
+  components:
+  - type: XATGas
+    targetGas: Zimmera
+  - type: XATReactive
+    reagents:
+    - Zimmera
+
+- type: xenoArchTrigger
+  id: TriggerFramel
+  tip: xenoarch-trigger-tip-framel
+  components:
+  - type: XATGas
+    targetGas: Framel
+  - type: XATReactive
+    reagents:
+    - Framel
+
+- type: xenoArchTrigger
+  id: TriggerKlemennon
+  tip: xenoarch-trigger-tip-klemennon
+  components:
+  - type: XATGas
+    targetGas: Klemennon
+  - type: XATReactive
+    reagents:
+    - Klemennon
+
+- type: xenoArchTrigger
+  id: TriggerProtoUltimium
+  tip: xenoarch-trigger-tip-proto-ultimium
+  components:
+  - type: XATGas
+    targetGas: ProtoUltimium
+  - type: XATReactive
+    reagents:
+    - ProtoUltimium
+
+- type: xenoArchTrigger
+  id: TriggerZimmerousFrezonite
+  tip: xenoarch-trigger-tip-zimmerous-frezonite
+  components:
+  - type: XATGas
+    targetGas: ZimmerousFrezonite
+  - type: XATReactive
+    reagents:
+    - ZimmerousFrezonite
+
+- type: xenoArchTrigger
+  id: TriggerAntiUltimium
+  tip: xenoarch-trigger-tip-anti-ultimium
+  components:
+  - type: XATGas
+    targetGas: AntiUltimium
+  - type: XATReactive
+    reagents:
+    - AntiUltimium
+
+- type: xenoArchTrigger
+  id: TriggerUltimium
+  tip: xenoarch-trigger-tip-ultimium
+  components:
+  - type: XATGas
+    targetGas: Ultimium
+  - type: XATReactive
+    reagents:
+    - Ultimium
+
+- type: xenoArchTrigger
+  id: TriggerPermafrost
+  tip: xenoarch-trigger-tip-permafrost
+  components:
+  - type: XATGas
+    targetGas: Permafrost
+  - type: XATReactive
+    reagents:
+    - Permafrost
+
+- type: xenoArchTrigger
+  id: TriggerRiminon
+  tip: xenoarch-trigger-tip-riminon
+  components:
+  - type: XATGas
+    targetGas: Riminon
+  - type: XATReactive
+    reagents:
+    - Riminon
+
+- type: xenoArchTrigger
+  id: TriggerAxoNoblium
+  tip: xenoarch-trigger-tip-axo-noblium
+  components:
+  - type: XATGas
+    targetGas: AxoNoblium
+  - type: XATReactive
+    reagents:
+    - AxoNoblium

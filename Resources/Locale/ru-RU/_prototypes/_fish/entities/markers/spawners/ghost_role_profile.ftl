@@ -1,0 +1,9 @@
+ent-SpawnPointFishGhostCharacterSpawner = Ghost Character Spawner (1 слот)
+    .suffix = 1 слот
+    .desc = Заспавнит одного призрака как его собственного голого персонажа из Character Setup. Ставьте по одному спавнеру на участника.
+ent-SpawnPointFishGhostCharacterSpawnerSyndicate = Ghost Character Spawner (1 слот)
+    .suffix = Синдикат, 1 слот
+    .desc = { ent-SpawnPointFishGhostCharacterSpawner.desc } Назначает фракции Syndicate и Pirate для биокода и турелей на смешанных ивентах.
+ent-SpawnPointFishGhostCharacterSpawnerPirate = Ghost Character Spawner (1 слот)
+    .suffix = Пират, 1 слот
+    .desc = { ent-SpawnPointFishGhostCharacterSpawner.desc } Назначает фракцию Pirate для турелей на пиратских ивентах.

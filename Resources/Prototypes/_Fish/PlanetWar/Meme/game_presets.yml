@@ -1,0 +1,15 @@
+- type: gamePreset
+  id: PlanetWarVulpkanin
+  name: planetwar-vulpkanin-preset-name
+  description: planetwar-vulpkanin-preset-description
+  showInVote: false
+  rules:
+    - PlanetWarRule
+    - PlanetWarVulpkaninRule
+
+
+- type: entity
+  parent: BaseGameRule
+  id: PlanetWarVulpkaninRule
+  components:
+  - type: PlanetWarVulpkaninRule

@@ -1,0 +1,211 @@
+# --- Jumpsuits ---
+- type: loadoutEffectGroup
+  id: SpecOpsOnly
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSpecOpsOfficer
+      time: 0
+
+- type: loadout
+  id: CentCommOfficialJumpsuitFish
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficialFish
+
+- type: loadout
+  id: CentCommOfficialJumpskirtFish
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCentcomOfficialFish
+
+- type: loadout
+  id: CentCommAssistantJumpsuitFish
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomAssistantFish
+
+- type: loadout
+  id: SpecOpsOfficerUniformBlackFish
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SpecOpsOnly
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficialBlackFish
+
+# --- Shoes ---
+
+- type: loadout
+  id: CentCommBootsFish
+  equipment:
+    shoes: ClothingShoesBootsCentcomFish
+
+# --- Gloves ---
+
+- type: loadout
+  id: CentCommGlovesWhiteFish
+  equipment:
+    gloves: ClothingHandsGlovesCentcomWhiteFish
+
+# --- Outer Clothing ---
+
+- type: loadout
+  id: CentcommCoatFish
+  equipment:
+    outerClothing: ClothingOuterCoatCentcoatFish
+
+- type: loadout
+  id: CentcommArmor
+  equipment:
+    outerClothing: ClothingOuterArmorCentcomCarapace
+
+- type: loadout
+  id: CentcommArmorFish
+  equipment:
+    outerClothing: ClothingOuterArmorCentcomFish
+
+# --- Neck ---
+
+- type: loadout
+  id: CentcommCloakFormalFish
+  equipment:
+    neck: ClothingNeckCloakCentcomFormalFish
+
+- type: loadout
+  id: CentcommCloakFormalLongFish
+  equipment:
+    neck: ClothingNeckCloakCentcomFormalLongFish
+
+- type: loadout
+  id: CentcommMantleFish
+  equipment:
+    neck: ClothingNeckMantleCentcomFish
+
+- type: loadout
+  id: CentcommMantleShoulderFish
+  equipment:
+    neck: ClothingNeckMantleCentcomShoulderFish
+
+# --- Hats ---
+
+- type: loadout
+  id: CentcommHatFish
+  equipment:
+    head: ClothingHeadHatCentcomFish
+
+- type: loadout
+  id: CentcommCapFish
+  equipment:
+    head: ClothingHeadHatCentcomCapFish
+
+# --- Back ---
+
+- type: loadout
+  id: CentcommSatchelFish
+  equipment:
+    back: ClothingBackpackSatchelCentcomFish
+
+# --- Weapons ---
+
+- type: loadout
+  id: CentcommSwordFish
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SpecOpsOnly
+  equipment:
+    belt: ClothingBeltSheathCentcomFish
+
+
+
+- type: loadout
+  id: CentCommShoesLaceup
+  equipment:
+    shoes: ClothingShoesBootsLaceup
+
+- type: loadout
+  id: CentCommShoesCombat
+  equipment:
+    shoes: ClothingShoesBootsCombatFilled
+
+- type: loadout
+  id: SpecOpsShoesBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SpecOpsOnly
+  equipment:
+    shoes: ClothingShoesCentcomBlack
+
+- type: loadout
+  id: CentCommGlovesBlack
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
+
+- type: loadout
+  id: SpecOpsGlovesCombat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SpecOpsOnly
+  equipment:
+    gloves: ClothingHandsGlovesCombat
+
+- type: loadout
+  id: CentCommArmorCarapace
+  equipment:
+    outerClothing: ClothingOuterArmorCentcomCarapace
+
+- type: loadout
+  id: CentCommArmorSlim
+  equipment:
+    outerClothing: ClothingOuterArmorBasicSlim
+
+- type: loadout
+  id: CentCommPDA
+  equipment:
+    id: CentcomPDA
+
+- type: loadout
+  id: SpecOpsPDA
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SpecOpsOnly
+  equipment:
+    id: SpecOpsOfficerPDA
+
+- type: loadout
+  id: CentCommHeadset
+  equipment:
+    ears: ClothingHeadsetFishCentCom
+
+- type: loadout
+  id: CentCommHeadsetAlt
+  equipment:
+    ears: ClothingHeadsetAltCentCom
+
+- type: loadout
+  id: SpecOpsHeadsetAlt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SpecOpsOnly
+  equipment:
+    ears: ClothingHeadsetAltSpecOpsOfficer
+
+- type: loadout
+  id: CentCommSunglasses
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+
+- type: loadout
+  id: CentCommOfficialHat
+  equipment:
+    head: ClothingHeadHatCentcom
+
+- type: loadout
+  id: SpecOpsCapBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SpecOpsOnly
+  equipment:
+    head: ClothingHeadCapCentcomBlack
+
+- type: loadout
+  id: CentCommAdminGlasses
+  equipment:
+    eyes: ClothingEyesGlassesCommand

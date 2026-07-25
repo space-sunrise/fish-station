@@ -1,0 +1,21 @@
+- type: entity
+  parent: [ BaseSword, BaseCentcommContraband ]
+  id: WeaponMeleeSwordCentcomFish
+  components:
+  - type: Sprite
+    sprite: _Fish/Objects/Weapons/Melee/centcom_sword.rsi
+  - type: Item
+    sprite: _Fish/Objects/Weapons/Melee/centcom_sword.rsi
+    size: Ginormous
+    storedSprite:
+      state: icon
+      sprite: _Fish/Objects/Weapons/Melee/centcom_sword.rsi
+  - type: MeleeWeapon
+    attackRate: 1.2
+    damage:
+      types:
+        Piercing: 17
+    resistanceBypass: true
+  - type: Tag
+    tags:
+    - CentCommRapier

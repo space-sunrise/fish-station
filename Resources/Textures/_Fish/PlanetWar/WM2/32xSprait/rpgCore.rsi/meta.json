@@ -1,0 +1,64 @@
+{
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "rpg_eyesmoke"
+    },
+    {
+      "name": "rpg_singa"
+    },
+    {
+      "name": "rpg_whitehole"
+    },
+    {
+      "name": "rpg_pena"
+    },
+    {
+      "name": "rpg_fire"
+    },
+    {
+      "name": "rpg_emp"
+    },
+    {
+      "name": "rpg_broneboi"
+    },
+    {
+      "name": "rpg"
+    },
+    {
+      "name": "icon"
+    },
+    {
+      "name": "base"
+    },
+    {
+      "name": "mag-1" 
+    },
+    {
+      "name": "mag-0"
+    },
+    {
+      "name": "equipped-BACKPACK",
+      "directions": 4
+    },
+    {
+      "name": "wielded-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "wielded-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    }
+  ]
+}

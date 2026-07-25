@@ -1,0 +1,15 @@
+- type: entity
+  parent: RandomHumanoidSpawnerDeathSquad
+  id: RandomHumanoidSpawnerDeathSquadFish
+  suffix: Fish, 200BC 200C
+  components:
+  - type: Loadout
+    prototypes: [ DeathSquadGearFish ]
+
+- type: entity
+  parent: RandomHumanoidSpawnerDeathSquadFish
+  id: RandomHumanoidSpawnerDeathSquadFishBudget
+  suffix: Fish, 80BC 80C
+  components:
+  - type: Loadout
+    prototypes: [ DeathSquadGearFishBudget ]

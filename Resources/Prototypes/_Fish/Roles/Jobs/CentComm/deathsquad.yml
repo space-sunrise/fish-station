@@ -1,0 +1,15 @@
+- type: startingGear
+  id: DeathSquadGearFish
+  parent: DeathSquadGear
+  equipment:
+    mask: ClothingMaskGasDeathSquadFish
+    outerClothing: ClothingOuterHardsuitDeathsquadFish
+    shoes: ClothingShoesBootsMagDeathSquadFish
+  inhand:
+  - ClothingHandsGlovesDeathSquadFish
+
+- type: startingGear
+  id: DeathSquadGearFishBudget
+  parent: DeathSquadGearFish
+  inhand:
+  - ClothingHandsPowerGlovesUplinkNTERTDeathSquadFish

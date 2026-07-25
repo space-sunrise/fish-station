@@ -1,0 +1,194 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MarkerBase
+  id: MarkerZaglushks
+  components:
+  - type: TimedDespawn 
+    lifetime: 3
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MarkerBase
+  id: MarkerHowMany
+  components:
+  - type: TimedDespawn 
+    lifetime: 5
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: true
+    table: !type:AllSelector
+      children:
+      - id: MarkerZaglushks
+
+#Respublic
+#Замена Пехоты
+
+
+- type: entity
+  parent: BaseGameRule
+  id: PlanetWarRule
+  components:
+  #- type: NukeopsRule
+  #  roundEndBehavior: Nothing
+  - type: GameRule
+    minPlayers: 0
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: Marker24567
+  id: Marker24567Job
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: Marker24567BoomJob
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: Marker24567Boom
+  id: Marker24567BoomJob
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: MarkerGatewayArmJob
+      - id: MARKERMarkerStartItemGatewayArmFlatpack
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: Marker14567
+  id: Marker14567Job
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: Marker14567BoomJob
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: Marker14567Boom
+  id: Marker14567BoomJob
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: MarkerGatewayCoreJob 
+      - id: MARKERMarkerStartItemGatewayCoreFlatpack
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: Marker14567
+  suffix: Drops the server headfirst on tile, use at your own risk.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: Marker14567Boom
+  - type: TimedDespawn 
+    lifetime: 5
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: Marker14567Boom
+  suffix: Drops the server headfirst on tile, use at your own risk.
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: TimedDespawn 
+    lifetime: 5
+  - type: SpawnOnDespawn
+    prototype: GatewayCore
+  - type: TriggerOnSpawn
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: DemolitionCharge
+    maxIntensity: 50000
+    intensitySlope: 1
+    totalIntensity: 90000
+    maxTileBreak: 0
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: GatewayCore
+      - id: MARKERMarkerStartItemGatewayCoreFlatpack
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: Marker24567
+  suffix: Floods the server with expired beer, use at your own risk.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: Marker24567Boom
+  - type: TimedDespawn 
+    lifetime: 5
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: Marker24567Boom
+  suffix: Floods the server with expired beer, use at your own risk.
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: TimedDespawn 
+    lifetime: 5
+  - type: SpawnOnDespawn
+    prototype: GatewayArm
+  - type: TriggerOnSpawn
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: DemolitionCharge
+    maxIntensity: 50000
+    intensitySlope: 1
+    totalIntensity: 90000
+    maxTileBreak: 0
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: GatewayArm
+      - id: MARKERMarkerStartItemGatewayArmFlatpack

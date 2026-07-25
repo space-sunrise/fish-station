@@ -25,15 +25,15 @@
 - type: startingGear
   id: CentCommOfficialGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitCentcomOfficial
-    shoes: ClothingShoesBootsCombatFilled
-    head: ClothingHeadHatCentcom
-    eyes: ClothingEyesGlassesSunglasses
-    gloves: ClothingHandsGlovesColorBlack
-    outerClothing: ClothingOuterArmorCentcomCarapace
+    # jumpsuit: ClothingUniformJumpsuitCentcomOfficial # Fish-edit
+    # shoes: ClothingShoesColorBlack # Fish-edit
+    # gloves: ClothingHandsGlovesColorWhite # Fish-edit
+    # neck: ClothingNeckCloakCentcom # Fish-edit
+    # head: ClothingHeadHatCentcom # Fish-edit
+    # eyes: ClothingEyesGlassesSunglasses # Fish-edit
     id: CentcomPDA
     ears: ClothingHeadsetAltCentCom
-    belt: WeaponPistolN1984
+    # belt: WeaponPistolN1984 # Fish-edit
   storage:
     back:
     - PenCentcom

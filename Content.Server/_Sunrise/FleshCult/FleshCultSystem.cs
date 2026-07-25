@@ -97,7 +97,8 @@ public sealed partial class FleshCultSystem : EntitySystem
         "HumanoidXeno",
         "Predator",
         "Tajaran",
-        "Milira"
+        "Milira",
+        "Kitsune"
     ];
 
     public override void Initialize()
