@@ -1,4 +1,4 @@
-reagent-name-foxium = Foxium
+reagent-name-foxium = foxium
 reagent-desc-foxium = A strange orange liquid. Makes you squeak like a fox!
 
 chat-emote-name-fox = Fox

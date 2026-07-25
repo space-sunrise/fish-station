@@ -45,6 +45,25 @@ namespace Content.Server.Atmos.Portable
             Gas.Electrovae,
             Gas.ChargedElectrovae,
             //Sunrise - End
+            //Fish - Start
+            Gas.Zenthium,
+            Gas.Krypium,
+            Gas.Prallium,
+            Gas.Chaoson,
+            Gas.Garodin,
+            Gas.Baratrium,
+            Gas.Ethylium,
+            Gas.Zimmera,
+            Gas.Framel,
+            Gas.Klemennon,
+            Gas.ProtoUltimium,
+            Gas.ZimmerousFrezonite,
+            Gas.AntiUltimium,
+            Gas.Ultimium,
+            Gas.Permafrost,
+            Gas.Riminon,
+            Gas.AxoNoblium,
+            //Fish - End
         };
 
         [ViewVariables(VVAccess.ReadWrite)]
