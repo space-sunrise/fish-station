@@ -3003,6 +3003,9 @@
   id: BaseMobHumanWM
   abstract: true
   components:
+    - type: ActionGrant
+      actions:
+      - ActionOpenPlanetWarGuide
     # Fish edit - for meme gamemode, do not remove
     - type: PWVulpkaninCursePending
     - type: RandomMetadata
