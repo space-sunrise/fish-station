@@ -3,8 +3,6 @@
   id: MacKitsune
 
   components:
-  # Fish-edit: «полувульпа»-скафы — голова/тело как у Human (как Inventory.speciesId: human у Vulpkanin),
-  # хвост не входит в hideLayersOnEquip, чтобы EVA/Hardsuit HideLayerClothing его не скрывал.
   - type: HumanoidAppearance
     species: Kitsune
     hideLayersOnEquip:
@@ -12,7 +10,6 @@
     - Snout
     - HeadTop
     - Special
-  # Fish-edit: тот же clothing species path, что у Vulpkanin — human-спрайты тела, без head-vulpkanin.
   - type: Inventory
     speciesId: human
   - type: Damageable
