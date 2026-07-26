@@ -101,7 +101,6 @@
           - Artifacts
           - Bank
           - Zoo
-          - MiningOutpost
           - Tesla
           - Containment
           - WeaponsSecurity
@@ -126,6 +125,7 @@
           - CrewEducation
           - SampleCollection
           - Examination
+          - StationGoalPolymorph
 
 
 

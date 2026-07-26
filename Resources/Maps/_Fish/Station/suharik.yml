@@ -302740,8 +302740,8 @@ entities:
     - type: Transform
       pos: 42.5,15.5
       parent: 2
-    - type: ApcPowerReceiver
-      powerDisabled: True
+    - type: TegGenerator
+      thermalEfficiency: 0.3
 - proto: TegCirculator
   entities:
   - uid: 6311
