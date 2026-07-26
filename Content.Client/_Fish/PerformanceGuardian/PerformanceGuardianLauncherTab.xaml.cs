@@ -6,10 +6,10 @@ using Robust.Client.UserInterface.XAML;
 namespace Content.Client._Fish.PerformanceGuardian;
 
 /// <summary>
-/// Thin F7 host tab that opens/focuses Performance Guardian.
+/// Тонкая F7-вкладка: открывает простое окно Performance Guardian.
 /// </summary>
 [GenerateTypedNameReferences]
-public sealed partial class PerformanceGuardianLauncherTab : Control
+public sealed partial class PerformanceGuardianLauncherTab : BoxContainer
 {
     public PerformanceGuardianLauncherTab()
     {

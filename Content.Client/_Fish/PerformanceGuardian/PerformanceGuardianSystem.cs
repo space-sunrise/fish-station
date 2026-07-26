@@ -1,45 +1,26 @@
 using Content.Shared._Fish.PerformanceGuardian;
-using Robust.Shared.Timing;
+using Robust.Shared.GameObjects;
 
 namespace Content.Client._Fish.PerformanceGuardian;
 
 /// <summary>
-/// Client net bridge for Performance Guardian snapshots and alerts.
+/// Клиентский приём отчётов Performance Guardian.
 /// </summary>
 public sealed class PerformanceGuardianSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-
-    public event Action<PgSnapshotSection, PgServerSnapshot>? SnapshotReceived;
-    public event Action<PgAlert>? AlertReceived;
+    public event Action<PgReport>? ReportReceived;
     public event Action? OpenWindowRequested;
-
-    public PgServerSnapshot? LastSnapshot { get; private set; }
-    public TimeSpan LastSnapshotAt { get; private set; }
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeNetworkEvent<PgSnapshotResponse>(OnSnapshot);
-        SubscribeNetworkEvent<PgAlertPush>(OnAlert);
-        SubscribeNetworkEvent<PgOpenWindowHint>(OnOpenHint);
+        SubscribeNetworkEvent<PgReportResponse>(OnReport);
+        SubscribeNetworkEvent<PgOpenWindowHint>(_ => OpenWindowRequested?.Invoke());
     }
 
-    private void OnSnapshot(PgSnapshotResponse msg, EntitySessionEventArgs args)
+    private void OnReport(PgReportResponse msg)
     {
-        LastSnapshot = msg.Snapshot;
-        LastSnapshotAt = _timing.RealTime;
-        SnapshotReceived?.Invoke(msg.Section, msg.Snapshot);
-    }
-
-    private void OnAlert(PgAlertPush msg, EntitySessionEventArgs args)
-    {
-        AlertReceived?.Invoke(msg.Alert);
-    }
-
-    private void OnOpenHint(PgOpenWindowHint msg, EntitySessionEventArgs args)
-    {
-        OpenWindowRequested?.Invoke();
+        ReportReceived?.Invoke(msg.Report);
     }
 
     public void Subscribe()
@@ -52,8 +33,13 @@ public sealed class PerformanceGuardianSystem : EntitySystem
         RaiseNetworkEvent(new PgUnsubscribeRequest());
     }
 
-    public void RequestSnapshot(PgSnapshotSection section)
+    public void RequestReport()
     {
-        RaiseNetworkEvent(new PgSnapshotRequest(section));
+        RaiseNetworkEvent(new PgReportRequest());
+    }
+
+    public void RequestDiagnose()
+    {
+        RaiseNetworkEvent(new PgDiagnoseRequest());
     }
 }

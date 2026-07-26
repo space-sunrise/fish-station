@@ -10,7 +10,7 @@ using Robust.Shared.Timing;
 namespace Content.Server._Fish.PerformanceGuardian;
 
 /// <summary>
-/// Facade: sampling, adaptive load, aggregation, analysis, admin net gate.
+/// Фасад: idle-мониторинг, диагностика по инциденту/кнопке, сеть для админов.
 /// </summary>
 public sealed class PerformanceGuardianSystem : EntitySystem
 {
@@ -19,64 +19,61 @@ public sealed class PerformanceGuardianSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ISharedPlayerManager _players = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly PgCollectorSystem _collector = default!;
 
     private readonly HashSet<ICommonSession> _subscribers = new();
-    private readonly int[] _rateScratch = new int[(int)PgMetricCategory.Count];
-    private readonly List<PgSamplePoint> _historyScratch = new();
 
-    private PgServerSampler _sampler = default!;
-    private PgAggregator _aggregator = default!;
-    private PgAnalyzer _analyzer = default!;
-    private PgBlackBox _blackBox = default!;
-    private PgReportStore _reports = default!;
-    private PgAdaptiveLoadController _load = default!;
+    private PgIdleMonitor _idle = default!;
+    private PgDiagnostics _diagnostics = default!;
+
+    private bool _enabled = true;
+    private float _sampleInterval = 2f;
+    private float _pressureThreshold = 1.35f;
+    private float _atmosSpike = 1.6f;
+    private float _physicsSpike = 1.6f;
+    private float _nearbyRange = 16f;
+    private int _topLimit = 8;
+    private float _diagnoseBudgetMs = 3f;
 
     private TimeSpan _nextSample;
-    private TimeSpan _nextAnalyze;
-    private TimeSpan _lastSampleAt;
-    private bool _enabled = true;
-    private float _sampleInterval = 1f;
-    private float _analyzeInterval = 2f;
-    private PgSamplePoint _latest;
-    private PgAlert? _lastPushedAlert;
+    private TimeSpan _incidentCooldownUntil;
+    private PgMode _mode = PgMode.Idle;
+    private int _eventRatePerSec;
+    private float _eventsAccum;
+    private TimeSpan _eventsWindowStart;
 
-    public PgCounterBag Counters { get; } = new();
-    public PgPlayerProfiles Profiles { get; private set; } = default!;
-    public bool CollectorsEnabled => _enabled && !_load.EssentialOnly;
-    public bool SecondaryCollectorsEnabled => _enabled && _load.AllowSecondaryCollectors;
+    private PgReport _report = new();
+
+    /// <summary>
+    /// Коллекторы выключаются на время инцидента, чтобы не усугублять лаг.
+    /// </summary>
+    public bool CollectorsEnabled => _enabled && _mode != PgMode.Incident;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        _load = new PgAdaptiveLoadController();
-        _aggregator = new PgAggregator();
-        _analyzer = new PgAnalyzer(_timing);
-        _reports = new PgReportStore();
-        _blackBox = new PgBlackBox(_cfg.GetCVar(FishCCVars.PgBlackBoxSize));
-        Profiles = new PgPlayerProfiles(_cfg.GetCVar(FishCCVars.PgMaxPlayersTracked));
-        _sampler = new PgServerSampler(EntityManager, _timing, _players, _physics);
+        _idle = new PgIdleMonitor(EntityManager, _timing, _players, _physics);
+        _diagnostics = new PgDiagnostics(EntityManager, _xform, _physics, _lookup, _players);
 
         Subs.CVar(_cfg, FishCCVars.PgEnabled, v => _enabled = v, true);
-        Subs.CVar(_cfg, FishCCVars.PgSampleIntervalSeconds, v => _sampleInterval = Math.Max(0.25f, v), true);
-        Subs.CVar(_cfg, FishCCVars.PgAnalyzeIntervalSeconds, v => _analyzeInterval = Math.Max(0.5f, v), true);
-        Subs.CVar(_cfg, FishCCVars.PgCpuBudgetMs, v => _analyzer.Configure(v, _cfg.GetCVar(FishCCVars.PgMaxAlerts)), true);
-        Subs.CVar(_cfg, FishCCVars.PgMaxAlerts, v => _analyzer.Configure(_cfg.GetCVar(FishCCVars.PgCpuBudgetMs), v), true);
-        Subs.CVar(_cfg, FishCCVars.PgMaxReports, v => _reports.Configure(v), true);
-        Subs.CVar(_cfg, FishCCVars.PgBlackBoxSize, v => _blackBox.Resize(v), true);
-        Subs.CVar(_cfg, FishCCVars.PgLoadReducedThreshold, _ => RefreshLoadThresholds(), true);
-        Subs.CVar(_cfg, FishCCVars.PgLoadDegradedThreshold, _ => RefreshLoadThresholds(), true);
-        Subs.CVar(_cfg, FishCCVars.PgLoadCriticalThreshold, _ => RefreshLoadThresholds(), true);
-
-        RefreshLoadThresholds();
-        _analyzer.Configure(_cfg.GetCVar(FishCCVars.PgCpuBudgetMs), _cfg.GetCVar(FishCCVars.PgMaxAlerts));
-        _reports.Configure(_cfg.GetCVar(FishCCVars.PgMaxReports));
+        Subs.CVar(_cfg, FishCCVars.PgSampleIntervalSeconds, v => _sampleInterval = Math.Max(1f, v), true);
+        Subs.CVar(_cfg, FishCCVars.PgIncidentPressureThreshold, v => _pressureThreshold = v, true);
+        Subs.CVar(_cfg, FishCCVars.PgIncidentAtmosSpike, v => _atmosSpike = v, true);
+        Subs.CVar(_cfg, FishCCVars.PgIncidentPhysicsSpike, v => _physicsSpike = v, true);
+        Subs.CVar(_cfg, FishCCVars.PgNearbyPlayerRange, v => _nearbyRange = v, true);
+        Subs.CVar(_cfg, FishCCVars.PgTopEntityLimit, v => _topLimit = Math.Clamp(v, 1, 16), true);
+        Subs.CVar(_cfg, FishCCVars.PgDiagnoseBudgetMs, v => _diagnoseBudgetMs = Math.Max(1f, v), true);
 
         SubscribeNetworkEvent<PgSubscribeRequest>(OnSubscribe);
         SubscribeNetworkEvent<PgUnsubscribeRequest>(OnUnsubscribe);
-        SubscribeNetworkEvent<PgSnapshotRequest>(OnSnapshotRequest);
+        SubscribeNetworkEvent<PgReportRequest>(OnReportRequest);
+        SubscribeNetworkEvent<PgDiagnoseRequest>(OnDiagnoseRequest);
 
         _players.PlayerStatusChanged += OnPlayerStatusChanged;
+        RefreshReportBasics();
     }
 
     public override void Shutdown()
@@ -86,27 +83,14 @@ public sealed class PerformanceGuardianSystem : EntitySystem
         _subscribers.Clear();
     }
 
-    private void RefreshLoadThresholds()
-    {
-        _load.Configure(
-            _cfg.GetCVar(FishCCVars.PgLoadReducedThreshold),
-            _cfg.GetCVar(FishCCVars.PgLoadDegradedThreshold),
-            _cfg.GetCVar(FishCCVars.PgLoadCriticalThreshold));
-    }
-
     private void OnPlayerStatusChanged(object? sender, SessionStatusEventArgs e)
     {
         if (e.NewStatus == SessionStatus.Disconnected)
-        {
             _subscribers.Remove(e.Session);
-            Profiles.Remove(e.Session.UserId);
-        }
     }
 
-    private bool IsDebugAdmin(ICommonSession session)
-    {
-        return _admins.HasAdminFlag(session, AdminFlags.Debug);
-    }
+    private bool IsDebugAdmin(ICommonSession session) =>
+        _admins.HasAdminFlag(session, AdminFlags.Debug);
 
     private void OnSubscribe(PgSubscribeRequest msg, EntitySessionEventArgs args)
     {
@@ -114,7 +98,7 @@ public sealed class PerformanceGuardianSystem : EntitySystem
             return;
 
         _subscribers.Add(args.SenderSession);
-        RaiseNetworkEvent(new PgSnapshotResponse(PgSnapshotSection.All, BuildSnapshot(PgSnapshotSection.All)), args.SenderSession);
+        RaiseNetworkEvent(new PgReportResponse(CloneReport()), args.SenderSession);
     }
 
     private void OnUnsubscribe(PgUnsubscribeRequest msg, EntitySessionEventArgs args)
@@ -122,15 +106,23 @@ public sealed class PerformanceGuardianSystem : EntitySystem
         _subscribers.Remove(args.SenderSession);
     }
 
-    private void OnSnapshotRequest(PgSnapshotRequest msg, EntitySessionEventArgs args)
+    private void OnReportRequest(PgReportRequest msg, EntitySessionEventArgs args)
     {
         if (!IsDebugAdmin(args.SenderSession))
             return;
 
-        if (!_subscribers.Contains(args.SenderSession))
-            _subscribers.Add(args.SenderSession);
+        _subscribers.Add(args.SenderSession);
+        RefreshReportBasics();
+        RaiseNetworkEvent(new PgReportResponse(CloneReport()), args.SenderSession);
+    }
 
-        RaiseNetworkEvent(new PgSnapshotResponse(msg.Section, BuildSnapshot(msg.Section)), args.SenderSession);
+    private void OnDiagnoseRequest(PgDiagnoseRequest msg, EntitySessionEventArgs args)
+    {
+        if (!IsDebugAdmin(args.SenderSession))
+            return;
+
+        RunDiagnostics(manual: true);
+        RaiseNetworkEvent(new PgReportResponse(CloneReport()), args.SenderSession);
     }
 
     public override void Update(float frameTime)
@@ -139,146 +131,164 @@ public sealed class PerformanceGuardianSystem : EntitySystem
             return;
 
         var now = _timing.CurTime;
-        if (now >= _nextSample)
-        {
-            RunSample(now);
-            _nextSample = now + TimeSpan.FromSeconds(_sampleInterval);
-        }
-
-        if (_load.AllowAnalyzer && now >= _nextAnalyze)
-        {
-            _analyzer.Tick(_aggregator, _reports, _load.Level, _latest);
-            MaybePushAlert();
-            _nextAnalyze = now + TimeSpan.FromSeconds(_analyzeInterval * _load.AnalyzerIntervalMultiplier);
-        }
-    }
-
-    private void RunSample(TimeSpan now)
-    {
-        var sample = _sampler.Sample(_load.Level, _analyzer.RiskScore);
-        _load.Update(sample.TickMs, sample.TickBudgetMs);
-        sample.LoadLevel = _load.Level;
-        sample.RiskScore = _analyzer.RiskScore;
-
-        Counters.TakeRates(_rateScratch);
-        var dt = _lastSampleAt == TimeSpan.Zero ? _sampleInterval : (float)(now - _lastSampleAt).TotalSeconds;
-        if (dt < 0.001f)
-            dt = _sampleInterval;
-
-        var total = 0;
-        for (var i = 0; i < _rateScratch.Length; i++)
-            total += _rateScratch[i];
-        sample.EventRatePerSec = total / dt;
-
-        _lastSampleAt = now;
-        _latest = sample;
-
-        if (!_load.EssentialOnly || _load.Level == PgLoadLevel.Critical)
-            _blackBox.Append(sample);
-
-        if (_load.FreezeBlackBox)
-            _blackBox.Freeze();
-
-        if (!_load.EssentialOnly)
-            _aggregator.PushSample(sample, _rateScratch);
-        else
-        {
-            // Still keep essential gauges in the short window for UI.
-            _aggregator.Window10s.Push(sample);
-        }
-    }
-
-    private void MaybePushAlert()
-    {
-        var alert = _analyzer.LatestAlertOrNull();
-        if (alert == null || ReferenceEquals(alert, _lastPushedAlert) || alert == _lastPushedAlert)
+        if (now < _nextSample)
             return;
 
-        if (_lastPushedAlert != null && _lastPushedAlert.Id == alert.Id)
+        _nextSample = now + TimeSpan.FromSeconds(_sampleInterval);
+        _idle.Sample();
+
+        var events = _collector.TakeEventCount();
+        if (_eventsWindowStart == TimeSpan.Zero)
+            _eventsWindowStart = now;
+
+        _eventsAccum += events;
+        var window = (float)(now - _eventsWindowStart).TotalSeconds;
+        if (window >= 1f)
+        {
+            _eventRatePerSec = (int)(_eventsAccum / window);
+            _eventsAccum = 0;
+            _eventsWindowStart = now;
+        }
+
+        RefreshReportBasics();
+
+        // Авто-диагностика только при всплеске и не чаще cooldown.
+        if (_mode == PgMode.Incident && now >= _incidentCooldownUntil)
+        {
+            if (_idle.PressureRatio < _pressureThreshold * 0.85f &&
+                _idle.AwakeSpike < _physicsSpike * 0.85f &&
+                _idle.AtmosSpike < _atmosSpike * 0.85f)
+            {
+                _mode = PgMode.Idle;
+                RefreshReportBasics();
+            }
+        }
+        else if (_mode == PgMode.Idle && now >= _incidentCooldownUntil && ShouldTriggerIncident())
+        {
+            RunDiagnostics(manual: false);
+        }
+
+        // Лёгкий push только подписчикам (окно открыто).
+        if (_subscribers.Count == 0)
             return;
 
-        _lastPushedAlert = alert;
+        var payload = CloneReport();
+        foreach (var session in _subscribers)
+            RaiseNetworkEvent(new PgReportResponse(payload), session);
+    }
 
-        foreach (var admin in _admins.ActiveAdmins)
+    private bool ShouldTriggerIncident()
+    {
+        return _idle.PressureRatio >= _pressureThreshold
+               || _idle.AwakeSpike >= _physicsSpike
+               || _idle.AtmosSpike >= _atmosSpike;
+    }
+
+    private void RunDiagnostics(bool manual)
+    {
+        _mode = PgMode.Incident;
+        _incidentCooldownUntil = _timing.CurTime + TimeSpan.FromSeconds(15);
+
+        _diagnostics.Run(
+            _idle,
+            _eventRatePerSec,
+            _diagnoseBudgetMs,
+            _nearbyRange,
+            _topLimit,
+            out var source,
+            out var sourceText,
+            out var place,
+            out var coords,
+            out var top,
+            out var nearby,
+            out var recommendation);
+
+        _report.PrimarySource = source;
+        _report.PrimarySourceText = sourceText;
+        _report.PlaceName = place;
+        _report.CoordinatesText = coords;
+        _report.TopEntities = top;
+        _report.NearbyPlayers = nearby;
+        _report.Recommendation = recommendation;
+        _report.LastIncidentAt = _timing.CurTime;
+        _report.LastIncidentSummary = manual
+            ? $"Ручная диагностика: {sourceText}"
+            : $"Авто-инцидент: {sourceText} на «{place}»";
+        _report.DiagnosisAvailable = true;
+
+        RefreshReportBasics();
+    }
+
+    private void RefreshReportBasics()
+    {
+        _report.ServerTime = _timing.CurTime;
+        _report.Mode = _mode;
+        _report.Tps = _idle.LastTps;
+        _report.TickMs = _idle.LastTickMs;
+        _report.TickBudgetMs = _idle.LastTickBudgetMs;
+        _report.EntityCount = _idle.EntityCount;
+        _report.GridCount = _idle.GridCount;
+        _report.AwakeBodies = _idle.AwakeBodies;
+        _report.AtmosActiveTiles = _idle.AtmosActive;
+        _report.AtmosHotspots = _idle.AtmosHotspots;
+        _report.PlayerCount = _idle.PlayerCount;
+        _report.EventRatePerSec = _eventRatePerSec;
+        _report.ServerState = DescribeState();
+
+        if (_report.PrimarySource == PgLoadSource.Unknown && _mode == PgMode.Idle)
         {
-            if (!_admins.HasAdminFlag(admin, AdminFlags.Admin) &&
-                !_admins.HasAdminFlag(admin, AdminFlags.Debug))
-                continue;
-
-            RaiseNetworkEvent(new PgAlertPush(alert), admin);
+            _report.PrimarySource = PgLoadSource.Ok;
+            _report.PrimarySourceText = "Явной перегрузки нет";
+            if (string.IsNullOrEmpty(_report.Recommendation))
+                _report.Recommendation = "Сервер в норме. Нажмите «Диагностика сейчас», если лаги всё равно есть.";
         }
     }
 
-    public PgServerSnapshot BuildSnapshot(PgSnapshotSection section)
+    private string DescribeState()
     {
-        var snap = new PgServerSnapshot
+        if (_mode == PgMode.Incident)
+            return "Инцидент — идёт разбор нагрузки";
+
+        if (_idle.PressureRatio >= _pressureThreshold)
+            return "Высокая нагрузка";
+
+        if (_idle.PressureRatio >= 1.15f)
+            return "Повышенная нагрузка";
+
+        return "Норма";
+    }
+
+    private PgReport CloneReport()
+    {
+        // Лёгкая копия для сети (избегаем мутаций у клиента).
+        return new PgReport
         {
-            ServerTime = _timing.CurTime,
-            LoadLevel = _load.Level,
-            RiskScore = _analyzer.RiskScore,
-            TickMs = _latest.TickMs,
-            TickBudgetMs = _latest.TickBudgetMs,
-            Tps = _latest.Tps,
-            EntityCount = _latest.EntityCount,
-            GridCount = _latest.GridCount,
-            AwakeBodies = _latest.AwakeBodies,
-            AtmosActiveTiles = _latest.AtmosActiveTiles,
-            AtmosHotspots = _latest.AtmosHotspots,
-            AtmosExcitedGroups = _latest.AtmosExcitedGroups,
-            GcMemoryBytes = _latest.GcMemoryBytes,
-            PlayerCount = _latest.PlayerCount,
-            AnalyzerBudgetUsedMs = _analyzer.LastBudgetUsedMs,
-            BlackBoxFrozen = _blackBox.IsFrozen,
-            CategoryRates = CopyRates(),
-            CorrTickVsAtmos = _analyzer.CorrTickVsAtmos,
-            CorrTickVsAwake = _analyzer.CorrTickVsAwake,
-            CorrTickVsEvents = _analyzer.CorrTickVsEvents,
-            ProfilerNote = _analyzer.ProfilerNote,
+            ServerTime = _report.ServerTime,
+            Mode = _report.Mode,
+            ServerState = _report.ServerState,
+            Tps = _report.Tps,
+            TickMs = _report.TickMs,
+            TickBudgetMs = _report.TickBudgetMs,
+            EntityCount = _report.EntityCount,
+            GridCount = _report.GridCount,
+            AwakeBodies = _report.AwakeBodies,
+            AtmosActiveTiles = _report.AtmosActiveTiles,
+            AtmosHotspots = _report.AtmosHotspots,
+            PlayerCount = _report.PlayerCount,
+            EventRatePerSec = _report.EventRatePerSec,
+            PrimarySource = _report.PrimarySource,
+            PrimarySourceText = _report.PrimarySourceText,
+            PlaceName = _report.PlaceName,
+            CoordinatesText = _report.CoordinatesText,
+            TopEntities = new List<PgEntityLoadRow>(_report.TopEntities),
+            NearbyPlayers = new List<PgNearbyPlayerRow>(_report.NearbyPlayers),
+            LastIncidentSummary = _report.LastIncidentSummary,
+            LastIncidentAt = _report.LastIncidentAt,
+            Recommendation = _report.Recommendation,
+            DiagnosisAvailable = _report.DiagnosisAvailable,
         };
-
-        var needPlayers = section is PgSnapshotSection.All or PgSnapshotSection.Players or PgSnapshotSection.Dashboard or PgSnapshotSection.Risk;
-        var needAlerts = section is PgSnapshotSection.All or PgSnapshotSection.Alerts or PgSnapshotSection.Dashboard;
-        var needReports = section is PgSnapshotSection.All or PgSnapshotSection.Reports;
-        var needTimeline = section is PgSnapshotSection.All or PgSnapshotSection.Timeline;
-        var needHeat = section is PgSnapshotSection.All or PgSnapshotSection.HeatMap or PgSnapshotSection.TopSystems;
-        var needTops = section is PgSnapshotSection.All or PgSnapshotSection.TopEntities or PgSnapshotSection.TopSystems;
-        var needHistory = section is PgSnapshotSection.All or PgSnapshotSection.History or PgSnapshotSection.Performance or PgSnapshotSection.Profiler;
-
-        if (needPlayers)
-            Profiles.CopyRows(snap.Players, 48);
-        if (needAlerts)
-            _analyzer.CopyAlerts(snap.Alerts);
-        if (needReports)
-            _reports.CopyTo(snap.Reports);
-        if (needTimeline)
-            _analyzer.CopyTimeline(snap.Timeline);
-        if (needHeat)
-            _analyzer.CopyHeat(snap.HeatMap);
-        if (needTops)
-        {
-            _analyzer.CopyTopEntities(snap.TopEntities);
-            _analyzer.CopyTopSystems(snap.TopSystems);
-        }
-
-        if (needHistory)
-        {
-            _blackBox.CopyHistory(_historyScratch, 60);
-            snap.History.AddRange(_historyScratch);
-        }
-
-        return snap;
     }
 
-    private int[] CopyRates()
-    {
-        var copy = new int[_aggregator.LastRates.Length];
-        Array.Copy(_aggregator.LastRates, copy, copy.Length);
-        return copy;
-    }
-
-    /// <summary>
-    /// Used by admin command to hint the client to open the window.
-    /// </summary>
     public void HintOpenWindow(ICommonSession session)
     {
         if (!IsDebugAdmin(session))

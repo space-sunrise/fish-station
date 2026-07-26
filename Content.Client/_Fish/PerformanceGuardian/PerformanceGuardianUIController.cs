@@ -24,7 +24,7 @@ public sealed class PerformanceGuardianUIController : UIController,
     private PerformanceGuardianWindow? _window;
     private PerformanceGuardianSystem? _system;
     private TimeSpan _nextRequest;
-    private float _refreshSeconds = 1.5f;
+    private float _refreshSeconds = 2f;
     private bool _subscribed;
 
     public override void Initialize()
@@ -32,35 +32,27 @@ public sealed class PerformanceGuardianUIController : UIController,
         base.Initialize();
         _con.RegisterCommand("perfguardian", Loc.GetString("pg-cmd-desc"), Loc.GetString("pg-cmd-help"), OnCommand);
         _con.RegisterCommand("pg", Loc.GetString("pg-cmd-desc"), Loc.GetString("pg-cmd-help"), OnCommand);
-        _cfg.OnValueChanged(FishCCVars.PgUiRefreshSeconds, v => _refreshSeconds = Math.Max(0.5f, v), true);
+        _cfg.OnValueChanged(FishCCVars.PgUiRefreshSeconds, v => _refreshSeconds = Math.Max(1f, v), true);
     }
 
-    private void OnCommand(IConsoleShell shell, string argStr, string[] args)
-    {
-        ToggleWindow();
-    }
+    private void OnCommand(IConsoleShell shell, string argStr, string[] args) => ToggleWindow();
 
     public void OnStateEntered(GameplayState state)
     {
     }
 
-    public void OnStateExited(GameplayState state)
-    {
-        CloseWindow();
-    }
+    public void OnStateExited(GameplayState state) => CloseWindow();
 
     public void OnSystemLoaded(PerformanceGuardianSystem system)
     {
         _system = system;
-        system.SnapshotReceived += OnSnapshot;
-        system.AlertReceived += OnAlert;
+        system.ReportReceived += OnReport;
         system.OpenWindowRequested += OpenWindow;
     }
 
     public void OnSystemUnloaded(PerformanceGuardianSystem system)
     {
-        system.SnapshotReceived -= OnSnapshot;
-        system.AlertReceived -= OnAlert;
+        system.ReportReceived -= OnReport;
         system.OpenWindowRequested -= OpenWindow;
         CloseWindow();
         _system = null;
@@ -80,55 +72,57 @@ public sealed class PerformanceGuardianUIController : UIController,
             return;
 
         EnsureWindow();
-        if (_window == null)
-            return;
-
-        if (!_window.IsOpen)
-            _window.OpenCentered();
-        else
-            _window.MoveToFront();
-
-        EnsureSubscribed();
-        RequestCurrentTab();
+        _window!.OpenCentered();
+        Subscribe();
+        _system?.RequestReport();
     }
 
     public void CloseWindow()
     {
-        if (_window != null)
-        {
-            _window.TabNeedsData -= OnTabNeedsData;
-            _window.OnClose -= OnWindowClosed;
-            if (_window.IsOpen)
-                _window.Close();
-            _window.Dispose();
-            _window = null;
-        }
-
         Unsubscribe();
+        if (_window == null)
+            return;
+
+        _window.RefreshPressed -= OnRefresh;
+        _window.DiagnosePressed -= OnDiagnose;
+        _window.Close();
+        _window = null;
     }
 
     private void EnsureWindow()
     {
-        if (_window is { Disposed: false })
+        if (_window != null)
             return;
 
         _window = UIManager.CreateWindow<PerformanceGuardianWindow>();
-        _window.TabNeedsData += OnTabNeedsData;
-        _window.OnClose += OnWindowClosed;
+        _window.OnClose += () =>
+        {
+            Unsubscribe();
+            _window = null;
+        };
+        _window.RefreshPressed += OnRefresh;
+        _window.DiagnosePressed += OnDiagnose;
     }
 
-    private void OnWindowClosed()
+    private void OnRefresh() => _system?.RequestReport();
+    private void OnDiagnose() => _system?.RequestDiagnose();
+
+    private void OnReport(PgReport report)
     {
-        Unsubscribe();
+        if (_window is not { IsOpen: true })
+            return;
+
+        _window.Apply(report);
     }
 
-    private void EnsureSubscribed()
+    private void Subscribe()
     {
         if (_subscribed || _system == null)
             return;
 
         _system.Subscribe();
         _subscribed = true;
+        _nextRequest = _timing.RealTime + TimeSpan.FromSeconds(_refreshSeconds);
     }
 
     private void Unsubscribe()
@@ -140,57 +134,17 @@ public sealed class PerformanceGuardianUIController : UIController,
         _subscribed = false;
     }
 
-    private void OnTabNeedsData(PgSnapshotSection section)
-    {
-        if (_window is not { IsOpen: true })
-            return;
-
-        EnsureSubscribed();
-        _system?.RequestSnapshot(section);
-        _nextRequest = _timing.RealTime + TimeSpan.FromSeconds(_refreshSeconds);
-    }
-
-    private void RequestCurrentTab()
-    {
-        if (_window == null || _system == null)
-            return;
-
-        _system.RequestSnapshot(_window.CurrentSection);
-        _nextRequest = _timing.RealTime + TimeSpan.FromSeconds(_refreshSeconds);
-    }
-
-    private void OnSnapshot(PgSnapshotSection section, PgServerSnapshot snapshot)
-    {
-        if (_window is not { IsOpen: true, Visible: true })
-            return;
-
-        _window.ApplySnapshot(section, snapshot);
-    }
-
-    private void OnAlert(PgAlert alert)
-    {
-        if (_window is not { IsOpen: true })
-            return;
-
-        _window.ShowAlert(alert);
-    }
-
     public override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
 
-        if (_window is not { IsOpen: true, Visible: true } || _system == null)
+        if (_window is not { IsOpen: true } || _system == null || !_subscribed)
             return;
-
-        if (!_admin.HasFlag(AdminFlags.Debug))
-        {
-            CloseWindow();
-            return;
-        }
 
         if (_timing.RealTime < _nextRequest)
             return;
 
-        RequestCurrentTab();
+        _nextRequest = _timing.RealTime + TimeSpan.FromSeconds(_refreshSeconds);
+        _system.RequestReport();
     }
 }

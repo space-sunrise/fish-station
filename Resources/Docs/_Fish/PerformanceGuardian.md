@@ -1,49 +1,34 @@
 # Performance Guardian
 
-In-game tick-budget guardian for Fish Station. Event-driven collectors feed rolling aggregates and a CPU-budgeted analyzer. Admins with **Debug** open a lazy multi-tab window; F7 hosts only a launcher tab.
+Простой админ-инструмент Fish Station для быстрого ответа на вопрос «почему лагает сервер?».
 
-## How to open
+## Как открыть
 
-1. F7 Admin Menu → **Perf Guardian** tab → **Open Performance Guardian**
-2. Console (Debug): `perfguardian` or `pg`
+1. F7 → вкладка **Производительность** → кнопка открытия
+2. Консоль (флаг Debug): `perfguardian` / `pg`
 
-The client subscribes only while the window is open. Closing unsubscribes. Tabs refresh only when selected.
+Пока окно закрыто, UI-снимки не запрашиваются.
 
-## Adaptive load
+## Что показывает один экран
 
-| Level | Condition (tick vs budget) | Behavior |
-|-------|----------------------------|----------|
-| Full | OK | All collectors + analyzer |
-| Reduced | mild overrun | Lower analyzer frequency, drop secondary collectors |
-| Degraded | heavy overrun | Essential sampler gauges only |
-| Critical | severe | Black-box append + essential gauges; analyzer off |
+| Блок | Смысл |
+|------|--------|
+| Состояние сервера | Норма / нагрузка, TPS, физика, атмос, события |
+| Основной источник нагрузки | Физика / атмосфера / события / сущности |
+| Место | Самая «горячая» сетка |
+| Координаты | MapCoordinates через Transform |
+| Самые нагружающие объекты | Awake physics на этой сетке |
+| Игроки поблизости | Actor + EntityLookup |
+| Последний инцидент | Авто или ручная диагностика |
+| Рекомендации | Короткий совет обычным языком |
 
-Load is derived from the sampler — the guardian must not amplify lag.
+## Режимы
 
-## CVars (`FishCCVars`)
+- **Спокойный**: раз в ~2 с дешёвые счётчики (O(grids) атмос, awake count). Без поиска сущностей/игроков.
+- **Инцидент**: при просадке давления тика / всплеске physics/atmos или по кнопке «Диагностика сейчас» — одноразовый разбор с CPU-бюджетом, затем снова спокойный режим.
 
-| CVar | Default | Notes |
-|------|---------|-------|
-| `pg.enabled` | true | Master switch |
-| `pg.sample_interval_seconds` | 1 | Cheap sample cadence |
-| `pg.analyze_interval_seconds` | 2 | Analyzer cadence at Full |
-| `pg.cpu_budget_ms` | 2 | Hard stopwatch budget per analyze pass |
-| `pg.load_*_threshold` | 1.15 / 1.4 / 1.8 | Adaptive thresholds |
-| `pg.max_players_tracked` | 128 | Profile slots |
-| `pg.black_box_size` | 120 | Ring capacity |
-| `pg.max_reports` / `pg.max_alerts` | 32 / 64 | Caps |
-| `pg.ui_refresh_seconds` | 1.5 | Client request interval (replicated) |
+## Ограничения (намеренно)
 
-## Permissions
-
-- Window / subscribe / snapshot / commands: `AdminFlags.Debug`
-- Alert push: active admins with `Admin` or `Debug`
-
-## Non-goals
-
-- Not anti-cheat; not an admin-log replacement
-- No RobustToolbox / engine edits
-- No per-frame entity scans; no MoveEvent collectors
-- Top systems = event-rate heat, not EntitySystemManager profiling
-
-See [PerformanceGuardian-Architecture.md](./PerformanceGuardian-Architecture.md) for layers and extension points.
+- Нет Risk Score, heatmap, таймлайнов, 12 вкладок и постоянного профилирования игроков.
+- Нет правок RobustToolbox: давление тика — эвристика + дешёвые gauges.
+- Physics contacts недоступны из контента — proxy через awake bodies.

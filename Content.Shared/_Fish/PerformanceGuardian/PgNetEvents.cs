@@ -3,51 +3,33 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._Fish.PerformanceGuardian;
 
 [Serializable, NetSerializable]
-public sealed class PgSubscribeRequest : EntityEventArgs
-{
-}
+public sealed class PgSubscribeRequest : EntityEventArgs;
 
 [Serializable, NetSerializable]
-public sealed class PgUnsubscribeRequest : EntityEventArgs
-{
-}
+public sealed class PgUnsubscribeRequest : EntityEventArgs;
+
+/// <summary>
+/// Лёгкий запрос текущего отчёта (без новой тяжёлой диагностики).
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class PgReportRequest : EntityEventArgs;
 
 [Serializable, NetSerializable]
-public sealed class PgSnapshotRequest : EntityEventArgs
+public sealed class PgReportResponse : EntityEventArgs
 {
-    public PgSnapshotSection Section;
+    public PgReport Report;
 
-    public PgSnapshotRequest(PgSnapshotSection section)
+    public PgReportResponse(PgReport report)
     {
-        Section = section;
+        Report = report;
     }
 }
 
+/// <summary>
+/// Ручной запуск полной диагностики (кнопка в UI).
+/// </summary>
 [Serializable, NetSerializable]
-public sealed class PgSnapshotResponse : EntityEventArgs
-{
-    public PgSnapshotSection Section;
-    public PgServerSnapshot Snapshot;
-
-    public PgSnapshotResponse(PgSnapshotSection section, PgServerSnapshot snapshot)
-    {
-        Section = section;
-        Snapshot = snapshot;
-    }
-}
+public sealed class PgDiagnoseRequest : EntityEventArgs;
 
 [Serializable, NetSerializable]
-public sealed class PgAlertPush : EntityEventArgs
-{
-    public PgAlert Alert;
-
-    public PgAlertPush(PgAlert alert)
-    {
-        Alert = alert;
-    }
-}
-
-[Serializable, NetSerializable]
-public sealed class PgOpenWindowHint : EntityEventArgs
-{
-}
+public sealed class PgOpenWindowHint : EntityEventArgs;

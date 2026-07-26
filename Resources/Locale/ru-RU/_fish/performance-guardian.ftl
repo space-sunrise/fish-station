@@ -1,25 +1,36 @@
 ## Performance Guardian
 
-pg-window-title = Performance Guardian
-pg-window-status-idle = Ожидание — выберите вкладку для снимка
-pg-window-status-ok = Нагрузка { $load } | Риск { $risk } | TPS { $tps }
-pg-window-status-alert = Алерт [{ $severity }]: { $title }
-pg-tab-waiting = Ожидание снимка…
-pg-tab-dashboard = Дашборд
-pg-tab-performance = Производительность
-pg-tab-players = Игроки
-pg-tab-risk = Риск
-pg-tab-timeline = Таймлайн
-pg-tab-heatmap = Теплокарта
-pg-tab-top-entities = Топ сущностей
-pg-tab-top-systems = Топ систем
-pg-tab-alerts = Алерты
-pg-tab-reports = Отчёты
-pg-tab-profiler = Профайлер
-pg-tab-history = История
-pg-f7-blurb = Открыть окно Fish Performance Guardian (админы с Debug). Пока окно закрыто, снимки для UI не запрашиваются.
-pg-f7-open = Открыть Performance Guardian
-admin-menu-pg-tab = Perf Guardian
-pg-cmd-desc = Открывает окно Performance Guardian для администраторов.
+pg-window-title = Контроль производительности
+pg-status-line = Состояние: { $state } ({ $mode })
+pg-btn-refresh = Обновить
+pg-btn-diagnose = Диагностика сейчас
+pg-mode-idle = спокойный режим
+pg-mode-incident = разбор инцидента
+
+pg-section-server = Состояние сервера
+pg-section-source = Основной источник нагрузки
+pg-section-place = Место
+pg-section-coords = Координаты
+pg-section-top-entities = Самые нагружающие объекты
+pg-section-nearby = Игроки поблизости
+pg-section-incident = Последний инцидент
+pg-section-advice = Рекомендации
+
+pg-line-state = Статус: { $value }
+pg-line-tps = TPS ≈ { $tps } (тик { $ms } мс из бюджета { $budget } мс)
+pg-line-counts = Сущности: { $entities } · Сетки: { $grids } · Игроки: { $players }
+pg-line-physics = Активная физика: { $awake } тел
+pg-line-atmos = Атмосфера: { $tiles } активных тайлов, пожаров { $hot }
+pg-line-events = События: ≈ { $rate }/с
+
+pg-empty-list = Пока нет данных — нажмите «Диагностика сейчас».
+pg-no-incident = Инцидентов ещё не было.
+pg-no-advice = Рекомендаций пока нет.
+
+pg-f7-blurb = Быстрый разбор лагов сервера. Пока окно закрыто, сервер почти ничего не считает для UI.
+pg-f7-open = Открыть контроль производительности
+admin-menu-pg-tab = Производительность
+
+pg-cmd-desc = Открывает окно контроля производительности (нужен флаг Debug).
 pg-cmd-help = Использование: perfguardian / pg
-pg-cmd-opened = Запрошено открытие Performance Guardian.
+pg-cmd-opened = Запрошено открытие контроля производительности.

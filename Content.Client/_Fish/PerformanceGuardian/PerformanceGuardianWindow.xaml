@@ -1,12 +1,21 @@
-<controls:FancyWindow xmlns="https://spacestation14.io"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-                    x:Class="Content.Client._Fish.PerformanceGuardian.PerformanceGuardianWindow"
-                    Title="{Loc 'pg-window-title'}"
-                    MinSize="720 480"
-                    SetSize="860 560">
-    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="4">
-        <Label Name="StatusLabel" Text="{Loc 'pg-window-status-idle'}" />
-        <TabContainer Name="Tabs" Access="Public" HorizontalExpand="True" VerticalExpand="True" />
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+               Title="{Loc 'pg-window-title'}"
+               MinSize="520 560"
+               SetSize="560 640">
+    <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="8">
+        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <Button Name="RefreshButton" Text="{Loc 'pg-btn-refresh'}" Access="Public" />
+            <Button Name="DiagnoseButton" Text="{Loc 'pg-btn-diagnose'}" Access="Public" StyleClasses="Caution" />
+            <Label Name="StatusLabel" HorizontalExpand="True" Access="Public" />
+        </BoxContainer>
+
+        <cc:HSeparator />
+
+        <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+            <BoxContainer Name="ContentRoot" Orientation="Vertical" SeparationOverride="10" Access="Public">
+                <!-- заполняется из кода простыми Label -->
+            </BoxContainer>
+        </ScrollContainer>
     </BoxContainer>
-</controls:FancyWindow>
+</DefaultWindow>

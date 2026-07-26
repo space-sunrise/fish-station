@@ -1,10 +1,7 @@
-<Control xmlns="https://spacestation14.io"
-         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-         x:Class="Content.Client._Fish.PerformanceGuardian.PerformanceGuardianLauncherTab"
-         Margin="8"
-         MinSize="50 50">
-    <BoxContainer Orientation="Vertical" SeparationOverride="8">
-        <Label Text="{Loc 'pg-f7-blurb'}" />
-        <Button Name="OpenButton" Text="{Loc 'pg-f7-open'}" HorizontalAlignment="Left" MinWidth="220" />
-    </BoxContainer>
-</Control>
+<BoxContainer xmlns="https://spacestation14.io"
+              Orientation="Vertical"
+              Margin="4"
+              SeparationOverride="6">
+    <Label Text="{Loc 'pg-f7-blurb'}" HorizontalExpand="True" />
+    <Button Name="OpenButton" Text="{Loc 'pg-f7-open'}" Access="Public" />
+</BoxContainer>
