@@ -7,7 +7,7 @@
   - type: Action
     useDelay: 1
     icon:
-      sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
-      state: lock_tumbler
+      sprite: Objects/Specific/Mech/mecha_equipment.rsi
+      state: mecha_analyzer
   - type: InstantAction
     event: !type:ToggleBattleShuttleLockEvent

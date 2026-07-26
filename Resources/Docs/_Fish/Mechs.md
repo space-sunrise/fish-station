@@ -50,7 +50,7 @@ BaseMech
 
 # Собственная модель Fish (важно)
 
-Слой спроектирован **как data-driven ECS на Mech**, а не как зеркало чужих DM-defines.
+Слой спроектирован как **data-driven ECS на Mech** под модель Fish Station.
 
 ### Сервисный режим — 3 стадии
 

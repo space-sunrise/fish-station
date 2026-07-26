@@ -90,6 +90,18 @@ mech-tracking-broken = СЛОМАН
 mech-tracking-ok = ОК
 mech-tracking-entry = {$name} | корпус {$integrity}% | энергия {$energy}% | пилот {$pilot} | {$status}
 
+mech-sleeper-patient = Пациент: {$name}
+mech-sleeper-patient-empty = Пациент: нет
+mech-sleeper-patient-unknown = неизвестен
+mech-sleeper-eject = Извлечь пациента
+mech-sleeper-reagents-header = Реагенты для инъекции
+mech-sleeper-inject-hint = Клик по реагенту вводит {$amount} ед.
+mech-sleeper-reagent-entry = {$name} ({$quantity})
+mech-sleeper-no-patient = В слипере нет пациента.
+mech-sleeper-no-reagents = Нет доступных реагентов.
+mech-sleeper-inject-failed = Не удалось ввести реагент.
+mech-sleeper-injected = Введено {$amount} ед. {$reagent} пациенту {$patient}.
+
 ent-MechWreckage = обломки меха
     .desc = Искалеченные останки экзоскелета. Лом может извлечь части.
 

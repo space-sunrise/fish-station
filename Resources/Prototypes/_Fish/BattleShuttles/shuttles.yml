@@ -1,4 +1,4 @@
-# Конкретные модели боевых шаттлов. Меняйте только отличия от класса-родителя.
+# Конкретные модели боевых шаттлов. Временный визуал — stock mecha.rsi (CC-BY-SA), до собственных спрайтов Fish.
 
 - type: entity
   id: BattleShuttleCivilian
@@ -8,12 +8,12 @@
   components:
   - type: Sprite
     layers:
-    - state: pod_civ
+    - state: ripley
       map: ["enum.MechVisualLayers.Base"]
   - type: Mech
-    baseState: pod_civ
-    openState: pod_civ_open
-    brokenState: pod_civ_broken
+    baseState: ripley
+    openState: ripley-open
+    brokenState: ripley-broken
   - type: BattleShuttle
     unlocked: true
     hatchOpen: true
@@ -30,12 +30,12 @@
   components:
   - type: Sprite
     layers:
-    - state: pod_black
+    - state: reticence
       map: ["enum.MechVisualLayers.Base"]
   - type: Mech
-    baseState: pod_black
-    openState: pod_black_open
-    brokenState: pod_black_broken
+    baseState: reticence
+    openState: reticence-open
+    brokenState: reticence-broken
   - type: RadarBlip
     color: "#333333"
     scale: 0.9
@@ -49,12 +49,12 @@
   components:
   - type: Sprite
     layers:
-    - state: pod_mil
+    - state: gygax
       map: ["enum.MechVisualLayers.Base"]
   - type: Mech
-    baseState: pod_mil
-    openState: pod_mil_open
-    brokenState: pod_mil_broken
+    baseState: gygax
+    openState: gygax-open
+    brokenState: gygax-broken
     startingEquipment:
     - BattleShuttleWeaponTaser
     - BattleShuttleMiscTracker
@@ -96,12 +96,12 @@
   components:
   - type: Sprite
     layers:
-    - state: pod_industrial
+    - state: clarke
       map: ["enum.MechVisualLayers.Base"]
   - type: Mech
-    baseState: pod_industrial
-    openState: pod_industrial_open
-    brokenState: pod_industrial_broken
+    baseState: clarke
+    openState: clarke-open
+    brokenState: clarke-broken
     startingEquipment:
     - BattleShuttleWeaponMiningBasic
     - BattleShuttleCargoOre
@@ -126,12 +126,12 @@
   components:
   - type: Sprite
     layers:
-    - state: pod_synd
+    - state: darkgygax
       map: ["enum.MechVisualLayers.Base"]
   - type: Mech
-    baseState: pod_synd
-    openState: pod_synd_open
-    brokenState: pod_synd_broken
+    baseState: darkgygax
+    openState: darkgygax-open
+    brokenState: darkgygax-broken
     startingEquipment:
     - BattleShuttleWeaponLaser
     - BattleShuttleLockKeyed
@@ -160,12 +160,12 @@
   components:
   - type: Sprite
     layers:
-    - state: pod_gold
+    - state: phazon
       map: ["enum.MechVisualLayers.Base"]
   - type: Mech
-    baseState: pod_gold
-    openState: pod_gold_open
-    brokenState: pod_gold_broken
+    baseState: phazon
+    openState: phazon-open
+    brokenState: phazon-broken
   - type: BattleShuttle
     unlocked: true
     hatchOpen: true

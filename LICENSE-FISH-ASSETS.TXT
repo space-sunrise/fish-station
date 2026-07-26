@@ -29,5 +29,4 @@ Deed (human-readable):
 Copyright (c) 2026 kotainfelix and Fish Station contributors
 
 Third-party / ported assets are NOT covered by this notice and keep the
-license named in their metadata (for example Goonstation-derived icons
-under CC-BY-NC-SA-3.0).
+license named in their metadata.

@@ -9,14 +9,9 @@ PR: https://github.com/space-sunrise/fish-station/pull/319
 
 ## 1. Что было
 
-Первая итерация жила под именами `SpacePod*` на стеке `BaseMechPod`:
+Первая итерация жила на стеке `BaseMechPod` под ранними внутренними именами домена, затем переименована в **Battle Shuttle**.
 
-- `Content.*/_Fish/SpacePods/`
-- `Resources/Prototypes/_Fish/SpacePods/`
-- локали `*_fish/spacepods.ftl`
-- тест `SpacePodTest`
-
-Поведение уже опиралось на Mech (посадка, батарея, equipment, BUI), но доменные имена и модули были жёстко зашиты.
+Поведение уже опиралось на Mech (посадка, батарея, equipment, BUI), но доменные слоты и модули были жёстко зашиты.
 
 ## 2. Content vs Engine
 
@@ -26,7 +21,7 @@ PR: https://github.com/space-sunrise/fish-station/pull/319
 
 ## 3. Проблемы первой итерации
 
-1. Имена `SpacePod*` не совпадали с продуктовым доменом Fish (**Battle Shuttle**).
+1. Внутренние имена не совпадали с продуктовым доменом Fish (**Battle Shuttle**).
 2. Слоты enum — новый слот = правка C#.
 3. Ore scoop и константы захардкожены в system.
 4. Плоское Prototype-дерево, дубли Sprite/Mech states.

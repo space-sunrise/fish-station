@@ -109,8 +109,8 @@ ent-BattleShuttleCore-desc = The fusion core of a battle shuttle.
 ent-BattleShuttleArmorCivilian = civilian shuttle armor
 ent-BattleShuttleArmorCivilian-desc = Lightweight armor plating for civilian battle shuttles.
 
-ent-BattleShuttleFramePartAP = shuttle frame part (AP)
-ent-BattleShuttleFramePartAP-desc = A battle shuttle hull frame component.
+ent-BattleShuttleFramePartPort = shuttle frame part (port)
+ent-BattleShuttleFramePartPort-desc = A battle shuttle hull frame component.
 
 ent-BattleShuttleFramePartAS = shuttle frame part (AS)
 ent-BattleShuttleFramePartAS-desc = A battle shuttle hull frame component.

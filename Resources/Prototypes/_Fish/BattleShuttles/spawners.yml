@@ -6,8 +6,8 @@
   - type: Sprite
     layers:
     - state: green
-    - sprite: _Fish/Objects/Specific/SpacePods/pods.rsi
-      state: pod_civ
+    - sprite: Objects/Specific/Mech/mecha.rsi
+      state: ripley
   - type: ConditionalSpawner
     prototypes:
     - BattleShuttleCivilian
@@ -21,8 +21,8 @@
   - type: Sprite
     layers:
     - state: green
-    - sprite: _Fish/Objects/Specific/SpacePods/pods.rsi
-      state: pod_mil
+    - sprite: Objects/Specific/Mech/mecha.rsi
+      state: gygax
   - type: ConditionalSpawner
     prototypes:
     - BattleShuttleSecurityFilled

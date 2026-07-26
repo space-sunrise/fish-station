@@ -21,7 +21,7 @@ PR: https://github.com/space-sunrise/fish-station/pull/319
 ## Решение
 
 **Не** создавать параллельный vehicle/mecha стек.  
-**Не** копировать чужие class/UI ID и пятиступенчатые maintenance defines.  
+Собственные имена компонентов, UI-ключей и сервисных стадий Fish.  
 **Да** — data-driven Content-слой `_Fish/Mechs` с собственной сервисной и броневой моделью.
 
 ### Переиспользуем

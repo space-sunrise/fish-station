@@ -109,8 +109,8 @@ ent-BattleShuttleCore-desc = Термоядерное ядро боевого ш
 ent-BattleShuttleArmorCivilian = гражданская броня шаттла
 ent-BattleShuttleArmorCivilian-desc = Лёгкая броня для гражданских боевых шаттлов.
 
-ent-BattleShuttleFramePartAP = деталь каркаса шаттла (AP)
-ent-BattleShuttleFramePartAP-desc = Компонент корпуса боевого шаттла.
+ent-BattleShuttleFramePartPort = деталь каркаса шаттла (порт)
+ent-BattleShuttleFramePartPort-desc = Компонент корпуса боевого шаттла.
 
 ent-BattleShuttleFramePartAS = деталь каркаса шаттла (AS)
 ent-BattleShuttleFramePartAS-desc = Компонент корпуса боевого шаттла.

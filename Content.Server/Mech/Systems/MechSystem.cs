@@ -94,6 +94,9 @@ public sealed partial class MechSystem : SharedMechSystem
         #region Equipment UI message relays
         SubscribeLocalEvent<MechComponent, MechGrabberEjectMessage>(ReceiveEquipmentUiMesssages);
         SubscribeLocalEvent<MechComponent, MechSoundboardPlayMessage>(ReceiveEquipmentUiMesssages);
+        // Fish edit start - UI sleeper: инъекция реагентов
+        SubscribeLocalEvent<MechComponent, Content.Shared._Fish.Mechs.MechMedicalSleeperInjectMessage>(ReceiveEquipmentUiMesssages);
+        // Fish edit end
         #endregion
     }
 

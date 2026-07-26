@@ -39,10 +39,11 @@
         layer:
         - FlyingMobLayer
   - type: AmbientSound
-    range: 4
-    volume: -4
+    range: 6
+    volume: 0
     sound:
       path: /Audio/Effects/shuttle_thruster.ogg
+  - type: BattleShuttleEngineTrail
   - type: Strap
     enabled: false
     buckleOffsets:
@@ -55,7 +56,7 @@
       - PowerCageMedium
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Fish/Objects/Specific/SpacePods/pods.rsi
+    sprite: Objects/Specific/Mech/mecha.rsi
     scale: 1.08, 1.08
   - type: Tag
     tags:

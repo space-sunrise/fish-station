@@ -3,7 +3,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._Fish.Mechs;
 
 /// <summary>
-/// Внутренние отказы шасси Fish Mech (не bitflags классического BYOND mecha).
+/// Внутренние отказы шасси Fish Mech (флаги ECS-компонента).
 /// </summary>
 [Flags, Serializable, NetSerializable]
 public enum MechInternalDamageFlags : byte

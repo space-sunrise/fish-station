@@ -56,8 +56,8 @@ ent-MechOdysseusFilled = Odysseus
     .suffix = Filled
     .desc = A medical exosuit designed for patient recovery and emergency response.
 
-ent-MechEquipmentSleeper = mounted sleeper
-    .desc = A medical sleeper module that can hold and stabilize a patient.
+ent-MechEquipmentSleeper = cabin medbay module
+    .desc = Holds one patient and doses reagents from chassis chemical reserves.
 
 ent-MechEquipmentRescueJaw = rescue jaws
     .desc = Hydraulic jaws for forcing doors and clearing obstacles during rescue.
@@ -89,6 +89,18 @@ mech-tracking-no-pilot = (empty)
 mech-tracking-broken = BROKEN
 mech-tracking-ok = OK
 mech-tracking-entry = {$name} | hull {$integrity}% | power {$energy}% | pilot {$pilot} | {$status}
+
+mech-sleeper-patient = Patient: {$name}
+mech-sleeper-patient-empty = Patient: none
+mech-sleeper-patient-unknown = unknown
+mech-sleeper-eject = Eject patient
+mech-sleeper-reagents-header = Injectable reagents
+mech-sleeper-inject-hint = Click a reagent to inject {$amount} u
+mech-sleeper-reagent-entry = {$name} ({$quantity})
+mech-sleeper-no-patient = No patient in the sleeper.
+mech-sleeper-no-reagents = No reagents available.
+mech-sleeper-inject-failed = Failed to inject reagent.
+mech-sleeper-injected = Injected {$amount} u of {$reagent} into {$patient}.
 
 ent-MechWreckage = mech wreckage
     .desc = The twisted remains of an exosuit. Crowbar salvage may yield parts.

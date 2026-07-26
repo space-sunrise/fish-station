@@ -27,10 +27,10 @@
   parent: BaseBattleShuttleWeapon
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
-    state: weapon_taser
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_taser
   - type: Item
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
   - type: BattleShuttleModule
     slot: weapon
     cost: 500
@@ -54,10 +54,10 @@
   parent: BaseBattleShuttleWeapon
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
-    state: weapon_burst_taser
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_taser
   - type: Item
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
   - type: BattleShuttleModule
     slot: weapon
     cost: 750
@@ -81,10 +81,10 @@
   parent: BaseBattleShuttleWeapon
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
-    state: weapon_laser
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_laser
   - type: Item
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
   - type: BattleShuttleModule
     slot: weapon
     cost: 1000
@@ -108,10 +108,10 @@
   parent: BaseBattleShuttleWeapon
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/parts.rsi
-    state: pod_w_laser
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_laser
   - type: Item
-    sprite: _Fish/Objects/Specific/SpacePods/parts.rsi
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
   - type: BattleShuttleModule
     slot: weapon
     cost: 2000
@@ -138,10 +138,10 @@
   parent: BaseBattleShuttleWeapon
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/ship.rsi
-    state: pod_taser
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_drill
   - type: Item
-    sprite: _Fish/Objects/Specific/SpacePods/ship.rsi
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
   - type: BattleShuttleModule
     slot: weapon
     cost: 600
@@ -168,10 +168,10 @@
   parent: BaseBattleShuttleWeapon
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/ship.rsi
-    state: pod_m_laser
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_drill
   - type: Item
-    sprite: _Fish/Objects/Specific/SpacePods/ship.rsi
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
   - type: BattleShuttleModule
     slot: weapon
     cost: 1200
@@ -199,10 +199,10 @@
   parent: BaseBattleShuttleModule
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
-    state: sec_cargo_blank
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_analyzer
   - type: Item
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
   - type: BattleShuttleModule
     slot: misc
     cost: 200
@@ -224,10 +224,10 @@
   parent: BaseBattleShuttleModule
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
-    state: cargo_ore
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_clamp
   - type: Item
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
   - type: BattleShuttleModule
     slot: cargo
     cost: 800
@@ -265,10 +265,10 @@
   parent: BaseBattleShuttleModule
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
-    state: cargo_crate
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_clamp
   - type: Item
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
   - type: BattleShuttleModule
     slot: cargo
     cost: 400
@@ -298,10 +298,10 @@
   parent: BaseBattleShuttleModule
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
-    state: sec_cargo_chair
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_bin
   - type: Item
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
   - type: BattleShuttleModule
     slot: secCargo
     occupantMod: 1
@@ -318,10 +318,10 @@
   parent: BaseBattleShuttleModule
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
-    state: sec_cargo_loot
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_clamp
   - type: Item
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
   - type: BattleShuttleModule
     slot: secCargo
     cost: 350
@@ -351,10 +351,10 @@
   parent: BaseBattleShuttleModule
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
-    state: lock_tumbler
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_analyzer
   - type: Item
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
   - type: BattleShuttleModule
     slot: lock
     cost: 250
@@ -371,11 +371,11 @@
   parent: BaseItem
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
-    state: podkey
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_analyzer
   - type: Item
     size: Tiny
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
   - type: BattleShuttleKey
 
 - type: entity
@@ -385,11 +385,11 @@
   parent: BaseItem
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
-    state: lock_card
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_analyzer
   - type: Item
     size: Small
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
   - type: BattleShuttleLockBuster
     enabled: false
   - type: ItemToggle
@@ -406,10 +406,10 @@
   parent: BaseBattleShuttleModule
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/ship.rsi
-    state: pod_locator
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_analyzer
   - type: Item
-    sprite: _Fish/Objects/Specific/SpacePods/ship.rsi
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
   - type: BattleShuttleModule
     slot: locator
     cost: 150
@@ -442,8 +442,8 @@
   parent: BaseItem
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/parts.rsi
-    state: core
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: tesla
   - type: Item
     size: Normal
   - type: Tag
@@ -457,8 +457,8 @@
   parent: BaseItem
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/parts.rsi
-    state: pod_armor_civ
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: repair_droid
   - type: Item
     size: Normal
   - type: Tag
@@ -466,13 +466,13 @@
     - BattleShuttleArmor
 
 - type: entity
-  id: BattleShuttleFramePartAP
-  name: shuttle frame part (AP)
+  id: BattleShuttleFramePartPort
+  name: shuttle frame part (port)
   parent: BaseItem
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/parts.rsi
-    state: pod_ap
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: repair_droid
   - type: Item
     size: Normal
   - type: Tag
@@ -485,8 +485,8 @@
   parent: BaseItem
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/parts.rsi
-    state: pod_as
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: repair_droid
   - type: Item
     size: Normal
   - type: Tag
@@ -499,8 +499,8 @@
   parent: BaseItem
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/parts.rsi
-    state: pod_fp
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: repair_droid
   - type: Item
     size: Normal
   - type: Tag
@@ -513,8 +513,8 @@
   parent: BaseItem
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/parts.rsi
-    state: pod_fs
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: repair_droid
   - type: Item
     size: Normal
   - type: Tag

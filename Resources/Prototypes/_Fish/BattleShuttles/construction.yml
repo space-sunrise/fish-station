@@ -5,27 +5,27 @@
   parent: BaseStructure
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/construction.rsi
+    sprite: Objects/Specific/Mech/mecha.rsi
     layers:
-    - state: pod_1
+    - state: ripley-open
       map: ["enum.ConstructionVisuals.Layer"]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.ConstructionVisuals.Key:
         enum.ConstructionVisuals.Layer:
-          1: { state: pod_1 }
-          2: { state: pod_2 }
-          3: { state: pod_3 }
-          4: { state: pod_4 }
-          5: { state: pod_5 }
-          6: { state: pod_6 }
-          7: { state: pod_7 }
-          8: { state: pod_8 }
-          9: { state: pod_9 }
-          10: { state: pod_10 }
-          11: { state: pod_11 }
-          12: { state: pod_12 }
+          1: { state: ripley-open }
+          2: { state: ripley-open }
+          3: { state: ripley-open }
+          4: { state: ripley-open }
+          5: { state: ripley-open }
+          6: { state: ripley-open }
+          7: { state: ripley-open }
+          8: { state: ripley-open }
+          9: { state: ripley-open }
+          10: { state: ripley-open }
+          11: { state: ripley-open }
+          12: { state: ripley-open }
   - type: Construction
     graph: BattleShuttle
     node: frame
@@ -96,8 +96,8 @@
       - tag: BattleShuttleCore
         name: construction-graph-tag-battle-shuttle-core
         icon:
-          sprite: _Fish/Objects/Specific/SpacePods/parts.rsi
-          state: core
+          sprite: Objects/Specific/Mech/mecha_equipment.rsi
+          state: tesla
         completed:
         - !type:VisualizerDataInt
           key: "enum.ConstructionVisuals.Key"
@@ -129,8 +129,8 @@
       - tag: BattleShuttleArmor
         name: construction-graph-tag-battle-shuttle-armor
         icon:
-          sprite: _Fish/Objects/Specific/SpacePods/parts.rsi
-          state: pod_armor_civ
+          sprite: Objects/Specific/Mech/mecha_equipment.rsi
+          state: repair_droid
         completed:
         - !type:VisualizerDataInt
           key: "enum.ConstructionVisuals.Key"

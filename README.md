@@ -82,5 +82,5 @@ Space Station 14 — это ролевая игра, вдохновлённая 
 > - оригинальные ассеты — [CC-BY-SA-3.0](LICENSE-FISH-ASSETS.TXT)
 > - обзор — [LICENSE-FISH.TXT](LICENSE-FISH.TXT), документация — [Resources/Docs/_Fish/LICENSE.md](Resources/Docs/_Fish/LICENSE.md)
 >
-> Сторонние ассеты сохраняют лицензию из `meta.json` / `attributions.yml` (например Goonstation spacepods — CC-BY-NC-SA-3.0).
+> Сторонние ассеты сохраняют лицензию из `meta.json` / `attributions.yml`.
 </details> 

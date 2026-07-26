@@ -140,8 +140,8 @@ C# менять не нужно.
   name: shuttle pulse mount
   components:
   - type: Sprite
-    sprite: _Fish/Objects/Specific/SpacePods/equipment.rsi
-    state: weapon_laser
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_laser
   - type: BattleShuttleModule
     slot: weapon
     cost: 1800
@@ -246,14 +246,14 @@ BaseMechPod
 ## Лицензия
 
 Оригинальный код / прототипы / документация — **MIT**; оригинальные ассеты — **CC-BY-SA-3.0**.  
-Спрайты SpacePods (Goonstation) — **CC-BY-NC-SA-3.0** (см. `meta.json` / `Textures/_Fish/attributions.yml`).  
+Временный визуал корпуса/модулей использует stock `Objects/Specific/Mech/mecha*.rsi` (CC-BY-SA) до появления собственных спрайтов Fish.  
 Подробности: [`LICENSE.md`](LICENSE.md), [`LICENSE-FISH.TXT`](../../../LICENSE-FISH.TXT).
 
 ---
 
 # История разработки
 
-1. Первая итерация на Mech-стеке (`SpacePod*` имена) → стабилизация CI.
+1. Первая итерация на Mech-стеке → стабилизация CI.
 2. Аудит → data-driven BattleShuttle C# и иерархия Prototype.
 3. Lean-рефакторинг: тонкая специализация Mech, hatch vs battery, install gate ordering, ore scoop cache.
 4. Документация и журнал коммитов на ветке PR #319.
