@@ -8,4 +8,4 @@ cmd-forceghostrole-initial-gt-max = Базовая длительность не
 
 force-ghost-role-verb-get-data-text = Принудительная гост роль
 force-ghost-role-verb-get-data-desc = Сделать сущность доступной гост-ролью (с отсоединением текущего разума).
-force-ghost-role-verb-default-description = Админская гост-роль: {$name}
+force-ghost-role-verb-default-description = {$name}

@@ -8,4 +8,4 @@ cmd-forceghostrole-initial-gt-max = Initial duration must not exceed max duratio
 
 force-ghost-role-verb-get-data-text = Force ghost role
 force-ghost-role-verb-get-data-desc = Make this entity an available ghost role (ejects any current mind).
-force-ghost-role-verb-default-description = Admin ghost role: {$name}
+force-ghost-role-verb-default-description = {$name}
