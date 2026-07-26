@@ -7,7 +7,7 @@
     xmlns:playerTab="clr-namespace:Content.Client.Administration.UI.Tabs.PlayerTab"
     xmlns:objectsTab="clr-namespace:Content.Client.Administration.UI.Tabs.ObjectsTab"
     xmlns:panic="clr-namespace:Content.Client.Administration.UI.Tabs.PanicBunkerTab"
-    xmlns:pg="clr-namespace:Content.Client._Fish.PerformanceGuardian">
+    xmlns:pg="clr-namespace:Content.Client._Fish.PerformanceGuardian"> <!-- FIsh edit - Performance Guardian xmlns -->
     <TabContainer Name="MasterTabContainer">
         <adminTab:AdminTab />
         <adminbusTab:AdminbusTab />
