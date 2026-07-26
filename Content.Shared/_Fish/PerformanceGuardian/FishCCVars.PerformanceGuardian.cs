@@ -20,19 +20,31 @@ public sealed partial class FishCCVars
     /// Порог «давления тика» относительно бюджета (Measured/Budget), выше — диагностика.
     /// </summary>
     public static readonly CVarDef<float> PgIncidentPressureThreshold =
-        CVarDef.Create("pg.incident_pressure_threshold", 1.35f, CVar.SERVERONLY | CVar.ARCHIVE);
+        CVarDef.Create("pg.incident_pressure_threshold", 1.55f, CVar.SERVERONLY | CVar.ARCHIVE);
 
     /// <summary>
     /// Рост активных atmos-тайлов относительно baseline, выше — диагностика.
     /// </summary>
     public static readonly CVarDef<float> PgIncidentAtmosSpike =
-        CVarDef.Create("pg.incident_atmos_spike", 1.6f, CVar.SERVERONLY | CVar.ARCHIVE);
+        CVarDef.Create("pg.incident_atmos_spike", 2.2f, CVar.SERVERONLY | CVar.ARCHIVE);
 
     /// <summary>
     /// Рост awake physics-тел относительно baseline, выше — диагностика.
     /// </summary>
     public static readonly CVarDef<float> PgIncidentPhysicsSpike =
-        CVarDef.Create("pg.incident_physics_spike", 1.6f, CVar.SERVERONLY | CVar.ARCHIVE);
+        CVarDef.Create("pg.incident_physics_spike", 2.2f, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Сколько подряд аномальных сэмплов нужно для авто-инцидента.
+    /// </summary>
+    public static readonly CVarDef<int> PgConfirmationsRequired =
+        CVarDef.Create("pg.confirmations_required", 3, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Сэмплов прогрева baseline (без авто-инцидентов).
+    /// </summary>
+    public static readonly CVarDef<int> PgWarmupSamples =
+        CVarDef.Create("pg.warmup_samples", 12, CVar.SERVERONLY | CVar.ARCHIVE);
 
     /// <summary>
     /// Радиус поиска игроков около очага (тайлы).

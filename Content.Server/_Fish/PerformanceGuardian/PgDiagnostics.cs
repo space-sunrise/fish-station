@@ -42,6 +42,7 @@ public sealed class PgDiagnostics
     public void Run(
         PgIdleMonitor idle,
         int eventRate,
+        PgLoadClassifier classifier,
         float budgetMs,
         float nearbyRange,
         int topLimit,
@@ -58,8 +59,10 @@ public sealed class PgDiagnostics
         nearbyPlayers = new List<PgNearbyPlayerRow>(8);
         placeName = "—";
         coordinatesText = "—";
-        source = PickSource(idle, eventRate);
-        sourceText = SourceToRu(source);
+        source = classifier.ClassifyPrimary(idle.AwakeBodies, idle.AtmosActive, eventRate);
+        if (idle.EntityCount > 12000 && source is PgLoadSource.Ok or PgLoadSource.Physics)
+            source = PgLoadSource.Entities;
+        sourceText = PgLoadClassifier.SourceToRu(source);
 
         EntityUid? hotGrid = null;
         Vector2 hotLocal = Vector2.Zero;
@@ -91,37 +94,6 @@ public sealed class PgDiagnostics
 
         recommendation = BuildRecommendation(source, placeName, topEntities.Count, nearbyPlayers.Count);
         _sw.Stop();
-    }
-
-    private static PgLoadSource PickSource(PgIdleMonitor idle, int eventRate)
-    {
-        var physics = idle.AwakeSpike;
-        var atmos = idle.AtmosSpike;
-        var pressure = idle.PressureRatio;
-        var entities = idle.EntityCount / 5000f;
-        var events = eventRate / 40f;
-
-        if (pressure < 1.1f && physics < 1.25f && atmos < 1.25f && events < 1.2f)
-            return PgLoadSource.Ok;
-
-        var best = PgLoadSource.Physics;
-        var bestScore = physics;
-        if (atmos > bestScore)
-        {
-            best = PgLoadSource.Atmos;
-            bestScore = atmos;
-        }
-
-        if (events > bestScore)
-        {
-            best = PgLoadSource.Events;
-            bestScore = events;
-        }
-
-        if (entities > bestScore && idle.EntityCount > 8000)
-            best = PgLoadSource.Entities;
-
-        return best;
     }
 
     private void FindHotSpot(
@@ -246,16 +218,6 @@ public sealed class PgDiagnostics
     }
 
     private bool BudgetExceeded(float budgetMs) => _sw.Elapsed.TotalMilliseconds >= budgetMs;
-
-    private static string SourceToRu(PgLoadSource source) => source switch
-    {
-        PgLoadSource.Physics => "Физика (много движущихся объектов)",
-        PgLoadSource.Atmos => "Атмосфера (активные тайлы / пожары)",
-        PgLoadSource.Events => "Игровые события (бои, взрывы, броски)",
-        PgLoadSource.Entities => "Слишком много сущностей на сервере",
-        PgLoadSource.Ok => "Явной перегрузки нет",
-        _ => "Неизвестно",
-    };
 
     private static string BuildRecommendation(PgLoadSource source, string place, int topCount, int nearbyCount)
     {

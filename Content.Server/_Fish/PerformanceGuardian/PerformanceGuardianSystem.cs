@@ -24,15 +24,13 @@ public sealed class PerformanceGuardianSystem : EntitySystem
     [Dependency] private readonly PgCollectorSystem _collector = default!;
 
     private readonly HashSet<ICommonSession> _subscribers = new();
+    private readonly PgLoadClassifier _classifier = new();
 
     private PgIdleMonitor _idle = default!;
     private PgDiagnostics _diagnostics = default!;
 
     private bool _enabled = true;
     private float _sampleInterval = 2f;
-    private float _pressureThreshold = 1.35f;
-    private float _atmosSpike = 1.6f;
-    private float _physicsSpike = 1.6f;
     private float _nearbyRange = 16f;
     private int _topLimit = 8;
     private float _diagnoseBudgetMs = 3f;
@@ -43,12 +41,10 @@ public sealed class PerformanceGuardianSystem : EntitySystem
     private int _eventRatePerSec;
     private float _eventsAccum;
     private TimeSpan _eventsWindowStart;
+    private float _maxFrameTimeSinceSample;
 
     private PgReport _report = new();
 
-    /// <summary>
-    /// Коллекторы выключаются на время инцидента, чтобы не усугублять лаг.
-    /// </summary>
     public bool CollectorsEnabled => _enabled && _mode != PgMode.Incident;
 
     public override void Initialize()
@@ -60,12 +56,14 @@ public sealed class PerformanceGuardianSystem : EntitySystem
 
         Subs.CVar(_cfg, FishCCVars.PgEnabled, v => _enabled = v, true);
         Subs.CVar(_cfg, FishCCVars.PgSampleIntervalSeconds, v => _sampleInterval = Math.Max(1f, v), true);
-        Subs.CVar(_cfg, FishCCVars.PgIncidentPressureThreshold, v => _pressureThreshold = v, true);
-        Subs.CVar(_cfg, FishCCVars.PgIncidentAtmosSpike, v => _atmosSpike = v, true);
-        Subs.CVar(_cfg, FishCCVars.PgIncidentPhysicsSpike, v => _physicsSpike = v, true);
+        Subs.CVar(_cfg, FishCCVars.PgIncidentPressureThreshold, v => _classifier.PressureThreshold = v, true);
+        Subs.CVar(_cfg, FishCCVars.PgIncidentAtmosSpike, v => _classifier.AtmosSpikeThreshold = v, true);
+        Subs.CVar(_cfg, FishCCVars.PgIncidentPhysicsSpike, v => _classifier.PhysicsSpikeThreshold = v, true);
         Subs.CVar(_cfg, FishCCVars.PgNearbyPlayerRange, v => _nearbyRange = v, true);
         Subs.CVar(_cfg, FishCCVars.PgTopEntityLimit, v => _topLimit = Math.Clamp(v, 1, 16), true);
         Subs.CVar(_cfg, FishCCVars.PgDiagnoseBudgetMs, v => _diagnoseBudgetMs = Math.Max(1f, v), true);
+        Subs.CVar(_cfg, FishCCVars.PgConfirmationsRequired, v => _classifier.ConfirmationsRequired = Math.Clamp(v, 1, 10), true);
+        Subs.CVar(_cfg, FishCCVars.PgWarmupSamples, v => _classifier.WarmupSamples = Math.Clamp(v, 0, 120), true);
 
         SubscribeNetworkEvent<PgSubscribeRequest>(OnSubscribe);
         SubscribeNetworkEvent<PgUnsubscribeRequest>(OnUnsubscribe);
@@ -73,7 +71,7 @@ public sealed class PerformanceGuardianSystem : EntitySystem
         SubscribeNetworkEvent<PgDiagnoseRequest>(OnDiagnoseRequest);
 
         _players.PlayerStatusChanged += OnPlayerStatusChanged;
-        RefreshReportBasics();
+        RefreshReportBasics(PgLoadSource.Ok);
     }
 
     public override void Shutdown()
@@ -101,10 +99,8 @@ public sealed class PerformanceGuardianSystem : EntitySystem
         RaiseNetworkEvent(new PgReportResponse(CloneReport()), args.SenderSession);
     }
 
-    private void OnUnsubscribe(PgUnsubscribeRequest msg, EntitySessionEventArgs args)
-    {
+    private void OnUnsubscribe(PgUnsubscribeRequest msg, EntitySessionEventArgs args) =>
         _subscribers.Remove(args.SenderSession);
-    }
 
     private void OnReportRequest(PgReportRequest msg, EntitySessionEventArgs args)
     {
@@ -112,7 +108,7 @@ public sealed class PerformanceGuardianSystem : EntitySystem
             return;
 
         _subscribers.Add(args.SenderSession);
-        RefreshReportBasics();
+        RefreshReportBasics(_report.PrimarySource);
         RaiseNetworkEvent(new PgReportResponse(CloneReport()), args.SenderSession);
     }
 
@@ -130,12 +126,18 @@ public sealed class PerformanceGuardianSystem : EntitySystem
         if (!_enabled)
             return;
 
+        // Реальный сигнал отставания цикла (не эвристика atmos/physics).
+        _maxFrameTimeSinceSample = Math.Max(_maxFrameTimeSinceSample, frameTime);
+
         var now = _timing.CurTime;
         if (now < _nextSample)
             return;
 
         _nextSample = now + TimeSpan.FromSeconds(_sampleInterval);
-        _idle.Sample();
+        var maxFt = _maxFrameTimeSinceSample;
+        _maxFrameTimeSinceSample = 0f;
+
+        _idle.Sample(maxFt);
 
         var events = _collector.TakeEventCount();
         if (_eventsWindowStart == TimeSpan.Zero)
@@ -150,25 +152,34 @@ public sealed class PerformanceGuardianSystem : EntitySystem
             _eventsWindowStart = now;
         }
 
-        RefreshReportBasics();
+        var tickPeriod = (float)_timing.TickPeriod.TotalSeconds;
+        var shouldDiagnose = _classifier.Observe(
+            _idle.AwakeBodies,
+            _idle.AtmosActive,
+            _eventRatePerSec,
+            maxFt > 0f ? maxFt : tickPeriod,
+            tickPeriod,
+            out var hint);
 
-        // Авто-диагностика только при всплеске и не чаще cooldown.
+        if (_idle.EntityCount > 12000 && hint is PgLoadSource.Ok or PgLoadSource.Physics)
+            hint = PgLoadSource.Entities;
+
+        RefreshReportBasics(hint);
+
         if (_mode == PgMode.Incident && now >= _incidentCooldownUntil)
         {
-            if (_idle.PressureRatio < _pressureThreshold * 0.85f &&
-                _idle.AwakeSpike < _physicsSpike * 0.85f &&
-                _idle.AtmosSpike < _atmosSpike * 0.85f)
+            if (!_classifier.IsAnomalous(_idle.AwakeBodies, _idle.AtmosActive, _eventRatePerSec)
+                && _classifier.PressureRatio < _classifier.PressureThreshold * 0.9f)
             {
                 _mode = PgMode.Idle;
-                RefreshReportBasics();
+                RefreshReportBasics(PgLoadSource.Ok);
             }
         }
-        else if (_mode == PgMode.Idle && now >= _incidentCooldownUntil && ShouldTriggerIncident())
+        else if (_mode == PgMode.Idle && now >= _incidentCooldownUntil && shouldDiagnose)
         {
             RunDiagnostics(manual: false);
         }
 
-        // Лёгкий push только подписчикам (окно открыто).
         if (_subscribers.Count == 0)
             return;
 
@@ -177,21 +188,15 @@ public sealed class PerformanceGuardianSystem : EntitySystem
             RaiseNetworkEvent(new PgReportResponse(payload), session);
     }
 
-    private bool ShouldTriggerIncident()
-    {
-        return _idle.PressureRatio >= _pressureThreshold
-               || _idle.AwakeSpike >= _physicsSpike
-               || _idle.AtmosSpike >= _atmosSpike;
-    }
-
     private void RunDiagnostics(bool manual)
     {
         _mode = PgMode.Incident;
-        _incidentCooldownUntil = _timing.CurTime + TimeSpan.FromSeconds(15);
+        _incidentCooldownUntil = _timing.CurTime + TimeSpan.FromSeconds(20);
 
         _diagnostics.Run(
             _idle,
             _eventRatePerSec,
+            _classifier,
             _diagnoseBudgetMs,
             _nearbyRange,
             _topLimit,
@@ -216,15 +221,15 @@ public sealed class PerformanceGuardianSystem : EntitySystem
             : $"Авто-инцидент: {sourceText} на «{place}»";
         _report.DiagnosisAvailable = true;
 
-        RefreshReportBasics();
+        RefreshReportBasics(source);
     }
 
-    private void RefreshReportBasics()
+    private void RefreshReportBasics(PgLoadSource hint)
     {
         _report.ServerTime = _timing.CurTime;
         _report.Mode = _mode;
-        _report.Tps = _idle.LastTps;
-        _report.TickMs = _idle.LastTickMs;
+        _report.Tps = _idle.LastTpsEstimate;
+        _report.TickMs = _idle.LastMaxFrameTime * 1000f;
         _report.TickBudgetMs = _idle.LastTickBudgetMs;
         _report.EntityCount = _idle.EntityCount;
         _report.GridCount = _idle.GridCount;
@@ -233,34 +238,19 @@ public sealed class PerformanceGuardianSystem : EntitySystem
         _report.AtmosHotspots = _idle.AtmosHotspots;
         _report.PlayerCount = _idle.PlayerCount;
         _report.EventRatePerSec = _eventRatePerSec;
-        _report.ServerState = DescribeState();
+        _report.ServerState = _classifier.DescribeState(_mode);
 
-        if (_report.PrimarySource == PgLoadSource.Unknown && _mode == PgMode.Idle)
+        if (_mode == PgMode.Idle && !_report.DiagnosisAvailable)
         {
-            _report.PrimarySource = PgLoadSource.Ok;
-            _report.PrimarySourceText = "Явной перегрузки нет";
-            if (string.IsNullOrEmpty(_report.Recommendation))
+            _report.PrimarySource = hint;
+            _report.PrimarySourceText = PgLoadClassifier.SourceToRu(hint);
+            if (hint == PgLoadSource.Ok)
                 _report.Recommendation = "Сервер в норме. Нажмите «Диагностика сейчас», если лаги всё равно есть.";
         }
     }
 
-    private string DescribeState()
-    {
-        if (_mode == PgMode.Incident)
-            return "Инцидент — идёт разбор нагрузки";
-
-        if (_idle.PressureRatio >= _pressureThreshold)
-            return "Высокая нагрузка";
-
-        if (_idle.PressureRatio >= 1.15f)
-            return "Повышенная нагрузка";
-
-        return "Норма";
-    }
-
     private PgReport CloneReport()
     {
-        // Лёгкая копия для сети (избегаем мутаций у клиента).
         return new PgReport
         {
             ServerTime = _report.ServerTime,

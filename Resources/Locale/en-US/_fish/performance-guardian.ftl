@@ -17,7 +17,7 @@ pg-section-incident = Последний инцидент
 pg-section-advice = Рекомендации
 
 pg-line-state = Статус: { $value }
-pg-line-tps = TPS ≈ { $tps } (тик { $ms } мс из бюджета { $budget } мс)
+pg-line-tps = Оценка TPS ≈ { $tps } (макс. кадр { $ms } мс, бюджет тика { $budget } мс)
 pg-line-counts = Сущности: { $entities } · Сетки: { $grids } · Игроки: { $players }
 pg-line-physics = Активная физика: { $awake } тел
 pg-line-atmos = Атмосфера: { $tiles } активных тайлов, пожаров { $hot }
