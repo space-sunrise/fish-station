@@ -40,11 +40,11 @@ public abstract class SharedMechFacingArmorSystem : EntitySystem
             _ => ent.Comp.SideDeflectChance,
         };
 
-        if (deflectChance > 0f && _random.Prob(Math.Clamp(deflectChance, 0f, 0.9f)))
+        // Случайный рикошет только на сервере — иначе mispredict / dirty в prediction.
+        if (_net.IsServer && deflectChance > 0f && _random.Prob(Math.Clamp(deflectChance, 0f, 0.9f)))
         {
             args.Damage *= 0;
-            if (_net.IsServer)
-                _popup.PopupEntity(Loc.GetString("mech-facing-armor-deflect"), ent);
+            _popup.PopupEntity(Loc.GetString("mech-facing-armor-deflect"), ent);
             return;
         }
 

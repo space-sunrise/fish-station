@@ -44,6 +44,10 @@ public abstract class SharedMechInternalDamageSystem : EntitySystem
 
     private void OnDamageChanged(Entity<MechInternalDamageComponent> ent, ref DamageChangedEvent args)
     {
+        // Рандомный Dirty только на сервере — иначе prediction reset / mispredict.
+        if (Net.IsClient)
+            return;
+
         if (!args.DamageIncreased || args.DamageDelta == null)
             return;
 
@@ -93,6 +97,9 @@ public abstract class SharedMechInternalDamageSystem : EntitySystem
 
     private void OnMoveInput(Entity<MechInternalDamageComponent> ent, ref MoveInputEvent args)
     {
+        if (Net.IsClient)
+            return;
+
         if ((ent.Comp.Damage & MechInternalDamageFlags.DriveFault) == 0)
             return;
 

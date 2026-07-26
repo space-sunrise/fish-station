@@ -54,6 +54,7 @@ public abstract class SharedMechChassisAbilitySystem : EntitySystem
         SubscribeLocalEvent<MechDefenceModeComponent, UpdateCanMoveEvent>(OnDefenceCanMove);
 
         SubscribeLocalEvent<MechThrustersComponent, MechToggleThrustersEvent>(OnToggleThrusters);
+        SubscribeLocalEvent<MechThrustersComponent, CanWeightlessMoveEvent>(OnThrustersWeightless);
 
         SubscribeLocalEvent<MechSmokeComponent, MechLaunchSmokeEvent>(OnLaunchSmoke);
 
@@ -220,27 +221,17 @@ public abstract class SharedMechChassisAbilitySystem : EntitySystem
         ent.Comp.Active = !ent.Comp.Active;
         Dirty(ent);
         Actions.SetToggled(ent.Comp.ToggleActionEntity, ent.Comp.Active);
-
-        if (ent.Comp.Active)
-        {
-            if (!HasComp<CanMoveInAirComponent>(ent))
-            {
-                EnsureComp<CanMoveInAirComponent>(ent);
-                EnsureComp<MovementAlwaysTouchingComponent>(ent);
-                ent.Comp.AddedMovementAids = true;
-            }
-        }
-        else if (ent.Comp.AddedMovementAids)
-        {
-            RemCompDeferred<CanMoveInAirComponent>(ent);
-            RemCompDeferred<MovementAlwaysTouchingComponent>(ent);
-            ent.Comp.AddedMovementAids = false;
-        }
-
+        // Движение в невесомости — через CanWeightlessMoveEvent, без EnsureComp (prediction-safe).
         Popup.PopupClient(
             Loc.GetString(ent.Comp.Active ? "mech-thrusters-on" : "mech-thrusters-off"),
             ent,
             args.Performer);
+    }
+
+    private void OnThrustersWeightless(Entity<MechThrustersComponent> ent, ref CanWeightlessMoveEvent args)
+    {
+        if (ent.Comp.Active)
+            args.CanMove = true;
     }
 
     private void OnLaunchSmoke(Entity<MechSmokeComponent> ent, ref MechLaunchSmokeEvent args)
@@ -319,7 +310,9 @@ public abstract class SharedMechChassisAbilitySystem : EntitySystem
         Actions.SetToggled(ent.Comp.ToggleActionEntity, ent.Comp.Active);
         Blocker.UpdateCanMove(ent);
 
-        if (mech.PilotSlot.ContainedEntity is { } pilot && TryComp(pilot, out ContentEyeComponent? eye))
+        if (!Timing.ApplyingState &&
+            mech.PilotSlot.ContainedEntity is { } pilot &&
+            TryComp(pilot, out ContentEyeComponent? eye))
         {
             if (ent.Comp.Active)
                 ContentEye.SetZoom(pilot, ent.Comp.Zoom, ignoreLimits: true, eye);
@@ -349,7 +342,8 @@ public abstract class SharedMechChassisAbilitySystem : EntitySystem
         Dirty(ent);
         Actions.SetToggled(ent.Comp.ToggleActionEntity, ent.Comp.Active);
         Movement.RefreshMovementSpeedModifiers(ent);
-        ApplyPhasingFixtures(ent, ent.Comp.Active);
+        if (!Timing.ApplyingState)
+            ApplyPhasingFixtures(ent, ent.Comp.Active);
         Popup.PopupClient(
             Loc.GetString(ent.Comp.Active ? "mech-phasing-on" : "mech-phasing-off"),
             ent,
