@@ -14,7 +14,8 @@ public sealed partial class MechDamtypeCycleComponent : Component
     public int ModeIndex;
 
     [DataField]
-    public List<string> DamageTypes = ["Blunt", "Heat", "Poison"];
+    // Не collection expression [] — sandbox запрещает CollectionsMarshal.SetCount.
+    public List<string> DamageTypes = new() { "Blunt", "Heat", "Poison" };
 
     [DataField]
     public float DamageAmount = 20f;
