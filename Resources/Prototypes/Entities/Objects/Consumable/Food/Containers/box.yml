@@ -596,15 +596,13 @@
         - id: DrinkColaCan
           amount: 2
         # food
-        # FIsh edit start - fill должен влезать в storage 0,0,5,2 (иначе CI падает на spawn)
         - !type:GroupSelector
           children:
           - id: FoodSaladValid
             weight: 0.05
-            amount: 1
+            amount: 4
           - id: FoodSnackSyndi
-            amount: 2
-        # FIsh edit end
+            amount: 4
 
 - type: entity
   id: HappyHonkCluwne
