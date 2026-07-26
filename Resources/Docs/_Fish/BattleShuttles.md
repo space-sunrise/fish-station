@@ -243,6 +243,12 @@ BaseMechPod
 - Нет Client system / лишней сетевой appearance для люка.
 - Модульные speed modifiers через стандартный `RefreshMovementSpeedModifiersEvent`.
 
+## Лицензия
+
+Оригинальный код / прототипы / документация — **MIT**; оригинальные ассеты — **CC-BY-SA-3.0**.  
+Спрайты SpacePods (Goonstation) — **CC-BY-NC-SA-3.0** (см. `meta.json` / `Textures/_Fish/attributions.yml`).  
+Подробности: [`LICENSE.md`](LICENSE.md), [`LICENSE-FISH.TXT`](../../../LICENSE-FISH.TXT).
+
 ---
 
 # История разработки

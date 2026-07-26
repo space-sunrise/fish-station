@@ -123,3 +123,8 @@ BaseMech
 - Medical beam без SS14-аналога.
 - Atmos port-connector чужой atmos-модели.
 - Параллельный mecha-стек рядом с Mech.
+
+## Лицензия
+
+Оригинальный код и документация этого слоя — **MIT**; оригинальные ассеты — **CC-BY-SA-3.0**.  
+Подробности: [`LICENSE.md`](LICENSE.md), корневые [`LICENSE-FISH.TXT`](../../../LICENSE-FISH.TXT).
