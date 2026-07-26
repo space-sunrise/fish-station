@@ -2,7 +2,7 @@ using Content.Shared._Fish.PerformanceGuardian;
 using Content.Shared._Sunrise.Storyteller;
 using Content.Shared.Construction;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Damage.Components;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
@@ -27,13 +27,14 @@ public sealed class PgCollectorSystem : EntitySystem
     {
         base.Initialize();
 
-        // Directed events: component subscriptions (still O(1) per raise).
+        // Directed: только свободные (comp, event) слоты — глобально один хендлер на пару.
         SubscribeLocalEvent<MeleeWeaponComponent, MeleeHitEvent>(OnMeleeHit);
-        SubscribeLocalEvent<ThrownItemComponent, ThrownEvent>(OnThrown);
         SubscribeLocalEvent<ProjectileComponent, ProjectileHitEvent>(OnProjectileHit);
-        SubscribeLocalEvent<DamageableComponent, DamageChangedEvent>(OnDamageChanged);
+        // DamageableComponent+DamageChanged уже занят (CarpServant); MobState покрывает живых.
+        SubscribeLocalEvent<MobStateComponent, DamageChangedEvent>(OnDamageChanged);
 
-        // Broadcast events
+        // Broadcast: ThrownEvent поднимается с broadcast=true; directed слот ThrownItem занят ThrownItemSystem.
+        SubscribeLocalEvent<ThrownEvent>(OnThrown);
         SubscribeLocalEvent<SunriseExplosionEvent>(OnExplosion);
         SubscribeLocalEvent<FTLStartedEvent>(OnFtlStarted);
         SubscribeLocalEvent<DockEvent>(OnDock);
@@ -57,7 +58,7 @@ public sealed class PgCollectorSystem : EntitySystem
         TryRecordPlayer(args.User, PgMetricCategory.Attack);
     }
 
-    private void OnThrown(Entity<ThrownItemComponent> ent, ref ThrownEvent args)
+    private void OnThrown(ref ThrownEvent args)
     {
         var g = Guardian;
         if (g == null || !g.CollectorsEnabled || !g.SecondaryCollectorsEnabled)
@@ -80,7 +81,7 @@ public sealed class PgCollectorSystem : EntitySystem
             TryRecordPlayer(shooter, PgMetricCategory.Projectile);
     }
 
-    private void OnDamageChanged(Entity<DamageableComponent> ent, ref DamageChangedEvent args)
+    private void OnDamageChanged(Entity<MobStateComponent> ent, ref DamageChangedEvent args)
     {
         var g = Guardian;
         if (g == null || !g.CollectorsEnabled || !g.SecondaryCollectorsEnabled)
