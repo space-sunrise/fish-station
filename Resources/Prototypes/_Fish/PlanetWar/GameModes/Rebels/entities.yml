@@ -33,6 +33,7 @@
   - type: GhostRole
     name: pw-construction-rebels-mobhumanarmp0-name
     description: pw-construction-rebels-mobhumanarmp0-desc
+    rules: pw-ghost-role-rebels-rules
     raffle:
       settings: LifeWM
   - type: GhostRoleMobSpawner
