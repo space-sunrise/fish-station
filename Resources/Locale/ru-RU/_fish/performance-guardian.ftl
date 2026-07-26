@@ -4,6 +4,7 @@ pg-window-title = Контроль производительности
 pg-status-line = Состояние: { $state } ({ $mode })
 pg-btn-refresh = Обновить
 pg-btn-diagnose = Диагностика сейчас
+pg-btn-teleport = Телепорт
 pg-mode-idle = спокойный режим
 pg-mode-incident = разбор инцидента
 

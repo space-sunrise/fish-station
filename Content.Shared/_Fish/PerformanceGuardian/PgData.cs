@@ -31,6 +31,7 @@ public sealed class PgEntityLoadRow
 {
     public string Name = string.Empty;
     public string Detail = string.Empty;
+    public NetEntity? TeleportTarget;
 }
 
 [Serializable, NetSerializable]
@@ -38,6 +39,7 @@ public sealed class PgNearbyPlayerRow
 {
     public string Name = string.Empty;
     public string Detail = string.Empty;
+    public NetEntity? TeleportTarget;
 }
 
 /// <summary>
@@ -68,6 +70,8 @@ public sealed class PgReport
 
     public string PlaceName = string.Empty;
     public string CoordinatesText = string.Empty;
+    /// <summary>Сетка/сущность очага для tpto.</summary>
+    public NetEntity? PlaceTeleportTarget;
 
     public List<PgEntityLoadRow> TopEntities = new();
     public List<PgNearbyPlayerRow> NearbyPlayers = new();

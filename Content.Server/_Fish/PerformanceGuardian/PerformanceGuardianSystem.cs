@@ -204,6 +204,7 @@ public sealed class PerformanceGuardianSystem : EntitySystem
             out var sourceText,
             out var place,
             out var coords,
+            out var placeTp,
             out var top,
             out var nearby,
             out var recommendation);
@@ -212,6 +213,7 @@ public sealed class PerformanceGuardianSystem : EntitySystem
         _report.PrimarySourceText = sourceText;
         _report.PlaceName = place;
         _report.CoordinatesText = coords;
+        _report.PlaceTeleportTarget = placeTp;
         _report.TopEntities = top;
         _report.NearbyPlayers = nearby;
         _report.Recommendation = recommendation;
@@ -270,6 +272,7 @@ public sealed class PerformanceGuardianSystem : EntitySystem
             PrimarySourceText = _report.PrimarySourceText,
             PlaceName = _report.PlaceName,
             CoordinatesText = _report.CoordinatesText,
+            PlaceTeleportTarget = _report.PlaceTeleportTarget,
             TopEntities = new List<PgEntityLoadRow>(_report.TopEntities),
             NearbyPlayers = new List<PgNearbyPlayerRow>(_report.NearbyPlayers),
             LastIncidentSummary = _report.LastIncidentSummary,

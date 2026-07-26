@@ -50,6 +50,7 @@ public sealed class PgDiagnostics
         out string sourceText,
         out string placeName,
         out string coordinatesText,
+        out NetEntity? placeTeleport,
         out List<PgEntityLoadRow> topEntities,
         out List<PgNearbyPlayerRow> nearbyPlayers,
         out string recommendation)
@@ -59,6 +60,7 @@ public sealed class PgDiagnostics
         nearbyPlayers = new List<PgNearbyPlayerRow>(8);
         placeName = "—";
         coordinatesText = "—";
+        placeTeleport = null;
         source = classifier.ClassifyPrimary(idle.AwakeBodies, idle.AtmosActive, eventRate);
         if (idle.EntityCount > 12000 && source is PgLoadSource.Ok or PgLoadSource.Physics)
             source = PgLoadSource.Entities;
@@ -76,6 +78,7 @@ public sealed class PgDiagnostics
             placeName = meta.EntityName;
             if (string.IsNullOrWhiteSpace(placeName))
                 placeName = hotGrid.Value.ToString();
+            placeTeleport = _entities.GetNetEntity(hotGrid.Value);
         }
 
         if (hotMap != null)
@@ -187,6 +190,7 @@ public sealed class PgDiagnostics
             {
                 Name = _entities.ToPrettyString(uid),
                 Detail = $"масса ≈ {_scoreScratch[i].Score:F0}, активная физика",
+                TeleportTarget = _entities.GetNetEntity(uid),
             });
         }
     }
@@ -212,6 +216,7 @@ public sealed class PgDiagnostics
             {
                 Name = session.Name,
                 Detail = $"≈ {dist:F0} м",
+                TeleportTarget = _entities.GetNetEntity(ent.Owner),
             });
             added++;
         }
