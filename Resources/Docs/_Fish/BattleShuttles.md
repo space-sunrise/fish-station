@@ -1,15 +1,24 @@
 # Боевые шаттлы Fish Station
 
-Документация для разработчиков контента Fish Station / SS14.
+Полная документация **Battle Shuttle** для разработчиков контента Fish Station / SS14.
 
 Battle Shuttle — **специализированный тип меха** (`BaseMechPod`), а не отдельная подсистема транспорта и не MapGrid-шаттл.
 
-Связанные материалы:
+## Документы
 
-- архитектура: `Resources/Docs/_Fish/BattleShuttles-Architecture.md`
-- исторический аудит до рефакторинга: `Resources/Docs/_Fish/BattleShuttles-Audit.md`
+| Документ | Содержание |
+| --- | --- |
+| **Этот файл** | Обзор, компоненты, Prototype, практики |
+| [`BattleShuttles-Architecture.md`](BattleShuttles-Architecture.md) | Архитектурное решение |
+| [`BattleShuttles-Audit.md`](BattleShuttles-Audit.md) | Исторический аудит до lean-рефакторинга |
+| [`Mechs.md`](Mechs.md) | Соседний слой Fish Mech |
+
+## Код и прототипы
+
 - прототипы: `Resources/Prototypes/_Fish/BattleShuttles/`
 - код: `Content.Shared|Server/_Fish/BattleShuttles/`
+- локали: `Resources/Locale/{en-US,ru-RU}/_*/*battleshuttles.ftl`
+- тест: `Content.IntegrationTests/Tests/_Fish/BattleShuttleTest.cs`
 
 ---
 

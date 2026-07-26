@@ -86,7 +86,7 @@ public sealed partial class MechMenu : FancyWindow
             AppendStatus(sb, Loc.GetString("mech-ui-dna-locked"));
 
         if (_ent.TryGetComponent(_mech, out MechMaintenanceComponent? maint) &&
-            maint.State != MechMaintenanceState.Locked)
+            maint.State != MechMaintenanceState.Ready)
             AppendStatus(sb, Loc.GetString("mech-ui-maintenance", ("state", maint.State.ToString())));
 
         if (_ent.TryGetComponent(_mech, out MechCabinAtmosComponent? cabin))

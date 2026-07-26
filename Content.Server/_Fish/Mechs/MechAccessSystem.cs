@@ -33,7 +33,7 @@ public sealed class MechAccessSystem : SharedMechAccessSystem
         if (!TryComp(args.Target.Value, out MechMaintenanceComponent? maint))
             return;
 
-        if (maint.State == MechMaintenanceState.Locked)
+        if (maint.State == MechMaintenanceState.Ready)
             return;
 
         args.Handled = true;

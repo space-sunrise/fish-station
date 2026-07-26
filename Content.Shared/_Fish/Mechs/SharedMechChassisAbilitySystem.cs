@@ -197,13 +197,7 @@ public abstract class SharedMechChassisAbilitySystem : EntitySystem
         ent.Comp.Active = !ent.Comp.Active;
         Dirty(ent);
         Actions.SetToggled(ent.Comp.ToggleActionEntity, ent.Comp.Active);
-
-        if (TryComp(ent, out MechFacingArmorComponent? armor))
-        {
-            armor.DefenceDeflectBonus = ent.Comp.Active ? ent.Comp.DeflectChanceBonus : 0f;
-            Dirty(ent.Owner, armor);
-        }
-
+        // Сопротивление урону применяется в SharedMechFacingArmorSystem при Active.
         Blocker.UpdateCanMove(ent);
         Popup.PopupClient(
             Loc.GetString(ent.Comp.Active ? "mech-defence-on" : "mech-defence-off"),

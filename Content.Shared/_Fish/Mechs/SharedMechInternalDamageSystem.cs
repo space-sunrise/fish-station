@@ -17,7 +17,7 @@ using Robust.Shared.Timing;
 namespace Content.Shared._Fish.Mechs;
 
 /// <summary>
-/// Internal damage: ролл при уроне, control-lost, short-circuit/fire (тики на сервере).
+/// Внутренние отказы: ролл при уроне, DriveFault рысканье, ремонт инструментами.
 /// </summary>
 public abstract class SharedMechInternalDamageSystem : EntitySystem
 {
@@ -51,7 +51,8 @@ public abstract class SharedMechInternalDamageSystem : EntitySystem
             return;
 
         var ratio = (mech.Integrity / mech.MaxIntegrity).Float();
-        if (ratio < ent.Comp.IntegrityThreshold)
+        // Ролл только когда корпус уже заметно побит (ниже порога целостности).
+        if (ratio > ent.Comp.IntegrityThreshold)
             return;
 
         if (!Random.Prob(ent.Comp.DamageChance))
@@ -79,26 +80,26 @@ public abstract class SharedMechInternalDamageSystem : EntitySystem
         }
 
         if (heat > blunt)
-            return MechInternalDamageFlags.Fire | MechInternalDamageFlags.TempControl;
+            return MechInternalDamageFlags.CabinFire | MechInternalDamageFlags.CoolantFail;
 
-        if (blunt > FixedPoint2.Zero && Random.Prob(0.4f))
-            return MechInternalDamageFlags.ControlLost;
+        if (blunt > FixedPoint2.Zero && Random.Prob(0.45f))
+            return MechInternalDamageFlags.DriveFault;
 
-        if (Random.Prob(0.35f))
-            return MechInternalDamageFlags.ShortCircuit;
+        if (Random.Prob(0.4f))
+            return MechInternalDamageFlags.PowerSpike;
 
-        return MechInternalDamageFlags.TankBreach;
+        return MechInternalDamageFlags.HullBreach;
     }
 
     private void OnMoveInput(Entity<MechInternalDamageComponent> ent, ref MoveInputEvent args)
     {
-        if ((ent.Comp.Damage & MechInternalDamageFlags.ControlLost) == 0)
+        if ((ent.Comp.Damage & MechInternalDamageFlags.DriveFault) == 0)
             return;
 
         if (!args.HasDirectionalMovement)
             return;
 
-        if (Random.Prob(0.35f))
+        if (Random.Prob(0.28f))
             _transform.SetLocalRotation(ent, Random.NextAngle());
     }
 
@@ -107,21 +108,33 @@ public abstract class SharedMechInternalDamageSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if ((ent.Comp.Damage & MechInternalDamageFlags.ShortCircuit) != 0 &&
+        if ((ent.Comp.Damage & MechInternalDamageFlags.PowerSpike) != 0 &&
             _tools.HasQuality(args.Used, CuttingQuality))
         {
-            ClearFlag(ent, MechInternalDamageFlags.ShortCircuit);
+            ClearFlag(ent, MechInternalDamageFlags.PowerSpike);
             args.Handled = true;
-            Popup.PopupClient(Loc.GetString("mech-internal-damage-repaired-short"), ent, args.User);
+            Popup.PopupClient(Loc.GetString("mech-internal-damage-repaired-power"), ent, args.User);
             return;
         }
 
-        if ((ent.Comp.Damage & (MechInternalDamageFlags.TankBreach | MechInternalDamageFlags.Fire)) != 0 &&
+        if ((ent.Comp.Damage & (MechInternalDamageFlags.HullBreach | MechInternalDamageFlags.CabinFire |
+                                MechInternalDamageFlags.CoolantFail)) != 0 &&
             _tools.HasQuality(args.Used, WeldingQuality))
         {
-            ClearFlag(ent, MechInternalDamageFlags.TankBreach | MechInternalDamageFlags.Fire | MechInternalDamageFlags.TempControl);
+            ClearFlag(ent,
+                MechInternalDamageFlags.HullBreach | MechInternalDamageFlags.CabinFire |
+                MechInternalDamageFlags.CoolantFail);
             args.Handled = true;
-            Popup.PopupClient(Loc.GetString("mech-internal-damage-repaired-breach"), ent, args.User);
+            Popup.PopupClient(Loc.GetString("mech-internal-damage-repaired-hull"), ent, args.User);
+            return;
+        }
+
+        if ((ent.Comp.Damage & MechInternalDamageFlags.DriveFault) != 0 &&
+            _tools.HasQuality(args.Used, CuttingQuality))
+        {
+            ClearFlag(ent, MechInternalDamageFlags.DriveFault);
+            args.Handled = true;
+            Popup.PopupClient(Loc.GetString("mech-internal-damage-repaired-drive"), ent, args.User);
         }
     }
 

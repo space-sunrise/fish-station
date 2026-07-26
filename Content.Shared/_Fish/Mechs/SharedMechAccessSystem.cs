@@ -14,7 +14,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._Fish.Mechs;
 
 /// <summary>
-/// DNA-замок и maintenance gate для мехов.
+/// DNA-замок и сервисный холд для мехов.
 /// </summary>
 public abstract class SharedMechAccessSystem : EntitySystem
 {
@@ -22,7 +22,6 @@ public abstract class SharedMechAccessSystem : EntitySystem
     [Dependency] private readonly SharedToolSystem _tools = default!;
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
 
-    private static readonly ProtoId<ToolQualityPrototype> AnchoringQuality = "Anchoring";
     private static readonly ProtoId<ToolQualityPrototype> PryingQuality = "Prying";
     private static readonly ProtoId<ToolQualityPrototype> ScrewingQuality = "Screwing";
 
@@ -30,13 +29,11 @@ public abstract class SharedMechAccessSystem : EntitySystem
     {
         base.Initialize();
 
-        // DNA entry gate — только на сервере (before MechSystem), см. Content.Server._Fish.Mechs.MechAccessSystem
         SubscribeLocalEvent<MechDnaLockComponent, MechSetDnaLockEvent>(OnSetDna);
         SubscribeLocalEvent<MechDnaLockComponent, MechClearDnaLockEvent>(OnClearDna);
 
         SubscribeLocalEvent<MechMaintenanceComponent, UpdateCanMoveEvent>(OnMaintCanMove);
         SubscribeLocalEvent<MechMaintenanceComponent, InteractUsingEvent>(OnMaintInteract);
-        // Equipment install gate — Server before MechEquipmentSystem
     }
 
     protected void HandleDnaEntry(Entity<MechDnaLockComponent> ent, ref MechEntryEvent args)
@@ -87,7 +84,7 @@ public abstract class SharedMechAccessSystem : EntitySystem
 
     private void OnMaintCanMove(Entity<MechMaintenanceComponent> ent, ref UpdateCanMoveEvent args)
     {
-        if (ent.Comp.State != MechMaintenanceState.Locked)
+        if (ent.Comp.State != MechMaintenanceState.Ready)
             args.Cancel();
     }
 
@@ -96,57 +93,40 @@ public abstract class SharedMechAccessSystem : EntitySystem
         if (args.Handled)
             return;
 
-        // ID-карта / доступ: упрощённо — Screwing включает SecureBolts из Locked если MaintAccess.
+        // Screwing: Ready ↔ ServiceHold (если разрешён сервис).
         if (ent.Comp.MaintAccess &&
-            ent.Comp.State is MechMaintenanceState.Locked or MechMaintenanceState.SecureBolts &&
+            ent.Comp.State is MechMaintenanceState.Ready or MechMaintenanceState.ServiceHold &&
             _tools.HasQuality(args.Used, ScrewingQuality))
         {
-            ent.Comp.State = ent.Comp.State == MechMaintenanceState.Locked
-                ? MechMaintenanceState.SecureBolts
-                : MechMaintenanceState.Locked;
+            ent.Comp.State = ent.Comp.State == MechMaintenanceState.Ready
+                ? MechMaintenanceState.ServiceHold
+                : MechMaintenanceState.Ready;
             Dirty(ent);
             _blocker.UpdateCanMove(ent);
             args.Handled = true;
             Popup.PopupClient(
-                Loc.GetString(ent.Comp.State == MechMaintenanceState.Locked
-                    ? "mech-maint-locked"
-                    : "mech-maint-secure-bolts"),
+                Loc.GetString(ent.Comp.State == MechMaintenanceState.Ready
+                    ? "mech-maint-ready"
+                    : "mech-maint-service-hold"),
                 ent,
                 args.User);
             return;
         }
 
-        if (ent.Comp.State is MechMaintenanceState.SecureBolts or MechMaintenanceState.LooseBolts &&
-            _tools.HasQuality(args.Used, AnchoringQuality))
-        {
-            ent.Comp.State = ent.Comp.State == MechMaintenanceState.SecureBolts
-                ? MechMaintenanceState.LooseBolts
-                : MechMaintenanceState.SecureBolts;
-            Dirty(ent);
-            _blocker.UpdateCanMove(ent);
-            args.Handled = true;
-            Popup.PopupClient(
-                Loc.GetString(ent.Comp.State == MechMaintenanceState.LooseBolts
-                    ? "mech-maint-loose-bolts"
-                    : "mech-maint-secure-bolts"),
-                ent,
-                args.User);
-            return;
-        }
-
-        if (ent.Comp.State is MechMaintenanceState.LooseBolts or MechMaintenanceState.OpenHatch &&
+        // Prying: ServiceHold ↔ AccessPanel.
+        if (ent.Comp.State is MechMaintenanceState.ServiceHold or MechMaintenanceState.AccessPanel &&
             _tools.HasQuality(args.Used, PryingQuality))
         {
-            ent.Comp.State = ent.Comp.State == MechMaintenanceState.LooseBolts
-                ? MechMaintenanceState.OpenHatch
-                : MechMaintenanceState.LooseBolts;
+            ent.Comp.State = ent.Comp.State == MechMaintenanceState.ServiceHold
+                ? MechMaintenanceState.AccessPanel
+                : MechMaintenanceState.ServiceHold;
             Dirty(ent);
             _blocker.UpdateCanMove(ent);
             args.Handled = true;
             Popup.PopupClient(
-                Loc.GetString(ent.Comp.State == MechMaintenanceState.OpenHatch
-                    ? "mech-maint-open-hatch"
-                    : "mech-maint-loose-bolts"),
+                Loc.GetString(ent.Comp.State == MechMaintenanceState.AccessPanel
+                    ? "mech-maint-access-panel"
+                    : "mech-maint-service-hold"),
                 ent,
                 args.User);
         }

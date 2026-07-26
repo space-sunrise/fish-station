@@ -3,39 +3,37 @@ using Robust.Shared.GameStates;
 namespace Content.Shared._Fish.Mechs.Components;
 
 /// <summary>
-/// Направленная броня: фронт крепче, корма слабее; шанс deflect.
-/// Коэффициенты — множители входящего урона (фронт &lt; 1, корма &gt; 1).
+/// Направленная броня Fish: абсолютные множители урона и шансы рикошета по секторам.
+/// Секторы — конусы FrontConeDegrees / RearConeDegrees, остальное — борт.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MechFacingArmorComponent : Component
 {
+    /// <summary>Множитель входящего урона спереди.</summary>
     [DataField]
-    public float FrontCoefficient = 0.67f;
+    public float FrontDamageMult = 0.85f;
 
     [DataField]
-    public float SideCoefficient = 1f;
+    public float SideDamageMult = 1f;
 
     [DataField]
-    public float BackCoefficient = 2f;
+    public float RearDamageMult = 1.4f;
 
-    /// <summary>
-    /// Базовый шанс полностью отклонить удар (0–1). Умножается на facing-бонус.
-    /// </summary>
+    /// <summary>Абсолютный шанс полного рикошета спереди (0–1).</summary>
     [DataField, AutoNetworkedField]
-    public float DeflectChance = 0.1f;
+    public float FrontDeflectChance = 0.12f;
 
+    [DataField, AutoNetworkedField]
+    public float SideDeflectChance = 0.06f;
+
+    [DataField, AutoNetworkedField]
+    public float RearDeflectChance = 0.02f;
+
+    /// <summary>Половина переднего конуса в градусах (полный конус = 2×).</summary>
     [DataField]
-    public float FrontDeflectMultiplier = 1.5f;
+    public float FrontConeHalfDegrees = 50f;
 
+    /// <summary>Половина заднего конуса в градусах.</summary>
     [DataField]
-    public float SideDeflectMultiplier = 1f;
-
-    [DataField]
-    public float BackDeflectMultiplier = 0.5f;
-
-    /// <summary>
-    /// Доп. шанс deflect в defence mode (суммируется системой defence).
-    /// </summary>
-    [ViewVariables, AutoNetworkedField]
-    public float DefenceDeflectBonus;
+    public float RearConeHalfDegrees = 50f;
 }

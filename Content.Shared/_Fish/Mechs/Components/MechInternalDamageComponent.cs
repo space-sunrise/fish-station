@@ -1,5 +1,4 @@
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization;
 
 namespace Content.Shared._Fish.Mechs.Components;
 
@@ -16,23 +15,23 @@ public sealed partial class MechInternalDamageComponent : Component
     /// Доля Integrity/MaxIntegrity, выше которой возможен ролл внутреннего урона.
     /// </summary>
     [DataField]
-    public float IntegrityThreshold = 0.5f;
+    public float IntegrityThreshold = 0.55f;
 
     /// <summary>
     /// Шанс получить внутреннее повреждение при превышении порога (0–1).
     /// </summary>
     [DataField]
-    public float DamageChance = 0.35f;
+    public float DamageChance = 0.28f;
 
     /// <summary>
-    /// Энергия, теряемая в секунду при ShortCircuit.
+    /// Энергия/сек при PowerSpike.
     /// </summary>
     [DataField]
-    public float ShortCircuitDrainPerSecond = 8f;
+    public float PowerSpikeDrainPerSecond = 6f;
 
     /// <summary>
-    /// Урон Heat/сек при Fire.
+    /// Урон Heat/сек при CabinFire.
     /// </summary>
     [DataField]
-    public float FireDamagePerSecond = 2f;
+    public float CabinFireDamagePerSecond = 1.5f;
 }

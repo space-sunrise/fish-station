@@ -37,13 +37,13 @@ public sealed class MechServerSystem : EntitySystem
         var internalQuery = EntityQueryEnumerator<MechInternalDamageComponent, MechComponent>();
         while (internalQuery.MoveNext(out var uid, out var internalDamage, out var mech))
         {
-            if ((internalDamage.Damage & MechInternalDamageFlags.ShortCircuit) != 0)
-                _mech.TryChangeEnergy(uid, -internalDamage.ShortCircuitDrainPerSecond, mech);
+            if ((internalDamage.Damage & MechInternalDamageFlags.PowerSpike) != 0)
+                _mech.TryChangeEnergy(uid, -internalDamage.PowerSpikeDrainPerSecond, mech);
 
-            if ((internalDamage.Damage & MechInternalDamageFlags.Fire) != 0)
+            if ((internalDamage.Damage & MechInternalDamageFlags.CabinFire) != 0)
             {
                 var fire = new DamageSpecifier();
-                fire.DamageDict.Add("Heat", internalDamage.FireDamagePerSecond);
+                fire.DamageDict.Add("Heat", internalDamage.CabinFireDamagePerSecond);
                 _damageable.TryChangeDamage(uid, fire);
             }
         }

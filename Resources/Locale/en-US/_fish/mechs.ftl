@@ -1,49 +1,49 @@
 mech-internal-damage-applied = Internal systems damaged!
-mech-internal-damage-repaired-short = Short circuit repaired.
-mech-internal-damage-repaired-breach = Breach / fire repaired.
+mech-internal-damage-repaired-power = Power bus stabilized.
+mech-internal-damage-repaired-hull = Hull / thermal loop restored.
+mech-internal-damage-repaired-drive = Drive unjammed.
 
-mech-facing-armor-deflect = Attack deflected by armor!
+mech-facing-armor-deflect = Attack glanced off the armor!
 
-mech-overload-on = Leg overload engaged.
-mech-overload-off = Leg overload disengaged.
-mech-overload-too-damaged = Chassis too damaged for overload.
+mech-overload-on = Drive boost engaged.
+mech-overload-off = Drive boost disengaged.
+mech-overload-too-damaged = Chassis too damaged for drive boost.
 
-mech-defence-on = Defence mode engaged.
-mech-defence-off = Defence mode disengaged.
+mech-defence-on = Defensive stance engaged.
+mech-defence-off = Defensive stance disengaged.
 
-mech-thrusters-on = Thrusters online.
-mech-thrusters-off = Thrusters offline.
+mech-thrusters-on = Maneuvering thrusters online.
+mech-thrusters-off = Maneuvering thrusters offline.
 
 mech-smoke-launched = Smoke deployed! Charges left: {$charges}.
 mech-smoke-empty = No smoke charges left.
 mech-smoke-cooldown = Smoke system recharging.
 mech-smoke-failed = Cannot deploy smoke here.
 
-mech-strafe-on = Strafe enabled.
-mech-strafe-off = Strafe disabled.
+mech-strafe-on = Lateral slide enabled.
+mech-strafe-off = Lateral slide disabled.
 
 mech-equipment-swap-popup = Primary equipment: {$item}
 mech-equipment-swap-none-popup = Primary equipment: fists
 
-mech-dna-lock-set = DNA lock set.
-mech-dna-lock-cleared = DNA lock cleared.
-mech-dna-lock-denied = DNA mismatch — entry denied.
-mech-dna-lock-no-dna = You have no DNA to lock with.
+mech-dna-lock-set = Biometric lock set.
+mech-dna-lock-cleared = Biometric lock cleared.
+mech-dna-lock-denied = Biometric mismatch — entry denied.
+mech-dna-lock-no-dna = You have no biometrics to lock with.
 
-mech-maint-locked = Maintenance protocols off.
-mech-maint-secure-bolts = Bolts secured (maintenance).
-mech-maint-loose-bolts = Bolts loosened.
-mech-maint-open-hatch = Service hatch open.
-mech-maint-blocks-equipment = Cannot install equipment during maintenance.
+mech-maint-ready = Service mode off — chassis ready.
+mech-maint-service-hold = Service hold: movement locked.
+mech-maint-access-panel = Service access panel open.
+mech-maint-blocks-equipment = Cannot install equipment outside ready state.
 
 mech-ui-status-ok = Systems nominal.
-mech-ui-internal-damage = Internal damage: {$flags}
-mech-ui-overload-active = Overload ACTIVE
-mech-ui-defence-active = Defence mode ACTIVE
+mech-ui-internal-damage = Internal faults: {$flags}
+mech-ui-overload-active = Drive boost ACTIVE
+mech-ui-defence-active = Defence ACTIVE
 mech-ui-thrusters-active = Thrusters ACTIVE
-mech-ui-strafe-active = Strafe ACTIVE
-mech-ui-dna-locked = DNA lock engaged
-mech-ui-maintenance = Maintenance: {$state}
+mech-ui-strafe-active = Slide ACTIVE
+mech-ui-dna-locked = Biometric lock engaged
+mech-ui-maintenance = Service: {$state}
 
 ent-MechOdysseus = Odysseus
     .desc = A medical exosuit designed for patient recovery and emergency response.
@@ -65,24 +65,24 @@ ent-MechEquipmentRescueJaw = rescue jaws
 ent-MechEquipmentSyringeGun = mech syringe gun
     .desc = A mounted pneumatic syringe launcher for rapid reagent delivery.
 
-mech-internals-on = Cabin internals engaged.
-mech-internals-off = Cabin internals disengaged.
+mech-internals-on = Cabin air reserve engaged.
+mech-internals-off = Cabin air reserve disengaged.
 mech-radio-mic-on = Radio microphone on.
 mech-radio-mic-off = Radio microphone off.
 mech-radio-speaker-on = Radio speaker on.
 mech-radio-speaker-off = Radio speaker off.
-mech-zoom-on = Zoom engaged — movement locked.
-mech-zoom-off = Zoom disengaged.
-mech-phasing-on = Phasing online.
-mech-phasing-off = Phasing offline.
+mech-zoom-on = Optical zoom engaged — movement locked.
+mech-zoom-off = Optical zoom disengaged.
+mech-phasing-on = Phase mode online.
+mech-phasing-off = Phase mode offline.
 mech-damtype-cycled = Melee damage type: {$type}
 mech-wreckage-empty = Nothing left to salvage.
 mech-wreckage-salvaged = Salvaged equipment from the wreckage.
 mech-wreckage-scrap = Salvaged scrap metal.
-mech-ui-internals-on = Internals: ON
-mech-ui-internals-off = Internals: OFF
+mech-ui-internals-on = Cabin air: ON
+mech-ui-internals-off = Cabin air: OFF
 mech-ui-zoom-active = Zoom ACTIVE
-mech-ui-phasing-active = Phasing ACTIVE
+mech-ui-phasing-active = Phase ACTIVE
 mech-tracking-title = Mech Tracking
 mech-tracking-refresh = Refresh
 mech-tracking-no-pilot = (empty)

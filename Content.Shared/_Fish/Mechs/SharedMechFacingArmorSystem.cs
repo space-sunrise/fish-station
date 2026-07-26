@@ -1,4 +1,3 @@
-using System.Numerics;
 using Content.Shared._Fish.Mechs.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -9,7 +8,8 @@ using Robust.Shared.Random;
 namespace Content.Shared._Fish.Mechs;
 
 /// <summary>
-/// Направленная броня и deflect для мехов.
+/// Направленная броня Fish: сектора-конусы + абсолютные шансы рикошета.
+/// В режиме обороны дополнительно режет входящий урон.
 /// </summary>
 public abstract class SharedMechFacingArmorSystem : EntitySystem
 {
@@ -31,24 +31,16 @@ public abstract class SharedMechFacingArmorSystem : EntitySystem
 
         var side = MechFacingSide.Side;
         if (args.Origin is { } origin && origin != ent.Owner)
-            side = GetFacingSide(ent.Owner, origin);
+            side = GetFacingSide(ent, origin);
 
-        var coefficient = side switch
+        var deflectChance = side switch
         {
-            MechFacingSide.Front => ent.Comp.FrontCoefficient,
-            MechFacingSide.Back => ent.Comp.BackCoefficient,
-            _ => ent.Comp.SideCoefficient,
+            MechFacingSide.Front => ent.Comp.FrontDeflectChance,
+            MechFacingSide.Back => ent.Comp.RearDeflectChance,
+            _ => ent.Comp.SideDeflectChance,
         };
 
-        var deflectMult = side switch
-        {
-            MechFacingSide.Front => ent.Comp.FrontDeflectMultiplier,
-            MechFacingSide.Back => ent.Comp.BackDeflectMultiplier,
-            _ => ent.Comp.SideDeflectMultiplier,
-        };
-
-        var deflectChance = (ent.Comp.DeflectChance + ent.Comp.DefenceDeflectBonus) * deflectMult;
-        if (deflectChance > 0f && _random.Prob(Math.Clamp(deflectChance, 0f, 0.95f)))
+        if (deflectChance > 0f && _random.Prob(Math.Clamp(deflectChance, 0f, 0.9f)))
         {
             args.Damage *= 0;
             if (_net.IsServer)
@@ -56,12 +48,25 @@ public abstract class SharedMechFacingArmorSystem : EntitySystem
             return;
         }
 
+        var coefficient = side switch
+        {
+            MechFacingSide.Front => ent.Comp.FrontDamageMult,
+            MechFacingSide.Back => ent.Comp.RearDamageMult,
+            _ => ent.Comp.SideDamageMult,
+        };
+
         args.Damage *= coefficient;
+
+        if (TryComp(ent, out MechDefenceModeComponent? defence) && defence.Active &&
+            defence.DamageResistFraction > 0f)
+        {
+            args.Damage *= Math.Clamp(1f - defence.DamageResistFraction, 0.05f, 1f);
+        }
     }
 
-    public MechFacingSide GetFacingSide(EntityUid mech, EntityUid origin)
+    public MechFacingSide GetFacingSide(Entity<MechFacingArmorComponent> ent, EntityUid origin)
     {
-        var mechXform = Transform(mech);
+        var mechXform = Transform(ent);
         var originXform = Transform(origin);
 
         var mechPos = _transform.GetWorldPosition(mechXform);
@@ -72,12 +77,12 @@ public abstract class SharedMechFacingArmorSystem : EntitySystem
 
         var toOrigin = delta.ToWorldAngle();
         var facing = _transform.GetWorldRotation(mechXform);
-        var abs = Math.Abs(Angle.ShortestDistance(facing, toOrigin).Theta);
+        var absDeg = Math.Abs(Angle.ShortestDistance(facing, toOrigin).Degrees);
 
-        if (abs <= Math.PI / 4)
+        if (absDeg <= ent.Comp.FrontConeHalfDegrees)
             return MechFacingSide.Front;
 
-        if (abs >= 3 * Math.PI / 4)
+        if (absDeg >= 180f - ent.Comp.RearConeHalfDegrees)
             return MechFacingSide.Back;
 
         return MechFacingSide.Side;
