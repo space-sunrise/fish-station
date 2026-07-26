@@ -3,7 +3,7 @@
 pg-window-title = Контроль производительности
 pg-status-line = Состояние: { $state } ({ $mode })
 pg-btn-refresh = Обновить
-pg-btn-diagnose = Диагностика сейчас
+pg-btn-diagnose = Подробная проверка (нагружает сервер)
 pg-btn-teleport = Телепорт
 pg-mode-idle = спокойный режим
 pg-mode-incident = разбор инцидента
@@ -24,7 +24,7 @@ pg-line-physics = Активная физика: { $awake } тел
 pg-line-atmos = Атмосфера: { $tiles } активных тайлов, пожаров { $hot }
 pg-line-events = События: ≈ { $rate }/с
 
-pg-empty-list = Пока нет данных — нажмите «Диагностика сейчас».
+pg-empty-list = Пока нет данных — нажмите «Подробная проверка (нагружает сервер)».
 pg-no-incident = Инцидентов ещё не было.
 pg-no-advice = Рекомендаций пока нет.
 

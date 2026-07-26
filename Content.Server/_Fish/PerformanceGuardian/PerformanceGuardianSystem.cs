@@ -247,7 +247,7 @@ public sealed class PerformanceGuardianSystem : EntitySystem
             _report.PrimarySource = hint;
             _report.PrimarySourceText = PgLoadClassifier.SourceToRu(hint);
             if (hint == PgLoadSource.Ok)
-                _report.Recommendation = "Сервер в норме. Нажмите «Диагностика сейчас», если лаги всё равно есть.";
+                _report.Recommendation = "Сервер в норме. Нажмите «Подробная проверка (нагружает сервер)», если лаги всё равно есть.";
         }
     }
 
