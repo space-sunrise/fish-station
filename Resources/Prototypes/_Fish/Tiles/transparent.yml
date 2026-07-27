@@ -1,0 +1,24 @@
+# Transparent floor tiles: remain on the map but do not create grid-grid collision
+# unless a dense anchored blocker (wall, closed airlock, etc.) occupies the cell.
+
+- type: tile
+  id: FloorTransparent
+  name: tiles-transparent-floor
+  sprite: /Textures/_Fish/Tiles/transparent.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Space
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  friction: 1
+  heatCapacity: 10000
+  mass: 200
+  itemDrop: SheetGlass1
+  enableGridCollision: false
+  sturdy: true
