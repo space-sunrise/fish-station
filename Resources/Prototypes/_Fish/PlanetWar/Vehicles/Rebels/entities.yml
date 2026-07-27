@@ -33,7 +33,7 @@
   #  requireInSpace: false
   - type: GhostRole
     name: pw-vehicles-rebels-dronarm-name-1
-    description: pw-construction-rebels-mobhumanarmp0-desc
+    description: pw-vehicles-rebels-dronarm-desc-1
     raffle:
       settings: WM
   - type: StepTrigger

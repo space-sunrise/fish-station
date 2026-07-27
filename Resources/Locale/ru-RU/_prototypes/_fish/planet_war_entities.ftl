@@ -45,8 +45,8 @@ ent-7ReinforcementCorePS4WM = Призыв Снайпера
 ent-AcidifierWM = кислота
     .desc = Растопит тебя в лужицу гадости!
 
-ent-ActionActivateBombGrenadeImplantWM = самоподрыв
-    .desc = Создаёт небольшое облако дыма вокруг вас.
+ent-ActionActivateBombGrenadeImplantWM = Ошеломление
+    .desc = Вызывает мощный электромагнитный разряд: ослепляет врагов в радиусе 5х5 на 1 секунду, выпускает ЭМИ-импульс 3х3 и бьёт шоком всех в радиусе 3х3.
 
 ent-ActionActivateLandmineSpawnImplantWM = сброс мины
     .desc = Создаёт небольшое облако дыма вокруг вас.
