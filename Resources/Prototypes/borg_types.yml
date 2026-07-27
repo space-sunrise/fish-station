@@ -191,8 +191,8 @@
 
   # Visual
   inventoryTemplateId: borgShort
-# spriteBodyState: janitor # Fish-Edit
-  spriteBodyMovementState: janitor_moving
+  spriteBodyState: janitor
+#  spriteBodyMovementState: janitor_moving # Fish-Edit
   spriteHasMindState: janitor_e
   spriteNoMindState: janitor_e_r
   spriteToggleLightState: janitor_l

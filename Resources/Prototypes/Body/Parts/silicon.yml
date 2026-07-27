@@ -4,9 +4,9 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Objects/Specific/Robotics/cyborg_parts.rsi
+    sprite: _Fish/Objects/Specific/Robotics/cyborg_parts.rsi # Fish-Edit
   - type: Icon
-    sprite: Objects/Specific/Robotics/cyborg_parts.rsi
+    sprite: _Fish/Objects/Specific/Robotics/cyborg_parts.rsi # Fish-Edit
   - type: Damageable
     damageContainer: Inorganic
   - type: BodyPart
