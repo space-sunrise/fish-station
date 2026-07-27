@@ -342,12 +342,7 @@ namespace Content.Server.Construction
 
                             // Fish edit start
                             if (TryComp(entity, out TransformComponent? insertXform) && insertXform.Anchored)
-                            {
-                                if (insertXform.GridUid != null)
-                                    _transformSystem.Unanchor(entity, insertXform);
-                                else
-                                    insertXform.Anchored = false;
-                            }
+                                _transformSystem.Unanchor(entity, insertXform);
                             // Fish edit end
 
                             if (string.IsNullOrEmpty(arbitraryStep.Store))
