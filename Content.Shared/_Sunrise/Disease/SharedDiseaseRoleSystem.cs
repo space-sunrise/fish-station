@@ -21,17 +21,19 @@ public abstract class SharedDiseaseRoleSystem : EntitySystem
         if (!HasComp<HumanoidAppearanceComponent>(ev.Target)) return;
         if (HasComp<DiseaseImmuneComponent>(ev.Target)) return;
         if (HasComp<SickComponent>(ev.Target)) return;
-
         var prob = probability;
         if (probability == 0) prob = comp.BaseInfectChance;
         if (TryComp<DiseaseTempImmuneComponent>(ev.Target, out var immune))
             prob -= immune.Prob;
-        prob = Math.Max(Math.Min(prob, 0), 1);
+        prob = Math.Clamp(prob, 0f, 1f);
         if (_robustRandom.Prob(prob))
         {
             var comps = AddComp<SickComponent>(ev.Target);
             comps.owner = ev.Performer;
+            Dirty(ev.Target, comps);
+
             comp.Infected.Add(ev.Target);
+            Dirty(ev.Performer, comp);
         }
     }
 }

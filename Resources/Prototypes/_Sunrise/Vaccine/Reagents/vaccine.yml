@@ -40,4 +40,4 @@
           conditions:
             - !type:ReagentCondition
               reagent: VaccinePlus
-              min: 7
+              min: 5

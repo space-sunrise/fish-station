@@ -1,15 +1,17 @@
-// © SUNRISE, An EULA/CLA with a hosting restriction, full text: https://github.com/space-sunrise/space-station-14/blob/master/CLA.txt
+using Content.Shared.Chemistry.Components;
 using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared._Sunrise.Disease;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState]
 public sealed partial class SickComponent : Component
 {
     [DataField("owner")]
     [ViewVariables(VVAccess.ReadWrite)]
+    [AutoNetworkedField]
     public EntityUid owner;
 
     [ViewVariables(VVAccess.ReadWrite)]
@@ -17,6 +19,7 @@ public sealed partial class SickComponent : Component
     public string Icon = "SmartDiseaseIcon";
 
     [DataField("inited")]
+    [AutoNetworkedField]
     public bool Inited = false;
 
     [DataField] public int Stady = 0;
@@ -29,6 +32,6 @@ public sealed partial class SickComponent : Component
     [DataField("stadyDelay")]
     public TimeSpan StadyDelay = TimeSpan.FromMinutes(5);
 
-    [DataField("beforeInfectedBloodReagent")]
-    public List<string> BeforeInfectedBloodReagent = new();
+    [DataField("beforeInfectedBloodReagents")]
+    public Solution BeforeInfectedBloodReagents = new();
 }
