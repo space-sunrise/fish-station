@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseAction
+  id: ActionOpenPlanetWarGuide
+  components:
+  - type: Action
+    icon: Interface/VerbIcons/information.svg.192dpi.png
+    itemIconStyle: NoItem
+    useDelay: 5
+  - type: InstantAction
+    event: !type:OpenPlanetWarGuideActionEvent

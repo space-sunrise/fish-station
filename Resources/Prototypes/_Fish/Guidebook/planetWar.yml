@@ -1,0 +1,23 @@
+- type: guideEntry
+  id: PlanetWar
+  name: guide-entry-planetwar
+  text: "/ServerInfo/Guidebook/_Fish/PlanetWarIntro.xml"
+  children:
+  - PlanetWarHowToPlay
+  - PlanetWarMilitia
+  - PlanetWarRepublic
+
+- type: guideEntry
+  id: PlanetWarHowToPlay
+  name: guide-entry-planetwar-howtoplay
+  text: "/ServerInfo/Guidebook/_Fish/PlanetWarHowToPlay.xml"
+
+- type: guideEntry
+  id: PlanetWarMilitia
+  name: guide-entry-planetwar-militia
+  text: "/ServerInfo/Guidebook/_Fish/PlanetWarMilitia.xml"
+
+- type: guideEntry
+  id: PlanetWarRepublic
+  name: guide-entry-planetwar-republic
+  text: "/ServerInfo/Guidebook/_Fish/PlanetWarRepublic.xml"
