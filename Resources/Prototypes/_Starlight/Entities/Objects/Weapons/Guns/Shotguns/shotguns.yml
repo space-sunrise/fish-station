@@ -272,6 +272,7 @@
     capacity: 2
     chambers: [ null, null ]
     ammoSlots: [ null, null ]
+    canSpin: false # FIsh edit - break-action, не револьвер
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
   - type: ContainerContainer

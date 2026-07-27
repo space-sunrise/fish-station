@@ -36,6 +36,11 @@ public partial class SharedGunSystem
         if (args.Handled)
             return;
 
+        // FIsh edit start - двустволки/break-action не крутят «барабан» по Z
+        if (!ent.Comp.CanSpin)
+            return;
+        // FIsh edit end
+
         if (!_useDelay.TryResetDelay(ent))
             return;
 
@@ -217,6 +222,11 @@ public partial class SharedGunSystem
             Priority = 1
         });
 
+        // FIsh edit start - spin только у настоящего револьверного барабана
+        if (!component.CanSpin)
+            return;
+        // FIsh edit end
+
         args.Verbs.Add(new AlternativeVerb()
         {
             Text = Loc.GetString("gun-revolver-spin"),
@@ -345,6 +355,11 @@ public partial class SharedGunSystem
 
     protected virtual void SpinRevolver(Entity<RevolverAmmoProviderComponent> ent, EntityUid? user = null)
     {
+        // FIsh edit start - страховка, если spin вызвали без verb
+        if (!ent.Comp.CanSpin)
+            return;
+        // FIsh edit end
+
         Audio.PlayPredicted(ent.Comp.SoundSpin, ent, user);
         Popup(Loc.GetString("gun-revolver-spun"), ent, user);
     }

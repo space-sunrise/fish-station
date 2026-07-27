@@ -180,6 +180,7 @@
     capacity: 2
     chambers: [ True, True ]
     ammoSlots: [ null, null ]
+    canSpin: false # FIsh edit - break-action, не револьвер
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
   - type: ContainerContainer
@@ -203,6 +204,7 @@
       tags:
       - ShellShotgun
     proto: ShellShotgunBeanbag
+    canSpin: false # FIsh edit
   # Sunrise-End
 
 - type: entity
@@ -299,6 +301,7 @@
     capacity: 2
     chambers: [ True, True ]
     ammoSlots: [ null, null ]
+    canSpin: false # FIsh edit - break-action, не револьвер
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
   - type: ContainerContainer
@@ -340,6 +343,7 @@
     capacity: 2
     chambers: [ null, null ]
     ammoSlots: [ null, null ]
+    canSpin: false # FIsh edit
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
   # Sunrise-End
