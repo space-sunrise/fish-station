@@ -9,13 +9,14 @@
             - material: Steel
               amount: 5
               doAfter: 0
-            - tag: PowerCellSmall
+            # Fish-edit: component вместо тега PowerCellSmall
+            - component: PowerCell
               name: step-trashgun-smallbattery
               icon:
                 sprite: Objects/Power/power_cells.rsi
                 state: small
               doAfter: 0
-            - tag: PowerCellSmall
+            - component: PowerCell
               name: step-trashgun-smallbattery
               icon:
                 sprite: Objects/Power/power_cells.rsi

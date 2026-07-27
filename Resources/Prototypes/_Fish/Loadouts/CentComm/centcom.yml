@@ -103,6 +103,16 @@
   equipment:
     back: ClothingBackpackSatchelCentcomFish
 
+# Fish-edit: сумка офицера внутреннего надзора с печатью
+- type: loadout
+  id: OversightSatchelWithStampFish
+  equipment:
+    back: ClothingBackpackSatchelCentcomFish
+  storage:
+    back:
+    - RubberStampOversight
+    - CrowbarRed
+
 # --- Weapons ---
 
 - type: loadout

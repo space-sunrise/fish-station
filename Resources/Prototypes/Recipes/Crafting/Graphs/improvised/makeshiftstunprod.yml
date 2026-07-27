@@ -12,7 +12,8 @@
           steps:
             - material: MetalRod
               amount: 1
-            - tag: PowerCellSmall
+            # Fish-edit: component — надёжнее тега после Sunrise whitelist
+            - component: PowerCell
               name: construction-graph-tag-power-cell-small
               icon:
                 sprite: Objects/Power/power_cells.rsi

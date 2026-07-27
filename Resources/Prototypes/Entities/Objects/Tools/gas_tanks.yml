@@ -134,6 +134,10 @@
     - Pocket
     - Belt
     - suitStorage
+  # Fish-edit: emergency баллон подходит для крафта (trashgun / omnitool)
+  - type: Tag
+    tags:
+    - GasTank
   - type: MeleeWeapon
     damage:
       types:

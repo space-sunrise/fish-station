@@ -164,30 +164,19 @@
     fireRate: 3
   - type: GunSpreadModifier
     spread: 0.6
-  # - type: BallisticAmmoProvider # Sunrise-Edit
-  #   capacity: 2
+  # Fish-edit: Ballistic вместо RevolverAmmoProvider — иначе verb «Разрядить револьвер»
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - ShellShotgun
+    capacity: 2
+    proto: ShellShotgun
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
   - type: Construction
     graph: ShotgunSawn
     node: start
     deconstructionTarget: null
-  # Sunrise-Start
-  - type: RevolverAmmoProvider
-    whitelist:
-      tags:
-      - ShellShotgun
-      #- SpeedLoaderShotgun
-    proto: ShellShotgun
-    capacity: 2
-    chambers: [ True, True ]
-    ammoSlots: [ null, null ]
-    canSpin: false # FIsh edit - break-action, не револьвер
-    soundInsert:
-      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
-      revolver-ammo: !type:Container
-  # Sunrise-End
 
 - type: entity
   name: double-barreled shotgun
@@ -196,16 +185,8 @@
   description: An immortal classic. Uses .50 shotgun shells.
   suffix: Non-Lethal
   components:
-  # Sunrise-Start
-  # - type: BallisticAmmoProvider
-  #   proto: ShellShotgunBeanbag
-  - type: RevolverAmmoProvider
-    whitelist:
-      tags:
-      - ShellShotgun
+  - type: BallisticAmmoProvider
     proto: ShellShotgunBeanbag
-    canSpin: false # FIsh edit
-  # Sunrise-End
 
 - type: entity
   name: Enforcer
@@ -286,28 +267,20 @@
     dualWieldRecoilPenalty: 0.25
   - type: GunSpreadModifier
     spread: 1.8 # Sunrise-Edit
-  # - type: BallisticAmmoProvider   # Sunrise-Start
-  #   capacity: 2
+  # Fish-edit: Ballistic вместо RevolverAmmoProvider
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - ShellShotgun
+    capacity: 2
+    proto: ShellShotgun
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
   - type: Construction
     graph: ShotgunSawn
     node: shotgunsawn
     deconstructionTarget: null
   # Sunrise-Start
-  - type: RevolverAmmoProvider
-    whitelist:
-      tags:
-      - ShellShotgun
-    proto: ShellShotgun
-    capacity: 2
-    chambers: [ True, True ]
-    ammoSlots: [ null, null ]
-    canSpin: false # FIsh edit - break-action, не револьвер
-    soundInsert:
-      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
-      revolver-ammo: !type:Container
   - type: KnockbackByUserTag
     doestContain:
       Resomi:
@@ -328,25 +301,12 @@
   description: Groovy! Uses .50 shotgun shells.
   suffix: Empty
   components:
-  # - type: BallisticAmmoProvider  # Sunrise-Edit
-  #   proto: null
+  - type: BallisticAmmoProvider
+    proto: null
   - type: Construction
     graph: ShotgunSawn
     node: shotgunsawn
     deconstructionTarget: null
-  # Sunrise-Start
-  - type: RevolverAmmoProvider
-    whitelist:
-      tags:
-      - ShellShotgun
-    proto: null
-    capacity: 2
-    chambers: [ null, null ]
-    ammoSlots: [ null, null ]
-    canSpin: false # FIsh edit
-    soundInsert:
-      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
-  # Sunrise-End
 
 - type: entity
   name: handmade pistol

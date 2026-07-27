@@ -38,11 +38,7 @@
     ears: ClothingHeadsetFishCentCom
     pocket1: WeaponEnergyGunPulseRevolver
     pocket2: PenCentcom
-  storage:
-    back:
-    # - ClothingOuterHardsuitNTRG
-    - CrowbarRed
-    - RubberStampOversight # Fish-edit: печать ИСБ / внутреннего надзора при старте
+  # Fish-edit: рюкзак и печать через loadout OversightSatchelWithStamp
 
 - type: entity
   parent: NtrGuardPDA

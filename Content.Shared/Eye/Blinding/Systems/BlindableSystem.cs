@@ -9,7 +9,6 @@ using Content.Shared.Rejuvenate;
 using Content.Shared.Starlight.Medical.Surgery; // FIsh edit
 using Content.Shared.Starlight.Medical.Surgery.Steps.Parts;
 using JetBrains.Annotations;
-using Robust.Shared.Player; // FIsh edit
 
 namespace Content.Shared.Eye.Blinding.Systems;
 
@@ -26,17 +25,7 @@ public sealed class BlindableSystem : EntitySystem
         SubscribeLocalEvent<BlindableComponent, EyeDamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<BlindableComponent, GetEyePvsScaleAttemptEvent>(OnGetEyePvsScaleAttemptEvent);
         SubscribeLocalEvent<BlindableComponent, GetEyeOffsetAttemptEvent>(OnGetEyeOffsetAttemptEvent);
-        // FIsh edit start - пересчёт слепоты при входе за сущность (животные без OrganEyes)
-        SubscribeLocalEvent<BlindableComponent, PlayerAttachedEvent>(OnPlayerAttached);
-        // FIsh edit end
     }
-
-    // FIsh edit start
-    private void OnPlayerAttached(Entity<BlindableComponent> ent, ref PlayerAttachedEvent args)
-    {
-        UpdateIsBlind((ent.Owner, (BlindableComponent?)ent.Comp));
-    }
-    // FIsh edit end
 
     private void OnRejuvenate(Entity<BlindableComponent> ent, ref RejuvenateEvent args)
     {
@@ -72,6 +61,7 @@ public sealed class BlindableSystem : EntitySystem
         var forceBlind = false;
         // FIsh edit start - OrganEyes только у хирургии (SurgeryTarget). У животных слота глаз нет —
         // иначе TemporaryBlindness оставляет постоянную слепоту после UpdateIsBlind.
+        // Не пересчитываем на PlayerAttached: глаза ещё могут быть не созданы → ложная слепота на старте.
         if (HasComp<SurgeryTargetComponent>(blindable.Owner) &&
             TryComp<BodyComponent>(blindable.Owner, out var body))
         {

@@ -263,22 +263,18 @@
   - type: Clothing
     sprite: _Starlight/Objects/Weapons/Guns/Shotguns/forged_shotgun.rsi
   - type: GunRequiresWield
-  # Sunrise-Start
-  - type: RevolverAmmoProvider
+  # Fish-edit: Ballistic вместо RevolverAmmoProvider
+  - type: BallisticAmmoProvider
     whitelist:
       tags:
       - ShellShotgun
-    proto: Null
     capacity: 2
-    chambers: [ null, null ]
-    ammoSlots: [ null, null ]
-    canSpin: false # FIsh edit - break-action, не револьвер
+    proto: null
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
-      revolver-ammo: !type:Container
   - type: KnockbackByUserTag
     doestContain:
       Resomi:
