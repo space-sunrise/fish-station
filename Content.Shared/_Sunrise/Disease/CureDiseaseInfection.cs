@@ -13,12 +13,14 @@ public sealed partial class CureDiseaseInfectionEntityEffectSystem : EntityEffec
     {
         if (_entityManager.TryGetComponent<SickComponent>(entity.Owner, out var sick))
         {
+            var delay = TimeSpan.FromMinutes(2);
             if (_entityManager.TryGetComponent<DiseaseRoleComponent>(sick.owner, out var disease))
             {
-                var comp = _entityManager.EnsureComponent<DiseaseVaccineTimerComponent>(entity.Owner);
-                comp.Immune = args.Effect.Innoculate;
-                comp.Delay = TimeSpan.FromMinutes(2) + TimeSpan.FromSeconds(disease.Shield * 30);
+                delay += TimeSpan.FromSeconds(disease.Shield * 30);
             }
+            var comp = _entityManager.EnsureComponent<DiseaseVaccineTimerComponent>(entity.Owner);
+            comp.Immune = args.Effect.Innoculate;
+            comp.Delay = delay;
         }
     }
 }
