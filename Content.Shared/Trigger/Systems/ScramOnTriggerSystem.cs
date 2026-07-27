@@ -38,6 +38,10 @@ public sealed class ScramOnTriggerSystem : XOnTriggerSystem<ScramOnTriggerCompon
         if (_net.IsClient)
             return;
 
+        // FIsh edit start - выйти из контейнера (шкаф), иначе SetCoordinates оставляет parent и «возвращает» внутрь
+        _transform.AttachToGridOrMap(target);
+        // FIsh edit end
+
         var targetCoords = SelectRandomTileInRange(target, ent.Comp.TeleportRadius);
 
         if (targetCoords != null)

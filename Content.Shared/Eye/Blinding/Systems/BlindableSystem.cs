@@ -6,8 +6,10 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Rejuvenate;
+using Content.Shared.Starlight.Medical.Surgery; // FIsh edit
 using Content.Shared.Starlight.Medical.Surgery.Steps.Parts;
 using JetBrains.Annotations;
+using Robust.Shared.Player; // FIsh edit
 
 namespace Content.Shared.Eye.Blinding.Systems;
 
@@ -24,7 +26,17 @@ public sealed class BlindableSystem : EntitySystem
         SubscribeLocalEvent<BlindableComponent, EyeDamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<BlindableComponent, GetEyePvsScaleAttemptEvent>(OnGetEyePvsScaleAttemptEvent);
         SubscribeLocalEvent<BlindableComponent, GetEyeOffsetAttemptEvent>(OnGetEyeOffsetAttemptEvent);
+        // FIsh edit start - пересчёт слепоты при входе за сущность (животные без OrganEyes)
+        SubscribeLocalEvent<BlindableComponent, PlayerAttachedEvent>(OnPlayerAttached);
+        // FIsh edit end
     }
+
+    // FIsh edit start
+    private void OnPlayerAttached(Entity<BlindableComponent> ent, ref PlayerAttachedEvent args)
+    {
+        UpdateIsBlind((ent.Owner, (BlindableComponent?)ent.Comp));
+    }
+    // FIsh edit end
 
     private void OnRejuvenate(Entity<BlindableComponent> ent, ref RejuvenateEvent args)
     {
@@ -58,11 +70,15 @@ public sealed class BlindableSystem : EntitySystem
         var old = blindable.Comp.IsBlind;
 
         var forceBlind = false;
-        if(TryComp<BodyComponent>(blindable.Owner, out var body))
+        // FIsh edit start - OrganEyes только у хирургии (SurgeryTarget). У животных слота глаз нет —
+        // иначе TemporaryBlindness оставляет постоянную слепоту после UpdateIsBlind.
+        if (HasComp<SurgeryTargetComponent>(blindable.Owner) &&
+            TryComp<BodyComponent>(blindable.Owner, out var body))
         {
             var eyes = _bodySystem.GetBodyOrganEntityComps<OrganEyesComponent>((blindable.Owner, body));
             forceBlind = eyes.Count == 0;
         }
+        // FIsh edit end
 
         // Don't bother raising an event if the eye is too damaged.
         if (blindable.Comp.EyeDamage >= blindable.Comp.MaxDamage || forceBlind)
