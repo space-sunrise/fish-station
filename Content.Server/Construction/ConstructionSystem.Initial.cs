@@ -14,6 +14,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
+using Content.Shared.Item;
 using Content.Shared.Stacks;
 using Content.Shared.Storage;
 using Content.Shared.Containers.ItemSlots;
@@ -130,15 +131,25 @@ namespace Content.Server.Construction
             }
 
             var pos = _transformSystem.GetMapCoordinates(user);
+            var userTile = _transformSystem.GetGridOrMapTilePosition(user);
 
-            // Fish edit start - 3 тайла; storage на полу, но НЕ сумки уже в руках/инвентаре (иначе двойной yield)
-            foreach (var near in _lookupSystem.GetEntitiesInRange(pos, InitialConstructionNearbyRange, LookupFlags.Contained | LookupFlags.Dynamic | LookupFlags.Sundries | LookupFlags.Approximate))
+            // Fish edit start - 3 тайла + Static; якоря только на тайле игрока (труба под ногами), без выдирания труб со стен в радиусе
+            foreach (var near in _lookupSystem.GetEntitiesInRange(pos, InitialConstructionNearbyRange, LookupFlags.Contained | LookupFlags.Dynamic | LookupFlags.Sundries | LookupFlags.Approximate | LookupFlags.Static))
             {
                 if (near == user)
                     continue;
                 if (!_interactionSystem.InRangeUnobstructed(pos, near, InitialConstructionNearbyRange)
                     || !_container.IsInSameOrParentContainer(user, near))
                     continue;
+
+                if (TryComp(near, out TransformComponent? nearXform) && nearXform.Anchored)
+                {
+                    // Только Item на том же тайле — иначе абуз якорями станции в радиусе 3.
+                    if (!HasComp<ItemComponent>(near))
+                        continue;
+                    if (_transformSystem.GetGridOrMapTilePosition(near, nearXform) != userTile)
+                        continue;
+                }
 
                 yield return near;
 
@@ -230,6 +241,7 @@ namespace Content.Server.Construction
             }
 
             var failed = false;
+            ConstructionGraphStep? failedStep = null;
 
             var steps = new List<ConstructionGraphStep>();
             var used = new HashSet<EntityUid>();
@@ -332,6 +344,17 @@ namespace Content.Server.Construction
                                 _container.EmptyContainer(storage.Container);
                             }
 
+                            // Fish edit start - якорь на тайле игрока (труба) снимаем перед Insert
+                            if (TryComp(entity, out TransformComponent? insertXform) && insertXform.Anchored)
+                            {
+                                // Без GridUid Unanchor шумит в лог — просто сбрасываем флаг.
+                                if (insertXform.GridUid != null)
+                                    _transformSystem.Unanchor(entity, insertXform);
+                                else
+                                    insertXform.Anchored = false;
+                            }
+                            // Fish edit end
+
                             if (string.IsNullOrEmpty(arbitraryStep.Store))
                             {
                                 if (!_container.Insert(entity, container))
@@ -351,6 +374,7 @@ namespace Content.Server.Construction
                 if (handled == false)
                 {
                     failed = true;
+                    failedStep = step; // Fish-edit: точный попап
                     break;
                 }
 
@@ -359,7 +383,9 @@ namespace Content.Server.Construction
 
             if (failed)
             {
-                _popup.PopupEntity(Loc.GetString("construction-system-construct-no-materials"), user, user);
+                // Fish edit start - писать чего именно не хватает (на скрине было Cable×1 вместо ×10)
+                _popup.PopupEntity(GetInitialConstructionFailPopup(failedStep), user, user);
+                // Fish edit end
                 FailCleanup();
                 return null;
             }
@@ -666,5 +692,27 @@ namespace Content.Server.Construction
             _adminLogger.Add(LogType.Construction, LogImpact.Low, $"{ToPrettyString(user):player} has turned a {ev.PrototypeName} construction ghost into {ToPrettyString(structure)} at {Transform(structure).Coordinates}");
             Cleanup();
         }
+
+        // Fish edit start - понятный попап недостающего шага крафта
+        private string GetInitialConstructionFailPopup(ConstructionGraphStep? step)
+        {
+            switch (step)
+            {
+                case MaterialConstructionGraphStep materialStep:
+                {
+                    var material = PrototypeManager.Index(materialStep.MaterialPrototypeId);
+                    var materialName = Loc.GetString(material.Name, ("amount", materialStep.Amount));
+                    return Loc.GetString("construction-system-construct-missing-material",
+                        ("amount", materialStep.Amount),
+                        ("material", materialName));
+                }
+                case ArbitraryInsertConstructionGraphStep arbitraryStep when !string.IsNullOrEmpty(arbitraryStep.Name):
+                    return Loc.GetString("construction-system-construct-missing-entity",
+                        ("entityName", Loc.GetString(arbitraryStep.Name)));
+                default:
+                    return Loc.GetString("construction-system-construct-no-materials");
+            }
+        }
+        // Fish edit end
     }
 }

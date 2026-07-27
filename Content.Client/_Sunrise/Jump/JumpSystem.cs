@@ -63,6 +63,11 @@ public sealed partial class JumpSystem : SharedJumpSystem
 
     private void Jump(ICommonSession? session)
     {
+        // Fish edit start - RaisePredictiveEvent только на first-time predict (иначе DebugAssert при re-predict)
+        if (!_gameTiming.IsFirstTimePredicted)
+            return;
+        // Fish edit end
+
         var player = session?.AttachedEntity;
 
         if (!Exists(player))

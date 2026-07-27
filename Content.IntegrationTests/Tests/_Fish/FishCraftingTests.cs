@@ -74,4 +74,36 @@ public sealed class FishCraftingTests : InteractionTest
         await CraftItem("MakeshiftPowerCage");
         await FindEntity("MakeshiftPowerCage");
     }
+
+    /// <summary>
+    /// Trashgun со скрина: кабель×10 (не Stack1), сталь×5, труба на полу (снятая с якоря).
+    /// </summary>
+    [Test]
+    public async Task CraftTrashgunFromFloor()
+    {
+        Assert.That(ProtoMan.HasIndex<ConstructionPrototype>("Trashgun"));
+
+        var coords = SEntMan.GetCoordinates(PlayerCoords);
+        await SpawnEntity(("Plasteel", 1), coords);
+        await SpawnEntity((Cable, 10), coords);
+        await SpawnEntity((Steel, 5), coords);
+        await SpawnTarget("EmergencyOxygenTankFilled");
+        await SpawnTarget("PowerCellSmall");
+
+        await Server.WaitAssertion(() =>
+        {
+            var xformSys = SEntMan.System<SharedTransformSystem>();
+
+            // SpawnEntity с anchored:true ломает test-map (GridUid пустой). Кладём трубу на пол вручную.
+            var pipe = SEntMan.CreateEntityUninitialized("GasPipeStraight", coords);
+            var xform = SEntMan.GetComponent<TransformComponent>(pipe);
+            xform.Anchored = false;
+            SEntMan.InitializeAndStartEntity(pipe);
+            xformSys.AttachToGridOrMap(pipe);
+            xformSys.SetCoordinates(pipe, coords);
+        });
+
+        await CraftItem("Trashgun");
+        await FindEntity("WeaponMechIndustrialTrashgun");
+    }
 }
