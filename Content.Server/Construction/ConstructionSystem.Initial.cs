@@ -14,6 +14,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
+using Content.Shared.Stacks;
 using Content.Shared.Storage;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
@@ -41,11 +42,32 @@ namespace Content.Server.Construction
 
         private readonly Dictionary<ICommonSession, HashSet<int>> _beingBuilt = new();
 
+        // Fish edit start - радиус подбора материалов для начального крафта (без Static — не тянем якоря/трубы со стен)
+        private const float InitialConstructionNearbyRange = 3f;
+        // Fish edit end
+
         private void InitializeInitial()
         {
             SubscribeNetworkEvent<TryStartStructureConstructionMessage>(HandleStartStructureConstruction);
             SubscribeNetworkEvent<TryStartItemConstructionMessage>(HandleStartItemConstruction);
         }
+
+        // LEGACY CODE. See warning at the top of the file!
+        // Fish edit start - один уровень вложенного storage (коробка в сумке / сумка на полу)
+        private IEnumerable<EntityUid> EnumerateStorageContents(StorageComponent storage, int nestedLevels = 1)
+        {
+            foreach (var storedEntity in storage.Container.ContainedEntities)
+            {
+                yield return storedEntity;
+
+                if (nestedLevels > 0 && TryComp(storedEntity, out StorageComponent? nested))
+                {
+                    foreach (var nestedEntity in EnumerateStorageContents(nested, nestedLevels - 1))
+                        yield return nestedEntity;
+                }
+            }
+        }
+        // Fish edit end
 
         // LEGACY CODE. See warning at the top of the file!
         private IEnumerable<EntityUid> EnumerateNearby(EntityUid user)
@@ -54,10 +76,10 @@ namespace Content.Server.Construction
             {
                 if (TryComp(item, out StorageComponent? storage))
                 {
-                    foreach (var storedEntity in storage.Container.ContainedEntities!)
-                    {
+                    // Fish edit start - вложенный storage в руках
+                    foreach (var storedEntity in EnumerateStorageContents(storage))
                         yield return storedEntity;
-                    }
+                    // Fish edit end
                 }
 
                 yield return item;
@@ -72,10 +94,10 @@ namespace Content.Server.Construction
 
                     if (TryComp(containerSlot.ContainedEntity.Value, out StorageComponent? storage))
                     {
-                        foreach (var storedEntity in storage.Container.ContainedEntities)
-                        {
+                        // Fish edit start - вложенный storage в инвентаре
+                        foreach (var storedEntity in EnumerateStorageContents(storage))
                             yield return storedEntity;
-                        }
+                        // Fish edit end
                     }
 
                     yield return containerSlot.ContainedEntity.Value;
@@ -84,13 +106,23 @@ namespace Content.Server.Construction
 
             var pos = _transformSystem.GetMapCoordinates(user);
 
-            foreach (var near in _lookupSystem.GetEntitiesInRange(pos, 2f, LookupFlags.Contained | LookupFlags.Dynamic | LookupFlags.Sundries | LookupFlags.Approximate))
+            // Fish edit start - 3 тайла + содержимое доступных storage на полу (чужие сумки на людях по-прежнему отсекаются IsInSameOrParentContainer)
+            foreach (var near in _lookupSystem.GetEntitiesInRange(pos, InitialConstructionNearbyRange, LookupFlags.Contained | LookupFlags.Dynamic | LookupFlags.Sundries | LookupFlags.Approximate))
             {
                 if (near == user)
                     continue;
-                if (_interactionSystem.InRangeUnobstructed(pos, near, 2f) && _container.IsInSameOrParentContainer(user, near))
+                if (_interactionSystem.InRangeUnobstructed(pos, near, InitialConstructionNearbyRange) && _container.IsInSameOrParentContainer(user, near))
+                {
                     yield return near;
+
+                    if (TryComp(near, out StorageComponent? nearStorage))
+                    {
+                        foreach (var storedEntity in EnumerateStorageContents(nearStorage))
+                            yield return storedEntity;
+                    }
+                }
             }
+            // Fish edit end
         }
 
         // LEGACY CODE. See warning at the top of the file!
@@ -178,32 +210,77 @@ namespace Content.Server.Construction
                 switch (step)
                 {
                     case MaterialConstructionGraphStep materialStep:
-                        foreach (var entity in EnumerateNearby(user))
+                        // Fish edit start - материал можно набрать с нескольких стаков (TODO upstream закрыт локально)
                         {
-                            if (!materialStep.EntityValid(entity, out var stack))
-                                continue;
+                            var needed = materialStep.Amount;
+                            var candidates = new List<EntityUid>();
+                            var available = 0;
 
-                            if (used.Contains(entity))
-                                continue;
-
-                            // TODO allow taking from several stacks.
-                            // Also update crafting steps to check if it works.
-                            var splitStack = _stackSystem.Split((entity, stack), materialStep.Amount, user.ToCoordinates(0, 0));
-
-                            if (splitStack == null)
-                                continue;
-
-                            if (string.IsNullOrEmpty(materialStep.Store))
+                            foreach (var entity in EnumerateNearby(user))
                             {
-                                if (!_container.Insert(splitStack.Value, container))
+                                if (used.Contains(entity))
                                     continue;
-                            }
-                            else if (!_container.Insert(splitStack.Value, GetContainer(materialStep.Store)))
-                                continue;
 
-                            handled = true;
-                            break;
+                                if (!TryComp(entity, out StackComponent? stack)
+                                    || stack.StackTypeId != materialStep.MaterialPrototypeId
+                                    || stack.Count <= 0)
+                                    continue;
+
+                                candidates.Add(entity);
+                                available += stack.Count;
+                                if (available >= needed)
+                                    break;
+                            }
+
+                            if (available >= needed)
+                            {
+                                EntityUid? combined = null;
+                                var remaining = needed;
+                                var targetContainer = string.IsNullOrEmpty(materialStep.Store)
+                                    ? container
+                                    : GetContainer(materialStep.Store);
+
+                                foreach (var entity in candidates)
+                                {
+                                    if (remaining <= 0)
+                                        break;
+
+                                    if (!TryComp(entity, out StackComponent? stack) || stack.Count <= 0)
+                                        continue;
+
+                                    var take = Math.Min(stack.Count, remaining);
+                                    var splitStack = _stackSystem.Split((entity, stack), take, user.ToCoordinates(0, 0));
+                                    if (splitStack == null)
+                                        continue;
+
+                                    if (combined == null)
+                                    {
+                                        combined = splitStack;
+                                    }
+                                    else if (_stackSystem.TryMergeStacks(splitStack.Value, combined.Value, out var transferred))
+                                    {
+                                        // Остаток после merge (редко) — в temp-container, вернётся через FailCleanup при сбое.
+                                        if (Exists(splitStack.Value))
+                                            _container.Insert(splitStack.Value, targetContainer);
+
+                                        remaining -= transferred;
+                                        continue;
+                                    }
+                                    else
+                                    {
+                                        _container.Insert(splitStack.Value, targetContainer);
+                                        continue;
+                                    }
+
+                                    remaining -= take;
+                                }
+
+                                // Кладём combined в temp-container всегда: при сбое FailCleanup вернёт материалы.
+                                if (combined != null && _container.Insert(combined.Value, targetContainer) && remaining <= 0)
+                                    handled = true;
+                            }
                         }
+                        // Fish edit end
 
                         break;
 
