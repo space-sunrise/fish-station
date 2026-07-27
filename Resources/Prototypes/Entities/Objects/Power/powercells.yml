@@ -77,7 +77,7 @@
   - type: Battery
     maxCharge: 360
     startingCharge: 360
-  # Fish-edit: вернули PowerCellSmall — нужен крафту и storage whitelist (Sunrise снял тег)
+  # Fish-edit
   - type: Tag
     tags:
     - PowerCellSmall

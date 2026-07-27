@@ -7,16 +7,9 @@ using Robust.Shared.GameObjects;
 
 namespace Content.IntegrationTests.Tests._Fish;
 
-/// <summary>
-/// Регрессии начального крафта Fish: дедуп стаков в сумке, multi-stack, component-insert.
-/// </summary>
 [TestFixture]
 public sealed class FishCraftingTests : InteractionTest
 {
-    /// <summary>
-    /// Сталь только в сумке в руках — раньше EnumerateNearby мог считать её дважды
-    /// (hands storage + nearby lookup) и крафт падал после «телепорта» материалов под ноги.
-    /// </summary>
     [Test]
     public async Task CraftGrenadeFromHeldBagOnly()
     {
@@ -43,9 +36,6 @@ public sealed class FishCraftingTests : InteractionTest
         await FindEntity("ModularGrenade");
     }
 
-    /// <summary>
-    /// Два стака по 3 стали на рецепт на 5 — раньше требовался один стак >= amount.
-    /// </summary>
     [Test]
     public async Task CraftGrenadeFromSplitStacks()
     {
@@ -55,9 +45,6 @@ public sealed class FishCraftingTests : InteractionTest
         await FindEntity("ModularGrenade");
     }
 
-    /// <summary>
-    /// MakeshiftPowerCage: материалы + component PowerCell x2.
-    /// </summary>
     [Test]
     public async Task CraftMakeshiftPowerCageFromFloor()
     {
@@ -75,9 +62,6 @@ public sealed class FishCraftingTests : InteractionTest
         await FindEntity("MakeshiftPowerCage");
     }
 
-    /// <summary>
-    /// Trashgun со скрина: кабель×10 (не Stack1), сталь×5, труба на полу (снятая с якоря).
-    /// </summary>
     [Test]
     public async Task CraftTrashgunFromFloor()
     {
@@ -93,8 +77,6 @@ public sealed class FishCraftingTests : InteractionTest
         await Server.WaitAssertion(() =>
         {
             var xformSys = SEntMan.System<SharedTransformSystem>();
-
-            // SpawnEntity с anchored:true ломает test-map (GridUid пустой). Кладём трубу на пол вручную.
             var pipe = SEntMan.CreateEntityUninitialized("GasPipeStraight", coords);
             var xform = SEntMan.GetComponent<TransformComponent>(pipe);
             xform.Anchored = false;

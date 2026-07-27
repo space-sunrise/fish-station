@@ -130,7 +130,7 @@
 - type: roleLoadout
   id: JobBlueShieldOperative
   groups:
-  - BlueShieldHead # Fish-edit: шлемы/берет СЩ
+  - BlueShieldHead # Fish-edit
   - BlueShieldJumpsuit
   - BlueShieldBackpack
   - BlueShieldBelt

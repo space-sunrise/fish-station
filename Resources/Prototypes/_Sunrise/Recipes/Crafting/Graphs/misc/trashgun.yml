@@ -9,7 +9,7 @@
             - material: Plasteel
               amount: 1
               doAfter: 0
-            # Fish-edit: component GasTank — emergency баллоны без тега GasTank
+            # Fish-edit
             - component: GasTank
               name: step-trashgun-oxygentank
               icon:
@@ -19,7 +19,7 @@
             - material: Cable
               amount: 10
               doAfter: 0
-            # Fish-edit: component вместо снятого Sunrise тега PowerCellSmall
+            # Fish-edit
             - component: PowerCell
               name: step-trashgun-smallbattery
               icon:

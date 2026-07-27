@@ -9,7 +9,7 @@
             - material: Steel
               amount: 5
               doAfter: 0
-            # Fish-edit: component вместо тега PowerCellSmall
+            # Fish-edit
             - component: PowerCell
               name: step-trashgun-smallbattery
               icon:

@@ -38,7 +38,7 @@
     ears: ClothingHeadsetFishCentCom
     pocket1: WeaponEnergyGunPulseRevolver
     pocket2: PenCentcom
-  # Fish-edit: рюкзак и печать через loadout OversightSatchelWithStamp
+  # Fish-edit
 
 - type: entity
   parent: NtrGuardPDA

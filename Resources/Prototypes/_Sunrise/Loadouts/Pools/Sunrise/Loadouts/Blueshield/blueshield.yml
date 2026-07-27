@@ -71,7 +71,7 @@
   - !type:GroupLoadoutEffect
     proto: BlueShieldLoadout100Hours
   equipment:
-    # Fish-edit: standalone шлем вместо hardsuit-шлема (без Item → остаётся на полу)
+    # Fish-edit
     head: ClothingHeadHelmetTSFMARSOC
 
 - type: loadout

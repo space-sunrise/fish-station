@@ -134,7 +134,7 @@
     - Pocket
     - Belt
     - suitStorage
-  # Fish-edit: emergency баллон подходит для крафта (trashgun / omnitool)
+  # Fish-edit
   - type: Tag
     tags:
     - GasTank

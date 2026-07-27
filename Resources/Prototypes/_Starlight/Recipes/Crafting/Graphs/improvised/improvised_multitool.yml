@@ -15,7 +15,7 @@
       - material: Glass
         amount: 4
         doAfter: 10
-      # Fish-edit: component вместо тега PowerCellSmall
+      # Fish-edit
       - component: PowerCell
         icon:
           sprite: Objects/Power/power_cells.rsi

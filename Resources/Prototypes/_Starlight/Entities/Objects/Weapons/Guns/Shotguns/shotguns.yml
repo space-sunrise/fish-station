@@ -263,7 +263,7 @@
   - type: Clothing
     sprite: _Starlight/Objects/Weapons/Guns/Shotguns/forged_shotgun.rsi
   - type: GunRequiresWield
-  # Fish-edit: Ballistic вместо RevolverAmmoProvider
+  # Fish-edit
   - type: BallisticAmmoProvider
     whitelist:
       tags:

@@ -9,7 +9,7 @@ namespace Content.Shared.Construction.Steps
 
         public override bool EntityValid(EntityUid uid, IEntityManager entityManager, IComponentFactory compFactory)
         {
-            // Fish edit start - надёжная проверка по регистрации вместо GetComponents/GetType
+            // Fish edit start
             if (string.IsNullOrEmpty(Component))
                 return false;
 

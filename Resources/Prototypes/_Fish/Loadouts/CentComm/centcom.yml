@@ -103,7 +103,7 @@
   equipment:
     back: ClothingBackpackSatchelCentcomFish
 
-# Fish-edit: сумка офицера внутреннего надзора с печатью
+# Fish-edit
 - type: loadout
   id: OversightSatchelWithStampFish
   equipment:

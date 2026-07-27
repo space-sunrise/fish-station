@@ -59,9 +59,7 @@ public sealed class BlindableSystem : EntitySystem
         var old = blindable.Comp.IsBlind;
 
         var forceBlind = false;
-        // FIsh edit start - OrganEyes только у хирургии (SurgeryTarget). У животных слота глаз нет —
-        // иначе TemporaryBlindness оставляет постоянную слепоту после UpdateIsBlind.
-        // Не пересчитываем на PlayerAttached: глаза ещё могут быть не созданы → ложная слепота на старте.
+        // FIsh edit start
         if (HasComp<SurgeryTargetComponent>(blindable.Owner) &&
             TryComp<BodyComponent>(blindable.Owner, out var body))
         {

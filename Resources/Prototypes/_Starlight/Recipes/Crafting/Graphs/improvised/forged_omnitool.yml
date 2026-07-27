@@ -36,7 +36,7 @@
           sprite: Objects/Tools/welder_mini.rsi
           state: icon
         name: crafting-menu-name-EW
-      # Fish-edit: component вместо тега PowerCellSmall
+      # Fish-edit
       - component: PowerCell
         icon:
           sprite: Objects/Power/power_cells.rsi

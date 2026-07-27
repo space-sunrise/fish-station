@@ -44,7 +44,7 @@ namespace Content.Server.Construction
 
         private readonly Dictionary<ICommonSession, HashSet<int>> _beingBuilt = new();
 
-        // Fish edit start - радиус подбора материалов для начального крафта (без Static — не тянем якоря/трубы со стен)
+        // Fish edit start
         private const float InitialConstructionNearbyRange = 3f;
         // Fish edit end
 
@@ -55,7 +55,7 @@ namespace Content.Server.Construction
         }
 
         // LEGACY CODE. See warning at the top of the file!
-        // Fish edit start - один уровень вложенного storage (коробка в сумке / сумка на полу)
+        // Fish edit start
         private IEnumerable<EntityUid> EnumerateStorageContents(StorageComponent storage, int nestedLevels = 1)
         {
             foreach (var storedEntity in storage.Container.ContainedEntities)
@@ -90,13 +90,13 @@ namespace Content.Server.Construction
             {
                 if (TryComp(item, out StorageComponent? storage))
                 {
-                    // Fish edit start - вложенный storage и ItemSlots в руках
+                    // Fish edit start
                     foreach (var storedEntity in EnumerateStorageContents(storage))
                         yield return storedEntity;
                     // Fish edit end
                 }
 
-                // Fish edit start - батареи в инструментах/PDA и т.п.
+                // Fish edit start
                 foreach (var slotted in EnumerateItemSlotContents(item))
                     yield return slotted;
                 // Fish edit end
@@ -115,13 +115,13 @@ namespace Content.Server.Construction
 
                     if (TryComp(equipped, out StorageComponent? storage))
                     {
-                        // Fish edit start - вложенный storage в инвентаре
+                        // Fish edit start
                         foreach (var storedEntity in EnumerateStorageContents(storage))
                             yield return storedEntity;
                         // Fish edit end
                     }
 
-                    // Fish edit start - ItemSlots экипировки
+                    // Fish edit start
                     foreach (var slotted in EnumerateItemSlotContents(equipped))
                         yield return slotted;
                     // Fish edit end
@@ -133,7 +133,7 @@ namespace Content.Server.Construction
             var pos = _transformSystem.GetMapCoordinates(user);
             var userTile = _transformSystem.GetGridOrMapTilePosition(user);
 
-            // Fish edit start - 3 тайла + Static; якоря только на тайле игрока (труба под ногами), без выдирания труб со стен в радиусе
+            // Fish edit start
             foreach (var near in _lookupSystem.GetEntitiesInRange(pos, InitialConstructionNearbyRange, LookupFlags.Contained | LookupFlags.Dynamic | LookupFlags.Sundries | LookupFlags.Approximate | LookupFlags.Static))
             {
                 if (near == user)
@@ -144,7 +144,6 @@ namespace Content.Server.Construction
 
                 if (TryComp(near, out TransformComponent? nearXform) && nearXform.Anchored)
                 {
-                    // Только Item на том же тайле — иначе абуз якорями станции в радиусе 3.
                     if (!HasComp<ItemComponent>(near))
                         continue;
                     if (_transformSystem.GetGridOrMapTilePosition(near, nearXform) != userTile)
@@ -153,7 +152,6 @@ namespace Content.Server.Construction
 
                 yield return near;
 
-                // Сумка на персонаже уже обойдена выше; повторно не считаем её содержимое.
                 if (_container.TryGetContainingContainer(near, out var nearParent) && nearParent.Owner == user)
                     continue;
 
@@ -255,7 +253,7 @@ namespace Content.Server.Construction
                 switch (step)
                 {
                     case MaterialConstructionGraphStep materialStep:
-                        // Fish edit start - материал можно набрать с нескольких стаков (TODO upstream закрыт локально)
+                        // Fish edit start
                         {
                             var needed = materialStep.Amount;
                             var candidates = new List<EntityUid>();
@@ -264,7 +262,6 @@ namespace Content.Server.Construction
 
                             foreach (var entity in EnumerateNearby(user))
                             {
-                                // Дедуп: EnumerateNearby мог когда-то отдавать один uid дважды.
                                 if (!seen.Add(entity) || used.Contains(entity))
                                     continue;
 
@@ -320,7 +317,6 @@ namespace Content.Server.Construction
                                     }
                                 }
 
-                                // Кладём combined в temp-container всегда: при сбое FailCleanup вернёт материалы.
                                 if (combined != null && _container.Insert(combined.Value, targetContainer) && remaining <= 0)
                                     handled = true;
                             }
@@ -344,10 +340,9 @@ namespace Content.Server.Construction
                                 _container.EmptyContainer(storage.Container);
                             }
 
-                            // Fish edit start - якорь на тайле игрока (труба) снимаем перед Insert
+                            // Fish edit start
                             if (TryComp(entity, out TransformComponent? insertXform) && insertXform.Anchored)
                             {
-                                // Без GridUid Unanchor шумит в лог — просто сбрасываем флаг.
                                 if (insertXform.GridUid != null)
                                     _transformSystem.Unanchor(entity, insertXform);
                                 else
@@ -374,7 +369,8 @@ namespace Content.Server.Construction
                 if (handled == false)
                 {
                     failed = true;
-                    failedStep = step; // Fish-edit: точный попап
+                    // Fish-edit
+                    failedStep = step;
                     break;
                 }
 
@@ -383,7 +379,7 @@ namespace Content.Server.Construction
 
             if (failed)
             {
-                // Fish edit start - писать чего именно не хватает (на скрине было Cable×1 вместо ×10)
+                // Fish edit start
                 _popup.PopupEntity(GetInitialConstructionFailPopup(failedStep), user, user);
                 // Fish edit end
                 FailCleanup();
@@ -693,7 +689,7 @@ namespace Content.Server.Construction
             Cleanup();
         }
 
-        // Fish edit start - понятный попап недостающего шага крафта
+        // Fish edit start
         private string GetInitialConstructionFailPopup(ConstructionGraphStep? step)
         {
             switch (step)
