@@ -1,0 +1,101 @@
+# Fish — Syndicate pAI medical suite and support tools
+
+- type: entity
+  parent: HypoBorgMedicalSyndicate
+  id: HypoPaiSyndicateMedical
+  name: syndicate pAI hypospray
+  description: An integrated Syndicate pAI hypospray. Regenerates combat-medicine reagents and can inject organics without hands.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 20
+  - type: SolutionRegeneration
+    solution: hypospray
+    generated:
+      reagents:
+      - ReagentId: Omnizine
+        Quantity: 1
+  - type: SolutionRegenerationSwitcher
+    options:
+    - ReagentId: Omnizine
+      Quantity: 1
+    - ReagentId: Epinephrine
+      Quantity: 1
+    - ReagentId: TranexamicAcid
+      Quantity: 1
+    - ReagentId: DexalinPlus
+      Quantity: 1
+    - ReagentId: Ephedrine
+      Quantity: 1
+    keepSolution: false
+  - type: Injector
+    solutionName: hypospray
+    activeModeProtoId: HyposprayDynamicMode
+    allowedModes:
+    - HyposprayDynamicMode
+    currentTransferAmount: 5
+    needHand: false
+    breakOnHandChange: false
+  - type: BorgHypospray
+
+- type: entity
+  parent: GasAnalyzer
+  id: GasAnalyzerPai
+  name: pAI atmosphere sensor
+  description: An integrated atmosphere sensor module for a personal AI.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ActivatableUI
+    inHandsOnly: false
+    requireActiveHand: false
+    singleUser: true
+    key: enum.GasAnalyzerUiKey.Key
+
+- type: entity
+  parent: RemoteSignaller
+  id: RemoteSignallerPai
+  name: pAI remote signaller
+  description: An integrated remote signaller module for a personal AI.
+  categories: [ HideSpawnMenu ]
+
+# Actions
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionSyndicatePaiOpenMedical
+  name: Medical Suite
+  description: Open the Syndicate pAI medical suite.
+  components:
+  - type: Action
+    icon: { sprite: Objects/Specific/Medical/syndihypo.rsi, state: hypo }
+    itemIconStyle: NoItem
+  - type: InstantAction
+    event: !type:SyndicatePaiOpenMedicalEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionSyndicatePaiInjectCarrier
+  name: Inject Carrier
+  description: Inject the current medical reagent into your carrier or master.
+  components:
+  - type: Action
+    icon: { sprite: Objects/Specific/Medical/syndihypo.rsi, state: hypo }
+    itemIconStyle: NoItem
+    useDelay: 1
+  - type: InstantAction
+    event: !type:SyndicatePaiInjectCarrierEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionSyndicatePaiCycleReagent
+  name: Cycle Reagent
+  description: Switch the integrated hypospray to the next stored reagent.
+  components:
+  - type: Action
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
+    itemIconStyle: NoItem
+    useDelay: 0.5
+  - type: InstantAction
+    event: !type:SyndicatePaiCycleReagentEvent

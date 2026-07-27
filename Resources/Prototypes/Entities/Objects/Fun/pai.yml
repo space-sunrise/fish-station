@@ -166,14 +166,45 @@
   - type: StationAiVision
     enabled: false
   - type: InnateItem
+    instantActions:
+    - GasAnalyzerPai # FIsh edit - atmos sensor program
+    - RemoteSignallerPai # FIsh edit - remote signaler program
     entityTargetActions:
     - AccessBreaker
     - HandheldHealthAnalyzer
+    - HypoPaiSyndicateMedical # FIsh edit - medical injection suite
   - type: Biocode
     factions:
     - Syndicate
     - Thief
   # Sunrise-End
+  # FIsh edit start - Syndicate pAI medical suite / master binding
+  - type: SyndicatePai
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+        requireInputValidation: false
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+        requireInputValidation: false
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
+      enum.StationMapUiKey.Key:
+        type: StationMapBoundUserInterface
+        requireInputValidation: false
+      enum.SyndicatePaiUiKey.Key:
+        type: SyndicatePaiBoundUserInterface
+        requireInputValidation: false
+  - type: Store
+    categories:
+    - PAIAbilities
+    currencyWhitelist:
+    - SiliconMemory
+    balance:
+      SiliconMemory: 40
+  # FIsh edit end
 
 - type: entity
   parent: PersonalAI
