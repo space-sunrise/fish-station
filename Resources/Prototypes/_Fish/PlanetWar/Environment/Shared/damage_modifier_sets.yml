@@ -14,7 +14,7 @@
   coefficients:
     Structural: 1
     Blunt: 1
-    Slash: 15
+    Slash: 21
     Piercing: 0.05
     Heat: 0.05
     Caustic: 0
