@@ -45,6 +45,8 @@ public sealed class GhostRoleTests
 
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
         {
+            // Fish-edit: Fresh — иначе после Connected-тестов в пуле остаётся GhostComponent и assert падает
+            Fresh = true,
             Dirty = true,
             DummyTicker = false,
             Connected = true
