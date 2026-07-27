@@ -24,6 +24,7 @@ public sealed class GhostRoleProfileSpawnerSystem : EntitySystem
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
     [Dependency] private readonly StationSystem _stations = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly MetaDataSystem _metaData = default!;
 
     public override void Initialize()
     {
@@ -63,6 +64,12 @@ public sealed class GhostRoleProfileSpawnerSystem : EntitySystem
         }
 
         _transform.AttachToGridOrMap(mob);
+
+        // Prepend role/job name to entity name (e.g. "Строитель Имя Фамилия (уникальный номер)")
+        var roleName = Loc.GetString(ghostRole.RoleName);
+        var oldName = Name(mob);
+        var newName = $"{roleName} {oldName}";
+        _metaData.SetEntityName(mob, newName);
 
         if (ent.Comp.Factions.Count > 0)
             _npcFaction.AddFactions((mob, null), ent.Comp.Factions);
