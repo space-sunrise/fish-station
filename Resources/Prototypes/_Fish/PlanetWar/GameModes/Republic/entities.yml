@@ -14,9 +14,9 @@
 
 
 - type: entity
-  categories: [ HideSpawnMenu, Debug ]
-  parent: [ ReinforcementRadioSyndicateNukeops, MarkerBase ]
-  id: 1ReinforcementCoreWM
+  abstract: true
+  parent: [ ReinforcementRadio, MarkerBase ]
+  id: BaseReinforcementRadioWM
   suffix: WM
   placement:
     mode: SnapgridCenter
@@ -28,6 +28,25 @@
     anchored: true
   - type: Item
     size: Huge
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 35
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+  - type: ExplosionResistance
+    damageCoefficient: 0.00001
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: BaseReinforcementRadioWM
+  id: 1ReinforcementCoreWM
+  components:
   - type: Sprite
     scale: 0.5, 0.5
     sprite: Objects/Misc/Handy_Flags/NT_handy_flag.rsi
@@ -43,16 +62,6 @@
       settings: LifeWM
   - type: GhostRoleMobSpawner
     prototype: MobHumanCoreP0WM
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 3500
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
   - type: ExplosionResistance
     damageCoefficient: 0.00001
 

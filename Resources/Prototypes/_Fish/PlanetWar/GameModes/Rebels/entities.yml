@@ -21,9 +21,8 @@
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
-  parent: 1ReinforcementCoreWM
+  parent: BaseReinforcementRadioWM
   id: 1ReinforcementArmWM
-  suffix: WM
   components:
   - type: Sprite
     scale: 0.5, 0.5
@@ -36,20 +35,8 @@
     rules: pw-ghost-role-rebels-rules
     raffle:
       settings: LifeWM
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: MobHumanArmP0WM
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 35
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-  - type: ExplosionResistance
-    damageCoefficient: 0.00001
 
 
 - type: entity
@@ -57,7 +44,7 @@
   parent: 1ReinforcementArmWM
   id: LongTime1ReinforcementArmWM
   components:
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: LongTimeMobHumanArmP0WM
   - type: GhostRole
     name: pw-gamemodes-rebels-longtime1reinforcementarm-name
@@ -73,7 +60,7 @@
   components:
   - type: GhostRole
     name: pw-construction-rebels-mobhumanarmpc0i5-name
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: MobHumanArmPC0I5WM
 
 
@@ -82,7 +69,7 @@
   parent: 4ReinforcementArmPC0I5WM
   id: LongTime4ReinforcementArmPC0I5WM
   components:
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: LongTimeMobHumanArmPC0I5WM
   - type: GhostRole
     name: pw-gamemodes-rebels-longtime4reinforcementarmpc0i5-name
@@ -98,7 +85,7 @@
   components:
   - type: GhostRole
     name: pw-construction-rebels-mobhumanarmp1-name
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: MobHumanArmP1WM
 
 
@@ -107,7 +94,7 @@
   parent: 5ReinforcementArmP1WM
   id: LongTime5ReinforcementArmP1WM
   components:
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: LongTimeMobHumanArmP1WM
   - type: GhostRole
     name: pw-gamemodes-rebels-longtime5reinforcementarmp1-name
@@ -123,7 +110,7 @@
   components:
   - type: GhostRole
     name: pw-construction-rebels-mobhumanarmph5-name
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: MobHumanArmPH5WM
 
 
@@ -132,7 +119,7 @@
   parent: 6ReinforcementArmPH5WM
   id: LongTime6ReinforcementArmPH5WM
   components:
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: LongTimeMobHumanArmPH5WM
   - type: GhostRole
     name: pw-gamemodes-rebels-longtime6reinforcementarmph5-name
@@ -148,7 +135,7 @@
   components:
   - type: GhostRole
     name: pw-construction-rebels-mobhumanarmpm1-name
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: MobHumanArmPM1WM
 
 
@@ -157,7 +144,7 @@
   parent: 3ReinforcementArmPM1WM
   id: LongTime3ReinforcementArmPM1WM
   components:
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: LongTimeMobHumanArmPM1WM
   - type: GhostRole
     name: pw-gamemodes-rebels-longtime3reinforcementarmpm1-name
@@ -173,7 +160,7 @@
   components:
   - type: GhostRole
     name: pw-construction-rebels-mobhumanarmpe1-name
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: MobHumanArmPE1WM
 
 
@@ -182,7 +169,7 @@
   parent: 2ReinforcementArmPE1WM
   id: LongTime2ReinforcementArmPE1WM
   components:
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: LongTimeMobHumanArmPE1WM
   - type: GhostRole
     name: pw-gamemodes-rebels-longtime2reinforcementarmpe1-name
@@ -198,7 +185,7 @@
   components:
   - type: GhostRole
     name: pw-construction-rebels-mobhumanarmps4-name
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: MobHumanArmPS4WM
 
 
@@ -207,7 +194,7 @@
   parent: 7ReinforcementArmPS4WM
   id: LongTime7ReinforcementArmPS4WM
   components:
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: LongTimeMobHumanArmPS4WM
   - type: GhostRole
     name: pw-gamemodes-rebels-longtime7reinforcementarmps4-name

@@ -7,6 +7,7 @@ using Content.Shared._Fish.GhostRoles.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.NPC.Systems;
+using Content.Shared.Preferences;
 using Robust.Server.GameObjects;
 
 namespace Content.Server._Fish.GhostRoles;
@@ -46,7 +47,21 @@ public sealed class GhostRoleProfileSpawnerSystem : EntitySystem
         var coords = Transform(ent).Coordinates;
         var station = _stations.GetOwningStation(ent);
 
-        var mob = _stationSpawning.SpawnPlayerMob(coords, null, profile, station);
+        EntityUid mob;
+        if (ent.Comp.Prototype is { } customProto)
+        {
+            if (profile is HumanoidCharacterProfile humanoidProfile)
+            {
+                profile = humanoidProfile.WithSpecies("Human");
+            }
+            mob = Spawn(customProto, coords);
+            _stationSpawning.SpawnPlayerMob(coords, null, profile, station, mob);
+        }
+        else
+        {
+            mob = _stationSpawning.SpawnPlayerMob(coords, null, profile, station);
+        }
+
         _transform.AttachToGridOrMap(mob);
 
         if (ent.Comp.Factions.Count > 0)

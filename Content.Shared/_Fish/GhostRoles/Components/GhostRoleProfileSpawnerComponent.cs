@@ -14,4 +14,10 @@ public sealed partial class GhostRoleProfileSpawnerComponent : Component
     /// </summary>
     [DataField]
     public HashSet<ProtoId<NpcFactionPrototype>> Factions = [];
+
+    /// <summary>
+    /// Прототип сущности, которую нужно заспавнить вместо стандартного гуманоида из расы в профиле.
+    /// </summary>
+    [DataField]
+    public string? Prototype;
 }
