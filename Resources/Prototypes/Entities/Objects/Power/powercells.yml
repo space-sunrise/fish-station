@@ -77,7 +77,11 @@
   - type: Battery
     maxCharge: 360
     startingCharge: 360
-  # Sunrise-Edit: removed legacy PowerCellSmall tag, now relying on PowerCell whitelist
+  # Fish-edit: вернули PowerCellSmall — нужен крафту и storage whitelist (Sunrise снял тег)
+  - type: Tag
+    tags:
+    - PowerCellSmall
+    - PowerCell
 
 - type: entity
   id: PowerCellSmallPrinted
