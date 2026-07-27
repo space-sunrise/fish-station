@@ -57,6 +57,12 @@ public sealed partial class ArtifactRandomTransformationSystem
 
     private void DoTransformation(List<EntityUid> items, int countToTransform, IReadOnlyList<EntityPrototype> candidates)
     {
+        // FIsh edit start - не выходить за границы списка при пустом/коротком наборе
+        countToTransform = Math.Min(countToTransform, items.Count);
+        if (countToTransform <= 0 || candidates.Count == 0)
+            return;
+        // FIsh edit end
+
         for (var i = 0; i < countToTransform; i++)
         {
             var item = items[i];
@@ -73,6 +79,11 @@ public sealed partial class ArtifactRandomTransformationSystem
 
     private static int GetTransformCount(int sourceCount, float transformationRatio)
     {
-        return Math.Max(1, (int) (sourceCount * transformationRatio));
+        // FIsh edit start - пустой список не должен давать count=1
+        if (sourceCount <= 0)
+            return 0;
+
+        return Math.Clamp((int) (sourceCount * transformationRatio), 0, sourceCount);
+        // FIsh edit end
     }
 }

@@ -36,6 +36,7 @@
   - type: GhostRole
     name: pw-construction-republic-mobhumancorep0-name
     description: pw-construction-republic-mobhumancorep0-desc
+    rules: pw-ghost-role-republic-rules
     mindRoles:
     - MindRoleGhostRoleNeutral
     raffle:
