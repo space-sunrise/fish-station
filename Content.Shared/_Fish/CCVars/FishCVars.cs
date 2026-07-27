@@ -17,5 +17,17 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<float> EorgPopupTime =
             CVarDef.Create("fish.eorg_popup_time", 5f, CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        /// Message shown in the EORG/volunteer popup.
+        /// </summary>
+        public static readonly CVarDef<string> EorgPopupMessage =
+            CVarDef.Create("fish.eorg_popup_message", "", CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        /// Discord link shown in the EORG/volunteer popup.
+        /// </summary>
+        public static readonly CVarDef<string> EorgPopupLink =
+            CVarDef.Create("fish.eorg_popup_link", "https://discord.com/channels/837289702369263676/1496182871562387667", CVar.SERVER | CVar.REPLICATED);
     }
 }

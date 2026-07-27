@@ -7,24 +7,24 @@ using Robust.Shared.Console;
 namespace Content.Server._Fish.RoundEnd
 {
     [AdminCommand(AdminFlags.Admin)]
-    public sealed class ToggleEorgPopupCommand : LocalizedCommands
+    public sealed class LobbyPopupToggleCommand : LocalizedCommands
     {
         [Dependency] private readonly IConfigurationManager _configManager = default!;
 
-        public override string Command => "toggleeorgpopup";
+        public override string Command => "lobbypopuptoggle";
 
         public override void Execute(IConsoleShell shell, string argStr, string[] args)
         {
             if (args.Length != 1)
             {
-                shell.WriteLine("Usage: toggleeorgpopup <true/false>");
+                shell.WriteLine("Usage: lobbypopuptoggle <true/false>");
                 return;
             }
 
             if (bool.TryParse(args[0], out var result))
             {
                 _configManager.SetCVar(FishCVars.EorgPopupEnabled, result);
-                shell.WriteLine($"EORG popup has been {(result ? "enabled" : "disabled")}.");
+                shell.WriteLine($"Lobby popup has been {(result ? "enabled" : "disabled")}.");
             }
             else
             {
