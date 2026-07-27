@@ -220946,25 +220946,6 @@ entities:
     - type: Transform
       pos: 12.5,-42.5
       parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.1496
-        moles:
-          Oxygen: 1.7459903
-          Nitrogen: 6.568249
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 26871
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
 - proto: LockerQuarterMasterFilled
   entities:
   - uid: 27614
@@ -275239,8 +275220,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -46.5,53.5
       parent: 2
-    - type: ApcPowerReceiver
-      powerDisabled: True
+    - type: TegGenerator
+      thermalEfficiency: 0.3
 - proto: TegCirculator
   entities:
   - uid: 35581

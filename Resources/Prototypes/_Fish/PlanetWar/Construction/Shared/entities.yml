@@ -1008,6 +1008,21 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
+  parent: BoxLethalshot
+  id: BoxLethalshotWM
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunWM
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 200
+  - type: Tag
+    tags:
+    - TehfabTagWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
   parent: MagazineBauer127
   id: MagazineBauer127WM
   components:
@@ -3003,8 +3018,14 @@
   id: BaseMobHumanWM
   abstract: true
   components:
+    - type: ActionGrant
+      actions:
+      - ActionOpenPlanetWarGuide
     # Fish edit - for meme gamemode, do not remove
     - type: PWVulpkaninCursePending
+    - type: IdBind
+    - type: NameIdentifier
+      group: GenericNumber
     - type: RandomMetadata
       nameFormat: name-format-ert
     - type: RemoveComponentsOnTrigger
@@ -3208,7 +3229,7 @@
   - type: SelfUnremovableClothing
   - type: StorageFill
     contents:
-    - id: BoxShellTranquilizerWM
+    - id: BoxLethalshotWM
     - id: MagazineBauer127WM
       amount: 3
 
@@ -3327,7 +3348,7 @@
   - type: SelfUnremovableClothing
   - type: StorageFill
     contents:
-    - id: BoxShellTranquilizerWM
+    - id: BoxLethalshotWM
     - id: MagazineDragunovWM
       amount: 3
 
