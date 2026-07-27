@@ -16,6 +16,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Stacks;
 using Content.Shared.Storage;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -67,6 +68,18 @@ namespace Content.Server.Construction
                 }
             }
         }
+
+        private IEnumerable<EntityUid> EnumerateItemSlotContents(EntityUid uid)
+        {
+            if (!TryComp(uid, out ItemSlotsComponent? slots))
+                yield break;
+
+            foreach (var slot in slots.Slots.Values)
+            {
+                if (slot.Item is { } item)
+                    yield return item;
+            }
+        }
         // Fish edit end
 
         // LEGACY CODE. See warning at the top of the file!
@@ -76,11 +89,16 @@ namespace Content.Server.Construction
             {
                 if (TryComp(item, out StorageComponent? storage))
                 {
-                    // Fish edit start - вложенный storage в руках
+                    // Fish edit start - вложенный storage и ItemSlots в руках
                     foreach (var storedEntity in EnumerateStorageContents(storage))
                         yield return storedEntity;
                     // Fish edit end
                 }
+
+                // Fish edit start - батареи в инструментах/PDA и т.п.
+                foreach (var slotted in EnumerateItemSlotContents(item))
+                    yield return slotted;
+                // Fish edit end
 
                 yield return item;
             }
@@ -92,7 +110,9 @@ namespace Content.Server.Construction
                     if(!containerSlot.ContainedEntity.HasValue)
                         continue;
 
-                    if (TryComp(containerSlot.ContainedEntity.Value, out StorageComponent? storage))
+                    var equipped = containerSlot.ContainedEntity.Value;
+
+                    if (TryComp(equipped, out StorageComponent? storage))
                     {
                         // Fish edit start - вложенный storage в инвентаре
                         foreach (var storedEntity in EnumerateStorageContents(storage))
@@ -100,27 +120,40 @@ namespace Content.Server.Construction
                         // Fish edit end
                     }
 
-                    yield return containerSlot.ContainedEntity.Value;
+                    // Fish edit start - ItemSlots экипировки
+                    foreach (var slotted in EnumerateItemSlotContents(equipped))
+                        yield return slotted;
+                    // Fish edit end
+
+                    yield return equipped;
                 }
             }
 
             var pos = _transformSystem.GetMapCoordinates(user);
 
-            // Fish edit start - 3 тайла + содержимое доступных storage на полу (чужие сумки на людях по-прежнему отсекаются IsInSameOrParentContainer)
+            // Fish edit start - 3 тайла; storage на полу, но НЕ сумки уже в руках/инвентаре (иначе двойной yield)
             foreach (var near in _lookupSystem.GetEntitiesInRange(pos, InitialConstructionNearbyRange, LookupFlags.Contained | LookupFlags.Dynamic | LookupFlags.Sundries | LookupFlags.Approximate))
             {
                 if (near == user)
                     continue;
-                if (_interactionSystem.InRangeUnobstructed(pos, near, InitialConstructionNearbyRange) && _container.IsInSameOrParentContainer(user, near))
-                {
-                    yield return near;
+                if (!_interactionSystem.InRangeUnobstructed(pos, near, InitialConstructionNearbyRange)
+                    || !_container.IsInSameOrParentContainer(user, near))
+                    continue;
 
-                    if (TryComp(near, out StorageComponent? nearStorage))
-                    {
-                        foreach (var storedEntity in EnumerateStorageContents(nearStorage))
-                            yield return storedEntity;
-                    }
+                yield return near;
+
+                // Сумка на персонаже уже обойдена выше; повторно не считаем её содержимое.
+                if (_container.TryGetContainingContainer(near, out var nearParent) && nearParent.Owner == user)
+                    continue;
+
+                if (TryComp(near, out StorageComponent? nearStorage))
+                {
+                    foreach (var storedEntity in EnumerateStorageContents(nearStorage))
+                        yield return storedEntity;
                 }
+
+                foreach (var slotted in EnumerateItemSlotContents(near))
+                    yield return slotted;
             }
             // Fish edit end
         }
@@ -214,11 +247,13 @@ namespace Content.Server.Construction
                         {
                             var needed = materialStep.Amount;
                             var candidates = new List<EntityUid>();
+                            var seen = new HashSet<EntityUid>();
                             var available = 0;
 
                             foreach (var entity in EnumerateNearby(user))
                             {
-                                if (used.Contains(entity))
+                                // Дедуп: EnumerateNearby мог когда-то отдавать один uid дважды.
+                                if (!seen.Add(entity) || used.Contains(entity))
                                     continue;
 
                                 if (!TryComp(entity, out StackComponent? stack)
@@ -256,23 +291,21 @@ namespace Content.Server.Construction
                                     if (combined == null)
                                     {
                                         combined = splitStack;
+                                        remaining -= take;
+                                        continue;
                                     }
-                                    else if (_stackSystem.TryMergeStacks(splitStack.Value, combined.Value, out var transferred))
+
+                                    if (_stackSystem.TryMergeStacks(splitStack.Value, combined.Value, out var transferred))
                                     {
-                                        // Остаток после merge (редко) — в temp-container, вернётся через FailCleanup при сбое.
                                         if (Exists(splitStack.Value))
                                             _container.Insert(splitStack.Value, targetContainer);
 
                                         remaining -= transferred;
-                                        continue;
                                     }
-                                    else
+                                    else if (_container.Insert(splitStack.Value, targetContainer))
                                     {
-                                        _container.Insert(splitStack.Value, targetContainer);
-                                        continue;
+                                        remaining -= take;
                                     }
-
-                                    remaining -= take;
                                 }
 
                                 // Кладём combined в temp-container всегда: при сбое FailCleanup вернёт материалы.
