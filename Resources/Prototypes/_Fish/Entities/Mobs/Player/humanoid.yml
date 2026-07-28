@@ -13,3 +13,68 @@
   components:
   - type: Loadout
     prototypes: [ DeathSquadGearFishBudget ]
+
+- type: entity
+  id: RandomHumanoidSpawnerSpaceNinjaFish
+  name: Space Ninja
+  suffix: Fish, ERTRole
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      layers:
+        - state: green
+        - sprite: _Sunrise/Interface/Misc/antag_preview.rsi
+          state: space_ninja
+    - type: RandomHumanoidSpawner
+      settings: SpaceNinjaFish
+
+- type: randomHumanoidSettings
+  id: SpaceNinjaFish
+  parent: EventHumanoid
+  speciesBlacklist:
+  - Diona
+  - Vox
+  - Felinid
+  - Moth
+  - Arachnid
+  - Reptilian
+  - Vulpkanin
+  - Swine
+  - Tajaran
+  - Demon
+  - SlimePerson
+  - Dwarf
+  - HumanoidXeno
+  - Predator
+  - Resomi
+  - Milira
+  - Kitsune
+  randomizeName: false
+  components:
+    - type: GhostRole
+      name: ghost-role-information-space-ninja-name
+      description: ghost-role-information-space-ninja-description
+      rules: ghost-role-information-antagonist-rules
+      raffle:
+        settings: default
+      mindRoles:
+      - MindRoleNinja
+    - type: Loadout
+      prototypes: [ SpaceNinjaGear ]
+      roleLoadout: [ RoleSurvivalSpaceNinja ]
+    - type: GhostPanelAntagonistMarker
+      name: ghost-panel-antagonist-ninja-name
+      description: ghost-panel-antagonist-ninja-description
+      priority: 40
+    - type: SpaceNinja
+    - type: NpcFactionMember
+      factions:
+      - SpiderClan
+    - type: AutoImplant
+      implants:
+      - RedspaceImplant
+      - MicroBombImplant
+      - StimpackImplant
+      - ReviverImplant
+      - NutrimentImplant
+
