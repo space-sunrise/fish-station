@@ -42,3 +42,5 @@ disease-infect-success = Successful infection!
 disease-infect-reward = Received { $points } Disease Points for infecting someone!
 
 disease-info-window-title = Disease Statistics
+disease-round-end-result-disease-stats = Disease "{ $name }" infected: [color=gold]{ $infected }[/color] people. Symptoms: [color=gold]{ $symptoms }[/color]
+disease-round-end-no-symptoms = None

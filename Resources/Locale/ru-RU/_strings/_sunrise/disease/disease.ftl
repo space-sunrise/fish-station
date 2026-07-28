@@ -42,3 +42,5 @@ disease-infect-success = Успешное заражение!
 disease-infect-reward = Получено { $points } очков болезни за заражение!
 
 disease-info-window-title = Статистика Болезни
+disease-round-end-result-disease-stats = Болезнь "{ $name }" заразила: [color=gold]{ $infected }[/color] чел. Симптомы: [color=gold]{ $symptoms }[/color]
+disease-round-end-no-symptoms = Нет

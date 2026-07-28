@@ -135,12 +135,22 @@ public sealed class SickSystem : SharedSickSystem
             {
                 UpdateInfection(uid, component, component.owner, diseaseComp);
 
-                if (component.Stady >= 8 && diseaseComp.Lethal > 0)
+                // Начиная с 6 стадии наносится урон от холода (снижен с 0.01f до 0.005f)
+                if (component.Stady >= 6 && diseaseComp.Lethal > 0)
                 {
                     if (_prototypeManager.TryIndex<DamageTypePrototype>("Cold", out var coldDamagePrototype))
                     {
-                        var dmg = 0.01f * frameTime * diseaseComp.Lethal;
+                        var dmg = 0.005f * frameTime * diseaseComp.Lethal;
                         _damageableSystem.TryChangeDamage(uid, new(coldDamagePrototype, dmg), true, origin: uid);
+                    }
+                }
+                // Начиная с 10 стадии дополнительно наносится клеточный урон (Cellular)
+                if (component.Stady >= 10 && diseaseComp.Lethal > 0)
+                {
+                    if (_prototypeManager.TryIndex<DamageTypePrototype>("Cellular", out var cellularDamagePrototype))
+                    {
+                        var dmg = 0.005f * frameTime * diseaseComp.Lethal;
+                        _damageableSystem.TryChangeDamage(uid, new(cellularDamagePrototype, dmg), true, origin: uid);
                     }
                 }
                 if (!component.Inited)

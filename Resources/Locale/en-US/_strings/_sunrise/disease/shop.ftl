@@ -24,3 +24,4 @@ listing-disease-insult-description = Prolonged illness causes hyperstimulation o
 
 listing-disease-info-name = Disease Information
 listing-disease-info-description = View your current disease statistics and progress.
+listing-disease-headache-name = Headache
