@@ -192,7 +192,7 @@
   # Visual
   inventoryTemplateId: borgShort
   spriteBodyState: janitor
-#  spriteBodyMovementState: janitor_moving # Fish-Edit
+# spriteBodyMovementState: janitor_moving # Fish-Edit
   spriteHasMindState: janitor_e
   spriteNoMindState: janitor_e_r
   spriteToggleLightState: janitor_l
@@ -266,7 +266,7 @@
   # Visual
   inventoryTemplateId: borgDutch
   spriteBodyState: medical
-#  spriteBodyMovementState: medical_moving # Fish-Edit
+# spriteBodyMovementState: medical_moving # Fish-Edit
   spriteHasMindState: medical_e
   spriteNoMindState: medical_e_r
   spriteToggleLightState: medical_l
@@ -276,9 +276,12 @@
   petFailureString: petting-failure-medical-cyborg
 
   # Sounds
+  # Sunrise-Start
   footstepCollection:
-    collection: FootstepHoverBorg
-
+    collection: FootstepCyborgSpider
+    params:
+      volume: -15
+  # Sunrise-End
 
 # Service borg
 - type: borgType
@@ -326,3 +329,10 @@
   # Pet
   petSuccessString: petting-success-service-cyborg
   petFailureString: petting-failure-service-cyborg
+
+    # Sunrise-Start
+  footstepCollection:
+    collection: FootstepCyborgSpider
+    params:
+      volume: -15
+  # Sunrise-End

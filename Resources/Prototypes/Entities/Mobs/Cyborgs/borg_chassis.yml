@@ -4,6 +4,7 @@
   components:
   - type: Sprite
     sprite: _Fish/Mobs/Silicon/chassis.rsi # Fish-Edit
+    scale: 0.8,0.8 # Fish-Edit
     layers:
     - state: robot
       map: ["enum.BorgVisualLayers.Body", "movement"]

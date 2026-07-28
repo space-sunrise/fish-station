@@ -5,6 +5,7 @@
   components:
   - type: Sprite
     sprite: _Fish/Objects/Specific/Robotics/cyborg_parts.rsi # Fish-Edit
+    scale: 0.8,0.8
   - type: Icon
     sprite: _Fish/Objects/Specific/Robotics/cyborg_parts.rsi # Fish-Edit
   - type: Damageable
