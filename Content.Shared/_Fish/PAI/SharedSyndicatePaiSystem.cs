@@ -455,6 +455,21 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
             _solutions.RemoveAllSolution(solution.Value);
     }
 
+    /// <summary>
+    /// Экстренный гипо вводит весь объём резервуара за раз.
+    /// </summary>
+    protected void ConfigureEmergencyFullDump(EntityUid hypo)
+    {
+        if (!TryComp<InjectorComponent>(hypo, out var injector))
+            return;
+
+        if (injector.CurrentTransferAmount == null)
+            return;
+
+        injector.CurrentTransferAmount = null;
+        Dirty(hypo, injector);
+    }
+
     protected void UpdateUiState(Entity<SyndicatePaiComponent> ent)
     {
         if (!_ui.IsUiOpen(ent.Owner, SyndicatePaiUiKey.Key))

@@ -76,15 +76,12 @@ public sealed partial class SyndicatePaiSystem
         if (!TryGetAutoHypo(ent, out var hypo) || hypo == null)
             return;
 
-        if (!TryComp<InjectorComponent>(hypo.Value, out var injector))
-            return;
-
         if (!TryComp<SolutionRegenerationComponent>(hypo.Value, out var regen) ||
             !_serverSolutions.TryGetSolution(hypo.Value, regen.SolutionName, out _, out var solution))
             return;
 
-        var dose = injector.CurrentTransferAmount ?? FixedPoint2.New(5);
-        if (solution.Volume < dose)
+        // Экстренный гипо вводит весь резервуар (CurrentTransferAmount = null)
+        if (solution.Volume <= FixedPoint2.Zero)
             return;
 
         _serverInteraction.InteractUsing(
@@ -118,8 +115,13 @@ public sealed partial class SyndicatePaiSystem
 
         GrantInnateTool(ent, ent.Comp.AutoHypoPrototype, entityTarget: true, grantAction: false);
 
+        GrantInnateTool(ent, ent.Comp.AutoHypoPrototype, entityTarget: true, grantAction: false);
+
         if (TryGetAutoHypo(ent, out var autoHypo) && autoHypo != null)
+        {
             ClearHypoReservoir(autoHypo.Value);
+            ConfigureEmergencyFullDump(autoHypo.Value);
+        }
 
         // Доступ к мед. окну для настройки, если медицинского модуля ещё нет
         if (ent.Comp.OpenMedicalActionEntity == null || TerminatingOrDeleted(ent.Comp.OpenMedicalActionEntity.Value))

@@ -75,7 +75,8 @@
     activeModeProtoId: HypoPaiSyndicateMode
     allowedModes:
     - HypoPaiSyndicateMode
-    currentTransferAmount: 5
+    # null = ввести весь резервуар при автоинъекции
+    currentTransferAmount: null
     needHand: false
     breakOnHandChange: false
   - type: BorgHypospray

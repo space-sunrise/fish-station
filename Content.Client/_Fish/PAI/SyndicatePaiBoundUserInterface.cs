@@ -3,6 +3,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using System.Globalization;
+using System.Linq;
 using System.Numerics;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
@@ -83,6 +84,16 @@ public sealed class SyndicatePaiWindow : DefaultWindow
     private readonly LineEdit _autoThresholdEdit;
     private readonly BoxContainer _autoReagentList;
     private bool _autoEnabled;
+
+    // Кэш структуры кнопок — не пересоздаём их при тиковом обновлении объёма
+    private int _cachedManualReagentIndex = int.MinValue;
+    private string _cachedManualReagentKey = string.Empty;
+    private bool _cachedManualMedicalUnlocked;
+    private int _cachedAutoReagentIndex = int.MinValue;
+    private string _cachedAutoReagentKey = string.Empty;
+    private float _cachedDose = float.NaN;
+    private string _cachedDoseKey = string.Empty;
+    private bool _cachedDoseMedicalUnlocked;
 
     public SyndicatePaiWindow()
     {
@@ -229,40 +240,11 @@ public sealed class SyndicatePaiWindow : DefaultWindow
         _doseLabel.Visible = state.MedicalUnlocked;
         _doseRow.Visible = state.MedicalUnlocked;
 
-        _doseRow.RemoveAllChildren();
-        foreach (var amount in state.InjectTransferAmounts)
-        {
-            var selected = Math.Abs(amount - state.InjectTransferAmount) < 0.01f;
-            var button = new Button
-            {
-                Text = selected
-                    ? Loc.GetString("syndicate-pai-ui-dose-selected-button", ("amount", amount.ToString("0.#")))
-                    : Loc.GetString("syndicate-pai-ui-dose-button", ("amount", amount.ToString("0.#"))),
-            };
-            var dose = amount;
-            button.OnPressed += _ => OnSetTransferAmount?.Invoke(dose);
-            _doseRow.AddChild(button);
-        }
+        RebuildDoseButtonsIfNeeded(state);
+        RebuildManualReagentButtonsIfNeeded(state);
 
-        if (state.SupplementalDirective != null)
+        if (state.SupplementalDirective != null && !_directiveEdit.HasKeyboardFocus())
             _directiveEdit.Text = state.SupplementalDirective;
-
-        _reagentList.RemoveAllChildren();
-        foreach (var reagent in state.Reagents)
-        {
-            var selected = reagent.Index == state.CurrentReagentIndex;
-            var button = new Button
-            {
-                Text = selected
-                    ? Loc.GetString("syndicate-pai-ui-reagent-selected", ("name", reagent.Name))
-                    : reagent.Name,
-                HorizontalExpand = true,
-                Visible = state.MedicalUnlocked,
-            };
-            var index = reagent.Index;
-            button.OnPressed += _ => OnSelectReagent?.Invoke(index, false);
-            _reagentList.AddChild(button);
-        }
 
         _autoSection.Visible = state.AutoDispenserUnlocked;
         if (!state.AutoDispenserUnlocked)
@@ -289,6 +271,86 @@ public sealed class SyndicatePaiWindow : DefaultWindow
         if (!_autoThresholdEdit.HasKeyboardFocus())
             _autoThresholdEdit.Text = state.AutoHealthThreshold.ToString("0", CultureInfo.InvariantCulture);
 
+        RebuildAutoReagentButtonsIfNeeded(state);
+    }
+
+    private void RebuildDoseButtonsIfNeeded(SyndicatePaiBoundUserInterfaceState state)
+    {
+        var doseKey = string.Join('|', state.InjectTransferAmounts.Select(a => a.ToString("0.#", CultureInfo.InvariantCulture)));
+        var needsRebuild = _cachedDoseMedicalUnlocked != state.MedicalUnlocked
+                           || !string.Equals(_cachedDoseKey, doseKey, StringComparison.Ordinal)
+                           || float.IsNaN(_cachedDose)
+                           || Math.Abs(_cachedDose - state.InjectTransferAmount) >= 0.01f;
+
+        if (!needsRebuild)
+            return;
+
+        _cachedDoseMedicalUnlocked = state.MedicalUnlocked;
+        _cachedDoseKey = doseKey;
+        _cachedDose = state.InjectTransferAmount;
+
+        _doseRow.RemoveAllChildren();
+        foreach (var amount in state.InjectTransferAmounts)
+        {
+            var selected = Math.Abs(amount - state.InjectTransferAmount) < 0.01f;
+            var button = new Button
+            {
+                Text = selected
+                    ? Loc.GetString("syndicate-pai-ui-dose-selected-button", ("amount", amount.ToString("0.#")))
+                    : Loc.GetString("syndicate-pai-ui-dose-button", ("amount", amount.ToString("0.#"))),
+            };
+            var dose = amount;
+            button.OnPressed += _ => OnSetTransferAmount?.Invoke(dose);
+            _doseRow.AddChild(button);
+        }
+    }
+
+    private void RebuildManualReagentButtonsIfNeeded(SyndicatePaiBoundUserInterfaceState state)
+    {
+        var key = BuildReagentKey(state.Reagents);
+        if (_cachedManualReagentIndex == state.CurrentReagentIndex
+            && string.Equals(_cachedManualReagentKey, key, StringComparison.Ordinal)
+            && _cachedManualMedicalUnlocked == state.MedicalUnlocked
+            && _reagentList.ChildCount == state.Reagents.Count)
+        {
+            return;
+        }
+
+        _cachedManualReagentIndex = state.CurrentReagentIndex;
+        _cachedManualReagentKey = key;
+        _cachedManualMedicalUnlocked = state.MedicalUnlocked;
+
+        _reagentList.RemoveAllChildren();
+        foreach (var reagent in state.Reagents)
+        {
+            var selected = reagent.Index == state.CurrentReagentIndex;
+            var button = new Button
+            {
+                Text = selected
+                    ? Loc.GetString("syndicate-pai-ui-reagent-selected", ("name", reagent.Name))
+                    : reagent.Name,
+                HorizontalExpand = true,
+                Visible = state.MedicalUnlocked,
+            };
+            var index = reagent.Index;
+            button.OnPressed += _ => OnSelectReagent?.Invoke(index, false);
+            _reagentList.AddChild(button);
+        }
+    }
+
+    private void RebuildAutoReagentButtonsIfNeeded(SyndicatePaiBoundUserInterfaceState state)
+    {
+        var key = BuildReagentKey(state.AutoReagents);
+        if (_cachedAutoReagentIndex == state.AutoReagentIndex
+            && string.Equals(_cachedAutoReagentKey, key, StringComparison.Ordinal)
+            && _autoReagentList.ChildCount == state.AutoReagents.Count)
+        {
+            return;
+        }
+
+        _cachedAutoReagentIndex = state.AutoReagentIndex;
+        _cachedAutoReagentKey = key;
+
         _autoReagentList.RemoveAllChildren();
         foreach (var reagent in state.AutoReagents)
         {
@@ -304,5 +366,13 @@ public sealed class SyndicatePaiWindow : DefaultWindow
             button.OnPressed += _ => OnSelectReagent?.Invoke(index, true);
             _autoReagentList.AddChild(button);
         }
+    }
+
+    private static string BuildReagentKey(List<SyndicatePaiReagentEntry> reagents)
+    {
+        if (reagents.Count == 0)
+            return string.Empty;
+
+        return string.Join(';', reagents.Select(r => $"{r.Index}:{r.Id}:{r.Name}"));
     }
 }
