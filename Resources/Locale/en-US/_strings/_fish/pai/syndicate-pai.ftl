@@ -21,6 +21,7 @@ syndicate-pai-ui-auto-volume = Emergency reservoir: {$current} / {$max}u
 syndicate-pai-ui-auto-cooldown = Autodose cooldown: {$seconds}s
 syndicate-pai-ui-auto-cooldown-ready = Autodose cooldown: ready
 syndicate-pai-ui-auto-threshold = Owner health threshold (%)
+syndicate-pai-ui-auto-threshold-current = Current: {$value}%
 syndicate-pai-ui-auto-threshold-apply = Apply threshold
 syndicate-pai-ui-auto-reagents = Stored reagents (auto)
 

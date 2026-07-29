@@ -52,7 +52,7 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 10
+        maxVol: 15
   - type: SolutionRegeneration
     solution: hypospray
     duration: 2

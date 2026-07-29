@@ -21,6 +21,7 @@ syndicate-pai-ui-auto-volume = Экстренный резервуар: {$curren
 syndicate-pai-ui-auto-cooldown = Кулдаун автоинъекции: {$seconds} с
 syndicate-pai-ui-auto-cooldown-ready = Кулдаун автоинъекции: готов
 syndicate-pai-ui-auto-threshold = Порог здоровья владельца (%)
+syndicate-pai-ui-auto-threshold-current = Сейчас: {$value}%
 syndicate-pai-ui-auto-threshold-apply = Применить порог
 syndicate-pai-ui-auto-reagents = Хранимые препараты (авто)
 

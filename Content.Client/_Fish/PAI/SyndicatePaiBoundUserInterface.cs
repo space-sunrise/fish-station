@@ -75,6 +75,7 @@ public sealed class SyndicatePaiWindow : DefaultWindow
     private readonly Label _autoVolumeLabel;
     private readonly Label _autoCooldownLabel;
     private readonly Label _autoThresholdLabel;
+    private readonly Label _autoThresholdCurrentLabel;
     private readonly LineEdit _autoThresholdEdit;
     private readonly BoxContainer _autoReagentList;
     private bool _autoEnabled;
@@ -142,7 +143,14 @@ public sealed class SyndicatePaiWindow : DefaultWindow
         _autoVolumeLabel = new Label();
         _autoCooldownLabel = new Label();
         _autoThresholdLabel = new Label { Text = Loc.GetString("syndicate-pai-ui-auto-threshold") };
-        _autoThresholdEdit = new LineEdit { PlaceHolder = "40" };
+        _autoThresholdCurrentLabel = new Label();
+        _autoThresholdEdit = new LineEdit
+        {
+            PlaceHolder = "40",
+            MinSize = new Vector2(72, 28),
+            SetSize = new Vector2(72, 28),
+            HorizontalExpand = false,
+        };
         var applyThreshold = new Button { Text = Loc.GetString("syndicate-pai-ui-auto-threshold-apply") };
         applyThreshold.OnPressed += _ =>
         {
@@ -159,8 +167,9 @@ public sealed class SyndicatePaiWindow : DefaultWindow
         var thresholdRow = new BoxContainer
         {
             Orientation = LayoutOrientation.Horizontal,
-            SeparationOverride = 4,
+            SeparationOverride = 8,
         };
+        thresholdRow.AddChild(_autoThresholdCurrentLabel);
         thresholdRow.AddChild(_autoThresholdEdit);
         thresholdRow.AddChild(applyThreshold);
 
@@ -241,6 +250,9 @@ public sealed class SyndicatePaiWindow : DefaultWindow
         _autoCooldownLabel.Text = state.AutoCooldownRemaining > 0
             ? Loc.GetString("syndicate-pai-ui-auto-cooldown", ("seconds", ((int)state.AutoCooldownRemaining).ToString()))
             : Loc.GetString("syndicate-pai-ui-auto-cooldown-ready");
+
+        _autoThresholdCurrentLabel.Text = Loc.GetString("syndicate-pai-ui-auto-threshold-current",
+            ("value", state.AutoHealthThreshold.ToString("0", CultureInfo.InvariantCulture)));
 
         if (!_autoThresholdEdit.HasKeyboardFocus())
             _autoThresholdEdit.Text = state.AutoHealthThreshold.ToString("0", CultureInfo.InvariantCulture);
