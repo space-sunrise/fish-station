@@ -31,6 +31,9 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Zombies;
+using Content.Shared.Interaction.Components;
+using Content.Shared.Interaction.Events;
+using Content.Server._Sunrise.Misc.ShiftedAsciiTableAccent;
 
 namespace Content.Server._Sunrise.Disease;
 
@@ -58,6 +61,7 @@ public sealed class SickSystem : SharedSickSystem
         SubscribeLocalEvent<SickComponent, EmoteEvent>(OnEmote,
             before:
             new[] { typeof(VocalSystem), typeof(BodyEmotesSystem) });
+        SubscribeLocalEvent<InteractionPopupComponent, InteractionSuccessEvent>(OnInteractionSuccess);
     }
     public void OnShut(EntityUid uid, SickComponent component, ComponentShutdown args)
     {
@@ -75,36 +79,23 @@ public sealed class SickSystem : SharedSickSystem
             }
         }
 
-        foreach (var key in component.Symptoms)
-        {
-            switch (key)
-            {
-                case "Narcolepsy":
-                    if (HasComp<SleepyComponent>(uid))
-                        RemComp<SleepyComponent>(uid);
-                    break;
-                case "Muted":
-                    if (HasComp<MutedComponent>(uid))
-                        RemComp<MutedComponent>(uid);
-                    break;
-                case "Blindness":
-                    if (HasComp<PermanentBlindnessComponent>(uid))
-                        RemComp<PermanentBlindnessComponent>(uid);
-                    if (HasComp<BlurryVisionComponent>(uid))
-                        RemComp<BlurryVisionComponent>(uid);
-                    if (HasComp<EyeClosingComponent>(uid))
-                        RemComp<EyeClosingComponent>(uid);
-                    break;
-                case "Slowness":
-                    if (HasComp<SpeedModifierOnComponent>(uid))
-                        RemComp<SpeedModifierOnComponent>(uid);
-                    break;
-                case "Bleed":
-                    if (HasComp<MinimumBleedComponent>(uid))
-                        RemComp<MinimumBleedComponent>(uid);
-                    break;
-            }
-        }
+        // Unconditionally remove all possible symptom components to prevent them staying on cure
+        if (HasComp<SleepyComponent>(uid))
+            RemComp<SleepyComponent>(uid);
+        if (HasComp<MutedComponent>(uid))
+            RemComp<MutedComponent>(uid);
+        if (HasComp<PermanentBlindnessComponent>(uid))
+            RemComp<PermanentBlindnessComponent>(uid);
+        if (HasComp<BlurryVisionComponent>(uid))
+            RemComp<BlurryVisionComponent>(uid);
+        if (HasComp<EyeClosingComponent>(uid))
+            RemComp<EyeClosingComponent>(uid);
+        if (HasComp<SpeedModifierOnComponent>(uid))
+            RemComp<SpeedModifierOnComponent>(uid);
+        if (HasComp<MinimumBleedComponent>(uid))
+            RemComp<MinimumBleedComponent>(uid);
+        if (HasComp<AnomalyAccentComponent>(uid))
+            RemComp<AnomalyAccentComponent>(uid);
 
         if (TryComp<BloodstreamComponent>(uid, out var stream))
         {
@@ -135,21 +126,21 @@ public sealed class SickSystem : SharedSickSystem
             {
                 UpdateInfection(uid, component, component.owner, diseaseComp);
 
-                // Начиная с 6 стадии наносится урон от холода (снижен с 0.01f до 0.005f)
+                // Начиная с 6 стадии наносится урон от ожогов (Heat) (увеличен до 0.02f)
                 if (component.Stady >= 6 && diseaseComp.Lethal > 0)
                 {
-                    if (_prototypeManager.TryIndex<DamageTypePrototype>("Cold", out var coldDamagePrototype))
+                    if (_prototypeManager.TryIndex<DamageTypePrototype>("Heat", out var heatDamagePrototype))
                     {
-                        var dmg = 0.005f * frameTime * diseaseComp.Lethal;
-                        _damageableSystem.TryChangeDamage(uid, new(coldDamagePrototype, dmg), true, origin: uid);
+                        var dmg = 0.02f * frameTime * diseaseComp.Lethal;
+                        _damageableSystem.TryChangeDamage(uid, new(heatDamagePrototype, dmg), true, origin: uid);
                     }
                 }
-                // Начиная с 10 стадии дополнительно наносится клеточный урон (Cellular)
+                // Начиная с 10 стадии дополнительно наносится клеточный урон (Cellular) (увеличен до 0.02f)
                 if (component.Stady >= 10 && diseaseComp.Lethal > 0)
                 {
                     if (_prototypeManager.TryIndex<DamageTypePrototype>("Cellular", out var cellularDamagePrototype))
                     {
-                        var dmg = 0.005f * frameTime * diseaseComp.Lethal;
+                        var dmg = 0.02f * frameTime * diseaseComp.Lethal;
                         _damageableSystem.TryChangeDamage(uid, new(cellularDamagePrototype, dmg), true, origin: uid);
                     }
                 }
@@ -201,6 +192,24 @@ public sealed class SickSystem : SharedSickSystem
                                 _autoEmote.RemoveEmote(uid, emote);
                             }
                         }
+
+                        // Удаляем компоненты симптомов перед очисткой списка, если они больше не активны
+                        if (HasComp<SleepyComponent>(uid))
+                            RemComp<SleepyComponent>(uid);
+                        if (HasComp<MutedComponent>(uid))
+                            RemComp<MutedComponent>(uid);
+                        if (HasComp<PermanentBlindnessComponent>(uid))
+                            RemComp<PermanentBlindnessComponent>(uid);
+                        if (HasComp<BlurryVisionComponent>(uid))
+                            RemComp<BlurryVisionComponent>(uid);
+                        if (HasComp<EyeClosingComponent>(uid))
+                            RemComp<EyeClosingComponent>(uid);
+                        if (HasComp<SpeedModifierOnComponent>(uid))
+                            RemComp<SpeedModifierOnComponent>(uid);
+                        if (HasComp<MinimumBleedComponent>(uid))
+                            RemComp<MinimumBleedComponent>(uid);
+                        if (HasComp<AnomalyAccentComponent>(uid))
+                            RemComp<AnomalyAccentComponent>(uid);
 
                         component.Symptoms.Clear();
                         component.NextStadyAt = _gameTiming.CurTime + component.StadyDelay;
@@ -277,6 +286,9 @@ public sealed class SickSystem : SharedSickSystem
                         case "Bleed":
                             EnsureComp<MinimumBleedComponent>(uid);
                             break;
+                        case "Aphasia":
+                            EnsureComp<AnomalyAccentComponent>(uid);
+                            break;
                         case "Insult":
                             _autoEmote.AddEmote(uid, "InfectedInsult");
                             break;
@@ -310,6 +322,10 @@ public sealed class SickSystem : SharedSickSystem
                                 origin: uid);
                         }
 
+                        var infectorEv = new ZombificationResistanceQueryEvent(SlotFlags.HEAD | SlotFlags.MASK |
+                                                                               SlotFlags.OUTERCLOTHING);
+                        RaiseLocalEvent(uid, infectorEv);
+
                         foreach (var entity in Lookup.GetEntitiesInRange(uid, 1.0f))
                         {
                             if (HasComp<HumanoidAppearanceComponent>(entity) && !HasComp<SickComponent>(entity) &&
@@ -319,7 +335,7 @@ public sealed class SickSystem : SharedSickSystem
                                                                                SlotFlags.OUTERCLOTHING);
                                 RaiseLocalEvent(entity, ev);
 
-                                var prob = disease.CoughSneezeInfectChance * ev.TotalCoefficient;
+                                var prob = disease.CoughSneezeInfectChance * ev.TotalCoefficient * infectorEv.TotalCoefficient;
                                 OnInfected(entity, component.owner, prob);
                             }
                         }
@@ -340,6 +356,10 @@ public sealed class SickSystem : SharedSickSystem
                                 origin: uid);
                         }
 
+                        var infectorEv = new ZombificationResistanceQueryEvent(SlotFlags.HEAD | SlotFlags.MASK |
+                                                                               SlotFlags.OUTERCLOTHING);
+                        RaiseLocalEvent(uid, infectorEv);
+
                         foreach (var entity in Lookup.GetEntitiesInRange(uid, 1.5f))
                         {
                             if (HasComp<HumanoidAppearanceComponent>(entity) && !HasComp<SickComponent>(entity) &&
@@ -349,7 +369,7 @@ public sealed class SickSystem : SharedSickSystem
                                                                                SlotFlags.OUTERCLOTHING);
                                 RaiseLocalEvent(entity, ev);
 
-                                var prob = disease.CoughSneezeInfectChance * ev.TotalCoefficient;
+                                var prob = disease.CoughSneezeInfectChance * ev.TotalCoefficient * infectorEv.TotalCoefficient;
                                 OnInfected(entity, component.owner, prob);
                             }
                         }
@@ -378,6 +398,44 @@ public sealed class SickSystem : SharedSickSystem
                 }
 
                 break;
+        }
+    }
+
+    private void OnInteractionSuccess(EntityUid uid, InteractionPopupComponent popup, ref InteractionSuccessEvent args)
+    {
+        if (popup.InteractSuccessString != "hugging-success-generic")
+            return;
+
+        // uid - цель обнимания (target), args.User - инициатор (initiator)
+        
+        // 1. Цель (uid) больна, инициатор (args.User) здоров. Цель заражает инициатора.
+        if (TryComp<SickComponent>(uid, out var sickTarget))
+        {
+            InfectOnHug(uid, args.User, sickTarget.owner);
+        }
+
+        // 2. Инициатор (args.User) болен, цель (uid) здорова. Инициатор заражает цель.
+        if (TryComp<SickComponent>(args.User, out var sickInitiator))
+        {
+            InfectOnHug(args.User, uid, sickInitiator.owner);
+        }
+    }
+
+    private void InfectOnHug(EntityUid infector, EntityUid victim, EntityUid diseaseUid)
+    {
+        if (!HasComp<HumanoidAppearanceComponent>(victim) || HasComp<SickComponent>(victim) || HasComp<DiseaseImmuneComponent>(victim))
+            return;
+
+        if (TryComp<DiseaseRoleComponent>(diseaseUid, out var disease))
+        {
+            var targetEv = new ZombificationResistanceQueryEvent(SlotFlags.HEAD | SlotFlags.MASK | SlotFlags.OUTERCLOTHING);
+            RaiseLocalEvent(victim, targetEv);
+
+            var infectorEv = new ZombificationResistanceQueryEvent(SlotFlags.HEAD | SlotFlags.MASK | SlotFlags.OUTERCLOTHING);
+            RaiseLocalEvent(infector, infectorEv);
+
+            var prob = disease.BaseInfectChance * targetEv.TotalCoefficient * infectorEv.TotalCoefficient;
+            OnInfected(victim, diseaseUid, prob);
         }
     }
 }

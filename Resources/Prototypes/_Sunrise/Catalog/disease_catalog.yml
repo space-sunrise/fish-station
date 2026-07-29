@@ -75,7 +75,7 @@
   icon: { sprite: /Textures/_Sunrise/Actions/disease.rsi, state: muted }
   raiseProductEventOnUser: true
   cost:
-    DiseasePoints: 25
+    DiseasePoints: 40
   categories:
   - DiseaseSymptomsCategory
   conditions:
@@ -117,7 +117,7 @@
   icon: { sprite: /Textures/_Sunrise/Actions/disease.rsi, state: blindness }
   raiseProductEventOnUser: true
   cost:
-    DiseasePoints: 40
+    DiseasePoints: 50
   categories:
   - DiseaseSymptomsCategory
   conditions:
@@ -132,6 +132,20 @@
   raiseProductEventOnUser: true
   cost:
     DiseasePoints: 20
+  categories:
+  - DiseaseSymptomsCategory
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: Aphasia
+  name: listing-disease-aphasia-name
+  description: listing-disease-aphasia-description
+  icon: { sprite: /Textures/_Sunrise/Actions/disease.rsi, state: zombie }
+  raiseProductEventOnUser: true
+  cost:
+    DiseasePoints: 30
   categories:
   - DiseaseSymptomsCategory
   conditions:

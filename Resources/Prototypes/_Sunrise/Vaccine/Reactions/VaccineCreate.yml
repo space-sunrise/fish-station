@@ -25,3 +25,15 @@
   products:
     VaccinePlus: 15
     Water: 10
+
+- type: reaction
+  id: ImmunatorCreate
+  requiredMixerCategories:
+  - Vaccinator
+  reactants:
+    VaccinePlus:
+      amount: 1
+    Tricordrazine:
+      amount: 4
+  products:
+    Immunator: 5

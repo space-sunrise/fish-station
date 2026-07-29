@@ -91,6 +91,7 @@ public sealed class DiseaseRoleSystem : SharedDiseaseRoleSystem
                 _sharedCharges.SetCharges((actionId.Value, limitCharges), charges);
             }
         }
+        component.NewBloodReagent.Clear();
         component.NewBloodReagent.Add(_random.Pick(_bloodReagents));
         component.Symptoms.Add("Headache", new SymptomData(1, 4));
     }
@@ -241,6 +242,7 @@ public sealed class DiseaseRoleSystem : SharedDiseaseRoleSystem
                         case "Bleed": minLevel = 3; break;
                         case "Blindness": minLevel = 4; break;
                         case "Insult": minLevel = 2; break;
+                        case "Aphasia": minLevel = 2; break;
                             // Zombie handled separately via special event if needed, or if it's just a symptom?
                             // The original action raised DiseaseZombieEvent for "Zombie".
                             // Wait, "Zombie" was a separate category in catalog?

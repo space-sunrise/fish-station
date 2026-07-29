@@ -10,3 +10,5 @@ reagent-name-vaccine = антивирусин
 reagent-description-vaccine = с лёгкостью сможет освободить вас от оков вируса! Не связывается с иммунитетом.
 reagent-name-vaccine-plus = антивирусин Плюс
 reagent-description-vaccine-plus = наделит вас иммунитетом перед вирусом!
+reagent-name-immunator = иммунатор
+reagent-description-immunator = просто наделит вас иммунитетом перед вирусом, но не излечит текущую болезнь!
