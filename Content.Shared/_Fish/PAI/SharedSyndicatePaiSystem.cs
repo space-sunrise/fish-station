@@ -55,7 +55,7 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
         var query = EntityQueryEnumerator<SyndicatePaiComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (!comp.MedicalUnlocked)
+            if (!comp.MedicalUnlocked && !comp.AutoDispenserUnlocked)
                 continue;
 
             if (!_ui.IsUiOpen(uid, SyndicatePaiUiKey.Key))
@@ -84,7 +84,7 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (!ent.Comp.MedicalUnlocked)
+        if (!ent.Comp.MedicalUnlocked && !ent.Comp.AutoDispenserUnlocked)
         {
             _popup.PopupClient(Loc.GetString("syndicate-pai-module-locked"), ent.Owner, args.Performer);
             args.Handled = true;
@@ -137,7 +137,7 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
             return false;
         }
 
-        if (!TryGetHypo(ent, out hypo) || hypo == null)
+        if (!TryGetManualHypo(ent, out hypo) || hypo == null)
         {
             if (!quiet)
                 _popup.PopupClient(Loc.GetString("syndicate-pai-no-hypo"), ent.Owner, user);
@@ -168,23 +168,49 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
         return true;
     }
 
-    public bool TrySelectReagent(Entity<SyndicatePaiComponent> ent, EntityUid user, int index, bool quiet = false)
+    public bool TrySelectReagent(Entity<SyndicatePaiComponent> ent, EntityUid user, int index, bool autoReservoir = false, bool quiet = false)
     {
-        if (!ent.Comp.MedicalUnlocked)
+        if (autoReservoir)
+        {
+            if (!ent.Comp.AutoDispenserUnlocked)
+            {
+                if (!quiet)
+                    _popup.PopupClient(Loc.GetString("syndicate-pai-module-locked"), ent.Owner, user);
+                return false;
+            }
+        }
+        else if (!ent.Comp.MedicalUnlocked)
         {
             if (!quiet)
                 _popup.PopupClient(Loc.GetString("syndicate-pai-module-locked"), ent.Owner, user);
             return false;
         }
 
-        if (!TryGetHypo(ent, out var hypo) || hypo == null)
+        if (autoReservoir)
+        {
+            if (!TryGetAutoHypo(ent, out var autoHypo) || autoHypo == null)
+            {
+                if (!quiet)
+                    _popup.PopupClient(Loc.GetString("syndicate-pai-no-auto-hypo"), ent.Owner, user);
+                return false;
+            }
+
+            return TrySelectReagentOnHypo(ent, user, autoHypo.Value, index, quiet);
+        }
+
+        if (!TryGetManualHypo(ent, out var hypo) || hypo == null)
         {
             if (!quiet)
                 _popup.PopupClient(Loc.GetString("syndicate-pai-no-hypo"), ent.Owner, user);
             return false;
         }
 
-        if (!TryComp<SolutionRegenerationSwitcherComponent>(hypo.Value, out var switcher))
+        return TrySelectReagentOnHypo(ent, user, hypo.Value, index, quiet);
+    }
+
+    private bool TrySelectReagentOnHypo(Entity<SyndicatePaiComponent> ent, EntityUid user, EntityUid hypo, int index, bool quiet)
+    {
+        if (!TryComp<SolutionRegenerationSwitcherComponent>(hypo, out var switcher))
         {
             if (!quiet)
                 _popup.PopupClient(Loc.GetString("syndicate-pai-no-reagents"), ent.Owner, user);
@@ -194,7 +220,7 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
         if (index < 0 || index >= switcher.Options.Count)
             return false;
 
-        if (!TryComp<SolutionRegenerationComponent>(hypo.Value, out var regeneration))
+        if (!TryComp<SolutionRegenerationComponent>(hypo, out var regeneration))
             return false;
 
         var reagent = switcher.Options[index];
@@ -206,14 +232,14 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
         }
 
         if (!switcher.KeepSolution &&
-            _solutions.TryGetSolution(hypo.Value, regeneration.SolutionName, out var solution))
+            _solutions.TryGetSolution(hypo, regeneration.SolutionName, out var solution))
         {
             _solutions.RemoveAllSolution(solution.Value);
         }
 
         regeneration.ChangeGenerated(reagent);
         switcher.CurrentIndex = index;
-        Dirty(hypo.Value, switcher);
+        Dirty(hypo, switcher);
 
         if (_prototypes.TryIndex(reagent.Reagent.Prototype, out ReagentPrototype? proto) && !quiet)
         {
@@ -227,7 +253,10 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
         return true;
     }
 
-    public bool TryGetHypo(Entity<SyndicatePaiComponent> ent, out EntityUid? hypo)
+    /// <summary>
+    /// Ручной медицинский гипо (без маркера автодозатора).
+    /// </summary>
+    public bool TryGetManualHypo(Entity<SyndicatePaiComponent> ent, out EntityUid? hypo)
     {
         hypo = null;
 
@@ -236,6 +265,9 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
 
         foreach (var contained in container.ContainedEntities)
         {
+            if (HasComp<SyndicatePaiAutoHypoComponent>(contained))
+                continue;
+
             if (!HasComp<InjectorComponent>(contained))
                 continue;
 
@@ -248,6 +280,33 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
         }
 
         return false;
+    }
+
+    /// <summary>
+    /// Экстренный гипо автодозатора.
+    /// </summary>
+    public bool TryGetAutoHypo(Entity<SyndicatePaiComponent> ent, out EntityUid? hypo)
+    {
+        hypo = null;
+
+        if (!_container.TryGetContainer(ent.Owner, SyndicatePaiComponent.InnateItemContainerId, out var container))
+            return false;
+
+        foreach (var contained in container.ContainedEntities)
+        {
+            if (!HasComp<SyndicatePaiAutoHypoComponent>(contained))
+                continue;
+
+            hypo = contained;
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool TryGetHypo(Entity<SyndicatePaiComponent> ent, out EntityUid? hypo)
+    {
+        return TryGetManualHypo(ent, out hypo);
     }
 
     public bool TryGetAnalyzer(Entity<SyndicatePaiComponent> ent, out EntityUid? analyzer)
@@ -349,6 +408,15 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
         UpdateUiState(ent);
     }
 
+    protected void ClearHypoReservoir(EntityUid hypo)
+    {
+        if (!TryComp<SolutionRegenerationComponent>(hypo, out var regen))
+            return;
+
+        if (_solutions.TryGetSolution(hypo, regen.SolutionName, out var solution))
+            _solutions.RemoveAllSolution(solution.Value);
+    }
+
     protected void UpdateUiState(Entity<SyndicatePaiComponent> ent)
     {
         if (!_ui.IsUiOpen(ent.Owner, SyndicatePaiUiKey.Key))
@@ -365,6 +433,10 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
             SupplementalDirective = ent.Comp.SupplementalDirective,
             CurrentReagentIndex = 0,
             MedicalUnlocked = ent.Comp.MedicalUnlocked,
+            AutoDispenserUnlocked = ent.Comp.AutoDispenserUnlocked,
+            AutoDispenserEnabled = ent.Comp.AutoDispenserEnabled,
+            AutoHealthThreshold = ent.Comp.AutoHealthThreshold,
+            AutoReagentIndex = 0,
         };
 
         if (TryGetCarrier(ent.Owner, out var carrier) && carrier != null)
@@ -375,12 +447,35 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
 
         state.CanInjectOwner = CanInjectOwner(ent, ent.Owner, out _, out _, quiet: true);
 
-        if (!TryGetHypo(ent, out var hypo) || hypo == null)
-            return state;
+        var cooldown = ent.Comp.NextAutoInjectTime - _timing.CurTime;
+        state.AutoCooldownRemaining = cooldown > TimeSpan.Zero ? (float)cooldown.TotalSeconds : 0f;
+
+        FillHypoUiState(ent, TryGetManualHypo, ref state.CurrentReagent, ref state.CurrentVolume, ref state.MaxVolume,
+            state.Reagents, ref state.CurrentReagentIndex);
+
+        FillHypoUiState(ent, TryGetAutoHypo, ref state.AutoReagent, ref state.AutoVolume, ref state.AutoMaxVolume,
+            state.AutoReagents, ref state.AutoReagentIndex);
+
+        return state;
+    }
+
+    private delegate bool HypoGetter(Entity<SyndicatePaiComponent> ent, out EntityUid? hypo);
+
+    private void FillHypoUiState(
+        Entity<SyndicatePaiComponent> ent,
+        HypoGetter getter,
+        ref string? reagentName,
+        ref float volume,
+        ref float maxVolume,
+        List<SyndicatePaiReagentEntry> reagents,
+        ref int reagentIndex)
+    {
+        if (!getter(ent, out var hypo) || hypo == null)
+            return;
 
         if (TryComp<SolutionRegenerationSwitcherComponent>(hypo.Value, out var switcher))
         {
-            state.CurrentReagentIndex = switcher.CurrentIndex;
+            reagentIndex = switcher.CurrentIndex;
             for (var i = 0; i < switcher.Options.Count; i++)
             {
                 var option = switcher.Options[i];
@@ -388,7 +483,7 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
                 if (_prototypes.TryIndex(option.Reagent.Prototype, out ReagentPrototype? proto))
                     name = proto.LocalizedName;
 
-                state.Reagents.Add(new SyndicatePaiReagentEntry
+                reagents.Add(new SyndicatePaiReagentEntry
                 {
                     Id = option.Reagent.Prototype,
                     Name = name,
@@ -400,18 +495,16 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
         if (TryComp<SolutionRegenerationComponent>(hypo.Value, out var regen) &&
             _solutions.TryGetSolution(hypo.Value, regen.SolutionName, out _, out var solution))
         {
-            state.CurrentVolume = solution.Volume.Float();
-            state.MaxVolume = solution.MaxVolume.Float();
+            volume = solution.Volume.Float();
+            maxVolume = solution.MaxVolume.Float();
             if (solution.Contents.Count > 0)
             {
                 var primary = solution.GetPrimaryReagentId();
                 if (primary != null && _prototypes.TryIndex(primary.Value.Prototype, out ReagentPrototype? current))
-                    state.CurrentReagent = current.LocalizedName;
+                    reagentName = current.LocalizedName;
                 else if (primary != null)
-                    state.CurrentReagent = primary.Value.Prototype;
+                    reagentName = primary.Value.Prototype;
             }
         }
-
-        return state;
     }
 }

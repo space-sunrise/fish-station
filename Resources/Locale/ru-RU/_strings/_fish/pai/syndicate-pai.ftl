@@ -1,9 +1,10 @@
 syndicate-pai-ui-title = Медицинский модуль пИИ Синдиката
 syndicate-pai-ui-carrier = Носитель: {$name}
 syndicate-pai-ui-master = Владелец: {$name}
+syndicate-pai-ui-manual-section = Ручной резервуар
 syndicate-pai-ui-current-reagent = Активный реагент: {$reagent}
 syndicate-pai-ui-volume = Резервуар: {$current} / {$max} ед.
-syndicate-pai-ui-reagents = Хранимые препараты
+syndicate-pai-ui-reagents = Хранимые препараты (ручной)
 syndicate-pai-ui-inject = Ввести владельцу
 syndicate-pai-ui-imprint = Запечатлеть ДНК носителя
 syndicate-pai-ui-directive = Дополнительная директива
@@ -12,7 +13,19 @@ syndicate-pai-ui-set-directive = Задать директиву
 syndicate-pai-ui-none = нет
 syndicate-pai-ui-reagent-selected = ▶ {$name}
 
+syndicate-pai-ui-auto-section = Автоматический дозатор
+syndicate-pai-ui-auto-enabled = Автодозатор: ВКЛ (нажмите, чтобы выключить)
+syndicate-pai-ui-auto-disabled = Автодозатор: ВЫКЛ (нажмите, чтобы включить)
+syndicate-pai-ui-auto-reagent = Экстренный реагент: {$reagent}
+syndicate-pai-ui-auto-volume = Экстренный резервуар: {$current} / {$max} ед.
+syndicate-pai-ui-auto-cooldown = Кулдаун автоинъекции: {$seconds} с
+syndicate-pai-ui-auto-cooldown-ready = Кулдаун автоинъекции: готов
+syndicate-pai-ui-auto-threshold = Порог здоровья владельца (%)
+syndicate-pai-ui-auto-threshold-apply = Применить порог
+syndicate-pai-ui-auto-reagents = Хранимые препараты (авто)
+
 syndicate-pai-no-hypo = Медицинский инъектор не найден. Купите медицинский модуль.
+syndicate-pai-no-auto-hypo = Экстренный резервуар не найден. Купите модуль автодозатора.
 syndicate-pai-no-carrier = Органический носитель не обнаружен.
 syndicate-pai-no-owner = Владелец не задан. Сначала запечатлейте ДНК.
 syndicate-pai-no-analyzer = Медицинский анализатор не найден.
@@ -26,6 +39,7 @@ syndicate-pai-directive-denied = Директивы может задавать 
 syndicate-pai-directive-updated = Дополнительная директива обновлена: {$directive}
 syndicate-pai-module-locked = Модуль не установлен. Купите его во встроенном магазине.
 syndicate-pai-module-medical-unlocked = Медицинский модуль установлен.
+syndicate-pai-module-auto-unlocked = Модуль автоматического дозатора установлен.
 syndicate-pai-module-door-unlocked = Модуль взлома дверей установлен.
 syndicate-pai-module-sec-unlocked = Модуль базы СБ установлен.
 syndicate-pai-module-disguise-unlocked = Маскировка под обычный пИИ активирована.
@@ -33,12 +47,15 @@ syndicate-pai-door-hack-missing = Модуль взлома дверей не г
 syndicate-pai-door-hack-cooldown = Взлом дверей на перезарядке: {$seconds} с.
 syndicate-pai-door-hack-none = Поблизости нет дверей для взлома.
 syndicate-pai-door-hack-success = Взломано дверей: {$count}.
+syndicate-pai-auto-injected = Автодозатор ввёл препарат владельцу: {$owner}.
 
 syndicate-pai-verb-imprint = Запечатлеть ДНК как владельца
 syndicate-pai-verb-clear-directive = Очистить дополнительную директиву
 
 syndicate-pai-listing-medical-name = Медицинский модуль
 syndicate-pai-listing-medical-desc = Гипо с боевой медициной, мгновенный скан владельца и инъекции только владельцу.
+syndicate-pai-listing-auto-name = Автоматический дозатор
+syndicate-pai-listing-auto-desc = Отдельный экстренный резервуар. Автоинъекция владельцу при низком здоровье. Кулдаун 10 минут.
 syndicate-pai-listing-door-name = Взлом дверей
 syndicate-pai-listing-door-desc = Импульс взлома доступа дверей в радиусе 3 тайлов вокруг владельца. Перезарядка 2 минуты.
 syndicate-pai-listing-sec-name = База данных СБ

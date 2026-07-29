@@ -1,9 +1,10 @@
 syndicate-pai-ui-title = Syndicate pAI Medical Suite
 syndicate-pai-ui-carrier = Carrier: {$name}
 syndicate-pai-ui-master = Owner: {$name}
+syndicate-pai-ui-manual-section = Manual reservoir
 syndicate-pai-ui-current-reagent = Active reagent: {$reagent}
 syndicate-pai-ui-volume = Reservoir: {$current} / {$max}u
-syndicate-pai-ui-reagents = Stored reagents
+syndicate-pai-ui-reagents = Stored reagents (manual)
 syndicate-pai-ui-inject = Inject owner
 syndicate-pai-ui-imprint = Imprint carrier DNA
 syndicate-pai-ui-directive = Supplemental directive
@@ -12,7 +13,19 @@ syndicate-pai-ui-set-directive = Set directive
 syndicate-pai-ui-none = none
 syndicate-pai-ui-reagent-selected = ▶ {$name}
 
+syndicate-pai-ui-auto-section = Automatic dispenser
+syndicate-pai-ui-auto-enabled = Autodose: ON (click to disable)
+syndicate-pai-ui-auto-disabled = Autodose: OFF (click to enable)
+syndicate-pai-ui-auto-reagent = Emergency reagent: {$reagent}
+syndicate-pai-ui-auto-volume = Emergency reservoir: {$current} / {$max}u
+syndicate-pai-ui-auto-cooldown = Autodose cooldown: {$seconds}s
+syndicate-pai-ui-auto-cooldown-ready = Autodose cooldown: ready
+syndicate-pai-ui-auto-threshold = Owner health threshold (%)
+syndicate-pai-ui-auto-threshold-apply = Apply threshold
+syndicate-pai-ui-auto-reagents = Stored reagents (auto)
+
 syndicate-pai-no-hypo = Medical injector not found. Purchase the medical module.
+syndicate-pai-no-auto-hypo = Emergency reservoir not found. Purchase the auto-dispenser module.
 syndicate-pai-no-carrier = No organic carrier detected.
 syndicate-pai-no-owner = No owner bound. Imprint DNA first.
 syndicate-pai-no-analyzer = Health analyzer module not found.
@@ -26,6 +39,7 @@ syndicate-pai-directive-denied = Only the owner or carrier can set directives.
 syndicate-pai-directive-updated = Supplemental directive updated: {$directive}
 syndicate-pai-module-locked = Module not installed. Buy it from the built-in shop.
 syndicate-pai-module-medical-unlocked = Medical module installed.
+syndicate-pai-module-auto-unlocked = Automatic dispenser module installed.
 syndicate-pai-module-door-unlocked = Doorjack module installed.
 syndicate-pai-module-sec-unlocked = Security records module installed.
 syndicate-pai-module-disguise-unlocked = Disguise as a normal pAI activated.
@@ -33,12 +47,15 @@ syndicate-pai-door-hack-missing = Doorjack module is not ready.
 syndicate-pai-door-hack-cooldown = Doorjack recharging: {$seconds}s.
 syndicate-pai-door-hack-none = No doors in range to disrupt.
 syndicate-pai-door-hack-success = Doors disrupted: {$count}.
+syndicate-pai-auto-injected = Autodose injected the owner: {$owner}.
 
 syndicate-pai-verb-imprint = Imprint DNA as owner
 syndicate-pai-verb-clear-directive = Clear supplemental directive
 
 syndicate-pai-listing-medical-name = Medical Module
 syndicate-pai-listing-medical-desc = Regenerating combat hypospray, instant owner scan, and owner-only injection.
+syndicate-pai-listing-auto-name = Automatic Dispenser
+syndicate-pai-listing-auto-desc = Separate emergency reservoir. Auto-injects the owner at low health. 10 minute cooldown.
 syndicate-pai-listing-door-name = Doorjack
 syndicate-pai-listing-door-desc = Access-disrupt pulse on doors within 3 tiles of your owner. Two minute cooldown.
 syndicate-pai-listing-sec-name = Security Records

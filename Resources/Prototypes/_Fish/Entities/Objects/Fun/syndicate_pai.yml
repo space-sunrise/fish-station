@@ -40,6 +40,47 @@
     breakOnHandChange: false
   - type: BorgHypospray
 
+# Экстренный резервуар автодозатора — медленнее и меньше объём
+- type: entity
+  parent: HypoBorgMedicalSyndicate
+  id: HypoPaiSyndicateAuto
+  name: syndicate pAI emergency hypospray
+  description: An emergency auto-dispenser reservoir for a Syndicate pAI. Regenerates slowly and only injects the bound owner.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SyndicatePaiAutoHypo
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 10
+  - type: SolutionRegeneration
+    solution: hypospray
+    duration: 2
+    generated:
+      reagents:
+      - ReagentId: Omnizine
+        Quantity: 0.5
+  - type: SolutionRegenerationSwitcher
+    options:
+    - ReagentId: Omnizine
+      Quantity: 0.5
+    - ReagentId: Epinephrine
+      Quantity: 0.5
+    - ReagentId: TranexamicAcid
+      Quantity: 0.5
+    - ReagentId: DexalinPlus
+      Quantity: 0.5
+    keepSolution: false
+  - type: Injector
+    solutionName: hypospray
+    activeModeProtoId: HyposprayDynamicMode
+    allowedModes:
+    - HyposprayDynamicMode
+    currentTransferAmount: 5
+    needHand: false
+    breakOnHandChange: false
+  - type: BorgHypospray
+
 - type: entity
   parent: GasAnalyzer
   id: GasAnalyzerPai

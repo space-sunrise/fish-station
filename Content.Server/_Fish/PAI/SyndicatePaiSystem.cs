@@ -23,7 +23,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._Fish.PAI;
 
-public sealed class SyndicatePaiSystem : SharedSyndicatePaiSystem
+public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
 {
     [Dependency] private readonly SharedPopupSystem _serverPopup = default!;
     [Dependency] private readonly SharedActionsSystem _serverActions = default!;
@@ -47,6 +47,7 @@ public sealed class SyndicatePaiSystem : SharedSyndicatePaiSystem
     private static readonly HashSet<string> ModuleListingIds =
     [
         "SyndicatePaiMedical",
+        "SyndicatePaiAutoDispenser",
         "SyndicatePaiDoorHack",
         "SyndicatePaiSecRecords",
         "SyndicatePaiDisguise",
@@ -67,6 +68,8 @@ public sealed class SyndicatePaiSystem : SharedSyndicatePaiSystem
                 subs.Event<BoundUIOpenedEvent>(OnUiOpened);
                 subs.Event<SyndicatePaiInjectCarrierMessage>(OnInjectMessage);
                 subs.Event<SyndicatePaiSelectReagentMessage>(OnSelectMessage);
+                subs.Event<SyndicatePaiSetAutoEnabledMessage>(OnSetAutoEnabled);
+                subs.Event<SyndicatePaiSetAutoThresholdMessage>(OnSetAutoThreshold);
                 subs.Event<SyndicatePaiSetDirectiveMessage>(OnSetDirectiveMessage);
                 subs.Event<SyndicatePaiImprintMasterMessage>(OnImprintMessage);
             });
@@ -89,11 +92,6 @@ public sealed class SyndicatePaiSystem : SharedSyndicatePaiSystem
     {
         // Только владелец (мастер); без клика по спрайту
         TryInjectOwner(ent, args.Actor);
-    }
-
-    private void OnSelectMessage(Entity<SyndicatePaiComponent> ent, ref SyndicatePaiSelectReagentMessage args)
-    {
-        TrySelectReagent(ent, args.Actor, args.Index);
     }
 
     private void OnSetDirectiveMessage(Entity<SyndicatePaiComponent> ent, ref SyndicatePaiSetDirectiveMessage args)
@@ -318,6 +316,9 @@ public sealed class SyndicatePaiSystem : SharedSyndicatePaiSystem
             case "SyndicatePaiMedical":
                 UnlockMedical(ent);
                 break;
+            case "SyndicatePaiAutoDispenser":
+                UnlockAutoDispenser(ent);
+                break;
             case "SyndicatePaiDoorHack":
                 UnlockDoorHack(ent);
                 break;
@@ -346,6 +347,9 @@ public sealed class SyndicatePaiSystem : SharedSyndicatePaiSystem
         // Инструменты только во внутреннем контейнере — без innate-кликов по чужим
         GrantInnateTool(ent, ent.Comp.HypoPrototype, entityTarget: true, grantAction: false);
         GrantInnateTool(ent, ent.Comp.AnalyzerPrototype, entityTarget: true, grantAction: false);
+
+        if (TryGetManualHypo(ent, out var manualHypo) && manualHypo != null)
+            ClearHypoReservoir(manualHypo.Value);
 
         // OpenMedical выдаётся через productAction листинга; ScanOwner — отдельно
         _serverActions.AddAction(ent.Owner, ref ent.Comp.ScanOwnerActionEntity, ent.Comp.ScanOwnerAction);

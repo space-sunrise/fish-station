@@ -13,14 +13,27 @@ public sealed class SyndicatePaiBoundUserInterfaceState : BoundUserInterfaceStat
 {
     public string? CarrierName;
     public string? MasterName;
+    public string? SupplementalDirective;
+    public bool MedicalUnlocked;
+    public bool CanInjectOwner;
+
+    // Ручной резервуар
     public string? CurrentReagent;
     public float CurrentVolume;
     public float MaxVolume;
     public List<SyndicatePaiReagentEntry> Reagents = [];
     public int CurrentReagentIndex;
-    public string? SupplementalDirective;
-    public bool MedicalUnlocked;
-    public bool CanInjectOwner;
+
+    // Автодозатор
+    public bool AutoDispenserUnlocked;
+    public bool AutoDispenserEnabled;
+    public float AutoHealthThreshold;
+    public string? AutoReagent;
+    public float AutoVolume;
+    public float AutoMaxVolume;
+    public List<SyndicatePaiReagentEntry> AutoReagents = [];
+    public int AutoReagentIndex;
+    public float AutoCooldownRemaining;
 }
 
 [Serializable, NetSerializable]
@@ -38,10 +51,34 @@ public sealed class SyndicatePaiInjectCarrierMessage : BoundUserInterfaceMessage
 public sealed class SyndicatePaiSelectReagentMessage : BoundUserInterfaceMessage
 {
     public int Index;
+    public bool AutoReservoir;
 
-    public SyndicatePaiSelectReagentMessage(int index)
+    public SyndicatePaiSelectReagentMessage(int index, bool autoReservoir = false)
     {
         Index = index;
+        AutoReservoir = autoReservoir;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class SyndicatePaiSetAutoEnabledMessage : BoundUserInterfaceMessage
+{
+    public bool Enabled;
+
+    public SyndicatePaiSetAutoEnabledMessage(bool enabled)
+    {
+        Enabled = enabled;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class SyndicatePaiSetAutoThresholdMessage : BoundUserInterfaceMessage
+{
+    public float Threshold;
+
+    public SyndicatePaiSetAutoThresholdMessage(float threshold)
+    {
+        Threshold = threshold;
     }
 }
 

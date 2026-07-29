@@ -2,6 +2,7 @@ using Content.Shared._Fish.PAI;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
+using System.Globalization;
 using System.Numerics;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
@@ -22,7 +23,9 @@ public sealed class SyndicatePaiBoundUserInterface : BoundUserInterface
         _window = new SyndicatePaiWindow();
         _window.OnClose += Close;
         _window.OnInject += () => SendMessage(new SyndicatePaiInjectCarrierMessage());
-        _window.OnSelectReagent += index => SendMessage(new SyndicatePaiSelectReagentMessage(index));
+        _window.OnSelectReagent += (index, auto) => SendMessage(new SyndicatePaiSelectReagentMessage(index, auto));
+        _window.OnSetAutoEnabled += enabled => SendMessage(new SyndicatePaiSetAutoEnabledMessage(enabled));
+        _window.OnSetAutoThreshold += threshold => SendMessage(new SyndicatePaiSetAutoThresholdMessage(threshold));
         _window.OnSetDirective += text => SendMessage(new SyndicatePaiSetDirectiveMessage(text));
         _window.OnImprint += () => SendMessage(new SyndicatePaiImprintMasterMessage());
         _window.OpenCentered();
@@ -52,7 +55,9 @@ public sealed class SyndicatePaiWindow : DefaultWindow
 {
     public event Action? OnInject;
     public event Action? OnImprint;
-    public event Action<int>? OnSelectReagent;
+    public event Action<int, bool>? OnSelectReagent;
+    public event Action<bool>? OnSetAutoEnabled;
+    public event Action<float>? OnSetAutoThreshold;
     public event Action<string>? OnSetDirective;
 
     private readonly Label _carrierLabel;
@@ -64,11 +69,21 @@ public sealed class SyndicatePaiWindow : DefaultWindow
     private readonly BoxContainer _reagentList;
     private readonly Button _injectButton;
 
+    private readonly Control _autoSection;
+    private readonly Button _autoToggleButton;
+    private readonly Label _autoReagentLabel;
+    private readonly Label _autoVolumeLabel;
+    private readonly Label _autoCooldownLabel;
+    private readonly Label _autoThresholdLabel;
+    private readonly LineEdit _autoThresholdEdit;
+    private readonly BoxContainer _autoReagentList;
+    private bool _autoEnabled;
+
     public SyndicatePaiWindow()
     {
         Title = Loc.GetString("syndicate-pai-ui-title");
-        MinSize = new Vector2(420, 460);
-        SetSize = new Vector2(420, 460);
+        MinSize = new Vector2(440, 620);
+        SetSize = new Vector2(440, 620);
 
         var root = new BoxContainer
         {
@@ -113,11 +128,59 @@ public sealed class SyndicatePaiWindow : DefaultWindow
 
         root.AddChild(_carrierLabel);
         root.AddChild(_masterLabel);
+        root.AddChild(new Label { Text = Loc.GetString("syndicate-pai-ui-manual-section") });
         root.AddChild(_reagentLabel);
         root.AddChild(_volumeLabel);
         root.AddChild(actionRow);
         root.AddChild(new Label { Text = Loc.GetString("syndicate-pai-ui-reagents") });
         root.AddChild(_reagentList);
+
+        _autoToggleButton = new Button();
+        _autoToggleButton.OnPressed += _ => OnSetAutoEnabled?.Invoke(!_autoEnabled);
+
+        _autoReagentLabel = new Label();
+        _autoVolumeLabel = new Label();
+        _autoCooldownLabel = new Label();
+        _autoThresholdLabel = new Label { Text = Loc.GetString("syndicate-pai-ui-auto-threshold") };
+        _autoThresholdEdit = new LineEdit { PlaceHolder = "40" };
+        var applyThreshold = new Button { Text = Loc.GetString("syndicate-pai-ui-auto-threshold-apply") };
+        applyThreshold.OnPressed += _ =>
+        {
+            if (float.TryParse(_autoThresholdEdit.Text, NumberStyles.Float, CultureInfo.InvariantCulture, out var value))
+                OnSetAutoThreshold?.Invoke(value);
+        };
+
+        _autoReagentList = new BoxContainer
+        {
+            Orientation = LayoutOrientation.Vertical,
+            SeparationOverride = 2,
+        };
+
+        var thresholdRow = new BoxContainer
+        {
+            Orientation = LayoutOrientation.Horizontal,
+            SeparationOverride = 4,
+        };
+        thresholdRow.AddChild(_autoThresholdEdit);
+        thresholdRow.AddChild(applyThreshold);
+
+        _autoSection = new BoxContainer
+        {
+            Orientation = LayoutOrientation.Vertical,
+            SeparationOverride = 4,
+            Visible = false,
+        };
+        _autoSection.AddChild(new Label { Text = Loc.GetString("syndicate-pai-ui-auto-section") });
+        _autoSection.AddChild(_autoToggleButton);
+        _autoSection.AddChild(_autoReagentLabel);
+        _autoSection.AddChild(_autoVolumeLabel);
+        _autoSection.AddChild(_autoCooldownLabel);
+        _autoSection.AddChild(_autoThresholdLabel);
+        _autoSection.AddChild(thresholdRow);
+        _autoSection.AddChild(new Label { Text = Loc.GetString("syndicate-pai-ui-auto-reagents") });
+        _autoSection.AddChild(_autoReagentList);
+
+        root.AddChild(_autoSection);
         root.AddChild(_directiveLabel);
         root.AddChild(_directiveEdit);
         root.AddChild(setDirectiveButton);
@@ -138,6 +201,7 @@ public sealed class SyndicatePaiWindow : DefaultWindow
             ("max", state.MaxVolume.ToString("0.#")));
 
         _injectButton.Disabled = !state.CanInjectOwner;
+        _injectButton.Visible = state.MedicalUnlocked;
 
         if (state.SupplementalDirective != null)
             _directiveEdit.Text = state.SupplementalDirective;
@@ -152,10 +216,49 @@ public sealed class SyndicatePaiWindow : DefaultWindow
                     ? Loc.GetString("syndicate-pai-ui-reagent-selected", ("name", reagent.Name))
                     : reagent.Name,
                 HorizontalExpand = true,
+                Visible = state.MedicalUnlocked,
             };
             var index = reagent.Index;
-            button.OnPressed += _ => OnSelectReagent?.Invoke(index);
+            button.OnPressed += _ => OnSelectReagent?.Invoke(index, false);
             _reagentList.AddChild(button);
+        }
+
+        _autoSection.Visible = state.AutoDispenserUnlocked;
+        if (!state.AutoDispenserUnlocked)
+            return;
+
+        _autoEnabled = state.AutoDispenserEnabled;
+        _autoToggleButton.Text = state.AutoDispenserEnabled
+            ? Loc.GetString("syndicate-pai-ui-auto-enabled")
+            : Loc.GetString("syndicate-pai-ui-auto-disabled");
+
+        _autoReagentLabel.Text = Loc.GetString("syndicate-pai-ui-auto-reagent",
+            ("reagent", state.AutoReagent ?? Loc.GetString("syndicate-pai-ui-none")));
+        _autoVolumeLabel.Text = Loc.GetString("syndicate-pai-ui-auto-volume",
+            ("current", state.AutoVolume.ToString("0.#")),
+            ("max", state.AutoMaxVolume.ToString("0.#")));
+
+        _autoCooldownLabel.Text = state.AutoCooldownRemaining > 0
+            ? Loc.GetString("syndicate-pai-ui-auto-cooldown", ("seconds", ((int)state.AutoCooldownRemaining).ToString()))
+            : Loc.GetString("syndicate-pai-ui-auto-cooldown-ready");
+
+        if (!_autoThresholdEdit.HasKeyboardFocus())
+            _autoThresholdEdit.Text = state.AutoHealthThreshold.ToString("0", CultureInfo.InvariantCulture);
+
+        _autoReagentList.RemoveAllChildren();
+        foreach (var reagent in state.AutoReagents)
+        {
+            var selected = reagent.Index == state.AutoReagentIndex;
+            var button = new Button
+            {
+                Text = selected
+                    ? Loc.GetString("syndicate-pai-ui-reagent-selected", ("name", reagent.Name))
+                    : reagent.Name,
+                HorizontalExpand = true,
+            };
+            var index = reagent.Index;
+            button.OnPressed += _ => OnSelectReagent?.Invoke(index, true);
+            _autoReagentList.AddChild(button);
         }
     }
 }

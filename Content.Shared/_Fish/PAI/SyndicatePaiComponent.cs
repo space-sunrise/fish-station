@@ -18,6 +18,12 @@ public sealed partial class SyndicatePaiComponent : Component
     public EntProtoId HypoPrototype = "HypoPaiSyndicateMedical";
 
     /// <summary>
+    /// Prototype of the emergency auto-dispenser hypo (separate reservoir).
+    /// </summary>
+    [DataField]
+    public EntProtoId AutoHypoPrototype = "HypoPaiSyndicateAuto";
+
+    /// <summary>
     /// Health analyzer granted with the medical module.
     /// </summary>
     [DataField]
@@ -63,6 +69,21 @@ public sealed partial class SyndicatePaiComponent : Component
     public bool MedicalUnlocked;
 
     [DataField, AutoNetworkedField]
+    public bool AutoDispenserUnlocked;
+
+    /// <summary>
+    /// Автодозатор включён игроком.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool AutoDispenserEnabled;
+
+    /// <summary>
+    /// Порог оставшегося здоровья владельца (%) для автоинъекции (0–100).
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float AutoHealthThreshold = 40f;
+
+    [DataField, AutoNetworkedField]
     public bool DoorHackUnlocked;
 
     [DataField, AutoNetworkedField]
@@ -81,10 +102,22 @@ public sealed partial class SyndicatePaiComponent : Component
     public TimeSpan NextDoorHackTime;
 
     /// <summary>
+    /// Next time auto-dispenser may inject (server timing).
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
+    public TimeSpan NextAutoInjectTime;
+
+    /// <summary>
     /// Door-hack cooldown between uses.
     /// </summary>
     [DataField]
     public TimeSpan DoorHackCooldown = TimeSpan.FromMinutes(2);
+
+    /// <summary>
+    /// Cooldown after an automatic injection.
+    /// </summary>
+    [DataField]
+    public TimeSpan AutoInjectCooldown = TimeSpan.FromMinutes(10);
 
     /// <summary>
     /// Radius (tiles) around the master for door-hack.

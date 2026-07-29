@@ -16,6 +16,19 @@
     stock: 1
 
 - type: listing
+  id: SyndicatePaiAutoDispenser
+  name: syndicate-pai-listing-auto-name
+  description: syndicate-pai-listing-auto-desc
+  icon: { sprite: Objects/Specific/Medical/syndihypo.rsi, state: hypo }
+  cost:
+    SiliconMemory: 5
+  categories:
+  - SyndicatePAIModules
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: SyndicatePaiDoorHack
   name: syndicate-pai-listing-door-name
   description: syndicate-pai-listing-door-desc
