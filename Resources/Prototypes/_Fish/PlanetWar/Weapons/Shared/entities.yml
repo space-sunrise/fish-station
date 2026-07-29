@@ -911,13 +911,7 @@
   - type: SubdermalImplant
     implantAction: ActionActivateBombGrenadeImplantWM
   - type: TriggerOnActivateImplant
-  - type: ExplodeOnTrigger
-  - type: Explosive
-    explosionType: Default
-    maxIntensity: 50
-    intensitySlope: 5
-    totalIntensity: 300
-    maxTileBreak: 1
+  - type: PlanetWarStunDrone
   #- type: DeleteOnTrigger
 
 

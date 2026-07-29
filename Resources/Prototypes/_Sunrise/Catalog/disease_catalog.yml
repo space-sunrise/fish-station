@@ -203,7 +203,6 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 6
-
 - type: listing
   id: Lethal
   name: listing-disease-lethal-name
@@ -216,4 +215,4 @@
   - DiseaseEvolutionCategory
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 1
+    stock: 5

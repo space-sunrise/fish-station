@@ -399,7 +399,9 @@ public sealed class DiseaseRoleSystem : SharedDiseaseRoleSystem
 
             // Award reward
             AddMoney(diseaseUid, 10);
-            _popup.PopupEntity(Loc.GetString("disease-death-reward", ("points", 10)), diseaseUid, PopupType.Medium);
+            _popup.PopupEntity(Loc.GetString("disease-death-reward", ("points", 10)), diseaseUid, diseaseUid, PopupType.Medium);
         }
     }
 }
+
+
