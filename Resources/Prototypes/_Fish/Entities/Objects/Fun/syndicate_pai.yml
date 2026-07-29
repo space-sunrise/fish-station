@@ -13,6 +13,7 @@
         maxVol: 20
   - type: SolutionRegeneration
     solution: hypospray
+    duration: 2
     generated:
       reagents:
       - ReagentId: Omnizine
@@ -32,9 +33,9 @@
     keepSolution: false
   - type: Injector
     solutionName: hypospray
-    activeModeProtoId: HyposprayDynamicMode
+    activeModeProtoId: HypoPaiSyndicateMode
     allowedModes:
-    - HyposprayDynamicMode
+    - HypoPaiSyndicateMode
     currentTransferAmount: 5
     needHand: false
     breakOnHandChange: false
@@ -55,27 +56,25 @@
         maxVol: 15
   - type: SolutionRegeneration
     solution: hypospray
-    duration: 2
+    duration: 4
     generated:
       reagents:
-      - ReagentId: Omnizine
+      - ReagentId: SyndicatePaiTraumaPack
         Quantity: 0.5
   - type: SolutionRegenerationSwitcher
     options:
-    - ReagentId: Omnizine
+    - ReagentId: SyndicatePaiTraumaPack
       Quantity: 0.5
-    - ReagentId: Epinephrine
+    - ReagentId: SyndicatePaiBurnPack
       Quantity: 0.5
-    - ReagentId: TranexamicAcid
-      Quantity: 0.5
-    - ReagentId: DexalinPlus
+    - ReagentId: SyndicatePaiCrisisPack
       Quantity: 0.5
     keepSolution: false
   - type: Injector
     solutionName: hypospray
-    activeModeProtoId: HyposprayDynamicMode
+    activeModeProtoId: HypoPaiSyndicateMode
     allowedModes:
-    - HyposprayDynamicMode
+    - HypoPaiSyndicateMode
     currentTransferAmount: 5
     needHand: false
     breakOnHandChange: false
@@ -93,13 +92,6 @@
     requireActiveHand: false
     singleUser: true
     key: enum.GasAnalyzerUiKey.Key
-
-- type: entity
-  parent: RemoteSignaller
-  id: RemoteSignallerPai
-  name: pAI remote signaller
-  description: An integrated remote signaller module for a personal AI.
-  categories: [ HideSpawnMenu ]
 
 # Actions
 

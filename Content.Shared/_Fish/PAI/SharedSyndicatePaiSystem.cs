@@ -3,7 +3,9 @@ using Content.Shared.Actions;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Prototypes;
 using Content.Shared.Chemistry.Reagent;
+using Content.Shared.FixedPoint;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -206,6 +208,42 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
         }
 
         return TrySelectReagentOnHypo(ent, user, hypo.Value, index, quiet);
+    }
+
+    /// <summary>
+    /// Выбор объёма одной инъекции для ручного гипо.
+    /// </summary>
+    public bool TrySetTransferAmount(Entity<SyndicatePaiComponent> ent, EntityUid user, FixedPoint2 amount, bool quiet = false)
+    {
+        if (!ent.Comp.MedicalUnlocked)
+        {
+            if (!quiet)
+                _popup.PopupClient(Loc.GetString("syndicate-pai-module-locked"), ent.Owner, user);
+            return false;
+        }
+
+        if (!TryGetManualHypo(ent, out var hypo) || hypo == null)
+        {
+            if (!quiet)
+                _popup.PopupClient(Loc.GetString("syndicate-pai-no-hypo"), ent.Owner, user);
+            return false;
+        }
+
+        if (!TryComp<InjectorComponent>(hypo.Value, out var injector))
+            return false;
+
+        if (!_prototypes.Resolve(injector.ActiveModeProtoId, out InjectorModePrototype? mode) ||
+            !mode.TransferAmounts.Contains(amount))
+        {
+            if (!quiet)
+                _popup.PopupClient(Loc.GetString("syndicate-pai-invalid-dose"), ent.Owner, user);
+            return false;
+        }
+
+        injector.CurrentTransferAmount = amount;
+        Dirty(hypo.Value, injector);
+        UpdateUiState(ent);
+        return true;
     }
 
     private bool TrySelectReagentOnHypo(Entity<SyndicatePaiComponent> ent, EntityUid user, EntityUid hypo, int index, bool quiet)
@@ -452,6 +490,17 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
 
         FillHypoUiState(ent, TryGetManualHypo, ref state.CurrentReagent, ref state.CurrentVolume, ref state.MaxVolume,
             state.Reagents, ref state.CurrentReagentIndex);
+
+        if (TryGetManualHypo(ent, out var manualHypo) && manualHypo != null &&
+            TryComp<InjectorComponent>(manualHypo.Value, out var injector))
+        {
+            state.InjectTransferAmount = injector.CurrentTransferAmount?.Float() ?? 5f;
+            if (_prototypes.Resolve(injector.ActiveModeProtoId, out InjectorModePrototype? mode))
+            {
+                foreach (var amount in mode.TransferAmounts)
+                    state.InjectTransferAmounts.Add(amount.Float());
+            }
+        }
 
         FillHypoUiState(ent, TryGetAutoHypo, ref state.AutoReagent, ref state.AutoVolume, ref state.AutoMaxVolume,
             state.AutoReagents, ref state.AutoReagentIndex);

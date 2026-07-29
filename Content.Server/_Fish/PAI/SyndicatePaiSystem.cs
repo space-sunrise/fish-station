@@ -9,6 +9,7 @@ using Content.Shared.Doors.Components;
 using Content.Shared.CriminalRecords;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
+using Content.Shared.FixedPoint;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.MedicalScanner;
@@ -37,7 +38,6 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
     [Dependency] private readonly HealthAnalyzerSystem _healthAnalyzer = default!;
     [Dependency] private readonly ItemToggleSystem _itemToggle = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _serverUi = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     private const int MaxDirectiveLength = 300;
 
@@ -52,7 +52,6 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
         "SyndicatePaiSecRecords",
         "SyndicatePaiDisguise",
         "SyndicatePaiAtmosSensor",
-        "SyndicatePaiRemoteSignaller",
         "SyndicatePaiMassScanner",
         "SyndicatePaiMidi",
         "SyndicatePaiStationMap",
@@ -68,6 +67,7 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
                 subs.Event<BoundUIOpenedEvent>(OnUiOpened);
                 subs.Event<SyndicatePaiInjectCarrierMessage>(OnInjectMessage);
                 subs.Event<SyndicatePaiSelectReagentMessage>(OnSelectMessage);
+                subs.Event<SyndicatePaiSetTransferAmountMessage>(OnSetTransferAmount);
                 subs.Event<SyndicatePaiSetAutoEnabledMessage>(OnSetAutoEnabled);
                 subs.Event<SyndicatePaiSetAutoThresholdMessage>(OnSetAutoThreshold);
                 subs.Event<SyndicatePaiSetDirectiveMessage>(OnSetDirectiveMessage);
@@ -92,6 +92,11 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
     {
         // Только владелец (мастер); без клика по спрайту
         TryInjectOwner(ent, args.Actor);
+    }
+
+    private void OnSetTransferAmount(Entity<SyndicatePaiComponent> ent, ref SyndicatePaiSetTransferAmountMessage args)
+    {
+        TrySetTransferAmount(ent, args.Actor, FixedPoint2.New(args.Amount));
     }
 
     private void OnSetDirectiveMessage(Entity<SyndicatePaiComponent> ent, ref SyndicatePaiSetDirectiveMessage args)
@@ -272,6 +277,8 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
 
         if (hacked <= 0)
         {
+            // Handled=false — иначе useDelay экшена повесится даже без взлома
+            args.Handled = false;
             _serverPopup.PopupEntity(Loc.GetString("syndicate-pai-door-hack-none"), ent.Owner, args.Performer);
             return;
         }
@@ -331,9 +338,6 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
             case "SyndicatePaiAtmosSensor":
                 GrantInnateTool(ent, "GasAnalyzerPai", entityTarget: false, grantAction: true);
                 break;
-            case "SyndicatePaiRemoteSignaller":
-                GrantInnateTool(ent, "RemoteSignallerPai", entityTarget: false, grantAction: true);
-                break;
             // Programs use productAction in catalog — nothing else here
         }
     }
@@ -385,13 +389,8 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
         if (ent.Comp.Disguised)
             return;
 
+        // Только спрайт (клиент); имя/описание пИИ не меняем
         ent.Comp.Disguised = true;
-        if (_proto.TryIndex<EntityPrototype>("PersonalAI", out var personalAi))
-        {
-            _metadata.SetEntityName(ent.Owner, personalAi.Name);
-            _metadata.SetEntityDescription(ent.Owner, personalAi.Description);
-        }
-
         Dirty(ent);
 
         _serverPopup.PopupEntity(Loc.GetString("syndicate-pai-module-disguise-unlocked"), ent.Owner, ent.Owner);

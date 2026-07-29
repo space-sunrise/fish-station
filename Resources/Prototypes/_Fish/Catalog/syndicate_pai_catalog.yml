@@ -85,19 +85,6 @@
     stock: 1
 
 - type: listing
-  id: SyndicatePaiRemoteSignaller
-  name: syndicate-pai-listing-signaller-name
-  description: syndicate-pai-listing-signaller-desc
-  icon: { sprite: Objects/Devices/signaller.rsi, state: signaller }
-  cost:
-    SiliconMemory: 1
-  categories:
-  - SyndicatePAIModules
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
-- type: listing
   id: SyndicatePaiMassScanner
   name: syndicate-pai-listing-mass-scanner-name
   description: syndicate-pai-listing-mass-scanner-desc

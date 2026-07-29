@@ -23,6 +23,8 @@ public sealed class SyndicatePaiBoundUserInterfaceState : BoundUserInterfaceStat
     public float MaxVolume;
     public List<SyndicatePaiReagentEntry> Reagents = [];
     public int CurrentReagentIndex;
+    public float InjectTransferAmount;
+    public List<float> InjectTransferAmounts = [];
 
     // Автодозатор
     public bool AutoDispenserUnlocked;
@@ -95,3 +97,14 @@ public sealed class SyndicatePaiSetDirectiveMessage : BoundUserInterfaceMessage
 
 [Serializable, NetSerializable]
 public sealed class SyndicatePaiImprintMasterMessage : BoundUserInterfaceMessage;
+
+[Serializable, NetSerializable]
+public sealed class SyndicatePaiSetTransferAmountMessage : BoundUserInterfaceMessage
+{
+    public float Amount;
+
+    public SyndicatePaiSetTransferAmountMessage(float amount)
+    {
+        Amount = amount;
+    }
+}

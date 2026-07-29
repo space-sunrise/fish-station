@@ -4,9 +4,6 @@ ent-HypoPaiSyndicateMedical = syndicate pAI hypospray
 ent-GasAnalyzerPai = pAI atmosphere sensor
     .desc = An integrated atmosphere sensor module for a personal AI.
 
-ent-RemoteSignallerPai = pAI remote signaller
-    .desc = An integrated remote signaller module for a personal AI.
-
 ent-ActionSyndicatePaiOpenMedical = Medical Suite
     .desc = Open the Syndicate pAI medical suite.
 

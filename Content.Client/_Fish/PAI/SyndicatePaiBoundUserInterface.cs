@@ -24,6 +24,7 @@ public sealed class SyndicatePaiBoundUserInterface : BoundUserInterface
         _window.OnClose += Close;
         _window.OnInject += () => SendMessage(new SyndicatePaiInjectCarrierMessage());
         _window.OnSelectReagent += (index, auto) => SendMessage(new SyndicatePaiSelectReagentMessage(index, auto));
+        _window.OnSetTransferAmount += amount => SendMessage(new SyndicatePaiSetTransferAmountMessage(amount));
         _window.OnSetAutoEnabled += enabled => SendMessage(new SyndicatePaiSetAutoEnabledMessage(enabled));
         _window.OnSetAutoThreshold += threshold => SendMessage(new SyndicatePaiSetAutoThresholdMessage(threshold));
         _window.OnSetDirective += text => SendMessage(new SyndicatePaiSetDirectiveMessage(text));
@@ -56,6 +57,7 @@ public sealed class SyndicatePaiWindow : DefaultWindow
     public event Action? OnInject;
     public event Action? OnImprint;
     public event Action<int, bool>? OnSelectReagent;
+    public event Action<float>? OnSetTransferAmount;
     public event Action<bool>? OnSetAutoEnabled;
     public event Action<float>? OnSetAutoThreshold;
     public event Action<string>? OnSetDirective;
@@ -64,9 +66,11 @@ public sealed class SyndicatePaiWindow : DefaultWindow
     private readonly Label _masterLabel;
     private readonly Label _reagentLabel;
     private readonly Label _volumeLabel;
+    private readonly Label _doseLabel;
     private readonly Label _directiveLabel;
     private readonly LineEdit _directiveEdit;
     private readonly BoxContainer _reagentList;
+    private readonly BoxContainer _doseRow;
     private readonly Button _injectButton;
 
     private readonly Control _autoSection;
@@ -83,8 +87,8 @@ public sealed class SyndicatePaiWindow : DefaultWindow
     public SyndicatePaiWindow()
     {
         Title = Loc.GetString("syndicate-pai-ui-title");
-        MinSize = new Vector2(440, 620);
-        SetSize = new Vector2(440, 620);
+        MinSize = new Vector2(440, 680);
+        SetSize = new Vector2(440, 680);
 
         var root = new BoxContainer
         {
@@ -97,6 +101,7 @@ public sealed class SyndicatePaiWindow : DefaultWindow
         _masterLabel = new Label();
         _reagentLabel = new Label();
         _volumeLabel = new Label();
+        _doseLabel = new Label();
         _directiveLabel = new Label { Text = Loc.GetString("syndicate-pai-ui-directive") };
 
         _directiveEdit = new LineEdit
@@ -121,6 +126,12 @@ public sealed class SyndicatePaiWindow : DefaultWindow
         actionRow.AddChild(_injectButton);
         actionRow.AddChild(imprintButton);
 
+        _doseRow = new BoxContainer
+        {
+            Orientation = LayoutOrientation.Horizontal,
+            SeparationOverride = 4,
+        };
+
         _reagentList = new BoxContainer
         {
             Orientation = LayoutOrientation.Vertical,
@@ -132,6 +143,8 @@ public sealed class SyndicatePaiWindow : DefaultWindow
         root.AddChild(new Label { Text = Loc.GetString("syndicate-pai-ui-manual-section") });
         root.AddChild(_reagentLabel);
         root.AddChild(_volumeLabel);
+        root.AddChild(_doseLabel);
+        root.AddChild(_doseRow);
         root.AddChild(actionRow);
         root.AddChild(new Label { Text = Loc.GetString("syndicate-pai-ui-reagents") });
         root.AddChild(_reagentList);
@@ -208,9 +221,28 @@ public sealed class SyndicatePaiWindow : DefaultWindow
         _volumeLabel.Text = Loc.GetString("syndicate-pai-ui-volume",
             ("current", state.CurrentVolume.ToString("0.#")),
             ("max", state.MaxVolume.ToString("0.#")));
+        _doseLabel.Text = Loc.GetString("syndicate-pai-ui-dose-selected",
+            ("amount", state.InjectTransferAmount.ToString("0.#")));
 
         _injectButton.Disabled = !state.CanInjectOwner;
         _injectButton.Visible = state.MedicalUnlocked;
+        _doseLabel.Visible = state.MedicalUnlocked;
+        _doseRow.Visible = state.MedicalUnlocked;
+
+        _doseRow.RemoveAllChildren();
+        foreach (var amount in state.InjectTransferAmounts)
+        {
+            var selected = Math.Abs(amount - state.InjectTransferAmount) < 0.01f;
+            var button = new Button
+            {
+                Text = selected
+                    ? Loc.GetString("syndicate-pai-ui-dose-selected-button", ("amount", amount.ToString("0.#")))
+                    : Loc.GetString("syndicate-pai-ui-dose-button", ("amount", amount.ToString("0.#"))),
+            };
+            var dose = amount;
+            button.OnPressed += _ => OnSetTransferAmount?.Invoke(dose);
+            _doseRow.AddChild(button);
+        }
 
         if (state.SupplementalDirective != null)
             _directiveEdit.Text = state.SupplementalDirective;

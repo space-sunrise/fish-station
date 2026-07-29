@@ -1,0 +1,80 @@
+# Fish — экстренные наборы автодозатора пИИ (~3 урона/тик, ~45 при дозе 15u)
+
+- type: reagent
+  id: SyndicatePaiTraumaPack
+  name: reagent-name-syndicate-pai-trauma-pack
+  group: Medicine
+  desc: reagent-desc-syndicate-pai-trauma-pack
+  physicalDesc: reagent-physical-desc-opaque
+  flavor: medicine
+  color: "#d97706"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:EvenHealthChange
+        damage:
+          Brute: -3
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: SyndicatePaiTraumaPack
+          min: 18
+        damage:
+          types:
+            Asphyxiation: 0.4
+            Poison: 0.8
+
+- type: reagent
+  id: SyndicatePaiBurnPack
+  name: reagent-name-syndicate-pai-burn-pack
+  group: Medicine
+  desc: reagent-desc-syndicate-pai-burn-pack
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: medicine
+  color: "#0ea5e9"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: -1
+            Shock: -1
+            Cold: -1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: SyndicatePaiBurnPack
+          min: 15
+        damage:
+          types:
+            Asphyxiation: 0.5
+          groups:
+            Brute: 0.4
+
+- type: reagent
+  id: SyndicatePaiCrisisPack
+  name: reagent-name-syndicate-pai-crisis-pack
+  group: Medicine
+  desc: reagent-desc-syndicate-pai-crisis-pack
+  physicalDesc: reagent-physical-desc-viscous
+  flavor: medicine
+  color: "#a855f7"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Asphyxiation: -2
+            Bloodloss: -1
+      - !type:ModifyBleed
+        amount: -1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: SyndicatePaiCrisisPack
+          min: 20
+        damage:
+          types:
+            Bloodloss: 1.5

@@ -483,7 +483,7 @@ uplink-scarf-syndie-green-name = Striped syndicate green scarf
 uplink-scarf-syndie-green-desc = A stylish striped syndicate green scarf. The perfect winter accessory for those with a keen fashion sense, and those who are in the mood to steal something.
 
 uplink-syndicate-pai-name = Syndicate personal ai device
-uplink-syndicate-pai-desc = A Syndicate pAI with syndicate radio, doorjack tools, atmosphere sensor, remote signaller, and an integrated medical hypospray that can inject organics and store regenerating combat medicine.
+uplink-syndicate-pai-desc = A Syndicate pAI with syndicate radio, a built-in module shop, doorjack tools, and an integrated medical hypospray that regenerates medicine and can inject the bound owner.
 
 uplink-bribe-name = Lobbying Bundle
 uplink-bribe-desc = A heartfelt gift that can help you sway someone's opinion. Real or counterfeit? Yes.
