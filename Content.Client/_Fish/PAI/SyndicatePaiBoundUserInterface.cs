@@ -22,7 +22,6 @@ public sealed class SyndicatePaiBoundUserInterface : BoundUserInterface
         _window = new SyndicatePaiWindow();
         _window.OnClose += Close;
         _window.OnInject += () => SendMessage(new SyndicatePaiInjectCarrierMessage());
-        _window.OnCycle += () => SendMessage(new SyndicatePaiCycleReagentMessage());
         _window.OnSelectReagent += index => SendMessage(new SyndicatePaiSelectReagentMessage(index));
         _window.OnSetDirective += text => SendMessage(new SyndicatePaiSetDirectiveMessage(text));
         _window.OnImprint += () => SendMessage(new SyndicatePaiImprintMasterMessage());
@@ -52,7 +51,6 @@ public sealed class SyndicatePaiBoundUserInterface : BoundUserInterface
 public sealed class SyndicatePaiWindow : DefaultWindow
 {
     public event Action? OnInject;
-    public event Action? OnCycle;
     public event Action? OnImprint;
     public event Action<int>? OnSelectReagent;
     public event Action<string>? OnSetDirective;
@@ -64,6 +62,7 @@ public sealed class SyndicatePaiWindow : DefaultWindow
     private readonly Label _directiveLabel;
     private readonly LineEdit _directiveEdit;
     private readonly BoxContainer _reagentList;
+    private readonly Button _injectButton;
 
     public SyndicatePaiWindow()
     {
@@ -89,11 +88,8 @@ public sealed class SyndicatePaiWindow : DefaultWindow
             PlaceHolder = Loc.GetString("syndicate-pai-ui-directive-placeholder"),
         };
 
-        var injectButton = new Button { Text = Loc.GetString("syndicate-pai-ui-inject") };
-        injectButton.OnPressed += _ => OnInject?.Invoke();
-
-        var cycleButton = new Button { Text = Loc.GetString("syndicate-pai-ui-cycle") };
-        cycleButton.OnPressed += _ => OnCycle?.Invoke();
+        _injectButton = new Button { Text = Loc.GetString("syndicate-pai-ui-inject") };
+        _injectButton.OnPressed += _ => OnInject?.Invoke();
 
         var imprintButton = new Button { Text = Loc.GetString("syndicate-pai-ui-imprint") };
         imprintButton.OnPressed += _ => OnImprint?.Invoke();
@@ -106,8 +102,7 @@ public sealed class SyndicatePaiWindow : DefaultWindow
             Orientation = LayoutOrientation.Horizontal,
             SeparationOverride = 4,
         };
-        actionRow.AddChild(injectButton);
-        actionRow.AddChild(cycleButton);
+        actionRow.AddChild(_injectButton);
         actionRow.AddChild(imprintButton);
 
         _reagentList = new BoxContainer
@@ -141,6 +136,8 @@ public sealed class SyndicatePaiWindow : DefaultWindow
         _volumeLabel.Text = Loc.GetString("syndicate-pai-ui-volume",
             ("current", state.CurrentVolume.ToString("0.#")),
             ("max", state.MaxVolume.ToString("0.#")));
+
+        _injectButton.Disabled = !state.CanInjectOwner;
 
         if (state.SupplementalDirective != null)
             _directiveEdit.Text = state.SupplementalDirective;

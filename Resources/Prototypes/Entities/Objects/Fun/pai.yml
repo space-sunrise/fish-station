@@ -165,20 +165,17 @@
   # Sunrise-Edit
   - type: StationAiVision
     enabled: false
+  # FIsh edit start - модули только через встроенный магазин (бюджет ~15)
   - type: InnateItem
-    instantActions:
-    - GasAnalyzerPai # FIsh edit - atmos sensor program
-    - RemoteSignallerPai # FIsh edit - remote signaler program
-    entityTargetActions:
-    - AccessBreaker
-    - HandheldHealthAnalyzer
-    - HypoPaiSyndicateMedical # FIsh edit - medical injection suite
+    instantActions: []
+    entityTargetActions: []
+  # FIsh edit end
   - type: Biocode
     factions:
     - Syndicate
     - Thief
   # Sunrise-End
-  # FIsh edit start - Syndicate pAI medical suite / master binding
+  # FIsh edit start - Syndicate pAI medical suite / master binding / module shop
   - type: SyndicatePai
   - type: UserInterface
     interfaces:
@@ -197,13 +194,16 @@
       enum.SyndicatePaiUiKey.Key:
         type: SyndicatePaiBoundUserInterface
         requireInputValidation: false
+      enum.CriminalRecordsConsoleKey.Key:
+        type: CriminalRecordsConsoleBoundUserInterface
+        requireInputValidation: false
   - type: Store
     categories:
-    - PAIAbilities
+    - SyndicatePAIModules
     currencyWhitelist:
     - SiliconMemory
     balance:
-      SiliconMemory: 40
+      SiliconMemory: 15
   # FIsh edit end
 
 - type: entity

@@ -1,59 +1,96 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Fish.PAI;
 
 /// <summary>
-/// Syndicate pAI medical suite: carrier injection, reagent cycling, master binding.
+/// Syndicate pAI: master binding, purchasable modules, medical suite.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true), AutoGenerateComponentPause]
 [Access(typeof(SharedSyndicatePaiSystem))]
 public sealed partial class SyndicatePaiComponent : Component
 {
     /// <summary>
-    /// Prototype of the regenerating hypo spawned into innate_items.
+    /// Prototype of the regenerating hypo granted with the medical module.
     /// </summary>
     [DataField]
     public EntProtoId HypoPrototype = "HypoPaiSyndicateMedical";
 
     /// <summary>
-    /// Action that opens the medical suite BUI.
+    /// Health analyzer granted with the medical module.
     /// </summary>
+    [DataField]
+    public EntProtoId AnalyzerPrototype = "HandheldHealthAnalyzer";
+
     [DataField]
     public EntProtoId OpenMedicalAction = "ActionSyndicatePaiOpenMedical";
 
-    /// <summary>
-    /// Instant action: inject the current carrier/master.
-    /// </summary>
     [DataField]
-    public EntProtoId InjectCarrierAction = "ActionSyndicatePaiInjectCarrier";
+    public EntProtoId ScanOwnerAction = "ActionSyndicatePaiScanOwner";
 
-    /// <summary>
-    /// Instant action: cycle hypo reagent.
-    /// </summary>
     [DataField]
-    public EntProtoId CycleReagentAction = "ActionSyndicatePaiCycleReagent";
+    public EntProtoId DoorHackAction = "ActionSyndicatePaiDoorHack";
+
+    [DataField]
+    public EntProtoId SecRecordsAction = "ActionSyndicatePaiSecRecords";
 
     [DataField, AutoNetworkedField]
     public EntityUid? OpenMedicalActionEntity;
 
     [DataField, AutoNetworkedField]
-    public EntityUid? InjectCarrierActionEntity;
+    public EntityUid? ScanOwnerActionEntity;
 
     [DataField, AutoNetworkedField]
-    public EntityUid? CycleReagentActionEntity;
+    public EntityUid? DoorHackActionEntity;
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? SecRecordsActionEntity;
 
     /// <summary>
-    /// Bound master (DNA imprint analog). Set when a player activates the empty device.
+    /// Bound master (DNA imprint). Required for medical inject/scan.
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? Master;
 
     /// <summary>
-    /// Supplemental directive text set by the master (SS13 secondary laws analog).
+    /// Supplemental directive text set by the master.
     /// </summary>
     [DataField, AutoNetworkedField]
     public string? SupplementalDirective;
+
+    [DataField, AutoNetworkedField]
+    public bool MedicalUnlocked;
+
+    [DataField, AutoNetworkedField]
+    public bool DoorHackUnlocked;
+
+    [DataField, AutoNetworkedField]
+    public bool SecRecordsUnlocked;
+
+    /// <summary>
+    /// Visually masquerade as a normal personal AI.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool Disguised;
+
+    /// <summary>
+    /// Next time door-hack may be used (server timing).
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
+    public TimeSpan NextDoorHackTime;
+
+    /// <summary>
+    /// Door-hack cooldown between uses.
+    /// </summary>
+    [DataField]
+    public TimeSpan DoorHackCooldown = TimeSpan.FromMinutes(2);
+
+    /// <summary>
+    /// Radius (tiles) around the master for door-hack.
+    /// </summary>
+    [DataField]
+    public float DoorHackRadius = 3f;
 
     public const string InnateItemContainerId = "innate_items";
 }

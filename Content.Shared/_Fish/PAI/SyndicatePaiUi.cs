@@ -19,6 +19,8 @@ public sealed class SyndicatePaiBoundUserInterfaceState : BoundUserInterfaceStat
     public List<SyndicatePaiReagentEntry> Reagents = [];
     public int CurrentReagentIndex;
     public string? SupplementalDirective;
+    public bool MedicalUnlocked;
+    public bool CanInjectOwner;
 }
 
 [Serializable, NetSerializable]
@@ -31,9 +33,6 @@ public sealed class SyndicatePaiReagentEntry
 
 [Serializable, NetSerializable]
 public sealed class SyndicatePaiInjectCarrierMessage : BoundUserInterfaceMessage;
-
-[Serializable, NetSerializable]
-public sealed class SyndicatePaiCycleReagentMessage : BoundUserInterfaceMessage;
 
 [Serializable, NetSerializable]
 public sealed class SyndicatePaiSelectReagentMessage : BoundUserInterfaceMessage

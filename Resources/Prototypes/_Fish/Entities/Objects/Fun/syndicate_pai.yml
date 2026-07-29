@@ -1,4 +1,4 @@
-# Fish — Syndicate pAI medical suite and support tools
+# Fish — Syndicate pAI medical suite, support tools and module actions
 
 - type: entity
   parent: HypoBorgMedicalSyndicate
@@ -76,26 +76,38 @@
 
 - type: entity
   parent: BaseMentalAction
-  id: ActionSyndicatePaiInjectCarrier
-  name: Inject Carrier
-  description: Inject the current medical reagent into your carrier or master.
+  id: ActionSyndicatePaiScanOwner
+  name: Scan Owner
+  description: Instantly open a health scan of your bound master.
   components:
   - type: Action
-    icon: { sprite: Objects/Specific/Medical/syndihypo.rsi, state: hypo }
+    icon: { sprite: Objects/Specific/Medical/healthanalyzer.rsi, state: icon }
     itemIconStyle: NoItem
     useDelay: 1
   - type: InstantAction
-    event: !type:SyndicatePaiInjectCarrierEvent
+    event: !type:SyndicatePaiScanOwnerEvent
 
 - type: entity
   parent: BaseMentalAction
-  id: ActionSyndicatePaiCycleReagent
-  name: Cycle Reagent
-  description: Switch the integrated hypospray to the next stored reagent.
+  id: ActionSyndicatePaiDoorHack
+  name: Doorjack Pulse
+  description: Disrupt access on doors within three tiles of your owner. Two minute cooldown.
   components:
   - type: Action
-    icon: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
+    icon: { sprite: Objects/Tools/access_breaker.rsi, state: icon }
     itemIconStyle: NoItem
-    useDelay: 0.5
+    useDelay: 120
   - type: InstantAction
-    event: !type:SyndicatePaiCycleReagentEvent
+    event: !type:SyndicatePaiDoorHackEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionSyndicatePaiSecRecords
+  name: Security Records
+  description: Remotely access and edit the station criminal records database.
+  components:
+  - type: Action
+    icon: { sprite: Structures/Machines/server.rsi, state: server }
+    itemIconStyle: NoItem
+  - type: InstantAction
+    event: !type:SyndicatePaiOpenSecRecordsEvent
