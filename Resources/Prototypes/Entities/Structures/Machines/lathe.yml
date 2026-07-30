@@ -638,7 +638,7 @@
   parent: BaseLathe
   id: OreProcessor
   name: ore processor
-  description: It produces sheets and ingots using ores.
+  description: It produces sheets and ingots using ores. Automatically absorbs nearby ore and awards mining points.
   components:
     - type: Sprite
       sprite: Structures/Machines/ore_processor.rsi
@@ -666,6 +666,11 @@
       staticPacks:
       - OreSmelting
       - RGlassSmelting
+    # FIsh edit start - автопоглощение руды как у SS13 ORM
+    - type: OreRedemptionMachine
+      range: 1.5
+      autoProcess: true
+    # FIsh edit end
 
 - type: entity
   parent: OreProcessor
