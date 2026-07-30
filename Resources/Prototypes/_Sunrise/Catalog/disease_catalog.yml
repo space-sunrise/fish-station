@@ -131,7 +131,7 @@
   icon: { sprite: /Textures/_Sunrise/Actions/disease.rsi, state: lethal }
   raiseProductEventOnUser: true
   cost:
-    DiseasePoints: 20
+    DiseasePoints: 30
   categories:
   - DiseaseSymptomsCategory
   conditions:
@@ -172,7 +172,7 @@
   description: listing-disease-infect-charge-description
   icon: { sprite: /Textures/_Sunrise/Actions/disease.rsi, state: action }
   cost:
-    DiseasePoints: 10
+    DiseasePoints: 30
   categories:
   - DiseaseInfectionCategory
 

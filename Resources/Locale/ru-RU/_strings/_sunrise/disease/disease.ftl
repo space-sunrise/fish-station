@@ -39,6 +39,9 @@ disease-upgrade-purchased = Улучшение успешно куплено!
 disease-upgrade-max-reached = Достигнут максимальный уровень улучшения!
 
 disease-infect-success = Успешное заражение!
+disease-infect-already-sick = Цель уже заражена!
+disease-infect-immune = У цели иммунитет!
+disease-infect-protected = У цели есть защита!
 disease-infect-reward = Получено { $points } очков болезни за заражение!
 
 disease-info-window-title = Статистика Болезни

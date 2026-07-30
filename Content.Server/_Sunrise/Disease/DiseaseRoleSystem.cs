@@ -16,6 +16,7 @@ using Robust.Server.Audio;
 using Robust.Server.Player;
 using System.Text;
 using Content.Shared.Mobs;
+using Content.Shared.Inventory;
 
 namespace Content.Server._Sunrise.Disease;
 
@@ -69,12 +70,35 @@ public sealed class DiseaseRoleSystem : SharedDiseaseRoleSystem
     {
         if (TryComp<DiseaseRoleComponent>(args.Performer, out var component))
         {
-            OnInfect(args, 1.0f);
-            _popup.PopupEntity(Loc.GetString("disease-infect-success"), args.Performer, PopupType.Medium);
+            if (HasComp<SickComponent>(args.Target))
+            {
+                _popup.PopupEntity(Loc.GetString("disease-infect-already-sick"), args.Performer, args.Performer);
+                return;
+            }
+            if (HasComp<DiseaseImmuneComponent>(args.Target) || HasComp<DiseaseTempImmuneComponent>(args.Target))
+            {
+                _popup.PopupEntity(Loc.GetString("disease-infect-immune"), args.Performer, args.Performer);
+                return;
+            }
 
-            // Play Initial Infected antag audio (only for the disease player)
-            _audio.PlayGlobal("/Audio/Ambience/Antag/zombie_start.ogg", args.Performer);
-            UpdateUi(args.Performer, component);
+            var targetEv = new ZombificationResistanceQueryEvent(SlotFlags.HEAD | SlotFlags.MASK | SlotFlags.OUTERCLOTHING);
+            RaiseLocalEvent(args.Target, targetEv);
+            if (targetEv.TotalCoefficient < 1.0f)
+            {
+                _popup.PopupEntity(Loc.GetString("disease-infect-protected"), args.Performer, args.Performer);
+                return;
+            }
+
+            OnInfect(args, 1.0f);
+
+            if (args.Handled)
+            {
+                _popup.PopupEntity(Loc.GetString("disease-infect-success"), args.Performer, PopupType.Medium);
+
+                // Play Initial Infected antag audio (only for the disease player)
+                _audio.PlayGlobal("/Audio/Ambience/Antag/zombie_start.ogg", args.Performer);
+                UpdateUi(args.Performer, component);
+            }
         }
     }
 
@@ -223,7 +247,7 @@ public sealed class DiseaseRoleSystem : SharedDiseaseRoleSystem
                     // Check if it's a symptom listing from the ID
                     var symptom = args.PurchasedItem.ID;
                     int minLevel = 0;
-                    int maxLevel = 5;
+                    int maxLevel = 999;
 
                     // Ideally we should get this from the listing/action metadata,
                     // but since the previous system relied on hardcoded event args from actions,
