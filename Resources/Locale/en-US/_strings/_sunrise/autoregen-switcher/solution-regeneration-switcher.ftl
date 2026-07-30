@@ -2,3 +2,4 @@ solution-regeneration-switcher-switched = Теперь производится 
 solution-regeneration-switcher-switch-reagent-alt = Сменить реагент
 solution-regeneration-switcher-already-select = Реагент уже выбран
 solution-regeneration-switcher-switch-verb-text = Переключает производство реагента.
+git config --global push.AutoSetupRemote true

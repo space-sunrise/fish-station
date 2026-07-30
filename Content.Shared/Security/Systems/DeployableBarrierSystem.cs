@@ -1,6 +1,7 @@
 ﻿using Content.Shared.Lock;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
+using Robust.Shared.Physics.Components;
 using Content.Shared.Security.Components;
 using Robust.Shared.Physics.Systems;
 
@@ -46,12 +47,18 @@ public sealed class DeployableBarrierSystem : EntitySystem
             _transform.AnchorEntity(uid, transform);
             if (fixture != null)
                 _physics.SetHard(uid, fixture, true);
+
+            if (TryComp(uid, out PhysicsComponent? physics))
+                _physics.SetCanCollide(uid, true, body: physics);
         }
         else
         {
             _transform.Unanchor(uid, transform);
             if (fixture != null)
                 _physics.SetHard(uid, fixture, false);
+
+            if (TryComp(uid, out PhysicsComponent? physics))
+                _physics.SetCanCollide(uid, false, body: physics);
         }
 
         if (TryComp(uid, out PullableComponent? pullable))
