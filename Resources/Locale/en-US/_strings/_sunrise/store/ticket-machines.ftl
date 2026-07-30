@@ -1,5 +1,5 @@
 ﻿vendor-salvage-ticket-machine = salvage ticket machine
-vendor-mining-ticket-machine = mining ticket machine
+vendor-mining-ticket-machine = mining equipment vendor # FIsh edit
 store-category-salvage-equipment = Equipment
 store-category-ticket-tools = Tools
 store-category-ticket-consumeables = Consumables

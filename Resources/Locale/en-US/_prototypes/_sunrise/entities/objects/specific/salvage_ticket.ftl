@@ -1,6 +1,6 @@
-# FIsh edit - SalvageTicket как mining points
-ent-SalvageTicket = очко шахтёра
-    .desc = Начисляется за переработку руды и утиль. Тратится в автоматах снаряжения шахтёров и утилизаторов.
+# FIsh edit - SalvageTicket as mining points
+ent-SalvageTicket = mining point
+    .desc = Earned by processing ore and salvage. Spend at mining and salvage equipment vendors.
 
 ent-SalvageTicket2 = { ent-SalvageTicket }
     .desc = { ent-SalvageTicket.desc }

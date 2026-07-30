@@ -1,1 +1,1 @@
-﻿materials-unit-tickets = tickets
+﻿materials-unit-tickets = mining points # FIsh edit

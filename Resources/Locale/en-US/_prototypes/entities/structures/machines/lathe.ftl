@@ -34,9 +34,13 @@ ent-UniformPrinter = uniform printer
 ent-Biogenerator = biogenerator
     .desc = Converts plants into biomass, which can be used to construct useful items.
 ent-OreProcessor = ore processor
-    .desc = It produces sheets and ingots using ores.
+    # FIsh edit start - описание автопоглощения и mining points
+    .desc = Automatically absorbs nearby ore, smelts it into sheets and ingots, and awards mining points.
+    # FIsh edit end
 ent-OreProcessorIndustrial = industrial ore processor
-    .desc = An ore processor specifically designed for mass-producing metals in industrial applications.
+    # FIsh edit start - описание автопоглощения и mining points
+    .desc = An industrial ore processor with automatic ore absorption and mining point rewards.
+    # FIsh edit end
 ent-Sheetifier = sheet-meister 2000
     .desc = A very sheety machine.
 ent-CutterMachine = cutter machine
