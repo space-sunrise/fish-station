@@ -3,28 +3,43 @@
   id: RandomHumanoidSpawnerDeathSquadFish
   suffix: Fish, 200BC 200C
   components:
-  - type: Loadout
-    prototypes: [ DeathSquadGearFish ]
+  - type: RandomHumanoidSpawner
+    settings: DeathSquadFish
 
 - type: entity
   parent: RandomHumanoidSpawnerDeathSquadFish
   id: RandomHumanoidSpawnerDeathSquadFishBudget
   suffix: Fish, 80BC 80C
   components:
+  - type: RandomHumanoidSpawner
+    settings: DeathSquadFishBudget
+
+- type: randomHumanoidSettings
+  id: DeathSquadFish
+  parent: DeathSquad
+  components:
+  - type: Loadout
+    prototypes: [ DeathSquadGearFish ]
+
+- type: randomHumanoidSettings
+  id: DeathSquadFishBudget
+  parent: DeathSquad
+  components:
   - type: Loadout
     prototypes: [ DeathSquadGearFishBudget ]
 
+
 - type: entity
   id: RandomHumanoidSpawnerSpaceNinjaFish
-  name: Space Ninja
-  suffix: Fish, ERTRole
   components:
     - type: Sprite
-      sprite: Markers/jobs.rsi
-      layers:
-        - state: green
-        - sprite: _Sunrise/Interface/Misc/antag_preview.rsi
-          state: space_ninja
+      sprite: Clothing/OuterClothing/Suits/spaceninja.rsi
+      state: icon
+    - type: RandomMetadata
+      nameSegments:
+        - NamesNinjaTitle
+        - NamesNinja
+      nameFormat: name-format-ninja
     - type: RandomHumanoidSpawner
       settings: SpaceNinjaFish
 
@@ -77,4 +92,5 @@
       - StimpackImplant
       - ReviverImplant
       - NutrimentImplant
+
 

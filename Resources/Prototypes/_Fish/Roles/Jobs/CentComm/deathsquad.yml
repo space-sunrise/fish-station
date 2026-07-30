@@ -8,6 +8,7 @@
     gloves: ClothingHandsGlovesDeathSquadFish
     eyes: ClothingEyesHudMedSec
     back: ClothingDeathSquadronBackpackFish
+  inhand: []
 
 - type: startingGear
   id: DeathSquadGearFishBudget
