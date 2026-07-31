@@ -13,7 +13,6 @@ public sealed class SyndicatePaiBoundUserInterfaceState : BoundUserInterfaceStat
 {
     public string? CarrierName;
     public string? MasterName;
-    public string? SupplementalDirective;
     public bool MedicalUnlocked;
     public bool CanInjectOwner;
 
@@ -81,17 +80,6 @@ public sealed class SyndicatePaiSetAutoThresholdMessage : BoundUserInterfaceMess
     public SyndicatePaiSetAutoThresholdMessage(float threshold)
     {
         Threshold = threshold;
-    }
-}
-
-[Serializable, NetSerializable]
-public sealed class SyndicatePaiSetDirectiveMessage : BoundUserInterfaceMessage
-{
-    public string Directive;
-
-    public SyndicatePaiSetDirectiveMessage(string directive)
-    {
-        Directive = directive;
     }
 }
 

@@ -28,7 +28,6 @@ public sealed class SyndicatePaiBoundUserInterface : BoundUserInterface
         _window.OnSetTransferAmount += amount => SendMessage(new SyndicatePaiSetTransferAmountMessage(amount));
         _window.OnSetAutoEnabled += enabled => SendMessage(new SyndicatePaiSetAutoEnabledMessage(enabled));
         _window.OnSetAutoThreshold += threshold => SendMessage(new SyndicatePaiSetAutoThresholdMessage(threshold));
-        _window.OnSetDirective += text => SendMessage(new SyndicatePaiSetDirectiveMessage(text));
         _window.OnImprint += () => SendMessage(new SyndicatePaiImprintMasterMessage());
         _window.OpenCentered();
     }
@@ -65,15 +64,12 @@ public sealed class SyndicatePaiWindow : DefaultWindow
     public event Action<float>? OnSetTransferAmount;
     public event Action<bool>? OnSetAutoEnabled;
     public event Action<float>? OnSetAutoThreshold;
-    public event Action<string>? OnSetDirective;
 
     private readonly Label _carrierLabel;
     private readonly Label _masterLabel;
     private readonly Label _reagentLabel;
     private readonly Label _volumeLabel;
     private readonly Label _doseLabel;
-    private readonly Label _directiveLabel;
-    private readonly LineEdit _directiveEdit;
     private readonly BoxContainer _reagentList;
     private readonly BoxContainer _doseRow;
     private readonly Button _injectButton;
@@ -103,8 +99,8 @@ public sealed class SyndicatePaiWindow : DefaultWindow
     public SyndicatePaiWindow()
     {
         Title = Loc.GetString("syndicate-pai-ui-title");
-        MinSize = new Vector2(440, 680);
-        SetSize = new Vector2(440, 680);
+        MinSize = new Vector2(440, 560);
+        SetSize = new Vector2(440, 560);
 
         var root = new BoxContainer
         {
@@ -118,21 +114,12 @@ public sealed class SyndicatePaiWindow : DefaultWindow
         _reagentLabel = new Label();
         _volumeLabel = new Label();
         _doseLabel = new Label();
-        _directiveLabel = new Label { Text = Loc.GetString("syndicate-pai-ui-directive") };
-
-        _directiveEdit = new LineEdit
-        {
-            PlaceHolder = Loc.GetString("syndicate-pai-ui-directive-placeholder"),
-        };
 
         _injectButton = new Button { Text = Loc.GetString("syndicate-pai-ui-inject") };
         _injectButton.OnPressed += _ => OnInject?.Invoke();
 
         var imprintButton = new Button { Text = Loc.GetString("syndicate-pai-ui-imprint") };
         imprintButton.OnPressed += _ => OnImprint?.Invoke();
-
-        var setDirectiveButton = new Button { Text = Loc.GetString("syndicate-pai-ui-set-directive") };
-        setDirectiveButton.OnPressed += _ => OnSetDirective?.Invoke(_directiveEdit.Text);
 
         var actionRow = new BoxContainer
         {
@@ -220,9 +207,6 @@ public sealed class SyndicatePaiWindow : DefaultWindow
         _autoSection.AddChild(_autoReagentList);
 
         root.AddChild(_autoSection);
-        root.AddChild(_directiveLabel);
-        root.AddChild(_directiveEdit);
-        root.AddChild(setDirectiveButton);
 
         Contents.AddChild(root);
     }
@@ -248,9 +232,6 @@ public sealed class SyndicatePaiWindow : DefaultWindow
 
         RebuildDoseButtonsIfNeeded(state);
         RebuildManualReagentButtonsIfNeeded(state);
-
-        if (state.SupplementalDirective != null && !_directiveEdit.HasKeyboardFocus())
-            _directiveEdit.Text = state.SupplementalDirective;
 
         _autoSection.Visible = state.AutoDispenserUnlocked;
         if (!state.AutoDispenserUnlocked)

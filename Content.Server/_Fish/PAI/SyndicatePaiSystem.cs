@@ -39,8 +39,6 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
     [Dependency] private readonly ItemToggleSystem _itemToggle = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _serverUi = default!;
 
-    private const int MaxDirectiveLength = 300;
-
     private static readonly EntProtoId InnateInstantActionProto = "InnateInstantActionAction";
     private static readonly EntProtoId InnateEntityTargetActionProto = "InnateEntityTargetAction";
 
@@ -72,7 +70,6 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
                 subs.Event<SyndicatePaiSetTransferAmountMessage>(OnSetTransferAmount);
                 subs.Event<SyndicatePaiSetAutoEnabledMessage>(OnSetAutoEnabled);
                 subs.Event<SyndicatePaiSetAutoThresholdMessage>(OnSetAutoThreshold);
-                subs.Event<SyndicatePaiSetDirectiveMessage>(OnSetDirectiveMessage);
                 subs.Event<SyndicatePaiImprintMasterMessage>(OnImprintMessage);
             });
 
@@ -99,25 +96,6 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
     private void OnSetTransferAmount(Entity<SyndicatePaiComponent> ent, ref SyndicatePaiSetTransferAmountMessage args)
     {
         TrySetTransferAmount(ent, args.Actor, FixedPoint2.New(args.Amount));
-    }
-
-    private void OnSetDirectiveMessage(Entity<SyndicatePaiComponent> ent, ref SyndicatePaiSetDirectiveMessage args)
-    {
-        if (!CanEditDirectives(ent, args.Actor))
-        {
-            _serverPopup.PopupEntity(Loc.GetString("syndicate-pai-directive-denied"), ent.Owner, args.Actor);
-            return;
-        }
-
-        var text = args.Directive;
-        if (text.Length > MaxDirectiveLength)
-            text = text[..MaxDirectiveLength];
-
-        SetSupplementalDirective(ent, text);
-        _serverPopup.PopupEntity(
-            Loc.GetString("syndicate-pai-directive-updated", ("directive", text)),
-            args.Actor,
-            args.Actor);
     }
 
     private void OnImprintMessage(Entity<SyndicatePaiComponent> ent, ref SyndicatePaiImprintMasterMessage args)
@@ -156,23 +134,11 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
             };
             args.Verbs.Add(imprint);
         }
-
-        if (CanEditDirectives(ent, user))
-        {
-            AlternativeVerb clear = new()
-            {
-                Text = Loc.GetString("syndicate-pai-verb-clear-directive"),
-                Act = () => SetSupplementalDirective(ent, null),
-                Priority = 1,
-            };
-            args.Verbs.Add(clear);
-        }
     }
 
     private void OnMindRemoved(Entity<SyndicatePaiComponent> ent, ref MindRemovedMessage args)
     {
         ent.Comp.Master = null;
-        ent.Comp.SupplementalDirective = null;
         Dirty(ent);
     }
 
@@ -456,13 +422,5 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
         _serverActions.AddAction(ent.Owner, action, ent.Owner);
         innate.Actions.Add(action);
         Dirty(ent.Owner, innate);
-    }
-
-    private bool CanEditDirectives(Entity<SyndicatePaiComponent> ent, EntityUid user)
-    {
-        if (ent.Comp.Master == user)
-            return true;
-
-        return TryGetCarrier(ent.Owner, out var carrier) && carrier == user;
     }
 }

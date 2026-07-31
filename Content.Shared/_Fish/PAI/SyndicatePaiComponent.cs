@@ -59,12 +59,6 @@ public sealed partial class SyndicatePaiComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? Master;
 
-    /// <summary>
-    /// Supplemental directive text set by the master.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public string? SupplementalDirective;
-
     [DataField, AutoNetworkedField]
     public bool MedicalUnlocked;
 

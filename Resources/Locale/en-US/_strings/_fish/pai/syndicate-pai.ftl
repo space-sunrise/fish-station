@@ -10,9 +10,6 @@ syndicate-pai-ui-dose-selected-button = ▶ {$amount}
 syndicate-pai-ui-reagents = Stored reagents (manual)
 syndicate-pai-ui-inject = Inject owner
 syndicate-pai-ui-imprint = Imprint carrier DNA
-syndicate-pai-ui-directive = Supplemental directive
-syndicate-pai-ui-directive-placeholder = Enter additional directives...
-syndicate-pai-ui-set-directive = Set directive
 syndicate-pai-ui-none = none
 syndicate-pai-ui-reagent-selected = ▶ {$name}
 
@@ -40,8 +37,6 @@ syndicate-pai-invalid-dose = Invalid injection volume.
 syndicate-pai-imprint-failed = Incompatible DNA signature.
 syndicate-pai-imprint-success = Bound to owner: {$master}.
 syndicate-pai-imprint-denied = Access denied.
-syndicate-pai-directive-denied = Only the owner or carrier can set directives.
-syndicate-pai-directive-updated = Supplemental directive updated: {$directive}
 syndicate-pai-module-locked = Module not installed. Buy it from the built-in shop.
 syndicate-pai-module-medical-unlocked = Medical module installed.
 syndicate-pai-module-auto-unlocked = Automatic dispenser module installed.
@@ -56,7 +51,6 @@ syndicate-pai-door-hack-success = Doors disrupted: {$count}.
 syndicate-pai-auto-injected = Autodose injected the owner: {$owner}.
 
 syndicate-pai-verb-imprint = Imprint DNA as owner
-syndicate-pai-verb-clear-directive = Clear supplemental directive
 
 syndicate-pai-listing-medical-name = Medical Module
 syndicate-pai-listing-medical-desc = Combat medicine (hemostatic powder, dermaline, dexalin+, ephedrine, dylovene, saline), owner scan and owner-only injection.

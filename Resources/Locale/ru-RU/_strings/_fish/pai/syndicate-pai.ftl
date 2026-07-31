@@ -10,9 +10,6 @@ syndicate-pai-ui-dose-selected-button = ▶ {$amount}
 syndicate-pai-ui-reagents = Хранимые препараты (ручной)
 syndicate-pai-ui-inject = Ввести владельцу
 syndicate-pai-ui-imprint = Запечатлеть ДНК носителя
-syndicate-pai-ui-directive = Дополнительная директива
-syndicate-pai-ui-directive-placeholder = Введите дополнительные директивы...
-syndicate-pai-ui-set-directive = Задать директиву
 syndicate-pai-ui-none = нет
 syndicate-pai-ui-reagent-selected = ▶ {$name}
 
@@ -40,8 +37,6 @@ syndicate-pai-invalid-dose = Недопустимый объём инъекци�
 syndicate-pai-imprint-failed = Несовместимая ДНК-подпись.
 syndicate-pai-imprint-success = Привязка к владельцу: {$master}.
 syndicate-pai-imprint-denied = Доступ запрещён.
-syndicate-pai-directive-denied = Директивы может задавать только владелец или носитель.
-syndicate-pai-directive-updated = Дополнительная директива обновлена: {$directive}
 syndicate-pai-module-locked = Модуль не установлен. Купите его во встроенном магазине.
 syndicate-pai-module-medical-unlocked = Медицинский модуль установлен.
 syndicate-pai-module-auto-unlocked = Модуль автоматического дозатора установлен.
@@ -56,7 +51,6 @@ syndicate-pai-door-hack-success = Взломано дверей: {$count}.
 syndicate-pai-auto-injected = Автодозатор ввёл препарат владельцу: {$owner}.
 
 syndicate-pai-verb-imprint = Запечатлеть ДНК как владельца
-syndicate-pai-verb-clear-directive = Очистить дополнительную директиву
 
 syndicate-pai-listing-medical-name = Медицинский модуль
 syndicate-pai-listing-medical-desc = Боевая медицина (гемостатическая пудра, дермалин, дексалин+, эфедрин, диловен, физраствор), скан и инъекции только владельцу.

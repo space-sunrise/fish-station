@@ -439,13 +439,6 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
         UpdateUiState(ent);
     }
 
-    public void SetSupplementalDirective(Entity<SyndicatePaiComponent> ent, string? directive)
-    {
-        ent.Comp.SupplementalDirective = string.IsNullOrWhiteSpace(directive) ? null : directive.Trim();
-        Dirty(ent);
-        UpdateUiState(ent);
-    }
-
     protected void ClearHypoReservoir(EntityUid hypo)
     {
         if (!TryComp<SolutionRegenerationComponent>(hypo, out var regen))
@@ -483,7 +476,6 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
     {
         var state = new SyndicatePaiBoundUserInterfaceState
         {
-            SupplementalDirective = ent.Comp.SupplementalDirective,
             CurrentReagentIndex = 0,
             MedicalUnlocked = ent.Comp.MedicalUnlocked,
             AutoDispenserUnlocked = ent.Comp.AutoDispenserUnlocked,
