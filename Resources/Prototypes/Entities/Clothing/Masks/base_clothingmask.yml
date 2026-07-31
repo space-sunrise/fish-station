@@ -11,6 +11,7 @@
     slots: [mask]
   - type: StaticPrice
     price: 25
+    zombificationResistanceCoefficient: 0.9
 
 - type: entity
   abstract: true
