@@ -115,8 +115,6 @@ public sealed partial class SyndicatePaiSystem
 
         GrantInnateTool(ent, ent.Comp.AutoHypoPrototype, entityTarget: true, grantAction: false);
 
-        GrantInnateTool(ent, ent.Comp.AutoHypoPrototype, entityTarget: true, grantAction: false);
-
         if (TryGetAutoHypo(ent, out var autoHypo) && autoHypo != null)
         {
             ClearHypoReservoir(autoHypo.Value);

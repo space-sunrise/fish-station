@@ -96,22 +96,10 @@ public sealed partial class SyndicatePaiComponent : Component
     public bool Disguised;
 
     /// <summary>
-    /// Next time door-hack may be used (server timing).
-    /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
-    public TimeSpan NextDoorHackTime;
-
-    /// <summary>
     /// Next time auto-dispenser may inject (server timing).
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
     public TimeSpan NextAutoInjectTime;
-
-    /// <summary>
-    /// Door-hack cooldown between uses.
-    /// </summary>
-    [DataField]
-    public TimeSpan DoorHackCooldown = TimeSpan.FromMinutes(2);
 
     /// <summary>
     /// Cooldown after an automatic injection.

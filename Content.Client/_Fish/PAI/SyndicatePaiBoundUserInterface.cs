@@ -48,8 +48,12 @@ public sealed class SyndicatePaiBoundUserInterface : BoundUserInterface
         if (!disposing)
             return;
 
-        _window?.Dispose();
-        _window = null;
+        if (_window != null)
+        {
+            _window.OnClose -= Close;
+            _window.Close();
+            _window = null;
+        }
     }
 }
 
@@ -83,6 +87,7 @@ public sealed class SyndicatePaiWindow : DefaultWindow
     private readonly Label _autoThresholdCurrentLabel;
     private readonly LineEdit _autoThresholdEdit;
     private readonly BoxContainer _autoReagentList;
+    private readonly Label _autoReagentsHeader;
     private bool _autoEnabled;
 
     // Кэш структуры кнопок — не пересоздаём их при тиковом обновлении объёма
@@ -210,7 +215,8 @@ public sealed class SyndicatePaiWindow : DefaultWindow
         _autoSection.AddChild(_autoCooldownLabel);
         _autoSection.AddChild(_autoThresholdLabel);
         _autoSection.AddChild(thresholdRow);
-        _autoSection.AddChild(new Label { Text = Loc.GetString("syndicate-pai-ui-auto-reagents") });
+        _autoReagentsHeader = new Label { Text = Loc.GetString("syndicate-pai-ui-auto-reagents") };
+        _autoSection.AddChild(_autoReagentsHeader);
         _autoSection.AddChild(_autoReagentList);
 
         root.AddChild(_autoSection);
@@ -272,6 +278,9 @@ public sealed class SyndicatePaiWindow : DefaultWindow
             _autoThresholdEdit.Text = state.AutoHealthThreshold.ToString("0", CultureInfo.InvariantCulture);
 
         RebuildAutoReagentButtonsIfNeeded(state);
+        var showAutoReagentPicker = state.AutoReagents.Count > 0;
+        _autoReagentsHeader.Visible = showAutoReagentPicker;
+        _autoReagentList.Visible = showAutoReagentPicker;
     }
 
     private void RebuildDoseButtonsIfNeeded(SyndicatePaiBoundUserInterfaceState state)

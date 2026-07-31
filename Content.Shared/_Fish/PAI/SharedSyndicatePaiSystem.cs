@@ -537,7 +537,8 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
         if (!getter(ent, out var hypo) || hypo == null)
             return;
 
-        if (TryComp<SolutionRegenerationSwitcherComponent>(hypo.Value, out var switcher))
+        var hasSwitcher = TryComp<SolutionRegenerationSwitcherComponent>(hypo.Value, out var switcher);
+        if (hasSwitcher && switcher != null)
         {
             reagentIndex = switcher.CurrentIndex;
             for (var i = 0; i < switcher.Options.Count; i++)
@@ -556,19 +557,36 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
             }
         }
 
-        if (TryComp<SolutionRegenerationComponent>(hypo.Value, out var regen) &&
-            _solutions.TryGetSolution(hypo.Value, regen.SolutionName, out _, out var solution))
+        if (!TryComp<SolutionRegenerationComponent>(hypo.Value, out var regen) ||
+            !_solutions.TryGetSolution(hypo.Value, regen.SolutionName, out _, out var solution))
+            return;
+
+        volume = solution.Volume.Float();
+        maxVolume = solution.MaxVolume.Float();
+
+        if (!hasSwitcher && regen.Generated.Contents.Count > 0)
         {
-            volume = solution.Volume.Float();
-            maxVolume = solution.MaxVolume.Float();
-            if (solution.Contents.Count > 0)
+            // Смесь без переключателя — показываем состав генерации
+            var parts = new List<string>();
+            foreach (var quantity in regen.Generated.Contents)
             {
-                var primary = solution.GetPrimaryReagentId();
-                if (primary != null && _prototypes.TryIndex(primary.Value.Prototype, out ReagentPrototype? current))
-                    reagentName = current.LocalizedName;
-                else if (primary != null)
-                    reagentName = primary.Value.Prototype;
+                if (_prototypes.TryIndex(quantity.Reagent.Prototype, out ReagentPrototype? mixProto))
+                    parts.Add(mixProto.LocalizedName);
+                else
+                    parts.Add(quantity.Reagent.Prototype);
             }
+
+            reagentName = string.Join(", ", parts);
+            return;
         }
+
+        if (solution.Contents.Count <= 0)
+            return;
+
+        var primary = solution.GetPrimaryReagentId();
+        if (primary != null && _prototypes.TryIndex(primary.Value.Prototype, out ReagentPrototype? current))
+            reagentName = current.LocalizedName;
+        else if (primary != null)
+            reagentName = primary.Value.Prototype;
     }
 }

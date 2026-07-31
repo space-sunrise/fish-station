@@ -49,6 +49,8 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
         "SyndicatePaiMedical",
         "SyndicatePaiAutoDispenser",
         "SyndicatePaiDoorHack",
+        "SyndicatePaiCrewMonitor",
+        "SyndicatePaiCameras",
         "SyndicatePaiSecRecords",
         "SyndicatePaiDisguise",
         "SyndicatePaiAtmosSensor",
@@ -190,8 +192,7 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
         if (args.Handled)
             return;
 
-        args.Handled = true;
-
+        // Handled только при успехе — иначе useDelay сработает впустую
         if (!ent.Comp.MedicalUnlocked)
         {
             _serverPopup.PopupEntity(Loc.GetString("syndicate-pai-module-locked"), ent.Owner, args.Performer);
@@ -224,6 +225,7 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
         _itemToggle.TryActivate(analyzer.Value);
         _serverUi.OpenUi(analyzer.Value, HealthAnalyzerUiKey.Key, args.Performer);
         _healthAnalyzer.UpdateScannedUser(analyzer.Value, owner.Value, true);
+        args.Handled = true;
     }
 
     private void OnDoorHack(Entity<SyndicatePaiComponent> ent, ref SyndicatePaiDoorHackEvent args)
@@ -231,8 +233,7 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
         if (args.Handled)
             return;
 
-        args.Handled = true;
-
+        // Handled=false на всех отказах — иначе useDelay/заряды сработают без цели
         if (!ent.Comp.DoorHackUnlocked)
         {
             _serverPopup.PopupEntity(Loc.GetString("syndicate-pai-module-locked"), ent.Owner, args.Performer);
@@ -245,24 +246,10 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
             return;
         }
 
-        if (_gameTiming.CurTime < ent.Comp.NextDoorHackTime)
-        {
-            var remaining = ent.Comp.NextDoorHackTime - _gameTiming.CurTime;
-            _serverPopup.PopupEntity(
-                Loc.GetString("syndicate-pai-door-hack-cooldown", ("seconds", (int)remaining.TotalSeconds)),
-                ent.Owner,
-                args.Performer);
-            return;
-        }
-
         if (!TryGetOwnerTarget(ent, out var owner) || owner == null)
         {
-            // Fallback: взлом вокруг носителя, если мастер ещё не задан
-            if (!TryGetCarrier(ent.Owner, out owner) || owner == null)
-            {
-                _serverPopup.PopupEntity(Loc.GetString("syndicate-pai-no-owner"), ent.Owner, args.Performer);
-                return;
-            }
+            _serverPopup.PopupEntity(Loc.GetString("syndicate-pai-no-owner"), ent.Owner, args.Performer);
+            return;
         }
 
         var origin = _transform.GetMapCoordinates(owner.Value);
@@ -277,14 +264,11 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
 
         if (hacked <= 0)
         {
-            // Handled=false — иначе useDelay экшена повесится даже без взлома
-            args.Handled = false;
             _serverPopup.PopupEntity(Loc.GetString("syndicate-pai-door-hack-none"), ent.Owner, args.Performer);
             return;
         }
 
-        ent.Comp.NextDoorHackTime = _gameTiming.CurTime + ent.Comp.DoorHackCooldown;
-        Dirty(ent);
+        args.Handled = true;
         _serverPopup.PopupEntity(
             Loc.GetString("syndicate-pai-door-hack-success", ("count", hacked)),
             ent.Owner,
@@ -296,8 +280,6 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
         if (args.Handled)
             return;
 
-        args.Handled = true;
-
         if (!ent.Comp.SecRecordsUnlocked)
         {
             _serverPopup.PopupEntity(Loc.GetString("syndicate-pai-module-locked"), ent.Owner, args.Performer);
@@ -306,6 +288,7 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
 
         EnsureComp<CriminalRecordsConsoleComponent>(ent.Owner);
         _serverUi.TryToggleUi(ent.Owner, CriminalRecordsConsoleKey.Key, args.Performer);
+        args.Handled = true;
     }
 
     private void OnStoreBuyFinished(ref StoreBuyFinishedEvent args)
@@ -317,7 +300,7 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
         if (!ModuleListingIds.Contains(listingId))
             return;
 
-        var ent = (args.StoreUid, pai);
+        Entity<SyndicatePaiComponent> ent = (args.StoreUid, pai);
         switch (listingId)
         {
             case "SyndicatePaiMedical":
@@ -328,6 +311,14 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
                 break;
             case "SyndicatePaiDoorHack":
                 UnlockDoorHack(ent);
+                break;
+            case "SyndicatePaiCrewMonitor":
+                GrantInnateTool(ent, "HandheldEmergencyCrewMonitorBorg", entityTarget: false, grantAction: true);
+                _serverPopup.PopupEntity(Loc.GetString("syndicate-pai-module-crew-monitor-unlocked"), ent.Owner, ent.Owner);
+                break;
+            case "SyndicatePaiCameras":
+                GrantInnateTool(ent, "PortableSurveillanceCameraMonitorUnpowered", entityTarget: false, grantAction: true);
+                _serverPopup.PopupEntity(Loc.GetString("syndicate-pai-module-cameras-unlocked"), ent.Owner, ent.Owner);
                 break;
             case "SyndicatePaiSecRecords":
                 UnlockSecRecords(ent);

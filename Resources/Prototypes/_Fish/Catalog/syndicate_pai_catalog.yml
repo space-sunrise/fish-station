@@ -8,7 +8,7 @@
   productAction: ActionSyndicatePaiOpenMedical
   applyToMob: true
   cost:
-    SiliconMemory: 10
+    SiliconMemory: 12
   categories:
   - SyndicatePAIModules
   conditions:
@@ -37,6 +37,32 @@
   applyToMob: true
   cost:
     SiliconMemory: 5
+  categories:
+  - SyndicatePAIModules
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SyndicatePaiCrewMonitor
+  name: syndicate-pai-listing-crew-monitor-name
+  description: syndicate-pai-listing-crew-monitor-desc
+  icon: { sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi, state: scanner }
+  cost:
+    SiliconMemory: 3
+  categories:
+  - SyndicatePAIModules
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SyndicatePaiCameras
+  name: syndicate-pai-listing-cameras-name
+  description: syndicate-pai-listing-cameras-desc
+  icon: { sprite: _Sunrise/Objects/Devices/portable_camera_viewer.rsi, state: icon }
+  cost:
+    SiliconMemory: 3
   categories:
   - SyndicatePAIModules
   conditions:

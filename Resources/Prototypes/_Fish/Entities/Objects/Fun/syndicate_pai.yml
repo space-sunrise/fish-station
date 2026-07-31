@@ -4,7 +4,7 @@
   parent: HypoBorgMedicalSyndicate
   id: HypoPaiSyndicateMedical
   name: syndicate pAI hypospray
-  description: An integrated Syndicate pAI hypospray. Regenerates combat-medicine reagents and can inject organics without hands.
+  description: An integrated Syndicate pAI hypospray. Regenerates combat-medicine reagents and can inject the bound owner without hands.
   categories: [ HideSpawnMenu ]
   components:
   - type: SolutionContainerManager
@@ -16,19 +16,21 @@
     duration: 2
     generated:
       reagents:
-      - ReagentId: Omnizine
+      - ReagentId: HemostaticPowder
         Quantity: 1
   - type: SolutionRegenerationSwitcher
     options:
-    - ReagentId: Omnizine
+    - ReagentId: HemostaticPowder
       Quantity: 1
-    - ReagentId: Epinephrine
-      Quantity: 1
-    - ReagentId: TranexamicAcid
+    - ReagentId: Dermaline
       Quantity: 1
     - ReagentId: DexalinPlus
       Quantity: 1
     - ReagentId: Ephedrine
+      Quantity: 1
+    - ReagentId: Dylovene
+      Quantity: 1
+    - ReagentId: Saline
       Quantity: 1
     keepSolution: false
   - type: Injector
@@ -41,35 +43,32 @@
     breakOnHandChange: false
   - type: BorgHypospray
 
-# Экстренный резервуар автодозатора — медленнее и меньше объём
+# Экстренный резервуар автодозатора — смесь стандартных лекарств
 - type: entity
   parent: HypoBorgMedicalSyndicate
   id: HypoPaiSyndicateAuto
   name: syndicate pAI emergency hypospray
-  description: An emergency auto-dispenser reservoir for a Syndicate pAI. Regenerates slowly and only injects the bound owner.
+  description: An emergency auto-dispenser reservoir for a Syndicate pAI. Slowly regenerates a mix of standard medicines and only injects the bound owner.
   categories: [ HideSpawnMenu ]
   components:
   - type: SyndicatePaiAutoHypo
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 15
+        maxVol: 10
   - type: SolutionRegeneration
     solution: hypospray
-    duration: 4
+    duration: 1
     generated:
       reagents:
-      - ReagentId: SyndicatePaiTraumaPack
-        Quantity: 0.5
-  - type: SolutionRegenerationSwitcher
-    options:
-    - ReagentId: SyndicatePaiTraumaPack
-      Quantity: 0.5
-    - ReagentId: SyndicatePaiBurnPack
-      Quantity: 0.5
-    - ReagentId: SyndicatePaiCrisisPack
-      Quantity: 0.5
-    keepSolution: false
+      - ReagentId: Bicaridine
+        Quantity: 0.0625
+      - ReagentId: Dermaline
+        Quantity: 0.0625
+      - ReagentId: TranexamicAcid
+        Quantity: 0.0625
+      - ReagentId: DexalinPlus
+        Quantity: 0.0625
   - type: Injector
     solutionName: hypospray
     activeModeProtoId: HypoPaiSyndicateMode
@@ -125,12 +124,16 @@
   parent: BaseMentalAction
   id: ActionSyndicatePaiDoorHack
   name: Doorjack Pulse
-  description: Disrupt access on doors within three tiles of your owner. Two minute cooldown.
+  description: Disrupt access on doors within three tiles of your owner. Two charges, five minutes to restore one charge.
   components:
+  - type: LimitedCharges
+    maxCharges: 2
+  - type: AutoRecharge
+    rechargeDuration: 300
   - type: Action
     icon: { sprite: Objects/Tools/access_breaker.rsi, state: icon }
     itemIconStyle: NoItem
-    useDelay: 120
+    useDelay: 1
   - type: InstantAction
     event: !type:SyndicatePaiDoorHackEvent
 
