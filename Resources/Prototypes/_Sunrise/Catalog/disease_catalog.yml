@@ -103,7 +103,7 @@
   icon: { sprite: /Textures/_Sunrise/Actions/disease.rsi, state: bleed }
   raiseProductEventOnUser: true
   cost:
-    DiseasePoints: 30
+    DiseasePoints: 40
   categories:
   - DiseaseSymptomsCategory
   conditions:

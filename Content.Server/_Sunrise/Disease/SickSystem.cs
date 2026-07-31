@@ -317,7 +317,7 @@ public sealed class SickSystem : SharedSickSystem
                         if (_prototypeManager.TryIndex<DamageTypePrototype>("Piercing", out var damagePrototype))
                         {
                             _damageableSystem.TryChangeDamage(uid,
-                                new(damagePrototype, 0.25f * disease.Lethal),
+                                new(damagePrototype, 2.5f * disease.Lethal),
                                 true,
                                 origin: uid);
                         }
@@ -351,7 +351,7 @@ public sealed class SickSystem : SharedSickSystem
                         if (_prototypeManager.TryIndex<DamageTypePrototype>("Piercing", out var damagePrototype))
                         {
                             _damageableSystem.TryChangeDamage(uid,
-                                new(damagePrototype, 0.25f * disease.Lethal),
+                                new(damagePrototype, 2.5f * disease.Lethal),
                                 true,
                                 origin: uid);
                         }
@@ -391,7 +391,7 @@ public sealed class SickSystem : SharedSickSystem
                     if (_prototypeManager.TryIndex<DamageTypePrototype>("Shock", out var damagePrototype))
                     {
                         _damageableSystem.TryChangeDamage(uid,
-                            new(damagePrototype, 0.35f * dis.Lethal),
+                            new(damagePrototype, 3.5f * dis.Lethal),
                             true,
                             origin: uid);
                     }
