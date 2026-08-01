@@ -38,7 +38,13 @@ public sealed class ToggleableGhostRoleSystem : EntitySystem
         if (TryComp<BiocodeComponent>(uid, out var biocodedComponent))
         {
             if (!_biocodeSystem.CanUse(args.User, biocodedComponent.Factions))
+            {
+                // FIsh edit start - понятный отказ при активации Z без фракции
+                _popup.PopupEntity(Loc.GetString("item-biocode-refused"), uid, args.User);
+                args.Handled = true;
+                // FIsh edit end
                 return;
+            }
         }
         // Sunrise-End
 

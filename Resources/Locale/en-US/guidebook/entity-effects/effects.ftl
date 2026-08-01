@@ -441,6 +441,12 @@ entity-effect-guidebook-cause-zombie-infection =
         *[other] give
     } an individual the zombie infection
 
+entity-effect-guidebook-give-disease-immunity =
+    { $chance ->
+        [1] Grants
+        *[other] grant
+    } immunity to the intelligent disease
+
 entity-effect-guidebook-innoculate-zombie-infection =
     { $chance ->
         [1] Cures

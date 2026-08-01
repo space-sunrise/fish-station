@@ -5,11 +5,15 @@
     mask: ClothingMaskGasDeathSquadFish
     outerClothing: ClothingOuterHardsuitDeathsquadFish
     shoes: ClothingShoesBootsMagDeathSquadFish
-  inhand:
-  - ClothingHandsGlovesDeathSquadFish
+    gloves: ClothingHandsGlovesDeathSquadFish
+    eyes: ClothingEyesHudMedSec
+    back: ClothingDeathSquadronBackpackFish
+  inhand: []
 
 - type: startingGear
   id: DeathSquadGearFishBudget
   parent: DeathSquadGearFish
-  inhand:
-  - ClothingHandsPowerGlovesUplinkNTERTDeathSquadFish
+  equipment:
+    gloves: ClothingHandsPowerGlovesUplinkNTERTDeathSquadFish
+
+

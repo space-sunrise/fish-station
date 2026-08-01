@@ -311,7 +311,7 @@
 #  - type: Muted
   - type: GhostRole
     name: pw-vehicles-republic-markerdroncore-name
-    description: pw-construction-republic-mobhumancorep0-desc
+    description: pw-vehicles-republic-markerdroncore-desc-1
     raffle:
       settings: WM
   - type: CombatMode
@@ -347,12 +347,10 @@
   - type: MovementIgnoreGravity
     weightless: True
   - type: IntrinsicRadioReceiver
-  - type: ExplodeOnTrigger
-  - type: Explosive
-    explosionType: Default
-    totalIntensity: 5
-    intensitySlope: 1
-    maxIntensity: 5
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: DronShockWeaknessWM
+  - type: PlanetWarStunDrone
   - type: MovementSpeedModifier
     baseWalkSpeed : 15
     baseSprintSpeed : 12
