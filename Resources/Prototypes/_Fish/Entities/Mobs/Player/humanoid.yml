@@ -3,13 +3,94 @@
   id: RandomHumanoidSpawnerDeathSquadFish
   suffix: Fish, 200BC 200C
   components:
-  - type: Loadout
-    prototypes: [ DeathSquadGearFish ]
+  - type: RandomHumanoidSpawner
+    settings: DeathSquadFish
 
 - type: entity
   parent: RandomHumanoidSpawnerDeathSquadFish
   id: RandomHumanoidSpawnerDeathSquadFishBudget
   suffix: Fish, 80BC 80C
   components:
+  - type: RandomHumanoidSpawner
+    settings: DeathSquadFishBudget
+
+- type: randomHumanoidSettings
+  id: DeathSquadFish
+  parent: DeathSquad
+  components:
+  - type: Loadout
+    prototypes: [ DeathSquadGearFish ]
+
+- type: randomHumanoidSettings
+  id: DeathSquadFishBudget
+  parent: DeathSquad
+  components:
   - type: Loadout
     prototypes: [ DeathSquadGearFishBudget ]
+
+
+- type: entity
+  id: RandomHumanoidSpawnerSpaceNinjaFish
+  components:
+    - type: Sprite
+      sprite: Clothing/OuterClothing/Suits/spaceninja.rsi
+      state: icon
+    - type: RandomMetadata
+      nameSegments:
+        - NamesNinjaTitle
+        - NamesNinja
+      nameFormat: name-format-ninja
+    - type: RandomHumanoidSpawner
+      settings: SpaceNinjaFish
+
+- type: randomHumanoidSettings
+  id: SpaceNinjaFish
+  parent: EventHumanoid
+  speciesBlacklist:
+  - Diona
+  - Vox
+  - Felinid
+  - Moth
+  - Arachnid
+  - Reptilian
+  - Vulpkanin
+  - Swine
+  - Tajaran
+  - Demon
+  - SlimePerson
+  - Dwarf
+  - HumanoidXeno
+  - Predator
+  - Resomi
+  - Milira
+  - Kitsune
+  randomizeName: false
+  components:
+    - type: GhostRole
+      name: ghost-role-information-space-ninja-name
+      description: ghost-role-information-space-ninja-description
+      rules: ghost-role-information-antagonist-rules
+      raffle:
+        settings: default
+      mindRoles:
+      - MindRoleNinja
+    - type: Loadout
+      prototypes: [ SpaceNinjaGear ]
+      roleLoadout: [ RoleSurvivalSpaceNinja ]
+    - type: GhostPanelAntagonistMarker
+      name: ghost-panel-antagonist-ninja-name
+      description: ghost-panel-antagonist-ninja-description
+      priority: 40
+    - type: SpaceNinja
+    - type: NpcFactionMember
+      factions:
+      - SpiderClan
+    - type: AutoImplant
+      implants:
+      - RedspaceImplant
+      - MicroBombImplant
+      - StimpackImplant
+      - ReviverImplant
+      - NutrimentImplant
+
+

@@ -1,0 +1,4042 @@
+- type: entity
+  id: DeleteOnFloreFichaWM
+  abstract: true
+  components:
+  - type: TriggerOnProximity
+    enabled: true
+    cooldown: 5
+    shape:
+      !type:PhysShapeCircle
+        radius: 20
+    repeating: true
+    requiresAnchored: false
+    triggerSpeed: 1
+  - type: TriggerOnUse
+  - type: TimerTrigger
+    delay: 100
+  - type: DeleteOnTrigger
+    keysIn:
+    - timer
+
+
+- type: entity
+  id: DeleteOnFloreFichaNoRichItemWM
+  abstract: true
+  components:
+  - type: TriggerOnProximity
+    enabled: true
+    cooldown: 5
+    shape:
+      !type:PhysShapeCircle
+        radius: 20
+    repeating: true
+    requiresAnchored: false
+    triggerSpeed: 1
+  - type: DeleteOnTrigger
+
+#раб
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: WallShuttleWMTime
+  parent: WallShuttleWM
+  components:
+  - type: Sprite
+    scale: 0.8, 0.8
+  - type: TimedDespawn 
+    lifetime: 120
+  - type: SpawnOnDespawn
+    prototype: WallShuttleWM
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: WallShuttleWM
+  parent: WallShuttle
+  components:
+  #- type: RadarBlip
+  #  color: "#647289"
+  #  scale: 0.4
+  #  shape: Square
+  #  requireInSpace: false
+  - type: RCDDeconstructable
+    cost: 25
+    delay: 20
+  - type: Ricochetable
+    chance: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ReinforcedGirderWM:
+            min: 1
+            max: 1
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: WallPlastitaniumWMTime
+  parent: WallPlastitaniumWM
+  components:
+  - type: Sprite
+    scale: 0.8, 0.8
+  - type: TimedDespawn 
+    lifetime: 120
+  - type: SpawnOnDespawn
+    prototype: WallPlastitaniumWM
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: WallPlastitaniumWM
+  parent: WallPlastitanium
+  components:
+ # - type: RadarBlip
+ #   color: "#806161"
+ #   scale: 0.4
+ #   shape: Square
+ #   requireInSpace: false
+  - type: RCDDeconstructable
+    cost: 25
+    delay: 20
+  - type: Ricochetable
+    chance: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ReinforcedGirderWM:
+            min: 1
+            max: 1
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: CrateGenericSteel
+  id: CrateGenericSteelWM
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: Construction
+    graph: CatwalkWM
+    node: CatwalkWM
+  - type: AdminMinigun
+  - type: Thruster
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: GirderWM
+  parent: Girder
+  components:
+  - type: RCDDeconstructable
+    cost: 2
+    delay: 2
+  - type: Construction
+    graph: CatwalkWM
+    node: CatwalkWM
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Repairable
+    qualityNeeded: "Screwing"
+    doAfterDelay: 1
+    damage:
+      types:
+        Blunt: -2500
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ReinforcedGirderWM
+  parent: ReinforcedGirder
+  components:
+  - type: RCDDeconstructable
+    cost: 4
+    delay: 4
+  - type: Construction
+    graph: CatwalkWM
+    node: CatwalkWM
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Repairable
+    qualityNeeded: "Screwing"
+    doAfterDelay: 1
+    damage:
+      types:
+        Blunt: -2500
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ShuttleWindowWMTime
+  parent: ShuttleWindowWM
+  components:
+  - type: Sprite
+    scale: 0.8, 0.8
+  - type: TimedDespawn 
+    lifetime: 120
+  - type: SpawnOnDespawn
+    prototype: ShuttleWindowWM
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ShuttleWindowWM
+  parent: ShuttleWindow
+  components:
+  #- type: RadarBlip
+  #  color: "#647289"
+  #  scale: 0.4
+  #  shape: Square
+  #  requireInSpace: false
+  - type: RCDDeconstructable
+    cost: 15
+    delay: 9
+  - type: Ricochetable
+    chance: 2
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 350
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: PlastitaniumWindowWMTime
+  parent: PlastitaniumWindowWM
+  components:
+  - type: Sprite
+    scale: 0.8, 0.8
+  - type: TimedDespawn 
+    lifetime: 120
+  - type: SpawnOnDespawn
+    prototype: PlastitaniumWindowWM
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: PlastitaniumWindowWM
+  parent: PlastitaniumWindow
+  components:
+ # - type: RadarBlip
+ #   color: "#806161"
+ #   scale: 0.4
+ #   shape: Square
+ #   requireInSpace: false
+  - type: RCDDeconstructable
+    cost: 15
+    delay: 9
+  - type: Ricochetable
+    chance: 2
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 350
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: WallSolidWMTime
+  parent: WallSolidWM
+  components:
+  - type: Sprite
+    scale: 0.8, 0.8
+  - type: TimedDespawn 
+    lifetime: 60
+  - type: SpawnOnDespawn
+    prototype: WallSolidWM
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: WallSolidWM
+  parent: WallSolid
+  components:
+ # - type: RadarBlip
+ #   color: "#999999"
+ #   scale: 0.4
+ #   shape: Square
+ #   requireInSpace: false
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: RCDDeconstructable
+    cost: 8
+    delay: 4
+  - type: Ricochetable
+    chance: 0.4
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ReinforcedGirderWM:
+            min: 1
+            max: 1
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: CableApcExtensionWM
+  parent: CableApcExtension
+  components:
+  - type: Cable
+    cableDroppedOnCutPrototype: MarkerZaglushks
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: PoweredlightWM
+  parent: Poweredlight
+  components:
+  - type: RCDDeconstructable
+    cost: 1
+    delay: 1
+  - type: PoweredLight
+    hasLampOnSpawn: LightTube
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: CatwalkWM
+  parent: Catwalk
+  components:
+    - type: Construction
+      graph: CatwalkWM
+      node: CatwalkWM
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 50
+          behaviors:
+            - !type:DoActsBehavior
+              acts: ["Destruction"]
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: GrilleWM
+  parent: Grille
+  components:
+    - type: Construction
+      graph: CatwalkWM
+      node: CatwalkWM
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 10
+          behaviors:
+            - !type:DoActsBehavior
+              acts: ["Destruction"]
+
+
+- type: entity
+  id: BaseLandMineWM
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Construction
+    graph: CatwalkWMDop
+    node: CatwalkWMDop
+  - type: RCDDeconstructable
+    cost: 1
+    delay: 1
+  - type: TriggerOnStepTrigger
+  - type: PlacementReplacement
+    key: web
+  - type: Appearance
+  - type: Clickable
+  - type: Transform
+    anchored: true
+  - type: Physics
+  - type: Damageable
+    damageContainer: Inorganic
+  #- type: Slippery
+   # launchForwardsMultiplier: 0.1
+ #   requiredSlipSpeed: 1
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0.01
+    intersectRatio: 0.2
+  - type: LandMine
+    sound:
+        path: /Audio/Effects/beep_landmine.ogg
+        params:
+            maxDistance: 10
+  - type: DeleteOnTrigger
+  - type: ExplodeOnTrigger
+  - type: ExplosionResistance
+    damageCoefficient: 0.45
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:TriggerBehavior
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Shock
+        damage: 25
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Fixtures
+    fixtures:
+      slips:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        layer:
+        - SlipLayer
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        density: 1000
+        mask:
+        - ItemMask
+
+#LandMine
+
+
+- type: entity
+  id: PelletShotgunTraceWM
+  parent: PelletShotgunTrace
+  categories: [ HideSpawnMenu ]
+#  components:
+  #- type: RadarBlip
+  #  color: "#fff900FF"
+  #  scale: 0.1
+  #  shape: Triangle
+  #  requireInSpace: false
+
+
+- type: entity
+  id: PelletShotgunSlugTraceWM
+  parent: PelletShotgunSlugTrace
+  categories: [ HideSpawnMenu ]
+  #components:
+  #- type: RadarBlip
+  #  color: "#fff900FF"
+  #  scale: 0.1
+  #  shape: Triangle
+  #  requireInSpace: false
+
+
+- type: entity
+  id: BulletPistolTraceSPWM
+  parent: BulletPistolTraceSP
+  categories: [ HideSpawnMenu ]
+  #components:
+  #- type: RadarBlip
+  #  color: "#fff900FF"
+  #  scale: 0.1
+  #  shape: Triangle
+  #  requireInSpace: false
+
+
+- type: entity
+  id: BulletLightRifleTraceSPWM
+  parent: BulletLightRifleTraceSP
+  categories: [ HideSpawnMenu ]
+  #components:
+ # - type: RadarBlip
+ #   color: "#fff900FF"
+ #   scale: 0.1
+ #   shape: Triangle
+ #   requireInSpace: false
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: SunriseCartridgeLightRifleStructureWM
+  parent: SunriseCartridgeLightRifleWM 
+  components:
+  - type: Tag
+    tags:
+    - ArtilleryShell
+
+
+- type: entity
+  id: BulletRifleTraceHeavySPWM
+  parent: BulletRifleTraceHeavySP
+  categories: [ HideSpawnMenu ]
+ # components:
+  #- type: RadarBlip
+  #  color: "#fff900FF"
+  ##  scale: 0.1
+   # shape: Triangle
+   # requireInSpace: false
+
+
+- type: entity
+  id: BulletRifleTraceSPWM
+  parent: BulletRifleTraceSP
+  categories: [ HideSpawnMenu ]
+ # components:
+  #- type: RadarBlip
+  #  color: "#fff900FF"
+  #  scale: 0.1
+  #  shape: Triangle
+  #  requireInSpace: false
+
+
+- type: entity
+  id: PelletClusterLessLethalWM
+  categories: [ HideSpawnMenu ]
+  parent: PelletClusterLessLethal
+ # components:
+ # - type: RadarBlip
+ #   color: "#fff900FF"
+ #   scale: 0.1
+ #   shape: Triangle
+ #   requireInSpace: false
+
+
+- type: entity
+  parent: AntiMaterielBulletTrace #BulletTrace
+  id: AntiMaterielBulletTraceWM
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Piercing: 55
+        Blunt: 20
+        Structural: 20
+  #- type: HitscanBasicDamage
+
+#- type: hitscan
+ # id: AntiMaterielBulletTraceWM
+#  parent: BulletTrace
+ # damage:
+  #  types:
+   #   Piercing: 95
+  #    Structural: 20
+ # maxLength: 50
+ # speed: 600
+ # staminaDamage: 35
+ # armorPenetration: 0.35
+ # pierceChance: 0.90
+ # pierceLevel: Rock
+ # ricochetChance: 0.95
+ # steps: 85
+ # derivation: 0.005
+
+#NightVisionEffect
+
+
+- type: entity
+  parent: RedLightLaser
+  id: RedLightLaserWM
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 17
+
+
+- type: entity
+  parent: Pulse
+  id: PulseWM
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 35
+
+#Material
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ShtampMagazin
+  id: ShtampMagazin9999999999
+  components:
+  - type: Stack
+    count: 999999999
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: FultonWM
+  parent: BaseItem
+  suffix: Full
+  components:
+  - type: Fulton
+    whitelist:
+      components:
+       - PhysicalComposition
+       - Item
+       - Anchorable
+  #  fultonDuration: 1
+  #  applyFultonDuration: 1
+  - type: Item
+    size: Tiny
+    inhandVisuals:
+      left:
+      - state: inhand-left-fulton
+      right:
+      - state: inhand-right-fulton
+  - type: Stack
+    stackType: FultonWM
+    count: 450
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 0
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: Objects/Tools/fulton.rsi
+    state: extraction_pack
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+
+
+- type: entity
+  id: Fulton1WM
+  parent: FultonWM
+  suffix: One
+  components:
+  - type: Stack
+    count: 1
+
+#Tag
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: WeaponEarthGovLaserCarbine
+  id: WeaponEarthGovLaserCarbineWM
+  components:
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 4
+    pvsIncrease: 1.5 
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 2100
+  - type: BatterySelfRecharger
+  #  autoRecharge: true
+    autoRechargeRate: 35
+  - type: BatteryAmmoProvider #HitscanBatteryAmmoProvider
+    proto: XrayLaserCore
+    fireCost: 100
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: WeaponPistolVP78
+  id: WeaponPistolVP78WM
+  components:
+#откат
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 650
+  - type: Tag
+    tags:
+    - SellTagWM
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineVP70WM
+        insertSound: /Audio/_Sunrise/Weapons/Guns/Pistols/vp70_reload.ogg
+        ejectSound: /Audio/_Sunrise/Weapons/Guns/Pistols/vp70_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineVP78
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistolWM
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgePistol
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: WeaponLightMachineGunMG60
+  id: WeaponLightMachineGunMG60WM
+  components:
+#откат
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 4650
+  - type: Tag
+    tags:
+    - SellTagWM
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLightMachineGunMG60WM
+        insertSound: /Audio/_Sunrise/Weapons/Guns/LMGs/reload.ogg
+        ejectSound: /Audio/_Sunrise/Weapons/Guns/LMGs/unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineLightMachineGunMG60
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeHeavyLightRifleWM
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeHeavyRifle
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MagazineVP78
+  id: MagazineVP70WM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 10
+  - type: BallisticAmmoProvider
+    cycleable: false
+    proto: CartridgePistolWM
+    capacity: 20
+  - type: Tag
+    tags:
+    - MagazineVP78
+    - TehfabTagWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MagazineBR64 #MagazineSTG44
+  id: MagazineSTG44WM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 100
+  - type: BallisticAmmoProvider
+    proto: SunriseCartridgeLightRifleWM
+    capacity: 30
+    cycleable: false
+  - type: Tag
+    tags:
+    - MagazineBR64
+    - TehfabTagWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MagazineLightMachineGunMG60
+  id: MagazineLightMachineGunMG60WM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 400
+  - type: BallisticAmmoProvider
+    proto: CartridgeHeavyLightRifleWM
+    cycleable: false
+    capacity: 180
+  - type: Tag
+    tags:
+    - MagazineLightMachineGunMG60
+    - TehfabTagWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MagazineRifleSP
+  id: MagazineRifleWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 100
+  - type: BallisticAmmoProvider
+    proto: SunriseCartridgeRifleWM
+    cycleable: false
+    capacity: 40
+  - type: Tag
+    tags:
+    - MagazineRifle
+    - TehfabTagWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: SpeedLoaderMagnumFMJ
+  id: SpeedLoaderMagnumWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 200
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumWM
+    capacity: 24
+  - type: Tag
+    tags:
+    - SpeedLoaderMagnum
+    - TehfabTagWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: SpeedLoaderMagnumFMJ
+  id: SpeedLoaderMagnumFMJWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 400
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumFMJWM
+    capacity: 7
+  - type: Tag
+    tags:
+    - SpeedLoaderMagnum
+    - TehfabTagWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MagazineShotgunSlug
+  id: MagazineShotgunSlugWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 10
+  - type: BallisticAmmoProvider
+    cycleable: false
+    proto: ShellShotgunSlugWM
+    capacity: 8
+  - type: Tag
+    tags:
+    - MagazineShotgun
+    - TehfabTagWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MagazineShotgun
+  id: MagazineShotgunWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 100
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunWM
+    capacity: 12
+    cycleable: false
+  - type: Tag
+    tags:
+    - MagazineShotgun
+    - TehfabTagWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BoxShellTranquilizer
+  id: BoxShellTranquilizerWM
+  components:
+  - type: BallisticAmmoProvider
+    cycleable: false
+    capacity: 12
+    proto: ShellShotgunSlugWM
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 200
+  - type: Tag
+    tags:
+  #  - MagazineShotgun
+    - TehfabTagWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BoxLethalshot
+  id: BoxLethalshotWM
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunWM
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 200
+  - type: Tag
+    tags:
+    - TehfabTagWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MagazineBauer127
+  id: MagazineBauer127WM
+  components:
+  - type: Item
+    size: Normal
+  - type: BallisticAmmoProvider
+    proto: CartridgeAntiMaterielWM
+    capacity: 16
+    cycleable: false
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 300
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MagazineDragunovSP
+  id: MagazineDragunovWM
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeAntiMaterielWM
+    whitelist:
+      tags:
+      - CartridgeAntiMateriel
+    capacity: 16
+    cycleable: false
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 300
+  - type: Item
+    size: Normal
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: WeaponRifleARG
+  id: WeaponRifleAKMWM
+  components:
+#откат
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 1250
+  - type: Tag
+    tags:
+    - SellTagWM
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLightRifleWM
+        insertSound: /Audio/_Sunrise/Weapons/Guns/Rifles/AK/ak_reload.ogg
+        ejectSound: /Audio/_Sunrise/Weapons/Guns/Rifles/AK/ak_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineLightRifle
+      gun_chamber:
+        name: Chamber
+        startingItem: SunriseCartridgeLightRifleWM
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeLightRifle
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: WeaponPistolHIB88M4
+  id: WeaponPistolHIB88M4WM
+  components:
+#откат
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 650
+  - type: Tag
+    tags:
+    - SellTagWM
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineHIBrowningWM
+        insertSound: /Audio/_Sunrise/Weapons/Guns/Pistols/vp70_reload.ogg
+        ejectSound: /Audio/_Sunrise/Weapons/Guns/Pistols/vp70_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineHIBrowning
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistolWM
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgePistol
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MagazineHIBrowning
+  id: MagazineHIBrowningWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 10
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolWM
+    cycleable: false
+    capacity: 20
+  - type: Tag
+    tags:
+    - MagazineHIBrowning
+    - TehfabTagWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MagazineLightRifleHP
+  id: MagazineLightRifleWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 100
+  - type: BallisticAmmoProvider
+    proto: SunriseCartridgeLightRifleWM
+    cycleable: false
+  - type: Tag
+    tags:
+    - MagazineLightRifle
+    - TehfabTagWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MagazineRPD
+  id: MagazineRPDWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 400
+  - type: BallisticAmmoProvider
+    cycleable: false
+    proto: SunriseCartridgeLightRifleWM
+    capacity: 300
+  - type: Tag
+    tags:
+    - MagazineRPD
+    - TehfabTagWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MagazinePistolSubMachineGunHP
+  id: MagazinePistolSubMachineGunWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 100
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolWM
+    cycleable: false
+    capacity: 40
+  - type: Tag
+    tags:
+    - MagazinePistolSubMachineGun
+    - TehfabTagWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: PowerCageTankWM
+  parent: PowerCageSmall
+  components:
+  - type: Battery
+    maxCharge: 25000000
+    startingCharge: 25000000
+  - type: BatterySelfRecharger
+ #   autoRecharge: true
+    autoRechargeRate: 25000000
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: PowerCageHightWM
+  parent: PowerCageSmall
+  components:
+  - type: Battery
+    maxCharge: 2500000
+    startingCharge: 2500000
+  - type: BatterySelfRecharger
+  #  autoRecharge: true
+    autoRechargeRate: 2500000
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: PowerCageNormalWM
+  parent: PowerCageSmall
+  components:
+  - type: Battery
+    maxCharge: 30000
+    startingCharge: 30000
+  - type: BatterySelfRecharger
+  #  autoRecharge: true
+    autoRechargeRate: 30000
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: PowerCageSmallWM
+  parent: PowerCageSmall
+  components:
+  - type: Battery
+    maxCharge: 10000
+    startingCharge: 10000
+  - type: BatterySelfRecharger
+   # autoRecharge: true
+    autoRechargeRate: 10000
+
+
+- type: entity
+  id: BulletRocketWM
+  name: rocket
+  parent: BulletRocket
+  categories: [ HideSpawnMenu ]
+  #components:
+  #- type: RadarBlip
+  #  color: "#ff0000FF"
+  #  scale: 0.15
+  #  shape: Circle
+  #  requireInSpace: false
+
+
+- type: entity
+  id: FloorFireEntityWM
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: TimedDespawn 
+    lifetime: 1
+  - type: TileEmission
+    color: "#FF4500"
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.1
+    blacklist:
+      tags:
+        - Catwalk
+  - type: TileEntityEffect
+    effects:
+    - !type:Flammable
+      multiplier: 3.75
+      multiplierOnExisting: 0.75
+    - !type:Ignite
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: Sprite
+    sprite: Effects/fire.rsi
+    drawdepth: Mobs
+    layers:
+      - state: 3
+        shader: unshaded
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+          - SlipLayer
+        mask:
+          - ItemMask
+        density: 1000
+        hard: false
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: HandLabeler
+  id: HandLabelerWM
+  components:
+    - type: HandLabeler
+      whitelist:
+        components:
+          - HumanoidAppearance
+          - Thirst
+          - Hunger
+          - Item
+        tags:
+          - Structure
+    - type: PhysicalComposition
+      materialComposition:
+        MoneyWarMizMaterial: 200
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: hydroponicsSoil
+  id: hydroponicsSoilWM
+  components:
+  - type: Flatpack
+    entity: HandheldSoilWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseItem
+  id: HandheldSoilWM
+  components:
+  - type: Flatpack
+    entity: hydroponicsSoilWM
+  - type: Sprite
+    sprite: _Sunrise/Objects/Misc/soil.rsi
+    layers:
+    - state: item
+  - type: Item
+    size: Normal
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 800
+  - type: SpawnAfterInteract
+    prototype: hydroponicsSoilWM
+    doAfter: 1
+    removeOnInteract: true
+  - type: Clickable
+  - type: Tag
+    tags:
+    - Inflatable
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BoxCanabisArm
+  id: BoxBotanicToolWM
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_bit
+      shader: unshaded
+    - state: refill_plant
+  - type: SpawnItemsOnUse
+    items:
+    - id: BucketWM
+    - id: HydroponicsToolMiniHoeWM
+    - id: HydroponicsToolClippersWM
+    - id: HydroponicsToolScytheWM
+    - id: HydroponicsToolHatchetWM
+    - id: HydroponicsToolSpadeWM
+    - id: PlantBagWM
+    - id: ChemistryBottleEZNutrientWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: HydroponicsToolMiniHoe
+  id: HydroponicsToolMiniHoeWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: HydroponicsToolClippers
+  id: HydroponicsToolClippersWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: HydroponicsToolScythe
+  id: HydroponicsToolScytheWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: HydroponicsToolHatchet
+  id: HydroponicsToolHatchetWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: HydroponicsToolSpade
+  id: HydroponicsToolSpadeWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: SignalButtonAutoWM
+  parent: SignalButton
+  suffix: Autolink
+  components:
+   # - type: AutoLinkReceiver
+    #  channel: EnergyDomeAutoLink
+    - type: AutoLinkTransmitter
+      channel: EnergyDomeAutoLink
+    - type: WirelessNetworkConnection
+      range: 1
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: emergency medipen
+  parent: EmergencyMedipen
+  id: EmergencyMedipenWM
+  components:
+  - type: Label
+    currentLabel: эпинефрин
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 20
+        reagents:
+        - ReagentId: EpinephrinePW
+          Quantity: 20
+  - type: DeleteOnSolutionEmpty
+    solution: pen
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: [ SyringeEphedrine, DeleteOnFloreFichaNoRichItemWM ]
+  id: SyringeEphedrineWM
+  components:
+  - type: Item
+    size: Tiny
+  - type: Label
+    currentLabel: эфедрин
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 30
+        reagents:
+        - ReagentId: EphedrinePW
+          Quantity: 30
+  - type: DeleteOnSolutionEmpty
+    solution: injector
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: DrinkMREFlask
+  id: DrinkMREFlaskWM
+  components:
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: WaterPW
+        Quantity: 1
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+        reagents:
+        - ReagentId: WaterPW
+          Quantity: 100
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 200
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: Bucket
+  id: BucketWM
+  components:
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: WaterPW
+        Quantity: 0.1
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 2000
+        reagents:
+        - ReagentId: WaterPW
+          Quantity: 2000
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 200
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ClothingEyesGlassesWeldingWM
+  parent: ClothingEyesGlassesWelding
+  components:
+    - type: PhysicalComposition
+      materialComposition:
+        MoneyWarMizMaterial: 100
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: RemoteSignallerWM
+  parent: RemoteSignaller
+  components:
+    - type: PhysicalComposition
+      materialComposition:
+        MoneyWarMizMaterial: 100
+    - type: WirelessNetworkConnection
+      range: 20
+
+
+- type: entity
+  id: CheapRollerBedWM
+  categories: [ HideSpawnMenu ]
+  parent: CheapRollerBed
+  components:
+  - type: HealOnBuckle
+    sleepMultiplier: 1.0
+    damage:
+      types:
+        Asphyxiation: -8
+        Bloodloss: -8
+        Blunt: -8
+        Slash: -8
+        Cellular: -8
+        Caustic: -8
+        Cold: -8
+        Heat: -8
+        Piercing: -8
+        Poison: -8
+        Radiation: -8
+        Shock: -8
+        Mangleness: -8
+  - type: CanSleepOnBuckle
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: CheapRollerBedWM
+  id: CheapRollerBedSpawnFoldedWM
+  suffix: folded
+  components:
+  - type: Item
+    size: Small
+  - type: Foldable
+    folded: true
+  - type: Strap
+    enabled: False
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 500
+
+
+- type: entity
+  parent: BaseItem
+  id: BoxGlowstickBlueWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: SpawnItemsOnUse
+    uses: 12
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/unwrap.ogg
+    items:
+    - id: GlowstickBlueWM
+  - type: Item
+    sprite: Objects/Storage/boxes.rsi
+    size: Small
+  - type: Sprite
+    sprite: Objects/Storage/boxes.rsi
+    layers:
+      - state: box
+      - state: flare
+        color: "#0057e7"
+
+
+- type: entity
+  parent: GlowstickBase
+  id: GlowstickBlueWM
+  components:
+    - type: TimedDespawn
+      lifetime: 450
+    - type: ExpendableLight
+      glowDuration: 350
+      fadeOutDuration: 300
+      spentName: expendable-light-spent-blue-glowstick-name
+      glowColorLit: "#0057e7"
+    - type: PointLight
+      radius: 15
+      energy: 1
+      color: "#0057e7"
+
+
+- type: entity
+  parent: BoxGlowstickBlueWM
+  id: BoxGlowstickRedWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: SpawnItemsOnUse
+    items:
+    - id: GlowstickRedWM
+  - type: Sprite
+    layers:
+      - state: box
+      - state: flare
+        color: "#e60000"
+
+
+- type: entity
+  parent: GlowstickBlueWM
+  id: GlowstickRedWM
+  components:
+    - type: ExpendableLight
+      spentName: expendable-light-spent-red-glowstick-name
+      glowColorLit: "#e60000"
+    - type: PointLight
+      color: "#e60000"
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: SingularityWM #добавить глобал обьявление (проверить можно ли его только на одной карты сделать) обьявление о унчитожении основного портала, а также spawn on despawn другово юнита и анаонс им победы протвопоожной команды ( )
+  parent: Singularity
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components: 
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    anchored: true
+  - type: TimedDespawn 
+    lifetime: 10.0
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: SingularityMiniWM # добавить глобал обьявление о унчитожении мелкого портала
+  parent: Singularity 
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    anchored: true
+  - type: TimedDespawn 
+    lifetime: 3.0
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: EnergyPickaxeWM
+  parent: EnergyPickaxe #Pickaxe
+  components:
+  - type: ItemToggle
+    onUse: false 
+    onActivate: false
+  - type: Wieldable
+  - type: MeleeWeapon
+    attackRate: 1
+    autoAttack: true
+    angle: 160
+    damage:
+      types:
+        Blunt: 4.5
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+        types:
+          Heat: 8
+          Piercing: 2
+          Structural: 30
+          Holy: 75
+    deactivatedSecret: true
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: MagazBagWM
+  parent: OreBag
+  components:
+  - type: Item
+    size: Small #Ginormous #Large
+  - type: Storage
+    maxItemSize: Ginormous
+    grid:
+    - 0,0,38,28
+  #  - 0,0,25,8
+    whitelist:
+      components:
+        - Item
+    blacklist:
+      components:
+        - Storage
+  #  whitelist:
+    #  tags:
+      #  - TehfabTagWM
+  - type: MagnetPickup
+    range: 2
+    slotFlags: 
+    - suitstorage
+  - type: Sprite
+    sprite: Objects/Specific/Mining/ore_bag_holding.rsi
+    state: icon
+  - type: Clothing
+    sprite: Objects/Specific/Mining/ore_bag_holding.rsi
+    quickEquip: true
+    slots:
+    - neck
+    - back
+    - suitstorage
+
+
+- type: entity
+  parent: Foam
+  id: FoamWM
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Stealth
+    mirage: false
+    hadOutline: true
+    examineThreshold: 2
+    maxVisibility: 1
+  - type: StealthOnMove
+    passiveVisibilityRate: -2.00
+  - type: TimedDespawn
+    lifetime: 3
+  - type: Timer
+
+
+- type: entity
+  id: MedkitFilledWM
+  suffix: Filled
+  parent: [ Medkit, DeleteOnFloreFichaNoRichItemWM ]
+  components:
+  - type: Storage
+    grid:
+    - 0,0,6,1
+  - type: Item
+    heldPrefix: blackkit
+    size: Normal
+  - type: StorageFill
+    contents:
+      - id: BrutepackWM
+      - id: OintmentWM
+      - id: Pill1WM
+        amount: 3
+      - id: EmergencyMedipenWM
+      - id: SyringeEphedrineWM
+      - id: Pill4WM
+        amount: 2
+      - id: Pill5WM
+        amount: 2
+      - id: Pill6WM
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+
+- type: entity
+  parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
+  id: Pill1WM
+  components:
+  - type: Pill
+    pillType: 2
+  - type: Sprite
+    state: pill3
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 26
+        reagents:
+        - ReagentId: TricordrazinePW
+          Quantity: 25
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 10
+
+
+- type: entity
+  parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
+  id: Pill2WM
+  components:
+  - type: Pill
+    pillType: 15
+  - type: Sprite
+    state: pill16
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 26
+        reagents:
+        - ReagentId: EpinephrinePW
+          Quantity: 10
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 10
+
+
+- type: entity
+  parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
+  id: Pill3WM
+  components:
+  - type: Pill
+    pillType: 17
+  - type: Sprite
+    state: pill18
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 26
+        reagents:
+        - ReagentId: EphedrinePW
+          Quantity: 19
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 10
+
+
+- type: entity
+  parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
+  id: Pill4WM
+  components:
+  - type: Pill
+    pillType: 3
+  - type: Sprite
+    state: pill4
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: BicaridinePW
+          Quantity: 10
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+
+- type: entity
+  parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
+  id: Pill5WM
+  components:
+  - type: Pill
+    pillType: 4
+  - type: Sprite
+    state: pill5
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: KelotanePW
+          Quantity: 10
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+
+- type: entity
+  parent: [ Pill, DeleteOnFloreFichaNoRichItemWM ]
+  id: Pill6WM
+  components:
+  - type: Pill
+    pillType: 9
+  - type: Sprite
+    state: pill10
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: DylovenePW
+          Quantity: 10
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: Ointment
+  id: OintmentWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 2
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: Brutepack
+  id: BrutepackWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 3 #умнож на десять так как в стаке
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: Bloodpack
+  id: BloodpackWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 5
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MedicatedSuture
+  id: MedicatedSutureWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 10
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: RegenerativeMesh
+  id: RegenerativeMeshWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 15
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: Crowbar
+  id: CrowbarWM
+  components:
+  - type: ToolTileCompatible
+    delay: 99999
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: Wrench
+  id: WrenchWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: Wirecutter
+  id: WirecutterWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: WelderExperimental
+  id: WelderExperimentalWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 300
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: Multitool
+  id: MultitoolWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodSnackNutribrickOpen
+  id: FoodSnackNutribrickOpenWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MetalFoamGrenade
+  id: MetalFoamGrenadeWM
+  components:
+  - type: ExplosionResistance
+    damageCoefficient: 0
+  - type: SmokeOnTrigger
+    smokePrototype: AluminiumMetalFoamWM
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+
+- type: entity
+  id: AluminiumMetalFoamWM
+  categories: [ HideSpawnMenu ]
+  parent: AluminiumMetalFoam
+  components:
+  - type: SpawnOnDespawn
+    prototype: FoamedAluminiumMetalWM
+
+
+- type: entity
+  id: FoamedAluminiumMetalWM
+  categories: [ HideSpawnMenu ]
+  parent: FoamedAluminiumMetal
+  components:
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Reflect
+    reflectProb: 0.56
+    spread: 360
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+
+- type: entity
+  id: BulletGrenadeFlashBangWM
+  parent: BulletGrenadeFlashBang
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: FlashOnTrigger
+    range: 1
+    duration: 20
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: TearGasGrenade
+  id: TearGasGrenadeWM
+  components:
+  - type: MovementIgnoreGravity
+    weightless: True
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 20
+  - type: SmokeOnTrigger
+    duration: 25
+    spreadAmount: 15
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: TelescopicShield
+  id: TelescopicShieldWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: Reflect
+    reflectProb: 0.15
+    overrideAngle: 180
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 280
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FultonBeacon
+  id: FultonBeaconWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: EnergyShield
+  id: EnergyShieldWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: Screwdriver
+  id: ScrewdriverWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: SyndicateWhistle
+  id: SyndicateWhistleWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 400
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: SecurityWhistle
+  id: SecurityWhistleWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 400
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingOuterArmorBlueShield
+  id: ClothingOuterCoatSyndieCapWM
+  components:
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecap.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecap.rsi
+  - type: Unremoveable
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingMaskGasSecurity
+  id: ClothingMaskGasSecurityWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingUniformJumpsuitRecruitNT
+  id: ClothingUniformJumpsuitRecruitNTWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHeadHelmetSwat
+  id: ClothingHeadHelmetSwatWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+  - type: Reflect
+    reflectProb: 0.05
+    overrideAngle: 270
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHeadHelmetPubg
+  id: ClothingHeadHelmetPubgWM
+  components:
+  - type: Reflect
+    reflectProb: 0.1
+    overrideAngle: 270
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHeadHelmetLing
+  id: ClothingHeadHelmetLingWM
+  components:
+  - type: Reflect
+    reflectProb: 0.1
+    overrideAngle: 270
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingMaskGasBlueShield
+  id: ClothingMaskGasBlueShieldWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: Hypospray
+  id: HyposprayWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 200
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 20
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: SyndiHypo
+  id: SyndiHypoWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 200
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 20
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ExGrenade
+  id: ExGrenadeWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: ExplosionResistance
+    damageCoefficient: 0.0001
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: GrenadeShrapnel
+  id: GrenadeShrapnelWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: ExplosionResistance
+    damageCoefficient: 0.0001
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: C4
+  id: C4WM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 300
+  - type: ExplosionResistance
+    damageCoefficient: 0.0001
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: SeismicCharge
+  id: SeismicChargeWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: ExplosionResistance
+    damageCoefficient: 0.0001
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: Acidifier
+  id: AcidifierWM
+  components:
+ # - type: EntityTableSpawner
+  #  deleteSpawnerAfterSpawn: false
+  #  table: !type:AllSelector
+   #   children:
+    #  - id: PuddleBloodWN
+  - type: TriggerOnSpawn
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/gib2.ogg
+     # volume: 13
+
+ # - type: TriggerOnSpawn
+  #- type: SmokeOnTrigger
+    #duration: 25
+   # spreadAmount: 25
+   # smokePrototype: FoamWM
+   # solution:
+    #  reagents:
+      #- ReagentId: SpaceCleaner
+       # Quantity: 30
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingUniformJumpsuitERTSecurity
+  id: ClothingUniformJumpsuitERTSecurityWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHeadHatBeretAdjutant
+  id: ClothingHeadHatBeretAdjutantWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingUniformJumpsuitRecruitSyndie
+  id: ClothingUniformJumpsuitRecruitSyndieWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHeadHelmetSwatSyndicate
+  id: ClothingHeadHelmetSwatSyndicateWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+  - type: Reflect
+    reflectProb: 0.05
+    overrideAngle: 270
+
+
+- type: entity
+  parent: PortableRecharger
+  id: PortableRechargerWM
+  components:
+  - type: Clothing
+    equippedPrefix: charging
+    quickEquip: false
+    slots:
+    - back
+    - suitstorage
+    - neck
+  - type: ItemSlots
+    slots:
+      charger_slot:
+        ejectOnInteract: true
+        whitelist:
+          components:
+          - BatteryAmmoProvider
+          - BatteryAmmoProvider
+  - type: SelfUnremovableClothing
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingMaskGasSwat
+  id: ClothingMaskGasSwatWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingUniformJumpsuitOperative
+  id: ClothingUniformJumpsuitOperativeWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHeadHatBeretSecurityMedic
+  id: ClothingHeadHatBeretSecurityMedicWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: SmokeGrenade
+  id: SmokeGrenadeWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 850
+  - type: ExplosionResistance
+    damageCoefficient: 0.0001
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseItem
+  id: BinocularsWM
+  components:
+  - type: Wieldable
+  - type: Sprite
+    sprite: Objects/Tools/binoculars.rsi
+    state: icon
+  - type: Clothing
+    sprite: Objects/Tools/binoculars.rsi
+    quickEquip: false
+    slots:
+    - Neck
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 35
+    pvsIncrease: 1.5 
+  - type: Item
+    size: Tiny
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+
+#работает
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingMaskGasNTRGLead
+  id: ClothingMaskGasNTRGLeadWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingMaskGasSyndicate
+  id: ClothingMaskGasSyndicateWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingOuterCoatBlueshield
+  id: ClothingOuterCoatBlueshieldWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingNeckCloakAlpha
+  id: ClothingCloakAlphaWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingOuterArmorBlueShield
+  id: ClothingOuterEliteCoatHOPWM
+  components:
+  - type: Unremoveable
+  - type: Sprite
+    sprite: _Sunrise/Clothing/OuterClothing/Coats/hopcoat.rsi
+  - type: Clothing
+    sprite: _Sunrise/Clothing/OuterClothing/Coats/hopcoat.rsi
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingOuterArmorBlueShield
+  id: ClothingOuterCoatHOSOvercoatBlackWM
+  components:
+  - type: Unremoveable
+  - type: Sprite
+    sprite: _Sunrise/Clothing/OuterClothing/Coats/hos_coat.rsi
+  - type: Clothing
+    sprite: _Sunrise/Clothing/OuterClothing/Coats/hos_coat.rsi
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingShoesSwat
+  id: ClothingShoesSwatWM
+  components:
+  - type: Unremoveable
+  - type: ClothingSpeedModifier
+    walkModifier: 1.7
+    sprintModifier: 0.77
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingShoesCentcomBlack
+  id: ClothingShoesCentcomBlackWM
+  components:
+  - type: Unremoveable
+  - type: ClothingSpeedModifier
+    walkModifier: 1.7
+    sprintModifier: 0.77
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingShoesSwat
+  id: ClothingShoesSwatP1WM
+  components:
+  - type: Unremoveable
+  - type: ClothingSpeedModifier
+    walkModifier: 1.9
+    sprintModifier: 0.77
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingShoesCentcomBlack
+  id: ClothingShoesCentcomBlackP1WM
+  components:
+  - type: Unremoveable
+  - type: ClothingSpeedModifier
+    walkModifier: 1.9
+    sprintModifier: 0.77
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingUniformJumpsuitParamedic
+  id: ClothingUniformJumpsuitParamedicWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingMaskBreathMedical
+  id: ClothingMaskBreathMedicalWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHeadHatParamedicsoft
+  id: ClothingHeadHatParamedicsoftWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingUniformJumpsuitParamedicSyndie
+  id: ClothingUniformJumpsuitParamedicSyndieWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingMaskBreathMedicalRed
+  id: ClothingMaskBreathMedicalRedWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHeadHatRedsoft
+  id: ClothingHeadHatRedsoftWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHandsGlovesColorRed
+  id: ClothingHandsGlovesColorRedWM
+  components:
+  - type: Unremoveable
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/tacticalmaidgloves.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/tacticalmaidgloves.rsi
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHandsGlovesColorBlue
+  id: ClothingHandsGlovesColorBlueWM
+  components:
+  - type: Unremoveable
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/powerglove.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/powerglove.rsi
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHandsGlovesColorYellow
+  id: ClothingHandsGlovesColorYellowWM
+  components:
+  - type: Unremoveable
+  - type: Insulated
+    preventOpperatinGuns: false
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingOuterVest
+  id: ClothingOuterVestWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingUniformJumpsuitChiefEngineerSyndie
+  id: ClothingUniformJumpsuitChiefEngineerSyndieWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingUniformJumpsuitChiefEngineer
+  id: ClothingUniformJumpsuitChiefEngineerWM
+  components:
+  - type: Unremoveable
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: WeaponTeslaGun
+  id: WeaponTeslaGunWM
+  components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,3,1
+  - type: BatteryAmmoProvider
+    proto: TeslaGunBulletWM
+    fireCost: 1000
+  - type: BatterySelfRecharger
+    autoRechargeRate: 8
+   # autoRecharge: True
+  - type: Battery
+    maxCharge: 1500
+    startingCharge: 1000
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 600
+
+
+- type: entity
+  id: LightningWM
+  parent: Lightning
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Lightning
+      canArc: true
+    - type: Electrified
+      shockTime: 1
+      requirePower: false
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: CombatKnife
+  id: CombatKnifeWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 300
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: KukriKnife
+  id: KukriKnifeWM
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 300
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHeadsetAltCommand
+  id: ClothingHeadsetAltCommandW
+  components:
+  - type: ContainerContainer
+    containers:
+      key_slots: !type:Container
+      cell_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-name
+        startingItem: PowerCellMicroreactor 
+  - type: Unremoveable
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCore
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingHeadsetAltSyndicate
+  id: ClothingHeadsetAltSyndicateWM
+  components:
+  - type: ContainerContainer
+    containers:
+      key_slots: !type:Container
+      cell_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-name
+        startingItem: PowerCellMicroreactor
+  - type: Unremoveable
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyArm
+  - type: ProtectedFromStepTriggers
+    slots: SOCKS
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ChemistryBottlePuncturaseWM
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: EpinephrinePW
+        Quantity: 1
+  - type: ExplosionResistance
+    damageCoefficient: 0.00001
+  - type: Label
+    currentLabel: Эпинефрен
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 80
+        reagents:
+        - ReagentId: EpinephrinePW
+          Quantity: 80
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+         # params:
+         #  volume: -4
+      - !type:SpillBehavior { }
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ChemistryBottleBicaridineWM
+  parent: ChemistryBottlePuncturaseWM
+  components:
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: BicaridinePW
+        Quantity: 4
+      - ReagentId: PuncturasePW
+        Quantity: 1
+  - type: ExplosionResistance
+    damageCoefficient: 0.00001
+  - type: Label
+    currentLabel: Бикаридин-Пункта
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 200
+        reagents:
+        - ReagentId: BicaridinePW
+          Quantity: 150
+        - ReagentId: PuncturasePW
+          Quantity: 50
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ChemistryBottleDexalinPlusWM
+  parent: ChemistryBottlePuncturaseWM
+  components:
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: TricordrazinePW
+        Quantity: 0.2
+      - ReagentId: StimulantsPW
+        Quantity: 0.2
+  - type: ExplosionResistance
+    damageCoefficient: 0.00001
+  - type: Label
+    currentLabel: Трикомет
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 200
+        reagents:
+        - ReagentId: TricordrazinePW
+          Quantity: 50
+        - ReagentId: StimulantsPW
+          Quantity: 50
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ChemistryBottleDermalineWM
+  parent: ChemistryBottlePuncturaseWM
+  components:
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: DermalinePW
+        Quantity: 1
+  - type: ExplosionResistance
+    damageCoefficient: 0.00001
+  - type: Label
+    currentLabel: Дермалин
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+        reagents:
+        - ReagentId: DermalinePW
+          Quantity: 100
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ChemistryBottleEZNutrientWM
+  parent: ChemistryBottlePuncturaseWM
+  components:
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: EZNutrientPW
+        Quantity: 10
+  - type: ExplosionResistance
+    damageCoefficient: 0.00001
+  - type: Label
+    currentLabel: EZNutrient
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+        reagents:
+        - ReagentId: EZNutrientPW
+          Quantity: 100
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MobHuman
+  id: BaseMobHumanWM
+  abstract: true
+  components:
+    - type: ActionGrant
+      actions:
+      - ActionOpenPlanetWarGuide
+    # Fish edit - for meme gamemode, do not remove
+    - type: PWVulpkaninCursePending
+    - type: IdBind
+    - type: NameIdentifier
+      group: GenericNumber
+    - type: RandomMetadata
+      nameFormat: name-format-ert
+    - type: RemoveComponentsOnTrigger
+      keysIn:
+       - stop
+      targetUser: true
+      triggerOnce: false
+      
+      components:
+      - type: ExplosionResistance
+    - type: AddComponentsOnTrigger
+      keysIn:
+       - start
+      targetUser: false
+      triggerOnce: false
+      
+      components:
+      - type: ExplosionResistance
+        damageCoefficient: 0.01
+    - type: TriggerOnUnbuckled
+      keyOut: stop
+    - type: TriggerOnBuckled
+      keyOut: start
+    - type: Buckle
+      dontCollide: true
+    - type: CanEscapeInventory
+    - type: AntagImmune
+    - type: Transform
+    - type: CanJump
+      isOnlyEmotion: true
+    - type: Thirst
+      baseDecayRate: 0
+    - type: Hunger
+      baseDecayRate: 0
+   # - type: RandomHumanoidAppearance
+   #   randomizeName: false
+    - type: MovementIgnoreGravity
+    - type: Stamina
+      baseCritThreshold: 999999
+      decay: 999999
+      cooldown: 1
+    - type: Bloodstream
+      bleedPuddleThreshold: 0.01
+      bloodlossDamage:
+        types:
+          Bloodloss: 0.00001
+      bloodlossHealDamage:
+        types:
+          Bloodloss: -1000
+      bloodRefreshAmount: 10000000
+   #   bloodlosThreshold: 1
+      bloodReferenceSolution:
+        reagents:
+        - ReagentId: ClearBlood
+          Quantity: 100
+     # bloodReagent: ClearBlood
+     # bloodMaxVolume: 10000000
+   # - type: NoSlip
+    - type: RespiratorImmunity
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        90: Critical
+        300: Dead
+   # - type: TriggerOnMobstateChange
+   #   mobState:
+   #   - Dead
+   # - type: RemoveComponentsOnTrigger
+   #   triggerOnce: false
+   #   components:
+    #  - type: RadarBlip
+    - type: PassiveDamage
+      allowedStates:
+      - Critical
+      - Dead
+      damageCap: 100000
+      damage:
+        types:
+          Cellular: 3
+    - type: PressureImmunity
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTypeTrigger
+          damageType: Cellular
+          damage: 600
+        behaviors:
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            AcidifierWM:
+              min: 1
+              max: 1
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: gib
+      - trigger:
+          !type:DamageTrigger
+          damage: 16000
+        behaviors:
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            AcidifierWM:
+              min: 1
+              max: 1
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: gib
+   #   - trigger:
+    #      !type:DamageTypeTrigger
+    #      damageType: Heat
+    #      damage: 2500
+     #   behaviors:
+     #   - !type:TriggerBehavior
+      #  - !type:BurnBodyBehavior { }
+       # - !type:PlaySoundBehavior
+       #   sound:
+        #    collection: MeatLaserImpact
+   # - type: ShowJobIcons
+ #   - type: NameIdentifier
+ #     group: GenericNumber
+    - type: GhostTakeoverAvailable
+    - type: Damageable
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ClothingBeltBlueShieldWebbingP0WM
+  parent: [ ClothingBeltBlueShieldWebbing, DeleteOnFloreFichaWM ]
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: SelfUnremovableClothing
+  - type: StorageFill
+    contents:
+    - id: MagazineVP70WM
+      amount: 2
+    - id: MagazineSTG44WM
+      amount: 6
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ClothingBackpackERTLeaderWM
+  parent: [ ClothingBackpackERTLeader, DeleteOnFloreFichaWM ]
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: SelfUnremovableClothing
+  - type: StorageFill
+    contents: 
+    - id: DrinkMREFlaskWM
+    - id: PinpointerCoreWM
+    - id: CombatKnifeWM
+    - id: MedkitFilledWM
+    - id: GrenadeFlashBangWM
+    - id: TearGasGrenadeWM
+    - id: BoxGlowstickBlueWM
+    - id: MoneyWarMiz500
+    - id: BinocularsWM
+  - type: ExplosionResistance
+    damageCoefficient: 0
+
+#P1
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ClothingBeltBlueShieldWebbingP1WM
+  parent: [ ClothingBeltBlueShieldWebbing, DeleteOnFloreFichaWM ]
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: SelfUnremovableClothing
+  - type: StorageFill
+    contents:
+    - id: MagazineVP70WM
+      amount: 2
+    - id: MagazineShotgunSlugWM
+      amount: 1
+    - id: MagazineShotgunWM
+      amount: 5
+
+#PM1
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ClothingBeltBlueShieldWebbingPS4WM
+  parent: [ ClothingBeltBlueShieldWebbing, DeleteOnFloreFichaWM ]
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: SelfUnremovableClothing
+  - type: StorageFill
+    contents:
+    - id: BoxLethalshotWM
+    - id: MagazineBauer127WM
+      amount: 3
+
+#PH5
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ClothingBeltBlueShieldWebbingPH5WM
+  parent: ClothingBeltBlueShieldWebbing
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: SelfUnremovableClothing
+  - type: StorageFill
+    contents:
+    - id: MagazineVP70WM
+      amount: 4
+    - id: MagazineLightMachineGunMG60WM
+      amount: 2
+
+#PC0I5
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ClothingBeltBlueShieldWebbingPC0I5WM
+  parent: [ ClothingBeltBlueShieldWebbing, DeleteOnFloreFichaWM ]
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: SelfUnremovableClothing
+  - type: StorageFill
+    contents:
+    - id: MagazineRifleWM
+      amount: 8
+
+#Povstanez
+#P0
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ClothingBeltSecurityWebbingP0WM
+  parent: [ ClothingBeltSecurityWebbing, DeleteOnFloreFichaWM ]
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: SelfUnremovableClothing
+  - type: StorageFill
+    contents:
+    - id: MagazineHIBrowningWM
+      amount: 2
+    - id: MagazineLightRifleWM
+      amount: 6
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ClothingBackpackSyndieWM
+  parent: [ ClothingBackpackSyndie, DeleteOnFloreFichaWM ]
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: SelfUnremovableClothing
+  - type: StorageFill
+    contents:
+    - id: DrinkMREFlaskWM
+    - id: PinpointerArmWM
+    - id: KukriKnifeWM
+    - id: MedkitFilledWM
+    - id: GrenadeFlashBangWM
+    - id: TearGasGrenadeWM
+    - id: BoxGlowstickRedWM
+    - id: MoneyWarMiz500
+    - id: BinocularsWM
+  - type: ExplosionResistance
+    damageCoefficient: 0
+
+#P1
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ClothingBeltSecurityWebbingP1WM
+  parent: [ ClothingBeltSecurityWebbing, DeleteOnFloreFichaWM ]
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: SelfUnremovableClothing
+  - type: StorageFill
+    contents:
+    - id: MagazineHIBrowningWM
+      amount: 2
+    - id: MagazineShotgunSlugWM
+      amount: 1
+    - id: MagazineShotgunWM
+      amount: 5
+
+#PM1
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ClothingBeltSecurityWebbingPS4WM
+  parent: [ ClothingBeltSecurityWebbing, DeleteOnFloreFichaWM ]
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: SelfUnremovableClothing
+  - type: StorageFill
+    contents:
+    - id: BoxLethalshotWM
+    - id: MagazineDragunovWM
+      amount: 3
+
+#PH5
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ClothingBeltSecurityWebbingPH5WM
+  parent: [ ClothingBeltSecurityWebbing, DeleteOnFloreFichaWM ]
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: SelfUnremovableClothing
+  - type: StorageFill
+    contents:
+    - id: MagazineHIBrowningWM
+      amount: 2
+    - id: MagazineRPDWM
+      amount: 3
+
+#PC0I5
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ClothingBeltSecurityWebbingPCOI5WM
+  parent: [ ClothingBeltSecurityWebbing, DeleteOnFloreFichaWM ]
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 100
+  - type: SelfUnremovableClothing
+  - type: StorageFill
+    contents:
+    - id: MagazinePistolSubMachineGunWM
+      amount: 8
+
+#GearItem
+
+#HowMany
+
+
+- type: entity
+  id: SpawnPointJobGhostBase
+  parent: SpawnPointJobBase
+  components:
+  - type: ContainmentField
+    throwForce: 0
+  - type: SpawnPoint
+    spawn_type: Job
+    job_id: JobGhostWMBase
+  - type: PreferredSpawn
+    preferredSpawnTypes: [ Job ]
+  - type: Sprite
+    layers:
+      - state: green
+      - state: captain
+
+
+- type: entity
+  id: WallRockWM
+  parent: WallRock
+  components:
+ # - type: RadarBlip
+ #   color: "#FFD700FF"
+ #   scale: 0.4
+ #   shape: Square
+ #   requireInSpace: false
+  - type: Damageable
+    damageContainer: RockdamageContainer
+    damageModifierSet: RockWM
+  - type: Pierceable
+    level: HardenedMetal
+  - type: Ricochetable
+    chance: 0.25
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 750
+      behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            path: /Audio/Effects/break_stone.ogg
+            params:
+              volume: -6
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+
+
+- type: entity
+  id: WallRockSnowWM
+  parent: WallRockSnow
+  components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: RockWM
+  - type: Pierceable
+    level: HardenedMetal
+  - type: Ricochetable
+    chance: 0.2
+
+
+- type: entity
+  id: BaseTreeWM
+  parent: BaseTree
+  description: Yep, it's a tree.
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: TreeWM
+  - type: Pierceable
+    level: HardenedMetal
+  - type: Ricochetable
+    chance: 0.1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 750
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+
+
+- type: entity
+  parent: BaseTreeWM
+  id: BaseTreeSnowWM
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Objects/Decoration/Flora/flora_treessnow.rsi
+    offset: 0,0.7
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.3,0.1,0.3"
+        density: 4000
+        layer:
+        - WallLayer
+
+
+- type: entity
+  parent: BaseTreeWM
+  id: BaseTreeLargeWM
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Objects/Decoration/Flora/flora_treeslarge.rsi
+    offset: 0,1.55
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.18,-0.35,0.18,0.35"
+        density: 2000
+        layer:
+        - WallLayer
+
+
+- type: entity
+  parent: BaseTreeWM
+  id: FloraTreeWM
+  components:
+  - type: Sprite
+    layers:
+    - state: tree01
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        tree01: ""
+        tree02: ""
+        tree03: ""
+        tree04: ""
+        tree05: ""
+        tree06: ""
+
+
+- type: entity
+  parent: BaseTreeSnowWM
+  id: FloraTreeSnowWM
+  components:
+  - type: Sprite
+    layers:
+    - state: treesnow01
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        treesnow01: ""
+        treesnow02: ""
+        treesnow03: ""
+        treesnow04: ""
+        treesnow05: ""
+        treesnow06: ""
+
+
+- type: entity
+  parent: BaseTreeLargeWM
+  id: FloraTreeLargeWM
+  components:
+  - type: Sprite
+    layers:
+    - state: treelarge01
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        treelarge01: ""
+        treelarge02: ""
+        treelarge03: ""
+        treelarge04: ""
+        treelarge05: ""
+        treelarge06: ""
+
+#стационарное орудие
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseItem
+  id: MagazineStructureWeaponGun
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 50
+  - type: Tag
+    tags:
+    - MagazineGrenade
+  - type: BallisticAmmoProvider
+    cycleable: false
+    proto: CartridgePistolWM
+    mayTransfer: true
+    whitelist:
+      tags:
+        - ArtilleryShell
+    capacity: 450
+    soundRack:
+      path: /Audio/Weapons/Guns/Bolt/lmg_bolt_closed.ogg
+      params:
+        variation: 0.05
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/rifle_load.ogg
+      params:
+        variation: 0.05
+  - type: Item
+    size: Normal
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Sunrise/Objects/Weapons/Guns/Powerpacks/Powerpacks/backpack.rsi
+    layers:
+    - state: icon
+  - type: Appearance
+
+
+
+
+#HumanSpawnF5
+#Core
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  id: StationNoArrivalsWM
+  parent:
+    - BaseStation
+    - BaseStationJobsSpawning
+  #  - BaseStationRecords
+   # - BaseStationGateway
+  #  - BaseStationAlertLevels
+  #  - BaseStationNanotrasen
+#NightDayMapLightComponent
+
+
+- type: entity
+  id: MaxTimeRoundRestartAfterGateDeadWM
+  parent: BaseGameRule
+  components:
+  - type: MaxTimeRestartRule
+    roundMaxTime: 1
+    roundEndDelay: 60
+
+
+- type: entity
+  id: HolosignForcefieldWM4567
+  parent: ContainmentField
+  suffix: WM
+  components:
+  - type: ContainmentField
+    throwForce: 1
+  - type: TimedDespawn
+    lifetime: 720 #500
+  - type: Sprite
+    sprite: Structures/Holo/field.rsi
+    state: icon
+    color: "#9E00FF"
+  - type: PointLight
+    enabled: true
+    radius: 10
+    color: "#9E00FF" #blue
+
+
+- type: entity
+  id: HolosignForcefieldWM4567Nulls
+  parent: WallPlastitaniumIndestructible #HolosignForcefieldWM4567
+  suffix: WM
+  components:
+  - type: Stealth
+    mirage: false
+    hadOutline: true
+    examineThreshold: 2
+    maxVisibility: 1
+  - type: StealthOnMove
+    passiveVisibilityRate: -2.00
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0
+        density: 100000
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: ContainmentField
+    throwForce: 0
+  - type: Occluder
+    enabled: false
+ # - type: TimedDespawn
+  #  lifetime: 99999999
+ # - type: Sprite
+  #  sprite: Structures/Holo/field.rsi
+   # state: icon
+   # color: "#9E00FF"
+  #- type: PointLight
+   # enabled: true
+   # radius: 0
+   # color: "#9E00FF" #blue
+  - type: RadiationBlocker
+    resistance: 5
+
+
+- type: entity
+  id: HolosignForcefieldWM4567Ghost
+  parent: HolosignForcefieldWM4567Nulls
+  suffix: WM
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: FloorNotSpawmDeleteWM
+
+
+- type: entity
+  id: FloorNotSpawmDeleteWM
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: Sprite
+    sprite: Structures/catwalk.rsi
+    layers:
+      - state: catwalk_preview
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.6,-0.6,0.6,0.6"
+        layer:
+          - SlipLayer
+        mask:
+          - ItemMask
+        density: 1000
+        hard: false
+  - type: MaterialReclaimer
+    powered: true
+    minimumProcessDuration: 0
+    enabled: true
+    scaleProcessSpeed: false
+    whitelist:
+      components:
+       - PhysicalComposition
+      tags:
+       - SellTagWM
+       - TehfabTagWM
+    blacklist:
+      tags:
+       - TehfabTagMaterialWM
+    sound:
+      path: /Audio/Ambience/Objects/crushing.ogg
+      params:
+        volume: 5
+       # maxdistance: 5
+        loop: true
+  - type: MaterialStorage
+    insertOnInteract: false
+  - type: ContainerContainer
+    containers:
+      active-material-reclaimer-container: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: SolutionContainerManager
+    solutions:
+      output:
+        maxVol: 100
+  - type: DrainableSolution
+    solution: output
+  - type: ExaminableSolution
+    solution: output
+
+
+#Кир,не пв
+
+
+- type: entity
+  parent: MarkerBase
+  categories: [ HideSpawnMenu, Debug ]
+  id: huiC
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: true
+    table: !type:AllSelector
+      children:
+      - id: Marker14567Start
+
+
+- type: entity
+  parent: huiC
+  categories: [ HideSpawnMenu, Debug ]
+  id: huiA
+  components:
+  - type: EntityTableSpawner
+    table: !type:AllSelector
+      children:
+      - id: Marker24567Start
+
+
+- type: entity
+  parent: huiCJob
+  categories: [ HideSpawnMenu, Debug ]
+  id: huiAJob
+  components:
+  - type: SpawnOnTrigger
+    proto: Marker24567Job
+    predicted: true
+
+
+- type: entity
+  parent: HolosignForcefieldWM4567Nulls #MarkerBase
+  categories: [ HideSpawnMenu, Debug ]
+  id: huiCJob
+  components:
+  - type: TriggerOnProximity
+    enabled: true
+    cooldown: 5
+    shape:
+      !type:PhysShapeCircle
+        radius: 20
+    repeating: true
+    requiresAnchored: false
+    triggerSpeed: 1
+  - type: DeleteOnTrigger
+  - type: SpawnOnTrigger
+    proto: Marker14567Job
+    predicted: true
+
+
+
+
+
+#GateItem
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: BaseGateway
+  id: BaseGatewayWM
+  components:
+  #  - type: RadarBlip
+  #    color: "#48a4fb"
+  #    scale: 0.4
+  #    shape: Circle
+  #    requireInSpace: false
+    - type: Fixtures
+      fixtures:
+        portalFixture:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.8
+          mask:
+          - FullTileMask
+          layer:
+          - BulletImpassable
+          - Opaque
+         # layer:
+          #- WallLayer
+         # hard: false
+    - type: MaterialStorage
+      whitelist:
+        tags:
+          - TehfabTagMaterialWM
+    - type: Animateable
+    - type: InteractionOutline
+    - type: WiresPanel
+    - type: ActivatableUI
+      key: enum.LatheUiKey.Key
+    - type: ActivatableUIRequiresPower
+    - type: UserInterface
+      interfaces:
+        enum.LatheUiKey.Key:
+          type: LatheBoundUserInterface
+        enum.ResearchClientUiKey.Key:
+          type: ResearchClientBoundUserInterface
+    - type: Damageable
+      damageContainer: Inorganic
+    - type: TimedSpawner
+      chance: 1
+      intervalSeconds: 9000
+      minimumEntitiesSpawned: 1
+      maximumEntitiesSpawned: 1
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 5000
+          behaviors:
+            - !type:TriggerBehavior
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                SingularityWM:
+                  min: 10
+                  max: 10
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ] 
+    - type: Repairable
+      qualityNeeded: "Anchoring"
+      doAfterDelay: 1
+      damage:
+        groups:
+          Brute: -2
+          Burn: -2
+   # - type: ExplodeOnTrigger
+ #   - type: Explosive
+  #    explosionType: Minibomb
+   #   maxIntensity: 50
+     # intensitySlope: 5
+    #  totalIntensity: 20000
+#
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  id: MaterialReclaimerWM
+  components:
+  - type: Construction
+    graph: CatwalkWMDop
+    node: CatwalkWMDop
+  - type: Sprite
+    sprite: /Textures/_Fish/PlanetWar/WM/32xSprait.rsi
+    snapCardinals: true
+    netsync: false
+    layers:
+    - state: reclaimer
+  - type: Appearance
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    enabled: false
+    color: "#da824d"
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    offset: "0, 0.4"
+    castShadows: false
+  - type: PowerSwitch
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: MaterialReclaimer
+    minimumProcessDuration: 0
+    enabled: true
+    scaleProcessSpeed: false
+    whitelist:
+      components:
+       - PhysicalComposition
+      tags:
+       - SellTagWM
+       - TehfabTagWM
+    blacklist:
+      tags:
+       - TehfabTagMaterialWM
+    sound:
+      path: /Audio/Ambience/Objects/crushing.ogg
+      params:
+        volume: 5
+       # maxdistance: 5
+        loop: true
+  - type: MaterialStorage
+    insertOnInteract: false
+  - type: ContainerContainer
+    containers:
+      active-material-reclaimer-container: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: SolutionContainerManager
+    solutions:
+      output:
+        maxVol: 100
+  - type: DrainableSolution
+    solution: output
+  - type: ExaminableSolution
+    solution: output
+  - type: StaticPrice
+    price: 500
+  - type: ApcPowerReceiver
+    powerLoad: 500
+
+#карго
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseFlatpack
+  id: MaterialReclaimerWMFlatpack
+  components:
+  - type: SpawnAfterInteract
+    prototype: MaterialReclaimerWM
+    doAfter: 7
+    removeOnInteract: true
+  - type: Clickable
+  - type: Item
+    size: Normal
+  - type: Flatpack
+    entity: MaterialReclaimerWM
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#d0c28f"
+      map: ["enum.FlatpackVisualLayers.Overlay"]
+    - state: icon-default
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MaterialReclaimerWMFlatpack
+  id: ShuttleGunAutomatWMFlatpack
+  components:
+  - type: SpawnAfterInteract
+    prototype: ShuttleGunAutomatWM
+  - type: Flatpack
+    entity: ShuttleGunAutomatWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MaterialReclaimerWMFlatpack
+  id: ShuttleGunPulemetWMFlatpack
+  components:
+  - type: SpawnAfterInteract
+    prototype: ShuttleGunPulemetWM
+  - type: Flatpack
+    entity: ShuttleGunPulemetWM

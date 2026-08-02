@@ -1,0 +1,44 @@
+{
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "crate"
+        },
+        {
+            "name": "wall"
+        },
+        {
+            "name": "turret"
+        },
+        {
+           "name": "fleshmine"
+        },
+        {
+           "name": "bombmine"
+        },
+        {
+           "name": "white_moni"
+        },
+        {
+           "name": "shutwindow"
+        },
+        {
+           "name": "shutwall"
+        },
+        {
+           "name": "plastwindow"
+        },
+        {
+           "name": "plastwall"
+        },
+        {
+           "name": "dark_mono"
+        },
+        {
+            "name": "gen"
+        }
+    ]
+}

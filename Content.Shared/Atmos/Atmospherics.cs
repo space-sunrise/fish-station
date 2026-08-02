@@ -192,6 +192,25 @@ namespace Content.Shared.Atmos
             [Gas.ChargedElectrovae] = Loc.GetString("gas-charged-electrovae-abbreviation"),
             [Gas.Electrovae] = Loc.GetString("gas-electrovae-abbreviation"),
             //Sunrise - End
+            //Fish - Start
+            [Gas.Zenthium] = Loc.GetString("gas-zenthium-abbreviation"), //Fish edit start
+            [Gas.Krypium] = Loc.GetString("gas-krypium-abbreviation"), 
+            [Gas.Prallium] = Loc.GetString("gas-prallium-abbreviation"), 
+            [Gas.Chaoson] = Loc.GetString("gas-chaoson-abbreviation"), 
+            [Gas.Garodin] = Loc.GetString("gas-garodin-abbreviation"), 
+            [Gas.Baratrium] = Loc.GetString("gas-baratrium-abbreviation"), 
+            [Gas.Ethylium] = Loc.GetString("gas-ethylium-abbreviation"), 
+            [Gas.Zimmera] = Loc.GetString("gas-zimmera-abbreviation"), 
+            [Gas.Framel] = Loc.GetString("gas-framel-abbreviation"), 
+            [Gas.Klemennon] = Loc.GetString("gas-klemennon-abbreviation"), 
+            [Gas.ProtoUltimium] = Loc.GetString("gas-proto-ultimium-abbreviation"), 
+            [Gas.ZimmerousFrezonite] = Loc.GetString("gas-zimmerous-frezonite-abbreviation"), 
+            [Gas.AntiUltimium] = Loc.GetString("gas-anti-ultimium-abbreviation"), 
+            [Gas.Ultimium] = Loc.GetString("gas-ultimium-abbreviation"), 
+            [Gas.Permafrost] = Loc.GetString("gas-permafrost-abbreviation"), 
+            [Gas.Riminon] = Loc.GetString("gas-riminon-abbreviation"),
+            [Gas.AxoNoblium] = Loc.GetString("gas-axonoblium-abbreviation"),
+            //Fish - End
         };
 
         #region Excited Groups
@@ -221,7 +240,7 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     Total number of gases. Increase this if you want to add more!
         /// </summary>
-        public const int TotalNumberOfGases = 22; //SunRise edit
+        public const int TotalNumberOfGases = 39; //SunRise edit
 
         /// <summary>
         ///     This is the actual length of the gases arrays in mixtures.
@@ -418,7 +437,26 @@ namespace Content.Shared.Atmos
         Helium = 18,
         AntiNoblium = 19,
         Electrovae = 20,
-        ChargedElectrovae = 21
+        ChargedElectrovae = 21,
         //Sunrise - End
+        //Fish - Start
+        Zenthium = 22,
+        Krypium = 23,
+        Prallium = 24,
+        Chaoson = 25,
+        Garodin = 26,
+        Baratrium = 27,
+        Ethylium = 28,
+        Zimmera = 29,
+        Framel = 30,
+        Klemennon = 31,
+        ProtoUltimium = 32,
+        ZimmerousFrezonite = 33,
+        AntiUltimium = 34,
+        Ultimium = 35,
+        Permafrost = 36,
+        Riminon = 37,
+        AxoNoblium = 38
+        //Fish - End
     }
 }

@@ -116,8 +116,12 @@ namespace Content.Shared.Preferences
         /// <summary>
         /// When spawning into a round what's the preferred spot to spawn.
         /// </summary>
+        // Fish edit start - Приоритет спавна по умолчанию криокапсулы
+        // [DataField]
+        // public SpawnPriorityPreference SpawnPriority { get; private set; } = SpawnPriorityPreference.None;
         [DataField]
-        public SpawnPriorityPreference SpawnPriority { get; private set; } = SpawnPriorityPreference.None;
+        public SpawnPriorityPreference SpawnPriority { get; private set; } = SpawnPriorityPreference.Cryosleep;
+        // Fish edit end
 
         /// <summary>
         /// <see cref="_jobPriorities"/>

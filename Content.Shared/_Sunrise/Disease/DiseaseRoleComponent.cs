@@ -6,9 +6,12 @@ using Content.Shared.Store;
 using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Serialization;
 using System;
+using Robust.Shared.GameStates;
+
 namespace Content.Shared._Sunrise.Disease;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState]
 public sealed partial class DiseaseRoleComponent : Component
 {
     [DataField("actions", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<int, EntityPrototype>))]
@@ -16,6 +19,7 @@ public sealed partial class DiseaseRoleComponent : Component
     public Dictionary<string, int> Actions = new();
 
     [DataField("infected")]
+    [AutoNetworkedField]
     public List<EntityUid> Infected = new();
 
     [DataField] public EntityUid? Action;

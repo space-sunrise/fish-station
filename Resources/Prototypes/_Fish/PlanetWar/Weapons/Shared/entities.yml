@@ -1,0 +1,1384 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: CartridgeMagnumFMJWM
+  parent: CartridgeMagnumFMJ
+  components:
+  - type: TriggerOnSpawn
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+  - type: TriggerOnProximity
+    enabled: true
+    cooldown: 5
+    shape:
+      !type:PhysShapeCircle
+        radius: 20
+    repeating: true
+    requiresAnchored: false
+    triggerSpeed: 1
+  - type: StepTrigger
+    intersectRatio: 0.2
+    requiredTriggeredSpeed: 0
+    stepOn: true
+  - type: TriggerOnStepTrigger
+  - type: TimerTrigger
+    delay: 100
+  - type: DeleteOnTrigger
+    keysIn:
+    - timer
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ShellShotgunWM
+  parent: ShellShotgun
+  components:
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+    proto: PelletShotgunSpreadTraceWM
+  - type: TriggerOnProximity
+    enabled: true
+    cooldown: 5
+    shape:
+      !type:PhysShapeCircle
+        radius: 20
+    repeating: true
+    requiresAnchored: false
+    triggerSpeed: 1
+  - type: StepTrigger
+    intersectRatio: 0.2
+    requiredTriggeredSpeed: 0
+    stepOn: true
+  - type: TriggerOnStepTrigger
+  - type: DeleteOnTrigger
+
+
+- type: entity
+  id: PelletShotgunSpreadTraceWM
+  parent: PelletShotgunSpreadTrace
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ProjectileSpread
+    proto: PelletShotgunTraceWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ShellShotgunSlugWM
+  parent: ShellShotgunSlug
+  components:
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+    proto: PelletShotgunSlugTraceWM
+  - type: TriggerOnProximity
+    enabled: true
+    cooldown: 5
+    shape:
+      !type:PhysShapeCircle
+        radius: 20
+    repeating: true
+    requiresAnchored: false
+    triggerSpeed: 1
+  - type: StepTrigger
+    intersectRatio: 0.2
+    requiredTriggeredSpeed: 0
+    stepOn: true
+  - type: TriggerOnStepTrigger
+  - type: DeleteOnTrigger
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: ShellTranquilizerWM
+  parent: ShellTranquilizer
+  components:
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+  - type: TriggerOnProximity
+    enabled: true
+    cooldown: 5
+    shape:
+      !type:PhysShapeCircle
+        radius: 20
+    repeating: true
+    requiresAnchored: false
+    triggerSpeed: 1
+  - type: StepTrigger
+    intersectRatio: 0.2
+    requiredTriggeredSpeed: 0
+    stepOn: true
+  - type: TriggerOnStepTrigger
+  - type: DeleteOnTrigger
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: CartridgePistolWM
+  parent: CartridgePistolSP
+  components:
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+    proto: BulletPistolTraceSPWM
+  - type: TriggerOnProximity
+    enabled: true
+    cooldown: 5
+    shape:
+      !type:PhysShapeCircle
+        radius: 20
+    repeating: true
+    requiresAnchored: false
+    triggerSpeed: 1
+  - type: StepTrigger
+    intersectRatio: 0.2
+    requiredTriggeredSpeed: 0
+    stepOn: true
+  - type: TriggerOnStepTrigger
+  - type: DeleteOnTrigger
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: SunriseCartridgeLightRifleWM
+  parent: CartridgeLightRifleSP 
+  components:
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+    proto: BulletLightRifleTraceSPWM
+  - type: TriggerOnProximity
+    enabled: true
+    cooldown: 5
+    shape:
+      !type:PhysShapeCircle
+        radius: 20
+    repeating: true
+    requiresAnchored: false
+    triggerSpeed: 1
+  - type: StepTrigger
+    intersectRatio: 0.2
+    requiredTriggeredSpeed: 0
+    stepOn: true
+  - type: TriggerOnStepTrigger
+  - type: DeleteOnTrigger
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: CartridgeHeavyLightRifleWM
+  parent: CartridgeHeavyRifleRSP
+  components:
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+    proto: BulletRifleTraceHeavySPWM
+  - type: TriggerOnProximity
+    enabled: true
+    cooldown: 5
+    shape:
+      !type:PhysShapeCircle
+        radius: 20
+    repeating: true
+    requiresAnchored: false
+    triggerSpeed: 1
+  - type: StepTrigger
+    intersectRatio: 0.2
+    requiredTriggeredSpeed: 0
+    stepOn: true
+  - type: TriggerOnStepTrigger
+  - type: DeleteOnTrigger
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: CartridgeMagnumWM
+  parent: CartridgeMagnumSP
+  components:
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+  - type: TriggerOnProximity
+    enabled: true
+    cooldown: 5
+    shape:
+      !type:PhysShapeCircle
+        radius: 20
+    repeating: true
+    requiresAnchored: false
+    triggerSpeed: 1
+  - type: StepTrigger
+    intersectRatio: 0.2
+    requiredTriggeredSpeed: 0
+    stepOn: true
+  - type: TriggerOnStepTrigger
+  - type: DeleteOnTrigger
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: SunriseCartridgeRifleWM
+  parent: CartridgeRifleSP
+  components:
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+    proto: BulletRifleTraceSPWM
+  - type: TriggerOnProximity
+    enabled: true
+    cooldown: 5
+    shape:
+      !type:PhysShapeCircle
+        radius: 20
+    repeating: true
+    requiresAnchored: false
+    triggerSpeed: 1
+  - type: StepTrigger
+    intersectRatio: 0.2
+    requiredTriggeredSpeed: 0
+    stepOn: true
+  - type: TriggerOnStepTrigger
+  - type: DeleteOnTrigger
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: GrenadeFragLightWM
+  parent: BaseGrenade
+  components:
+  - type: TriggerOnProximity
+    enabled: true
+    cooldown: 5
+    shape:
+      !type:PhysShapeCircle
+        radius: 20
+    repeating: true
+    requiresAnchored: false
+    triggerSpeed: 1
+  - type: CartridgeAmmo
+    proto: BulletGrenadeFragTimerWM
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: frag
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: frag
+    suffix: false
+  - type: StepTrigger
+    intersectRatio: 0.2
+  - type: TriggerOnStepTrigger
+  - type: DeleteOnTrigger
+
+
+- type: entity
+  id: BulletGrenadeFragTimerWM
+  parent: BulletGrenadeFragTimer
+  categories: [ HideSpawnMenu ]
+  components:
+  #- type: RadarBlip
+  #  color: "#ff0000FF"
+  #  scale: 0.15
+  #  shape: Circle
+  #  requireInSpace: false
+  - type: ProjectileGrenade
+    fillPrototype: PelletClusterLessLethalWM
+
+
+- type: entity
+  parent: CartridgeAntiMateriel
+  id: CartridgeAntiMaterielWM
+  components:
+  - type: CartridgeAmmo
+    proto: AntiMaterielBulletWM
+    deleteOnSpawn: true
+  - type: StepTrigger
+    intersectRatio: 0.2
+  - type: TriggerOnStepTrigger
+  - type: DeleteOnTrigger
+  - type: TriggerOnProximity
+    enabled: true
+    cooldown: 5
+    shape:
+      !type:PhysShapeCircle
+        radius: 20
+    repeating: true
+    requiresAnchored: false
+    triggerSpeed: 1
+
+
+- type: entity
+  parent: BaseBullet
+  id: AntiMaterielBulletWM
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 65
+        Blunt: 40
+        Structural: 20
+  - type: TimedDespawn
+    lifetime: 40
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseItem
+  id: ShtampMagazin
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi
+    state: base
+  - type: StaticPrice
+    price: 0
+  - type: Tag
+    tags:
+    - TehfabTagMaterialWM
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 100
+  - type: Stack
+    stackType: ShtampMagazinStack
+    count: 1
+  - type: Appearance
+  - type: Item
+    size: Normal
+  - type: Fixtures
+    fixtures:
+      fix1:
+        density: 30
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.3"
+        mask:
+        - ItemMask
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: WeaponRifleLecterMk2 #WeaponSTG44
+  id: WeaponSTG44WM
+  components:
+#откат
+  - type: Gun
+    fireRate: 6
+    selectedMode: FullAuto
+    availableModes:
+      - SemiAuto
+      - FullAuto
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 1250
+  - type: Tag
+    tags:
+    - SellTagWM
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineSTG44WM
+        insertSound: /Audio/_Sunrise/Weapons/Guns/Rifles/AK/ak_reload.ogg
+        ejectSound: /Audio/_Sunrise/Weapons/Guns/Rifles/AK/ak_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineBR64 #MagazineSTG44
+      gun_chamber:
+        name: Chamber
+        startingItem: SunriseCartridgeLightRifleWM
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeLightRifle
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: WeaponRifleFamas
+  id: WeaponRifleFamasWM
+  components:
+#откат
+  - type: Gun
+    fireRate: 7
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 1950
+  - type: Tag
+    tags:
+    - SellTagWM
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifleWM
+        insertSound: /Audio/_Sunrise/Weapons/Guns/Rifles/Famas/famas_reload.ogg
+        ejectSound: /Audio/_Sunrise/Weapons/Guns/Rifles/Famas/famas_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineRifle
+      gun_chamber:
+        name: Chamber
+        startingItem: SunriseCartridgeRifleWM
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeRifle
+
+
+- type: entity
+  categories: [ HideSpawnMenu ] 
+  parent: WeaponShotgunBulldogWM
+  id: WeaponShotgunZauerWM
+  name: Zauer
+  components:
+  - type: Gun
+    fireRate: 1.2
+  - type: Sprite
+    sprite: _Sunrise/Objects/Weapons/Guns/Shotguns/zauer/big.rsi
+  - type: Clothing
+    sprite: _Sunrise/Objects/Weapons/Guns/Shotguns/zauer/tiny.rsi
+  - type: Item
+    sprite: _Sunrise/Objects/Weapons/Guns/Shotguns/zauer/tiny.rsi
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: WeaponShotgunSawn
+  id: WeaponShotgunGA12WM
+  components:
+  - type: Gun
+    fireRate: 1
+  - type: Wieldable
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 7
+    pvsIncrease: 1.5 
+  - type: Sprite
+    sprite: _Starlight/Objects/Weapons/Guns/Shotguns/ga12.rsi
+  - type: Item
+    sprite: _Starlight/Objects/Weapons/Guns/Shotguns/ga12.rsi
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: Clothing
+    sprite: _Starlight/Objects/Weapons/Guns/Shotguns/ga12.rsi
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunSlugWM
+    capacity: 4
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 450
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: WeaponSubMachineGunMP38
+  id: WeaponSubMachineGunMP38WM
+  components:
+#откат
+  - type: Gun
+    fireRate: 7
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 1950
+  - type: Tag
+    tags:
+    - SellTagWM
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolSubMachineGunWM
+        insertSound: /Audio/_Sunrise/Weapons/Guns/SMGs/mp38/mp38_reload.ogg
+        ejectSound: /Audio/_Sunrise/Weapons/Guns/SMGs/mp38/mp38_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazinePistolSubMachineGun
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistolWM
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgePistol
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: WeaponRifleBauer127WM
+  id: WeaponSniperDragunovWM
+  components:
+#откат
+  - type: GunWieldBonus
+    minAngle: -24
+    maxAngle: -45
+  - type: Sprite
+    sprite: _Sunrise/Objects/Weapons/Guns/Snipers/dragunov/big.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Sunrise/Objects/Weapons/Guns/Snipers/dragunov/tiny.rsi
+  - type: Item
+    sprite: _Sunrise/Objects/Weapons/Guns/Snipers/dragunov/tiny.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Sunrise/Weapons/Guns/Snipers/Dragunov/dragunov_shot.ogg
+      params:
+        volume: 12
+      #  maxdistance: 15
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineDragunovWM
+        insertSound: /Audio/_Sunrise/Weapons/Guns/Snipers/Dragunov/dragunov_reload.ogg
+        ejectSound: /Audio/_Sunrise/Weapons/Guns/Snipers/Dragunov/dragunov_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineDragunov
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeAntiMaterielWM 
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeAntiMateriel
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: WeaponRifleBauer127
+  id: WeaponRifleBauer127WM
+  components:
+#откат
+  - type: UseDelayOnShoot
+  - type: UseDelay 
+    delay: 1
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 3280
+  - type: GunWieldBonus
+    minAngle: -24
+    maxAngle: -45
+  - type: Gun
+   # cameraRecoilScalarModified: 2.5
+    projectileSpeed: 55 #50
+    fireRate: 0.65 #было 0.3
+    minAngle: 24
+    maxAngle: 45
+    soundGunshot:
+      path: /Audio/_Sunrise/Weapons/Guns/Snipers/Bauer127/bauer127_shot.ogg
+      params:
+        volume: 12
+      #  maxdistance: 15
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineBauer127WM
+        insertSound: /Audio/_Sunrise/Weapons/Guns/Snipers/Different/reload.ogg
+        ejectSound: /Audio/_Sunrise/Weapons/Guns/Snipers/Different/unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineBauer127
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeAntiMaterielWM 
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeAntiMateriel
+  - type: EyeCursorOffset
+    maxOffset: 25
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: WeaponLightMachineGunRPD
+  id: WeaponLightMachineGunRPDWM
+  components:
+#откат
+  - type: GunRequiresWield
+  - type: GunWieldBonus
+    minAngle: 0
+    maxAngle: 0
+  - type: Gun
+    fireRate: 9
+    minAngle: 5.7
+    maxAngle: 100
+    angleIncrease: 1.6
+    angleDecay: 35
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 4650
+  - type: Tag
+    tags:
+    - SellTagWM
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRPDWM
+        insertSound: /Audio/_Sunrise/Weapons/Guns/LMGs/reload.ogg
+        ejectSound: /Audio/_Sunrise/Weapons/Guns/LMGs/unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineRPD
+      gun_chamber:
+        name: Chamber
+        startingItem: SunriseCartridgeLightRifleWM
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeLightRifle
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: WeaponShotgunBulldog
+  id: WeaponShotgunBulldogWM
+  components:
+  - type: Wieldable
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 2100
+  - type: Tag
+    tags:
+    - SellTagWM
+  - type: GunRequiresWield
+  - type: GunWieldBonus
+    minAngle: 0
+    maxAngle: 0
+  - type: Gun
+    fireRate: 1.1
+    minAngle: 3
+    maxAngle: 13
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineShotgunWM
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineShotgun
+        whitelistFailPopup: gun-magazine-whitelist-fail
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: WeaponShotgunSawn
+  id: WeaponShotgunSawnWM
+  components:
+  - type: Wieldable
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 7
+    pvsIncrease: 1.5 
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunSlugWM
+  - type: Gun
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    pump: false
+    fireRate: 3.5
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 450
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: WeaponMechCombatLightWM
+  parent: WeaponMechCombatMG
+  components:
+  - type: TriggerOnProximity
+    enabled: true
+    cooldown: 5
+    shape:
+      !type:PhysShapeCircle
+        radius: 20
+    repeating: true
+    requiresAnchored: false
+    triggerSpeed: 1
+  - type: StepTrigger
+    intersectRatio: 0.2
+    requiredTriggeredSpeed: 0
+    stepOn: true
+  - type: TriggerOnStepTrigger
+  - type: DeleteOnTrigger
+  - type: Battery
+    maxCharge: 6000
+    startingCharge: 6000
+  - type: Sprite
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_uac2
+  - type: Gun
+    minAngle: 3
+    maxAngle: 7
+    burstFireRate: 7
+    shotsPerBurst: 5 #3
+    burstCooldown: 1
+    selectedMode: Burst
+    availableModes:
+      - Burst
+    soundGunshot:
+      path: /Audio/_Sunrise/Weapons/Guns/SMGs/mp38/mp38_shot.ogg
+      params:
+        volume: -3
+  - type: BatteryAmmoProvider
+    proto: CartridgePistolWM
+    fireCost: 10
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 500
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: WeaponMechCombatShotgunWM
+  parent: WeaponMechCombatMG
+  components:
+  - type: TriggerOnProximity
+    enabled: true
+    cooldown: 5
+    shape:
+      !type:PhysShapeCircle
+        radius: 20
+    repeating: true
+    requiresAnchored: false
+    triggerSpeed: 1
+  - type: StepTrigger
+    intersectRatio: 0.2
+    requiredTriggeredSpeed: 0
+    stepOn: true
+  - type: TriggerOnStepTrigger
+  - type: DeleteOnTrigger
+  - type: Battery
+    maxCharge: 25000
+    startingCharge: 25000
+  - type: Sprite
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_scatter
+  - type: Gun
+    minAngle: 1
+    maxAngle: 1
+    burstFireRate: 4
+    shotsPerBurst: 2
+    burstCooldown: 1.5
+    selectedMode: Burst
+    availableModes:
+      - Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+      params:
+        volume: -3
+  - type: BatteryAmmoProvider
+    proto: ShellShotgunWM
+    fireCost: 100
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 1000
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: WeaponMechCombatMGWM
+  parent: WeaponMechCombatMG
+  components:
+  - type: TriggerOnProximity
+    enabled: true
+    cooldown: 5
+    shape:
+      !type:PhysShapeCircle
+        radius: 20
+    repeating: true
+    requiresAnchored: false
+    triggerSpeed: 1
+  - type: StepTrigger
+    intersectRatio: 0.2
+    requiredTriggeredSpeed: 0
+    stepOn: true
+  - type: TriggerOnStepTrigger
+  - type: DeleteOnTrigger
+  - type: Battery
+    maxCharge: 2000000
+    startingCharge: 2000000
+  - type: Gun
+    minAngle: -15
+    maxAngle: 40
+  #  fireRate: 18
+    burstFireRate: 9 #6
+    shotsPerBurst: 15 #10
+    burstCooldown: 1
+    selectedMode: Burst
+    availableModes:
+      - Burst
+    soundGunshot:
+      path: /Audio/_Sunrise/Weapons/Guns/LMGs/shot.ogg
+      params:
+        volume: -3
+  - type: BatteryAmmoProvider
+    proto: CartridgeHeavyLightRifleWM
+    fireCost: 1000
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 1500
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: WeaponTankWM
+  parent: WeaponMechCombatMG
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Mech/mecha_equipment.rsi
+    state: mecha_autocannon
+  - type: TriggerOnProximity
+    enabled: true
+    cooldown: 5
+    shape:
+      !type:PhysShapeCircle
+        radius: 20
+    repeating: true
+    requiresAnchored: false
+    triggerSpeed: 1
+  - type: StepTrigger
+    intersectRatio: 0.2
+    requiredTriggeredSpeed: 0
+    stepOn: true
+  - type: TriggerOnStepTrigger
+  - type: DeleteOnTrigger
+  - type: Battery
+    maxCharge: 21000000
+    startingCharge: 21000000
+  - type: Gun
+    minAngle: 1
+    maxAngle: 1
+    burstFireRate: 6
+    shotsPerBurst: 6
+    burstCooldown: 1
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
+    fireRate: 0.125
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+  - type: BatteryAmmoProvider
+    proto: BulletRocketWM
+    fireCost: 20000
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 1500
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: WeaponGrusWM
+  parent: WeaponTankWM
+  components:
+  - type: BatteryAmmoProvider
+    proto: GrenadeFragLightWM
+  - type: Gun
+    minAngle: -15
+    maxAngle: 40
+  #  fireRate: 18
+    fireRate: 0.125
+
+# РпГшник
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseSubdermalImplant
+  id: BombImplantWM
+  components:
+  - type: SpawnOnTrigger
+    proto: GrenadeFlashEffect
+    predicted: true
+  - type: CartridgeAmmo
+    proto: BulletGrenadeFlashBang
+    deleteOnSpawn: true
+  - type: SubdermalImplant
+    implantAction: ActionActivateBombGrenadeImplantWM
+  - type: TriggerOnActivateImplant
+  - type: PlanetWarStunDrone
+  #- type: DeleteOnTrigger
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: GrenadeFlashBang
+  id: GrenadeFlashBangWM
+  components:
+  - type: MovementIgnoreGravity
+    weightless: True
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 200
+  - type: CartridgeAmmo
+    proto: BulletGrenadeFlashBangWM
+    deleteOnSpawn: true
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseItem
+  id: LauncherSyringeWM
+  components:
+  - type: Biocode
+    factions:
+    - ClassMedic
+  - type: PhysicalComposition
+    materialComposition:
+      MoneyWarMizMaterial: 800
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    layers:
+    - state: syringe_gun
+  - type: Item
+    size: Small
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Gun
+    fireRate: 2
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/syringe_gun.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+    clumsyProof: true
+  - type: RechargeBasicEntityAmmo 
+    rechargeCooldown: 4
+  - type: BasicEntityAmmoProvider
+    proto: MiniSyringeWM
+    capacity: 12
+    count: 12
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MiniSyringe
+  id: MiniSyringeWM
+  components:
+  #- type: Sprite
+  #  sprite: Objects/Specific/Chemistry/syringe.rsi
+  #  layers:
+   #   - state: syringe1
+    #    visible: false
+    #  - state: syringe_base0
+  - type: Projectile
+    damage:
+      groups:
+        Airloss: -100
+      types:
+        Cellular: -50
+        Mangleness: -30
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 50
+        reagents:
+        - ReagentId: OmnizinePW
+          Quantity: 20
+        - ReagentId: EphedrinePW
+          Quantity: 5
+        - ReagentId: EpinephrinePW
+          Quantity: 5
+  - type: RefillableSolution
+    solution: ammo
+  - type: InjectableSolution
+    solution: ammo
+  - type: SolutionInjectOnEmbed
+    transferAmount: 10
+    solution: ammo
+  - type: SolutionTransfer
+    maxTransferAmount: 300
+  - type: Appearance
+ # - type: SolutionContainerVisuals
+   # maxFillLevels: 1
+   # fillBaseName: solution
+  - type: TimedDespawn
+    lifetime: 30
+  - type: Timer
+
+
+- type: entity
+  id: TeslaGunBulletWM
+  parent: TeslaGunBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Shock: 25
+  - type: LightningArcShooter
+    lightningPrototype: LightningWM
+  - type: Electrified
+    shockTime: 3
+    requirePower: false
+
+
+- type: entity
+  abstract: true
+  parent: BaseItem #BasePDA
+  id: MusicianPDAForWM
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-musician
+  - type: PdaBorderColor
+    borderColor: "#0000e3"
+    accentVColor: "#0000e3"
+  - type: Instrument
+    respectMidiLimits: false
+    allowProgramChange: true
+    allowPercussion: true
+    handheld: true
+    program: 0 #2
+    bank: 0 #100 
+  - type: Pda
+    paiSlot:
+      priority: -2
+      whitelist:
+        components:
+        - PAI
+    penSlot:
+    #  startingItem: Pen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+    idSlot:
+      name: access-id-card-component-default
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
+      whitelist:
+        components:
+        - IdCard
+#  - type: PdaVisuals
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      PDA-id: !type:ContainerSlot {}
+      PDA-pen: !type:ContainerSlot {}
+      PDA-pai: !type:ContainerSlot {}
+      Cartridge-Slot: !type:ContainerSlot {}
+      program-container: !type:Container
+  - type: ItemSlots
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - idcard
+    - Belt
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    enabled: false
+    mask: /Textures/Effects/LightMasks/cone.png
+    radius: 9
+    netsync: true #включает свет у всех
+    falloff: 2
+    softness: 1
+    autoRot: true
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+     # - CrewManifestCartridge
+     # - NotekeeperCartridge
+     # - NanoTaskCartridge
+     # - NewsReaderCartridge
+    # Sunrise-Start
+    #  - NavigatorCartridge
+      - MessengerCartridge
+    # Sunrise-End
+    cartridgeSlot:
+      priority: -1
+      name: device-pda-slot-component-slot-name-cartridge
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
+      whitelist:
+        components:
+          - Cartridge
+  - type: ActivatableUI
+    key: enum.PdaUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.PdaUiKey.Key:
+        type: PdaBoundUserInterface
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+      enum.RingerUiKey.Key:
+        type: RingerBoundUserInterface
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+      enum.HealthAnalyzerUiKey.Key:
+        type: HealthAnalyzerBoundUserInterface
+      enum.PlantAnalyzerUiKey.Key:
+        type: PlantAnalyzerBoundUserInterface
+
+
+- type: entity
+  id: SurveillanceCameraSecurityWM
+  parent: SurveillanceCameraSecurity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn 
+    lifetime: 2000
+  - type: RadarConsole
+    maxRange: 1
+  - type: GunneryConsole
+    maxRange: 5
+  - type: ActivatableUI
+    key: enum.GunneryConsoleUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.GunneryConsoleUiKey.Key:
+        type: GunneryConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+
+
+- type: entity
+  id: ShuttleGunAutomatWM
+  parent: ShuttleGunDuster
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RemoveComponentsOnTrigger
+    keysIn:
+     - stop
+    targetUser: false
+    triggerOnce: false
+    
+    components:
+    - type: AutoShootGun
+  - type: AddComponentsOnTrigger
+    keysIn:
+     - start
+    targetUser: false
+    triggerOnce: false
+    
+    components:
+    - type: AutoShootGun
+      enabled: true
+  - type: TriggerOnUnstrapped
+    keyOut: stop
+  - type: TriggerOnStrapped
+    keyOut: start
+  #- type: ActivatableUIRequiresVision
+  #- type: UserInterface
+  #  interfaces:
+   #   enum.RadarConsoleUiKey.Key:
+   #     type: RadarConsoleBoundUserInterface
+  #- type: ActivatableUI
+   # key: enum.RadarConsoleUiKey.Key
+   # singleUser: true
+#  - type: IntrinsicUI
+  #  uis:
+    # enum.RadarConsoleUiKey.Key:
+       # toggleAction: ActionAGhostShowRadar
+ # - type: RadarConsole
+  #  followEntity: true
+  #- type: RadarBlip
+  #  color: "#999999"
+  #  scale: 0.5
+  #  shape: Square
+  #  requireInSpace: false
+  - type: AutoLinkReceiver
+    channel: EnergyDomeAutoLink
+  - type: WirelessNetworkConnection
+    range: 1
+  - type: GunneryTrackable
+  - type: Reflect
+    reflectProb: 0.05
+    spread: 90
+  - type: AutoShootGun
+    enabled: false
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: MagazineStructureWeaponGun
+      - id: SignalButtonAutoWM
+ #     - id: SurveillanceCameraSecurityWM
+ # - type: Signaller
+ # - type: TriggerOnSpawn
+ # - type: SignalOnTrigger
+ #   port: Toggle
+  - type: Fixtures
+    fixtures: 
+        #  bounds: "-0.49,-0.2,0.49, 0.2"
+          #!type:PhysShapeCircle
+         # radius: 0.45
+       # density: 320
+      #  restitution: 0.0
+     #   mask:
+     #   - MachineMask
+    #    layer:
+   #     - WallLayer
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.3,0.49,0.1"
+        density: 200
+        mask:
+          - MachineMask
+        layer:
+          - WallLayer
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,-0.45,0.79" #025
+        density: 200
+        mask:
+          - MachineMask
+        layer:
+          - WallLayer
+      fix3:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.45,-0.49,0.49,0.79" #025
+        density: 200
+        mask:
+          - MachineMask
+        layer:
+          - WallLayer
+       # - MachineLayer
+       # mask:
+       # - MobMask
+      #  layer:
+      #  - MobLayer
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Shuttles/launcher.rsi
+    layers:
+    - state: exp-120g
+      sprite: /Textures/_Fish/PlanetWar/WM/64xSprait.rsi
+    - state: mag-7
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 650
+      behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+  - type: Gun
+    fireRate: 12 #7 #5 #4
+    minAngle: -10 #2
+    maxAngle: 10 #6 
+    burstFireRate: 1
+    shotsPerBurst: 6
+    burstCooldown: 1.5
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto #Burst
+    soundGunshot:
+      path: /Audio/_Sunrise/Weapons/Guns/Snipers/Dragunov/dragunov_shot.ogg
+      params:
+        volume: -10
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: MouseRotator
+    angleTolerance: 5
+    rotationSpeed: 180
+    simple4DirMode: false
+  - type: Strap
+    handBuckle: true
+    position: Stand
+    buckleOffsets:
+    - "0, 0.6"
+  - type: Rotatable
+    rotateWhileAnchored: true
+    increment: 15
+
+
+- type: entity
+  id: ShuttleGunPulemetWM
+  parent: ShuttleGunAutomatWM
+  categories: [ HideSpawnMenu ]
+  components:
+ # - type: Fixtures
+  #  fixtures: 
+    #  fix1:
+      #  shape:
+        #  !type:PhysShapeAabb
+       #   bounds: "-0.6,-0.2,0.6, 0.2"
+          #!type:PhysShapeCircle
+         # radius: 0.45
+     #   density: 320
+      ##  restitution: 0.0
+     #   mask:
+     #   - MachineMask
+      #  layer:
+      #  - WallLayer
+      #  - MachineLayer
+  - type: EntityTableSpawner
+    table: !type:AllSelector
+      children:
+      - id: SignalButtonAutoWM
+      - id: MagazineStructureWeaponGun
+      - id: MagazineStructureWeaponGun
+    #  - id: SurveillanceCameraSecurityWM
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 950
+      behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+  - type: Strap
+    handBuckle: true
+    position: Stand
+    buckleOffsets:
+    - "0, 0.6"
+  - type: Sprite
+    scale: 1.15, 1.15
+    sprite: Objects/Weapons/Guns/Shuttles/launcher.rsi
+    layers:
+    - state: exp-350g
+      sprite: /Textures/_Fish/PlanetWar/WM/64xSprait.rsi
+    - state: mag-7
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    fireRate: 24 #18 #15 #12
+    minAngle: -20 #-25
+    maxAngle: 35 #45
+    burstFireRate: 1
+    shotsPerBurst: 20
+    burstCooldown: 3
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      path: /Audio/_Sunrise/Weapons/Guns/Snipers/Dragunov/dragunov_shot.ogg
+      params:
+        volume: -10
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg

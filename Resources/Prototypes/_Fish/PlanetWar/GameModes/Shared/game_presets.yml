@@ -1,0 +1,16 @@
+- type: gamePreset
+  id: PlanetWar
+  name: planetwar-preset-name
+  description: planetwar-preset-description
+  showInVote: false
+  rules:
+    - PlanetWarRule
+
+
+- type: gamePreset
+  id: PlanetWarSecret
+  name: planetwar-secret-preset-name
+  description: planetwar-secret-preset-description
+  showInVote: false
+  rules:
+    - PlanetWarRule

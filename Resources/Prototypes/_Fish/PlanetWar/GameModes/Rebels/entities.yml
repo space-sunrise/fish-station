@@ -1,0 +1,381 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MarkerPortableGeneratorJrPacmanCoreWM
+  id: MarkerPortableGeneratorJrPacmanArmWM
+  components:
+  - type: TimedDespawn 
+    lifetime: 3
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: true
+    table: !type:AllSelector
+      children:
+      - id: AmmoTechFabArmWMFlatpack
+      - id: MaterialReclaimerWMFlatpack
+
+#раб  
+
+
+
+#Portal
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: BaseReinforcementRadioWM
+  id: 1ReinforcementArmWM
+  components:
+  - type: Sprite
+    scale: 0.5, 0.5
+    sprite: Objects/Misc/Handy_Flags/syndie_handy_flag.rsi
+    layers:
+    - state: icon
+  - type: GhostRole
+    name: pw-construction-rebels-mobhumanarmp0-name
+    description: pw-construction-rebels-mobhumanarmp0-desc
+    rules: pw-ghost-role-rebels-rules
+    raffle:
+      settings: LifeWM
+  - type: GhostRoleProfileSpawner
+    prototype: MobHumanArmP0WM
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 1ReinforcementArmWM
+  id: LongTime1ReinforcementArmWM
+  components:
+  - type: GhostRoleProfileSpawner
+    prototype: LongTimeMobHumanArmP0WM
+  - type: GhostRole
+    name: pw-gamemodes-rebels-longtime1reinforcementarm-name
+    raffle:
+      settings: LongWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 1ReinforcementArmWM
+  id: 4ReinforcementArmPC0I5WM
+  suffix: WM
+  components:
+  - type: GhostRole
+    name: pw-construction-rebels-mobhumanarmpc0i5-name
+  - type: GhostRoleProfileSpawner
+    prototype: MobHumanArmPC0I5WM
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 4ReinforcementArmPC0I5WM
+  id: LongTime4ReinforcementArmPC0I5WM
+  components:
+  - type: GhostRoleProfileSpawner
+    prototype: LongTimeMobHumanArmPC0I5WM
+  - type: GhostRole
+    name: pw-gamemodes-rebels-longtime4reinforcementarmpc0i5-name
+    raffle:
+      settings: LongWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 1ReinforcementArmWM
+  id: 5ReinforcementArmP1WM
+  suffix: WM
+  components:
+  - type: GhostRole
+    name: pw-construction-rebels-mobhumanarmp1-name
+  - type: GhostRoleProfileSpawner
+    prototype: MobHumanArmP1WM
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 5ReinforcementArmP1WM
+  id: LongTime5ReinforcementArmP1WM
+  components:
+  - type: GhostRoleProfileSpawner
+    prototype: LongTimeMobHumanArmP1WM
+  - type: GhostRole
+    name: pw-gamemodes-rebels-longtime5reinforcementarmp1-name
+    raffle:
+      settings: LongWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 1ReinforcementArmWM
+  id: 6ReinforcementArmPH5WM
+  suffix: WM
+  components:
+  - type: GhostRole
+    name: pw-construction-rebels-mobhumanarmph5-name
+  - type: GhostRoleProfileSpawner
+    prototype: MobHumanArmPH5WM
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 6ReinforcementArmPH5WM
+  id: LongTime6ReinforcementArmPH5WM
+  components:
+  - type: GhostRoleProfileSpawner
+    prototype: LongTimeMobHumanArmPH5WM
+  - type: GhostRole
+    name: pw-gamemodes-rebels-longtime6reinforcementarmph5-name
+    raffle:
+      settings: LongWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 1ReinforcementArmWM
+  id: 3ReinforcementArmPM1WM
+  suffix: WM
+  components:
+  - type: GhostRole
+    name: pw-construction-rebels-mobhumanarmpm1-name
+  - type: GhostRoleProfileSpawner
+    prototype: MobHumanArmPM1WM
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 3ReinforcementArmPM1WM
+  id: LongTime3ReinforcementArmPM1WM
+  components:
+  - type: GhostRoleProfileSpawner
+    prototype: LongTimeMobHumanArmPM1WM
+  - type: GhostRole
+    name: pw-gamemodes-rebels-longtime3reinforcementarmpm1-name
+    raffle:
+      settings: LongWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 1ReinforcementArmWM
+  id: 2ReinforcementArmPE1WM
+  suffix: WM
+  components:
+  - type: GhostRole
+    name: pw-construction-rebels-mobhumanarmpe1-name
+  - type: GhostRoleProfileSpawner
+    prototype: MobHumanArmPE1WM
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 2ReinforcementArmPE1WM
+  id: LongTime2ReinforcementArmPE1WM
+  components:
+  - type: GhostRoleProfileSpawner
+    prototype: LongTimeMobHumanArmPE1WM
+  - type: GhostRole
+    name: pw-gamemodes-rebels-longtime2reinforcementarmpe1-name
+    raffle:
+      settings: LongWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 1ReinforcementArmWM
+  id: 7ReinforcementArmPS4WM
+  suffix: WM
+  components:
+  - type: GhostRole
+    name: pw-construction-rebels-mobhumanarmps4-name
+  - type: GhostRoleProfileSpawner
+    prototype: MobHumanArmPS4WM
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: 7ReinforcementArmPS4WM
+  id: LongTime7ReinforcementArmPS4WM
+  components:
+  - type: GhostRoleProfileSpawner
+    prototype: LongTimeMobHumanArmPS4WM
+  - type: GhostRole
+    name: pw-gamemodes-rebels-longtime7reinforcementarmps4-name
+    raffle:
+      settings: LongWM
+
+#Human
+#Respublic
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: MarkTimer1ReinforcementArmWM
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: TimedDespawn 
+    lifetime: 45
+  - type: SpawnOnDespawn
+    prototype: 1ReinforcementArmWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: MarkTimer3ReinforcementArmPM1WM
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: TimedDespawn 
+    lifetime: 30
+  - type: SpawnOnDespawn
+    prototype: 3ReinforcementArmPM1WM
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: MarkTimer4ReinforcementArmPC0I5WM
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: TimedDespawn 
+    lifetime: 100
+  - type: SpawnOnDespawn
+    prototype: 4ReinforcementArmPC0I5WM
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: MarkTimer5ReinforcementArmP1WM
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: TimedDespawn 
+    lifetime: 40
+  - type: SpawnOnDespawn
+    prototype: 5ReinforcementArmP1WM
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: MarkTimer6ReinforcementArmPH5WM
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: TimedDespawn 
+    lifetime: 200
+  - type: SpawnOnDespawn
+    prototype: 6ReinforcementArmPH5WM
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: MarkTimer7ReinforcementArmPS4WM
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: TimedDespawn 
+    lifetime: 80
+  - type: SpawnOnDespawn
+    prototype: 7ReinforcementArmPS4WM
+
+
+#Gear
+#Respublic
+#P0
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: MarkerGatewayArmJob
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+  - type: TimedDespawn 
+    lifetime: 5
+  - type: SpawnOnDespawn
+    prototype: GatewayArmJob
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MarkerBase
+  id: Marker24567Start
+  suffix: Floods the server with expired beer, use at your own risk.
+  components:
+  - type: GhostRole
+    name: pw-gamemodes-rebels-marker24567start-name
+    description: pw-gamemodes-rebels-marker24567start-desc
+    raffle:
+      settings: WM2
+  - type: GhostRoleMobSpawner
+    prototype: Marker24567
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centcom
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
+  parent: MARKERMarkerStartItemGatewayCoreFlatpack
+  id: MARKERMarkerStartItemGatewayArmFlatpack
+  components:
+  - type: SpawnOnDespawn
+    prototype: MarkerStartItemGatewayArmFlatpack
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MarkerBase
+  id: MarkerStartItemGatewayArm
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: true
+      table: !type:AllSelector
+        children:
+        - id: CrateGenericSteelPixarArmWM
+        - id: CrateGenericSteelMechsArmWM
+        - id: CrateGenericSteelRcdArmWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MechHeavyArmWMFlatpack
+  id: MarkerStartItemGatewayArmFlatpack
+  components:
+  - type: SpawnAfterInteract
+    prototype: MarkerStartItemGatewayArm
+  - type: Flatpack
+    entity: MarkerStartItemGatewayArm
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:AllSelector
+      children:
+      - id: MultitoolWM

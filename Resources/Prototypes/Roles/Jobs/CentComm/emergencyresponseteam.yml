@@ -29,7 +29,7 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantERT ] #Sunrise-Edit
+    implants: [ MindShieldImplant, DeathRattleImplantERT, NutrimentImplant ] #Sunrise-Edit
 
 - type: startingGear
   parent: ERTLeaderGearEVA
@@ -134,7 +134,7 @@
     components:
     - type: BibleUser #Lets them heal with bibles
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantERT ] #Sunrise-Edit
+    implants: [ MindShieldImplant, DeathRattleImplantERT, NutrimentImplant ] #Sunrise-Edit
 
 - type: startingGear
   parent: ERTChaplainGearEVA
@@ -217,7 +217,7 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantERT ] #Sunrise-Edit
+    implants: [ MindShieldImplant, DeathRattleImplantERT, NutrimentImplant ] #Sunrise-Edit
 
 - type: startingGear
   parent: ERTEngineerGearEVA
@@ -316,7 +316,7 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantERT ] #Sunrise-Edit
+    implants: [ MindShieldImplant, DeathRattleImplantERT, NutrimentImplant ] #Sunrise-Edit
 
 - type: startingGear
   parent: ERTSecurityGearEVA
@@ -373,7 +373,7 @@
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTSecurity
     id: ERTSecurityPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: ClothingHeadsetAltERT #Sunrise-Edit
     belt: ClothingBeltMilitaryWebbingERT
     pocket2: CombatKnife
     suitstorage: WeaponRifleLecter
@@ -511,7 +511,7 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantERT ] #Sunrise-Edit
+    implants: [ MindShieldImplant, DeathRattleImplantERT, NutrimentImplant ] #Sunrise-Edit
 
 - type: startingGear
   parent: ERTMedicalGearEVA
@@ -612,7 +612,7 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantERT ] #Sunrise-Edit
+    implants: [ MindShieldImplant, DeathRattleImplantERT, NutrimentImplant ] #Sunrise-Edit
 
 - type: startingGear
   parent: ERTJanitorGearEVA
@@ -681,7 +681,7 @@
   startingGear: ERTLeaderGearEVA
   icon: "JobIconNanotrasen"
   overrideConsoleVisibility: false # Sunrise added
-  supervisors: job-supervisors-specops #Fish-edit
+  supervisors: job-supervisors-centcom
   canBeAntag: false
   requirements:
     - !type:DepartmentTimeRequirement
@@ -713,7 +713,7 @@
   startingGear: ERTChaplainGear
   icon: "JobIconNanotrasen"
   overrideConsoleVisibility: false # Sunrise added
-  supervisors: job-supervisors-specops #Fish-edit
+  supervisors: job-supervisors-centcom
   canBeAntag: false
   requirements:
     - !type:DepartmentTimeRequirement
@@ -739,7 +739,7 @@
   startingGear: ERTEngineerGearEVA
   icon: "JobIconNanotrasen"
   overrideConsoleVisibility: false # Sunrise added
-  supervisors: job-supervisors-specops #Fish-edit
+  supervisors: job-supervisors-centcom
   canBeAntag: false
   requirements:
     - !type:DepartmentTimeRequirement
@@ -765,7 +765,7 @@
   startingGear: ERTSecurityGearEVA
   icon: "JobIconNanotrasen"
   overrideConsoleVisibility: false # Sunrise added
-  supervisors: job-supervisors-specops #Fish-edit
+  supervisors: job-supervisors-centcom
   canBeAntag: false
   requirements:
     - !type:DepartmentTimeRequirement
@@ -788,7 +788,7 @@
   startingGear: ERTMedicalGearEVA
   icon: "JobIconNanotrasen"
   overrideConsoleVisibility: false # Sunrise added
-  supervisors: job-supervisors-specops #Fish-edit
+  supervisors: job-supervisors-centcom
   canBeAntag: false
   requirements:
     - !type:DepartmentTimeRequirement
@@ -814,7 +814,7 @@
   startingGear: ERTJanitorGearEVA
   icon: "JobIconNanotrasen"
   overrideConsoleVisibility: false # Sunrise added
-  supervisors: job-supervisors-specops #Fish-edit
+  supervisors: job-supervisors-centcom
   canBeAntag: false
   requirements:
     - !type:DepartmentTimeRequirement
@@ -836,7 +836,7 @@
   setPreference: false
   startingGear: CBURNGear
   icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-specops #Fish-edit
+  supervisors: job-supervisors-centcom
   canBeAntag: false
   requirements:
     - !type:DepartmentTimeRequirement

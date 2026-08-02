@@ -8,5 +8,5 @@ namespace Content.Server._Sunrise.Disease;
 [RegisterComponent]
 public sealed partial class MinimumBleedComponent : Component
 {
-    [DataField] public float MinValue = 1f;
+    [DataField] public float MinValue = 2f;
 }

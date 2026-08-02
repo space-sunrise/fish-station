@@ -1,0 +1,7 @@
+- type: material
+  id: MoneyWarMizMaterial
+  stackEntity: MoneyWarMiz
+  name: material-moneywarmiz-name
+  unit: material-moneywarmiz-unit
+  icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash }
+  price: 1

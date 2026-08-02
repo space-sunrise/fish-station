@@ -1,0 +1,713 @@
+- type: entity
+  parent: GasCanister
+  id: ZenthiumCanister
+  name: Zenthium Canister
+  description: A canister that can hold any type of gas. This one supposedly contains Nitrium. Can be connected to a port with a wrench.
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Structures/Storage/canister.rsi
+    layers:
+    - state: nitrium
+  - type: GasCanister
+    gasMixture:
+      volume: 1000
+      moles:
+        Zenthium: 1871.71051 # Zenthium
+      temperature: 293.15
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          NitriumCanisterBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
+  - type: Lock
+    locked: true
+
+- type: entity
+  parent: GasCanister
+  id: KrypiumCanister
+  name: Krypium Canister
+  description: A canister that can hold any type of gas. This one supposedly contains Nitrium. Can be connected to a port with a wrench.
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Structures/Storage/canister.rsi
+    layers:
+    - state: nitrium
+  - type: GasCanister
+    gasMixture:
+      volume: 1000
+      moles:
+        Krypium: 1871.71051 # Krypium
+      temperature: 293.15
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          NitriumCanisterBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
+  - type: Lock
+    locked: true
+
+- type: entity
+  parent: GasCanister
+  id: PralliumCanister
+  name: Prallium Canister
+  description: A canister that can hold any type of gas. This one supposedly contains Nitrium. Can be connected to a port with a wrench.
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Structures/Storage/canister.rsi
+    layers:
+    - state: nitrium
+  - type: GasCanister
+    gasMixture:
+      volume: 1000
+      moles:
+        Prallium: 1871.71051 # Prallium
+      temperature: 293.15
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          NitriumCanisterBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
+  - type: Lock
+    locked: true
+
+- type: entity
+  parent: GasCanister
+  id: ChaosonCanister
+  name: Chaoson Canister
+  description: A canister that can hold any type of gas. This one supposedly contains Nitrium. Can be connected to a port with a wrench.
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Structures/Storage/canister.rsi
+    layers:
+    - state: nitrium
+  - type: GasCanister
+    gasMixture:
+      volume: 1000
+      moles:
+        Chaoson: 1871.71051 # Chaoson
+      temperature: 293.15
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          NitriumCanisterBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
+  - type: Lock
+    locked: true
+
+- type: entity
+  parent: GasCanister
+  id: GarodinCanister
+  name: Garodin Canister
+  description: A canister that can hold any type of gas. This one supposedly contains Nitrium. Can be connected to a port with a wrench.
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Structures/Storage/canister.rsi
+    layers:
+    - state: nitrium
+  - type: GasCanister
+    gasMixture:
+      volume: 1000
+      moles:
+        Garodin: 1871.71051 # Garodin
+      temperature: 293.15
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          NitriumCanisterBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
+  - type: Lock
+    locked: true
+
+- type: entity
+  parent: GasCanister
+  id: BaratriumCanister
+  name: Baratrium Canister
+  description: A canister that can hold any type of gas. This one supposedly contains Nitrium. Can be connected to a port with a wrench.
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Structures/Storage/canister.rsi
+    layers:
+    - state: nitrium
+  - type: GasCanister
+    gasMixture:
+      volume: 1000
+      moles:
+        Baratrium: 1871.71051 # Baratrium
+      temperature: 293.15
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          NitriumCanisterBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
+  - type: Lock
+    locked: true
+
+- type: entity
+  parent: GasCanister
+  id: EthyliumCanister
+  name: Ethylium Canister
+  description: A canister that can hold any type of gas. This one supposedly contains Nitrium. Can be connected to a port with a wrench.
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Structures/Storage/canister.rsi
+    layers:
+    - state: nitrium
+  - type: GasCanister
+    gasMixture:
+      volume: 1000
+      moles:
+        Ethylium: 1871.71051 # Ethylium
+      temperature: 293.15
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          NitriumCanisterBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
+  - type: Lock
+    locked: true
+
+- type: entity
+  parent: GasCanister
+  id: ZimmeraCanister
+  name: Zimmera Canister
+  description: A canister that can hold any type of gas. This one supposedly contains Nitrium. Can be connected to a port with a wrench.
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Structures/Storage/canister.rsi
+    layers:
+    - state: nitrium
+  - type: GasCanister
+    gasMixture:
+      volume: 1000
+      moles:
+        Zimmera: 1871.71051 # Zimmera
+      temperature: 293.15
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          NitriumCanisterBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
+  - type: Lock
+    locked: true
+
+- type: entity
+  parent: GasCanister
+  id: FramelCanister
+  name: Framel Canister
+  description: A canister that can hold any type of gas. This one supposedly contains Nitrium. Can be connected to a port with a wrench.
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Structures/Storage/canister.rsi
+    layers:
+    - state: nitrium
+  - type: GasCanister
+    gasMixture:
+      volume: 1000
+      moles:
+        Framel: 1871.71051 # Framel
+      temperature: 293.15
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          NitriumCanisterBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
+  - type: Lock
+    locked: true
+
+- type: entity
+  parent: GasCanister
+  id: KlemennonCanister
+  name: Klemennon Canister
+  description: A canister that can hold any type of gas. This one supposedly contains Nitrium. Can be connected to a port with a wrench.
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Structures/Storage/canister.rsi
+    layers:
+    - state: nitrium
+  - type: GasCanister
+    gasMixture:
+      volume: 1000
+      moles:
+        Klemennon: 1871.71051 # Klemennon
+      temperature: 293.15
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          NitriumCanisterBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
+  - type: Lock
+    locked: true
+
+- type: entity
+  parent: GasCanister
+  id: ProtoUltimiumCanister
+  name: Proto-Ultimium Canister
+  description: A canister that can hold any type of gas. This one supposedly contains Nitrium. Can be connected to a port with a wrench.
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Structures/Storage/canister.rsi
+    layers:
+    - state: nitrium
+  - type: GasCanister
+    gasMixture:
+      volume: 1000
+      moles:
+        ProtoUltimium: 1871.71051 # Proto-Ultimium
+      temperature: 293.15
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          NitriumCanisterBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
+  - type: Lock
+    locked: true
+
+- type: entity
+  parent: GasCanister
+  id: ZimmerousFrezoniteCanister
+  name: ZimmerousFrezonite Canister
+  description: A canister that can hold any type of gas. This one supposedly contains Nitrium. Can be connected to a port with a wrench.
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Structures/Storage/canister.rsi
+    layers:
+    - state: nitrium
+  - type: GasCanister
+    gasMixture:
+      volume: 1000
+      moles:
+        ZimmerousFrezonite: 1871.71051 # ZimmerousFrezonite
+      temperature: 293.15
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          NitriumCanisterBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
+  - type: Lock
+    locked: true
+
+- type: entity
+  parent: GasCanister
+  id: AntiUltimiumCanister
+  name: Anti-Ultimium Canister
+  description: A canister that can hold any type of gas. This one supposedly contains Nitrium. Can be connected to a port with a wrench.
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Structures/Storage/canister.rsi
+    layers:
+    - state: nitrium
+  - type: GasCanister
+    gasMixture:
+      volume: 1000
+      moles:
+        AntiUltimium: 1871.71051 # AntiUltimium
+      temperature: 293.15
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          NitriumCanisterBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
+  - type: Lock
+    locked: true
+
+- type: entity
+  parent: GasCanister
+  id: UltimiumCanister
+  name: Ultimium Canister
+  description: A canister that can hold any type of gas. This one supposedly contains Nitrium. Can be connected to a port with a wrench.
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Structures/Storage/canister.rsi
+    layers:
+    - state: nitrium
+  - type: GasCanister
+    gasMixture:
+      volume: 1000
+      moles:
+        Ultimium: 1871.71051 # Ultimium
+      temperature: 293.15
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          NitriumCanisterBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
+  - type: Lock
+    locked: true
+
+- type: entity
+  parent: GasCanister
+  id: PermafrostCanister
+  name: Permafrost Canister
+  description: A canister that can hold any type of gas. This one supposedly contains Nitrium. Can be connected to a port with a wrench.
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Structures/Storage/canister.rsi
+    layers:
+    - state: nitrium
+  - type: GasCanister
+    gasMixture:
+      volume: 1000
+      moles:
+        Permafrost: 1871.71051 # Permafrost
+      temperature: 293.15
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          NitriumCanisterBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
+  - type: Lock
+    locked: true
+
+- type: entity
+  parent: GasCanister
+  id: RiminonCanister
+  name: Riminon Canister
+  description: A canister that can hold any type of gas. This one supposedly contains Nitrium. Can be connected to a port with a wrench.
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Structures/Storage/canister.rsi
+    layers:
+    - state: nitrium
+  - type: GasCanister
+    gasMixture:
+      volume: 1000
+      moles:
+        Riminon: 1871.71051 # Riminon
+      temperature: 293.15
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          NitriumCanisterBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
+  - type: Lock
+    locked: true
+
+- type: entity
+  parent: GasCanister
+  id: AxoNobliumCanister
+  name: AxoNoblium Canister
+  description: A canister that can hold any type of gas. This one supposedly contains Nitrium. Can be connected to a port with a wrench.
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Structures/Storage/canister.rsi
+    layers:
+    - state: nitrium
+  - type: GasCanister
+    gasMixture:
+      volume: 1000
+      moles:
+        AxoNoblium: 1871.71051 # AxoNoblium
+      temperature: 293.15
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          NitriumCanisterBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
+  - type: Lock
+    locked: true

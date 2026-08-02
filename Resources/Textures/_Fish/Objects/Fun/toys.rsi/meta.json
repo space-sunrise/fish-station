@@ -39,6 +39,30 @@
         "name": "plushie-mikhail-beerbeard-oboronovich"
       },
       {
+        "name": "plushie-mikhail-beerbeard-oboronovich-on",
+        "delays": [
+          [
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11,
+            0.11
+          ]
+        ]
+      },
+      {
         "name": "plushie-squishy-moth"
       },
       {

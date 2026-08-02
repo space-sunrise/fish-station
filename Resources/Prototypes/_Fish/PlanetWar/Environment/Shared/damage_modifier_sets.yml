@@ -1,0 +1,27 @@
+- type: damageModifierSet
+  id: RockWM
+  coefficients:
+    Structural: 0.8
+    Blunt: 0
+    Slash: 0
+    Piercing: 0.0001
+    Heat: 0.0001
+    Caustic: 0
+
+
+- type: damageModifierSet
+  id: TreeWM
+  coefficients:
+    Structural: 1
+    Blunt: 0.5
+    Slash: 21
+    Piercing: 0.05
+    Heat: 0.15
+    Caustic: 0
+
+
+- type: damageModifierSet
+  id: DronShockWeaknessWM
+  coefficients:
+    Shock: 5
+

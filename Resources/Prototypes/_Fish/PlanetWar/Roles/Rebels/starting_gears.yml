@@ -1,0 +1,135 @@
+- type: startingGear
+  id: ArmGearP0
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRecruitSyndieWM
+    back: ClothingBackpackSyndieWM
+    mask: ClothingMaskGasSecurityWM
+    gloves: ClothingHandsGlovesColorRedWM
+    outerClothing: ClothingOuterVestArmorSecWM
+    shoes: ClothingShoesSwatWM
+    id: IDArmBase
+    pocket1: GrenadeShrapnelWM
+    pocket2: WeaponPistolHIB88M4WM
+    belt: ClothingBeltSecurityWebbingP0WM
+    head: ClothingHeadHelmetSwatSyndicateWM
+    suitstorage: WeaponRifleAKMWM
+    ears: ClothingHeadsetAltSyndicateWM
+
+
+- type: startingGear
+  id: ArmGearP1
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRecruitSyndieWM
+    back: ClothingBackpackSyndieWM
+    mask: ClothingMaskGasSecurityWM
+    gloves: ClothingHandsGlovesColorRedWM
+    outerClothing: ClothingOuterArmorRaidWM
+    shoes: ClothingShoesSwatP1WM
+    id: IDArmBase
+    pocket1: ExGrenadeWM
+    pocket2: WeaponPistolHIB88M4WM
+    belt: ClothingBeltSecurityWebbingP1WM
+    head: ClothingHeadHelmetSwatSyndicateWM
+    suitstorage: WeaponShotgunBulldogWM
+    ears: ClothingHeadsetAltSyndicateWM
+
+
+- type: startingGear
+  id: ArmGearPM1
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitParamedicSyndieWM
+    back: ClothingBackpackSyndieWM
+    mask: ClothingMaskBreathMedicalRedWM
+    gloves: ClothingHandsGlovesColorRedWM
+    outerClothing: ClothingOuterVestArmorMedSecWM
+    shoes: ClothingShoesSwatWM
+    id: IDArmPM1
+    pocket1: SyndiHypoWM
+    pocket2: LauncherSyringeWM
+    belt: ClothingBeltMedicalArmPM1WM
+    head: ClothingHeadHatRedsoftWM
+    suitstorage: WeaponEarthGovLaserCarbineArmWM
+    ears: ClothingHeadsetAltSyndicateWM
+
+
+- type: startingGear
+  id: ArmGearPE1
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitChiefEngineerSyndieWM
+    back: ClothingBackpackSyndieWM
+    mask: ClothingMaskGasSecurityWM
+    gloves: ClothingHandsGlovesColorYellowWM
+    outerClothing: ClothingOuterArmorBasicSlimWM
+    shoes: ClothingShoesSwatWM
+    id: IDArmPE1
+    pocket1: WeaponTeslaGunWM
+    pocket2: RemoteSignallerWM
+    belt: ClothingBeltUtilityArmPE1WM
+    head: ClothingHeadHatHardhatArmoredWM
+ #   suitstorage: PortableRechargerWM
+    suitstorage: WeaponLauncherChinaLakeArmWM
+    ears: ClothingHeadsetAltSyndicateWM
+    neck: PortableRechargerWM
+  inhand:
+ # - WeaponTeslaGunWM
+  - WeaponPistolHIB88M4WM
+  - MagazineHIBrowningWM
+
+
+- type: startingGear
+  id: ArmGearPS4
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperativeWM
+    back: ClothingBackpackSyndieWM
+    mask: ClothingMaskGasSyndicateWM
+    gloves: ClothingHandsGlovesColorRedWM
+    outerClothing: ClothingOuterCoatHOSOvercoatBlackWM
+    shoes: ClothingShoesSwatWM
+    id: IDArmBase
+    pocket1: WeaponShotgunSawnWM
+    pocket2: SmokeGrenadeWM
+    belt: ClothingBeltSecurityWebbingPS4WM
+    head: ClothingHeadHelmetSwatSyndicateWM
+    suitstorage: WeaponSniperDragunovWM
+    ears: ClothingHeadsetAltSyndicateWM
+    neck: ClothingCloakAlphaWM
+    eyes: ClothingEyesGlassesThermalArmWM
+
+
+- type: startingGear
+  id: ArmGearPH5
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperativeWM
+    back: ClothingBackpackSyndieWM
+    mask: ClothingMaskGasSecurityWM #ClothingMaskGasSwatWM
+    gloves: ClothingHandsGlovesColorRedWM
+    outerClothing: ClothingOuterArmorHeavyRedWM
+    shoes: ClothingShoesSwatWM
+    id: IDArmBase
+    pocket1: TelescopicShieldWM
+    pocket2: WeaponPistolHIB88M4WM
+    belt: ClothingBeltSecurityWebbingPH5WM
+    head: ClothingHeadHelmetLingWM
+    suitstorage: WeaponLightMachineGunRPDWM
+    ears: ClothingHeadsetAltSyndicateWM
+
+
+- type: startingGear
+  id: ArmGearPC0I5
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperativeWM
+    back: ClothingBackpackSyndieWM
+    mask: ClothingMaskGasSwatWM
+    gloves: ClothingHandsGlovesColorRedWM
+    outerClothing: ClothingOuterCoatSyndieCapWM
+    shoes: ClothingShoesSwatWM
+    id: IDArmPC0I5
+    pocket1: HandLabelerWM
+    pocket2: ExGrenadeWM
+    belt: ClothingBeltSecurityWebbingPCOI5WM
+    head: ClothingHeadHatBeretSecurityMedicWM
+    suitstorage: WeaponSubMachineGunMP38WM
+    ears: ClothingHeadsetAltSyndicateWM
+    neck: SecurityWhistleWM
+  inhand:
+  - MagazBagWM

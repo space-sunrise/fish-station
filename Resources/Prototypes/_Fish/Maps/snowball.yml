@@ -23,6 +23,33 @@
             priorityTag: DockFishSecurity
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_Case.yml
+        - type: StationGoal
+          goals:
+          - SolarPanels
+          - Artifacts
+          - Zoo
+          - WeaponsSecurity
+          - MaintsRepair
+          - DormsBuild
+          - Transit
+          - Delegates
+          - Cyborgs
+          - Testing
+          - Anomaly
+          - Replenishment
+          - IntelWeapons
+          - Reports
+          - Reconnaissance
+          - Saboteurs
+          - Furs
+          - Crew
+          - CleaningUp
+          - HumanitarianAid
+          - PersonnelRecovery
+          - CrewEducation
+          - SampleCollection
+          - Examination
+          - StationGoalPolymorph
         - type: StationJobs
           availableJobs:
             #command

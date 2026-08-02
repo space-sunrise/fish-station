@@ -1542,7 +1542,7 @@
   icon: { sprite: /Textures/Objects/Fun/pai.rsi, state: syndicate-icon-pai-off }
   productEntity: SyndicatePersonalAI
   cost:
-    Telecrystal: 1
+    Telecrystal: 5 # FIsh edit - баланс аплинка пИИ
   categories:
     - UplinkAllies
   conditions:

@@ -37,8 +37,27 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
             Gas.Helium,
             Gas.AntiNoblium,
             Gas.Electrovae,
-            Gas.ChargedElectrovae
+            Gas.ChargedElectrovae,
             //Sunrise - End
+            //Fish - Start
+            Gas.Zenthium,
+            Gas.Krypium,
+            Gas.Prallium,
+            Gas.Chaoson,
+            Gas.Garodin,
+            Gas.Baratrium,
+            Gas.Ethylium,
+            Gas.Zimmera,
+            Gas.Framel,
+            Gas.Klemennon,
+            Gas.ProtoUltimium,
+            Gas.ZimmerousFrezonite,
+            Gas.AntiUltimium,
+            Gas.Ultimium,
+            Gas.Permafrost,
+            Gas.Riminon,
+            Gas.AxoNoblium
+            //Fish - End
         };
 
         // Presets for 'dumb' air alarm modes

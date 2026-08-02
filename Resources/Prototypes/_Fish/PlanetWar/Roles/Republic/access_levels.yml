@@ -1,0 +1,14 @@
+- type: accessLevel
+  id: AssCoreBase
+
+
+- type: accessLevel
+  id: AssCorePC0I5
+
+
+- type: accessLevel
+  id: AssCorePM1
+
+
+- type: accessLevel
+  id: AssCorePE1

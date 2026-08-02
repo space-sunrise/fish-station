@@ -1,0 +1,5 @@
+- type: npcFaction
+  id: ClassMedic
+  friendly:
+  - CoreFaction
+  - ArmFaction
