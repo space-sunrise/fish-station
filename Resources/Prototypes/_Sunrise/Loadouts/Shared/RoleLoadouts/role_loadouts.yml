@@ -130,12 +130,12 @@
 - type: roleLoadout
   id: JobBlueShieldOperative
   groups:
-  - BlueShieldHead # Fish-edit
+  - BlueShieldHead
   - BlueShieldJumpsuit
   - BlueShieldBackpack
   - BlueShieldBelt
   - BlueShieldNeck
-  - BlueShieldOuterClothing # Fish-add
+  - BlueShieldOuterClothing
   - Trinkets
   - BlueshieldGun
   - SunriseTrinkets
@@ -143,8 +143,8 @@
   - GroupSpeciesBreathTool
   - Bra
   - Pants
-# - BlueShieldBra # Fish-Edit
-# - BlueShieldPants # Fish-Edit
+# - BlueShieldBra
+# - BlueShieldPants
   - Socks
 # fish-end
 

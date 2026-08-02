@@ -63,10 +63,9 @@ public sealed partial class JumpSystem : SharedJumpSystem
 
     private void Jump(ICommonSession? session)
     {
-        // Fish edit start
+        // Fish-edit
         if (!_gameTiming.IsFirstTimePredicted)
             return;
-        // Fish edit end
 
         var player = session?.AttachedEntity;
 

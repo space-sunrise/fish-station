@@ -166,11 +166,7 @@
   id: JobOversightOfficer
   groups:
   - LawyerJumpsuit
-  - CentCommOperatorHatsFish
-  - CentCommOperatorShoesFish
-  - CentCommOperatorGlovesFish
-  - CentCommOperatorEyesFish
-  - OversightBackFish # Fish-edit
+  - OversightBackFish
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool

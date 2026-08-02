@@ -48,12 +48,4 @@ public sealed partial class RevolverAmmoProviderComponent : AmmoProviderComponen
 
     [DataField("soundSpin")]
     public SoundSpecifier? SoundSpin = new SoundPathSpecifier("/Audio/Weapons/Guns/Misc/revolver_spin.ogg");
-
-    /// <summary>
-    /// Whether chamber spin (verb) and use-in-hand chamber cycling are allowed.
-    /// Disable for break-action guns that reuse this provider (e.g. double-barrel shotguns).
-    /// </summary>
-    // FIsh edit - canSpin для двустволок без «барабана»
-    [DataField]
-    public bool CanSpin = true;
 }

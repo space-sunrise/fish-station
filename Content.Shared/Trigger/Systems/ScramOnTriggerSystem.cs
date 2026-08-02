@@ -38,9 +38,8 @@ public sealed class ScramOnTriggerSystem : XOnTriggerSystem<ScramOnTriggerCompon
         if (_net.IsClient)
             return;
 
-        // FIsh edit start
+        // Fish-edit
         _transform.AttachToGridOrMap(target);
-        // FIsh edit end
 
         var targetCoords = SelectRandomTileInRange(target, ent.Comp.TeleportRadius);
 

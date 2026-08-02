@@ -9,7 +9,7 @@ namespace Content.Shared.Construction.Steps
 
         public override bool EntityValid(EntityUid uid, IEntityManager entityManager, IComponentFactory compFactory)
         {
-            // Fish edit start
+            // Fish-start
             if (string.IsNullOrEmpty(Component))
                 return false;
 
@@ -17,7 +17,7 @@ namespace Content.Shared.Construction.Steps
                 return false;
 
             return entityManager.HasComponent(uid, registration.Type);
-            // Fish edit end
+            // Fish-end
         }
 
         public override void DoExamine(ExaminedEvent examinedEvent)

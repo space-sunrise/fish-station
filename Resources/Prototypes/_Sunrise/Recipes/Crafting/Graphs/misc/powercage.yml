@@ -16,6 +16,7 @@
                 sprite: Objects/Power/power_cells.rsi
                 state: small
               doAfter: 0
+            # Fish-edit
             - component: PowerCell
               name: step-trashgun-smallbattery
               icon:

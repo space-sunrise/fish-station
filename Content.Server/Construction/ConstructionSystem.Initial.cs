@@ -44,9 +44,8 @@ namespace Content.Server.Construction
 
         private readonly Dictionary<ICommonSession, HashSet<int>> _beingBuilt = new();
 
-        // Fish edit start
+        // Fish-edit
         private const float InitialConstructionNearbyRange = 3f;
-        // Fish edit end
 
         private void InitializeInitial()
         {
@@ -55,7 +54,7 @@ namespace Content.Server.Construction
         }
 
         // LEGACY CODE. See warning at the top of the file!
-        // Fish edit start
+        // Fish-start
         private IEnumerable<EntityUid> EnumerateStorageContents(StorageComponent storage, int nestedLevels = 1)
         {
             foreach (var storedEntity in storage.Container.ContainedEntities)
@@ -81,7 +80,7 @@ namespace Content.Server.Construction
                     yield return item;
             }
         }
-        // Fish edit end
+        // Fish-end
 
         // LEGACY CODE. See warning at the top of the file!
         private IEnumerable<EntityUid> EnumerateNearby(EntityUid user)
@@ -90,16 +89,16 @@ namespace Content.Server.Construction
             {
                 if (TryComp(item, out StorageComponent? storage))
                 {
-                    // Fish edit start
+                    // Fish-start
                     foreach (var storedEntity in EnumerateStorageContents(storage))
                         yield return storedEntity;
-                    // Fish edit end
+                    // Fish-end
                 }
 
-                // Fish edit start
+                // Fish-start
                 foreach (var slotted in EnumerateItemSlotContents(item))
                     yield return slotted;
-                // Fish edit end
+                // Fish-end
 
                 yield return item;
             }
@@ -115,25 +114,25 @@ namespace Content.Server.Construction
 
                     if (TryComp(equipped, out StorageComponent? storage))
                     {
-                        // Fish edit start
+                        // Fish-start
                         foreach (var storedEntity in EnumerateStorageContents(storage))
                             yield return storedEntity;
-                        // Fish edit end
+                        // Fish-end
                     }
 
-                    // Fish edit start
+                    // Fish-start
                     foreach (var slotted in EnumerateItemSlotContents(equipped))
                         yield return slotted;
-                    // Fish edit end
+                    // Fish-end
 
                     yield return equipped;
                 }
             }
 
             var pos = _transformSystem.GetMapCoordinates(user);
-            var userTile = _transformSystem.GetGridOrMapTilePosition(user);
 
-            // Fish edit start
+            // Fish-start
+            var userTile = _transformSystem.GetGridOrMapTilePosition(user);
             foreach (var near in _lookupSystem.GetEntitiesInRange(pos, InitialConstructionNearbyRange, LookupFlags.Contained | LookupFlags.Dynamic | LookupFlags.Sundries | LookupFlags.Approximate | LookupFlags.Static))
             {
                 if (near == user)
@@ -164,7 +163,7 @@ namespace Content.Server.Construction
                 foreach (var slotted in EnumerateItemSlotContents(near))
                     yield return slotted;
             }
-            // Fish edit end
+            // Fish-end
         }
 
         // LEGACY CODE. See warning at the top of the file!
@@ -239,6 +238,7 @@ namespace Content.Server.Construction
             }
 
             var failed = false;
+            // Fish-edit
             ConstructionGraphStep? failedStep = null;
 
             var steps = new List<ConstructionGraphStep>();
@@ -253,7 +253,7 @@ namespace Content.Server.Construction
                 switch (step)
                 {
                     case MaterialConstructionGraphStep materialStep:
-                        // Fish edit start
+                        // Fish-start
                         {
                             var needed = materialStep.Amount;
                             var candidates = new List<EntityUid>();
@@ -321,7 +321,7 @@ namespace Content.Server.Construction
                                     handled = true;
                             }
                         }
-                        // Fish edit end
+                        // Fish-end
 
                         break;
 
@@ -340,10 +340,10 @@ namespace Content.Server.Construction
                                 _container.EmptyContainer(storage.Container);
                             }
 
-                            // Fish edit start
+                            // Fish-start
                             if (TryComp(entity, out TransformComponent? insertXform) && insertXform.Anchored)
                                 _transformSystem.Unanchor(entity, insertXform);
-                            // Fish edit end
+                            // Fish-end
 
                             if (string.IsNullOrEmpty(arbitraryStep.Store))
                             {
@@ -374,9 +374,8 @@ namespace Content.Server.Construction
 
             if (failed)
             {
-                // Fish edit start
+                // Fish-edit
                 _popup.PopupEntity(GetInitialConstructionFailPopup(failedStep), user, user);
-                // Fish edit end
                 FailCleanup();
                 return null;
             }
@@ -684,7 +683,7 @@ namespace Content.Server.Construction
             Cleanup();
         }
 
-        // Fish edit start
+        // Fish-start
         private string GetInitialConstructionFailPopup(ConstructionGraphStep? step)
         {
             switch (step)
@@ -704,6 +703,6 @@ namespace Content.Server.Construction
                     return Loc.GetString("construction-system-construct-no-materials");
             }
         }
-        // Fish edit end
+        // Fish-end
     }
 }
