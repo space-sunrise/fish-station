@@ -9,6 +9,7 @@ pai-system-role-description =
 pai-system-role-name-syndicate = персональный ИИ Синдиката
 pai-system-role-description-syndicate =
     Станьте чьим-нибудь приятелем из Синдиката!
+    Помогайте мастеру инъекциями, сенсорами и радиоканалом Синдиката.
     (Воспоминания *не* прилагаются.)
 pai-system-role-name-potato = Картофельный Искусственный Интеллект
 pai-system-role-description-potato = Это детская игрушка. И теперь вы в ней живёте.

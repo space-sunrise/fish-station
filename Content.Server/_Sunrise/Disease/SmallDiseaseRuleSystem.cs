@@ -32,7 +32,7 @@ public sealed class SmallDiseaseRuleSystem : GameRuleSystem<SmallDiseaseRuleComp
     {
         base.Started(uid, component, gameRule, args);
 
-        Timer.Spawn(TimeSpan.FromMinutes(6), () =>
+        Timer.Spawn(TimeSpan.FromMinutes(10), () =>
         {
             var message = Loc.GetString("disease-biohazard-announcement");
             var sender = Loc.GetString("disease-biohazard-announcement-sender");
