@@ -1,0 +1,20 @@
+{
+  "size": {
+    "x": 120,
+    "y": 120
+  },
+  "states": [
+    {
+      "name": "armgruz"
+    },
+    {
+      "name": "armgruzBack"
+    },
+    {
+      "name": "coregruz"
+    },
+    {
+      "name": "coregruzBack"
+    }
+  ]
+}

@@ -1,0 +1,291 @@
+- type: reagent
+  slipData:
+    requiredSlipSpeed: 50
+  id: TricordrazinePW
+  parent: Tricordrazine
+  absorbent: true
+  evaporationSpeed: 0.2
+  tileReactions:
+    - !type:CleanTileReaction {}
+    - !type:CleanDecalsReaction {}
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:TotalDamageCondition
+          max: 75
+        damage:
+          groups:
+            Brute: -1
+          types:
+            Radiation: -0.2
+            Mangleness: -2.0
+            Poison: -0.5
+            Heat: -0.33
+            Shock: -0.33
+            Cold: -0.33
+
+
+- type: reagent
+  slipData:
+    requiredSlipSpeed: 50
+  id: EpinephrinePW
+  parent: Epinephrine
+  evaporationSpeed: 0.2
+  absorbent: true
+  tileReactions:
+    - !type:CleanTileReaction {}
+    - !type:CleanDecalsReaction {}
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentCondition
+          reagent: Histamine
+          min: 45
+        reagent: Histamine
+        amount: -5
+      - !type:HealthChange
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Critical
+        - !type:ReagentCondition
+          reagent: EpinephrinePW
+          max: 70
+        damage:
+          types:
+            Cellular: -20
+            Poison: -5
+          groups:
+            Brute: -10
+            Burn: -10
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: EpinephrinePW
+          min: 1
+        damage:
+          types:
+            Mangleness: -20
+            Cellular: -20
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: EpinephrinePW
+          min: 70
+        damage:
+          types:
+            Asphyxiation: 1
+            Poison: 1
+      - !type:AdjustReagent
+        reagent: HeartbreakerToxin
+        amount: -2
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentCondition
+          reagent: HeartbreakerToxin
+          min: 1
+        reagent: EpinephrinePW
+        amount: -1
+      - !type:AdjustReagent
+        probability: 0.1
+        conditions:
+        - !type:ReagentCondition
+          reagent: HeartbreakerToxin
+          min: 1
+        reagent: Histamine
+        amount: 4
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStunned
+        time: 0.75
+        type: Remove
+      - !type:ModifyKnockdown
+        time: 0.75
+        type: Remove
+      - !type:GenericStatusEffect
+        key: Adrenaline 
+        component: IgnoreSlowOnDamage
+        time: 10
+
+
+- type: reagent
+  slipData:
+    requiredSlipSpeed: 50
+  id: EphedrinePW
+  parent: Ephedrine
+  evaporationSpeed: 0.2
+  absorbent: true
+  tileReactions:
+    - !type:CleanTileReaction {}
+    - !type:CleanDecalsReaction {}
+
+
+- type: reagent
+  slipData:
+    requiredSlipSpeed: 50
+  id: BicaridinePW
+  parent: Bicaridine
+  evaporationSpeed: 0.2
+  absorbent: true
+  tileReactions:
+    - !type:CleanTileReaction {}
+    - !type:CleanDecalsReaction {}
+
+
+- type: reagent
+  slipData:
+    requiredSlipSpeed: 50
+  id: KelotanePW
+  parent: Kelotane
+  evaporationSpeed: 0.2
+  absorbent: true
+  tileReactions:
+    - !type:CleanTileReaction {}
+    - !type:CleanDecalsReaction {}
+
+
+- type: reagent
+  slipData:
+    requiredSlipSpeed: 50
+  id: DylovenePW
+  parent: Dylovene
+  evaporationSpeed: 0.2
+  absorbent: true
+  tileReactions:
+    - !type:CleanTileReaction {}
+    - !type:CleanDecalsReaction {}
+
+#- type: reagent
+ # id: DesoxyephedrinePW
+ # parent: Desoxyephedrine
+ # evaporationSpeed: 0.2
+ # absorbent: true
+#  tileReactions:
+   # - !type:CleanTileReaction {}
+   # - !type:CleanDecalsReaction {}
+
+
+- type: reagent
+  slipData:
+    requiredSlipSpeed: 50
+  id: DesoxyephedrinePW
+  parent: Desoxyephedrine
+  evaporationSpeed: 0.2
+  absorbent: true
+  tileReactions:
+    - !type:CleanTileReaction {}
+    - !type:CleanDecalsReaction {}
+
+
+- type: reagent
+  slipData:
+    requiredSlipSpeed: 50
+  id: DermalinePW
+  parent: Dermaline
+  absorbent: true
+  evaporationSpeed: 0.2
+  tileReactions:
+    - !type:CleanTileReaction {}
+    - !type:CleanDecalsReaction {}
+
+
+- type: reagent
+  slipData:
+    requiredSlipSpeed: 50
+  id: PuncturasePW
+  parent: Puncturase
+  absorbent: true
+  evaporationSpeed: 0.2
+  tileReactions:
+    - !type:CleanTileReaction {}
+    - !type:CleanDecalsReaction {}
+
+
+- type: reagent
+  slipData:
+    requiredSlipSpeed: 50
+  id: EZNutrientPW
+  parent: EZNutrient
+  absorbent: true
+  evaporationSpeed: 0.2
+  tileReactions:
+    - !type:CleanTileReaction {}
+    - !type:CleanDecalsReaction {}
+
+
+- type: reagent
+  id: FiberPW
+  slipData:
+    requiredSlipSpeed: 50
+  parent: Fiber
+  absorbent: true
+  evaporationSpeed: 0.2
+  tileReactions:
+    - !type:CleanTileReaction {}
+    - !type:CleanDecalsReaction {}
+
+
+- type: reagent
+  slipData:
+    requiredSlipSpeed: 50
+  id: THCPW
+  parent: THC
+  absorbent: true
+  evaporationSpeed: 0.2
+  tileReactions:
+    - !type:CleanTileReaction {}
+    - !type:CleanDecalsReaction {}
+
+
+- type: reagent
+  slipData:
+    requiredSlipSpeed: 50
+  id: OmnizinePW
+  parent: Omnizine
+  absorbent: true
+  evaporationSpeed: 0.2
+  tileReactions:
+    - !type:CleanTileReaction {}
+    - !type:CleanDecalsReaction {}
+
+
+- type: reagent
+  id: StimulantsPW
+  parent: Stimulants
+  evaporationSpeed: 0.2
+  absorbent: true
+  color: "#800000"
+  tileReactions:
+    - !type:CleanTileReaction {}
+    - !type:CleanDecalsReaction {}
+
+
+- type: reagent
+  id: WaterPW
+  slipData:
+    requiredSlipSpeed: 50
+  parent: Water
+  evaporationSpeed: 0.2
+  absorbent: true
+  tileReactions:
+    - !type:CleanTileReaction {}
+    - !type:CleanDecalsReaction {}
+
+
+- type: reagent
+  id: ClearBlood
+  slipData:
+    requiredSlipSpeed: 50
+  name: reagent-clearblood-name
+  parent: Water
+  desc: reagent-desc-water
+  evaporationSpeed: 0.4
+  absorbent: true
+  physicalDesc: reagent-clearblood-physicaldesc
+  flavor: water
+  color: "#800000"
+  tileReactions:
+    - !type:CleanTileReaction {}
+    - !type:CleanDecalsReaction {}

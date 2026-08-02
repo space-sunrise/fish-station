@@ -67,5 +67,20 @@ public sealed class DiseaseRuleSystem : GameRuleSystem<DiseaseRuleComponent>
         args.AddLine(Loc.GetString("disease-round-end-result-infected", ("count", infected)));
         args.AddLine(Loc.GetString("disease-round-end-result-infects", ("count", infects)));
         args.AddLine(Loc.GetString("disease-round-end-result-immuned", ("count", immuned)));
+
+        // Sunrise/Fish: Добавление подробной статистики и списка симптомов для каждой разумной болезни
+        var diseaseList = EntityQueryEnumerator<DiseaseRoleComponent>();
+        while (diseaseList.MoveNext(out var diseaseUid, out var comp))
+        {
+            var name = MetaData(diseaseUid).EntityName;
+            var symptomNames = new List<string>();
+            foreach (var symptomId in comp.Symptoms.Keys)
+            {
+                var locKey = symptomId == "Crying" ? "listing-disease-cry-name" : $"listing-disease-{symptomId.ToLower()}-name";
+                symptomNames.Add(Loc.GetString(locKey));
+            }
+            var symptomsText = symptomNames.Count > 0 ? string.Join(", ", symptomNames) : Loc.GetString("disease-round-end-no-symptoms");
+            args.AddLine(Loc.GetString("disease-round-end-result-disease-stats", ("name", name), ("infected", comp.SickOfAllTime), ("symptoms", symptomsText)));
+        }
     }
 }

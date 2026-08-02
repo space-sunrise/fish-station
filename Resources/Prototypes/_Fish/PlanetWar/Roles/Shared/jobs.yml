@@ -1,0 +1,14 @@
+- type: job
+  id: JobGhostWMBase
+  name: job-title-ghostwmbase
+  description: job-description-ghostwmbase
+  playTimeTracker: OverAllGhostWMBase
+  setPreference: true
+  weight: 10
+  jobEntity: MobObserver
+  icon: "JobIconPassenger"
+  canBeAntag: false
+  access:
+  - AssCoreBase
+  - AssArmBase
+  alwaysUseSpawner: true

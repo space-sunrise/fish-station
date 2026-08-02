@@ -1,0 +1,135 @@
+- type: entity
+  name: zenthium gas miner
+  parent: GasMinerBase
+  id: GasMinerZenthium
+  components:
+  - type: GasMiner
+    spawnGas: Zenthium
+
+- type: entity
+  name: krypium gas miner
+  parent: GasMinerBase
+  id: GasMinerKrypium
+  components:
+  - type: GasMiner
+    spawnGas: Krypium
+
+- type: entity
+  name: prallium gas miner
+  parent: GasMinerBase
+  id: GasMinerPrallium
+  components:
+  - type: GasMiner
+    spawnGas: Prallium
+
+- type: entity
+  name: chaoson gas miner
+  parent: GasMinerBase
+  id: GasMinerChaoson
+  components:
+  - type: GasMiner
+    spawnGas: Chaoson
+
+- type: entity
+  name: garodin gas miner
+  parent: GasMinerBase
+  id: GasMinerGarodin
+  components:
+  - type: GasMiner
+    spawnGas: Garodin
+
+- type: entity
+  name: baratrium gas miner
+  parent: GasMinerBase
+  id: GasMinerBaratrium
+  components:
+  - type: GasMiner
+    spawnGas: Baratrium
+
+- type: entity
+  name: ethylium gas miner
+  parent: GasMinerBase
+  id: GasMinerEthylium
+  components:
+  - type: GasMiner
+    spawnGas: Ethylium
+
+- type: entity
+  name: zimmera gas miner
+  parent: GasMinerBase
+  id: GasMinerZimmera
+  components:
+  - type: GasMiner
+    spawnGas: Zimmera
+
+- type: entity
+  name: framel gas miner
+  parent: GasMinerBase
+  id: GasMinerFramel
+  components:
+  - type: GasMiner
+    spawnGas: Framel
+
+- type: entity
+  name: klemennon gas miner
+  parent: GasMinerBase
+  id: GasMinerKlemennon
+  components:
+  - type: GasMiner
+    spawnGas: Klemennon
+
+- type: entity
+  name: proto ultimium gas miner
+  parent: GasMinerBase
+  id: GasMinerProtoUltimium
+  components:
+  - type: GasMiner
+    spawnGas: ProtoUltimium
+
+- type: entity
+  name: zimmerous frezonite gas miner
+  parent: GasMinerBase
+  id: GasMinerZimmerousFrezonite
+  components:
+  - type: GasMiner
+    spawnGas: ZimmerousFrezonite
+
+- type: entity
+  name: anti ultimium gas miner
+  parent: GasMinerBase
+  id: GasMinerAntiUltimium
+  components:
+  - type: GasMiner
+    spawnGas: AntiUltimium
+
+- type: entity
+  name: ultimium gas miner
+  parent: GasMinerBase
+  id: GasMinerUltimium
+  components:
+  - type: GasMiner
+    spawnGas: Ultimium
+
+- type: entity
+  name: permafrost gas miner
+  parent: GasMinerBase
+  id: GasMinerPermafrost
+  components:
+  - type: GasMiner
+    spawnGas: Permafrost
+
+- type: entity
+  name: riminon gas miner
+  parent: GasMinerBase
+  id: GasMinerRiminon
+  components:
+  - type: GasMiner
+    spawnGas: Riminon
+
+- type: entity
+  name: axo noblium gas miner
+  parent: GasMinerBase
+  id: GasMinerAxoNoblium
+  components:
+  - type: GasMiner
+    spawnGas: AxoNoblium

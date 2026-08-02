@@ -103,12 +103,3 @@
   loadouts:
   - CentcommSwordFish
 
-- type: loadoutGroup
-  id: CentCommOperatorTrinketsFish
-  name: loadout-group-centcomm-trinkets
-  loadouts:
-  - CentCommPDA
-  - SpecOpsPDA
-  - CentCommHeadset
-  - CentCommHeadsetAlt
-  - SpecOpsHeadsetAlt

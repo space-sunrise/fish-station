@@ -10,7 +10,6 @@
   - CentCommOperatorEyesFish
   - CentCommOperatorBackFish
   - CentCommOperatorWeaponsFish
-  - CentCommOperatorTrinketsFish
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
@@ -30,7 +29,6 @@
   - CentCommOperatorEyesFish
   - CentCommOperatorBackFish
   - CentCommOperatorWeaponsFish
-  - CentCommOperatorTrinketsFish
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
@@ -50,7 +48,6 @@
   - CentCommOperatorEyesFish
   - CentCommOperatorBackFish
   - CentCommOperatorWeaponsFish
-  - CentCommOperatorTrinketsFish
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
@@ -170,12 +167,7 @@
   - CentCommOperatorHatsFish
   - CentCommOperatorShoesFish
   - CentCommOperatorGlovesFish
-  - CentCommOperatorOuterFish
-  - CentCommOperatorNeckFish
   - CentCommOperatorEyesFish
-  - CentCommOperatorBackFish
-  - CentCommOperatorWeaponsFish
-  - CentCommOperatorTrinketsFish
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
@@ -186,12 +178,7 @@
 - type: roleLoadout
   id: JobSpecOpsOfficer
   groups:
-  - CentCommOperatorOuterFish
-  - CentCommOperatorNeckFish
   - CentCommOperatorEyesFish
-  - CentCommOperatorBackFish
-  - CentCommOperatorWeaponsFish
-  - CentCommOperatorTrinketsFish
   - SpecOpsJumpsuitFish
   - SpecOpsHatsFish
   - SpecOpsShoesFish
@@ -213,4 +200,4 @@
   - GroupSpeciesBreathTool
   - Bra
   - Pants
-  - Socks
+  - Socks #socks

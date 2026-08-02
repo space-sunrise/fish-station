@@ -1,0 +1,67 @@
+- type: job
+  id: JobArmBase
+  name: job-name-armbase
+  description: job-description-armbase
+  playTimeTracker: OverAllArmBase
+  setPreference: true
+  weight: 2
+  jobEntity: MobHumanArmP0WMF5
+  icon: "IconArmBase"
+  canBeAntag: false
+  access:
+  - AssArmBase
+  alwaysUseSpawner: true
+  supervisors: job-title-rebel-leader
+
+
+- type: job
+  id: JobArmPC0I5
+  name: job-name-armpc0i5
+  description: job-description-armpc0i5
+  playTimeTracker: OverAllArmPC0I5
+  setPreference: true
+  weight: 5
+  jobEntity: MobHumanArmPC0I5WMF5
+  icon: "IconArmPC0I5"
+  canBeAntag: false
+  access:
+  - AssArmBase
+  - AssArmPC0I5
+  - AssArmPE1
+  - AssArmPM1
+  alwaysUseSpawner: true
+  supervisors: job-supervisors-rebel-council
+
+
+- type: job
+  id: JobArmPM1
+  name: job-name-armpm1
+  description: job-description-armpm1
+  playTimeTracker: OverAllArmPM1
+  setPreference: true
+  weight: 3
+  jobEntity: MobHumanArmPM1WMF5
+  icon: "IconArmPM1"
+  canBeAntag: false
+  access:
+  - AssArmBase
+  - AssArmPM1
+  alwaysUseSpawner: true
+  supervisors: job-title-rebel-leader
+
+
+- type: job
+  id: JobArmPE1
+  name: job-name-armpe1
+  description: job-description-armpe1
+  playTimeTracker: OverAllArmPE1
+  setPreference: true
+  weight: 4
+  jobEntity: MobHumanArmPE1WMF5
+  icon: "IconArmPE1"
+  canBeAntag: false
+  access:
+  - AssArmBase
+  - AssArmPE1
+  alwaysUseSpawner: true
+  supervisors: job-title-rebel-leader

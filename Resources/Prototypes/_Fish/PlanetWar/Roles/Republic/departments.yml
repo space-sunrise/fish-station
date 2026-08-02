@@ -1,0 +1,10 @@
+- type: department
+  id: FractionCoreWM
+  name: department-FractionCoreWM
+  description: department-FractionCoreWM-description
+  color: "#0000e3"
+  roles:
+  - JobCoreBase
+  - JobCorePC0I5
+  - JobCorePM1
+  - JobCorePE1

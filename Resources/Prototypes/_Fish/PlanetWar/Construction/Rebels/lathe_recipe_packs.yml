@@ -1,0 +1,90 @@
+- type: latheRecipePack
+  id: PackLatheArmPortal
+  recipes:
+  - 1GateLatheRecipe
+  - 2GateArmLatheRecipe
+  - 3GateArmLatheRecipe
+  - 4GateArmLatheRecipe
+  - 5GateArmLatheRecipe
+  - 6GateArmLatheRecipe
+
+
+- type: latheRecipePack
+  id: PackLatheAmmoArm
+  recipes:
+  - 11MagArmLatheRecipe
+  - 12MagArmLatheRecipe
+  - 13MagArmLatheRecipe
+  - 14MagLatheRecipe
+  #- 15MagLatheRecipe
+  - 17MagArmLatheRecipe
+  - 18MagArmLatheRecipe
+  #- 19MagLatheRecipe
+  - 199MagLatheRecipe
+
+
+- type: latheRecipePack
+  id: PackLatheGrenArm
+  recipes:
+  - 21MagLatheRecipe
+  - 22MagLatheRecipe
+  - 23MagLatheRecipe
+  - 24MagLatheRecipe
+  - 25MagLatheRecipe
+  - 26MagLatheRecipe
+
+
+- type: latheRecipePack
+  id: PackLatheMechArm
+  recipes:
+  - 0LatheMechArm
+  - 1LatheMechArm
+  - 2LatheMechArm
+  - 3LatheMechArm
+  - 4LatheMechArm
+  - 5LatheMechArm
+  - 6LatheMechArm
+  - 7LatheMechArm
+  - 8LatheMech
+  - 9LatheMech
+  - 10LatheMechArm
+  - 11LatheMechArm
+
+
+- type: latheRecipePack
+  id: 3PackLatheCargoArm
+  recipes:
+  - 1Cargo3Fab
+  - 2Cargo3Fab
+  - 3Cargo3Fab
+  - 4Cargo3FabArm
+
+
+- type: latheRecipePack
+  id: 5PackLatheCargoArm
+  recipes:
+  - 1Cargo5Fab
+  - 2Cargo5FabArm
+  - 3Cargo5FabArm
+
+
+- type: latheRecipePack
+  id: 6PackLatheCargoArm
+  recipes:
+  - 1Cargo6Fab
+  - 2Cargo6Fab
+  - 3Cargo6FabArm
+
+
+- type: latheRecipePack
+  id: 7PackLatheCargoArm
+  recipes:
+  - 1Cargo7FabArm
+  - 2Cargo7Fab
+  - 3Cargo7Fab
+  - 4Cargo7Fab
+  - 5Cargo7Fab
+  - 6Cargo7Fab
+  - 7Cargo7Fab
+  - 8Cargo7Fab
+  - 9Cargo7Fab

@@ -30,7 +30,7 @@
     # Sunrise-start
     TriggerElectrovae: 0.1
     TriggerChargedElectrovae: 0.04
-    TriggerHalon: 0.08
+    # TriggerHalon: 0.08
     TriggerPluoxium: 0.08
     TriggerBZ: 0.25
     TriggerHealium: 0.15
@@ -40,6 +40,25 @@
     TriggerProtoNitrate: 0.04
     TriggerHelium: 0.08
     # Sunrise-end
+    # Fish - Start
+    TriggerZenthium: 0.01
+    TriggerKrypium: 0.01
+    TriggerPrallium: 0.01
+    TriggerChaoson: 0.01
+    TriggerGarodin: 0.01
+    TriggerBaratrium: 0.01
+    TriggerEthylium: 0.01
+    TriggerZimmera: 0.01
+    TriggerFramel: 0.01
+    TriggerKlemennon: 0.01
+    TriggerProtoUltimium: 0.01
+    TriggerZimmerousFrezonite: 0.01
+    TriggerAntiUltimium: 0.01
+    TriggerUltimium: 0.01
+    TriggerPermafrost: 0.01
+    TriggerRiminon: 0.01
+    TriggerAxoNoblium: 0.01
+    # Fish - End
 
 - type: xenoArchTrigger
   id: TriggerMusic
