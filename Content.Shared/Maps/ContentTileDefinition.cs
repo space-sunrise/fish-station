@@ -4,14 +4,14 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Tools;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
-using Robust.Shared.Maths; // Mono
+using Robust.Shared.Maths; // Fish
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 using Robust.Shared.Utility;
-using System.Numerics; // Mono
+using System.Numerics; // Fish
 
 namespace Content.Shared.Maps
 {
@@ -61,13 +61,13 @@ namespace Content.Shared.Maps
         [DataField]
         public float Mass = 800f;
 		
-        // <Mono>
+        // <Fish>
         /// <summary>
         /// Vertices for drawing purposes. Has to be a convex shape.
         /// </summary>
         [DataField]
         public List<Vector2> Vertices = new() { Vector2.Zero, new Vector2(0, 1), new Vector2(1, 1), new Vector2(1, 0) };
-        // </Mono>
+        // </Fish>
 
         /// <remarks>
         /// Legacy AF but nice to have.
