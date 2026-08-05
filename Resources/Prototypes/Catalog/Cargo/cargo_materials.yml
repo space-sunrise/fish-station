@@ -84,7 +84,7 @@
     sprite: Objects/Materials/Sheets/other.rsi
     state: plasma
   product: CrateMaterialPlasma
-  cost: 3000
+  cost: 3000 # Fish-edit
   category: cargoproduct-category-name-materials
   group: market
 
