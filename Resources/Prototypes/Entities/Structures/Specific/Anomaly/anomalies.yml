@@ -830,8 +830,8 @@
     offset: 0, 0
     corePrototype: AnomalyCoreFlora
     coreInertPrototype: AnomalyCoreFloraInert
-    minPulseLength: 90
-    maxPulseLength: 150
+    minPulseLength: 120
+    maxPulseLength: 180
     supercriticalSoundAtAnimationStart:
       collection: AnomalyFloraSupercritical
   - type: TileSpawnAnomaly
@@ -1063,8 +1063,8 @@
   - type: Anomaly
     corePrototype: AnomalyCoreShadow
     coreInertPrototype: AnomalyCoreShadowInert
-    minPulseLength: 90
-    maxPulseLength: 150
+    minPulseLength: 120
+    maxPulseLength: 180
     animationTime: 4
     offset: "-0.1,0.1"
     supercriticalSoundAtAnimationStart:
