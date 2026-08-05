@@ -260,6 +260,7 @@
   - type: Physics
     bodyType: Static
   - type: AnomalyGenerator
+    materialPerAnomaly: 3000
     generatingSound:
       path: /Audio/Machines/anomaly_generate.ogg
     generatingFinishedSound:

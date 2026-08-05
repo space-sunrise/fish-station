@@ -116,7 +116,7 @@ public sealed partial class AnomalyComponent : Component
     /// This is more likely to trend upwards than donwards, because that's funny
     /// </remarks>
     [DataField]
-    public Vector2 PulseStabilityVariation = new(-0.1f, 0.15f);
+    public Vector2 PulseStabilityVariation = new(-0.2f, 0.3f);
 
     /// <summary>
     /// The sound played when an anomaly pulses
