@@ -838,6 +838,8 @@ entities:
       - 542
     - type: Fixtures
       fixtures: {}
+    missingComponents:
+    - AccessReader
 - proto: AirCanister
   entities:
   - uid: 256
@@ -1152,6 +1154,8 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+    missingComponents:
+    - AccessReader
   - uid: 646
     components:
     - type: Transform
@@ -1160,6 +1164,8 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+    missingComponents:
+    - AccessReader
   - uid: 662
     components:
     - type: Transform
@@ -1168,6 +1174,8 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+    missingComponents:
+    - AccessReader
   - uid: 736
     components:
     - type: Transform
@@ -4258,6 +4266,8 @@ entities:
           - 221
     - type: Fixtures
       fixtures: {}
+    missingComponents:
+    - AccessReader
 - proto: MagazineGrenadeBaton
   entities:
   - uid: 257

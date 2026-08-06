@@ -74,6 +74,7 @@ entities:
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
+    - type: CentCommShuttle
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
@@ -5466,7 +5467,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -1.5,7.5
       parent: 1
-- proto: TelecomServerT3
+- proto: TelecomServer
   entities:
   - uid: 572
     components:
@@ -5493,9 +5494,6 @@ entities:
           showEnts: False
           occludes: True
           ents: []
-
-    missingComponents:
-    - Temperature
 - proto: ThrusterLarge
   entities:
   - uid: 263

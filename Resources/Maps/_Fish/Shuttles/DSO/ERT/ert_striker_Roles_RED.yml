@@ -83,6 +83,7 @@ entities:
       dampingModifier: 0.25
     - type: ErtShuttle
     - type: GridPathfinding
+    - type: CentCommShuttle
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
