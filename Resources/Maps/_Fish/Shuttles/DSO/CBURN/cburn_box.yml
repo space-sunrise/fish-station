@@ -3121,7 +3121,7 @@ entities:
       parent: 572
     - type: Physics
       canCollide: False
-- proto: FaxMachineCentcom
+- proto: FaxMachineBase
   entities:
   - uid: 731
     components:
