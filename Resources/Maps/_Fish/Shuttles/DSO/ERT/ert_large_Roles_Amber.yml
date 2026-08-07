@@ -6021,7 +6021,7 @@ entities:
       fixtures: {}
 - proto: FaxMachineBase
   entities:
-  - uid: 714
+  - uid: 1055
     components:
     - type: Transform
       pos: -0.5,3.5
