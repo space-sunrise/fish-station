@@ -58,6 +58,7 @@
 - type: roleLoadout
   id: JobCentcommBlueShield
   groups:
+  - BlueShieldHead # Fish-edit
   - BlueShieldJumpsuit
   - BlueShieldBackpack
   - BlueShieldBelt
@@ -147,6 +148,7 @@
 - type: roleLoadout
   id: JobRepresentativeBlueShield
   groups:
+  - BlueShieldHead # Fish-edit
   - BlueShieldJumpsuit
   - BlueShieldBackpack
   - BlueShieldBelt
@@ -164,10 +166,7 @@
   id: JobOversightOfficer
   groups:
   - LawyerJumpsuit
-  - CentCommOperatorHatsFish
-  - CentCommOperatorShoesFish
-  - CentCommOperatorGlovesFish
-  - CentCommOperatorEyesFish
+  - OversightBackFish
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool
