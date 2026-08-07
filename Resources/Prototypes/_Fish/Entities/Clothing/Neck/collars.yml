@@ -1,0 +1,36 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCollarBase
+  name: grey collar
+  description: A collar with a leash ring. Why do you need it?
+  components:
+  - type: Item
+    size: Small
+    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
+    color: "#DCDCDC"
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialCloth1
+      amount: 1
+  - type: Clothing
+    quickEquip: true
+    equipSound: /Audio/Item/belt_equip.ogg
+    unequipSound: /Audio/Item/belt_equip.ogg
+    equipDelay: 2
+    unequipDelay: 1
+    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
+    clothingVisuals:
+      collar:
+      - state: equipped-NECK
+        color: "#DCDCDC"
+  - type: Sprite
+    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
+    scale: 0.75, 0.75
+    layers:
+    - state: icon
+      color: "#DCDCDC"
+  - type: Collar
+  - type: Tag
+    tags:
+    - Recyclable

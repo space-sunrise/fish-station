@@ -1,0 +1,110 @@
+# Base
+- type: entity
+  parent: BaseItem
+  id: LeashBase
+  name: grey leash
+  description: A leash roulette that attaches to the collar.
+  components:
+  - type: Sprite
+    sprite: _Fish/Objects/Fun/leash.rsi
+    scale: 0.75, 0.75
+    layers:
+    - state: icon
+      color: "#DCDCDC"
+    - state: leash-icon
+  - type: Item
+    sprite: _Fish/Objects/Fun/leash.rsi
+    size: Normal
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#DCDCDC"
+      right:
+      - state: inhand-right
+        color: "#DCDCDC"
+  - type: Leash
+  
+# Colored
+- type: entity
+  parent: LeashBase
+  id: LeashRed
+  name: red leash
+  components:
+  - type: Sprite
+    sprite: _Fish/Objects/Fun/leash.rsi
+    layers:
+    - state: icon
+      color: "#B32200"
+    - state: leash-icon
+  - type: Item
+    sprite: _Fish/Objects/Fun/leash.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#B32200"
+      right:
+      - state: inhand-right
+        color: "#B32200"
+        
+- type: entity
+  parent: LeashBase
+  id: LeashBlue
+  name: blue leash
+  components:
+  - type: Sprite
+    sprite: _Fish/Objects/Fun/leash.rsi
+    layers:
+    - state: icon
+      color: "#0060B3"
+    - state: leash-icon
+  - type: Item
+    sprite: _Fish/Objects/Fun/leash.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#0060B3"
+      right:
+      - state: inhand-right
+        color: "#0060B3"
+        
+- type: entity
+  parent: LeashBase
+  id: LeashPink
+  name: pink leash
+  components:
+  - type: Sprite
+    sprite: _Fish/Objects/Fun/leash.rsi
+    layers:
+    - state: icon
+      color: "#FF7AF0"
+    - state: leash-icon
+  - type: Item
+    sprite: _Fish/Objects/Fun/leash.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#FF7AF0"
+      right:
+      - state: inhand-right
+        color: "#FF7AF0"
+        
+- type: entity
+  parent: LeashBase
+  id: LeashGreen
+  name: green leash
+  components:
+  - type: Sprite
+    sprite: _Fish/Objects/Fun/leash.rsi
+    layers:
+    - state: icon
+      color: "#009118"
+    - state: leash-icon
+  - type: Item
+    sprite: _Fish/Objects/Fun/leash.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#009118"
+      right:
+      - state: inhand-right
+        color: "#009118"
