@@ -13,3 +13,6 @@ ent-RubberStampSeniorCE = печать ведущего инженера
 
 ent-RubberStampSeniorRD = печать ведущего ученого
     .desc = { ent-RubberStampBase.desc }
+
+ent-RubberStampOversight = печать офицера внутреннего надзора
+    .desc = { ent-RubberStampBase.desc }

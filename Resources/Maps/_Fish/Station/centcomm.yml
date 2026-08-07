@@ -50041,19 +50041,15 @@ entities:
     - type: Transform
       pos: 3.923268,-3.454064
       parent: 2
-- proto: RubberStampLawyer
+- proto: RubberStampOversight
   entities:
   - uid: 341
     mapInit: true
     paused: true
     components:
-    - type: MetaData
-      name: печать офицера внутреннего надзора
     - type: Transform
       pos: 28.689972,21.981647
       parent: 2
-    - type: Stamp
-      stampedName: Офицер Внутреннего Надзора
     - type: EmitSoundOnCollide
       nextSound: -232.2803949
     - type: Forensics

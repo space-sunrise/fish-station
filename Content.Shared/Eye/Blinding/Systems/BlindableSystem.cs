@@ -6,6 +6,7 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Rejuvenate;
+using Content.Shared.Starlight.Medical.Surgery; // Fish-edit
 using Content.Shared.Starlight.Medical.Surgery.Steps.Parts;
 using JetBrains.Annotations;
 
@@ -58,11 +59,14 @@ public sealed class BlindableSystem : EntitySystem
         var old = blindable.Comp.IsBlind;
 
         var forceBlind = false;
-        if(TryComp<BodyComponent>(blindable.Owner, out var body))
+        // Fish-start
+        if (HasComp<SurgeryTargetComponent>(blindable.Owner) &&
+            TryComp<BodyComponent>(blindable.Owner, out var body))
         {
             var eyes = _bodySystem.GetBodyOrganEntityComps<OrganEyesComponent>((blindable.Owner, body));
             forceBlind = eyes.Count == 0;
         }
+        // Fish-end
 
         // Don't bother raising an event if the eye is too damaged.
         if (blindable.Comp.EyeDamage >= blindable.Comp.MaxDamage || forceBlind)

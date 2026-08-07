@@ -71,7 +71,8 @@
   - !type:GroupLoadoutEffect
     proto: BlueShieldLoadout100Hours
   equipment:
-    head: ClothingHeadHelmetHardsuitTSF
+    # Fish-edit
+    head: ClothingHeadHelmetTSFMARSOC
 
 - type: loadout
   id: BlueShieldBackpack

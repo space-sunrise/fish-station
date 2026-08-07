@@ -38,10 +38,7 @@
     ears: ClothingHeadsetFishCentCom
     pocket1: WeaponEnergyGunPulseRevolver
     pocket2: PenCentcom
-  storage:
-    back:
-    # - ClothingOuterHardsuitNTRG
-    - CrowbarRed
+  # Fish-edit
 
 - type: entity
   parent: NtrGuardPDA
