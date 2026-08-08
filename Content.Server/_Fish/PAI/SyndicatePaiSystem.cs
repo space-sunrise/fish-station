@@ -84,21 +84,7 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
         SubscribeLocalEvent<SyndicatePaiComponent, SyndicatePaiScanOwnerEvent>(OnScanOwner);
         SubscribeLocalEvent<SyndicatePaiComponent, SyndicatePaiDoorHackEvent>(OnDoorHack);
         SubscribeLocalEvent<SyndicatePaiComponent, SyndicatePaiOpenSecRecordsEvent>(OnOpenSecRecords);
-        // До Sunrise OnOpened — иначе UI успеет открыться без станции
-        SubscribeLocalEvent<SyndicatePaiComponent, BoundUIOpenedEvent>(OnSecRecordsUiOpened,
-            before: [typeof(Content.Server._Sunrise.CriminalRecords.Systems.SunriseCriminalRecordsSystem)]);
         SubscribeLocalEvent<StoreBuyFinishedEvent>(OnStoreBuyFinished);
-    }
-
-    private void OnSecRecordsUiOpened(Entity<SyndicatePaiComponent> ent, ref BoundUIOpenedEvent args)
-    {
-        if (!ent.Comp.SecRecordsUnlocked)
-            return;
-
-        if (!Equals(args.UiKey, SunriseCriminalRecordsConsoleKey.Key))
-            return;
-
-        TryBindSecRecordsStation(ent, args.Actor);
     }
 
     private void OnUiOpened(Entity<SyndicatePaiComponent> ent, ref BoundUIOpenedEvent args)
