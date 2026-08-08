@@ -1,0 +1,73 @@
+# Предметы, пригодные для destructive analyzer.
+# Баланс относительно tech cost (часто 5k–15k) и anomaly core (5000):
+# - basic sample: дешёвый тестовый/обучающий источник
+# - advanced sample: средний вклад без замены ядра аномалии
+# Повторная награда невозможна: экземпляр уничтожается (или 1 единица стека).
+
+- type: entity
+  parent: BaseItem
+  id: ResearchSampleSheet
+  name: research sample sheet
+  description: A printed research sample. The destructive analyzer can extract data from a single sheet.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    state: paper
+  - type: Item
+    size: Tiny
+  - type: ResearchAnalyzable
+    points: 250
+  - type: Stack
+    stackType: ResearchSampleSheet
+    count: 1
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: ResearchSampleSheet
+  id: ResearchSampleSheet10
+  suffix: 10
+  components:
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: BaseItem
+  id: ResearchSampleAdvanced
+  name: advanced research sample
+  description: A dense packet of experimental data. Valuable to a destructive analyzer, but still weaker than an anomaly core.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    state: paper_words
+  - type: Item
+    size: Small
+  - type: ResearchAnalyzable
+    points: 1000
+  - type: Stack
+    stackType: ResearchSampleAdvanced
+    count: 1
+  - type: StaticPrice
+    price: 200
+
+- type: entity
+  parent: ResearchSampleAdvanced
+  id: ResearchSampleAdvanced5
+  suffix: 5
+  components:
+  - type: Stack
+    count: 5
+
+- type: stack
+  id: ResearchSampleSheet
+  name: stack-research-sample-sheet
+  icon: { sprite: Objects/Misc/bureaucracy.rsi, state: paper }
+  spawn: ResearchSampleSheet
+  maxCount: 30
+
+- type: stack
+  id: ResearchSampleAdvanced
+  name: stack-research-sample-advanced
+  icon: { sprite: Objects/Misc/bureaucracy.rsi, state: paper_words }
+  spawn: ResearchSampleAdvanced
+  maxCount: 10

@@ -1,0 +1,88 @@
+# Destructive analyzer
+
+- type: entity
+  id: MachineDestructiveAnalyzer
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: destructive analyzer
+  description: Destroys items to extract research data for the station R&D server.
+  components:
+  - type: Sprite
+    sprite: _Fish/Structures/Machines/destructive_analyzer.rsi
+    snapCardinals: true
+    layers:
+    - state: unpowered
+    - state: powered
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: DestructiveAnalyzer
+  - type: ResearchClient
+  - type: ItemSlots
+    slots:
+      analyzer_input:
+        name: destructive-analyzer-slot-name
+        whitelist:
+          components:
+          - ResearchAnalyzable
+        insertSound:
+          path: /Audio/Machines/terminal_insert_disc.ogg
+        ejectSound:
+          path: /Audio/Machines/terminal_insert_disc.ogg
+  - type: ContainerContainer
+    containers:
+      analyzer_input: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: Construction
+    containers:
+    - machine_board
+    - machine_parts
+    - analyzer_input
+  - type: ActivatableUI
+    key: enum.DestructiveAnalyzerUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.DestructiveAnalyzerUiKey.Key:
+        type: DestructiveAnalyzerBoundUserInterface
+      enum.ResearchClientUiKey.Key:
+        type: ResearchClientBoundUserInterface
+  - type: ApcPowerReceiver
+    powerLoad: 2500
+  - type: AmbientSound
+    enabled: false
+    sound:
+      path: /Audio/Machines/scan_loop.ogg
+    range: 5
+    volume: -8
+  - type: Machine
+    board: DestructiveAnalyzerMachineCircuitboard
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: PointLight
+    radius: 1.5
+    energy: 1.5
+    color: "#b53ca1"
+  - type: LitOnPowered
+  - type: GuideHelp
+    guides:
+    - Science
+
+- type: entity
+  id: DestructiveAnalyzerMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: destructive analyzer machine board
+  description: A machine printed circuit board for a destructive analyzer.
+  components:
+  - type: Sprite
+    state: science
+  - type: MachineBoard
+    prototype: MachineDestructiveAnalyzer
+    stackRequirements:
+      Manipulator: 2
+      Glass: 5
+      Cable: 2

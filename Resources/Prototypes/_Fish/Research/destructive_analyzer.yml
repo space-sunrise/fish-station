@@ -1,0 +1,13 @@
+# Fish: tech unlock for destructive analyzer
+
+- type: technology
+  id: FishDestructiveAnalysis
+  name: research-technology-fish-destructive-analysis
+  icon:
+    sprite: _Fish/Structures/Machines/destructive_analyzer.rsi
+    state: icon
+  discipline: Experimental
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - DestructiveAnalyzerMachineCircuitboard

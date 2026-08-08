@@ -290,6 +290,9 @@
     - MechBoards
     - ShuttleBoards
     - CircuitDynamicSunrise # Sunrise-Add
+    # ===== FISH EDIT START: R&D ANALYZER =====
+    - FishDestructiveAnalyzer
+    # ===== FISH EDIT END: R&D ANALYZER =====
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityBoards

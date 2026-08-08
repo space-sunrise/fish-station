@@ -34,6 +34,11 @@
     timeToDecay: 600
     startPrice: 10000
     endPrice: 200
+  # ===== FISH EDIT START: R&D ANALYZER =====
+  # Ядра аномалий дают research points при деструктивном анализе (аналог SS13 techweb_point_items).
+  - type: ResearchAnalyzable
+    points: 5000
+  # ===== FISH EDIT END: R&D ANALYZER =====
 
 - type: entity
   parent: BaseAnomalyCore

@@ -1,0 +1,14 @@
+# Fish: lathe recipes for R&D destructive analyzer
+
+- type: latheRecipe
+  id: DestructiveAnalyzerMachineCircuitboard
+  result: DestructiveAnalyzerMachineCircuitboard
+  completetime: 4
+  materials:
+    Steel: 500
+    Glass: 500
+
+- type: latheRecipePack
+  id: FishDestructiveAnalyzer
+  recipes:
+  - DestructiveAnalyzerMachineCircuitboard
