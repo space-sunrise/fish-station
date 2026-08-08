@@ -30,7 +30,7 @@
   equipment:
    shoes: ClothingShoesBootsBlueShieldFilled
    eyes: ClothingEyesGlassesBlueShield
-   head: ClothingHeadHatBeretBlueShield
+   # head через BlueShieldHead loadout # Fish-edit
    id: BlueShieldOperativePDA
    ears: ClothingHeadsetFishCentCom
    gloves: ClothingHandsGlovesCombat

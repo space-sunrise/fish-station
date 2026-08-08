@@ -106,6 +106,7 @@ public abstract class SharedAnomalySystem : EntitySystem
             var beh = _prototype.Index<AnomalyBehaviorPrototype>(component.CurrentBehavior);
             powerMod = beh.PulsePowerModifier;
         }
+        powerMod *= 2f; // Fish-edit
         var ev = new AnomalyPulseEvent(uid, component.Stability, component.Severity, powerMod);
         RaiseLocalEvent(uid, ref ev, true);
     }

@@ -15,7 +15,8 @@
       - material: Glass
         amount: 4
         doAfter: 10
-      - tag: PowerCellSmall
+      # Fish-edit
+      - component: PowerCell
         icon:
           sprite: Objects/Power/power_cells.rsi
           state: small
