@@ -84,6 +84,7 @@ entities:
       dampingModifier: 0.25
     - type: ImplicitRoof
     - type: GridPathfinding
+    - type: CentCommShuttle
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
@@ -6018,6 +6019,15 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
+- proto: FaxMachineBase
+  entities:
+  - uid: 1055
+    components:
+    - type: Transform
+      pos: -0.5,3.5
+      parent: 1
+    - type: FaxMachine
+      name: ERT
 - proto: FireAlarm
   entities:
   - uid: 1097
@@ -11045,13 +11055,6 @@ entities:
       parent: 1
     - type: Physics
       bodyType: Static
-- proto: WeaponCapacitorRecharger
-  entities:
-  - uid: 1055
-    components:
-    - type: Transform
-      pos: -0.5,3.5
-      parent: 1
 - proto: WeaponEnergyTurretCentralCommand
   entities:
   - uid: 336

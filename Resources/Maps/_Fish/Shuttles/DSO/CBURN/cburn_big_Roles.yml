@@ -90,6 +90,7 @@ entities:
       dampingModifier: 0.25
     - type: ImplicitRoof
     - type: GridPathfinding
+    - type: CentCommShuttle
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
@@ -5317,6 +5318,8 @@ entities:
     - type: Transform
       pos: 3.5,15.5
       parent: 1
+    - type: FaxMachine
+      name: CBURN
 - proto: FireAxeCabinetFilled
   entities:
   - uid: 1365

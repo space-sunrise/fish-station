@@ -223,6 +223,7 @@ entities:
       color: '#8B00FFFF'
     - type: GravityGenerator
       spriteMap: {}
+    - type: CentCommShuttle
 - proto: AirAlarm
   entities:
   - uid: 3

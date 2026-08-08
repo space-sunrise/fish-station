@@ -83,6 +83,7 @@ entities:
       dampingModifier: 0.25
     - type: ErtShuttle
     - type: GridPathfinding
+    - type: CentCommShuttle
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
@@ -2515,6 +2516,8 @@ entities:
     - type: Transform
       pos: 1.5,6.5
       parent: 1
+    - type: FaxMachine
+      name: ERT
 - proto: FireAxeCabinetFilled
   entities:
   - uid: 711
