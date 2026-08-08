@@ -1,0 +1,33 @@
+obr-call-window-title = Консоль вызова ОБР
+obr-call-window-header = Отряды экстренного реагирования
+obr-call-window-header-centcomm = ЦК — Вызов ОБР
+obr-call-window-header-station = Станция — Покупка поддержки ОБР
+obr-call-window-balance = Средства станции:
+obr-call-window-balance-value = {$amount}
+obr-call-window-mission = Миссия / брифинг:
+obr-call-window-teams = Доступные подразделения
+obr-call-window-cost = Стоимость: {$amount}
+obr-call-window-call-button = Вызвать
+
+obr-team-amber-name = ОБР Амбер
+obr-team-amber-desc = Стандартный отряд экстренного реагирования.
+obr-team-red-name = ОБР Красный
+obr-team-red-desc = Вооружённый отряд для угроз высокой опасности.
+obr-team-gamma-name = ОБР Гамма
+obr-team-gamma-desc = Максимальная сила. Только для ЦК.
+obr-team-cburn-name = РХБЗЗ
+obr-team-cburn-desc = Отряд радиационной, химической и биологической защиты.
+
+obr-call-success = {$team} направлен к станции.
+obr-call-error-access = Доступ запрещён.
+obr-call-error-busy = Вызов уже выполняется. Подождите.
+obr-call-error-unknown-team = Неизвестный отряд.
+obr-call-error-team-unavailable = Этот отряд недоступен на этой консоли.
+obr-call-error-already-active = Этот отряд уже вызван или активен.
+obr-call-error-no-station = Не найдена подходящая станция.
+obr-call-error-no-grid = У станции нет стыковочной сетки.
+obr-call-error-no-bank = Банковский счёт станции не найден.
+obr-call-error-insufficient-funds = Недостаточно средств станции.
+obr-call-error-rule-failed = Не удалось запустить вызов отряда.
+obr-call-error-shuttle-failed = Не удалось создать шаттл отряда.
+obr-call-mission-briefing = Миссия ОБР: {$mission}
