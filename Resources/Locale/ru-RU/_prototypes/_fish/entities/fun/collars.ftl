@@ -1,2 +1,10 @@
 ent-LeashBase = серый поводок
     .desc = Поводок-рулетка, который можно прикрепить к ошейнику.
+ent-LeashRed = красный поводок
+    .desc = { LeashBase }
+ent-LeashBlue = синий поводок
+    .desc = { LeashBase }
+ent-LeashPink = розовый поводок
+    .desc = { LeashBase }
+ent-LeashGreen = зелёный поводок
+    .desc = { LeashBase }

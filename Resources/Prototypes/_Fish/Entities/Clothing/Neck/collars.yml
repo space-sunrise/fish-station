@@ -1,3 +1,4 @@
+# Base
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCollarBase
@@ -34,3 +35,84 @@
   - type: Tag
     tags:
     - Recyclable
+
+# Colored
+- type: entity
+  parent: ClothingNeckCollarBase
+  id: ClothingNeckCollarRed
+  name: red collar
+  components:
+  - type: Item
+    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
+    color: "#B32200"
+  - type: Clothing
+    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
+    clothingVisuals:
+      collar:
+      - state: equipped-NECK
+        color: "#B32200"
+  - type: Sprite
+    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
+    layers:
+    - state: icon
+      color: "#B32200"
+      
+- type: entity
+  parent: ClothingNeckCollarBase
+  id: ClothingNeckCollarBlue
+  name: blue collar
+  components:
+  - type: Item
+    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
+    color: "#0060B3"
+  - type: Clothing
+    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
+    clothingVisuals:
+      collar:
+      - state: equipped-NECK
+        color: "#0060B3"
+  - type: Sprite
+    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
+    layers:
+    - state: icon
+      color: "#0060B3"
+      
+- type: entity
+  parent: ClothingNeckCollarBase
+  id: ClothingNeckCollarPink
+  name: pink collar
+  components:
+  - type: Item
+    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
+    color: "#FF7AF0"
+  - type: Clothing
+    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
+    clothingVisuals:
+      collar:
+      - state: equipped-NECK
+        color: "#FF7AF0"
+  - type: Sprite
+    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
+    layers:
+    - state: icon
+      color: "#FF7AF0"
+      
+- type: entity
+  parent: ClothingNeckCollarBase
+  id: ClothingNeckCollarGreen
+  name: green collar
+  components:
+  - type: Item
+    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
+    color: "#009118"
+  - type: Clothing
+    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
+    clothingVisuals:
+      collar:
+      - state: equipped-NECK
+        color: "#009118"
+  - type: Sprite
+    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
+    layers:
+    - state: icon
+      color: "#009118"

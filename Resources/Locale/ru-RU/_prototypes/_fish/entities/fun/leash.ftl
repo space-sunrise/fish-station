@@ -1,2 +1,10 @@
 ent-ClothingNeckCollarBase = серый ошейник
     .desc = Ошейник, с кольцом для поводка. Зачем он вам?
+ent-ClothingNeckCollarRed = красный ошейник
+    .desc = { ent-ClothingNeckCollarBase }
+ent-ClothingNeckCollarBlue = синий ошейник
+    .desc = { ent-ClothingNeckCollarBase }
+ent-ClothingNeckCollarPink = розовый ошейник
+    .desc = { ent-ClothingNeckCollarBase }
+ent-ClothingNeckCollarGreen = зелёный ошейник
+    .desc = { ent-ClothingNeckCollarBase }
