@@ -73,7 +73,7 @@
   id: SyndicatePaiSecRecords
   name: syndicate-pai-listing-sec-name
   description: syndicate-pai-listing-sec-desc
-  icon: { sprite: Structures/Machines/server.rsi, state: server }
+  icon: { sprite: _Sunrise/Objects/Devices/handheld_criminal_records_monitor.rsi, state: icon }
   productAction: ActionSyndicatePaiSecRecords
   applyToMob: true
   cost:

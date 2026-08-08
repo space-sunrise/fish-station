@@ -194,8 +194,8 @@
       enum.SyndicatePaiUiKey.Key:
         type: SyndicatePaiBoundUserInterface
         requireInputValidation: false
-      enum.CriminalRecordsConsoleKey.Key:
-        type: CriminalRecordsConsoleBoundUserInterface
+      enum.SunriseCriminalRecordsConsoleKey.Key:
+        type: SunriseCriminalRecordsConsoleBoundUserInterface
         requireInputValidation: false
   - type: Store
     categories:
