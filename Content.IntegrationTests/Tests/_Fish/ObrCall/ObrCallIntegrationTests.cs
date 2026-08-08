@@ -16,6 +16,7 @@ public sealed class ObrCallIntegrationTests
     private static readonly EntProtoId StationConsoleId = "ComputerObrStationConsole";
     private static readonly EntProtoId AmberRuleId = "FishObrShuttleAmber";
     private static readonly EntProtoId MissionRoleId = "MindRoleObrMission";
+    private static readonly ProtoId<ObrCallSettingsPrototype> SettingsId = "DefaultObrCallSettings";
 
     [Test]
     public async Task PrototypesExistAndGammaNotOnStationList()
@@ -35,6 +36,8 @@ public sealed class ObrCallIntegrationTests
             Assert.That(proto.HasIndex(StationConsoleId), Is.True);
             Assert.That(proto.HasIndex(AmberRuleId), Is.True);
             Assert.That(proto.HasIndex(MissionRoleId), Is.True);
+            Assert.That(proto.HasIndex(SettingsId), Is.True);
+            Assert.That(proto.Index(SettingsId).ArrivalDistance, Is.EqualTo(1500f));
 
             var gamma = proto.Index(GammaId);
             Assert.That(gamma.StationAvailable, Is.False);

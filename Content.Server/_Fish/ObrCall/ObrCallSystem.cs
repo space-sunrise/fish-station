@@ -32,7 +32,7 @@ namespace Content.Server._Fish.ObrCall;
 /// Общая система запроса ОБР: валидация, покупка, GameRule, FTL, миссия.
 /// Консоли ЦК и станции — только источники запроса.
 /// </summary>
-public sealed class ObrCallSystem : EntitySystem
+public sealed partial class ObrCallSystem : EntitySystem
 {
     public const string ObrMissionMindRoleId = "MindRoleObrMission";
 
@@ -260,12 +260,11 @@ public sealed class ObrCallSystem : EntitySystem
 
             MarkMissionTargetsOnGrid(grid);
 
-            _shuttles.FTLToDock(
-                grid,
-                shuttle,
-                targetGrid.Value,
-                priorityTag: team.PriorityTag,
-                ignored: true);
+            if (!TryFtlObrToDistantPoint(grid, shuttle, targetGrid.Value))
+            {
+                _sawmill.Warning($"OBR shuttle {ToPrettyString(grid)} could not FTL to a safe distant point");
+                continue;
+            }
 
             anyShuttle = true;
         }
