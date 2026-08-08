@@ -1,0 +1,153 @@
+# Fish — встроенный магазин модулей Syndicate pAI (бюджет 15 SiliconMemory)
+
+- type: listing
+  id: SyndicatePaiMedical
+  name: syndicate-pai-listing-medical-name
+  description: syndicate-pai-listing-medical-desc
+  icon: { sprite: Objects/Specific/Medical/syndihypo.rsi, state: hypo }
+  productAction: ActionSyndicatePaiOpenMedical
+  applyToMob: true
+  cost:
+    SiliconMemory: 12
+  categories:
+  - SyndicatePAIModules
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SyndicatePaiAutoDispenser
+  name: syndicate-pai-listing-auto-name
+  description: syndicate-pai-listing-auto-desc
+  icon: { sprite: Objects/Specific/Medical/syndihypo.rsi, state: hypo }
+  cost:
+    SiliconMemory: 5
+  categories:
+  - SyndicatePAIModules
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SyndicatePaiDoorHack
+  name: syndicate-pai-listing-door-name
+  description: syndicate-pai-listing-door-desc
+  icon: { sprite: Objects/Tools/access_breaker.rsi, state: icon }
+  productAction: ActionSyndicatePaiDoorHack
+  applyToMob: true
+  cost:
+    SiliconMemory: 5
+  categories:
+  - SyndicatePAIModules
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SyndicatePaiCrewMonitor
+  name: syndicate-pai-listing-crew-monitor-name
+  description: syndicate-pai-listing-crew-monitor-desc
+  icon: { sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi, state: scanner }
+  cost:
+    SiliconMemory: 3
+  categories:
+  - SyndicatePAIModules
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SyndicatePaiCameras
+  name: syndicate-pai-listing-cameras-name
+  description: syndicate-pai-listing-cameras-desc
+  icon: { sprite: _Sunrise/Objects/Devices/portable_camera_viewer.rsi, state: icon }
+  cost:
+    SiliconMemory: 3
+  categories:
+  - SyndicatePAIModules
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SyndicatePaiSecRecords
+  name: syndicate-pai-listing-sec-name
+  description: syndicate-pai-listing-sec-desc
+  icon: { sprite: Structures/Machines/server.rsi, state: server }
+  productAction: ActionSyndicatePaiSecRecords
+  applyToMob: true
+  cost:
+    SiliconMemory: 2
+  categories:
+  - SyndicatePAIModules
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SyndicatePaiDisguise
+  name: syndicate-pai-listing-disguise-name
+  description: syndicate-pai-listing-disguise-desc
+  icon: { sprite: Objects/Fun/pai.rsi, state: pai-on-overlay }
+  cost:
+    SiliconMemory: 1
+  categories:
+  - SyndicatePAIModules
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SyndicatePaiAtmosSensor
+  name: syndicate-pai-listing-atmos-name
+  description: syndicate-pai-listing-atmos-desc
+  icon: { sprite: Objects/Specific/Atmos/gasanalyzer.rsi, state: icon }
+  cost:
+    SiliconMemory: 1
+  categories:
+  - SyndicatePAIModules
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SyndicatePaiMassScanner
+  name: syndicate-pai-listing-mass-scanner-name
+  description: syndicate-pai-listing-mass-scanner-desc
+  productAction: ActionPAIMassScanner
+  applyToMob: true
+  cost:
+    SiliconMemory: 2
+  categories:
+  - SyndicatePAIModules
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SyndicatePaiMidi
+  name: syndicate-pai-listing-midi-name
+  description: syndicate-pai-listing-midi-desc
+  productAction: ActionPAIPlayMidi
+  applyToMob: true
+  cost:
+    SiliconMemory: 1
+  categories:
+  - SyndicatePAIModules
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SyndicatePaiStationMap
+  name: syndicate-pai-listing-map-name
+  description: syndicate-pai-listing-map-desc
+  productAction: ActionPAIOpenMap
+  applyToMob: true
+  cost:
+    SiliconMemory: 1
+  categories:
+  - SyndicatePAIModules
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

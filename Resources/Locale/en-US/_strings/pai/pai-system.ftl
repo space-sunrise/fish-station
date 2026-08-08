@@ -8,6 +8,7 @@ pai-system-role-description = Be someone's electronic pal!
                               (Memories *not* included.)
 pai-system-role-name-syndicate = Syndicate Personal AI
 pai-system-role-description-syndicate = Be someone's Syndicate pal!
+                                        Help your master with medical injections, sensors, and syndie radio.
                                         (Memories *not* included.)
 pai-system-role-name-potato = Potato Artificial Intelligence
 pai-system-role-description-potato = It's a toy for children. And now you live in it.

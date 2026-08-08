@@ -24,3 +24,6 @@ listing-disease-insult-description = Prolonged illness causes hyperstimulation o
 
 listing-disease-info-name = Disease Information
 listing-disease-info-description = View your current disease statistics and progress.
+listing-disease-headache-name = Headache
+listing-disease-aphasia-name = Aphasia
+listing-disease-aphasia-description = The virus damages the speech centers of the brain, causing the infected to lose the ability to articulate words, shifting their letters into random characters.

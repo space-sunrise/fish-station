@@ -18,7 +18,7 @@ public sealed class SickSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MindContainerComponent, GetStatusIconsEvent>(OnGetStatusIconsGlobal);
+        SubscribeLocalEvent<SickComponent, GetStatusIconsEvent>(OnGetStatusIconsGlobal);
         SubscribeNetworkEvent<UpdateInfectionsEvent>(OnUpdateInfect);
     }
 
@@ -27,7 +27,7 @@ public sealed class SickSystem : EntitySystem
         EnsureComp<SickComponent>(GetEntity(args.Uid)).Inited = true;
     }
 
-    private void OnGetStatusIconsGlobal(EntityUid uid, MindContainerComponent component, ref GetStatusIconsEvent args)
+    private void OnGetStatusIconsGlobal(EntityUid uid, SickComponent component, ref GetStatusIconsEvent args)
     {
         if (_playerManager.LocalEntity == null)
             return;
@@ -35,14 +35,13 @@ public sealed class SickSystem : EntitySystem
         if (!HasComp<DiseaseRoleComponent>(_playerManager.LocalEntity.Value))
             return;
 
-        if (_mobState.IsDead(uid) ||
-            HasComp<ActiveNPCComponent>(uid) ||
-            !component.ShowExamineInfo)
+        if (_mobState.IsDead(uid) || HasComp<ActiveNPCComponent>(uid))
             return;
 
-        var isInfected = TryComp<SickComponent>(uid, out var sickComp) && sickComp.Inited;
-        var iconId = isInfected ? "SmartDiseaseIcon" : "NormalDiseaseIcon";
-        
+        if (!component.Inited)
+            return;
+
+        var iconId = "SmartDiseaseIcon";
         args.StatusIcons.Add(_prototype.Index<SickIconPrototype>(iconId));
     }
 }

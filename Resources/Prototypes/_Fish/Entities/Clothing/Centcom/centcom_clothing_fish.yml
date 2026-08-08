@@ -170,3 +170,16 @@
     containers:
       item:
       - WeaponMeleeSwordCentcomFish
+
+- type: entity
+  parent: ClothingDeathSquadronBackpack
+  id: ClothingDeathSquadronBackpackFish
+  name: death squadron backpack
+  suffix: Fish, Bluespace
+  description: Holds the kit of CentComm's most feared agents. It seems to open into a pocket of bluespace.
+  components:
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,17,7
+
