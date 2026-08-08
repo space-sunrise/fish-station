@@ -1,0 +1,48 @@
+# Консоли ЦК/ОБР с ограничением доступа через AccessReader.
+# ЦК и ДСО (Special Operations / ERT / CBURN / DeathSquad) используют
+# существующий access level CentralCommand — отдельного DSO access нет.
+# AccessLists: любой полный список разрешает доступ (OR между списками).
+
+- type: entity
+  parent: ComputerShuttle
+  id: FishComputerShuttleCentComm
+  name: centcomm shuttle console
+  suffix: CentComm, Locked
+  description: Used to pilot a Central Command shuttle. Requires Central Command access.
+  components:
+  - type: AccessReader
+    access: [["CentralCommand"]]
+  - type: ActivatableUIRequiresAccess
+
+- type: entity
+  parent: ComputerShuttle
+  id: FishComputerShuttleObr
+  name: ERT shuttle console
+  suffix: OBR, Locked
+  description: Used to pilot an Emergency Response Team shuttle. Requires Central Command access.
+  components:
+  - type: AccessReader
+    access: [["CentralCommand"]]
+  - type: ActivatableUIRequiresAccess
+
+- type: entity
+  parent: CentcommComputerComms
+  id: FishComputerCommsCentComm
+  name: centcomm communications computer
+  suffix: CentComm, Locked
+  description: A computer used to make world wide announcements. Requires Central Command access.
+  components:
+  - type: AccessReader
+    access: [["CentralCommand"]]
+  - type: ActivatableUIRequiresAccess
+
+- type: entity
+  parent: CentcommComputerComms
+  id: FishComputerCommsObr
+  name: ERT communications computer
+  suffix: OBR, Locked
+  description: A computer used for ERT announcements. Requires Central Command access.
+  components:
+  - type: AccessReader
+    access: [["CentralCommand"]]
+  - type: ActivatableUIRequiresAccess

@@ -21081,7 +21081,7 @@ entities:
     - type: Transform
       pos: 16.5,-42.5
       parent: 2
-- proto: CentcomComputerComms
+- proto: FishComputerCommsCentComm
   entities:
   - uid: 785
     components:
@@ -21143,7 +21143,7 @@ entities:
       - - Command
     - type: CommunicationsConsole
       title: Секторальный суд
-- proto: CentcommComputerComms
+- proto: FishComputerCommsCentComm
   entities:
   - uid: 789
     components:

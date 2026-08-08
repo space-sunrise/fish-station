@@ -2099,7 +2099,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -3.5,-6.5
       parent: 1
-- proto: CentcomComputerComms
+- proto: FishComputerCommsCentComm
   entities:
   - uid: 274
     components:
@@ -2486,7 +2486,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 1.5,8.5
       parent: 1
-- proto: ComputerShuttle
+- proto: FishComputerShuttleCentComm
   entities:
   - uid: 287
     components:

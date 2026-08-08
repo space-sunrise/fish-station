@@ -1,0 +1,12 @@
+ent-FishComputerShuttleCentComm = centcomm shuttle console
+    .desc = Used to pilot a Central Command shuttle. Requires Central Command access.
+    .suffix = CentComm, Locked
+ent-FishComputerShuttleObr = ERT shuttle console
+    .desc = Used to pilot an Emergency Response Team shuttle. Requires Central Command access.
+    .suffix = OBR, Locked
+ent-FishComputerCommsCentComm = centcomm communications computer
+    .desc = A computer used to make world wide announcements. Requires Central Command access.
+    .suffix = CentComm, Locked
+ent-FishComputerCommsObr = ERT communications computer
+    .desc = A computer used for ERT announcements. Requires Central Command access.
+    .suffix = OBR, Locked

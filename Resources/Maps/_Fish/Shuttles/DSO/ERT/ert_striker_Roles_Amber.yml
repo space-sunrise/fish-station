@@ -1474,7 +1474,7 @@ entities:
     - type: Transform
       pos: 4.5,6.5
       parent: 1
-- proto: CentcommComputerComms
+- proto: FishComputerCommsObr
   entities:
   - uid: 88
     components:
@@ -2002,7 +2002,7 @@ entities:
     - type: Transform
       pos: 1.5,3.5
       parent: 1
-- proto: ComputerShuttle
+- proto: FishComputerShuttleObr
   entities:
   - uid: 208
     components:
