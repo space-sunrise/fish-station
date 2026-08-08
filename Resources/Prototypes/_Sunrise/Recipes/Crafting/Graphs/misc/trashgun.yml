@@ -9,7 +9,8 @@
             - material: Plasteel
               amount: 1
               doAfter: 0
-            - tag: GasTank
+            # Fish-edit
+            - component: GasTank
               name: step-trashgun-oxygentank
               icon:
                 sprite: Objects/Tanks/oxygen.rsi
@@ -18,7 +19,8 @@
             - material: Cable
               amount: 10
               doAfter: 0
-            - tag: PowerCellSmall
+            # Fish-edit
+            - component: PowerCell
               name: step-trashgun-smallbattery
               icon:
                 sprite: Objects/Power/power_cells.rsi

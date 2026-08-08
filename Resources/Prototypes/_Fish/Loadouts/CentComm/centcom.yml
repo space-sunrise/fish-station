@@ -103,6 +103,16 @@
   equipment:
     back: ClothingBackpackSatchelCentcomFish
 
+# Fish-edit
+- type: loadout
+  id: OversightSatchelWithStampFish
+  equipment:
+    back: ClothingBackpackSatchelCentcomFish
+  storage:
+    back:
+    - RubberStampOversight
+    - CrowbarRed
+
 # --- Weapons ---
 
 - type: loadout

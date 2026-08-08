@@ -1,6 +1,8 @@
 // © SUNRISE, An EULA/CLA with a hosting restriction, full text: https://github.com/space-sunrise/space-station-14/blob/master/CLA.txt
 using Robust.Shared.Random;
 using Content.Shared.Humanoid;
+using Content.Shared.Zombies;
+using Content.Shared.Inventory;
 
 namespace Content.Shared._Sunrise.Disease;
 
@@ -15,25 +17,27 @@ public abstract class SharedDiseaseRoleSystem : EntitySystem
     {
         if (ev.Handled)
             return;
-        ev.Handled = true;
 
         if (!TryComp<DiseaseRoleComponent>(ev.Performer, out var comp)) return;
         if (!HasComp<HumanoidAppearanceComponent>(ev.Target)) return;
         if (HasComp<DiseaseImmuneComponent>(ev.Target)) return;
+        if (HasComp<DiseaseTempImmuneComponent>(ev.Target)) return;
         if (HasComp<SickComponent>(ev.Target)) return;
-        var prob = probability;
-        if (probability == 0) prob = comp.BaseInfectChance;
-        if (TryComp<DiseaseTempImmuneComponent>(ev.Target, out var immune))
-            prob -= immune.Prob;
-        prob = Math.Clamp(prob, 0f, 1f);
-        if (_robustRandom.Prob(prob))
-        {
-            var comps = AddComp<SickComponent>(ev.Target);
-            comps.owner = ev.Performer;
-            Dirty(ev.Target, comps);
 
-            comp.Infected.Add(ev.Target);
-            Dirty(ev.Performer, comp);
+        var targetEv = new ZombificationResistanceQueryEvent(SlotFlags.HEAD | SlotFlags.MASK | SlotFlags.OUTERCLOTHING);
+        RaiseLocalEvent(ev.Target, targetEv);
+        if (targetEv.TotalCoefficient < 1.0f)
+        {
+            return;
         }
+
+        ev.Handled = true;
+
+        var comps = AddComp<SickComponent>(ev.Target);
+        comps.owner = ev.Performer;
+        Dirty(ev.Target, comps);
+
+        comp.Infected.Add(ev.Target);
+        Dirty(ev.Performer, comp);
     }
 }

@@ -397,6 +397,12 @@ entity-effect-guidebook-cause-zombie-infection =
         *[other] дают
     } зомби-инфекцию
 
+entity-effect-guidebook-give-disease-immunity =
+    { $chance ->
+        [1] Даёт
+        *[other] дают
+    } иммунитет к разумной болезни
+
 entity-effect-guidebook-innoculate-zombie-infection =
     { $chance ->
         [1] Лечит

@@ -1,0 +1,9 @@
+# Fish — режимы инъектора пИИ Синдиката (дозы 5/10/15)
+
+- type: injectorMode
+  parent: HyposprayDynamicMode
+  id: HypoPaiSyndicateMode
+  transferAmounts:
+  - 5
+  - 10
+  - 15
