@@ -53,7 +53,8 @@ public sealed partial class TTSSystem : EntitySystem
     private bool _isEnabled;
     private string _defaultAnnounceVoice = "Hanson";
     private List<ICommonSession> _ignoredRecipients = new();
-    private const float AnnouncementTtsVolumeModifier = 0.75f; // громкость объявлений в динамиках по сравнению с обычной речью
+    // Fish-edit - уменьшено в 2 раза громкость голоса объявлений
+    private const float AnnouncementTtsVolumeModifier = 0.375f;
     private const float WhisperVoiceVolumeModifier = 0.6f; // how far whisper goes in world units
     private const int WhisperVoiceRange = 3; // how far whisper goes in world units
     private string _radioEffect = string.Empty;
