@@ -19,7 +19,31 @@
       enum.BlockGameUiKey.Key:
         type: BlockGameBoundUserInterface
   - type: PowerCellDraw
-    drawRate: 3
+    drawRate: 2
+    useCharge: 0
+
+- type: entity
+  parent: [BaseItem, BaseHandheldComputer]
+  id: PortableMinesweeper
+  name: portable minesweeper
+  description: A pocket console with a minefield on the screen. Somehow more relaxing than the real thing.
+  components:
+  - type: Sprite
+    sprite: _Fish/Objects/Fun/portable_games.rsi
+    state: portableconsole
+  - type: Item
+    size: Small
+  - type: MinesweeperArcade
+  - type: ActivatableUI
+    key: enum.MinesweeperUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: UserInterface
+    interfaces:
+      enum.MinesweeperUiKey.Key:
+        type: MinesweeperBoundUserInterface
+  - type: PowerCellDraw
+    drawRate: 2
     useCharge: 0
 
 - type: entity
@@ -46,5 +70,5 @@
       enum.SpaceVillainArcadeUiKey.Key:
         type: SpaceVillainArcadeBoundUserInterface
   - type: PowerCellDraw
-    drawRate: 3
+    drawRate: 2
     useCharge: 0
