@@ -6,7 +6,7 @@
   components:
   - type: Sprite
     sprite: _Fish/Objects/Fun/portable_games.rsi
-    state: blockgame
+    state: portableconsole
   - type: Item
     size: Small
   - type: BlockGameArcade
@@ -30,7 +30,7 @@
   components:
   - type: Sprite
     sprite: _Fish/Objects/Fun/portable_games.rsi
-    state: spacegame
+    state: portableconsole
   - type: Item
     size: Small
   - type: SpaceVillainArcade
