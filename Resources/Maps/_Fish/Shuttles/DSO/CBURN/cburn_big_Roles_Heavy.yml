@@ -8656,82 +8656,82 @@ entities:
     - type: Transform
       pos: 4.5,9.5
       parent: 1
-- proto: RandomHumanoidSpawnerCBURNUnit
+- proto: RandomHumanoidSpawnerCBURNUnitEVA
   entities:
   - uid: 1624
     components:
     - type: Transform
-      pos: 0.5,2.5
+      pos: 0.9400468,2.4714985
       parent: 1
   - uid: 1625
     components:
     - type: Transform
-      pos: -0.5,0.5
+      pos: -0.5761237,0.6577395
       parent: 1
   - uid: 1626
     components:
     - type: Transform
-      pos: 0.5,0.5
+      pos: 0.3773446,0.5482882
       parent: 1
   - uid: 1627
     components:
     - type: Transform
-      pos: 1.5,0.5
+      pos: 1.5496392,0.5482882
       parent: 1
   - uid: 1628
     components:
     - type: Transform
-      pos: 2.5,0.5
+      pos: 2.4874768,0.673375
       parent: 1
   - uid: 1629
     components:
     - type: Transform
-      pos: 2.5,-0.5
+      pos: 2.4405847,-0.54622185
       parent: 1
   - uid: 1630
     components:
     - type: Transform
-      pos: 1.5,-0.5
+      pos: 1.4714875,-0.40549958
       parent: 1
   - uid: 1631
     components:
     - type: Transform
-      pos: 0.5,-0.5
+      pos: 0.5336499,-0.4367715
       parent: 1
   - uid: 1632
     components:
     - type: Transform
-      pos: -0.5,-0.5
+      pos: -0.43544912,-0.48367894
       parent: 1
   - uid: 1633
     components:
     - type: Transform
-      pos: -0.5,2.5
+      pos: -0.52923155,2.4714985
       parent: 1
   - uid: 1634
     components:
     - type: Transform
-      pos: -1.5,2.5
+      pos: -1.545221,2.3776836
       parent: 1
   - uid: 1635
     components:
     - type: Transform
-      pos: -2.5,2.5
+      pos: -2.2642303,2.424591
       parent: 1
   - uid: 1636
     components:
     - type: Transform
-      pos: 2.5,2.5
+      pos: 2.4405847,2.5027704
       parent: 1
   - uid: 1637
     components:
     - type: Transform
-      pos: 3.5,2.5
+      pos: 3.4878354,2.424591
       parent: 1
   - uid: 1638
     components:
     - type: Transform
-      pos: 4.5,2.5
+      pos: 4.2381063,2.424591
       parent: 1
 - proto: RandomSnacks
   entities:
