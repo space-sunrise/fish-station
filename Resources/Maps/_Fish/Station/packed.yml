@@ -14289,7 +14289,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -73.5,-25.5
       parent: 2
-- proto: AirlockExternalGlassSecurityShuttle
+- proto: AirlockExternalGlassFishSecurityShuttle
   entities:
   - uid: 625
     components:
@@ -103364,13 +103364,6 @@ entities:
     components:
     - type: Transform
       pos: 58.5,-2.5
-      parent: 2
-- proto: SpawnMobMonkeyPunpun
-  entities:
-  - uid: 14438
-    components:
-    - type: Transform
-      pos: 39.5,-4.5
       parent: 2
 - proto: SpawnMobMoproach
   entities:

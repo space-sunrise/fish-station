@@ -160494,13 +160494,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 25.5,-28.5
       parent: 2
-- proto: SpawnMobMonkeyPunpun
-  entities:
-  - uid: 21482
-    components:
-    - type: Transform
-      pos: 10.5,-36.5
-      parent: 2
 - proto: SpawnMobMouse
   entities:
   - uid: 21483

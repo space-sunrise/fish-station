@@ -116463,13 +116463,6 @@ entities:
     - type: Transform
       pos: 66.5,46.5
       parent: 2
-- proto: SpawnMobMonkeyPunpun
-  entities:
-  - uid: 14233
-    components:
-    - type: Transform
-      pos: 50.5,71.5
-      parent: 2
 - proto: SpawnMobMouse
   entities:
   - uid: 14234

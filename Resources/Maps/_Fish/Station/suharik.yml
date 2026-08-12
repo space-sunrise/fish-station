@@ -271591,13 +271591,6 @@ entities:
     - type: Transform
       pos: -3.5,13.5
       parent: 33049
-- proto: SpawnMobMonkeyPunpun
-  entities:
-  - uid: 20605
-    components:
-    - type: Transform
-      pos: -18.5,42.5
-      parent: 2
 - proto: SpawnMobMouse
   entities:
   - uid: 25303
