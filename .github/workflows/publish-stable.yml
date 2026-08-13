@@ -90,3 +90,12 @@ jobs:
         # Fish edit - use Fish specific webhook
         DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK_FISH }}
         CHANGELOG_FILE: ${{ vars.CHANGELOG_FILE }}
+
+    - name: Publish Sunrise discord changelog
+      continue-on-error: true
+      # Fish edit - publish upstream Sunrise changelog
+      run: Tools/_sunrise/changelog/actions_changelogs_since_last_run.py
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK_SUNRISE }}
+        CHANGELOG_FILE: 'Resources/Changelog/ChangelogSunrise.yml'
