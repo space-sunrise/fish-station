@@ -125,3 +125,25 @@ Entries:
     type: Add
   id: 12
   time: '2026-08-09T15:00:00.000000+00:00'
+- author: Kaiten
+  changes:
+  - message: Откат изменений сабфрейма.
+    type: Tweak
+  - message: Понижение громкости объявлений в 2 раза.
+    type: Tweak
+  id: 13
+  time: '2026-08-11T15:15:00.000000+00:00'
+- author: Tiferi
+  changes:
+  - message: Изменение шаттлов ОБР и РХБЗЗ.
+    type: Tweak
+  - message: Удаление миграции газодобытчика плазмы.
+    type: Remove
+  id: 14
+  time: '2026-08-11T15:15:00.000000+00:00'
+- author: Pifagor
+  changes:
+  - message: Добавление новых консолей шаттлов для ЦК и ОБР с доступом на управление только для них.
+    type: Add
+  id: 15
+  time: '2026-08-11T15:15:00.000000+00:00'

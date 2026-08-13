@@ -21081,7 +21081,7 @@ entities:
     - type: Transform
       pos: 16.5,-42.5
       parent: 2
-- proto: CentcomComputerComms
+- proto: FishComputerCommsCentComm
   entities:
   - uid: 785
     components:
@@ -21143,7 +21143,7 @@ entities:
       - - Command
     - type: CommunicationsConsole
       title: Секторальный суд
-- proto: CentcommComputerComms
+- proto: FishComputerCommsCentComm
   entities:
   - uid: 789
     components:
@@ -52033,7 +52033,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerCBURNUnitEVA
+      proto: RandomHumanoidSpawnerCBURNUnit
   - uid: 2544
     components:
     - type: MetaData
@@ -52057,7 +52057,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerCBURNUnitEVA
+      proto: RandomHumanoidSpawnerCBURNUnit
   - uid: 2545
     components:
     - type: MetaData
@@ -52081,7 +52081,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerCBURNUnitEVA
+      proto: RandomHumanoidSpawnerCBURNUnit
   - uid: 2546
     components:
     - type: MetaData
@@ -52105,7 +52105,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerCBURNUnitEVA
+      proto: RandomHumanoidSpawnerCBURNUnit
   - uid: 2547
     components:
     - type: MetaData
@@ -52129,7 +52129,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerCBURNUnitEVA
+      proto: RandomHumanoidSpawnerCBURNUnit
   - uid: 2548
     components:
     - type: MetaData
@@ -52154,7 +52154,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerCBURNUnitEVA
+      proto: RandomHumanoidSpawnerCBURNUnit
   - uid: 2549
     components:
     - type: MetaData
@@ -52178,7 +52178,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerCBURNUnitEVA
+      proto: RandomHumanoidSpawnerCBURNUnit
   - uid: 8600
     components:
     - type: Transform
@@ -52420,7 +52420,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerCBURNUnitEVA
+      proto: RandomHumanoidSpawnerCBURNUnit
   - uid: 10263
     components:
     - type: MetaData
@@ -52445,7 +52445,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerCBURNUnitEVA
+      proto: RandomHumanoidSpawnerCBURNUnit
   - uid: 10279
     components:
     - type: MetaData
@@ -52470,7 +52470,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerCBURNUnitEVA
+      proto: RandomHumanoidSpawnerCBURNUnit
   - uid: 10282
     components:
     - type: MetaData
@@ -52495,7 +52495,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerCBURNUnitEVA
+      proto: RandomHumanoidSpawnerCBURNUnit
   - uid: 10336
     components:
     - type: Transform
