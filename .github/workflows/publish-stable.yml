@@ -81,20 +81,17 @@ jobs:
         DISCORD_ROLE_ID: ${{ secrets.ANNOUNCE_UPDATE_DISCORD_ROLE_ID }}
         BUILD_PATH: ./release/SS14.Client.zip
 
-    - name: Publish discord changelog
+    - name: Publish Fish discord changelog
       continue-on-error: true
-      # Sunrise-Edit - запуск скрипта публикации чейнджлога из каталога Sunrise
-      run: Tools/_sunrise/changelog/actions_changelogs_since_last_run.py
+      run: python3 Tools/_sunrise/changelog/actions_changelogs_since_last_run.py
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # Fish edit - use Fish specific webhook
         DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK_FISH }}
-        CHANGELOG_FILE: ${{ vars.CHANGELOG_FILE }}
+        CHANGELOG_FILE: ${{ vars.CHANGELOG_FILE || 'Resources/Changelog/ChangelogFish.yml' }}
 
     - name: Publish Sunrise discord changelog
       continue-on-error: true
-      # Fish edit - publish upstream Sunrise changelog
-      run: Tools/_sunrise/changelog/actions_changelogs_since_last_run.py
+      run: python3 Tools/_sunrise/changelog/actions_changelogs_since_last_run.py
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK_SUNRISE }}
