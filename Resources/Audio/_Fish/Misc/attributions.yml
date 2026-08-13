@@ -2,3 +2,7 @@
   license: "CC-BY-SA-4.0"
   copyright: "boich9585 (discord) for Space Station 14 server Мёртвый Космос; additionally editied by vinogradgarden"
   source: https://discord.gg/ds14
+- files: ["ai_malf_1.ogg", "ai_malf_2.ogg", "ai_malf_3.ogg", "ai_malf_4.ogg", "aimalf.ogg", "artillery.ogg", "wtf.ogg", "i-storm.ogg", "noert.ogg", "outbreak5.ogg", "portal.ogg", "xeno_crew_win.ogg", "xeno_first_help.ogg", "xeno_first_help_fail.ogg", "yesert.ogg", "delta.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Basia, Rogver Snott, Azzy.Dreemurr, its4fun"
+  source: https://github.com/TauCetiStation/TauCetiClassic/pull/10207
