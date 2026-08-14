@@ -1,4 +1,4 @@
-<Solution>
+git submodule update --init --recursive<Solution>
   <Configurations>
     <BuildType Name="Debug" />
     <BuildType Name="DebugOpt" />
