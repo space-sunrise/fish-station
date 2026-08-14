@@ -276,6 +276,13 @@
   #  scale: 0.15
   #  shape: Circle
   #  requireInSpace: false
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 50
+    intensitySlope: 1
+    maxIntensity: 5
+    canCreateVacuum: false
+    maxTileBreak: 0
   - type: ProjectileGrenade
     fillPrototype: PelletClusterLessLethalWM
 
@@ -358,7 +365,7 @@
   components:
 #откат
   - type: Gun
-    fireRate: 6
+    fireRate: 10
     selectedMode: FullAuto
     availableModes:
       - SemiAuto
@@ -396,7 +403,12 @@
   components:
 #откат
   - type: Gun
-    fireRate: 7
+    fireRate: 12
+    semiAutoFireRate: 14
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+      - FullAuto
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 1950
@@ -430,7 +442,7 @@
   name: Zauer
   components:
   - type: Gun
-    fireRate: 1.2
+    fireRate: 3
   - type: Sprite
     sprite: _Sunrise/Objects/Weapons/Guns/Shotguns/zauer/big.rsi
   - type: Clothing
@@ -462,8 +474,12 @@
   - type: Clothing
     sprite: _Starlight/Objects/Weapons/Guns/Shotguns/ga12.rsi
   - type: BallisticAmmoProvider
-    proto: ShellShotgunSlugWM
+    proto: ShellShotgunWM
     capacity: 4
+    mayTransfer: true
+    whitelist:
+      tags:
+      - ShellShotgun
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 450
@@ -476,7 +492,7 @@
   components:
 #откат
   - type: Gun
-    fireRate: 7
+    fireRate: 12
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 1950
@@ -567,7 +583,7 @@
   - type: Gun
    # cameraRecoilScalarModified: 2.5
     projectileSpeed: 55 #50
-    fireRate: 0.65 #было 0.3
+    fireRate: 1 #было 0.3
     minAngle: 24
     maxAngle: 45
     soundGunshot:
@@ -608,7 +624,7 @@
     minAngle: 0
     maxAngle: 0
   - type: Gun
-    fireRate: 9
+    fireRate: 18
     minAngle: 5.7
     maxAngle: 100
     angleIncrease: 1.6
@@ -656,7 +672,7 @@
     minAngle: 0
     maxAngle: 0
   - type: Gun
-    fireRate: 1.1
+    fireRate: 3
     minAngle: 3
     maxAngle: 13
   - type: ItemSlots
@@ -684,7 +700,11 @@
     maxOffset: 7
     pvsIncrease: 1.5 
   - type: BallisticAmmoProvider
-    proto: ShellShotgunSlugWM
+    proto: ShellShotgunWM
+    mayTransfer: true
+    whitelist:
+      tags:
+      - ShellShotgun
   - type: Gun
     selectedMode: FullAuto
     availableModes:
@@ -912,6 +932,10 @@
     implantAction: ActionActivateBombGrenadeImplantWM
   - type: TriggerOnActivateImplant
   - type: PlanetWarStunDrone
+  - type: ProjectileGrenade
+    fillPrototype: PelletClusterLethal
+    capacity: 30
+    triggerKey: trigger
   #- type: DeleteOnTrigger
 
 

@@ -37,6 +37,7 @@
     intensitySlope: 1
     maxIntensity: 2
     canCreateVacuum: false
+    maxTileBreak: 0
   - type: WhitelistTriggerCondition
     userBlacklist:
       components:
@@ -125,6 +126,7 @@
       intensitySlope: 3
       totalIntensity: 3
       canCreateVacuum: false
+      maxTileBreak: 0
     - type: BatteryAmmoProvider
       proto: BulletPistolTraceSP
       fireCost: 100
@@ -248,6 +250,7 @@
     intensitySlope: 3
     totalIntensity: 3
     canCreateVacuum: false
+    maxTileBreak: 0
   - type: BatteryAmmoProvider
     proto: PulseWM
     fireCost: 200
@@ -351,6 +354,10 @@
     damageContainer: Inorganic
     damageModifierSet: DronShockWeaknessWM
   - type: PlanetWarStunDrone
+  - type: ProjectileGrenade
+    fillPrototype: PelletClusterLethal
+    capacity: 30
+    triggerKey: trigger
   - type: MovementSpeedModifier
     baseWalkSpeed : 15
     baseSprintSpeed : 12
@@ -451,6 +458,7 @@
     totalIntensity: 8
     intensitySlope: 1
     maxIntensity: 8
+    maxTileBreak: 0
   - type: MovementSpeedModifier
     baseWalkSpeed : 15
     baseSprintSpeed : 9
