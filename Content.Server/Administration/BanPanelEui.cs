@@ -113,6 +113,27 @@ public sealed class BanPanelEui : BaseEui
             targetHWid = ban.UseLastHwid ? located.LastHWId : ban.Hwid;
         }
 
+        // Fish-start - поддержка отложенных банов
+        if (ban.Defer)
+        {
+            _banManager.CreateDeferredBan(
+                targetUid,
+                ban.Target,
+                Player.UserId,
+                addressRange,
+                targetHWid,
+                ban.BanDurationMinutes,
+                ban.Severity,
+                ban.Reason,
+                ban.BannedJobs,
+                ban.BannedAntags,
+                ban.Erase
+            );
+            Close();
+            return;
+        }
+        // Fish-end
+
         if (ban.BannedJobs?.Length > 0 || ban.BannedAntags?.Length > 0)
         {
             var now = DateTimeOffset.UtcNow;

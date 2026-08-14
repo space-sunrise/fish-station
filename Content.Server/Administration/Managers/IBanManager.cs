@@ -104,4 +104,20 @@ public interface IBanManager
     event EventHandler<ServerBanPardonedEvent>? ServerBanPardoned;
     event EventHandler<PlayerKickingForBanEvent>? PlayerKickingForBan;
     // Sunrise-End
+    // Fish-start - отложенные баны
+    public void CreateDeferredBan(
+        NetUserId? target,
+        string? targetUsername,
+        NetUserId? banningAdmin,
+        (IPAddress, int)? addressRange,
+        ImmutableTypedHwid? hwid,
+        uint? minutes,
+        NoteSeverity severity,
+        string reason,
+        ProtoId<JobPrototype>[]? bannedJobs,
+        ProtoId<AntagPrototype>[]? bannedAntags,
+        bool erase
+    );
+    public void ApplyDeferredBans();
+    // Fish-end
 }
