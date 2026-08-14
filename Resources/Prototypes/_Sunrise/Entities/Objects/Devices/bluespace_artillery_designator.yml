@@ -1,0 +1,91 @@
+- type: entity
+  parent: BaseItem
+  id: BluespaceArtilleryDesignator
+  name: BSA laser designator
+  description: A handheld laser designator for requesting NanoTrasen bluespace artillery strikes. Three non-rechargeable charges.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/door_remote.rsi
+    layers:
+    - state: door_remotebase
+    - state: door_remotelightscolour
+      color: "#1d8bad"
+    - state: door_remotescreencolour
+      color: "#0044aa"
+  - type: Item
+    size: Small
+  - type: LimitedCharges
+    maxCharges: 3
+    lastCharges: 3
+  - type: BluespaceArtilleryDesignator
+    targetingDelay: 1.5
+    strikeDelay: 5
+    targetMarker: EffectBluespaceArtilleryTarget
+    announcement: bluespace-artillery-announcement
+    announcementSender: bluespace-artillery-announcement-sender
+    announcementColor: "#0000FF"
+    announcementSound:
+      path: /Audio/_Sunrise/Announcements/sunrise_artillery.ogg
+      params:
+        volume: 10
+    fireModes:
+    - name: bluespace-artillery-mode-he
+      explosionType: BluespaceArtilleryHE
+      totalIntensity: 2094
+      intensitySlope: 16
+      maxIntensity: 80
+      tileBreakScale: 1.5
+      canCreateVacuum: true
+    - name: bluespace-artillery-mode-frag
+      explosionType: BluespaceArtilleryFrag
+      totalIntensity: 1754
+      intensitySlope: 5
+      maxIntensity: 25
+      tileBreakScale: 1
+      canCreateVacuum: true
+    - name: bluespace-artillery-mode-cluster
+      explosionType: BluespaceArtilleryCluster
+      totalIntensity: 3409
+      intensitySlope: 15
+      maxIntensity: 15
+      tileBreakScale: 0.5
+      canCreateVacuum: false
+
+- type: entity
+  parent: BluespaceArtilleryDesignator
+  id: AdminBluespaceArtilleryDesignator
+  suffix: Admin
+  name: admin BSA laser designator
+  description: An admin bluespace artillery designator with nearly unlimited charges and instant targeting lock.
+  components:
+  - type: LimitedCharges
+    maxCharges: 999
+    lastCharges: 999
+  - type: BluespaceArtilleryDesignator
+    targetingDelay: 0
+    strikeDelay: 5
+
+- type: entity
+  id: EffectBluespaceArtilleryTarget
+  categories: [ HideSpawnMenu ]
+  name: bluespace artillery target
+  components:
+  - type: Transform
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    sprite: Objects/Devices/pinpointer.rsi
+    layers:
+    - state: pinpointer
+      color: "#FF0000"
+      shader: unshaded
+      scale: 1.25, 1.25
+  - type: TimedDespawn
+    lifetime: 8
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: "#FF0000"
