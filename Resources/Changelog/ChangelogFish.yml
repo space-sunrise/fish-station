@@ -197,3 +197,11 @@
     message: Галочка отложенного бана для админов
   id: 19
   url: https://github.com/space-sunrise/fish-station/pull/365
+- author: Pifagor
+  changes:
+  - message: Планетарная Война полностью переносится на архитектуру Sunrise — без
+      временных прототипов, workaround'ов и дублирующих систем.
+    type: Tweak
+  id: 20
+  time: '2026-08-14T23:50:00.000000+00:00'
+  url: https://github.com/space-sunrise/fish-station/pull/372
