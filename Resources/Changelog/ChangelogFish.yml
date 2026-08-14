@@ -151,3 +151,8 @@ Entries:
   changes:
   - message: Замена доступа у консоли УЧ на СИ.
     type: Tweak
+# Fish
+- author: Kaiten
+  changes:
+  - message: Расширен фильтр автозамены от брейнрота.
+    type: Tweak
