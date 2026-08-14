@@ -21,6 +21,8 @@
     stackType: ResearchSampleSheet
     count: 1
   - type: StaticPrice
+    price: 0
+  - type: StackPrice
     price: 50
 
 - type: entity
@@ -48,6 +50,8 @@
     stackType: ResearchSampleAdvanced
     count: 1
   - type: StaticPrice
+    price: 0
+  - type: StackPrice
     price: 200
 
 - type: entity
