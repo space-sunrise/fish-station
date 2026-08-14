@@ -600,7 +600,7 @@
           children:
           - id: FoodSaladValid
             weight: 0.05
-            amount: 4
+            amount: 2 # FIsh edit - DummyIconTest: 4 салата + напитки + игрушка не влезают в grid 0,0,5,2
           - id: FoodSnackSyndi
             amount: 4
 
