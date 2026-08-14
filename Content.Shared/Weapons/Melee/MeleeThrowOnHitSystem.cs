@@ -66,6 +66,11 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
             var direction = args.Direction ?? targetPos - userPos;
             ThrowOnHitHelper(weapon, args.User, target, direction);
         }
+
+        // ===== FISH EDIT START: CULT IMPROVEMENTS =====
+        // Сбрасываем UseDelay после melee knockback, чтобы кулдаун работал и для ближних атак.
+        _delay.TryResetDelay(weapon.Owner);
+        // ===== FISH EDIT END: CULT IMPROVEMENTS =====
     }
 
     private void OnThrowHit(Entity<MeleeThrowOnHitComponent> weapon, ref ThrowDoHitEvent args)
