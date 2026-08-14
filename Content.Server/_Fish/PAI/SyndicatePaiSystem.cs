@@ -44,6 +44,8 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
     [Dependency] private readonly SharedUserInterfaceSystem _serverUi = default!;
     [Dependency] private readonly SharedStationSystem _station = default!;
 
+    private const string SunriseCriminalRecordsBui = "SunriseCriminalRecordsConsoleBoundUserInterface";
+
     private static readonly EntProtoId InnateInstantActionProto = "InnateInstantActionAction";
     private static readonly EntProtoId InnateEntityTargetActionProto = "InnateEntityTargetAction";
 
@@ -264,11 +266,22 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
             return;
         }
 
+        EnsureSecRecordsUi(ent.Owner);
         // Убираем старую ванильную консоль, если осталась после прошлых версий
         RemComp<Content.Shared.CriminalRecords.Components.CriminalRecordsConsoleComponent>(ent.Owner);
         EnsureComp<SunriseCriminalRecordsConsoleComponent>(ent.Owner);
         _serverUi.TryToggleUi(ent.Owner, SunriseCriminalRecordsConsoleKey.Key, args.Performer);
         args.Handled = true;
+    }
+
+    /// <summary>
+    /// Регистрирует Sunrise BUI на пИИ без правки ванильного прототипа.
+    /// </summary>
+    private void EnsureSecRecordsUi(EntityUid pai)
+    {
+        // interactionRange <= 0 — без лимита; пИИ открывает UI на себе из инвентаря/КПК
+        _serverUi.SetUi(pai, SunriseCriminalRecordsConsoleKey.Key,
+            new InterfaceData(SunriseCriminalRecordsBui, interactionRange: -1f, requireInputValidation: false));
     }
 
     /// <summary>
@@ -422,6 +435,7 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
 
         ent.Comp.SecRecordsUnlocked = true;
         // Sunrise criminal records — тот же UI, что у станционных/handheld консолей Fish
+        EnsureSecRecordsUi(ent.Owner);
         EnsureComp<SunriseCriminalRecordsConsoleComponent>(ent.Owner);
         Dirty(ent);
         _serverPopup.PopupEntity(Loc.GetString("syndicate-pai-module-sec-unlocked"), ent.Owner, ent.Owner);
