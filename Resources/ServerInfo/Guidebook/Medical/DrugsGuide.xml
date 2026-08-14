@@ -1,0 +1,86 @@
+<Document>
+
+[head=1][color=#ffbb00]Справочник по базовым лекарствам[/color][/head]
+
+[color=#cccccc]Данный справочник содержит информацию о базовых медицинских препаратах, их действии, дозировках и порогах передозировки.[/color]
+
+[head=2][color=#ffbb00]Механические повреждения[/color][/head]
+
+[color=#dddddd]Препараты для лечения механических повреждений:[/color]
+
+- [bold][color=#ffbb00]Бикаридин[/color][/bold] [color=#dddddd]- лечит уколы, порезы, ушибы. [color=#ff0000]ПД 15u[/color] | [bold]5u = 15 ед. мех. урона[/bold][/color]
+- [bold][color=#cdbf98]Пунктураз[/color][/bold] [color=#dddddd]- эффективнее против уколов. [color=#ff0000]ПД 11u[/color] | [bold]5u = 25 ед. колющих[/bold][/color]
+- [bold][color=#365351]Лацеринол[/color][/bold] [color=#dddddd]- эффективнее против порезов. [color=#ff0000]ПД 12u[/color] | [bold]5u = 25 ед. режущих[/bold][/color]
+- [bold][color=#f4254e]Бруизин[/color][/bold] [color=#dddddd]- эффективнее против ушибов. [color=#ff0000]ПД 10.5u[/color] | [bold]5u = 25 ед. ушибов[/bold][/color]
+
+[color=#ff1100]СМЕШИВАНИЕ ВЫШЕОПИСАННЫХ ВЕЩЕСТВ ДАЕТ ОПАСНЫЙ ТОКСИН, В ТОМ ЧИСЛЕ ВНУТРИ ПАЦИЕНТА[/color]
+
+- [bold][color=#cce1f5]Бритвиум[/color][/bold] [color=#dddddd]- наносит порезы и кровотечение. [color=#ff0000]ПД 5u[/color][/color]
+
+[head=2][color=#fd96d7]Физические повреждения[/color][/head]
+
+[color=#dddddd]Препараты для лечения физических повреждений:[/color]
+
+- [bold][color=#537f7c]Дермалин[/color][/bold] [color=#dddddd]- лечит физические повреждения (кроме кислотных). [color=#ff0000]ПД 10u[/color] | [bold]5u = 20 ед. физ. урона[/bold][/color]
+- [bold][color=#fd96d7]Лепоразин[/color][/bold] [color=#dddddd]- эффективнее против обморожения. [color=#ff0000]ПД нет[/color] | [bold]5u = 30 ед. урона холодом[/bold][/color]
+- [bold][color=#a85405]Пиразин[/color][/bold] [color=#dddddd]- эффективнее против термических повреждений. [color=#ff0000]ПД 20u[/color] | [bold]5u = 30 ед. урона огнём[/bold][/color]
+- [bold][color=#9965fb]Инсузин[/color][/bold] [color=#dddddd]- эффективнее против электрических повреждений. [color=#ff0000]ПД 12u[/color] | [bold]5u = 30 ед. урона электричеством[/bold][/color]
+- [bold][color=#ecb1bd]Сигинат[/color][/bold] [color=#dddddd]- лечит кислотные повреждения. [color=#ff0000]ПД 16u[/color] | [bold]5u = 20 ед. урона кислотой[/bold][/color]
+
+[head=2][color=#90c5fe]Удушье и кровопотеря[/color][/head]
+
+[color=#dddddd]Препараты для лечения удушья и кровопотери:[/color]
+
+- [bold][color=#90c5fe]Дексалин плюс[/color][/bold] [color=#dddddd]- лечит удушье и кровопотерю. [color=#ff0000]ПД 25u[/color] | [bold]5u = 15 ед. удушья / +15 ед. крови[/bold][/color]
+- [bold][color=#0c6cc6]Физраствор[/color][/bold] [color=#dddddd]- восполняет кровь. [color=#ff0000]ПД 200u[/color] | [bold]5u = +25 ед. крови[/bold][/color]
+- [bold][color=#990a00]Инапровалин[/color][/bold] [color=#dddddd]- лечит удушье только в критическом состоянии. [color=#ff0000]ПД нет[/color] | [bold]5u = 50 ед. удушья (только в крите)[/bold][/color]
+- [bold][color=#c56e67]Транексамовая кислота[/color][/bold] [color=#dddddd]- ослабляет кровотечение. [color=#ff0000]ПД 30u[/color] | [bold]5u = -50% скорости кровопотери на 30 сек[/bold][/color]
+
+[color=#ff1100]КРОВОПОТЕРЯ - ЭТО НЕ ТО ЖЕ САМОЕ, ЧТО УРОВЕНЬ КРОВИ. ДЕРЖИТЕ КРОВЬ ВЫШЕ 80%[/color]
+
+[head=2][color=#4d10da]Токсические повреждения[/color][/head]
+
+[color=#dddddd]Препараты для лечения токсических повреждений:[/color]
+
+- [bold][color=#4d10da]Диловен[/color][/bold] [color=#dddddd]- лечит яды. [color=#ff0000]ПД 20u[/color] | [bold]5u = 25 ед. урона ядом[/bold][/color]
+- [bold][color=#58fbfd]Дифенгидрамин[/color][/bold] [color=#dddddd]- эффективнее против ядов. [color=#ff0000]ПД 15u[/color] | [bold]5u = 35 ед. урона ядом[/bold][/color]
+- [bold][color=#dc7a1e]Аритразин[/color][/bold] [color=#dddddd]- лечит радиацию. [color=#ff0000]ПД нет (наносит мех. урон)[/color] | [bold]5u = 15 ед. радиации[/bold][/color]
+
+[head=2][color=#ccfe9a]Генетика и особые случаи[/color][/head]
+
+[color=#dddddd]Препараты для лечения генетических повреждений и особых случаев:[/color]
+
+- [bold][color=#ccfe9a]Фалангимин[/color][/bold] [color=#dddddd]- лечит клеточные повреждения. [color=#ff0000]ПД нет (наносит радиацию)[/color] | [bold]5u = 30 ед. клеточных повреждений[/bold][/color]
+- [bold][color=#5c5e5a]Окулин[/color][/bold] [color=#dddddd]- восстанавливает зрение. [color=#ff0000]ПД 10u[/color] | [bold]5u = 100% (полное восстановление зрения)[/bold][/color]
+- [bold][color=#5ba6ec]Амбузол[/color][/bold] [color=#dddddd]- останавливает обращение (нужно 10u). [color=#ff0000]ПД 15u[/color] | [bold]5u = 50% обращения[/bold][/color]
+- [bold][color=#1b6bb6]Амбузол плюс[/color][/bold] [color=#dddddd]- останавливает обращение + иммунитет (нужно 5u). [color=#ff0000]ПД 10u[/color] | [bold]5u = 100% обращения + иммунитет 30 сек[/bold][/color]
+
+[head=2][color=#46a4fb]Криокапсула (t ниже 213K)[/color][/head]
+
+[color=#dddddd]Препараты для криокапсулы работают только при низких температурах (ниже 213K):[/color]
+
+- [bold][color=#46a4fb]Криоксадон[/color][/bold] [color=#dddddd]- лечит все типы, кроме клеточных | [bold]5u = 20 ед. всех типов урона (кроме клеточных)[/bold][/color]
+- [bold][color=#33d74e]Доксарубиксадон[/color][/bold] [color=#dddddd]- лечит клеточные повреждения | [bold]5u = 30 ед. клеточных[/bold][/color]
+- [bold][color=#c5fca1]Оппорозидон[/color][/bold] [color=#dddddd]- убирает гниение | [bold]5u = 100% гниения[/bold][/color]
+- [bold][color=#8300b3]Траумаксадон[/color][/bold] [color=#dddddd]- эффективнее против механических | [bold]5u = 35 ед. мех. урона[/bold][/color]
+- [bold][color=#a9ff9e]Алоксадон[/color][/bold] [color=#dddddd]- эффективнее против физических | [bold]5u = 35 ед. физ. урона[/bold][/color]
+- [bold][color=#ffcb8f]Стеллоксадон[/color][/bold] [color=#dddddd]- эффективнее против ядов и радиации | [bold]5u = 35 ед. урона ядом и радиацией[/bold][/color]
+- [bold][color=#939f8e]Некрозол[/color][/bold] [color=#dddddd]- лечит механические и физические | [bold]5u = 25 ед. мех. и физ. урона[/bold][/color]
+
+[head=2][color=#59a749]Ботаника[/color][/head]
+
+[color=#dddddd]Удобрения и препараты для растений:[/color]
+
+- [bold][color=#674928]EZ-нутриенты[/color][/bold] [color=#dddddd]- удобрение[/color]
+- [bold][color=#59a749]Робаст харвест[/color][/bold] [color=#dddddd]- удобрение, повышает потенцию[/color]
+- [bold][color=#87ff66]Нестабильный мутаген[/color][/bold] [color=#dddddd]- вызывает мутации растений[/color]
+- [bold][color=#715798]Left-4-zed[/color][/bold] [color=#dddddd]- увеличивает шанс мутации[/color]
+- [bold][color=#b30000]Диэтиламин[/color][/bold] [color=#dddddd]- ускоряет рост и повышает живучесть[/color]
+- [bold][color=#81c280]Седин[/color][/bold] [color=#dddddd]- возвращает возможность извлекать семена[/color]
+- [bold][color=#4d10da]Диловен[/color][/bold] [color=#dddddd]- лечит растение[/color]
+- [bold][color=#46a4fb]Криоксадон[/color][/bold] [color=#dddddd]- лечит растение + омолаживание[/color]
+- [bold][color=#ccfe9a]Фалангимин[/color][/bold] [color=#dddddd]- лечит ген смерти, но не лечит здоровье[/color]
+
+[italic][color=#3ea1fe]Составила: Мария Крина[/color][/italic]
+
+</Document>
