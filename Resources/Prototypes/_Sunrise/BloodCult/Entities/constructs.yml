@@ -1,6 +1,7 @@
 - type: entity
   id: BaseConstruct
   abstract: true
+  save: false
   categories: [ HideSpawnMenu ]
   components:
     - type: ContentEye
@@ -56,6 +57,10 @@
       proto: guardian
     - type: Pullable
     - type: Actions
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
     - type: Tag
       tags:
         - CannotSuicide
@@ -106,6 +111,7 @@
       prototype: ConstructJuggernaut
     - type: ContainerContainer
       containers:
+        actions: !type:Container
         body_root_part: !type:ContainerSlot
     - type: Juggernaut
     - type: TTS
