@@ -1020,6 +1020,9 @@
   - type: Biocode
     factions:
     - ClassMedic
+  - type: FactionWeaponBlocker
+    factions:
+    - ClassMedic
   - type: PhysicalComposition
     materialComposition:
       MoneyWarMizMaterial: 800

@@ -981,6 +981,7 @@
     - type: NpcFactionMember
       factions:
       - ArmFaction
+      - ClassMedic
     - type: GhostRole
       name: pw-construction-rebels-mobhumanarmpm1-name
       description: pw-construction-rebels-mobhumanarmpm1-desc

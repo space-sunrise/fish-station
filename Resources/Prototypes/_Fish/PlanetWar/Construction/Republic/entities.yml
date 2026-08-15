@@ -848,6 +848,7 @@
     - type: NpcFactionMember
       factions:
       - CoreFaction
+      - ClassMedic
     - type: GhostRole
       name: pw-construction-republic-mobhumancorepm1-name
       description: pw-construction-republic-mobhumancorepm1-desc
