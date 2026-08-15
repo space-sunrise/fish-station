@@ -5,7 +5,7 @@
     type: Add
   id: 1
   time: '2025-08-04T23:38:42.573889+00:00'
-- author: kotainfelix
+- author: Pifagor
   changes:
   - message: Животным и грызунам (мыши, хомяки, улитки, мотыльки-тараканы) теперь
       выдаются случайные личные цели на смену — поесть, попить, исследовать станцию,
@@ -197,7 +197,7 @@
     message: Галочка отложенного бана для админов
   id: 19
   url: https://github.com/space-sunrise/fish-station/pull/365
-- author: kotainfelix
+- author: Pifagor
   time: '2026-08-15T12:42:08.0000000+00:00'
   changes:
   - type: Add
