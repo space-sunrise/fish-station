@@ -794,7 +794,8 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
 
             var argsDoAfterEvent = new DoAfterArgs(_entityManager, user, TimeSpan.FromSeconds(170), ev, user) //fish-edit
             {
-                BreakOnMove = true
+                BreakOnMove = true,
+                MovementThreshold = 3f, // ритуал призыва Бога: до 3 тайлов
             };
 
             if (!_doAfterSystem.TryStartDoAfter(argsDoAfterEvent))
@@ -1068,13 +1069,14 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
             {
                 Target = GetNetEntity(target),
                 Rune = GetNetEntity(baseRune.Value),
+                Summoner = GetNetEntity(args.Actor),
             };
 
-            // 2с каст; разрешено движение в радиусе 3 тайлов от точки начала ритуала.
-            var doAfter = new DoAfterArgs(_entityManager, args.Actor, TimeSpan.FromSeconds(2), ev, args.Actor)
+            // Кастует цель: удар/утаскивание цели отменяет ритуал. Допуск движения — 2 тайла.
+            var doAfter = new DoAfterArgs(_entityManager, target, TimeSpan.FromSeconds(2), ev, args.Actor)
             {
                 BreakOnMove = true,
-                MovementThreshold = 3f,
+                MovementThreshold = 2f,
                 BreakOnDamage = true,
                 CancelDuplicate = true,
                 NeedHand = false,
@@ -1314,16 +1316,11 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
         }
 
         /// <summary>
-        /// Культист, конструкт или soulstone с душой — для подсчёта на рунах/ритуалах.
+        /// Культист или конструкт — для подсчёта на рунах/ритуалах.
         /// </summary>
         public bool IsCultistEquivalent(EntityUid uid)
         {
-            if (HasComp<BloodCultistComponent>(uid) || HasComp<ConstructComponent>(uid))
-                return true;
-
-            return HasComp<SoulShardComponent>(uid)
-                   && TryComp<MindContainerComponent>(uid, out var mind)
-                   && mind.HasMind;
+            return HasComp<BloodCultistComponent>(uid) || HasComp<ConstructComponent>(uid);
         }
 
         private void SpawnRune(EntityUid uid, string? rune)
@@ -1366,7 +1363,10 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
             return true;
         }
 
-        private bool IsAllowedToDraw(EntityUid uid)
+        /// <summary>
+        /// Можно ли рисовать руну: любая грид+тайл (станция, шаттл, планетойд).
+        /// </summary>
+        public bool IsAllowedToDraw(EntityUid uid)
         {
             var transform = Transform(uid);
             var gridUid = transform.GridUid;
@@ -1384,13 +1384,7 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
                 return false;
             }
 
-            // Руны только на station grid.
-            if (_station.GetOwningStation(uid) == null)
-            {
-                _popupSystem.PopupEntity(Loc.GetString("cult-cant-draw-rune"), uid, uid);
-                return false;
-            }
-
+            // Достаточно любой грид+тайл: станция, шаттл, планетойд экспедиции.
             return true;
         }
 

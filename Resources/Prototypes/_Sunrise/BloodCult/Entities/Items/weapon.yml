@@ -228,6 +228,7 @@
     distance: 4
   - type: UseDelay
     delay: 5
+  - type: JuggernautHammer
   - type: MultiHandedItem
   - type: Clothing
     quickEquip: false

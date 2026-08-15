@@ -14,7 +14,6 @@ using Content.Server.Storage.EntitySystems;
 using Content.Shared._Sunrise.BloodCult;
 using Content.Shared._Sunrise.BloodCult.Components;
 using Content.Shared._Sunrise.CollectiveMind;
-using Content.Shared._Sunrise.NightVision.Components;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Body.Systems;
@@ -364,17 +363,11 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         RaiseLocalEvent(ev);
 
         _actionsSystem.AddAction(uid, BloodCultistComponent.BloodMagicAction);
-
-        // Красное переключаемое ПНВ для всех культистов.
-        var nightVision = EnsureComp<ToggleableNightVisionComponent>(uid);
-        nightVision.Effect = "EffectNightVisionSyndie";
-        Dirty(uid, nightVision);
     }
 
     private void OnCultistComponentRemoved(EntityUid uid, BloodCultistComponent component, ComponentRemove args)
     {
-        RemComp<ToggleableNightVisionComponent>(uid);
-        RemComp<NightVisionComponent>(uid);
+        // ПНВ только у конструктов — у культистов не выдаём и не снимаем.
 
         if (TryComp<CollectiveMindComponent>(uid, out var collectiveMind))
         {

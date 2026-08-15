@@ -28,7 +28,6 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Roles;
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.Stacks;
-using Content.Shared.Station;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Robust.Server.Containers;
@@ -90,7 +89,6 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
         [Dependency] private readonly NavMapSystem _navMap = default!;
         [Dependency] private readonly PullingSystem _pulling = default!;
         [Dependency] private readonly KillCultistTargetsConditionSystem _cultistTargetsConditionSystem = default!;
-        [Dependency] private readonly SharedStationSystem _station = default!;
 
         [ValidatePrototypeId<StackPrototype>]
         private static string SteelStackPrototypeId = "Steel";

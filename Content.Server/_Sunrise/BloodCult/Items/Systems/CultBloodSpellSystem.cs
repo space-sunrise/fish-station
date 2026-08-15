@@ -320,11 +320,15 @@ public sealed class CultBloodSpellSystem : EntitySystem
     }
 
     /// <summary>
-    /// Реагенты, считающиеся кровью для blood rites (включая расовые аналоги вроде Slime).
+    /// Реагенты, считающиеся кровью для blood rites (включая расовые аналоги).
     /// </summary>
-    private static bool IsCultBloodReagent(string reagentId)
+    public static bool IsCultBloodReagent(string reagentId)
     {
-        return reagentId is "Blood" or "Slime";
+        return reagentId is "Blood"
+            or "Slime"
+            or "CopperBlood" // арахниды
+            or "FluorosulfuricAcidHumanoidXeno" // ксено / части яутжа
+            or "FluorosulfuricAcidPredator"; // яутжа
     }
 
     private bool HealCultist(EntityUid target,

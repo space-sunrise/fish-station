@@ -85,4 +85,5 @@ public sealed partial class CultSummonRitualDoAfterEvent : SimpleDoAfterEvent
 {
     public NetEntity Target;
     public NetEntity Rune;
+    public NetEntity Summoner;
 }
