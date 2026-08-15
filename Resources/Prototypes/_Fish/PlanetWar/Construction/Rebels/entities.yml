@@ -30,7 +30,6 @@
     - RsdWallSolidWM
     - RsdWallRelifArmWM
     - RsdAirlocArmWM
-    - RsdDeconstructWM
     - RsdPrismaArmWM
     - RsdShuttleGunAutomatWM
     - RsdShuttleGunPulemetWM
@@ -75,7 +74,6 @@
     - RsdWallSolidWMSpeed
     - RsdWallRelifArmWMSpeed
     - RsdAirlocArmWMSpeed
-    - RsdDeconstructWM
     - RsdPrismaArmWM
     - RsdShuttleGunAutomatWM
     - RsdShuttleGunPulemetWM
@@ -169,6 +167,7 @@
     totalIntensity: 100
     intensitySlope: 30 
     maxIntensity: 25
+    maxTileBreak: 0
   - type: WhitelistTriggerCondition
     userBlacklist:
       components:
@@ -401,8 +400,8 @@
     proto: GrenadeFragLightWM
     capacity: 0
   - type: Battery
-    maxCharge: 3000 #3500
-    startingCharge: 3000 #3500
+    maxCharge: 7200 # 3000 + 1200 * 3.5
+    startingCharge: 7200
 
 
 - type: entity

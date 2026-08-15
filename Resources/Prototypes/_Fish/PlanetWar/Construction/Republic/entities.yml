@@ -30,7 +30,6 @@
     - RsdWallSolidWM
     - RsdWallRelifCoreWM
     - RsdAirlocCoreWM
-    - RsdDeconstructWM
     - RsdPrismaCoreWM
     - RsdShuttleGunAutomatWM
     - RsdShuttleGunPulemetWM
@@ -75,7 +74,6 @@
     - RsdWallSolidWMSpeed
     - RsdWallRelifCoreWMSpeed
     - RsdAirlocCoreWMSpeed
-    - RsdDeconstructWM
     - RsdPrismaCoreWM
     - RsdShuttleGunAutomatWM
     - RsdShuttleGunPulemetWM
@@ -219,6 +217,7 @@
     intensitySlope: 30 
     maxIntensity: 25
     canCreateVacuum: false
+    maxTileBreak: 0
   - type: WhitelistTriggerCondition
     userBlacklist:
       components:

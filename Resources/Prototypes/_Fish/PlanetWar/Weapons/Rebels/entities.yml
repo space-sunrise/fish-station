@@ -22,6 +22,7 @@
     intensitySlope: 1
     maxIntensity: 2
     canCreateVacuum: false
+    maxTileBreak: 0
   - type: WhitelistTriggerCondition
     userBlacklist:
       components:
@@ -152,6 +153,7 @@
     totalIntensity: 8
     intensitySlope: 1
     maxIntensity: 8
+    maxTileBreak: 0
   - type: MovementSpeedModifier
     baseWalkSpeed : 15
     baseSprintSpeed : 9
