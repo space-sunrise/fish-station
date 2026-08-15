@@ -363,6 +363,12 @@
   parent: WeaponRifleLecterMk2 #WeaponSTG44
   id: WeaponSTG44WM
   components:
+  - type: Biocode
+    factions:
+    - CoreFaction
+  - type: FactionWeaponBlocker
+    factions:
+    - CoreFaction
 #откат
   - type: Gun
     fireRate: 10
@@ -401,6 +407,12 @@
   parent: WeaponRifleFamas
   id: WeaponRifleFamasWM
   components:
+  - type: Biocode
+    factions:
+    - CoreFaction
+  - type: FactionWeaponBlocker
+    factions:
+    - CoreFaction
 #откат
   - type: Gun
     fireRate: 12
@@ -456,6 +468,12 @@
   parent: WeaponShotgunSawn
   id: WeaponShotgunGA12WM
   components:
+  - type: Biocode
+    factions:
+    - CoreFaction
+  - type: FactionWeaponBlocker
+    factions:
+    - CoreFaction
   - type: Gun
     fireRate: 1
   - type: Wieldable
@@ -490,6 +508,12 @@
   parent: WeaponSubMachineGunMP38
   id: WeaponSubMachineGunMP38WM
   components:
+  - type: Biocode
+    factions:
+    - ArmFaction
+  - type: FactionWeaponBlocker
+    factions:
+    - ArmFaction
 #откат
   - type: Gun
     fireRate: 12
@@ -524,6 +548,12 @@
   parent: WeaponRifleBauer127WM
   id: WeaponSniperDragunovWM
   components:
+  - type: Biocode
+    factions:
+    - ArmFaction
+  - type: FactionWeaponBlocker
+    factions:
+    - ArmFaction
 #откат
   - type: GunWieldBonus
     minAngle: -24
@@ -570,6 +600,12 @@
   parent: WeaponRifleBauer127
   id: WeaponRifleBauer127WM
   components:
+  - type: Biocode
+    factions:
+    - CoreFaction
+  - type: FactionWeaponBlocker
+    factions:
+    - CoreFaction
 #откат
   - type: UseDelayOnShoot
   - type: UseDelay 
@@ -618,6 +654,12 @@
   parent: WeaponLightMachineGunRPD
   id: WeaponLightMachineGunRPDWM
   components:
+  - type: Biocode
+    factions:
+    - ArmFaction
+  - type: FactionWeaponBlocker
+    factions:
+    - ArmFaction
 #откат
   - type: GunRequiresWield
   - type: GunWieldBonus
@@ -660,6 +702,12 @@
   parent: WeaponShotgunBulldog
   id: WeaponShotgunBulldogWM
   components:
+  - type: Biocode
+    factions:
+    - ArmFaction
+  - type: FactionWeaponBlocker
+    factions:
+    - ArmFaction
   - type: Wieldable
   - type: PhysicalComposition
     materialComposition:
@@ -694,6 +742,12 @@
   parent: WeaponShotgunSawn
   id: WeaponShotgunSawnWM
   components:
+  - type: Biocode
+    factions:
+    - ArmFaction
+  - type: FactionWeaponBlocker
+    factions:
+    - ArmFaction
   - type: Wieldable
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset

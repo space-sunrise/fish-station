@@ -659,7 +659,7 @@
       nameSegments:
       - NamesFirstMale
       - NameCoreP0WM
-    - type: AssaultOperative
+    - type: PlanetWarMember
       statusIcon: FactionIconCoreBase
    # - type: RadarBlip
    #   color: "#0000e3"
@@ -680,8 +680,6 @@
     - type: NpcFactionMember
       factions:
       - CoreFaction
-    - type: Loadout
-      prototypes: [CoreGearP0]
     - type: GhostRole
       name: pw-construction-republic-mobhumancorep0-name
       description: pw-construction-republic-mobhumancorep0-desc
@@ -715,10 +713,8 @@
         0: Alive
         200: Critical
         300: Dead
-    - type: AssaultOperative
+    - type: PlanetWarMember
       statusIcon: FactionIconCorePC0I5
-    - type: Loadout
-      prototypes: [CoreGearPC0I5]
     - type: GhostRole
       name: pw-construction-republic-mobhumancorepc0i5-name
       description: pw-construction-republic-mobhumancorepc0i5-desc
@@ -763,10 +759,8 @@
       nameSegments:
       - NamesFirstMale
       - NameCoreP1WM
-    - type: AssaultOperative
+    - type: PlanetWarMember
       statusIcon: FactionIconCoreBase
-    - type: Loadout
-      prototypes: [CoreGearP1]
     - type: GhostRole
       name: pw-construction-republic-mobhumancorep1-name
       description: pw-construction-republic-mobhumancorep1-desc
@@ -801,15 +795,13 @@
       nameSegments:
       - NamesFirstMale
       - NameCorePH5WM
-    - type: AssaultOperative
+    - type: PlanetWarMember
       statusIcon: FactionIconCoreBase
     - type: MobThresholds
       thresholds:
         0: Alive
         135: Critical
         300: Dead
-    - type: Loadout
-      prototypes: [CoreGearPH5]
     - type: GhostRole
       name: pw-construction-republic-mobhumancoreph5-name
       description: pw-construction-republic-mobhumancoreph5-desc
@@ -846,7 +838,7 @@
       nameSegments:
       - NamesFirstMale
       - NameCorePM1WM
-    - type: AssaultOperative
+    - type: PlanetWarMember
       statusIcon: FactionIconCorePM1
     - type: MobThresholds
       thresholds:
@@ -856,8 +848,6 @@
     - type: NpcFactionMember
       factions:
       - CoreFaction
-    - type: Loadout
-      prototypes: [CoreGearPM1]
     - type: GhostRole
       name: pw-construction-republic-mobhumancorepm1-name
       description: pw-construction-republic-mobhumancorepm1-desc
@@ -893,10 +883,8 @@
       nameSegments:
       - NamesFirstMale
       - NameCorePE1WM
-    - type: AssaultOperative
+    - type: PlanetWarMember
       statusIcon: FactionIconCorePE1
-    - type: Loadout
-      prototypes: [CoreGearPE1]
     - type: GhostRole
       name: pw-construction-republic-mobhumancorepe1-name
       description: pw-construction-republic-mobhumancorepe1-desc
@@ -932,15 +920,13 @@
       nameSegments:
       - NamesFirstMale
       - NameCorePS4WM
-    - type: AssaultOperative
+    - type: PlanetWarMember
       statusIcon: FactionIconCoreBase
     - type: AutoImplant
       implants:
       - SmokeScreenImplantWM
     - type: ToggleableNightVision
       effect: EffectNightVisioCoreSniper
-    - type: Loadout
-      prototypes: [CoreGearPS4]
     - type: GhostRole
       name: pw-construction-republic-mobhumancoreps4-name
       description: pw-construction-republic-mobhumancoreps4-desc

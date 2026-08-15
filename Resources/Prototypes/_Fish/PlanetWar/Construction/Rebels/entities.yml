@@ -792,7 +792,7 @@
       nameSegments:
       - NamesFirstMale
       - NameArmP0WM
-    - type: PirateIcon
+    - type: PlanetWarMember
       statusIcon: FactionIconArmBase
    # - type: RadarBlip
    #   color: "#e50000"
@@ -811,8 +811,6 @@
     - type: NpcFactionMember
       factions:
       - ArmFaction
-    - type: Loadout
-      prototypes: [ArmGearP0]
     - type: GhostRole
       name: pw-construction-rebels-mobhumanarmp0-name
       description: pw-construction-rebels-mobhumanarmp0-desc
@@ -848,10 +846,8 @@
         0: Alive
         200: Critical
         300: Dead
-    - type: PirateIcon
+    - type: PlanetWarMember
       statusIcon: FactionIconArmPC0I5
-    - type: Loadout
-      prototypes: [ArmGearPC0I5]
     - type: GhostRole
       name: pw-construction-rebels-mobhumanarmpc0i5-name
       description: pw-construction-rebels-mobhumanarmpc0i5-desc
@@ -896,10 +892,8 @@
       nameSegments:
       - NamesFirstMale
       - NameArmP1WM
-    - type: PirateIcon
+    - type: PlanetWarMember
       statusIcon: FactionIconArmBase
-    - type: Loadout
-      prototypes: [ArmGearP1]
     - type: GhostRole
       name: pw-construction-rebels-mobhumanarmp1-name
       description: pw-construction-rebels-mobhumanarmp1-desc
@@ -934,15 +928,13 @@
       nameSegments:
       - NamesFirstMale
       - NameArmPH5WM
-    - type: PirateIcon
+    - type: PlanetWarMember
       statusIcon: FactionIconArmBase
     - type: MobThresholds
       thresholds:
         0: Alive
         135: Critical
         300: Dead
-    - type: Loadout
-      prototypes: [ArmGearPH5]
     - type: GhostRole
       name: pw-construction-rebels-mobhumanarmph5-name
       description: pw-construction-rebels-mobhumanarmph5-desc
@@ -979,7 +971,7 @@
       nameSegments:
       - NamesFirstMale
       - NameArmPM1WM
-    - type: PirateIcon
+    - type: PlanetWarMember
       statusIcon: FactionIconArmPM1
     - type: MobThresholds
       thresholds:
@@ -989,8 +981,6 @@
     - type: NpcFactionMember
       factions:
       - ArmFaction
-    - type: Loadout
-      prototypes: [ArmGearPM1]
     - type: GhostRole
       name: pw-construction-rebels-mobhumanarmpm1-name
       description: pw-construction-rebels-mobhumanarmpm1-desc
@@ -1026,10 +1016,8 @@
       nameSegments:
       - NamesFirstMale
       - NameArmPE1WM
-    - type: PirateIcon
+    - type: PlanetWarMember
       statusIcon: FactionIconArmPE1
-    - type: Loadout
-      prototypes: [ArmGearPE1]
     - type: GhostRole
       name: pw-construction-rebels-mobhumanarmpe1-name
       description: pw-construction-rebels-mobhumanarmpe1-desc
@@ -1065,15 +1053,13 @@
       nameSegments:
       - NamesFirstMale
       - NameArmPS4WM
-    - type: PirateIcon
+    - type: PlanetWarMember
       statusIcon: FactionIconArmBase
     - type: AutoImplant
       implants:
       - SmokeScreenImplantWM
     - type: ToggleableNightVision
       effect: EffectNightVisioArmSniper
-    - type: Loadout
-      prototypes: [ArmGearPS4]
     - type: GhostRole
       name: pw-construction-rebels-mobhumanarmps4-name
       description: pw-construction-rebels-mobhumanarmps4-desc

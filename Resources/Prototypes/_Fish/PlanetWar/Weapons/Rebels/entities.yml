@@ -81,6 +81,12 @@
   parent: WeaponEarthGovLaserCarbine
   id: WeaponEarthGovLaserCarbineArmWM
   components:
+  - type: Biocode
+    factions:
+    - ArmFaction
+  - type: FactionWeaponBlocker
+    factions:
+    - ArmFaction
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi
     layers:
