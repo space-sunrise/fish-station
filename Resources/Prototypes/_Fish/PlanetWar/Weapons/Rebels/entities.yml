@@ -135,9 +135,12 @@
     - LandmineImplantArmWM
   - type: GhostRole
     name: pw-vehicles-rebels-markerdronarmturretmine-name
-    description: pw-weapons-rebels-dronarmturretmine-desc
+    description: pw-vehicles-rebels-markerdronarmturretmine-desc
     raffle:
       settings: WM
+  - type: PlanetWarBriefing
+    briefingText: pw-briefing-rebels-dronarmturretmine
+    briefingColor: "#e50000"
   - type: Sprite
     sprite: /Textures/_Fish/PlanetWar/WM2/33xSprait.rsi
     noRot: false

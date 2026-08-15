@@ -314,9 +314,12 @@
 #  - type: Muted
   - type: GhostRole
     name: pw-vehicles-republic-markerdroncore-name
-    description: pw-vehicles-republic-markerdroncore-desc-1
+    description: pw-vehicles-republic-markerdroncore-desc
     raffle:
       settings: WM
+  - type: PlanetWarBriefing
+    briefingText: pw-briefing-republic-droncore
+    briefingColor: "#0000e3"
   - type: CombatMode
     toggleMouseRotator: true
   - type: StepTrigger
@@ -438,9 +441,12 @@
     - LandmineImplantCoreWM
   - type: GhostRole
     name: pw-vehicles-republic-markerdroncoreturretmine-name
-    description: pw-construction-republic-mobhumancorep0-desc
+    description: pw-vehicles-republic-markerdroncoreturretmine-desc
     raffle:
       settings: WM
+  - type: PlanetWarBriefing
+    briefingText: pw-briefing-republic-droncoreturretmine
+    briefingColor: "#0000e3"
   - type: Sprite
     sprite: /Textures/_Fish/PlanetWar/WM2/33xSprait.rsi
     noRot: false
