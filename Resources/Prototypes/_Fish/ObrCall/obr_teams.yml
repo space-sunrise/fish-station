@@ -1,0 +1,48 @@
+# Цены и доступность вызова ОБР. Не хардкодить суммы в C#.
+
+- type: obrTeam
+  id: ObrAmber
+  name: obr-team-amber-name
+  description: obr-team-amber-desc
+  gameRule: FishObrShuttleAmber
+  stationCost: 50000
+  centCommAvailable: true
+  stationAvailable: true
+  account: Cargo
+  priorityTag: DockFishERT
+  sortOrder: 10
+
+- type: obrTeam
+  id: ObrRed
+  name: obr-team-red-name
+  description: obr-team-red-desc
+  gameRule: FishObrShuttleRed
+  stationCost: 100000
+  centCommAvailable: true
+  stationAvailable: true
+  account: Cargo
+  priorityTag: DockFishERT
+  sortOrder: 20
+
+- type: obrTeam
+  id: ObrGamma
+  name: obr-team-gamma-name
+  description: obr-team-gamma-desc
+  gameRule: FishObrShuttleGamma
+  # Gamma недоступна станции через покупку.
+  centCommAvailable: true
+  stationAvailable: false
+  priorityTag: DockFishERT
+  sortOrder: 30
+
+- type: obrTeam
+  id: ObrCburn
+  name: obr-team-cburn-name
+  description: obr-team-cburn-desc
+  gameRule: FishObrShuttleCburn
+  stationCost: 100000
+  centCommAvailable: true
+  stationAvailable: true
+  account: Cargo
+  priorityTag: DockFishCBURN
+  sortOrder: 40
