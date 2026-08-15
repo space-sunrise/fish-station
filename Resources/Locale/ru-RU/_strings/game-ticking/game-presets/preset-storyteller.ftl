@@ -179,7 +179,7 @@ storyteller-metadata-derelictsyndicatemedicalcyborgspawn-start = Медицин�
 # Specific Antagonists & Mid-round Threats
 storyteller-metadata-piratemedium-start = Сирены взвыли: в сектор бесцеремонно вторгся тяжело вооружённый корабль космических пиратов!
 storyteller-metadata-loneopsspawn-start = Сенсоры уловили кратковременный всплеск энергии: на станцию тайно высадился хладнокровный диверсант Синдиката.
-storyteller-metadata-subxenoborgs-start = Из вентиляционных люков донеслось жуткое шипение: станцию атаковали агрессивные кибер-ксеноморфы.
+storyteller-metadata-subxenoborgs-start = В секторе активирована враждебная матка ксеноборгов: станцию атакуют кибернетические ксеноформы.
 storyteller-metadata-kingratmigration-start = Шорохи под половицами прекратились, уступив место писку: на станцию пробрался легендарный Король Крыс со своими верными подданными!
 storyteller-metadata-kingratmigrationhighpop-start = Подполье пришло в движение: началась массовая миграция полчищ грызунов под предводительством Короля Крыс.
 storyteller-metadata-masshallucinations-start = Аномальное пси-излучение накрыло палубы: рассудок членов экипажа затуманили пугающие галлюцинации.
@@ -202,7 +202,7 @@ storyteller-metadata-powergridcheck-start = Инженеры объявили о
 storyteller-metadata-thief-start = В толпе экипажа скрылся ловкий карманник, нацеленный на личные вещи сотрудников.
 storyteller-metadata-terminatorspawn-start = Блюспейс-вспышка озарила отсек: из далёкого будущего прибыл безжалостный Терминатор, чтобы забрать жизнь своей цели.
 storyteller-metadata-spiderclownspawn-start = Безумный цирковой кошмар воплотился наяву: на борту материализовался ужасающий Паук-Клоун.
-storyteller-metadata-abductors-end = Чуждые сигналы утихли: биологическая активность Абдукторов в секторе прекратилась.
+storyteller-metadata-abductorsspawn-end = Чуждые сигналы утихли: биологическая активность Абдукторов в секторе прекратилась.
 storyteller-metadata-revolutionary-end = Волна мятежа спала, и революционный запал среди бунтовщиков сошёл на нет.
 storyteller-metadata-bloodcult-end = Тёмная скверна отступила: Кровавый культ был полностью изгнан со станции.
 storyteller-metadata-fleshcult-end = Пульсирующее гнездо плоти затихло и сгнило: органическое заражение станции полностью остановлено.
@@ -220,6 +220,10 @@ storyteller-metadata-derelictgenericcyborgspawn-start = Старые реле с
 storyteller-metadata-traitor-start = Секретные частоты Синдиката ожили: среди экипажа активировался спящий [color=#FF4500]Предатель[/color].
 storyteller-metadata-piratesmall-start = Навигационные системы заметили лёгкую цель: в сектор проник юркий разведывательный катер пиратов.
 storyteller-metadata-giftsfireprotection-start = Пожарные расчёты получили посылку с современными средствами тушения пламени.
+
+storyteller-metadata-changeling-start = Среди экипажа пробудилась скрытая биология: активирован [color=#8B008B]Генокрад[/color].
+storyteller-metadata-bureaucraticerror-start = Бюрократия NanoTrasen дала сбой: слоты должностей и доступы по станции перепутаны.
+storyteller-metadata-diseasespawn-start = Медицинские сенсоры зафиксировали аномальный патоген: на борту появилась опасная болезнь.
 
 # Nuke history events
 storyteller-history-nuke-armed = Критическая угроза: активирован механизм самоуничтожения станции в районе [color=#ADFF2F]{$location}[/color]!

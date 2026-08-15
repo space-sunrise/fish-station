@@ -40,6 +40,7 @@
   - SubGamemodesRule
   - BasicRoundstartVariation
 
+# Fish-edit: без STC — иначе шаттлы дублируются с рассказчиком
 - type: gamePreset
   id: StorytellerClassic
   alias:
@@ -53,7 +54,6 @@
   rules:
   - StorytellerClassicRule
   - BasicRoundstartVariation
-  - SpaceTrafficControlEventScheduler
 
 - type: gamePreset
   id: StorytellerCalm
@@ -68,7 +68,6 @@
   rules:
   - StorytellerCalmRule
   - BasicRoundstartVariation
-  - SpaceTrafficControlEventScheduler
 
 - type: gamePreset
   id: StorytellerInsane
@@ -83,5 +82,3 @@
   rules:
   - StorytellerInsaneRule
   - BasicRoundstartVariation
-  - SpaceTrafficControlEventScheduler
-
