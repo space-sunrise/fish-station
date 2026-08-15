@@ -1741,8 +1741,9 @@
   parent: GatewayCore
   id: GatewayCoreJob
   components:
-  - type: AddGameRuleOnTrigger
-    gameRule: MaxTimeRoundRestartAfterGateDeadWM
+  # FIsh edit: конец раунда через PlanetWarRuleSystem вместо AddGameRuleOnTrigger
+  - type: PlanetWarGateway
+    team: Core
 
 
 - type: entity

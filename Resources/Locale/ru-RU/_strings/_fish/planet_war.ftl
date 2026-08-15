@@ -18,6 +18,14 @@ department-fractionghostwm-desc = Эуэ?
 radio-channel-core-name = Республиканцы
 radio-channel-arm-name = Повстанцы
 
+planetwar-announcer = Планетарная Война
+planetwar-round-start-announcement = Война началась. Уничтожьте вражеские врата, защитите свои.
+planetwar-gateway-destroyed-core = Врата республиканцев уничтожены! Победа повстанцев.
+planetwar-gateway-destroyed-arm = Врата повстанцев уничтожены! Победа республиканцев.
+planetwar-round-end-winner-core = Победа республиканцев.
+planetwar-round-end-winner-arm = Победа повстанцев.
+planetwar-round-end-stalemate = Ничья.
+
 material-moneywarmiz-name = кредит
 material-moneywarmiz-unit = кредит
 

@@ -1900,8 +1900,9 @@
   parent: GatewayArm
   id: GatewayArmJob
   components:
-  - type: AddGameRuleOnTrigger
-    gameRule: MaxTimeRoundRestartAfterGateDeadWM
+  # FIsh edit: конец раунда через PlanetWarRuleSystem вместо AddGameRuleOnTrigger
+  - type: PlanetWarGateway
+    team: Arm
 
 
 - type: entity

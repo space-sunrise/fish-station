@@ -3635,6 +3635,7 @@
 - type: entity
   id: MaxTimeRoundRestartAfterGateDeadWM
   parent: BaseGameRule
+  # FIsh edit: legacy — победа теперь в PlanetWarRuleSystem; прототип оставлен на случай админского запуска
   components:
   - type: MaxTimeRestartRule
     roundMaxTime: 1
