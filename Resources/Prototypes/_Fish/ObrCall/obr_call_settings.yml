@@ -1,0 +1,7 @@
+- type: obrCallSettings
+  id: DefaultObrCallSettings
+  arrivalDistance: 1500
+  distanceStep: 100
+  maxArrivalDistance: 2500
+  attemptsPerRadius: 16
+  clearancePadding: 4
