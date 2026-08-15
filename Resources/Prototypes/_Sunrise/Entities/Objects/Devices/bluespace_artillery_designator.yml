@@ -5,15 +5,11 @@
   description: A handheld laser designator for requesting NanoTrasen bluespace artillery strikes. Three non-rechargeable charges.
   components:
   - type: Sprite
-    sprite: Objects/Devices/door_remote.rsi
-    layers:
-    - state: door_remotebase
-    - state: door_remotelightscolour
-      color: "#1d8bad"
-    - state: door_remotescreencolour
-      color: "#0044aa"
+    sprite: _Sunrise/Objects/Devices/bluespace_artillery_designator.rsi
+    state: icon
   - type: Item
     size: Small
+    sprite: _Sunrise/Objects/Devices/bluespace_artillery_designator.rsi
   - type: LimitedCharges
     maxCharges: 3
     lastCharges: 3
