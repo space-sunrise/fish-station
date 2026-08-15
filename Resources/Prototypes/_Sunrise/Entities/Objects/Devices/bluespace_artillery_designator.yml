@@ -1,8 +1,8 @@
 - type: entity
-  parent: BaseItem
+  parent: Binoculars
   id: BluespaceArtilleryDesignator
-  name: BSA laser designator
-  description: A handheld laser designator for requesting NanoTrasen bluespace artillery strikes. Three non-rechargeable charges.
+  name: BSA LCU
+  description: A handheld laser designator for requesting NanoTrasen bluespace artillery strikes. Three non-rechargeable charges. Wield (Z) to look far and designate targets at range.
   components:
   - type: Sprite
     sprite: _Sunrise/Objects/Devices/bluespace_artillery_designator.rsi
@@ -10,12 +10,17 @@
   - type: Item
     size: Small
     sprite: _Sunrise/Objects/Devices/bluespace_artillery_designator.rsi
+  - type: Clothing
+    sprite: _Sunrise/Objects/Devices/bluespace_artillery_designator.rsi
+    quickEquip: false
+    slots:
+    - Neck
   - type: LimitedCharges
     maxCharges: 3
     lastCharges: 3
   - type: BluespaceArtilleryDesignator
-    targetingDelay: 1.5
-    strikeDelay: 5
+    targetingDelay: 2
+    strikeDelay: 7
     targetMarker: EffectBluespaceArtilleryTarget
     announcement: bluespace-artillery-announcement
     announcementSender: bluespace-artillery-announcement-sender
@@ -51,7 +56,7 @@
   parent: BluespaceArtilleryDesignator
   id: AdminBluespaceArtilleryDesignator
   suffix: Admin
-  name: admin BSA laser designator
+  name: ADMIN BSA LCU
   description: An admin bluespace artillery designator with nearly unlimited charges and instant targeting lock.
   components:
   - type: LimitedCharges
@@ -59,7 +64,7 @@
     lastCharges: 999
   - type: BluespaceArtilleryDesignator
     targetingDelay: 0
-    strikeDelay: 5
+    strikeDelay: 7
 
 - type: entity
   id: EffectBluespaceArtilleryTarget
@@ -77,7 +82,7 @@
       shader: unshaded
       scale: 1.25, 1.25
   - type: TimedDespawn
-    lifetime: 8
+    lifetime: 12
   - type: Tag
     tags:
     - HideContextMenu

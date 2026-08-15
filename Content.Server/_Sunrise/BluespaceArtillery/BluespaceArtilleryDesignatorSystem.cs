@@ -79,7 +79,7 @@ public sealed class BluespaceArtilleryDesignatorSystem : SharedBluespaceArtiller
             eventTarget: ent,
             used: ent)
         {
-            BreakOnMove = false,
+            BreakOnMove = true,
             BreakOnDamage = false,
             BreakOnHandChange = true,
             NeedHand = true,

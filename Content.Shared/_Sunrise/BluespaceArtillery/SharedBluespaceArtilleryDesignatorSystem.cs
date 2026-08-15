@@ -1,13 +1,13 @@
 using Content.Shared.Database;
 using Content.Shared.Examine;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 
 namespace Content.Shared._Sunrise.BluespaceArtillery;
 
 /// <summary>
-/// Переключение режимов ЛЦУ БСА по образцу Dominator (UseInHand + SelectType verbs).
+/// Режимы ЛЦУ БСА через SelectType verbs.
+/// Z / UseInHand оставляем биноклю (wield + зум), без перехвата под смену режима.
 /// </summary>
 public abstract class SharedBluespaceArtilleryDesignatorSystem : EntitySystem
 {
@@ -17,7 +17,6 @@ public abstract class SharedBluespaceArtilleryDesignatorSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BluespaceArtilleryDesignatorComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<BluespaceArtilleryDesignatorComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
         SubscribeLocalEvent<BluespaceArtilleryDesignatorComponent, ExaminedEvent>(OnExamined);
     }
@@ -57,15 +56,6 @@ public abstract class SharedBluespaceArtilleryDesignatorSystem : EntitySystem
                 Act = () => TrySetFireMode(ent, index, user),
             });
         }
-    }
-
-    private void OnUseInHand(Entity<BluespaceArtilleryDesignatorComponent> ent, ref UseInHandEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        args.Handled = true;
-        TryCycleFireMode(ent, args.User);
     }
 
     public void TryCycleFireMode(Entity<BluespaceArtilleryDesignatorComponent> ent, EntityUid? user = null)

@@ -17,13 +17,13 @@ public sealed partial class BluespaceArtilleryDesignatorComponent : Component
     /// Задержка наведения/подтверждения цели перед запуском удара.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TimeSpan TargetingDelay = TimeSpan.FromSeconds(1.5);
+    public TimeSpan TargetingDelay = TimeSpan.FromSeconds(2);
 
     /// <summary>
     /// Задержка между подтверждением удара и взрывом.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TimeSpan StrikeDelay = TimeSpan.FromSeconds(5);
+    public TimeSpan StrikeDelay = TimeSpan.FromSeconds(7);
 
     /// <summary>
     /// Визуальная метка цели на время отсчёта до удара.
