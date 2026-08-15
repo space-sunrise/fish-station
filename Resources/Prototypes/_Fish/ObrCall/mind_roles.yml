@@ -1,0 +1,9 @@
+- type: entity
+  parent: BaseMindRole
+  id: MindRoleObrMission
+  name: OBR Mission
+  components:
+  - type: MindRole
+    sortWeight: 5
+  - type: ObrMissionBriefing
+    mission: ""

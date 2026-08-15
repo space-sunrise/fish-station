@@ -144,7 +144,7 @@
   description: Remotely access and edit the station criminal records database.
   components:
   - type: Action
-    icon: { sprite: Structures/Machines/server.rsi, state: server }
+    icon: { sprite: _Sunrise/Objects/Devices/handheld_criminal_records_monitor.rsi, state: icon }
     itemIconStyle: NoItem
   - type: InstantAction
     event: !type:SyndicatePaiOpenSecRecordsEvent

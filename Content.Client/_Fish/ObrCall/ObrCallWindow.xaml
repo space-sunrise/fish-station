@@ -1,0 +1,33 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'obr-call-window-title'}"
+                      MinSize="480 520"
+                      SetSize="520 560">
+    <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="6">
+        <controls:StripeBack>
+            <Label Name="HeaderLabel"
+                   Text="{Loc 'obr-call-window-header'}"
+                   Align="Center"
+                   StyleClasses="LabelHeading"
+                   Margin="4"/>
+        </controls:StripeBack>
+
+        <BoxContainer Orientation="Horizontal" Name="BalanceBox">
+            <Label Text="{Loc 'obr-call-window-balance'}" StyleClasses="LabelKeyText"/>
+            <Label Name="BalanceLabel" Text="0" Margin="8 0 0 0"/>
+        </BoxContainer>
+
+        <Label Text="{Loc 'obr-call-window-mission'}" StyleClasses="LabelKeyText"/>
+        <TextEdit Name="MissionInput"
+                  MinHeight="90"
+                  VerticalExpand="False"
+                  HorizontalExpand="True"/>
+
+        <Label Text="{Loc 'obr-call-window-teams'}" StyleClasses="LabelHeading"/>
+        <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+            <BoxContainer Name="TeamsContainer" Orientation="Vertical" SeparationOverride="8"/>
+        </ScrollContainer>
+
+        <Label Name="StatusLabel" Align="Center" Visible="False"/>
+    </BoxContainer>
+</controls:FancyWindow>

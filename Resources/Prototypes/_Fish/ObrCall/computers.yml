@@ -1,0 +1,71 @@
+- type: entity
+  id: ComputerObrCentCommConsole
+  parent: BaseComputerSunrise
+  name: CentComm OBR call console
+  suffix: CentComm, OBR
+  description: Allows Central Command to deploy Emergency Response Teams.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: comm
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+  - type: ObrCentCommConsole
+  - type: ActivatableUI
+    key: enum.ObrCallUiKey.Key
+  - type: ActivatableUIRequiresAccess
+  - type: UserInterface
+    interfaces:
+      enum.ObrCallUiKey.Key:
+        type: ObrCallBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Computer
+    board: ObrCentCommComputerCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b89f25"
+  - type: AccessReader
+    access: [["CentralCommand"]]
+
+- type: entity
+  id: ComputerObrStationConsole
+  parent: BaseComputerSunrise
+  name: station OBR purchase console
+  suffix: Station, OBR
+  description: Allows the station to purchase Emergency Response Team support from station funds.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: comm
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+  - type: ObrStationConsole
+  - type: ActivatableUI
+    key: enum.ObrCallUiKey.Key
+  - type: ActivatableUIRequiresAccess
+  - type: UserInterface
+    interfaces:
+      enum.ObrCallUiKey.Key:
+        type: ObrCallBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Computer
+    board: ObrStationComputerCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b89f25"
+  - type: AccessReader
+    access: [["Captain"], ["HeadOfPersonnel"]]

@@ -194,9 +194,7 @@
       enum.SyndicatePaiUiKey.Key:
         type: SyndicatePaiBoundUserInterface
         requireInputValidation: false
-      enum.CriminalRecordsConsoleKey.Key:
-        type: CriminalRecordsConsoleBoundUserInterface
-        requireInputValidation: false
+      # FIsh edit: ванильный CriminalRecords UI убран; SunriseCriminalRecordsConsole вешается в SyndicatePaiSystem
   - type: Store
     categories:
     - SyndicatePAIModules
