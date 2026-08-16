@@ -1,0 +1,69 @@
+# Game rules: шаттлы ОБР / РХБЗЗ для вызова через консоли Fish.
+# weight: 0 — не участвуют в случайном планировщике событий.
+
+- type: entity
+  abstract: true
+  parent: BaseGameRule
+  id: BaseFishObrShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: null
+    startAudio: /Audio/_Sunrise/Announcements/sunrise_ert_accepted.ogg
+    # null — правило не автозавершается; шаттл остаётся, повторный вызов блокируется.
+    duration: null
+    maxOccurrences: 99
+    weight: 0
+  - type: RuleGrids
+  - type: LoadMapRule
+
+- type: entity
+  id: FishObrShuttleAmber
+  parent: BaseFishObrShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: null
+    startAudio: /Audio/_Sunrise/Announcements/sunrise_ert_accepted.ogg
+    duration: null
+    maxOccurrences: 99
+    weight: 0
+  - type: LoadMapRule
+    gridPath: /Maps/_Fish/Shuttles/DSO/ERT/ert_striker_Roles_Amber.yml
+
+- type: entity
+  id: FishObrShuttleRed
+  parent: BaseFishObrShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: null
+    startAudio: /Audio/_Sunrise/Announcements/sunrise_ert_accepted.ogg
+    duration: null
+    maxOccurrences: 99
+    weight: 0
+  - type: LoadMapRule
+    gridPath: /Maps/_Fish/Shuttles/DSO/ERT/ert_striker_Roles_RED.yml
+
+- type: entity
+  id: FishObrShuttleGamma
+  parent: BaseFishObrShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: null
+    startAudio: /Audio/_Sunrise/Announcements/sunrise_ert_accepted.ogg
+    duration: null
+    maxOccurrences: 99
+    weight: 0
+  - type: LoadMapRule
+    gridPath: /Maps/_Fish/Shuttles/DSO/ERT/ert_striker_Roles_Gamma.yml
+
+- type: entity
+  id: FishObrShuttleCburn
+  parent: BaseFishObrShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: null
+    startAudio: /Audio/_Sunrise/Announcements/sunrise_outbreak5.ogg
+    duration: null
+    maxOccurrences: 99
+    weight: 0
+  - type: LoadMapRule
+    gridPath: /Maps/_Fish/Shuttles/DSO/CBURN/cburn_box_Roles.yml

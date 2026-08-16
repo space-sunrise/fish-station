@@ -96,6 +96,9 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
         _cfg.OnValueChanged(SunriseCCVars.DiscordBanWebhook, OnWebhookChanged, true);
         _cfg.OnValueChanged(CVars.GameHostName, OnServerNameChanged, true);
         _cfg.OnValueChanged(SunriseCCVars.IpWhitelist, OnIpWhitelistChanged, true);
+        // Fish-start - отложенные баны
+        _playerManager.PlayerStatusChanged += OnPlayerStatusChanged;
+        // Fish-end
     }
 
     private void OnServerNameChanged(string obj)

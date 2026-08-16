@@ -512,6 +512,17 @@ namespace Content.Server.GameTicking
             if (DummyTicker)
                 return;
 
+            // Fish-start - применить отложенные баны в конце раунда
+            try
+            {
+                _banManager.ApplyDeferredBans();
+            }
+            catch (Exception e)
+            {
+                _sawmill.Error($"Error while applying deferred bans: {e}");
+            }
+            // Fish-end
+
             DebugTools.Assert(RunLevel == GameRunLevel.InRound);
             _sawmill.Info("Ending round!");
 
