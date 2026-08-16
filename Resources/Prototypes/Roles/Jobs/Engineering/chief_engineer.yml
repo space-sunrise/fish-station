@@ -19,7 +19,7 @@
   supervisors: job-supervisors-captain
   radioBold: true # Sunrise-Edit
   displayWeight: 70 # Sunrise-Edit
-  canBeAntag: true # RaMbUt878-edit
+  canBeAntag: false # Fish-edit
   # Sunrise-Start
   alternativeTitles:
   - job-alt-title-chief-mechanic
@@ -35,7 +35,7 @@
   - Cryogenics
   special:
   - !type:AddImplantSpecial
-    implants: [ DeathRattleImplantBlueShield ] # Sunrise-Edit
+    implants: [ MindShieldImplant, DeathRattleImplantBlueShield ] # Fish-edit
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
