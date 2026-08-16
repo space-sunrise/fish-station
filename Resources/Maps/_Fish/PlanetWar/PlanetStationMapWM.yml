@@ -15107,16 +15107,10 @@ entities:
         moles:
           Oxygen: 22
           Nitrogen: 78
-    - type: MapLight
-      ambientLightColor: '#FFEEBBFF'
-    - type: Roof
-      data: {}
-      color: '#FFEEBBFF'
-    - type: LightCycle
-    - type: BecomesStation
-      id: PlanetMap
-    - type: SunShadow
-    - type: SunShadowCycle
+  - type: MapLight
+      ambientLightColor: '#D8B059FF'
+   - type: SunShadow
+   - type: SunShadowCycle
       directions:
       - direction: 0,3
       - alpha: 0.5
@@ -15128,6 +15122,12 @@ entities:
       - alpha: 0.5
         direction: 3,-0.1
         ratio: 0.75
+      duration: 300
+   - type: LightCycle
+      maxLightLevel: 500
+      minLightLevel: 0.85
+      duration: 300
+      originalColor: '#D8B059FF'
   - uid: 19521
     components:
     - type: MetaData
@@ -51050,13 +51050,6 @@ entities:
     components:
     - type: Transform
       pos: 301.5,3.5
-      parent: 1
-- proto: GravityGeneratorMini
-  entities:
-  - uid: 18029
-    components:
-    - type: Transform
-      pos: 153.5,152.5
       parent: 1
 - proto: HolosignForcefieldWM4567
   entities:
