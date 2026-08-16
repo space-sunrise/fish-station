@@ -14,7 +14,7 @@
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
   supervisors: job-supervisors-captain
-  canBeAntag: true # Sunrise-Edit
+  canBeAntag: false # Fish-edit
   radioBold: true # Sunrise-Edit
   displayWeight: 50 # Sunrise-Edit
   # Sunrise-Start
@@ -31,7 +31,7 @@
   - ResearchConsoleAccess # Sunrise-Edit
   special:
   - !type:AddImplantSpecial
-    implants: [ DeathRattleImplantBlueShield ] # Sunrise-Edit
+    implants: [ MindShieldImplant, DeathRattleImplantBlueShield ] # Fish-edit
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff

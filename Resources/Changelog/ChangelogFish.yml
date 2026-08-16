@@ -1,4 +1,10 @@
 ﻿Entries:
+- author: dng-cher
+  time: '2026-08-16T10:30:08.0000000+00:00'
+  changes:
+  - type: Add
+    message: Добавлена новая карта для ПВ
+    id: 21
 - author: VigersRay
   changes:
   - message: Init
@@ -224,3 +230,16 @@
     type: Add
   id: 21
   time: '2026-08-15T00:45:00.000000+00:00'
+- author: dng-cher
+  time: '2026-08-16T13:35:57.0000000+00:00'
+  changes:
+  - type: Add
+    message: Новая карта ПВ
+  - type: Remove
+    message: Старая карта ПВ
+  - type: Tweak
+    message: '-'
+  - type: Fix
+    message: хз
+  id: 22
+  url: https://github.com/space-sunrise/fish-station/pull/374

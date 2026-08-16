@@ -1,17 +1,17 @@
 - type: gameMap
-  id: FishTerraBiome
-  mapName: 'Terra Colony'
-  mapPath: /Maps/_Fish/Station/terraBiome.yml 
+  id: FishTerraIsland
+  mapName: 'Terra Island'
+  mapPath: /Maps/_Fish/Station/terraIsland.yml 
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 0
-  maxPlayers: 25
+  maxPlayers: 30
   stations:
-    FishTerraBiome:
+    FishTerraIsland:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Терра {1}'
+          mapNameTemplate: '{0} Остров Терра {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'MT'
@@ -21,8 +21,6 @@
           grids:
           - gridPath: /Maps/_Fish/Shuttles/mining.yml
             priorityTag: DockMining
-        - type: StationBiome
-          biome: TerraPlanet
         - type: StationJobs
           availableJobs:
             # service
