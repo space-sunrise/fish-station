@@ -1,4 +1,10 @@
 ﻿Entries:
+- author: dng-cher
+  time: '2026-08-16T10:30:08.0000000+00:00'
+  changes:
+  - type: Add
+    message: Добавлена новая карта для ПВ
+    id: 21
 - author: VigersRay
   changes:
   - message: Init
@@ -208,3 +214,16 @@
       Красный/РХБЗЗ 100 000).
   id: 20
   url: https://github.com/space-sunrise/fish-station/pull/348
+- author: dng-cher
+  time: '2026-08-16T13:35:57.0000000+00:00'
+  changes:
+  - type: Add
+    message: Новая карта ПВ
+  - type: Remove
+    message: Старая карта ПВ
+  - type: Tweak
+    message: '-'
+  - type: Fix
+    message: хз
+  id: 21
+  url: https://github.com/space-sunrise/fish-station/pull/374

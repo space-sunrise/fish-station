@@ -8,9 +8,6 @@
     Ghost:
       stationProto: StationNoArrivalsWM
       components:
-        - type: StationBiome
-          biome: WMSpisdilSsvoegoJeFpoPlanetRari #WMGrasslands
-          mapLightColor: "#cfb06b"
         - type: StationNameSetup
           mapNameTemplate: '{0} Обломок {1}'
           nameGenerator:
