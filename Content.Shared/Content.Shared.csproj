@@ -2,6 +2,8 @@
   <PropertyGroup>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <WarningsAsErrors>RA0032;nullable</WarningsAsErrors>
+    <NoWarn>$(NoWarn);CS0657</NoWarn>
+    <WarningsNotAsErrors>$(WarningsNotAsErrors);CS0657</WarningsNotAsErrors>
   </PropertyGroup>
   <Import Project="../MSBuild/Content.props" />
   <ItemGroup>
