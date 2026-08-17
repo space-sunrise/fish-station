@@ -1,0 +1,169 @@
+- type: entity
+  id: XenoArtifactEffectCreationGasZenthium
+  parent: BaseXenoArtifactEffect
+  description: Выделяет Зентиум
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: XAECreateGas
+    gases:
+      Zenthium: 300
+
+- type: entity
+  id: XenoArtifactEffectCreationGasKrypium
+  parent: BaseXenoArtifactEffect
+  description: Выделяет Крипиум
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: XAECreateGas
+    gases:
+      Krypium: 300
+
+- type: entity
+  id: XenoArtifactEffectCreationGasPrallium
+  parent: BaseXenoArtifactEffect
+  description: Выделяет Праллий
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: XAECreateGas
+    gases:
+      Prallium: 300
+
+- type: entity
+  id: XenoArtifactEffectCreationGasChaoson
+  parent: BaseXenoArtifactEffect
+  description: Выделяет Хаосон
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: XAECreateGas
+    gases:
+      Chaoson: 300
+
+- type: entity
+  id: XenoArtifactEffectCreationGasGarodin
+  parent: BaseXenoArtifactEffect
+  description: Выделяет Гародин
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: XAECreateGas
+    gases:
+      Garodin: 300
+
+- type: entity
+  id: XenoArtifactEffectCreationGasBaratrium
+  parent: BaseXenoArtifactEffect
+  description: Выделяет Баратрий
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: XAECreateGas
+    gases:
+      Baratrium: 300
+
+- type: entity
+  id: XenoArtifactEffectCreationGasEthylium
+  parent: BaseXenoArtifactEffect
+  description: Выделяет Этилиум
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: XAECreateGas
+    gases:
+      Ethylium: 300
+
+- type: entity
+  id: XenoArtifactEffectCreationGasZimmera
+  parent: BaseXenoArtifactEffect
+  description: Выделяет Циммеру
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: XAECreateGas
+    gases:
+      Zimmera: 300
+
+- type: entity
+  id: XenoArtifactEffectCreationGasFramel
+  parent: BaseXenoArtifactEffect
+  description: Выделяет Фрамель
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: XAECreateGas
+    gases:
+      Framel: 300
+
+- type: entity
+  id: XenoArtifactEffectCreationGasKlemennon
+  parent: BaseXenoArtifactEffect
+  description: Выделяет Клеменнон
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: XAECreateGas
+    gases:
+      Klemennon: 300
+
+- type: entity
+  id: XenoArtifactEffectCreationGasProtoUltimium
+  parent: BaseXenoArtifactEffect
+  description: Выделяет Прото-Ультимиум
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: XAECreateGas
+    gases:
+      ProtoUltimium: 300
+
+- type: entity
+  id: XenoArtifactEffectCreationGasZimmerousFrezonite
+  parent: BaseXenoArtifactEffect
+  description: Выделяет Фрезонит Циммеры
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: XAECreateGas
+    gases:
+      ZimmerousFrezonite: 300
+
+- type: entity
+  id: XenoArtifactEffectCreationGasAntiUltimium
+  parent: BaseXenoArtifactEffect
+  description: Выделяет Анти-Ультимиум
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: XAECreateGas
+    gases:
+      AntiUltimium: 300
+
+- type: entity
+  id: XenoArtifactEffectCreationGasUltimium
+  parent: BaseXenoArtifactEffect
+  description: Выделяет Ультимиум
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: XAECreateGas
+    gases:
+      Ultimium: 300
+
+- type: entity
+  id: XenoArtifactEffectCreationGasPermafrost
+  parent: BaseXenoArtifactEffect
+  description: Выделяет Пермафрост
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: XAECreateGas
+    gases:
+      Permafrost: 300
+
+- type: entity
+  id: XenoArtifactEffectCreationGasRiminon
+  parent: BaseXenoArtifactEffect
+  description: Выделяет Райминон
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: XAECreateGas
+    gases:
+      Riminon: 300
+
+- type: entity
+  id: XenoArtifactEffectCreationGasAxoNoblium
+  parent: BaseXenoArtifactEffect
+  description: Выделяет Аксо-Ноблий
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: XAECreateGas
+    gases:
+      AxoNoblium: 300
