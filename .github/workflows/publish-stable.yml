@@ -99,3 +99,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK_SUNRISE }}
         CHANGELOG_FILE: 'Resources/Changelog/ChangelogSunrise.yml'
+
