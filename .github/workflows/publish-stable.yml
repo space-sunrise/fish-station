@@ -81,22 +81,32 @@ jobs:
         DISCORD_ROLE_ID: ${{ secrets.ANNOUNCE_UPDATE_DISCORD_ROLE_ID }}
         BUILD_PATH: ./release/SS14.Client.zip
 
-    - name: Publish discord changelog
+    - name: Publish Fish discord changelog
       continue-on-error: true
-      # Sunrise-Edit - запуск скрипта публикации чейнджлога из каталога Sunrise
-      run: Tools/_sunrise/changelog/actions_changelogs_since_last_run.py
+      # Fish edit - публикация чейнджлога Fish в Discord
+      run: python3 Tools/_sunrise/changelog/actions_changelogs_since_last_run.py
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # Fish edit - use Fish specific webhook
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        GITHUB_RUN_ID: ${{ github.run_id }}
+        SOURCE_WORKFLOW_RUN_ID: ${{ github.run_id }}
+        RELEASED_SHA: ${{ github.sha }}
+        CHANGELOG_TARGET_ID: fish
+        CHANGELOG_FILE: Resources/Changelog/ChangelogFish.yml
         DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK_FISH }}
-        CHANGELOG_FILE: ${{ vars.CHANGELOG_FILE }}
 
     - name: Publish Sunrise discord changelog
       continue-on-error: true
-      # Fish edit - publish upstream Sunrise changelog
-      run: Tools/_sunrise/changelog/actions_changelogs_since_last_run.py
+      # Fish edit - публикация апстримного чейнджлога Sunrise в Discord
+      run: python3 Tools/_sunrise/changelog/actions_changelogs_since_last_run.py
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        GITHUB_RUN_ID: ${{ github.run_id }}
+        SOURCE_WORKFLOW_RUN_ID: ${{ github.run_id }}
+        RELEASED_SHA: ${{ github.sha }}
+        CHANGELOG_TARGET_ID: sunrise
+        CHANGELOG_FILE: Resources/Changelog/ChangelogSunrise.yml
         DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK_SUNRISE }}
-        CHANGELOG_FILE: 'Resources/Changelog/ChangelogSunrise.yml'
+
 
