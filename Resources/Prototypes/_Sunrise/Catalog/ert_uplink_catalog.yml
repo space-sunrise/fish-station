@@ -4,24 +4,32 @@
   productEntity: ClothingBackpackDuffelWeaponSubMachineGunDrozdMk2
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: drozd }
   cost:
-    Bluecrystal: 10
+    Bluecrystal: 9 # Fish edit
   categories:
     - NTAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4
+  - !type:StoreWhitelistCondition # Fish edit
+    blacklist:
+      tags:
+      - BlueShield
 
 - type: listing
   id: ERTUplinkWeaponRifleLecterFilled
   productEntity: ClothingBackpackDuffelWeaponRifleLecterFilled
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: lecter }
   cost:
-    Bluecrystal: 10
+    Bluecrystal: 9 # Fish edit
   categories:
     - NTAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4
+  - !type:StoreWhitelistCondition # Fish edit
+    blacklist:
+      tags:
+      - BlueShield
 
 - type: listing
   id: ERTUplinkWeaponSubMachineGunWt550
@@ -29,12 +37,16 @@
   productEntity: ClothingBackpackDuffelWeaponSubMachineGunWt550
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: wt550 }
   cost:
-    Bluecrystal: 12
+    Bluecrystal: 9 # Fish edit
   categories:
     - NTAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4
+  - !type:StoreWhitelistCondition # Fish edit
+    blacklist:
+      tags:
+      - BlueShield
 
 - type: listing
   id: ERTUplinkWeaponSubMachineGunP90
@@ -42,7 +54,7 @@
   productEntity: ClothingBackpackDuffelWeaponSubMachineGunP90Filled
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: p90 }
   cost:
-    Bluecrystal: 25
+    Bluecrystal: 9 # Fish edit
   categories:
   - NTAutoGun
   conditions:
@@ -60,23 +72,23 @@
   icon: { sprite: _Starlight/Objects/Weapons/Guns/Rifles/m16a4.rsi, state: base }
   productEntity: ClothingBackpackDuffelWeaponRifleLeikhaFilled
   cost:
-    Bluecrystal: 13
+    Bluecrystal: 9 # Fish edit
   categories:
   - NTAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4
-  - !type:StoreWhitelistCondition
-    whitelist:
+  - !type:StoreWhitelistCondition # Fish edit
+    blacklist:
       tags:
-      - ERTRed
+      - BlueShield
 
 - type: listing
   id: ERTUplinkWeaponRifleSKM24Filled
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: skm24nano }
   productEntity: ClothingBackpackDuffelWeaponRifleSKM24Filled
   cost:
-    Bluecrystal: 12
+    Bluecrystal: 9 # Fish edit
   categories:
   - NTAutoGun
   conditions:
@@ -86,13 +98,14 @@
     blacklist:
       tags:
       - CBURN
+      - BlueShield # Fish edit
 
 - type: listing
   id: ERTUplinkWeaponRifleSKM24FilledCBURN
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: skm24 }
   productEntity: ClothingBackpackDuffelWeaponRifleSKM24FilledCBURN
   cost:
-    Bluecrystal: 13
+    Bluecrystal: 9 # Fish edit
   categories:
   - NTAutoGun
   conditions:
@@ -109,7 +122,7 @@
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: lecter_mk3 }
   productEntity: ClothingBackpackDuffelWeaponLecterMk3Filled
   cost:
-    Bluecrystal: 15
+    Bluecrystal: 9 # Fish edit
   categories:
   - NTAutoGun
   conditions:
@@ -126,7 +139,7 @@
   productEntity: ClothingBackpackDuffelWeaponRifleSKM28Filled
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: skm28nano }
   cost:
-    Bluecrystal: 20
+    Bluecrystal: 9 # Fish edit
   categories:
   - NTAutoGun
   conditions:
@@ -136,13 +149,14 @@
     blacklist:
       tags:
       - CBURN
+      - BlueShield # Fish edit
 
 - type: listing
   id: ERTUplinkWeaponRifleSKM28FilledCBURN
   productEntity: ClothingBackpackDuffelWeaponRifleSKM28FilledCBURN
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: skm28 }
   cost:
-    Bluecrystal: 15
+    Bluecrystal: 9 # Fish edit
   categories:
   - NTAutoGun
   conditions:
@@ -158,7 +172,7 @@
   productEntity: ClothingBackpackDuffelWeaponLightMachineGunM492
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: m492 }
   cost:
-    Bluecrystal: 20
+    Bluecrystal: 16 # Fish edit
   categories:
     - NTAutoGun
   conditions:
@@ -170,27 +184,11 @@
       - ERTRed
 
 - type: listing
-  id: ERTUplinkWeaponLightMachineGunM492Gamma
-  productEntity: ClothingBackpackDuffelWeaponLightMachineGunM492
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: m492 }
-  cost:
-    Bluecrystal: 30
-  categories:
-    - NTAutoGun
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - ERTGamma
-
-- type: listing
   id: ERTUplinkWeaponLightMachineGunM492CBURN
   productEntity: ClothingBackpackDuffelWeaponLightMachineGunM492CBURN
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: m492cburn }
   cost:
-    Bluecrystal: 20
+    Bluecrystal: 16 # Fish edit
   categories:
     - NTAutoGun
   conditions:
@@ -206,7 +204,7 @@
   productEntity: WeaponMachineGunMG42
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mg42 }
   cost:
-    Bluecrystal: 38
+    Bluecrystal: 16 # Fish edit
   categories:
     - NTAutoGun
   conditions:
@@ -224,7 +222,7 @@
   productEntity: PowerpackMinigunMG100Incendiary
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mg_100 }
   cost:
-    Bluecrystal: 35
+    Bluecrystal: 16 # Fish edit
   categories:
     - NTAutoGun
   conditions:
@@ -242,7 +240,7 @@
   productEntity: PowerpackMinigunMG100
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mg_100 }
   cost:
-    Bluecrystal: 40
+    Bluecrystal: 16 # Fish edit
   categories:
     - NTAutoGun
   conditions:
@@ -260,7 +258,7 @@
   productEntity: ClothingBackpackDuffelWeaponRifleM52Filled
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: m52 }
   cost:
-    Bluecrystal: 30
+    Bluecrystal: 16 # Fish edit
   categories:
   - NTAutoGun
   conditions:
@@ -278,7 +276,7 @@
   productEntity: ClothingBackpackDuffelWeaponSniperHristovFilled
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: hristov }
   cost:
-    Bluecrystal: 30
+    Bluecrystal: 16 # Fish edit
   categories:
   - NTAutoGun
   conditions:
@@ -295,7 +293,7 @@
   productEntity: ClothingBackpackDuffelWeaponShotgunCycler
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: cycler }
   cost:
-    Bluecrystal: 20
+    Bluecrystal: 16 # Fish edit
   categories:
   - NTAutoGun
   conditions:
@@ -313,7 +311,7 @@
   productEntity: ClothingBackpackDuffelWeaponShotgun4034Filled
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: shot4034 }
   cost:
-    Bluecrystal: 5
+    Bluecrystal: 2 # Fish edit
   categories:
   - NTAutoGun
   conditions:
@@ -324,6 +322,7 @@
       tags:
       - ERTEpsilon
       - ERTGamma
+      - BlueShield # Fish edit
 
 - type: listing
   id: ERTUplinkWeaponShotgun12
@@ -331,12 +330,16 @@
   productEntity: ClothingBackpackDuffelWeaponShotgun12Filled
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: spas12 }
   cost:
-    Bluecrystal: 10
+    Bluecrystal: 9 # Fish edit
   categories:
   - NTAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 5
+  - !type:StoreWhitelistCondition # Fish edit
+    blacklist:
+      tags:
+      - BlueShield
 
 # region Лазеры:
 - type: listing
@@ -344,7 +347,7 @@
   productEntity: WeaponPulseRifle
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: pulse-r }
   cost:
-    Bluecrystal: 35
+    Bluecrystal: 16 # Fish edit
   categories:
   - NTLasers
   conditions:
@@ -361,7 +364,7 @@
   productEntity: WeaponSniperPulseCarbine
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: pulse-sc }
   cost:
-    Bluecrystal: 20
+    Bluecrystal: 16 # Fish edit
   categories:
   - NTLasers
   conditions:
@@ -378,7 +381,7 @@
   productEntity: WeaponIonRifle
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: ion-r }
   cost:
-    Bluecrystal: 10
+    Bluecrystal: 9 # Fish edit
   categories:
     - NTLasers
   conditions:
@@ -390,9 +393,9 @@
   productEntity: WeaponPulseCarbine
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: pulse-c }
   cost:
-    Bluecrystal: 15
+    Bluecrystal: 9 # Fish edit
   categories:
-    - NTLasers
+  - NTLasers
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 6
@@ -407,7 +410,7 @@
   productEntity: WeaponLaserLNT620
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: lnt620 }
   cost:
-    Bluecrystal: 10
+    Bluecrystal: 9 # Fish edit
   categories:
   - NTLasers
   conditions:
@@ -419,7 +422,7 @@
   productEntity: WeaponGunLaserCarbineAutomatic
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: ik60 }
   cost:
-    Bluecrystal: 11
+    Bluecrystal: 16 # Fish edit
   categories:
   - NTLasers
   conditions:
@@ -433,7 +436,7 @@
   productEntity: WeaponRevolverSpearhead
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: spearhead }
   cost:
-    Bluecrystal: 6
+    Bluecrystal: 1 # Fish edit
   categories:
   - NTPistols
   conditions:
@@ -445,17 +448,12 @@
   productEntity: WeaponPulsePistol
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: pulse-p }
   cost:
-    Bluecrystal: 8
+    Bluecrystal: 4 # Fish edit
   categories:
   - NTPistols
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - ERTRed
-      - ERTGamma
 
 
 - type: listing
@@ -464,17 +462,12 @@
   productEntity: WeaponPistolN1984
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: n1984 }
   cost:
-    Bluecrystal: 8
+    Bluecrystal: 2 # Fish edit
   categories:
   - NTPistols
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - ERTGamma
-      - CBURN
 
 # region Боеприпасы:
 - type: listing
@@ -1094,6 +1087,32 @@
     stock: 4
 
 # Медицина:
+# Fish added start - automenders
+- type: listing
+  id: ERTUplinkAutoMenderBruteFilled
+  productEntity: AutoMenderBruteFilled
+  icon: { sprite: _Starlight/Objects/Specific/Medical/medical.rsi, state: mender }
+  cost:
+    Crystallite: 10
+  categories:
+  - NTMedicine
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: ERTUplinkAutoMenderBurnFilled
+  productEntity: AutoMenderBurnFilled
+  icon: { sprite: _Starlight/Objects/Specific/Medical/medical.rsi, state: mender }
+  cost:
+    Crystallite: 10
+  categories:
+  - NTMedicine
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+# Fish added end
+
 - type: listing
   id: ERTUplinkMaterialBiomass
   productEntity: MaterialBiomass
@@ -1108,8 +1127,8 @@
 
 - type: listing
   id: ERTUplinkDefibrillator
-  productEntity: DefibrillatorCompact
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: comp_defib }
+  productEntity: AdvancedDefibrillatorCompact # Fish edit
+  icon: { sprite: _Sunrise/Entities/Objects/Specific/Medical/advanced_defibsmall.rsi, state: defib }
   cost:
     Crystallite: 4
   categories:
@@ -1415,6 +1434,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:StoreWhitelistCondition # Fish edit
+    blacklist:
+      tags:
+      - BlueShield
 
 # Санитария
 

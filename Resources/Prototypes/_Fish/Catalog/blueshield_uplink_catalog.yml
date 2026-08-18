@@ -1,0 +1,349 @@
+# Оружие Синего Щита
+- type: listing
+  id: ERTUplinkWeaponRifleLecterMk2
+  productEntity: WeaponRifleLecterMk2
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: lecter }
+  cost:
+    Bluecrystal: 9
+  categories:
+    - NTAutoGun
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkWeaponLecterMk3BlueShield
+  productEntity: ClothingBackpackDuffelWeaponLecterMk3Filled
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: lecter_mk3 }
+  cost:
+    Bluecrystal: 9
+  categories:
+    - NTAutoGun
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkWeaponRifleLecterXL8
+  productEntity: WeaponRifleLecterXL8
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: lecter }
+  cost:
+    Bluecrystal: 9
+  categories:
+    - NTAutoGun
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkWeaponSubMachineGunWt550b
+  productEntity: WeaponSubMachineGunWt550b
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: wt550 }
+  cost:
+    Bluecrystal: 9
+  categories:
+    - NTAutoGun
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkWeaponAsh12Box
+  productEntity: Ash12Box
+  icon: { sprite: _Sunrise/Objects/Weapons/Guns/Rifles/ash12/big.rsi, state: base }
+  cost:
+    Bluecrystal: 16
+  categories:
+    - NTAutoGun
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+# Взрывчатка
+- type: listing
+  id: ERTUplinkGrenadeShrapnel
+  productEntity: GrenadeShrapnel
+  icon: { sprite: Objects/Weapons/Grenades/shrapnelgrenade.rsi, state: icon }
+  cost:
+    Bluecrystal: 1
+  categories:
+    - NTexplosive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+
+- type: listing
+  id: ERTUplinkGrenadeStinger
+  productEntity: GrenadeStinger
+  icon: { sprite: Objects/Weapons/Grenades/projectilegrenade.rsi, state: stinger }
+  cost:
+    Bluecrystal: 1
+  categories:
+    - NTexplosive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+
+# Боеприпасы .20 Rifle
+- type: listing
+  id: ERTUplinkMagazineBoxRifleSP
+  productEntity: MagazineBoxRifleSP
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_rifle }
+  cost:
+    Crystallite: 4
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkMagazineBoxRifleFMJ
+  productEntity: MagazineBoxRifleFMJ
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_rifle }
+  cost:
+    Crystallite: 4
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkMagazineBoxRifleHP
+  productEntity: MagazineBoxRifleHP
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_rifle }
+  cost:
+    Crystallite: 4
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+# Боеприпасы .35 Auto
+- type: listing
+  id: ERTUplinkMagazineBoxPistolSP
+  productEntity: MagazineBoxPistolSP
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_smg }
+  cost:
+    Crystallite: 3
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkMagazineBoxPistolFMJ
+  productEntity: MagazineBoxPistolFMJ
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_smg }
+  cost:
+    Crystallite: 3
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkMagazineBoxPistolHP
+  productEntity: MagazineBoxPistolHP
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_smg }
+  cost:
+    Crystallite: 3
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+# Боеприпасы .45 Magnum
+- type: listing
+  id: ERTUplinkMagazineBoxMagnumSPBlueShield
+  productEntity: MagazineBoxMagnumSP
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_40_sp }
+  cost:
+    Crystallite: 2
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkMagazineBoxMagnumFMJBlueShield
+  productEntity: MagazineBoxMagnumFMJ
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_40_fmj }
+  cost:
+    Crystallite: 2
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkMagazineBoxMagnumHPBlueShield
+  productEntity: MagazineBoxMagnumHP
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_40 }
+  cost:
+    Crystallite: 2
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkMagazineMagnumSPBlueShield
+  productEntity: MagazineMagnum
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_magnum }
+  cost:
+    Crystallite: 1
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkMagazineMagnumFMJBlueShield
+  productEntity: MagazineMagnumFMJ
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_magnum }
+  cost:
+    Crystallite: 1
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkMagazineMagnumHPBlueShield
+  productEntity: MagazineMagnumHP
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_magnum }
+  cost:
+    Crystallite: 1
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+# Боеприпасы АШ-12
+- type: listing
+  id: ERTUplinkMagazineAsh12Slug
+  productEntity: MagazineAsh12Slug
+  icon: { sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/ash12.rsi, state: base }
+  cost:
+    Crystallite: 4
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkMagazineAsh12Beanbag
+  productEntity: MagazineAsh12Beanbag
+  icon: { sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/ash12.rsi, state: base }
+  cost:
+    Crystallite: 3
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkMagazineAsh12Flare
+  productEntity: MagazineAsh12Flare
+  icon: { sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/ash12.rsi, state: base }
+  cost:
+    Crystallite: 2
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield

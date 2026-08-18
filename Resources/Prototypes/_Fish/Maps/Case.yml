@@ -108,7 +108,6 @@
           ServiceWorker: [ 2, 2 ]
           Reporter: [ 1, 1 ]
           #blueshield
-          BlueShieldEnsign: [ 1, 1 ]
           BlueShieldOfficer: [ 1, 1 ]
           RepresentativeBlueShield: [ 1, 1 ]
           #law
