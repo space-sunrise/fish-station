@@ -10,6 +10,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4
+  - !type:StoreWhitelistCondition # Fish edit
+    blacklist:
+      tags:
+      - BlueShield
 
 - type: listing
   id: ERTUplinkWeaponRifleLecterFilled
@@ -39,6 +43,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4
+  - !type:StoreWhitelistCondition # Fish edit
+    blacklist:
+      tags:
+      - BlueShield
 
 - type: listing
   id: ERTUplinkWeaponSubMachineGunP90
@@ -70,10 +78,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4
-  - !type:StoreWhitelistCondition
-    whitelist:
+  - !type:StoreWhitelistCondition # Fish edit
+    blacklist:
       tags:
-      - ERTRed
+      - BlueShield
 
 - type: listing
   id: ERTUplinkWeaponRifleSKM24Filled
@@ -90,6 +98,7 @@
     blacklist:
       tags:
       - CBURN
+      - BlueShield # Fish edit
 
 - type: listing
   id: ERTUplinkWeaponRifleSKM24FilledCBURN
@@ -130,7 +139,7 @@
   productEntity: ClothingBackpackDuffelWeaponRifleSKM28Filled
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: skm28nano }
   cost:
-    Bluecrystal: 16 # Fish edit
+    Bluecrystal: 9 # Fish edit
   categories:
   - NTAutoGun
   conditions:
@@ -140,13 +149,14 @@
     blacklist:
       tags:
       - CBURN
+      - BlueShield # Fish edit
 
 - type: listing
   id: ERTUplinkWeaponRifleSKM28FilledCBURN
   productEntity: ClothingBackpackDuffelWeaponRifleSKM28FilledCBURN
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: skm28 }
   cost:
-    Bluecrystal: 16 # Fish edit
+    Bluecrystal: 9 # Fish edit
   categories:
   - NTAutoGun
   conditions:
@@ -283,7 +293,7 @@
   productEntity: ClothingBackpackDuffelWeaponShotgunCycler
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: cycler }
   cost:
-    Bluecrystal: 9 # Fish edit
+    Bluecrystal: 16 # Fish edit
   categories:
   - NTAutoGun
   conditions:
@@ -312,6 +322,7 @@
       tags:
       - ERTEpsilon
       - ERTGamma
+      - BlueShield # Fish edit
 
 - type: listing
   id: ERTUplinkWeaponShotgun12
@@ -325,6 +336,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 5
+  - !type:StoreWhitelistCondition # Fish edit
+    blacklist:
+      tags:
+      - BlueShield
 
 # region Лазеры:
 - type: listing
@@ -407,7 +422,7 @@
   productEntity: WeaponGunLaserCarbineAutomatic
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: ik60 }
   cost:
-    Bluecrystal: 9 # Fish edit
+    Bluecrystal: 16 # Fish edit
   categories:
   - NTLasers
   conditions:
@@ -1112,8 +1127,8 @@
 
 - type: listing
   id: ERTUplinkDefibrillator
-  productEntity: DefibrillatorCompact
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: comp_defib }
+  productEntity: AdvancedDefibrillatorCompact # Fish edit
+  icon: { sprite: _Sunrise/Entities/Objects/Specific/Medical/advanced_defibsmall.rsi, state: defib }
   cost:
     Crystallite: 4
   categories:
