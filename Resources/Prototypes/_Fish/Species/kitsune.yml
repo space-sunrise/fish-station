@@ -7,7 +7,7 @@
   - HumanNormal
   - HumanSlimFemale
   - HumanSlimMale
-  dollPrototype: SunriseAppearanceHuman
+  dollPrototype: SunriseAppearanceKitsune
   skinColoration: HumanToned
   naming: firstlast
   youngAge: 50
@@ -24,8 +24,13 @@
     enum.HumanoidVisualLayers.Tail:
       limit: 1
       required: true
+      onlyGroupWhitelisted: true
       default: [ BigFoxTail ]
     enum.HumanoidVisualLayers.HeadTop:
       limit: 1
       required: true
+      onlyGroupWhitelisted: true
       default: [ FoxEars ]
+    enum.HumanoidVisualLayers.Special:
+      limit: 0
+      required: false

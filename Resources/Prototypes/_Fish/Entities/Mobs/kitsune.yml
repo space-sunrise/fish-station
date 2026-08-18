@@ -1,8 +1,53 @@
 - type: entity
-  parent: MobHuman
-  id: MacKitsune
-
+  parent:
+  - SunriseHumanBodyTypeDisplacements
+  - BaseSpeciesAppearance
+  id: AppearanceKitsune
+  name: kitsune appearance
   components:
+  - type: InitialBody
+    organs:
+      Torso: OrganKitsuneTorso
+      Head: OrganKitsuneHead
+      ArmLeft: OrganHumanArmLeft
+      ArmRight: OrganHumanArmRight
+      HandRight: OrganHumanHandRight
+      HandLeft: OrganHumanHandLeft
+      LegLeft: OrganHumanLegLeft
+      LegRight: OrganHumanLegRight
+      FootLeft: OrganHumanFootLeft
+      FootRight: OrganHumanFootRight
+      Brain: OrganHumanBrain
+      Eyes: OrganHumanEyes
+      Tongue: OrganHumanTongue
+      Appendix: OrganHumanAppendix
+      Ears: OrganHumanEars
+      Lungs: OrganHumanLungs
+      Heart: OrganHumanHeart
+      Stomach: OrganHumanStomach
+      Liver: OrganHumanLiver
+      Kidneys: OrganHumanKidneys
+  - type: HumanoidProfile
+    species: Kitsune
+
+- type: entity
+  parent: AppearanceKitsune
+  id: SunriseAppearanceKitsune
+  name: kitsune appearance
+
+- type: entity
+  parent:
+  - SunriseAppearanceKitsune
+  - BaseSpeciesMobOrganic
+  id: MacKitsune
+  components:
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
+  - type: Interactions
+  - type: FootprintEmitter
   - type: HumanoidProfile
     species: Kitsune
   - type: SunriseHumanoidProfile
