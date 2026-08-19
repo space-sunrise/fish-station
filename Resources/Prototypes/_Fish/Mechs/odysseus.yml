@@ -44,7 +44,7 @@
     maxEquipmentAmount: 4
     pilotWhitelist:
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
   - type: MeleeWeapon
     hidden: true
     attackRate: 1

@@ -26,7 +26,7 @@
       - BattleShuttleModule
     pilotWhitelist:
       components:
-      - HumanoidAppearance
+      - HumanoidProfile
   - type: Fixtures
     fixtures:
       fix1:
