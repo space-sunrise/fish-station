@@ -1113,7 +1113,7 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
                 return;
             }
 
-            if (!TryComp<TransformComponent>(baseRune.Value, out var xFormBase))
+            if (!TryComp(baseRune.Value, out TransformComponent? xFormBase))
                 return;
 
             if (!Exists(target.Value) || !Exists(baseRune.Value))
