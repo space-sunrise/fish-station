@@ -464,7 +464,7 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
                 if (HasComp<BorgChassisComponent>(victim.Value))
                 {
                     _popupSystem.PopupEntity(Loc.GetString("cult-borg-destroyed"), args.User, args.User);
-                    _gibbingSystem.Gib(victim.Value);
+                    _gibbing.Gib(victim.Value);
                     args.Result = true;
                     return;
                 }
