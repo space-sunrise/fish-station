@@ -25,12 +25,14 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server._Fish.PAI;
 
 public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
 {
     [Dependency] private readonly SharedPopupSystem _serverPopup = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedActionsSystem _serverActions = default!;
     [Dependency] private readonly SharedContainerSystem _serverContainer = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;

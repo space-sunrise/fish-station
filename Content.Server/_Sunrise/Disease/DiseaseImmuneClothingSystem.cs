@@ -10,7 +10,6 @@ namespace Content.Server._Sunrise.Disease;
 
 public sealed class DiseaseImmuneClothingSystem : EntitySystem
 {
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
     public override void Initialize()
     {
         base.Initialize();

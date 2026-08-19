@@ -4,16 +4,21 @@ using Content.Shared.Stacks;
 using Content.Shared.Storage;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Prototypes;
 
 namespace Content.IntegrationTests.Tests._Fish;
 
 [TestFixture]
 public sealed class FishCraftingTests : InteractionTest
 {
+    private static readonly ProtoId<ConstructionPrototype> ModularGrenadeRecipeProto = "ModularGrenadeRecipe";
+    private static readonly ProtoId<ConstructionPrototype> MakeshiftPowerCageProto = "MakeshiftPowerCage";
+    private static readonly ProtoId<ConstructionPrototype> TrashgunProto = "Trashgun";
+
     [Test]
     public async Task CraftGrenadeFromHeldBagOnly()
     {
-        Assert.That(ProtoMan.HasIndex<ConstructionPrototype>("ModularGrenadeRecipe"));
+        Assert.That(ProtoMan.HasIndex<ConstructionPrototype>(ModularGrenadeRecipeProto));
 
         await Server.WaitAssertion(() =>
         {
@@ -48,7 +53,7 @@ public sealed class FishCraftingTests : InteractionTest
     [Test]
     public async Task CraftMakeshiftPowerCageFromFloor()
     {
-        Assert.That(ProtoMan.HasIndex<ConstructionPrototype>("MakeshiftPowerCage"));
+        Assert.That(ProtoMan.HasIndex<ConstructionPrototype>(MakeshiftPowerCageProto));
 
         var coords = SEntMan.GetCoordinates(PlayerCoords);
         await SpawnEntity((Steel, 5), coords);
@@ -65,7 +70,7 @@ public sealed class FishCraftingTests : InteractionTest
     [Test]
     public async Task CraftTrashgunFromFloor()
     {
-        Assert.That(ProtoMan.HasIndex<ConstructionPrototype>("Trashgun"));
+        Assert.That(ProtoMan.HasIndex<ConstructionPrototype>(TrashgunProto));
 
         var coords = SEntMan.GetCoordinates(PlayerCoords);
         await SpawnEntity(("Plasteel", 1), coords);

@@ -257,10 +257,9 @@
   - type: PassiveDamage
     allowedStates:
     - Critical
-    damageCap: 8000
     damage:
-      groups:
-        Brute: 4
+      types:
+        Blunt: 4
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 1.6
@@ -370,7 +369,6 @@
         sound:
           collection: MetalSlam
   - type: PassiveDamage
-    damageCap: 10000
   - type: MeleeWeapon
     attackRate: 0.75
     range: 0
@@ -402,7 +400,6 @@
   - type: TileFrictionModifier
     modifier: 0.2
   - type: Body
-    prototype: WMBodyGrus
  # - type: Loadout
  #   prototypes: [WMGearGrusCore]
   - type: Hands

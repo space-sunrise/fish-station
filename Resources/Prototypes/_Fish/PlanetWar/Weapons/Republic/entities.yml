@@ -79,7 +79,6 @@
     - type: PassiveDamage
       allowedStates:
        - Alive
-      damageCap: 500
       damage:
         types:
           Heat: -0.4
@@ -203,7 +202,6 @@
   - type: PassiveDamage
     allowedStates:
      - Alive
-    damageCap: 500
     damage:
       types:
         Heat: -0.4

@@ -101,7 +101,6 @@
     maxRandomRadius: 0
   - type: TimedDespawn
     lifetime: 0.9
-  - type: Timer
 
 
 - type: entity
@@ -1588,7 +1587,6 @@
         sound:
           collection: MetalSlam
   - type: PassiveDamage
-    damageCap: 4000
   - type: MeleeWeapon
     attackRate: 1
     range: 1.5
@@ -1677,7 +1675,6 @@
         sound:
           collection: MetalSlam
   - type: PassiveDamage
-    damageCap: 4000
   - type: MeleeWeapon
     attackRate: 0.7
     range: 1.5
@@ -1797,7 +1794,6 @@
         sound:
           collection: MetalSlam
   - type: PassiveDamage
-    damageCap: 10000
   - type: MeleeWeapon
     attackRate: 0.75
     range: 0.1
