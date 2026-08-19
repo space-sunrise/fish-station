@@ -50,16 +50,27 @@
             max: 2
   - type: Appearance
   - type: Pylon
-    healingAuraDamage: #Fish-edit, healing halved
-      groups:
-        Brute: -5
-        Burn: -5
-        Toxin: -3
-        Genetic: -5
-        Airloss: -10
+    healingAuraDamage:
+      types:
+        Blunt: -3.33
+        Slash: -3.33
+        Piercing: -3.34
+        Heat: -2.5
+        Shock: -2.5
+        Cold: -2.5
+        Caustic: -2.5
+        Poison: -3
+        Radiation: -3
+        Cellular: -2.5
+        Mangleness: -2.5
+        Asphyxiation: -10
+        Bloodloss: -10
     burnDamageOnInteract:
-      groups:
-        Burn: 5
+      types:
+        Heat: 1.25
+        Shock: 1.25
+        Cold: 1.25
+        Caustic: 1.25
   - type: PointLight
     color: "#FF0000"
     radius: 2
@@ -120,12 +131,12 @@
   - type: CultistFactory
     products:
       cultistFactoryProduction-ShuttleCurse:
-        - CultShuttleCurse
+      - CultShuttleCurse
       cultistFactoryProduction-Blindfold:
-        - CultClothingBlindfold
+      - CultClothingBlindfold
       cultistFactoryProduction-VeilShifter:
-        - CultVeilShifter
-        - CultTorch
+      - CultVeilShifter
+      - CultTorch
   - type: UserInterface
     interfaces:
       enum.CultistAltarUiKey.Key:
@@ -185,11 +196,11 @@
   - type: CultistFactory
     products:
       cultistFactoryProduction-Whetstone:
-        - CultSharpener
+      - CultSharpener
       cultistFactoryProduction-ConstructShell:
-        - ConstructShell
+      - ConstructShell
       cultistFactoryProduction-UnholyWater:
-        - DrinkUnholyWaterFull
+      - DrinkUnholyWaterFull
   - type: UserInterface
     interfaces:
       enum.CultistAltarUiKey.Key:
@@ -249,15 +260,15 @@
   - type: CultistFactory
     products:
       cultistFactoryProduction-EldritchBlade:
-        - TrueEldritchBlade
+      - TrueEldritchBlade
       cultistFactoryProduction-Halberd:
-        - CultOuterArmor
+      - CultOuterArmor
       cultistFactoryProduction-ArmorCult:
-        - CultRobeModify
+      - CultRobeModify
       cultistFactoryProduction-RobeModify:
-        - CultMirrorShield
+      - CultMirrorShield
       cultistFactoryProduction-MirrorShield:
-        - TrueHalberd
+      - TrueHalberd
   - type: UserInterface
     interfaces:
       enum.CultistAltarUiKey.Key:

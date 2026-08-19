@@ -25,6 +25,19 @@ public abstract class SharedSickSystem : EntitySystem
     {
         base.Initialize();
     }
+    public float GetDiseaseProtectionCoefficient(EntityUid uid)
+    {
+        if (HasComp<DiseaseImmuneComponent>(uid))
+            return 0f;
+
+        if (TryComp<DiseaseTempImmuneComponent>(uid, out var tempImmune))
+        {
+            return Math.Clamp(1f - tempImmune.Prob, 0f, 1f);
+        }
+
+        return 1f;
+    }
+
     public void OnInfected(EntityUid uid, EntityUid disease, float prob)
     {
         if (HasComp<DiseaseImmuneComponent>(uid)) return;

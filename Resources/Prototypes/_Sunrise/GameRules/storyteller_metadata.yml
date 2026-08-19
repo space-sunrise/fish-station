@@ -276,19 +276,19 @@
   maxStress: 70
 
 - type: storytellerMetadata
-  id: SlimesSpawn
+  id: SlimesSpawnHorde
   threatType: MinorCalm
   threatCost: 10
   maxStress: 70
 
 - type: storytellerMetadata
-  id: SnakeSpawn
+  id: SnakeSpawnHorde
   threatType: MinorCalm
   threatCost: 20
   maxStress: 70
 
 - type: storytellerMetadata
-  id: SpiderSpawn
+  id: SpiderSpawnHorde
   threatType: MinorCalm
   threatCost: 15
   maxStress: 70
@@ -503,7 +503,7 @@
   weightModifier: 1.5
 
 - type: storytellerMetadata
-  id: SpiderClownSpawn
+  id: SpiderClownSpawnHorde
   threatType: MinorAntag
   threatCost: 60
   minStationStrength: 15
@@ -583,14 +583,22 @@
   weightModifier: 1.5
 
 - type: storytellerMetadata
-  id: Changeling
+  id: Nukeops
+  threatType: MajorAntag
+  threatCost: 250
+  minStationStrength: 30
+  maxStress: 85
+  weightModifier: 1.0
+
+- type: storytellerMetadata
+  id: AssaultOps
   threatType: MajorAntag
   threatCost: 120
   minStationStrength: 15
-  maxStress: 85
-  weightModifier: 1.2
+  maxStress: 75
+  weightModifier: 1.0
 
-# Fish-edit: midround-safe Intra/PostPlayerSpawn режимы (не PrePlayerSpawn Nukeops/AssaultOps)
+# Fish-edit: midround-safe Intra/PostPlayerSpawn режимы
 - type: storytellerMetadata
   id: Revolutionary
   threatType: MajorAntag

@@ -7,8 +7,7 @@
   - HumanNormal
   - HumanSlimFemale
   - HumanSlimMale
-  markingLimits: MobKitsuneMarkingLimits
-  dollPrototype: MobHumanDummy
+  dollPrototype: SunriseAppearanceKitsune
   skinColoration: HumanToned
   naming: firstlast
   youngAge: 50
@@ -18,29 +17,20 @@
     sprite: /Textures/_Sunrise/CopyMachine/butts_scans.rsi
     state: human
 
-- type: markingPoints
-  id: MobKitsuneMarkingLimits
-  points:
-    Hair:
-      points: 1
-      required: false
-    FacialHair:
-      points: 1
-      required: false
-    Tail:
-      points: 1
+- type: markingsGroup
+  parent: Human
+  id: Kitsune
+  limits:
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
       required: true
-      defaultMarkings: [ BigFoxTail ]
-    HeadTop:
-      points: 1
+      onlyGroupWhitelisted: true
+      default: [ BigFoxTail ]
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
       required: true
-      defaultMarkings: [ FoxEars ]
-    Chest:
-      points: 1
-      required: false
-    Legs:
-      points: 2
-      required: false
-    Arms:
-      points: 2
+      onlyGroupWhitelisted: true
+      default: [ FoxEars ]
+    enum.HumanoidVisualLayers.Special:
+      limit: 0
       required: false

@@ -348,9 +348,10 @@
   components:
   - type: Sprite
     sprite: Clothing/Mask/sterile.rsi
-  # Fish edit
+  # Fish-start - Защита от болезни 50%
   - type: DiseaseImmuneClothing
     prob: 0.5
+  # Fish-end
   - type: Clothing
     sprite: Clothing/Mask/sterile.rsi
   - type: IngestionBlocker
@@ -778,9 +779,6 @@
     sprite: Clothing/Mask/italian_moustache.rsi
   - type: Item
     storedRotation: -90
-  - type: AddAccentClothing
-    accent: ReplacementAccent
-    replacement: italian
 
 - type: entity
   parent: ClothingMaskBase
