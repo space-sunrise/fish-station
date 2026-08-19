@@ -1,7 +1,6 @@
 - type: entity
   id: XenoArtifactEffectCreationGasZenthium
   parent: BaseXenoArtifactEffect
-  description: Xeno-Artifact-Effect-Creation-Gas-Zenthium
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -11,7 +10,6 @@
 - type: entity
   id: XenoArtifactEffectCreationGasKrypium
   parent: BaseXenoArtifactEffect
-  description: Xeno-Artifact-Effect-Creation-Gas-Krypium
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -21,7 +19,6 @@
 - type: entity
   id: XenoArtifactEffectCreationGasPrallium
   parent: BaseXenoArtifactEffect
-  description: Xeno-Artifact-Effect-Creation-Gas-Prallium
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -31,7 +28,6 @@
 - type: entity
   id: XenoArtifactEffectCreationGasChaoson
   parent: BaseXenoArtifactEffect
-  description: Xeno-Artifact-Effect-Creation-Gas-Chaoson
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -41,7 +37,6 @@
 - type: entity
   id: XenoArtifactEffectCreationGasGarodin
   parent: BaseXenoArtifactEffect
-  description: Xeno-Artifact-Effect-Creation-Gas-Garodin
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -51,7 +46,6 @@
 - type: entity
   id: XenoArtifactEffectCreationGasBaratrium
   parent: BaseXenoArtifactEffect
-  description: Xeno-Artifact-Effect-Creation-Gas-Baratrium
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -61,7 +55,6 @@
 - type: entity
   id: XenoArtifactEffectCreationGasEthylium
   parent: BaseXenoArtifactEffect
-  description: Xeno-Artifact-Effect-Creation-Gas-Ethylium
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -71,7 +64,6 @@
 - type: entity
   id: XenoArtifactEffectCreationGasZimmera
   parent: BaseXenoArtifactEffect
-  description: Xeno-Artifact-Effect-Creation-Gas-Zimmera
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -81,7 +73,6 @@
 - type: entity
   id: XenoArtifactEffectCreationGasFramel
   parent: BaseXenoArtifactEffect
-  description: Xeno-Artifact-Effect-Creation-Gas-Framel
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -91,7 +82,6 @@
 - type: entity
   id: XenoArtifactEffectCreationGasKlemennon
   parent: BaseXenoArtifactEffect
-  description: Xeno-Artifact-Effect-Creation-Gas-Klemennon
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -101,7 +91,6 @@
 - type: entity
   id: XenoArtifactEffectCreationGasProtoUltimium
   parent: BaseXenoArtifactEffect
-  description: Xeno-Artifact-Effect-Creation-Gas-Proto-Ultimium
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -111,7 +100,6 @@
 - type: entity
   id: XenoArtifactEffectCreationGasZimmerousFrezonite
   parent: BaseXenoArtifactEffect
-  description: Xeno-Artifact-Effect-Creation-Gas-Zimmerous-Frezonite
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -121,7 +109,6 @@
 - type: entity
   id: XenoArtifactEffectCreationGasAntiUltimium
   parent: BaseXenoArtifactEffect
-  description: Xeno-Artifact-Effect-Creation-Gas-Anti-Ultimium
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -131,7 +118,6 @@
 - type: entity
   id: XenoArtifactEffectCreationGasUltimium
   parent: BaseXenoArtifactEffect
-  description: Xeno-Artifact-Effect-Creation-Gas-Ultimium
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -141,7 +127,6 @@
 - type: entity
   id: XenoArtifactEffectCreationGasPermafrost
   parent: BaseXenoArtifactEffect
-  description: Xeno-Artifact-Effect-Creation-Gas-Permafrost
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -151,7 +136,6 @@
 - type: entity
   id: XenoArtifactEffectCreationGasRiminon
   parent: BaseXenoArtifactEffect
-  description: Xeno-Artifact-Effect-Creation-Gas-Riminon
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -161,7 +145,6 @@
 - type: entity
   id: XenoArtifactEffectCreationGasAxoNoblium
   parent: BaseXenoArtifactEffect
-  description: Xeno-Artifact-Effect-Creation-Gas-Axo-Noblium
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
