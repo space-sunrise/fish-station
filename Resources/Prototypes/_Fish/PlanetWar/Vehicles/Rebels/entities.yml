@@ -33,7 +33,7 @@
   #  requireInSpace: false
   - type: GhostRole
     name: pw-vehicles-rebels-dronarm-name-1
-    description: pw-construction-rebels-mobhumanarmp0-desc
+    description: pw-vehicles-rebels-dronarm-desc-1
     raffle:
       settings: WM
   - type: StepTrigger
@@ -237,10 +237,9 @@
   - type: PassiveDamage
     allowedStates:
     - Critical
-    damageCap: 8000
     damage:
-      groups:
-        Brute: 5
+      types:
+        Blunt: 5
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 1.6
@@ -353,7 +352,6 @@
         sound:
           collection: MetalSlam
   - type: PassiveDamage
-    damageCap: 10000
   - type: MeleeWeapon
     attackRate: 0.75
     range: 0
@@ -385,7 +383,6 @@
   - type: TileFrictionModifier
     modifier: 0.2
   - type: Body
-    prototype: WMBodyGrus
  # - type: Loadout
  #   prototypes: [WMGearGrusArm]
   - type: Hands

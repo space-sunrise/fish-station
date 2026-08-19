@@ -639,6 +639,8 @@ public sealed partial class BanPanel : DefaultWindow
         var severity = (NoteSeverity) SeverityOption.SelectedId;
         var erase = EraseCheckbox.Pressed;
 
+        // Fish-start - поддержка отложенных банов
+        /*
         var ban = new Ban(
             player,
             IpAddress,
@@ -652,6 +654,24 @@ public sealed partial class BanPanel : DefaultWindow
             antags,
             erase
         );
+        */
+        var defer = DeferCheckbox.Pressed;
+
+        var ban = new Ban(
+            player,
+            IpAddress,
+            useLastIp,
+            Hwid,
+            useLastHwid,
+            (uint)(TimeEntered * Multiplier),
+            reason,
+            severity,
+            jobs,
+            antags,
+            erase,
+            defer
+        );
+        // Fish-end
 
         BanSubmitted?.Invoke(ban);
     }

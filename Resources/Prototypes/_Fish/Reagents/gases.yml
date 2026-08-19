@@ -6,7 +6,7 @@
   flavor: sweet
   color: "#008d8d"
   metabolisms:
-    Gas:
+    Bloodstream:
       metabolismRate: 0.8
       effects:
       - !type:MovementSpeedModifier
@@ -44,7 +44,7 @@
   flavor: metallic
   color: "#82005d"
   metabolisms:
-    Gas:
+    Bloodstream:
       metabolismRate: 0.6
       effects:
       - !type:MovementSpeedModifier
@@ -88,7 +88,7 @@
   flavor: sweet
   color: "#a0ffff"
   metabolisms:
-    Gas:
+    Bloodstream:
       metabolismRate: 0.35
       effects:
       - !type:Oxygenate
@@ -121,7 +121,7 @@
   flavor: weh
   color: "#ff69b4"
   metabolisms:
-    Gas:
+    Bloodstream:
       metabolismRate: 0.4
       effects:
         # Ржет
@@ -198,7 +198,7 @@
   flavor: bitter
   color: "#f0bb29"
   metabolisms:
-    Gas:
+    Bloodstream:
       metabolismRate: 0.6
       effects:
       - !type:HealthChange
@@ -229,7 +229,7 @@
   flavor: metallic
   color: "#3300eb"
   metabolisms:
-    Gas:
+    Bloodstream:
       metabolismRate: 0.5
       effects:
       # временный иммунитет к давлению
@@ -260,7 +260,7 @@
   flavor: alcohol
   color: "#ff1493"
   metabolisms:
-    Gas:
+    Bloodstream:
       metabolismRate: 0.45
       effects:
       # Очень сильное опьянение
@@ -304,7 +304,7 @@
   flavor: sharp
   color: "#8a2be2"
   metabolisms:
-    Gas:
+    Bloodstream:
       metabolismRate: 0.65
       effects:
       - !type:HealthChange
@@ -336,7 +336,7 @@
   flavor: sweet
   color: "#00ffaa"
   metabolisms:
-    Gas:
+    Bloodstream:
       metabolismRate: 0.4
       effects:
       # Питание + утоление жажды
@@ -381,7 +381,7 @@
   flavor: metallic
   color: "#0062b8"
   metabolisms:
-    Gas:
+    Bloodstream:
       metabolismRate: 0.55
       effects:
       - !type:ModifyStatusEffect
@@ -441,7 +441,7 @@
   flavor: bitter
   color: "#b85959"
   metabolisms:
-    Gas:
+    Bloodstream:
       metabolismRate: 0.6
       effects:
       - !type:HealthChange
@@ -472,7 +472,7 @@
   flavor: cold
   color: "#5ea1b4"
   metabolisms:
-    Gas:
+    Bloodstream:
       metabolismRate: 0.45
       effects:
       - !type:HealthChange
@@ -496,7 +496,7 @@
   flavor: bitter
   color: "#1a1a1a"
   metabolisms:
-    Gas:
+    Bloodstream:
       metabolismRate: 0.35
       effects:
       - !type:HealthChange
@@ -536,7 +536,7 @@
   flavor: sweet
   color: "#62ff43"
   metabolisms:
-    Gas:
+    Bloodstream:
       metabolismRate: 0.25
       effects:
       - !type:Oxygenate
@@ -613,7 +613,7 @@
   flavor: sweet
   color: "#43ddff"
   metabolisms:
-    Gas:
+    Bloodstream:
       metabolismRate: 0.25
       effects:
       - !type:HealthChange
@@ -678,7 +678,7 @@
   flavor: bitter
   color: "#ff4500"
   metabolisms:
-    Gas:
+    Bloodstream:
       metabolismRate: 0.6
       effects:
       - !type:HealthChange
@@ -709,9 +709,18 @@
   flavor: mindful
   color: "#ff00ff"
   metabolisms:
-    Gas:
+    Bloodstream:
       metabolismRate: 1
       effects:
+      # - !type:GenericStatusEffect
+      #   conditions:
+      #   - !type:ReagentCondition
+      #     reagent: Riminon
+      #     min: 0.3
+      #   key: SeeingRainbows
+      #   component: SeeingRainbows
+      #   type: Add
+      #   time: 15
       - !type:MovementSpeedModifier
         conditions:
         - !type:ReagentCondition

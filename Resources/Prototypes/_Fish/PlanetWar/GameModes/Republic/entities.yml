@@ -14,9 +14,9 @@
 
 
 - type: entity
-  categories: [ HideSpawnMenu, Debug ]
-  parent: [ ReinforcementRadioSyndicateNukeops, MarkerBase ]
-  id: 1ReinforcementCoreWM
+  abstract: true
+  parent: [ ReinforcementRadio, MarkerBase ]
+  id: BaseReinforcementRadioWM
   suffix: WM
   placement:
     mode: SnapgridCenter
@@ -28,27 +28,13 @@
     anchored: true
   - type: Item
     size: Huge
-  - type: Sprite
-    scale: 0.5, 0.5
-    sprite: Objects/Misc/Handy_Flags/NT_handy_flag.rsi
-    layers:
-    - state: icon
-  - type: GhostRole
-    name: pw-construction-republic-mobhumancorep0-name
-    description: pw-construction-republic-mobhumancorep0-desc
-    mindRoles:
-    - MindRoleGhostRoleNeutral
-    raffle:
-      settings: LifeWM
-  - type: GhostRoleMobSpawner
-    prototype: MobHumanCoreP0WM
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 3500
+          damage: 35
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
@@ -58,10 +44,34 @@
 
 - type: entity
   categories: [ HideSpawnMenu, Debug ]
+  parent: BaseReinforcementRadioWM
+  id: 1ReinforcementCoreWM
+  components:
+  - type: Sprite
+    scale: 0.5, 0.5
+    sprite: Objects/Misc/Handy_Flags/NT_handy_flag.rsi
+    layers:
+    - state: icon
+  - type: GhostRole
+    name: pw-construction-republic-mobhumancorep0-name
+    description: pw-construction-republic-mobhumancorep0-desc
+    rules: pw-ghost-role-republic-rules
+    mindRoles:
+    - MindRoleGhostRoleNeutral
+    raffle:
+      settings: LifeWM
+  - type: GhostRoleProfileSpawner
+    prototype: MobHumanCoreP0WM
+  - type: ExplosionResistance
+    damageCoefficient: 0.00001
+
+
+- type: entity
+  categories: [ HideSpawnMenu, Debug ]
   parent: 1ReinforcementCoreWM
   id: LongTime1ReinforcementCoreWM
   components:
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: LongTimeMobHumanCoreP0WM
   - type: GhostRole
     name: pw-gamemodes-republic-longtime1reinforcementcore-name
@@ -77,7 +87,7 @@
   components:
   - type: GhostRole
     name: pw-construction-republic-mobhumancorepc0i5-name
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: MobHumanCorePC0I5WM
 
 
@@ -86,7 +96,7 @@
   parent: 4ReinforcementCorePC0I5WM
   id: LongTime4ReinforcementCorePC0I5WM
   components:
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: LongTimeMobHumanCorePC0I5WM
   - type: GhostRole
     name: pw-gamemodes-republic-longtime4reinforcementcorepc0i5-name
@@ -102,7 +112,7 @@
   components:
   - type: GhostRole
     name: pw-construction-republic-mobhumancorep1-name
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: MobHumanCoreP1WM
 
 
@@ -111,7 +121,7 @@
   parent: 5ReinforcementCoreP1WM
   id: LongTime5ReinforcementCoreP1WM
   components:
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: LongTimeMobHumanCoreP1WM
   - type: GhostRole
     name: pw-gamemodes-republic-longtime5reinforcementcorep1-name
@@ -127,7 +137,7 @@
   components:
   - type: GhostRole
     name: pw-construction-republic-mobhumancoreph5-name
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: MobHumanCorePH5WM
 
 
@@ -136,7 +146,7 @@
   parent: 6ReinforcementCorePH5WM
   id: LongTime6ReinforcementCorePH5WM
   components:
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: LongTimeMobHumanCorePH5WM
   - type: GhostRole
     name: pw-gamemodes-republic-longtime6reinforcementcoreph5-name
@@ -152,7 +162,7 @@
   components:
   - type: GhostRole
     name: pw-construction-republic-mobhumancorepm1-name
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: MobHumanCorePM1WM
 
 
@@ -161,7 +171,7 @@
   parent: 3ReinforcementCorePM1WM
   id: LongTime3ReinforcementCorePM1WM
   components:
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: LongTimeMobHumanCorePM1WM
   - type: GhostRole
     name: pw-gamemodes-republic-longtime3reinforcementcorepm1-name
@@ -177,7 +187,7 @@
   components:
   - type: GhostRole
     name: pw-construction-republic-mobhumancorepe1-name
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: MobHumanCorePE1WM
 
 
@@ -186,7 +196,7 @@
   parent: 2ReinforcementCorePE1WM
   id: LongTime2ReinforcementCorePE1WM
   components:
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: LongTimeMobHumanCorePE1WM
   - type: GhostRole
     name: pw-gamemodes-republic-longtime2reinforcementcorepe1-name
@@ -202,7 +212,7 @@
   components:
   - type: GhostRole
     name: pw-construction-republic-mobhumancoreps4-name
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: MobHumanCorePS4WM
 
 
@@ -211,7 +221,7 @@
   parent: 7ReinforcementCorePS4WM
   id: LongTime7ReinforcementCorePS4WM
   components:
-  - type: GhostRoleMobSpawner
+  - type: GhostRoleProfileSpawner
     prototype: LongTimeMobHumanCorePS4WM
   - type: GhostRole
     name: pw-gamemodes-republic-longtime7reinforcementcoreps4-name

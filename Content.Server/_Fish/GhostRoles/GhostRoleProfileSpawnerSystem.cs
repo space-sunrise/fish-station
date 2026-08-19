@@ -7,6 +7,7 @@ using Content.Shared._Fish.GhostRoles.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.NPC.Systems;
+using Content.Shared.Preferences;
 using Robust.Server.GameObjects;
 
 namespace Content.Server._Fish.GhostRoles;
@@ -23,6 +24,7 @@ public sealed class GhostRoleProfileSpawnerSystem : EntitySystem
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
     [Dependency] private readonly StationSystem _stations = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly MetaDataSystem _metaData = default!;
 
     public override void Initialize()
     {
@@ -46,8 +48,28 @@ public sealed class GhostRoleProfileSpawnerSystem : EntitySystem
         var coords = Transform(ent).Coordinates;
         var station = _stations.GetOwningStation(ent);
 
-        var mob = _stationSpawning.SpawnPlayerMob(coords, null, profile, station);
+        EntityUid mob;
+        if (ent.Comp.Prototype is { } customProto)
+        {
+            if (profile is HumanoidCharacterProfile humanoidProfile)
+            {
+                profile = humanoidProfile.WithSpecies("Human");
+            }
+            mob = Spawn(customProto, coords);
+            _stationSpawning.SpawnPlayerMob(coords, null, profile, station, mob);
+        }
+        else
+        {
+            mob = _stationSpawning.SpawnPlayerMob(coords, null, profile, station);
+        }
+
         _transform.AttachToGridOrMap(mob);
+
+        // Prepend role/job name to entity name (e.g. "Строитель Имя Фамилия (уникальный номер)")
+        var roleName = Loc.GetString(ghostRole.RoleName);
+        var oldName = Name(mob);
+        var newName = $"{roleName} {oldName}";
+        _metaData.SetEntityName(mob, newName);
 
         if (ent.Comp.Factions.Count > 0)
             _npcFaction.AddFactions((mob, null), ent.Comp.Factions);

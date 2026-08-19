@@ -21081,7 +21081,7 @@ entities:
     - type: Transform
       pos: 16.5,-42.5
       parent: 2
-- proto: CentcomComputerComms
+- proto: FishComputerCommsCentComm
   entities:
   - uid: 785
     components:
@@ -21143,7 +21143,7 @@ entities:
       - - Command
     - type: CommunicationsConsole
       title: Секторальный суд
-- proto: CentcommComputerComms
+- proto: FishComputerCommsCentComm
   entities:
   - uid: 789
     components:
@@ -41062,7 +41062,7 @@ entities:
     - type: Transform
       pos: -3.4985683,16.513187
       parent: 2
-- proto: HeadGingerbread
+- proto: OrganGingerbreadHead
   entities:
   - uid: 2577
     components:
@@ -50041,19 +50041,15 @@ entities:
     - type: Transform
       pos: 3.923268,-3.454064
       parent: 2
-- proto: RubberStampLawyer
+- proto: RubberStampOversight
   entities:
   - uid: 341
     mapInit: true
     paused: true
     components:
-    - type: MetaData
-      name: печать офицера внутреннего надзора
     - type: Transform
       pos: 28.689972,21.981647
       parent: 2
-    - type: Stamp
-      stampedName: Офицер Внутреннего Надзора
     - type: EmitSoundOnCollide
       nextSound: -232.2803949
     - type: Forensics
@@ -52037,7 +52033,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerCBURNUnitEVA
+      proto: RandomHumanoidSpawnerCBURNUnit
   - uid: 2544
     components:
     - type: MetaData
@@ -52061,7 +52057,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerCBURNUnitEVA
+      proto: RandomHumanoidSpawnerCBURNUnit
   - uid: 2545
     components:
     - type: MetaData
@@ -52085,7 +52081,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerCBURNUnitEVA
+      proto: RandomHumanoidSpawnerCBURNUnit
   - uid: 2546
     components:
     - type: MetaData
@@ -52109,7 +52105,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerCBURNUnitEVA
+      proto: RandomHumanoidSpawnerCBURNUnit
   - uid: 2547
     components:
     - type: MetaData
@@ -52133,7 +52129,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerCBURNUnitEVA
+      proto: RandomHumanoidSpawnerCBURNUnit
   - uid: 2548
     components:
     - type: MetaData
@@ -52158,7 +52154,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerCBURNUnitEVA
+      proto: RandomHumanoidSpawnerCBURNUnit
   - uid: 2549
     components:
     - type: MetaData
@@ -52182,7 +52178,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerCBURNUnitEVA
+      proto: RandomHumanoidSpawnerCBURNUnit
   - uid: 8600
     components:
     - type: Transform
@@ -52424,7 +52420,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerCBURNUnitEVA
+      proto: RandomHumanoidSpawnerCBURNUnit
   - uid: 10263
     components:
     - type: MetaData
@@ -52449,7 +52445,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerCBURNUnitEVA
+      proto: RandomHumanoidSpawnerCBURNUnit
   - uid: 10279
     components:
     - type: MetaData
@@ -52474,7 +52470,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerCBURNUnitEVA
+      proto: RandomHumanoidSpawnerCBURNUnit
   - uid: 10282
     components:
     - type: MetaData
@@ -52499,7 +52495,7 @@ entities:
     - type: SpawnOnTrigger
       keysIn:
       - trigger
-      proto: RandomHumanoidSpawnerCBURNUnitEVA
+      proto: RandomHumanoidSpawnerCBURNUnit
   - uid: 10336
     components:
     - type: Transform

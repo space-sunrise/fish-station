@@ -1,0 +1,56 @@
+- type: weightedRandom
+  id: AnimalObjectiveGroups
+  weights:
+    AnimalObjectiveGroupGeneral: 1
+    AnimalObjectiveGroupDrinks: 1
+    AnimalObjectiveGroupFood: 1
+    AnimalObjectiveGroupPaper: 1
+    AnimalObjectiveGroupTravel: 1
+    AnimalObjectiveGroupRoundEnd: 0.4
+
+- type: weightedRandom
+  id: AnimalObjectiveGroupGeneral
+  weights:
+    AnimalEatCountObjective: 2
+    AnimalDrinkVolumeObjective: 1.5
+    AnimalTryNewFoodObjective: 1.5
+    AnimalTryManyFoodsObjective: 1
+    AnimalSurviveObjective: 0.4
+
+- type: weightedRandom
+  id: AnimalObjectiveGroupDrinks
+  weights:
+    AnimalDrinkVolumeObjective: 2
+    AnimalDrinkCoffeeObjective: 1
+    AnimalDrinkTeaObjective: 1
+    AnimalDrinkColaObjective: 1
+    AnimalDrinkWaterObjective: 1
+    AnimalDrinkMilkObjective: 1
+    AnimalDrinkAppleJuiceObjective: 1
+
+- type: weightedRandom
+  id: AnimalObjectiveGroupFood
+  weights:
+    AnimalEatCountObjective: 1.5
+    AnimalEatDonutObjective: 1.5
+    AnimalEatBurgerObjective: 1
+    AnimalEatPizzaObjective: 1
+
+- type: weightedRandom
+  id: AnimalObjectiveGroupPaper
+  weights:
+    AnimalEatPaperObjective: 1
+    AnimalEatBlankPaperObjective: 0.8
+
+- type: weightedRandom
+  id: AnimalObjectiveGroupTravel
+  weights:
+    AnimalTileDistanceObjective: 1.5
+    AnimalLongWalkObjective: 0.8
+    AnimalVisitLocationsObjective: 1
+
+- type: weightedRandom
+  id: AnimalObjectiveGroupRoundEnd
+  weights:
+    AnimalSurviveObjective: 0.5
+    AnimalEscapeShuttleObjective: 0.6

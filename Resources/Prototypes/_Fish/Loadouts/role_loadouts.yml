@@ -58,6 +58,7 @@
 - type: roleLoadout
   id: JobCentcommBlueShield
   groups:
+  - BlueShieldHead # Fish-edit
   - BlueShieldJumpsuit
   - BlueShieldBackpack
   - BlueShieldBelt
@@ -78,7 +79,6 @@
   - MedicalDoctorHead
   - MedicalMask
   - MedicalDoctorJumpsuit
-  - MedicalGloves
   - MedicalBackpack
   - MedicalDoctorOuterClothing
   # Sunrise-start
@@ -86,7 +86,7 @@
   # Sunrise-end
   - MedicalShoes
   #- MedicalDoctorPDA
-  - MedicalEyewear
+  - Glasses
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -147,6 +147,7 @@
 - type: roleLoadout
   id: JobRepresentativeBlueShield
   groups:
+  - BlueShieldHead # Fish-edit
   - BlueShieldJumpsuit
   - BlueShieldBackpack
   - BlueShieldBelt
@@ -164,10 +165,7 @@
   id: JobOversightOfficer
   groups:
   - LawyerJumpsuit
-  - CentCommOperatorHatsFish
-  - CentCommOperatorShoesFish
-  - CentCommOperatorGlovesFish
-  - CentCommOperatorEyesFish
+  - OversightBackFish
   - Trinkets
   - Survival
   - GroupSpeciesBreathTool

@@ -13,3 +13,6 @@ ent-RubberStampSeniorCE = Lead Engineer rubber stamp
 
 ent-RubberStampSeniorRD = Lead Researcher rubber stamp
     .desc = { ent-RubberStampBase.desc }
+
+ent-RubberStampOversight = oversight officer's rubber stamp
+    .desc = { ent-RubberStampBase.desc }

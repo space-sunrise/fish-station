@@ -449,7 +449,7 @@ namespace Content.Server.GameTicking
             }
 
             // Sunrise-Start
-            if (_cfg.GetCVar(SunriseCCVars.ExcludePresets) && CurrentPreset != null && !_Sunrise.Storyteller.StorytellerPresetHelper.ShouldBypassExclusion(CurrentPreset.ID))
+            if (_cfg.GetCVar(SunriseCCVars.ExcludePresets) && CurrentPreset != null)
                 AddExcludedPreset(CurrentPreset.ID);
             // Sunrise-End
 
@@ -511,6 +511,17 @@ namespace Content.Server.GameTicking
             // If this game ticker is a dummy, do nothing!
             if (DummyTicker)
                 return;
+
+            // Fish-start - применить отложенные баны в конце раунда
+            try
+            {
+                _banManager.ApplyDeferredBans();
+            }
+            catch (Exception e)
+            {
+                _sawmill.Error($"Error while applying deferred bans: {e}");
+            }
+            // Fish-end
 
             DebugTools.Assert(RunLevel == GameRunLevel.InRound);
             _sawmill.Info("Ending round!");

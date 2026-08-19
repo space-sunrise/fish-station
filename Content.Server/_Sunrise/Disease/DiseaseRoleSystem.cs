@@ -10,8 +10,8 @@ using Robust.Shared.Prototypes;
 using Content.Shared.FixedPoint;
 using Content.Shared.Popups;
 using Content.Shared.Store.Components;
-using Robust.Shared.Timing;
 using Content.Shared.Zombies;
+using Robust.Shared.Timing;
 using Robust.Server.Audio;
 using Robust.Server.Player;
 using System.Text;
@@ -28,9 +28,7 @@ public sealed class DiseaseRoleSystem : SharedDiseaseRoleSystem
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedChargesSystem _sharedCharges = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
 
     private static readonly List<string> _bloodReagents = new()
@@ -69,12 +67,34 @@ public sealed class DiseaseRoleSystem : SharedDiseaseRoleSystem
     {
         if (TryComp<DiseaseRoleComponent>(args.Performer, out var component))
         {
-            OnInfect(args, 1.0f);
-            _popup.PopupEntity(Loc.GetString("disease-infect-success"), args.Performer, PopupType.Medium);
+            if (HasComp<SickComponent>(args.Target))
+            {
+                _popup.PopupEntity(Loc.GetString("disease-infect-already-sick"), args.Performer, args.Performer);
+                return;
+            }
+            if (HasComp<DiseaseImmuneComponent>(args.Target))
+            {
+                _popup.PopupEntity(Loc.GetString("disease-infect-immune"), args.Performer, args.Performer);
+                return;
+            }
 
-            // Play Initial Infected antag audio (only for the disease player)
-            _audio.PlayGlobal("/Audio/Ambience/Antag/zombie_start.ogg", args.Performer);
-            UpdateUi(args.Performer, component);
+            var protection = GetDiseaseProtectionCoefficient(args.Target);
+            if (protection < 1.0f)
+            {
+                _popup.PopupEntity(Loc.GetString("disease-infect-protected"), args.Performer, args.Performer);
+                return;
+            }
+
+            OnInfect(args, 1.0f);
+
+            if (args.Handled)
+            {
+                _popup.PopupEntity(Loc.GetString("disease-infect-success"), args.Performer, PopupType.Medium);
+
+                // Play Initial Infected antag audio (only for the disease player)
+                _audio.PlayGlobal("/Audio/Ambience/Antag/zombie_start.ogg", args.Performer);
+                UpdateUi(args.Performer, component);
+            }
         }
     }
 
@@ -91,6 +111,7 @@ public sealed class DiseaseRoleSystem : SharedDiseaseRoleSystem
                 _sharedCharges.SetCharges((actionId.Value, limitCharges), charges);
             }
         }
+        component.NewBloodReagent.Clear();
         component.NewBloodReagent.Add(_random.Pick(_bloodReagents));
         component.Symptoms.Add("Headache", new SymptomData(1, 4));
     }
@@ -222,7 +243,7 @@ public sealed class DiseaseRoleSystem : SharedDiseaseRoleSystem
                     // Check if it's a symptom listing from the ID
                     var symptom = args.PurchasedItem.ID;
                     int minLevel = 0;
-                    int maxLevel = 5;
+                    int maxLevel = 999;
 
                     // Ideally we should get this from the listing/action metadata,
                     // but since the previous system relied on hardcoded event args from actions,
@@ -241,6 +262,7 @@ public sealed class DiseaseRoleSystem : SharedDiseaseRoleSystem
                         case "Bleed": minLevel = 3; break;
                         case "Blindness": minLevel = 4; break;
                         case "Insult": minLevel = 2; break;
+                        case "Aphasia": minLevel = 2; break;
                             // Zombie handled separately via special event if needed, or if it's just a symptom?
                             // The original action raised DiseaseZombieEvent for "Zombie".
                             // Wait, "Zombie" was a separate category in catalog?
@@ -399,7 +421,9 @@ public sealed class DiseaseRoleSystem : SharedDiseaseRoleSystem
 
             // Award reward
             AddMoney(diseaseUid, 10);
-            _popup.PopupEntity(Loc.GetString("disease-death-reward", ("points", 10)), diseaseUid, PopupType.Medium);
+            _popup.PopupEntity(Loc.GetString("disease-death-reward", ("points", 10)), diseaseUid, diseaseUid, PopupType.Medium);
         }
     }
 }
+
+

@@ -1008,6 +1008,21 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
+  parent: BoxLethalshot
+  id: BoxLethalshotWM
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunWM
+  - type: PhysicalComposition
+    materialComposition:
+      ShtampMagazinMaterial: 200
+  - type: Tag
+    tags:
+    - TehfabTagWM
+
+
+- type: entity
+  categories: [ HideSpawnMenu ]
   parent: MagazineBauer127
   id: MagazineBauer127WM
   components:
@@ -1300,7 +1315,7 @@
     - type: HandLabeler
       whitelist:
         components:
-          - HumanoidAppearance
+          - HumanoidProfile
           - Thirst
           - Hunger
           - Item
@@ -1765,7 +1780,6 @@
     passiveVisibilityRate: -2.00
   - type: TimedDespawn
     lifetime: 3
-  - type: Timer
 
 
 - type: entity
@@ -3003,8 +3017,14 @@
   id: BaseMobHumanWM
   abstract: true
   components:
+    - type: ActionGrant
+      actions:
+      - ActionOpenPlanetWarGuide
     # Fish edit - for meme gamemode, do not remove
     - type: PWVulpkaninCursePending
+    - type: IdBind
+    - type: NameIdentifier
+      group: GenericNumber
     - type: RandomMetadata
       nameFormat: name-format-ert
     - type: RemoveComponentsOnTrigger
@@ -3080,7 +3100,6 @@
       allowedStates:
       - Critical
       - Dead
-      damageCap: 100000
       damage:
         types:
           Cellular: 3
@@ -3208,7 +3227,7 @@
   - type: SelfUnremovableClothing
   - type: StorageFill
     contents:
-    - id: BoxShellTranquilizerWM
+    - id: BoxLethalshotWM
     - id: MagazineBauer127WM
       amount: 3
 
@@ -3327,7 +3346,7 @@
   - type: SelfUnremovableClothing
   - type: StorageFill
     contents:
-    - id: BoxShellTranquilizerWM
+    - id: BoxLethalshotWM
     - id: MagazineDragunovWM
       amount: 3
 
@@ -3889,9 +3908,9 @@
       qualityNeeded: "Anchoring"
       doAfterDelay: 1
       damage:
-        groups:
-          Brute: -2
-          Burn: -2
+        types:
+          Blunt: -2
+          Heat: -2
    # - type: ExplodeOnTrigger
  #   - type: Explosive
   #    explosionType: Minibomb

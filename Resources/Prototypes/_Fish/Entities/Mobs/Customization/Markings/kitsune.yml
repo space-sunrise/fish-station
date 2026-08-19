@@ -2,8 +2,8 @@
 - type: marking
   id: KitsuneEarCow
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Kitsune]
+
+  groupWhitelist: [Kitsune]
   sprites:
   - sprite: _Fish/Mobs/Customization/Kitsune/ears_cow.rsi
     state: cow-ears
@@ -13,8 +13,8 @@
 - type: marking
   id: KitsuneEarDeer
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Kitsune]
+
+  groupWhitelist: [Kitsune]
   sprites:
   - sprite: _Fish/Mobs/Customization/Kitsune/ears_deer.rsi
     state: deer-ears
@@ -24,8 +24,8 @@
 - type: marking
   id: KitsuneEarLynx
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Kitsune]
+
+  groupWhitelist: [Kitsune]
   sprites:
   - sprite: _Fish/Mobs/Customization/Kitsune/ears_lynx.rsi
     state: lynx-ears

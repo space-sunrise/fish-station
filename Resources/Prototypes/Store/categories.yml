@@ -110,6 +110,11 @@
   id: PAIAbilities
   name: store-category-abilities
 
+# FIsh edit - магазин модулей Syndicate pAI
+- type: storeCategory
+  id: SyndicatePAIModules
+  name: store-category-syndicate-pai-modules
+
 #changeling
 #todo: add actual categories when changeling design/abilities are fleshed out
 - type: storeCategory

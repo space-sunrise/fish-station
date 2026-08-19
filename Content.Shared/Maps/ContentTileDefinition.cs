@@ -120,6 +120,14 @@ namespace Content.Shared.Maps
         [DataField("sturdy")] public bool Sturdy { get; private set; } = true;
 
         /// <summary>
+        /// When false, this tile does not hard-collide with other grids unless a dense
+        /// anchored entity blocks the cell (see GridTileCollisionSystem).
+        /// </summary>
+        // FIsh edit - прозрачные тайлы без собственной grid-grid collision
+        [DataField("enableGridCollision")]
+        public bool EnableGridCollision { get; private set; } = true;
+
+        /// <summary>
         /// Can weather affect this tile.
         /// </summary>
         [DataField("weather")] public bool Weather = false;
@@ -128,6 +136,11 @@ namespace Content.Shared.Maps
         /// Is this tile immune to RCD deconstruct.
         /// </summary>
         [DataField("indestructible")] public bool Indestructible = false;
+
+        /// <summary>
+        ///     Hide this tile in the tile placement editor.
+        /// </summary>
+        [DataField] public bool EditorHidden { get; private set; } = false;
 
         public void AssignTileId(ushort id)
         {
