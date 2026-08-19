@@ -30,7 +30,6 @@ using Content.Shared.Store.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Inventory;
-using Content.Shared.Zombies;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
 using Content.Server._Sunrise.Misc.ShiftedAsciiTableAccent;
@@ -51,7 +50,13 @@ public sealed class SickSystem : SharedSickSystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
     private EntityLookupSystem Lookup => _entityManager.System<EntityLookupSystem>();
+
+    [ValidatePrototypeId<DamageTypePrototype>] private const string HeatDamage = "Heat";
+    [ValidatePrototypeId<DamageTypePrototype>] private const string CellularDamage = "Cellular";
+    [ValidatePrototypeId<DamageTypePrototype>] private const string PiercingDamage = "Piercing";
+    [ValidatePrototypeId<DamageTypePrototype>] private const string ShockDamage = "Shock";
 
     public override void Initialize()
     {
@@ -129,7 +134,7 @@ public sealed class SickSystem : SharedSickSystem
                 // Начиная с 6 стадии наносится урон от ожогов (Heat) (увеличен до 0.02f)
                 if (component.Stady >= 6 && diseaseComp.Lethal > 0)
                 {
-                    if (_prototypeManager.TryIndex<DamageTypePrototype>("Heat", out var heatDamagePrototype))
+                    if (_prototypeManager.TryIndex<DamageTypePrototype>(HeatDamage, out var heatDamagePrototype))
                     {
                         var dmg = 0.02f * frameTime * diseaseComp.Lethal;
                         _damageableSystem.TryChangeDamage(uid, new(heatDamagePrototype, dmg), true, origin: uid);
@@ -138,7 +143,7 @@ public sealed class SickSystem : SharedSickSystem
                 // Начиная с 10 стадии дополнительно наносится клеточный урон (Cellular) (увеличен до 0.02f)
                 if (component.Stady >= 10 && diseaseComp.Lethal > 0)
                 {
-                    if (_prototypeManager.TryIndex<DamageTypePrototype>("Cellular", out var cellularDamagePrototype))
+                    if (_prototypeManager.TryIndex<DamageTypePrototype>(CellularDamage, out var cellularDamagePrototype))
                     {
                         var dmg = 0.02f * frameTime * diseaseComp.Lethal;
                         _damageableSystem.TryChangeDamage(uid, new(cellularDamagePrototype, dmg), true, origin: uid);
@@ -314,7 +319,7 @@ public sealed class SickSystem : SharedSickSystem
                 {
                     if (TryComp<DiseaseRoleComponent>(component.owner, out var disease))
                     {
-                        if (_prototypeManager.TryIndex<DamageTypePrototype>("Piercing", out var damagePrototype))
+                        if (_prototypeManager.TryIndex<DamageTypePrototype>(PiercingDamage, out var damagePrototype))
                         {
                             _damageableSystem.TryChangeDamage(uid,
                                 new(damagePrototype, 2.5f * disease.Lethal),
@@ -322,20 +327,15 @@ public sealed class SickSystem : SharedSickSystem
                                 origin: uid);
                         }
 
-                        var infectorEv = new ZombificationResistanceQueryEvent(SlotFlags.HEAD | SlotFlags.MASK |
-                                                                               SlotFlags.OUTERCLOTHING);
-                        RaiseLocalEvent(uid, infectorEv);
+                        var infectorCoeff = GetDiseaseProtectionCoefficient(uid);
 
                         foreach (var entity in Lookup.GetEntitiesInRange(uid, 1.0f))
                         {
-                            if (HasComp<HumanoidAppearanceComponent>(entity) && !HasComp<SickComponent>(entity) &&
+                            if (HasComp<HumanoidProfileComponent>(entity) && !HasComp<SickComponent>(entity) &&
                                 !HasComp<DiseaseImmuneComponent>(entity))
                             {
-                                var ev = new ZombificationResistanceQueryEvent(SlotFlags.HEAD | SlotFlags.MASK |
-                                                                               SlotFlags.OUTERCLOTHING);
-                                RaiseLocalEvent(entity, ev);
-
-                                var prob = disease.CoughSneezeInfectChance * ev.TotalCoefficient * infectorEv.TotalCoefficient;
+                                var victimCoeff = GetDiseaseProtectionCoefficient(entity);
+                                var prob = disease.CoughSneezeInfectChance * victimCoeff * infectorCoeff;
                                 OnInfected(entity, component.owner, prob);
                             }
                         }
@@ -348,7 +348,7 @@ public sealed class SickSystem : SharedSickSystem
                 {
                     if (TryComp<DiseaseRoleComponent>(component.owner, out var disease))
                     {
-                        if (_prototypeManager.TryIndex<DamageTypePrototype>("Piercing", out var damagePrototype))
+                        if (_prototypeManager.TryIndex<DamageTypePrototype>(PiercingDamage, out var damagePrototype))
                         {
                             _damageableSystem.TryChangeDamage(uid,
                                 new(damagePrototype, 2.5f * disease.Lethal),
@@ -356,20 +356,15 @@ public sealed class SickSystem : SharedSickSystem
                                 origin: uid);
                         }
 
-                        var infectorEv = new ZombificationResistanceQueryEvent(SlotFlags.HEAD | SlotFlags.MASK |
-                                                                               SlotFlags.OUTERCLOTHING);
-                        RaiseLocalEvent(uid, infectorEv);
+                        var infectorCoeff = GetDiseaseProtectionCoefficient(uid);
 
                         foreach (var entity in Lookup.GetEntitiesInRange(uid, 1.5f))
                         {
-                            if (HasComp<HumanoidAppearanceComponent>(entity) && !HasComp<SickComponent>(entity) &&
+                            if (HasComp<HumanoidProfileComponent>(entity) && !HasComp<SickComponent>(entity) &&
                                 !HasComp<DiseaseImmuneComponent>(entity))
                             {
-                                var ev = new ZombificationResistanceQueryEvent(SlotFlags.HEAD | SlotFlags.MASK |
-                                                                               SlotFlags.OUTERCLOTHING);
-                                RaiseLocalEvent(entity, ev);
-
-                                var prob = disease.CoughSneezeInfectChance * ev.TotalCoefficient * infectorEv.TotalCoefficient;
+                                var victimCoeff = GetDiseaseProtectionCoefficient(entity);
+                                var prob = disease.CoughSneezeInfectChance * victimCoeff * infectorCoeff;
                                 OnInfected(entity, component.owner, prob);
                             }
                         }
@@ -388,7 +383,7 @@ public sealed class SickSystem : SharedSickSystem
                 if (TryComp<DiseaseRoleComponent>(component.owner, out var dis))
                 {
                     _stun.TryAddParalyzeDuration(uid, TimeSpan.FromSeconds(5));
-                    if (_prototypeManager.TryIndex<DamageTypePrototype>("Shock", out var damagePrototype))
+                    if (_prototypeManager.TryIndex<DamageTypePrototype>(ShockDamage, out var damagePrototype))
                     {
                         _damageableSystem.TryChangeDamage(uid,
                             new(damagePrototype, 3.5f * dis.Lethal),
@@ -423,18 +418,20 @@ public sealed class SickSystem : SharedSickSystem
 
     private void InfectOnHug(EntityUid infector, EntityUid victim, EntityUid diseaseUid)
     {
-        if (!HasComp<HumanoidAppearanceComponent>(victim) || HasComp<SickComponent>(victim) || HasComp<DiseaseImmuneComponent>(victim))
+        if (!HasComp<HumanoidProfileComponent>(victim) || HasComp<SickComponent>(victim) || HasComp<DiseaseImmuneComponent>(victim))
             return;
+
+        // Fish-start - Перчатки на заражающем полностью блокируют передачу через объятия
+        if (_inventory.TryGetSlotEntity(infector, "gloves", out _))
+            return;
+        // Fish-end
 
         if (TryComp<DiseaseRoleComponent>(diseaseUid, out var disease))
         {
-            var targetEv = new ZombificationResistanceQueryEvent(SlotFlags.HEAD | SlotFlags.MASK | SlotFlags.OUTERCLOTHING);
-            RaiseLocalEvent(victim, targetEv);
+            var targetCoeff = GetDiseaseProtectionCoefficient(victim);
+            var infectorCoeff = GetDiseaseProtectionCoefficient(infector);
 
-            var infectorEv = new ZombificationResistanceQueryEvent(SlotFlags.HEAD | SlotFlags.MASK | SlotFlags.OUTERCLOTHING);
-            RaiseLocalEvent(infector, infectorEv);
-
-            var prob = disease.BaseInfectChance * targetEv.TotalCoefficient * infectorEv.TotalCoefficient;
+            var prob = disease.BaseInfectChance * targetCoeff * infectorCoeff;
             OnInfected(victim, diseaseUid, prob);
         }
     }

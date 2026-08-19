@@ -17,6 +17,8 @@ using Content.Shared.Radio.Components;
 using Content.Shared.Inventory;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared._Sunrise.Humanoid;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Fish.Kitsune;
@@ -32,6 +34,7 @@ public sealed class KitsuneTransformSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly SpriteColorSystem _spriteColor = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly SunriseHumanoidBodySystem _sunriseBody = default!;
 
     // Dictionary to track when each transformed entity should auto-revert
     private Dictionary<EntityUid, float> _transformDurations = new();
@@ -160,7 +163,7 @@ public sealed class KitsuneTransformSystem : EntitySystem
         // Apply 9 slash damage to self
         var damage = new DamageSpecifier()
         {
-            DamageDict = new Dictionary<string, FixedPoint2>
+            DamageDict = new Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2>
             {
                 { "Slash", FixedPoint2.New(9) },
             },
@@ -206,11 +209,10 @@ public sealed class KitsuneTransformSystem : EntitySystem
         }
 
         // Apply the humanoid's hair color to the colored fur layer
-        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoidAppearance))
+        if (TryComp<HumanoidProfileComponent>(uid, out var humanoid))
         {
-            // Use CachedHairColor if available, otherwise fallback to SkinColor
-            var hairColor = humanoidAppearance.CachedHairColor ?? humanoidAppearance.EyeColor;
-            _spriteColor.SetStateColor(newUid, "nine-tail_fox_gray_color", hairColor);
+            var eyeColor = _sunriseBody.GetEyeColor(uid);
+            _spriteColor.SetStateColor(newUid, "nine-tail_fox_gray_color", eyeColor);
         }
 
         _popup.PopupEntity(Loc.GetString("kitsune-transform-success"), newUid, newUid, PopupType.MediumCaution);

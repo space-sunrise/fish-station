@@ -69,7 +69,7 @@ public sealed partial class SyndicatePaiSystem
             critThreshold <= FixedPoint2.Zero)
             return;
 
-        var healthPercent = (1f - (damageable.TotalDamage / critThreshold.Value).Float()) * 100f;
+        var healthPercent = (1f - (_damageable.GetTotalDamage((owner.Value, damageable)) / critThreshold.Value).Float()) * 100f;
         if (healthPercent > ent.Comp.AutoHealthThreshold)
             return;
 

@@ -1,6 +1,6 @@
-# © SUNRISE, An EULA/CLA with a hosting restriction, full text: https://github.com/space-sunrise/space-station-14/blob/master/CLA.txt
+# © SUNRISE, An EULA/CLA with a hosting restriction, full text: https://github.com/makura-games/sunrise-station/blob/master/CLA.txt
 - type: entity
-  id: BasePredatorOrganUnGibbable
+  id: BasePredatorOrgan
   parent: BaseItem
   abstract: true
   components:
@@ -29,7 +29,7 @@
 
 - type: entity
   id: OrganPredatorBrain
-  parent: [BasePredatorOrganUnGibbable, BaseOrganBrain]
+  parent: [BasePredatorOrgan, SunriseOrganBaseBrain]
   name: brain
   description: The nexus of the alien mind. Thoughts you don't want to know.
   components:
@@ -64,7 +64,7 @@
 
 - type: entity
   id: OrganPredatorTongue
-  parent: [BasePredatorOrganUnGibbable, BaseOrganTongue]
+  parent: [BasePredatorOrgan, SunriseOrganBaseTongue]
   name: tongue
   description: Long and flexible.
   components:
@@ -73,7 +73,7 @@
 
 - type: entity
   id: OrganPredatorAppendix
-  parent: [BasePredatorOrganUnGibbable, BaseOrganAppendix]
+  parent: [BasePredatorOrgan, SunriseOrganBaseAppendix]
   name: appendix
   description: An evolutionary greeting from the past.
   components:
@@ -85,7 +85,7 @@
 
 - type: entity
   id: OrganPredatorEars
-  parent: [BasePredatorOrganUnGibbable, BaseOrganEars]
+  parent: [BasePredatorOrgan, SunriseOrganBaseEars]
   name: ears
   description: Ultra-sensitive locators. Hear your fears.
   components:
@@ -94,7 +94,7 @@
 
 - type: entity
   id: OrganPredatorLungs
-  parent: [BasePredatorOrganUnGibbable, BaseOrganLungs]
+  parent: [BasePredatorOrgan, SunriseOrganBaseLungs]
   name: lungs
   description: They filter oxygen from the atmosphere and channel it into the bloodstream, where it is used as an electron carrier.
   components:
@@ -104,13 +104,8 @@
       - state: lung-r
   - type: Lung
   - type: Metabolizer
-    removeEmpty: true
-    solutionOnBody: false
-    solution: "Lung"
     metabolizerTypes: [ Human ]
-    groups:
-    - id: Gas
-      rateModifier: 100.0
+    stages: [ Respiration ]
   - type: SolutionContainerManager
     solutions:
       organ:
@@ -128,7 +123,7 @@
 
 - type: entity
   id: OrganPredatorHeart
-  parent: [BasePredatorOrganUnGibbable, BaseOrganHeart]
+  parent: [BasePredatorOrgan, SunriseOrganBaseHeart]
   name: predator heart
   description: A powerful organ that pumps acidic blood through tough tissues and provides incredible stamina and strength to every predator.
   components:
@@ -137,14 +132,11 @@
   - type: Metabolizer
     maxReagents: 2
     metabolizerTypes: [Human]
-    groups:
-    - id: Medicine
-    - id: Poison
-    - id: Narcotic
+    stages: [ Bloodstream ]
 
 - type: entity
   id: OrganPredatorStomach
-  parent: [BasePredatorOrganUnGibbable, BaseOrganStomach]
+  parent: [BasePredatorOrgan, SunriseOrganBaseStomach]
   name: stomach
   description: A voracious pit.
   components:
@@ -163,13 +155,11 @@
   - type: Metabolizer
     maxReagents: 3
     metabolizerTypes: [Human, Animal]
-    groups:
-    - id: Food
-    - id: Drink
+    stages: [ Digestion ]
 
 - type: entity
   id: OrganPredatorLiver
-  parent: [BasePredatorOrganUnGibbable, BaseOrganLiver]
+  parent: [BasePredatorOrgan, SunriseOrganBaseLiver]
   name: liver
   description: A powerful detoxifier that neutralizes dangerous substances with ease.
   components:
@@ -178,13 +168,12 @@
   - type: Metabolizer
     maxReagents: 1
     metabolizerTypes: [Human]
-    groups:
-    - id: Alcohol
-      rateModifier: 0.1
+    stages: [ Metabolites ]
+    updateIntervalMultiplier: 10
 
 - type: entity
   id: OrganPredatorKidneys
-  parent: [BasePredatorOrganUnGibbable, BaseOrganKidneys]
+  parent: [BasePredatorOrgan, SunriseOrganBaseKidneys]
   name: kidneys
   description: Paired filters, ruthlessly taking out anything superfluous.
   components:
@@ -195,11 +184,10 @@
   - type: Metabolizer
     maxReagents: 5
     metabolizerTypes: [Human]
-    removeEmpty: true
 
 - type: entity
   id: OrganPredatorEyes
-  parent: [BasePredatorOrganUnGibbable, BaseOrganEyes]
+  parent: [BasePredatorOrgan, SunriseOrganBaseEyes]
   name: eyes
   description: I see YOU!
   components:
@@ -207,3 +195,8 @@
     layers:
       - state: eyeball-l
       - state: eyeball-r
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - Eyes
+      group: Predator

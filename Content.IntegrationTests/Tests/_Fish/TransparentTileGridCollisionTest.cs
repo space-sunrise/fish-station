@@ -1,3 +1,4 @@
+#nullable enable
 using System.Numerics;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
