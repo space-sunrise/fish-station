@@ -86,6 +86,6 @@
   description: A computer printed circuit board for a mech tracking console.
   components:
   - type: Sprite
-    state: cpu_robotics
+    state: cpu_engineering
   - type: ComputerBoard
     prototype: ComputerMechTracking
