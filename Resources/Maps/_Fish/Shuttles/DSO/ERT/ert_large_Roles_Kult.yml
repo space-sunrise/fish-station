@@ -4,7 +4,7 @@ meta:
   engineVersion: 271.1.0
   forkId: ""
   forkVersion: ""
-  time: 06/19/2026 19:34:38
+  time: 08/06/2026 21:27:41
   entityCount: 1347
 maps: []
 grids:
@@ -84,6 +84,7 @@ entities:
       dampingModifier: 0.25
     - type: ImplicitRoof
     - type: GridPathfinding
+    - type: CentCommShuttle
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
@@ -4879,7 +4880,7 @@ entities:
     - type: Transform
       pos: 4.5,13.5
       parent: 1
-- proto: CentcommComputerComms
+- proto: FishComputerCommsObr
   entities:
   - uid: 332
     components:
@@ -5491,7 +5492,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -3.5,1.5
       parent: 1
-- proto: ComputerShuttle
+- proto: FishComputerShuttleObr
   entities:
   - uid: 675
     components:
@@ -6018,6 +6019,15 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
+- proto: FaxMachineBase
+  entities:
+  - uid: 1055
+    components:
+    - type: Transform
+      pos: -0.5,3.5
+      parent: 1
+    - type: FaxMachine
+      name: ERT
 - proto: FireAlarm
   entities:
   - uid: 1097
@@ -9033,6 +9043,28 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 5.5,12.5
       parent: 1
+- proto: RandomHumanoidSpawnerERTChaplain
+  entities:
+  - uid: 1328
+    components:
+    - type: Transform
+      pos: 5.5,-4.5
+      parent: 1
+  - uid: 1329
+    components:
+    - type: Transform
+      pos: -0.5,-1.5
+      parent: 1
+  - uid: 1331
+    components:
+    - type: Transform
+      pos: -1.5,-1.5
+      parent: 1
+  - uid: 1332
+    components:
+    - type: Transform
+      pos: 2.5,-1.5
+      parent: 1
 - proto: RandomHumanoidSpawnerERTEngineerGamma
   entities:
   - uid: 1271
@@ -9100,28 +9132,6 @@ entities:
     components:
     - type: Transform
       pos: -4.5,-4.5
-      parent: 1
-- proto: RandomHumanoidSpawnerERTChaplain
-  entities:
-  - uid: 1328
-    components:
-    - type: Transform
-      pos: 5.5,-4.5
-      parent: 1
-  - uid: 1329
-    components:
-    - type: Transform
-      pos: -0.5,-1.5
-      parent: 1
-  - uid: 1331
-    components:
-    - type: Transform
-      pos: -1.5,-1.5
-      parent: 1
-  - uid: 1332
-    components:
-    - type: Transform
-      pos: 2.5,-1.5
       parent: 1
 - proto: RandomPosterLegit
   entities:
@@ -11047,13 +11057,6 @@ entities:
       parent: 1
     - type: Physics
       bodyType: Static
-- proto: WeaponCapacitorRecharger
-  entities:
-  - uid: 1055
-    components:
-    - type: Transform
-      pos: -0.5,3.5
-      parent: 1
 - proto: WeaponEnergyTurretCentralCommand
   entities:
   - uid: 336

@@ -28,7 +28,7 @@
   equipment:
    shoes: ClothingShoesBootsBlueShieldFilled
    eyes: ClothingEyesGlassesBlueShield
-   head: ClothingHeadHatBeretBlueShield
+   # head через BlueShieldHead loadout # Fish-edit
    # outerClothing: ClothingOuterArmorBlueShield # Fish edit - commented out, managed via loadout
    id: BlueShieldOperativePDA
    ears: ClothingHeadsetCommand

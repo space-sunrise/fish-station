@@ -24,3 +24,6 @@ listing-disease-insult-description = Длительная болезнь выз�
 
 listing-disease-info-name = Информация о болезни
 listing-disease-info-description = Просмотр текущей статистики болезни и прогресса.
+listing-disease-headache-name = Головная боль
+listing-disease-aphasia-name = Афазия
+listing-disease-aphasia-description = Вирус повреждает речевые центры мозга, из-за чего заражённые теряют способность связывать слова и начинают произносить случайные символы.

@@ -285,7 +285,7 @@
     mechToPilotDamageMultiplier: 0.75
     pilotWhitelist:
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -349,7 +349,7 @@
     airtight: true
     pilotWhitelist:
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -412,7 +412,7 @@
     airtight: true
     pilotWhitelist:
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -492,14 +492,14 @@
     airtight: true # Space Honks is real.
     pilotWhitelist:
       components:
-      - HumanoidAppearance
+      - HumanoidProfile
+  # sunrise start
   - type: Reflect
     reflectProb: 0.05
     spread: 180
     soundOnReflect: /Audio/_Starlight/Armor/Ricochet/ricochet1_1.ogg
     reflects:
     - NonEnergy
-  # sunrise start
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -711,7 +711,7 @@
     airtight: true
     pilotWhitelist:
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
   - type: MeleeThrowOnHit
     distance: 2.5
     speed: 15
@@ -786,7 +786,7 @@
     airtight: true
     pilotWhitelist:
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
   - type: MeleeThrowOnHit
     distance: 4
     speed: 18
@@ -868,7 +868,7 @@
     maxEquipmentAmount: 4
     pilotWhitelist:
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
   - type: MeleeThrowOnHit
     distance: 5
     speed: 20
@@ -963,7 +963,7 @@
     maxEquipmentAmount: 5
     pilotWhitelist:
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
   - type: MeleeThrowOnHit
     distance: 5
     speed: 20
@@ -1054,7 +1054,7 @@
     maxEquipmentAmount: 4
     pilotWhitelist:
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
   - type: MeleeThrowOnHit
     distance: 3
     speed: 15
@@ -1147,7 +1147,7 @@
     maxEquipmentAmount: 5
     pilotWhitelist:
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
   - type: MeleeThrowOnHit
     distance: 5
     speed: 20

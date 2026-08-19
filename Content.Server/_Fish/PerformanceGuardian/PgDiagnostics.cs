@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Server.Atmos.Components;
+using Content.Shared.Atmos.Components;
 using Content.Shared._Fish.PerformanceGuardian;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;

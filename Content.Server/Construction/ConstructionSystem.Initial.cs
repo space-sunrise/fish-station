@@ -14,7 +14,10 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
+using Content.Shared.Item;
+using Content.Shared.Stacks;
 using Content.Shared.Storage;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -41,11 +44,43 @@ namespace Content.Server.Construction
 
         private readonly Dictionary<ICommonSession, HashSet<int>> _beingBuilt = new();
 
+        // Fish-edit
+        private const float InitialConstructionNearbyRange = 3f;
+
         private void InitializeInitial()
         {
             SubscribeNetworkEvent<TryStartStructureConstructionMessage>(HandleStartStructureConstruction);
             SubscribeNetworkEvent<TryStartItemConstructionMessage>(HandleStartItemConstruction);
         }
+
+        // LEGACY CODE. See warning at the top of the file!
+        // Fish-start
+        private IEnumerable<EntityUid> EnumerateStorageContents(StorageComponent storage, int nestedLevels = 1)
+        {
+            foreach (var storedEntity in storage.Container.ContainedEntities)
+            {
+                yield return storedEntity;
+
+                if (nestedLevels > 0 && TryComp(storedEntity, out StorageComponent? nested))
+                {
+                    foreach (var nestedEntity in EnumerateStorageContents(nested, nestedLevels - 1))
+                        yield return nestedEntity;
+                }
+            }
+        }
+
+        private IEnumerable<EntityUid> EnumerateItemSlotContents(EntityUid uid)
+        {
+            if (!TryComp(uid, out ItemSlotsComponent? slots))
+                yield break;
+
+            foreach (var slot in slots.Slots.Values)
+            {
+                if (slot.Item is { } item)
+                    yield return item;
+            }
+        }
+        // Fish-end
 
         // LEGACY CODE. See warning at the top of the file!
         private IEnumerable<EntityUid> EnumerateNearby(EntityUid user)
@@ -54,11 +89,16 @@ namespace Content.Server.Construction
             {
                 if (TryComp(item, out StorageComponent? storage))
                 {
-                    foreach (var storedEntity in storage.Container.ContainedEntities!)
-                    {
+                    // Fish-start
+                    foreach (var storedEntity in EnumerateStorageContents(storage))
                         yield return storedEntity;
-                    }
+                    // Fish-end
                 }
+
+                // Fish-start
+                foreach (var slotted in EnumerateItemSlotContents(item))
+                    yield return slotted;
+                // Fish-end
 
                 yield return item;
             }
@@ -70,27 +110,60 @@ namespace Content.Server.Construction
                     if(!containerSlot.ContainedEntity.HasValue)
                         continue;
 
-                    if (TryComp(containerSlot.ContainedEntity.Value, out StorageComponent? storage))
+                    var equipped = containerSlot.ContainedEntity.Value;
+
+                    if (TryComp(equipped, out StorageComponent? storage))
                     {
-                        foreach (var storedEntity in storage.Container.ContainedEntities)
-                        {
+                        // Fish-start
+                        foreach (var storedEntity in EnumerateStorageContents(storage))
                             yield return storedEntity;
-                        }
+                        // Fish-end
                     }
 
-                    yield return containerSlot.ContainedEntity.Value;
+                    // Fish-start
+                    foreach (var slotted in EnumerateItemSlotContents(equipped))
+                        yield return slotted;
+                    // Fish-end
+
+                    yield return equipped;
                 }
             }
 
             var pos = _transformSystem.GetMapCoordinates(user);
 
-            foreach (var near in _lookupSystem.GetEntitiesInRange(pos, 2f, LookupFlags.Contained | LookupFlags.Dynamic | LookupFlags.Sundries | LookupFlags.Approximate))
+            // Fish-start
+            var userTile = _transformSystem.GetGridOrMapTilePosition(user);
+            foreach (var near in _lookupSystem.GetEntitiesInRange(pos, InitialConstructionNearbyRange, LookupFlags.Contained | LookupFlags.Dynamic | LookupFlags.Sundries | LookupFlags.Approximate | LookupFlags.Static))
             {
                 if (near == user)
                     continue;
-                if (_interactionSystem.InRangeUnobstructed(pos, near, 2f) && _container.IsInSameOrParentContainer(user, near))
-                    yield return near;
+                if (!_interactionSystem.InRangeUnobstructed(pos, near, InitialConstructionNearbyRange)
+                    || !_container.IsInSameOrParentContainer(user, near))
+                    continue;
+
+                if (TryComp(near, out TransformComponent? nearXform) && nearXform.Anchored)
+                {
+                    if (!HasComp<ItemComponent>(near))
+                        continue;
+                    if (_transformSystem.GetGridOrMapTilePosition(near, nearXform) != userTile)
+                        continue;
+                }
+
+                yield return near;
+
+                if (_container.TryGetContainingContainer(near, out var nearParent) && nearParent.Owner == user)
+                    continue;
+
+                if (TryComp(near, out StorageComponent? nearStorage))
+                {
+                    foreach (var storedEntity in EnumerateStorageContents(nearStorage))
+                        yield return storedEntity;
+                }
+
+                foreach (var slotted in EnumerateItemSlotContents(near))
+                    yield return slotted;
             }
+            // Fish-end
         }
 
         // LEGACY CODE. See warning at the top of the file!
@@ -165,6 +238,8 @@ namespace Content.Server.Construction
             }
 
             var failed = false;
+            // Fish-edit
+            ConstructionGraphStep? failedStep = null;
 
             var steps = new List<ConstructionGraphStep>();
             var used = new HashSet<EntityUid>();
@@ -178,32 +253,75 @@ namespace Content.Server.Construction
                 switch (step)
                 {
                     case MaterialConstructionGraphStep materialStep:
-                        foreach (var entity in EnumerateNearby(user))
+                        // Fish-start
                         {
-                            if (!materialStep.EntityValid(entity, out var stack))
-                                continue;
+                            var needed = materialStep.Amount;
+                            var candidates = new List<EntityUid>();
+                            var seen = new HashSet<EntityUid>();
+                            var available = 0;
 
-                            if (used.Contains(entity))
-                                continue;
-
-                            // TODO allow taking from several stacks.
-                            // Also update crafting steps to check if it works.
-                            var splitStack = _stackSystem.Split((entity, stack), materialStep.Amount, user.ToCoordinates(0, 0));
-
-                            if (splitStack == null)
-                                continue;
-
-                            if (string.IsNullOrEmpty(materialStep.Store))
+                            foreach (var entity in EnumerateNearby(user))
                             {
-                                if (!_container.Insert(splitStack.Value, container))
+                                if (!seen.Add(entity) || used.Contains(entity))
                                     continue;
-                            }
-                            else if (!_container.Insert(splitStack.Value, GetContainer(materialStep.Store)))
-                                continue;
 
-                            handled = true;
-                            break;
+                                if (!TryComp(entity, out StackComponent? stack)
+                                    || stack.StackTypeId != materialStep.MaterialPrototypeId
+                                    || stack.Count <= 0)
+                                    continue;
+
+                                candidates.Add(entity);
+                                available += stack.Count;
+                                if (available >= needed)
+                                    break;
+                            }
+
+                            if (available >= needed)
+                            {
+                                EntityUid? combined = null;
+                                var remaining = needed;
+                                var targetContainer = string.IsNullOrEmpty(materialStep.Store)
+                                    ? container
+                                    : GetContainer(materialStep.Store);
+
+                                foreach (var entity in candidates)
+                                {
+                                    if (remaining <= 0)
+                                        break;
+
+                                    if (!TryComp(entity, out StackComponent? stack) || stack.Count <= 0)
+                                        continue;
+
+                                    var take = Math.Min(stack.Count, remaining);
+                                    var splitStack = _stackSystem.Split((entity, stack), take, user.ToCoordinates(0, 0));
+                                    if (splitStack == null)
+                                        continue;
+
+                                    if (combined == null)
+                                    {
+                                        combined = splitStack;
+                                        remaining -= take;
+                                        continue;
+                                    }
+
+                                    if (_stackSystem.TryMergeStacks(splitStack.Value, combined.Value, out var transferred))
+                                    {
+                                        if (Exists(splitStack.Value))
+                                            _container.Insert(splitStack.Value, targetContainer);
+
+                                        remaining -= transferred;
+                                    }
+                                    else if (_container.Insert(splitStack.Value, targetContainer))
+                                    {
+                                        remaining -= take;
+                                    }
+                                }
+
+                                if (combined != null && _container.Insert(combined.Value, targetContainer) && remaining <= 0)
+                                    handled = true;
+                            }
                         }
+                        // Fish-end
 
                         break;
 
@@ -221,6 +339,11 @@ namespace Content.Server.Construction
                             {
                                 _container.EmptyContainer(storage.Container);
                             }
+
+                            // Fish-start
+                            if (TryComp(entity, out TransformComponent? insertXform) && insertXform.Anchored)
+                                _transformSystem.Unanchor(entity, insertXform);
+                            // Fish-end
 
                             if (string.IsNullOrEmpty(arbitraryStep.Store))
                             {
@@ -241,6 +364,8 @@ namespace Content.Server.Construction
                 if (handled == false)
                 {
                     failed = true;
+                    // Fish-edit
+                    failedStep = step;
                     break;
                 }
 
@@ -249,7 +374,8 @@ namespace Content.Server.Construction
 
             if (failed)
             {
-                _popup.PopupEntity(Loc.GetString("construction-system-construct-no-materials"), user, user);
+                // Fish-edit
+                _popup.PopupEntity(GetInitialConstructionFailPopup(failedStep), user, user);
                 FailCleanup();
                 return null;
             }
@@ -556,5 +682,27 @@ namespace Content.Server.Construction
             _adminLogger.Add(LogType.Construction, LogImpact.Low, $"{ToPrettyString(user):player} has turned a {ev.PrototypeName} construction ghost into {ToPrettyString(structure)} at {Transform(structure).Coordinates}");
             Cleanup();
         }
+
+        // Fish-start
+        private string GetInitialConstructionFailPopup(ConstructionGraphStep? step)
+        {
+            switch (step)
+            {
+                case MaterialConstructionGraphStep materialStep:
+                {
+                    var material = PrototypeManager.Index(materialStep.MaterialPrototypeId);
+                    var materialName = Loc.GetString(material.Name, ("amount", materialStep.Amount));
+                    return Loc.GetString("construction-system-construct-missing-material",
+                        ("amount", materialStep.Amount),
+                        ("material", materialName));
+                }
+                case ArbitraryInsertConstructionGraphStep arbitraryStep when !string.IsNullOrEmpty(arbitraryStep.Name):
+                    return Loc.GetString("construction-system-construct-missing-entity",
+                        ("entityName", Loc.GetString(arbitraryStep.Name)));
+                default:
+                    return Loc.GetString("construction-system-construct-no-materials");
+            }
+        }
+        // Fish-end
     }
 }

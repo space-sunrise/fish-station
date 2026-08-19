@@ -63,3 +63,16 @@
   - type: Sprite
     sprite: _Fish/Objects/Misc/stamps.rsi
     state: stamp-senior-rd
+
+- type: entity
+  name: oversight officer's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampOversight
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-oversight
+    stampedColor: "#6434A1"
+    stampState: "paper_stamp-rd"
+  - type: Sprite
+    sprite: _Sunrise/Objects/Misc/stamps.rsi
+    state: stamp-specops

@@ -83,6 +83,7 @@ entities:
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
+    - type: CentCommShuttle
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -4879,7 +4880,7 @@ entities:
     - type: Transform
       pos: 4.5,13.5
       parent: 1
-- proto: CentcommComputerComms
+- proto: FishComputerCommsObr
   entities:
   - uid: 332
     components:
@@ -5491,7 +5492,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -3.5,1.5
       parent: 1
-- proto: ComputerShuttle
+- proto: FishComputerShuttleObr
   entities:
   - uid: 675
     components:
@@ -6018,6 +6019,15 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
+- proto: FaxMachineBase
+  entities:
+  - uid: 1055
+    components:
+    - type: Transform
+      pos: -0.5,3.5
+      parent: 1
+    - type: FaxMachine
+      name: ERT
 - proto: FireAlarm
   entities:
   - uid: 1097
@@ -10957,13 +10967,6 @@ entities:
       parent: 1
     - type: Physics
       bodyType: Static
-- proto: WeaponCapacitorRecharger
-  entities:
-  - uid: 1055
-    components:
-    - type: Transform
-      pos: -0.5,3.5
-      parent: 1
 - proto: WeaponEnergyTurretCentralCommand
   entities:
   - uid: 336

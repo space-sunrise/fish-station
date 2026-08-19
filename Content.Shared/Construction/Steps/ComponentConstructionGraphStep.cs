@@ -9,13 +9,15 @@ namespace Content.Shared.Construction.Steps
 
         public override bool EntityValid(EntityUid uid, IEntityManager entityManager, IComponentFactory compFactory)
         {
-            foreach (var component in entityManager.GetComponents(uid))
-            {
-                if (compFactory.GetComponentName(component.GetType()) == Component)
-                    return true;
-            }
+            // Fish-start
+            if (string.IsNullOrEmpty(Component))
+                return false;
 
-            return false;
+            if (!compFactory.TryGetRegistration(Component, out var registration))
+                return false;
+
+            return entityManager.HasComponent(uid, registration.Type);
+            // Fish-end
         }
 
         public override void DoExamine(ExaminedEvent examinedEvent)
