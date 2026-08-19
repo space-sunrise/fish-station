@@ -1,8 +1,8 @@
 - type: marking
   id: AmericanFoxTail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Kitsune]
+
+  groupWhitelist: [Kitsune]
   coloring:
     default:
       type:
@@ -21,8 +21,8 @@
 - type: marking
   id: HoaryFoxTail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Kitsune]
+
+  groupWhitelist: [Kitsune]
   coloring:
     default:
       type:
@@ -41,8 +41,8 @@
 - type: marking
   id: BlanfordsFoxTail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Kitsune]
+
+  groupWhitelist: [Kitsune]
   coloring:
     default:
       type:

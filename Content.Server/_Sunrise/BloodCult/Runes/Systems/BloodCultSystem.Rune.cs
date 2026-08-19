@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Numerics;
 using Content.Server._Sunrise.BloodCult.GameRule;
 using Content.Server._Sunrise.BloodCult.Objectives.Components;
@@ -49,6 +49,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
@@ -56,6 +57,10 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
 {
     public partial class BloodCultSystem
     {
+        private static readonly ProtoId<DamageTypePrototype> SlashDamageType = "Slash";
+        private static readonly ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
+        private static readonly ProtoId<DamageGroupPrototype> BurnDamageGroup = "Burn";
+
         public void InitializeRunes()
         {
             // Runes
@@ -336,7 +341,7 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
                     out var vapor))
                 return;
 
-            if (vapor.Value.Comp.Solution.Any(x => x.Reagent.Prototype == "Holywater"))
+            if (vapor.Value.Comp.Solution.Contents.Any(x => x.Reagent.Prototype == "Holywater"))
             {
                 Del(uid);
             }
@@ -521,7 +526,7 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
                     _cultistTargetsConditionSystem.RefresTitle(obj, rule.CultTargets, killCultistTargetsComponent);
                 }
 
-                _gibbingSystem.Gib(target);
+                _gibbing.Gib(target);
                 _bloodCultRuleSystem.ChangeSacrificeCount(rule, rule.SacrificeCount + 1);
 
                 return true;
@@ -529,7 +534,7 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
 
             if (!SpawnShard(target))
             {
-                _gibbingSystem.Gib(target);
+                _gibbing.Gib(target);
             }
 
             _bloodCultRuleSystem.ChangeSacrificeCount(rule, rule.SacrificeCount + 1);
@@ -554,7 +559,7 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
 
             if (!SpawnShard(target))
             {
-                _gibbingSystem.Gib(target);
+                _gibbing.Gib(target);
             }
 
             _bloodCultRuleSystem.ChangeSacrificeCount(rule, rule.SacrificeCount + 1);
@@ -599,7 +604,7 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
                 _lookup.GetEntitiesInRange(uid, component.RangeTarget, LookupFlags.Dynamic | LookupFlags.Sundries);
 
             targets.RemoveWhere(x =>
-                !_entityManager.HasComponent<HumanoidAppearanceComponent>(x) ||
+                !_entityManager.HasComponent<HumanoidProfileComponent>(x) ||
                 !_entityManager.HasComponent<BloodCultistComponent>(x));
 
             if (targets.Count == 0)
@@ -713,15 +718,15 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
             var selectedRune = new EntityUid(args.SelectedItem);
             var baseRune = uid;
 
-            if (!TryComp<TransformComponent>(selectedRune, out var xFormSelected) ||
-                !TryComp<TransformComponent>(baseRune, out var xFormBase))
+            if (!TryComp(selectedRune, out TransformComponent? xFormSelected) ||
+                !TryComp(baseRune, out TransformComponent? xFormBase))
                 return;
 
             foreach (var target in targets)
             {
                 if (TryComp<PullableComponent>(target, out var pullable))
                     _pulling.TryStopPull(target, pullable);
-                if (HasComp<HumanoidAppearanceComponent>(target) && TryComp<TransformComponent>(target, out TransformComponent? targetm))
+                if (HasComp<HumanoidProfileComponent>(target) && TryComp(target, out TransformComponent? targetm))
                 {
                     _entityManager.SpawnEntity(TeleportInEffect, xFormSelected.Coordinates);
                     _entityManager.SpawnEntity(TeleportOutEffect, targetm.Coordinates);
@@ -873,7 +878,7 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
                 _lookup.GetEntitiesInRange(uid, component.RangeTarget, LookupFlags.Dynamic | LookupFlags.Sundries);
 
             targets.RemoveWhere(x =>
-                !_entityManager.HasComponent<HumanoidAppearanceComponent>(x) || !HasComp<BloodCultistComponent>(x));
+                !_entityManager.HasComponent<HumanoidProfileComponent>(x) || !HasComp<BloodCultistComponent>(x));
 
             if (targets.Count == 0)
                 return;
@@ -1045,7 +1050,7 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
             if (baseRune == null)
                 return;
 
-            if (!TryComp<TransformComponent>(baseRune, out _))
+            if (!TryComp(baseRune, out TransformComponent? xFormBase))
                 return;
 
             var isCuffed = cuffableComponent.CuffedHandCount > 0;
@@ -1185,7 +1190,7 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
 
             var inRange = _lookup.GetEntitiesInRange(rune, component.ProjectileRange * severity, LookupFlags.Dynamic);
             inRange.RemoveWhere(x =>
-                !_entityManager.HasComponent<HumanoidAppearanceComponent>(x) ||
+                !_entityManager.HasComponent<HumanoidProfileComponent>(x) ||
                 _entityManager.HasComponent<BloodCultistComponent>(x) ||
                 _entityManager.HasComponent<ConstructComponent>(x));
 
@@ -1337,7 +1342,7 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
                 // ыыыы
             }
 
-            var damageSpecifier = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Slash"), 10);
+            var damageSpecifier = new DamageSpecifier(_prototypeManager.Index(SlashDamageType), 10);
             _damageableSystem.TryChangeDamage(uid, damageSpecifier, true, false);
 
             _entityManager.SpawnEntity(rune, coords);
@@ -1358,7 +1363,7 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
             if (mindComponent.Mind.HasValue)
                 _mindSystem.TransferTo(mindComponent.Mind.Value, shard);
 
-            _gibbingSystem.Gib(target);
+            _gibbing.Gib(target);
 
             return true;
         }
@@ -1390,8 +1395,8 @@ namespace Content.Server._Sunrise.BloodCult.Runes.Systems
 
         private void HealCultist(EntityUid player)
         {
-            var damageSpecifier = _prototypeManager.Index<DamageGroupPrototype>("Brute");
-            var damageSpecifier2 = _prototypeManager.Index<DamageGroupPrototype>("Burn");
+            var damageSpecifier = _prototypeManager.Index(BruteDamageGroup);
+            var damageSpecifier2 = _prototypeManager.Index(BurnDamageGroup);
 
             _damageableSystem.TryChangeDamage(player, new DamageSpecifier(damageSpecifier, -40));
             _damageableSystem.TryChangeDamage(player, new DamageSpecifier(damageSpecifier2, -40));

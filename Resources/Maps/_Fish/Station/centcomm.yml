@@ -41062,7 +41062,7 @@ entities:
     - type: Transform
       pos: -3.4985683,16.513187
       parent: 2
-- proto: HeadGingerbread
+- proto: OrganGingerbreadHead
   entities:
   - uid: 2577
     components:

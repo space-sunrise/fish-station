@@ -6,7 +6,7 @@ namespace Content.Shared._Fish.ObrCall;
 /// <summary>
 /// Конфигурация отряда ОБР/РХБЗЗ для вызова через консоли.
 /// </summary>
-[Prototype("obrTeam")]
+[Prototype]
 public sealed partial class ObrTeamPrototype : IPrototype
 {
     [IdDataField]

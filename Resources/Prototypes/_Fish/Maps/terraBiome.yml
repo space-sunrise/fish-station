@@ -23,7 +23,6 @@
             priorityTag: DockMining
         - type: StationBiome
           biome: TerraPlanet
-          mapLightColor: "#170f08FF"
         - type: StationJobs
           availableJobs:
             # service

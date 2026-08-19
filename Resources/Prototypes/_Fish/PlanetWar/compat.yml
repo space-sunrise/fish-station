@@ -1,0 +1,174 @@
+# Compatibility fallbacks for deleted upstream prototypes used by PlanetWar
+- type: entity
+  abstract: true
+  parent: BaseMagazineLightRifle
+  id: MagazineRPD
+
+- type: entity
+  abstract: true
+  parent: BaseMagazineLightRifle
+  id: MagazineBR64
+
+- type: entity
+  abstract: true
+  parent: BaseMagazinePistolHighCapacity
+  id: MagazineVP78
+
+- type: entity
+  abstract: true
+  parent: BaseMagazinePistol
+  id: MagazineHIBrowning
+
+- type: entity
+  abstract: true
+  parent: WeaponPistolViper
+  id: WeaponPistolHIB88M4
+
+- type: entity
+  abstract: true
+  parent: WeaponRifleLecter
+  id: WeaponRifleFamas
+
+- type: entity
+  abstract: true
+  parent: WeaponSubMachineGunDrozd
+  id: WeaponSubMachineGunMP38
+
+- type: Tag
+  id: MagazineVP78
+- type: Tag
+  id: MagazineBR64
+- type: Tag
+  id: MagazineHIBrowning
+- type: Tag
+  id: MagazineRPD
+
+- type: entity
+  parent: WeaponLaserGun
+  id: WeaponEnergyGunPulseRevolver
+  suffix: compat
+
+# Legacy body parts compatibility for maps
+- type: entity
+  parent: OrganSlimePersonHead
+  id: HeadSlime
+
+- type: entity
+  parent: OrganVulpkaninHead
+  id: HeadVulpkanin
+
+- type: entity
+  parent: OrganVulpkaninTorso
+  id: TorsoVulpkanin
+
+- type: entity
+  parent: OrganVulpkaninArmLeft
+  id: LeftArmVulpkanin
+
+- type: entity
+  parent: OrganVulpkaninArmRight
+  id: RightArmVulpkanin
+
+- type: entity
+  parent: OrganVulpkaninHandLeft
+  id: LeftHandVulpkanin
+
+- type: entity
+  parent: OrganVulpkaninHandRight
+  id: RightHandVulpkanin
+
+- type: entity
+  parent: OrganVulpkaninLegLeft
+  id: LeftLegVulpkanin
+
+- type: entity
+  parent: OrganVulpkaninLegRight
+  id: RightLegVulpkanin
+
+- type: entity
+  parent: OrganVulpkaninFootLeft
+  id: LeftFootVulpkanin
+
+- type: entity
+  parent: OrganVulpkaninFootRight
+  id: RightFootVulpkanin
+
+- type: entity
+  parent: OrganSkeletonPersonHead
+  id: HeadSkeleton
+
+- type: entity
+  parent: OrganSkeletonPersonTorso
+  id: TorsoSkeleton
+
+- type: entity
+  parent: OrganSkeletonPersonFootLeft
+  id: LeftFootSkeleton
+
+- type: entity
+  parent: OrganSkeletonPersonFootRight
+  id: RightFootSkeleton
+
+- type: entity
+  parent: OrganSkeletonPersonArmLeft
+  id: LeftArmSkeleton
+
+- type: entity
+  parent: OrganSkeletonPersonArmRight
+  id: RightArmSkeleton
+
+- type: entity
+  parent: OrganSkeletonPersonHandLeft
+  id: LeftHandSkeleton
+
+- type: entity
+  parent: OrganSkeletonPersonHandRight
+  id: RightHandSkeleton
+
+- type: entity
+  parent: OrganSkeletonPersonLegLeft
+  id: LeftLegSkeleton
+
+- type: entity
+  parent: OrganSkeletonPersonLegRight
+  id: RightLegSkeleton
+
+- type: entity
+  parent: OrganHumanHead
+  id: HeadHuman
+
+- type: entity
+  parent: OrganHumanTorso
+  id: TorsoHuman
+
+- type: entity
+  parent: OrganHumanArmLeft
+  id: LeftArmHuman
+
+- type: entity
+  parent: OrganHumanArmRight
+  id: RightArmHuman
+
+- type: entity
+  parent: OrganHumanHandLeft
+  id: LeftHandHuman
+
+- type: entity
+  parent: OrganHumanHandRight
+  id: RightHandHuman
+
+- type: entity
+  parent: OrganHumanLegLeft
+  id: LeftLegHuman
+
+- type: entity
+  parent: OrganHumanLegRight
+  id: RightLegHuman
+
+- type: entity
+  parent: OrganHumanFootLeft
+  id: LeftFootHuman
+
+- type: entity
+  parent: OrganHumanFootRight
+  id: RightFootHuman

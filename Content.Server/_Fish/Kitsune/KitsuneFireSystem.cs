@@ -13,6 +13,8 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
+using Content.Shared.Damage.Prototypes;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Fish.Kitsune
 {
@@ -21,7 +23,6 @@ namespace Content.Server._Fish.Kitsune
         [Dependency] private readonly DamageableSystem _damageable = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-        [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
@@ -59,7 +60,7 @@ namespace Content.Server._Fish.Kitsune
             // Damage the performer (Self-Damage)
             var damage = new DamageSpecifier()
             {
-                DamageDict = new Dictionary<string, FixedPoint2>
+                DamageDict = new Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2>
                 {
                     { "Slash", FixedPoint2.New(9) }
                 }
