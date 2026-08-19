@@ -126,26 +126,26 @@ public sealed class MechMedicalSleeperSystem : EntitySystem
             return;
         }
 
-        if (!_solutions.TryGetInjectableSolution(patient, out var targetSoln, out _))
+        if (!_solutions.TryGetInjectableSolution(patient, out var targetSoln, out var targetSolution))
         {
             _popup.PopupEntity(Loc.GetString("mech-sleeper-inject-failed"), mech, PopupType.MediumCaution);
             return;
         }
 
-        if (!TryResolveSourceSolution(sleeper, mech, component, msg.ReagentId, out var source))
+        if (!TryResolveSourceSolution(sleeper, mech, component, msg.ReagentId, out var source, out var sourceSolution))
         {
             _popup.PopupEntity(Loc.GetString("mech-sleeper-no-reagents"), mech, PopupType.MediumCaution);
             return;
         }
 
-        var amount = FixedPoint2.Min(component.InjectAmount, source.Comp.Solution.GetTotalPrototypeQuantity(msg.ReagentId));
+        var amount = FixedPoint2.Min(component.InjectAmount, sourceSolution.GetTotalPrototypeQuantity(msg.ReagentId));
         if (amount <= 0)
         {
             _popup.PopupEntity(Loc.GetString("mech-sleeper-no-reagents"), mech, PopupType.MediumCaution);
             return;
         }
 
-        amount = FixedPoint2.Min(amount, targetSoln.Value.Comp.Solution.AvailableVolume);
+        amount = FixedPoint2.Min(amount, targetSolution!.AvailableVolume);
         if (amount <= 0)
         {
             _popup.PopupEntity(Loc.GetString("mech-sleeper-inject-failed"), mech, PopupType.MediumCaution);
@@ -176,16 +176,19 @@ public sealed class MechMedicalSleeperSystem : EntitySystem
         EntityUid mech,
         MechMedicalSleeperComponent component,
         string reagentId,
-        out Entity<SolutionComponent> source)
+        out Entity<SolutionComponent> source,
+        out Solution sourceSolution)
     {
         source = default;
+        sourceSolution = null!;
 
         // Сначала sibling chem-резервуар на шасси, затем запас самого медмодуля.
-        foreach (var candidate in EnumerateInjectionSources(sleeper, mech, component))
+        foreach (var (candidate, solution) in EnumerateInjectionSources(sleeper, mech, component))
         {
-            if (candidate.Comp.Solution.GetTotalPrototypeQuantity(reagentId) > FixedPoint2.Zero)
+            if (solution.GetTotalPrototypeQuantity(reagentId) > FixedPoint2.Zero)
             {
                 source = candidate;
+                sourceSolution = solution;
                 return true;
             }
         }
@@ -193,7 +196,7 @@ public sealed class MechMedicalSleeperSystem : EntitySystem
         return false;
     }
 
-    private IEnumerable<Entity<SolutionComponent>> EnumerateInjectionSources(
+    private IEnumerable<(Entity<SolutionComponent> Entity, Solution Solution)> EnumerateInjectionSources(
         EntityUid sleeper,
         EntityUid mech,
         MechMedicalSleeperComponent component)
@@ -205,24 +208,24 @@ public sealed class MechMedicalSleeperSystem : EntitySystem
                 if (MetaData(equipment).EntityPrototype?.ID != "MechEquipmentSyringeGun")
                     continue;
 
-                if (_solutions.TryGetSolution(equipment, "chemReserve", out var tank, out _))
-                    yield return tank.Value;
+                if (_solutions.TryGetSolution(equipment, "chemReserve", out var tank, out var tankSolution))
+                    yield return (tank.Value, tankSolution);
 
                 if (!TryComp<StorageComponent>(equipment, out var storage))
                     continue;
 
                 foreach (var item in storage.Container.ContainedEntities)
                 {
-                    if (_solutions.TryGetSolution(item, "injector", out var injector, out _))
-                        yield return injector.Value;
-                    else if (_solutions.TryGetSolution(item, "pen", out var pen, out _))
-                        yield return pen.Value;
+                    if (_solutions.TryGetSolution(item, "injector", out var injector, out var injectorSolution))
+                        yield return (injector.Value, injectorSolution);
+                    else if (_solutions.TryGetSolution(item, "pen", out var pen, out var penSolution))
+                        yield return (pen.Value, penSolution);
                 }
             }
         }
 
-        if (_solutions.TryGetSolution(sleeper, component.SolutionName, out var sleeperSoln, out _))
-            yield return sleeperSoln.Value;
+        if (_solutions.TryGetSolution(sleeper, component.SolutionName, out var sleeperSoln, out var sleeperSolution))
+            yield return (sleeperSoln.Value, sleeperSolution);
     }
 
     private List<MechSleeperReagentEntry> CollectReagents(EntityUid sleeper, MechMedicalSleeperComponent component)
@@ -237,8 +240,8 @@ public sealed class MechMedicalSleeperSystem : EntitySystem
             return result.Values.OrderBy(e => e.DisplayName).ToList();
         }
 
-        foreach (var soln in EnumerateInjectionSources(sleeper, mech, component))
-            AggregateSolutionContents(soln.Comp.Solution, result);
+        foreach (var (_, solution) in EnumerateInjectionSources(sleeper, mech, component))
+            AggregateSolutionContents(solution, result);
 
         return result.Values.OrderBy(e => e.DisplayName).ToList();
     }

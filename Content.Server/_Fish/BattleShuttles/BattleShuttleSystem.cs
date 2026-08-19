@@ -98,7 +98,7 @@ public sealed class BattleShuttleSystem : SharedBattleShuttleSystem
         if (!TryGetOreScoopStorage(ent, out var storageEnt, out var scoop) || scoop == null)
             return;
 
-        if (!TryComp<TransformComponent>(ent, out var xform))
+        if (!TryComp(ent, out TransformComponent? xform))
             return;
 
         _scoopBuffer.Clear();
