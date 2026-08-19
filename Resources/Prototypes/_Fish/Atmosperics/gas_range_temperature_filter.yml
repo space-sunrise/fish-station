@@ -36,8 +36,8 @@
       inlet: inlet
       bypass: outlet
       filtered: filter
-      LowTemperature: 2.7
-      HighTemperature: 1000
+      # LowTemperature: 2.7
+      # HighTemperature: 1000
     - type: Flippable
       mirrorEntity: GasRangeTemperatureFilterFlipped
     - type: Construction
