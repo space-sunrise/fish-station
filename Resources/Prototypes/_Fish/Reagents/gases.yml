@@ -435,8 +435,8 @@
 
 - type: reagent
   id: ProtoUltimium
-  name: reagent-name-protoultimium
-  desc: reagent-desc-protoultimium
+  name: reagent-name-proto-ultimium
+  desc: reagent-desc-proto-ultimium
   physicalDesc: reagent-physical-desc-necrotic
   flavor: bitter
   color: "#b85959"

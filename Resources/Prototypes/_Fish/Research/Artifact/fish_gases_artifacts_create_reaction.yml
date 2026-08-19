@@ -1,7 +1,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasZenthium
   parent: BaseXenoArtifactEffect
-  description: Выделяет Зентиум
+  description: Xeno-Artifact-Effect-Creation-Gas-Zenthium
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -11,7 +11,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasKrypium
   parent: BaseXenoArtifactEffect
-  description: Выделяет Крипиум
+  description: Xeno-Artifact-Effect-Creation-Gas-Krypium
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -21,7 +21,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasPrallium
   parent: BaseXenoArtifactEffect
-  description: Выделяет Праллий
+  description: Xeno-Artifact-Effect-Creation-Gas-Prallium
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -31,7 +31,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasChaoson
   parent: BaseXenoArtifactEffect
-  description: Выделяет Хаосон
+  description: Xeno-Artifact-Effect-Creation-Gas-Chaoson
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -41,7 +41,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasGarodin
   parent: BaseXenoArtifactEffect
-  description: Выделяет Гародин
+  description: Xeno-Artifact-Effect-Creation-Gas-Garodin
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -51,7 +51,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasBaratrium
   parent: BaseXenoArtifactEffect
-  description: Выделяет Баратрий
+  description: Xeno-Artifact-Effect-Creation-Gas-Baratrium
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -61,7 +61,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasEthylium
   parent: BaseXenoArtifactEffect
-  description: Выделяет Этилиум
+  description: Xeno-Artifact-Effect-Creation-Gas-Ethylium
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -71,7 +71,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasZimmera
   parent: BaseXenoArtifactEffect
-  description: Выделяет Циммеру
+  description: Xeno-Artifact-Effect-Creation-Gas-Zimmera
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -81,7 +81,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasFramel
   parent: BaseXenoArtifactEffect
-  description: Выделяет Фрамель
+  description: Xeno-Artifact-Effect-Creation-Gas-Framel
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -91,7 +91,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasKlemennon
   parent: BaseXenoArtifactEffect
-  description: Выделяет Клеменнон
+  description: Xeno-Artifact-Effect-Creation-Gas-Klemennon
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -101,7 +101,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasProtoUltimium
   parent: BaseXenoArtifactEffect
-  description: Выделяет Прото-Ультимиум
+  description: Xeno-Artifact-Effect-Creation-Gas-Proto-Ultimium
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -111,7 +111,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasZimmerousFrezonite
   parent: BaseXenoArtifactEffect
-  description: Выделяет Фрезонит Циммеры
+  description: Xeno-Artifact-Effect-Creation-Gas-Zimmerous-Frezonite
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -121,7 +121,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasAntiUltimium
   parent: BaseXenoArtifactEffect
-  description: Выделяет Анти-Ультимиум
+  description: Xeno-Artifact-Effect-Creation-Gas-Anti-Ultimium
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -131,7 +131,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasUltimium
   parent: BaseXenoArtifactEffect
-  description: Выделяет Ультимиум
+  description: Xeno-Artifact-Effect-Creation-Gas-Ultimium
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -141,7 +141,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasPermafrost
   parent: BaseXenoArtifactEffect
-  description: Выделяет Пермафрост
+  description: Xeno-Artifact-Effect-Creation-Gas-Permafrost
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -151,7 +151,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasRiminon
   parent: BaseXenoArtifactEffect
-  description: Выделяет Райминон
+  description: Xeno-Artifact-Effect-Creation-Gas-Riminon
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
@@ -161,7 +161,7 @@
 - type: entity
   id: XenoArtifactEffectCreationGasAxoNoblium
   parent: BaseXenoArtifactEffect
-  description: Выделяет Аксо-Ноблий
+  description: Xeno-Artifact-Effect-Creation-Gas-Axo-Noblium
   categories: [ HideSpawnMenu ]
   components:
   - type: XAECreateGas
