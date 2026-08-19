@@ -83,7 +83,7 @@ public sealed partial class CultTeleportDoAfterEvent : SimpleDoAfterEvent
 [Serializable, NetSerializable]
 public sealed partial class CultSummonRitualDoAfterEvent : SimpleDoAfterEvent
 {
-    public NetEntity Target;
+    public new NetEntity Target;
     public NetEntity Rune;
     public NetEntity Summoner;
 }
