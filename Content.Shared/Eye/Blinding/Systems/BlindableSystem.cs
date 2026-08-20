@@ -6,9 +6,9 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Rejuvenate;
-using Content.Shared.Starlight.Medical.Surgery; // Fish-edit
 using Content.Shared.Starlight.Medical.Surgery.Steps.Parts;
 using JetBrains.Annotations;
+using Content.Shared.Body;
 
 namespace Content.Shared.Eye.Blinding.Systems;
 
@@ -16,7 +16,7 @@ public sealed class BlindableSystem : EntitySystem
 {
     [Dependency] private readonly BlurryVisionSystem _blurriness = default!;
     [Dependency] private readonly EyeClosingSystem _eyelids = default!;
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
+    [Dependency] private readonly BodySystem _body = default!; // Sunrise
 
     public override void Initialize()
     {
@@ -58,18 +58,14 @@ public sealed class BlindableSystem : EntitySystem
 
         var old = blindable.Comp.IsBlind;
 
+        // Sunrise start
         var forceBlind = false;
-        // Fish-start
-        if (HasComp<SurgeryTargetComponent>(blindable.Owner) &&
-            TryComp<BodyComponent>(blindable.Owner, out var body))
-        {
-            var eyes = _bodySystem.GetBodyOrganEntityComps<OrganEyesComponent>((blindable.Owner, body));
-            forceBlind = eyes.Count == 0;
-        }
-        // Fish-end
+        if (_body.TryGetOrganWithComponent<OrganEyesComponent>(blindable.Owner, out _))
+            forceBlind = true;
+        // Sunrise end
 
         // Don't bother raising an event if the eye is too damaged.
-        if (blindable.Comp.EyeDamage >= blindable.Comp.MaxDamage || forceBlind)
+        if (blindable.Comp.EyeDamage >= blindable.Comp.MaxDamage || forceBlind) // Sunrise-edit
         {
             blindable.Comp.IsBlind = true;
         }

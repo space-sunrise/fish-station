@@ -79,7 +79,6 @@
   - MedicalDoctorHead
   - MedicalMask
   - MedicalDoctorJumpsuit
-  - MedicalGloves
   - MedicalBackpack
   - MedicalDoctorOuterClothing
   # Sunrise-start
@@ -87,7 +86,7 @@
   # Sunrise-end
   - MedicalShoes
   #- MedicalDoctorPDA
-  - MedicalEyewear
+  - Glasses
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical

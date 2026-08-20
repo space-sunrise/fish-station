@@ -166,6 +166,10 @@
         Piercing: 0.95
         Heat: 0.90
         Radiation: 0.25
+  # Fish-start - Защита от болезни 50%
+  - type: DiseaseImmuneClothing
+    prob: 0.5
+  # Fish-end
   - type: ToggleableClothing
     slot: head
   - type: ContainerContainer
@@ -254,6 +258,10 @@
   - type: StaminaResistance
     damageCoefficient: 0.9
   # Sunrise-End
+  # Fish-start - Защита от болезни 50%
+  - type: DiseaseImmuneClothing
+    prob: 0.5
+  # Fish-end
 
 - type: entity
   parent: ClothingOuterBase

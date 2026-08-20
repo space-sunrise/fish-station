@@ -1,4 +1,4 @@
-using Content.Server.Atmos.Components;
+using Content.Shared.Atmos.Components;
 using Content.Shared._Fish.PerformanceGuardian;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Systems;

@@ -1315,7 +1315,7 @@
     - type: HandLabeler
       whitelist:
         components:
-          - HumanoidAppearance
+          - HumanoidProfile
           - Thirst
           - Hunger
           - Item
@@ -1780,7 +1780,6 @@
     passiveVisibilityRate: -2.00
   - type: TimedDespawn
     lifetime: 3
-  - type: Timer
 
 
 - type: entity
@@ -3101,7 +3100,6 @@
       allowedStates:
       - Critical
       - Dead
-      damageCap: 100000
       damage:
         types:
           Cellular: 3
@@ -3910,9 +3908,9 @@
       qualityNeeded: "Anchoring"
       doAfterDelay: 1
       damage:
-        groups:
-          Brute: -2
-          Burn: -2
+        types:
+          Blunt: -2
+          Heat: -2
    # - type: ExplodeOnTrigger
  #   - type: Explosive
   #    explosionType: Minibomb

@@ -31,7 +31,6 @@
     id: BlueShieldEnsignPDA
     # outerClothing: ClothingOuterArmorBlueShield # Fish edit - commented out, managed via loadout
     ears: ClothingHeadsetBlueShieldEnsign
-    belt: ClothingBeltBlueShieldWebbingFilled
     gloves: ClothingHandsGlovesCombat
     pocket2: WeaponTaser # fish-add
   storage:

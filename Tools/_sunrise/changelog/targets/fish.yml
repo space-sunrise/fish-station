@@ -1,0 +1,4 @@
+# Fish-start - Цель публикации чейнджлога Fish Station в Discord
+changelog_file: Resources/Changelog/ChangelogFish.yml
+webhook_secret: CHANGELOG_DISCORD_WEBHOOK_FISH
+# Fish-end

@@ -431,12 +431,6 @@
   components:
   - type: Gun
     fireRate: 1.2
-  - type: Sprite
-    sprite: _Sunrise/Objects/Weapons/Guns/Shotguns/zauer/big.rsi
-  - type: Clothing
-    sprite: _Sunrise/Objects/Weapons/Guns/Shotguns/zauer/tiny.rsi
-  - type: Item
-    sprite: _Sunrise/Objects/Weapons/Guns/Shotguns/zauer/tiny.rsi
 
 
 - type: entity
@@ -984,9 +978,8 @@
     #  - state: syringe_base0
   - type: Projectile
     damage:
-      groups:
-        Airloss: -100
       types:
+        Asphyxiation: -100
         Cellular: -50
         Mangleness: -30
   - type: SolutionContainerManager
@@ -1015,7 +1008,6 @@
    # fillBaseName: solution
   - type: TimedDespawn
     lifetime: 30
-  - type: Timer
 
 
 - type: entity

@@ -7,7 +7,7 @@
   flavor: soda
   color: "#2E6671"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:Polymorph
         prototype: PathogenPolymorphHuman

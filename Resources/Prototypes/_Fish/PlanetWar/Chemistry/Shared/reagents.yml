@@ -9,16 +9,12 @@
     - !type:CleanTileReaction {}
     - !type:CleanDecalsReaction {}
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
-        conditions:
-        - !type:TotalDamageCondition
-          max: 75
         damage:
-          groups:
-            Brute: -1
           types:
+            Blunt: -1
             Radiation: -0.2
             Mangleness: -2.0
             Poison: -0.5
@@ -38,7 +34,7 @@
     - !type:CleanTileReaction {}
     - !type:CleanDecalsReaction {}
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:AdjustReagent
         conditions:
@@ -58,9 +54,8 @@
           types:
             Cellular: -20
             Poison: -5
-          groups:
-            Brute: -10
-            Burn: -10
+            Blunt: -10
+            Heat: -10
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition

@@ -5,7 +5,7 @@ namespace Content.Shared._Fish.ObrCall;
 /// <summary>
 /// Настройки дистанционного прибытия ОБР. Одна точка конфигурации для дистанции и поиска.
 /// </summary>
-[Prototype("obrCallSettings")]
+[Prototype]
 public sealed partial class ObrCallSettingsPrototype : IPrototype
 {
     [IdDataField]
