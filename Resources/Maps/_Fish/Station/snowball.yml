@@ -9643,12 +9643,12 @@ entities:
           immutable: True
           moles: {}
         - volume: 2500
-          temperature: 293.15
+          temperature: 270.15
           moles:
             Oxygen: 21.824879
             Nitrogen: 82.10312
         - volume: 2500
-          temperature: 293.15
+          temperature: 270.15
           moles: {}
         - volume: 2500
           temperature: 235
@@ -9656,7 +9656,7 @@ entities:
             Oxygen: 27.225372
             Nitrogen: 102.419266
         - volume: 2500
-          temperature: 293.15
+          temperature: 270.15
           moles:
             Plasma: 6666.982
         chunkSize: 4
@@ -51300,7 +51300,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -51329,7 +51329,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -51353,7 +51353,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -51382,7 +51382,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -51400,7 +51400,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -51434,7 +51434,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -51478,7 +51478,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -51502,7 +51502,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -51515,7 +51515,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -51528,7 +51528,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -51541,7 +51541,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -51564,7 +51564,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -51603,7 +51603,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -51647,7 +51647,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -51660,7 +51660,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -51714,7 +51714,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -51727,7 +51727,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -51940,7 +51940,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -53992,7 +53992,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -54028,7 +54028,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -54054,7 +54054,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -54130,7 +54130,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -70260,7 +70260,7 @@ entities:
       parent: 2
     - type: GasMiner
       spawnAmount: 50
-      spawnTemperature: 258
+      spawnTemperature: 270
       spawnGas: Plasma
       maxExternalPressure: 250
   - uid: 8674
@@ -70271,7 +70271,7 @@ entities:
       parent: 2
     - type: GasMiner
       spawnAmount: 1000
-      spawnTemperature: 258
+      spawnTemperature: 270
       maxExternalPressure: 10000
 - proto: GasMinerOxygenStation
   entities:
@@ -70283,7 +70283,7 @@ entities:
       parent: 2
     - type: GasMiner
       spawnAmount: 1000
-      spawnTemperature: 258
+      spawnTemperature: 270
       maxExternalPressure: 10000
 - proto: GasMixerFlipped
   entities:
@@ -99438,7 +99438,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -101092,7 +101092,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14697
+        temperature: 270.14697
         moles:
           Oxygen: 1.8856695
           Nitrogen: 7.0937095
@@ -101117,7 +101117,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14703
+        temperature: 270.14703
         moles:
           Oxygen: 1.8968438
           Nitrogen: 7.1357465
@@ -101425,7 +101425,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -101525,7 +101525,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.147
+        temperature: 270.147
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -101581,7 +101581,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -101619,7 +101619,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.1465
+        temperature: 270.1465
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -101650,7 +101650,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -101679,7 +101679,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -101708,7 +101708,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -101811,7 +101811,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -101846,7 +101846,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
@@ -107264,7 +107264,7 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.14673
+        temperature: 270.14673
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
