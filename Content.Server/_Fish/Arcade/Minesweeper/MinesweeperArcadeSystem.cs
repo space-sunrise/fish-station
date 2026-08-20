@@ -1,5 +1,7 @@
 using System.Linq;
 using Content.Shared._Fish.Arcade.Minesweeper;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -12,6 +14,7 @@ namespace Content.Server._Fish.Arcade.Minesweeper;
 public sealed partial class MinesweeperArcadeSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
 
@@ -146,6 +149,10 @@ public sealed partial class MinesweeperArcadeSystem : EntitySystem
         if (game.Status is MinesweeperStatus.Won or MinesweeperStatus.Lost && ent.Comp.EndTime == null)
         {
             ent.Comp.EndTime = _timing.CurTime;
+
+            // Подрыв на мине озвучиваем один раз, ровно в момент проигрыша.
+            if (game.Status == MinesweeperStatus.Lost)
+                _audio.PlayPvs(ent.Comp.ExplosionSound, ent.Owner);
 
             if (game.Status == MinesweeperStatus.Won && ent.Comp.StartTime is { } startTime)
                 TryRegisterScore(Name(user), game.Difficulty, ent.Comp.EndTime.Value - startTime, out _);

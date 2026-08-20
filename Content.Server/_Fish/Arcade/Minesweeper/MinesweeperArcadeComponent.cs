@@ -1,4 +1,5 @@
 using Content.Shared._Fish.Arcade.Minesweeper;
+using Robust.Shared.Audio;
 
 namespace Content.Server._Fish.Arcade.Minesweeper;
 
@@ -13,6 +14,15 @@ public sealed partial class MinesweeperArcadeComponent : Component
     /// </summary>
     [DataField]
     public MinesweeperDifficulty DefaultDifficulty = MinesweeperDifficulty.Easy;
+
+    /// <summary>
+    ///     Звук взрыва при открытии клетки с миной. Намеренно тихий и с коротким радиусом,
+    ///     чтобы проигрыш в аркаде не звучал как настоящая детонация на станции.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier ExplosionSound = new SoundCollectionSpecifier(
+        "ExplosionSmall",
+        AudioParams.Default.WithVolume(-10f).WithMaxDistance(6f));
 
     /// <summary>
     ///     Текущая партия.
