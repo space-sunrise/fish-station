@@ -63,7 +63,7 @@
           Roboticist: [ 2, 2 ]
           #security
           HeadOfSecurity: [ 1, 1 ]
-          Warden: [ 1, 1 ]
+          Warden: [ 2, 2 ]
           SeniorOfficer: [ 1, 1 ]
           Detective: [ 1, 1 ]
           Brigmedic: [ 1, 1 ]
@@ -131,7 +131,6 @@
         - Reports
         - Reconnaissance
         - Saboteurs
-        - Furs
         - Crew
         - CleaningUp
         - HumanitarianAid

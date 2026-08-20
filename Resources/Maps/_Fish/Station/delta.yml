@@ -211222,7 +211222,7 @@ entities:
           Nitrogen: 7.1357465
     - type: Fixtures
       fixtures: {}
-- proto: LockerWardenFilledHardsuit
+- proto: LockerWardenLargeFilled
   entities:
   - uid: 29062
     components:
