@@ -328,7 +328,7 @@ entities:
     - type: Transform
       pos: 0.7232453,3.3937776
       parent: 2
-- proto: ComputerShuttle
+- proto: FishComputerShuttleCentComm
   entities:
   - uid: 153
     components:

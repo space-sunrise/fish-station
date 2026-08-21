@@ -1,18 +1,18 @@
 - type: reagent
   id: DiseaseBloodFirst
-  name: reagent-name-disease-blood
+  name: reagent-name-disease-blood-first
   group: Infect
-  desc: reagent-description-disease-blood
+  desc: reagent-description-disease-blood-first
   physicalDesc: reagent-description-disease-bad-physical-desc
   flavor: bitter
   color: "#722222"
   metabolisms:
-    Drink:
+    Digestion:
       # Disgusting!
       effects:
       - !type:SatiateThirst
         factor: -0.5
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -23,19 +23,19 @@
 
 - type: reagent
   id: DiseaseBloodSecond
-  name: reagent-name-disease-blood
+  name: reagent-name-disease-blood-second
   group: Infect
-  desc: reagent-description-disease-blood
+  desc: reagent-description-disease-blood-second
   physicalDesc: reagent-description-disease-bad-physical-desc
   flavor: bitter
   color: "#733333"
   metabolisms:
-    Drink:
+    Digestion:
       # Disgusting!
       effects:
       - !type:SatiateThirst
         factor: -0.5
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -46,19 +46,19 @@
 
 - type: reagent
   id: DiseaseBloodThird
-  name: reagent-name-disease-blood
+  name: reagent-name-disease-blood-third
   group: Infect
-  desc: reagent-description-disease-blood
+  desc: reagent-description-disease-blood-third
   physicalDesc: reagent-description-disease-bad-physical-desc
   flavor: bitter
   color: "#815131"
   metabolisms:
-    Drink:
+    Digestion:
       # Disgusting!
       effects:
       - !type:SatiateThirst
         factor: -0.5
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -76,12 +76,12 @@
   flavor: bitter
   color: "#737373"
   metabolisms:
-    Drink:
+    Digestion:
       # Disgusting!
       effects:
       - !type:SatiateThirst
         factor: -0.5
-    Poison:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:

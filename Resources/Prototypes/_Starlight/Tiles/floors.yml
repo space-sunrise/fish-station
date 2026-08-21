@@ -245,7 +245,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodParquet # FIsh edit - correct itemDrop for variant
+  itemDrop: FloorTileItemWoodParquet
   heatCapacity: 10000
 
 - type: tile
@@ -265,7 +265,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodChess # FIsh edit - correct itemDrop for variant
+  itemDrop: FloorTileItemWoodChess
   heatCapacity: 10000
 
 - type: tile
@@ -305,7 +305,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodLargeBlack # FIsh edit - correct itemDrop for variant
+  itemDrop: FloorTileItemWoodLargeBlack
   heatCapacity: 10000
 
 - type: tile
@@ -325,7 +325,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodParquetBlack # FIsh edit - correct itemDrop for variant
+  itemDrop: FloorTileItemWoodParquetBlack
   heatCapacity: 10000
 
 - type: tile
@@ -345,7 +345,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodChessBlack # FIsh edit - correct itemDrop for variant
+  itemDrop: FloorTileItemWoodChessBlack
   heatCapacity: 10000
 
 - type: tile
@@ -385,7 +385,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodLargeDark # FIsh edit - correct itemDrop for variant
+  itemDrop: FloorTileItemWoodLargeDark
   heatCapacity: 10000
 
 - type: tile
@@ -405,7 +405,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodParquetDark # FIsh edit - correct itemDrop for variant
+  itemDrop: FloorTileItemWoodParquetDark
   heatCapacity: 10000
 
 - type: tile
@@ -425,7 +425,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodChessDark # FIsh edit - correct itemDrop for variant
+  itemDrop: FloorTileItemWoodChessDark
   heatCapacity: 10000
 
 - type: tile
@@ -465,7 +465,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodLargeLight # FIsh edit - correct itemDrop for variant
+  itemDrop: FloorTileItemWoodLargeLight
   heatCapacity: 10000
 
 - type: tile
@@ -485,7 +485,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodParquetLight # FIsh edit - correct itemDrop for variant
+  itemDrop: FloorTileItemWoodParquetLight
   heatCapacity: 10000
 
 - type: tile
@@ -505,7 +505,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodChessLight # FIsh edit - correct itemDrop for variant
+  itemDrop: FloorTileItemWoodChessLight
   heatCapacity: 10000
 
 - type: tile
@@ -545,7 +545,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodLargeRed # FIsh edit - correct itemDrop for variant
+  itemDrop: FloorTileItemWoodLargeRed
   heatCapacity: 10000
 
 - type: tile
@@ -585,7 +585,7 @@
     collection: FootstepWood
   barestepSounds:
     collection: BarestepWood
-  itemDrop: FloorTileItemWoodChessRed # FIsh edit - correct itemDrop for variant
+  itemDrop: FloorTileItemWoodChessRed
   heatCapacity: 10000
 
 # Metal

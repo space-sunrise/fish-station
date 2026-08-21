@@ -4,78 +4,74 @@
   id: BaseSunriseMarkingVulpChest
   abstract: true
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Vulpkanin]
+  groupWhitelist: [ Vulpkanin ]
 
 - type: marking
   id: BaseSunriseMarkingVulpFacialHair
   abstract: true
   bodyPart: FacialHair
-  markingCategory: FacialHair
-  speciesRestriction: [Vulpkanin]
+  groupWhitelist: [ Vulpkanin ]
 
 - type: marking
   id: BaseSunriseMarkingVulpHair
   abstract: true
   bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Vulpkanin, Kitsune] # Fish-edit
+  groupWhitelist: [ Vulpkanin, Kitsune] # Fish-edit
 
 - type: marking
   id: BaseSunriseMarkingVulpHead
   abstract: true
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [Vulpkanin]
+  groupWhitelist: [ Vulpkanin ]
 
 - type: marking
   id: BaseSunriseMarkingVulpHeadTop
   abstract: true
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Vulpkanin, Kitsune] #Fish-edit
+  groupWhitelist: [ Vulpkanin, Kitsune] # Fish-edit
 
 - type: marking
   id: BaseSunriseMarkingVulpLeftArm
   abstract: true
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [Vulpkanin]
+  groupWhitelist: [ Vulpkanin ]
 
 - type: marking
   id: BaseSunriseMarkingVulpLeftLeg
   abstract: true
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [Vulpkanin]
+  groupWhitelist: [ Vulpkanin ]
 
 - type: marking
   id: BaseSunriseMarkingVulpRightFootOverlay
   abstract: true
   bodyPart: RFoot
-  markingCategory: Overlay
-  speciesRestriction: [Vulpkanin]
+  groupWhitelist: [ Vulpkanin ]
 
 - type: marking
   id: BaseSunriseMarkingVulpRightHandOverlay
   abstract: true
   bodyPart: RHand
-  markingCategory: Overlay
-  speciesRestriction: [Vulpkanin]
+  groupWhitelist: [ Vulpkanin ]
 
 - type: marking
   id: BaseSunriseMarkingVulpSnout
   abstract: true
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [Vulpkanin]
+  groupWhitelist: [ Vulpkanin ]
 
 - type: marking
   id: BaseSunriseMarkingVulpTail
   abstract: true
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Vulpkanin, Kitsune] # Fish-edit
+  groupWhitelist: [ Vulpkanin ]
+
+- type: marking
+  id: BaseSunriseMarkingVulpFoxTail
+  abstract: true
+  parent: BaseSunriseMarkingVulpTail
+  bodyPart: Tail
+  groupWhitelist: [ Vulpkanin, Kitsune ] # Fish-edit
 
 # Ears Markings
 - type: marking
@@ -285,7 +281,7 @@
 # Tail Markings
 - type: marking
   id: VulpTail
-  parent: BaseSunriseMarkingVulpTail
+  parent: BaseSunriseMarkingVulpFoxTail
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: vulp
@@ -294,7 +290,7 @@
 
 - type: marking
   id: VulpTailTip
-  parent: BaseSunriseMarkingVulpTail
+  parent: BaseSunriseMarkingVulpFoxTail
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: vulp
@@ -303,7 +299,7 @@
 
 - type: marking
   id: VulpTailWag
-  parent: BaseSunriseMarkingVulpTail
+  parent: BaseSunriseMarkingVulpFoxTail
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: vulp_wag
@@ -312,7 +308,7 @@
 
 - type: marking
   id: VulpTailWagTip
-  parent: BaseSunriseMarkingVulpTail
+  parent: BaseSunriseMarkingVulpFoxTail
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: vulp_wag
@@ -321,7 +317,7 @@
 
 - type: marking
   id: VulpTailAlt
-  parent: BaseSunriseMarkingVulpTail
+  parent: BaseSunriseMarkingVulpFoxTail
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: vulp_alt
@@ -330,7 +326,7 @@
 
 - type: marking
   id: VulpTailAltTip
-  parent: BaseSunriseMarkingVulpTail
+  parent: BaseSunriseMarkingVulpFoxTail
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: vulp_alt
@@ -339,7 +335,7 @@
 
 - type: marking
   id: VulpTailLong
-  parent: BaseSunriseMarkingVulpTail
+  parent: BaseSunriseMarkingVulpFoxTail
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: long
@@ -348,7 +344,7 @@
 
 - type: marking
   id: VulpTailFox
-  parent: BaseSunriseMarkingVulpTail
+  parent: BaseSunriseMarkingVulpFoxTail
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: fox
@@ -357,7 +353,7 @@
 
 - type: marking
   id: VulpTailFoxTip
-  parent: BaseSunriseMarkingVulpTail
+  parent: BaseSunriseMarkingVulpFoxTail
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: fox
@@ -366,7 +362,7 @@
 
 - type: marking
   id: VulpTailFoxWag
-  parent: BaseSunriseMarkingVulpTail
+  parent: BaseSunriseMarkingVulpFoxTail
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: fox_wag
@@ -375,7 +371,7 @@
 
 - type: marking
   id: VulpTailFoxWagTip
-  parent: BaseSunriseMarkingVulpTail
+  parent: BaseSunriseMarkingVulpFoxTail
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: fox_wag
@@ -384,14 +380,14 @@
 
 - type: marking
   id: VulpTailBushy
-  parent: BaseSunriseMarkingVulpTail
+  parent: BaseSunriseMarkingVulpFoxTail
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: bushfluff
 
 - type: marking
   id: VulpTailBushyWag
-  parent: BaseSunriseMarkingVulpTail
+  parent: BaseSunriseMarkingVulpFoxTail
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: bushfluff_wag
@@ -435,14 +431,14 @@
 
 - type: marking
   id: VulpTailFox2
-  parent: BaseSunriseMarkingVulpTail
+  parent: BaseSunriseMarkingVulpFoxTail
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: fox2
 
 - type: marking
   id: VulpTailFox3
-  parent: BaseSunriseMarkingVulpTail
+  parent: BaseSunriseMarkingVulpFoxTail
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: fox3
@@ -451,7 +447,7 @@
 
 - type: marking
   id: VulpTailFennec
-  parent: BaseSunriseMarkingVulpTail
+  parent: BaseSunriseMarkingVulpFoxTail
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: fennec
@@ -465,14 +461,14 @@
 
 - type: marking
   id: VulpTailFluffy
-  parent: BaseSunriseMarkingVulpTail
+  parent: BaseSunriseMarkingVulpFoxTail
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: fluffy
 
 - type: marking
   id: VulpTailFluffyAlt
-  parent: BaseSunriseMarkingVulpTail
+  parent: BaseSunriseMarkingVulpFoxTail
   sprites:
   - sprite: _Sunrise/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: fluffy_alt-outer

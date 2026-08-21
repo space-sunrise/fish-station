@@ -1,8 +1,8 @@
 - type: marking
   id: VulpEarProtogen
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Vulpkanin]
+
+  groupWhitelist: [Vulpkanin]
   sprites:
   - sprite: _Fish/Mobs/Customization/Vulpkanin/ear_markings.rsi
     state: goloearproto
@@ -14,8 +14,8 @@
 - type: marking
   id: VulpProtogen
   bodyPart: Snout
-  markingCategory: Snout
-  speciesRestriction: [Vulpkanin]
+
+  groupWhitelist: [Vulpkanin]
   sprites:
   - sprite: _Fish/Mobs/Customization/Vulpkanin/head_markings.rsi
     state: protogen

@@ -8,6 +8,7 @@
   - Cloning
   - Cryogenics
   - Mangleness # Fish-Edit
+  - MedicalDrugsGuide #Fish руководства по медикаметам
 
 - type: guideEntry
   id: MedicalDoctor
@@ -56,4 +57,9 @@
   id: Mangleness
   name: guide-entry-mangleness
   text: "/ServerInfo/Guidebook/Medical/Mangleness.xml"
+
+- type: guideEntry
+  id: MedicalDrugsGuide
+  name: guide-entry-medicaldrugs
+  text: "/ServerInfo/Guidebook/Medical/DrugsGuide.xml"
 # Fish-end
