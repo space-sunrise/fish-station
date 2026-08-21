@@ -42,6 +42,7 @@ public sealed class AchievementManager : IPostInjectInit
     private readonly Dictionary<NetUserId, SemaphoreSlim> _userLocks = new();
 
     private int _roundSerial;
+    private bool _conditionIndexReady;
     private AchievementGameplayGateSystem Gate => _gate ??= _systems.GetEntitySystem<AchievementGameplayGateSystem>();
 
     public event Action<ICommonSession, AchievementPlayerState, bool>? ProgressChanged;
@@ -49,7 +50,7 @@ public sealed class AchievementManager : IPostInjectInit
     public void Initialize()
     {
         _sawmill = _log.GetSawmill("fish.achievements");
-        RebuildConditionIndex();
+        // Не индексируем в Init — прототипы ещё не загружены (YAMLLinter / Map Renderer).
         _prototypes.PrototypesReloaded += _ => RebuildConditionIndex();
     }
 
@@ -80,6 +81,23 @@ public sealed class AchievementManager : IPostInjectInit
 
             list.Add(proto);
         }
+
+        _conditionIndexReady = true;
+    }
+
+    private void EnsureConditionIndex()
+    {
+        if (_conditionIndexReady)
+            return;
+
+        try
+        {
+            RebuildConditionIndex();
+        }
+        catch (InvalidOperationException)
+        {
+            // Прототипы ещё не загружены — следующий Contribute/reload подхватит.
+        }
     }
 
     public bool TryGetState(ICommonSession session, out IReadOnlyDictionary<string, AchievementPlayerState> states)
@@ -104,6 +122,7 @@ public sealed class AchievementManager : IPostInjectInit
 
     public IReadOnlyList<AchievementPrototype> GetByCondition(string conditionKey)
     {
+        EnsureConditionIndex();
         return _byCondition.TryGetValue(conditionKey, out var list) ? list : Array.Empty<AchievementPrototype>();
     }
 
