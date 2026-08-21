@@ -5,43 +5,62 @@ using Robust.Shared.Network;
 namespace Content.Shared._Fish.Achievements;
 
 /// <summary>
-/// Чистая логика MatchesContext / EventKey для тестов и Manager.
+/// Чистая логика MatchesContext / EventKey для Manager и unit-тестов (без инстанцирования прототипов).
 /// </summary>
 public static class AchievementAntiAbuseLogic
 {
     public static bool MatchesContext(AchievementPrototype proto, AchievementTriggerContext context)
     {
-        if (proto.IgnoreSuicide && context.IsSuicide)
+        return MatchesContext(
+            proto.Condition,
+            proto.ProgressTarget,
+            proto.AllowGenericTrigger,
+            proto.RequirePlayerVictim,
+            proto.IgnoreSuicide,
+            proto.ConditionParams,
+            context);
+    }
+
+    public static bool MatchesContext(
+        string condition,
+        int progressTarget,
+        bool allowGenericTrigger,
+        bool requirePlayerVictim,
+        bool ignoreSuicide,
+        IReadOnlyDictionary<string, string> conditionParams,
+        AchievementTriggerContext context)
+    {
+        if (ignoreSuicide && context.IsSuicide)
             return false;
 
-        if (proto.RequirePlayerVictim &&
-            (proto.Condition == AchievementConditionKeys.Kill ||
-             proto.Condition == AchievementConditionKeys.DamageDealt) &&
+        if (requirePlayerVictim &&
+            (condition == AchievementConditionKeys.Kill ||
+             condition == AchievementConditionKeys.DamageDealt) &&
             !context.VictimIsPlayerHumanoid)
         {
             return false;
         }
 
-        if (proto.ConditionParams.TryGetValue("job", out var job) &&
+        if (conditionParams.TryGetValue("job", out var job) &&
             !string.Equals(job, context.JobId, StringComparison.OrdinalIgnoreCase))
             return false;
 
-        if (proto.ConditionParams.TryGetValue("event", out var eventId) &&
+        if (conditionParams.TryGetValue("event", out var eventId) &&
             !string.Equals(eventId, context.EventId, StringComparison.OrdinalIgnoreCase))
             return false;
 
-        if (proto.ConditionParams.TryGetValue("key", out var key) &&
+        if (conditionParams.TryGetValue("key", out var key) &&
             !string.Equals(key, context.CounterKey, StringComparison.OrdinalIgnoreCase))
             return false;
 
-        if (proto.ConditionParams.TryGetValue("shuttle", out var shuttle) &&
+        if (conditionParams.TryGetValue("shuttle", out var shuttle) &&
             shuttle.Equals("emergency", StringComparison.OrdinalIgnoreCase) &&
             !context.OnEmergencyShuttle)
             return false;
 
-        if (proto.ProgressTarget <= 1 &&
-            proto.ConditionParams.Count == 0 &&
-            !proto.AllowGenericTrigger)
+        if (progressTarget <= 1 &&
+            conditionParams.Count == 0 &&
+            !allowGenericTrigger)
         {
             return false;
         }

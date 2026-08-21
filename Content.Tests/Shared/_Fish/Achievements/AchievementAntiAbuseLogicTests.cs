@@ -1,61 +1,86 @@
+using System.Collections.Generic;
 using Content.Shared._Fish.Achievements;
 using NUnit.Framework;
 
 namespace Content.Tests.Shared._Fish.Achievements;
 
 /// <summary>
-/// Regression: EventKey / shotgun / victim filters.
+/// Regression: EventKey / shotgun / victim filters (без new AchievementPrototype — RA0039).
 /// </summary>
 [TestFixture]
 [Parallelizable(ParallelScope.All)]
 public sealed class AchievementAntiAbuseLogicTests
 {
+    private static readonly Dictionary<string, string> EmptyParams = new();
+
     [Test]
     public void BinaryWithoutAllowGeneric_IsRejected()
     {
-        var proto = new AchievementPrototype();
-        // ProgressTarget default 1, AllowGenericTrigger default false, empty params
-        Assert.That(AchievementAntiAbuseLogic.MatchesContext(proto, default), Is.False);
+        Assert.That(
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.Manual,
+                progressTarget: 1,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                EmptyParams,
+                default),
+            Is.False);
     }
 
     [Test]
     public void SeedAllowGeneric_IsAccepted()
     {
-        var proto = new AchievementPrototype { AllowGenericTrigger = true };
-        Assert.That(AchievementAntiAbuseLogic.MatchesContext(proto, default), Is.True);
+        Assert.That(
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.FirstLateJoin,
+                progressTarget: 1,
+                allowGenericTrigger: true,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                EmptyParams,
+                default),
+            Is.True);
     }
 
     [Test]
     public void KillRequiresPlayerVictim()
     {
-        var proto = new AchievementPrototype
-        {
-            Condition = AchievementConditionKeys.Kill,
-            ProgressTarget = 3,
-            RequirePlayerVictim = true,
-        };
-
         Assert.That(
-            AchievementAntiAbuseLogic.MatchesContext(proto, new AchievementTriggerContext(VictimIsPlayerHumanoid: false)),
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.Kill,
+                progressTarget: 3,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                EmptyParams,
+                new AchievementTriggerContext(VictimIsPlayerHumanoid: false)),
             Is.False);
 
         Assert.That(
-            AchievementAntiAbuseLogic.MatchesContext(proto, new AchievementTriggerContext(VictimIsPlayerHumanoid: true)),
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.Kill,
+                progressTarget: 3,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                EmptyParams,
+                new AchievementTriggerContext(VictimIsPlayerHumanoid: true)),
             Is.True);
     }
 
     [Test]
     public void SuicideIgnoredWhenConfigured()
     {
-        var proto = new AchievementPrototype
-        {
-            Condition = AchievementConditionKeys.Death,
-            ProgressTarget = 3,
-            IgnoreSuicide = true,
-        };
-
         Assert.That(
-            AchievementAntiAbuseLogic.MatchesContext(proto, new AchievementTriggerContext(IsSuicide: true)),
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.Death,
+                progressTarget: 3,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                EmptyParams,
+                new AchievementTriggerContext(IsSuicide: true)),
             Is.False);
     }
 
