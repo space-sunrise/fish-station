@@ -43,9 +43,9 @@ public sealed class ObrCallIntegrationTests
             Assert.That(gamma.StationAvailable, Is.False);
             Assert.That(gamma.CentCommAvailable, Is.True);
 
-            Assert.That(proto.Index(AmberId).StationCost, Is.EqualTo(50000));
-            Assert.That(proto.Index(RedId).StationCost, Is.EqualTo(100000));
-            Assert.That(proto.Index(CburnId).StationCost, Is.EqualTo(100000));
+            Assert.That(proto.Index(AmberId).StationCost, Is.EqualTo(100000));
+            Assert.That(proto.Index(RedId).StationCost, Is.EqualTo(200000));
+            Assert.That(proto.Index(CburnId).StationCost, Is.EqualTo(200000));
         });
 
         await pair.CleanReturnAsync();

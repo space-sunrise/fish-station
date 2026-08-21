@@ -2,6 +2,7 @@ using System.Net;
 using Content.Server.Administration.Systems;
 using Content.Shared.Database;
 using Content.Shared.Roles;
+using Robust.Server.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -9,46 +10,27 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Administration.Managers;
 
-// Отложенные баны
+// Fish-start - отложенные баны
 public sealed partial class BanManager
 {
     private readonly List<DeferredBan> _deferredBans = new();
 
-    public void CreateDeferredBan(
-        NetUserId? target,
-        string? targetUsername,
-        NetUserId? banningAdmin,
-        (IPAddress, int)? addressRange,
-        ImmutableTypedHwid? hwid,
-        uint? minutes,
-        NoteSeverity severity,
-        string reason,
-        ProtoId<JobPrototype>[]? bannedJobs,
-        ProtoId<AntagPrototype>[]? bannedAntags,
-        bool erase)
+    public void CreateDeferredBan(CreateBanInfo banInfo, bool erase)
     {
-        var deferredBan = new DeferredBan(
-            target,
-            targetUsername,
-            banningAdmin,
-            addressRange,
-            hwid,
-            minutes,
-            severity,
-            reason,
-            bannedJobs,
-            bannedAntags,
-            erase
-        );
+        var deferredBan = new DeferredBan(banInfo, erase);
 
         lock (_deferredBans)
         {
             _deferredBans.Add(deferredBan);
         }
 
-        var targetName = targetUsername ?? target?.ToString() ?? "Unknown";
-        _sawmill.Info(
-            $"Deferred ban queued for player {targetName}. Will be applied at the end of the round or upon disconnect.");
+        string targetName = "Unknown";
+        foreach (var user in banInfo.Users)
+        {
+            targetName = user.UserName;
+            break;
+        }
+        _sawmill.Info($"Deferred ban queued for player {targetName}. Will be applied at the end of the round or upon disconnect.");
     }
 
     public void ApplyDeferredBans()
@@ -74,10 +56,43 @@ public sealed partial class BanManager
             for (int i = _deferredBans.Count - 1; i >= 0; i--)
             {
                 var ban = _deferredBans[i];
-                if (ban.Target == session.UserId ||
-                    (ban.AddressRange != null &&
-                     session.Channel.RemoteEndPoint.Address.Equals(ban.AddressRange.Value.Item1)) ||
-                    (ban.HWId != null && ban.HWId.Equals(session.Channel.UserData.HWId)))
+                bool matched = false;
+
+                foreach (var user in ban.BanInfo.Users)
+                {
+                    if (user.UserId == session.UserId)
+                    {
+                        matched = true;
+                        break;
+                    }
+                }
+
+                if (!matched && ban.BanInfo.AddressRanges.Count > 0)
+                {
+                    var playerAddress = session.Channel.RemoteEndPoint.Address;
+                    foreach (var range in ban.BanInfo.AddressRanges)
+                    {
+                        if (playerAddress.Equals(range.Address))
+                        {
+                            matched = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!matched && ban.BanInfo.HWIds.Count > 0 && session.Channel.UserData.HWId.Length > 0)
+                {
+                    foreach (var hwid in ban.BanInfo.HWIds)
+                    {
+                        if (hwid.Equals(session.Channel.UserData.HWId))
+                        {
+                            matched = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (matched)
                 {
                     bansToApply.Add(ban);
                     _deferredBans.RemoveAt(i);
@@ -87,88 +102,36 @@ public sealed partial class BanManager
 
         foreach (var ban in bansToApply)
         {
-            _sawmill.Info(
-                $"Applying deferred ban early because player {session.Name} ({session.UserId}) disconnected.");
+            _sawmill.Info($"Applying deferred ban early because player {session.Name} ({session.UserId}) disconnected.");
             ExecuteDeferredBan(ban);
         }
     }
 
     private void ExecuteDeferredBan(DeferredBan ban)
     {
-        if (ban.BannedJobs?.Length > 0 || ban.BannedAntags?.Length > 0)
+        if (ban.BanInfo is CreateRoleBanInfo roleBanInfo)
         {
-            var now = DateTimeOffset.UtcNow;
-            List<string> roles = [];
-            foreach (var role in ban.BannedJobs ?? [])
-            {
-                CreateRoleBan(
-                    ban.Target,
-                    ban.TargetUsername,
-                    ban.BanningAdmin,
-                    ban.AddressRange,
-                    ban.HWId,
-                    role,
-                    ban.Minutes,
-                    ban.Severity,
-                    ban.Reason,
-                    now
-                );
-                roles.Add(role.Id);
-            }
-
-            foreach (var role in ban.BannedAntags ?? [])
-            {
-                CreateRoleBan(
-                    ban.Target,
-                    ban.TargetUsername,
-                    ban.BanningAdmin,
-                    ban.AddressRange,
-                    ban.HWId,
-                    role,
-                    ban.Minutes,
-                    ban.Severity,
-                    ban.Reason,
-                    now
-                );
-                roles.Add(role.Id);
-            }
-
-            WebhookUpdateRoleBans(ban.Target,
-                ban.TargetUsername,
-                ban.BanningAdmin,
-                ban.AddressRange,
-                ban.HWId,
-                roles,
-                ban.Minutes,
-                ban.Severity,
-                ban.Reason,
-                now);
+            CreateRoleBan(roleBanInfo);
         }
-        else
+        else if (ban.BanInfo is CreateServerBanInfo serverBanInfo)
         {
-            if (ban.Erase && ban.Target is not null)
+            if (ban.Erase)
             {
-                try
+                foreach (var user in serverBanInfo.Users)
                 {
-                    if (_systems.TryGetEntitySystem(out AdminSystem? adminSystem))
-                        adminSystem.Erase(ban.Target.Value);
-                }
-                catch (Exception e)
-                {
-                    _sawmill.Error($"Error while erasing banned player:\n{e}");
+                    try
+                    {
+                        if (_systems.TryGetEntitySystem(out AdminSystem? adminSystem))
+                            adminSystem.Erase(user.UserId);
+                    }
+                    catch (Exception e)
+                    {
+                        _sawmill.Error($"Error while erasing banned player:\n{e}");
+                    }
                 }
             }
 
-            CreateServerBan(
-                ban.Target,
-                ban.TargetUsername,
-                ban.BanningAdmin,
-                ban.AddressRange,
-                ban.HWId,
-                ban.Minutes,
-                ban.Severity,
-                ban.Reason
-            );
+            CreateServerBan(serverBanInfo);
         }
     }
 
@@ -183,41 +146,13 @@ public sealed partial class BanManager
 
 public sealed class DeferredBan
 {
-    public NetUserId? Target { get; }
-    public string? TargetUsername { get; }
-    public NetUserId? BanningAdmin { get; }
-    public (IPAddress, int)? AddressRange { get; }
-    public ImmutableTypedHwid? HWId { get; }
-    public uint? Minutes { get; }
-    public NoteSeverity Severity { get; }
-    public string Reason { get; }
-    public ProtoId<JobPrototype>[]? BannedJobs { get; }
-    public ProtoId<AntagPrototype>[]? BannedAntags { get; }
+    public CreateBanInfo BanInfo { get; }
     public bool Erase { get; }
 
-    public DeferredBan(
-        NetUserId? target,
-        string? targetUsername,
-        NetUserId? banningAdmin,
-        (IPAddress, int)? addressRange,
-        ImmutableTypedHwid? hwid,
-        uint? minutes,
-        NoteSeverity severity,
-        string reason,
-        ProtoId<JobPrototype>[]? bannedJobs,
-        ProtoId<AntagPrototype>[]? bannedAntags,
-        bool erase)
+    public DeferredBan(CreateBanInfo banInfo, bool erase)
     {
-        Target = target;
-        TargetUsername = targetUsername;
-        BanningAdmin = banningAdmin;
-        AddressRange = addressRange;
-        HWId = hwid;
-        Minutes = minutes;
-        Severity = severity;
-        Reason = reason;
-        BannedJobs = bannedJobs;
-        BannedAntags = bannedAntags;
+        BanInfo = banInfo;
         Erase = erase;
     }
 }
+// Fish-end
