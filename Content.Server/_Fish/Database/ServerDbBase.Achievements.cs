@@ -54,6 +54,10 @@ public abstract partial class ServerDbBase
         }
         else
         {
+            // Уже unlocked — идемпотентно, без лишних write/notify.
+            if (entry.UnlockedAt != null)
+                return entry;
+
             // Не уменьшаем уже накопленный прогресс и не сбрасываем unlock.
             if (progress > entry.Progress)
                 entry.Progress = progress;

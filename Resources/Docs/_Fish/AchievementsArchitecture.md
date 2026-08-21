@@ -101,14 +101,17 @@
 
 Выдача идёт только через `AchievementManager.ContributeAsync` / force-admin:
 
-- ghost и отсутствие attached entity блокируют прогресс;
-- `oncePerRound` — не более одного тика прогресса на достижение за раунд;
-- `progressCooldownSeconds` — интервал между тиками;
-- `minRoundSeconds` — минимальное присутствие в раунде;
-- `ignoreSuicide` — самоубийства не считаются;
-- `requirePlayerVictim` для kill/damage — только player-humanoid жертвы (мыши/хомяки отсекаются отдельно);
-- бинарные прототипы без `conditionParams` не открываются пачкой: нужен `allowGenericTrigger` или `progressTarget > 1`;
-- admin `achgrant` обходит антиабуз через `TryForceUnlockAsync`.
+- ghost и visiting mind блокируют прогресс;
+- Admin Test Arena (`AdminTestArenaSystem` / `ATAM-*`) не фармит обычные ачивки;
+- godmode origin не даёт heal/kill/damage progress;
+- `EventKey` — одно реальное событие один раз за раунд (разные жертвы/предметы = разные ключи);
+- без `EventKey` — `oncePerRound` + cooldown (survive и т.п.);
+- mind.UserId должен совпадать с session;
+- бинарные без params не открываются пачкой (`allowGenericTrigger`);
+- клиент шлёт только `RequestAchievementsEvent` (свой snapshot);
+- unique `(PlayerUserId, AchievementId)` в БД; unlocked — идемпотентный no-op;
+- per-user lock против race duplicate async;
+- reconnect в том же раунде не сбрасывает EventKey / once-per-round.
 
 ## UI и сеть
 

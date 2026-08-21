@@ -5,7 +5,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Database;
 using Content.Shared._Fish.Achievements;
-using Content.Shared.Ghost;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -14,7 +13,7 @@ using Robust.Shared.Timing;
 namespace Content.Server._Fish.Achievements;
 
 /// <summary>
-/// Account-wide кеш, persistence и антиабуз достижений. Выдача только с сервера.
+/// Account-wide кеш, persistence и антиабуз. Выдача только с сервера по NetUserId.
 /// </summary>
 public sealed class AchievementManager : IPostInjectInit
 {
@@ -23,17 +22,27 @@ public sealed class AchievementManager : IPostInjectInit
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly ILogManager _log = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IEntityManager _entities = default!;
+    [Dependency] private readonly IEntitySystemManager _systems = default!;
 
     private ISawmill _sawmill = default!;
+    private AchievementGameplayGateSystem? _gate;
 
     private readonly Dictionary<ICommonSession, Dictionary<string, AchievementPlayerState>> _cache = new();
     private readonly Dictionary<string, List<AchievementPrototype>> _byCondition = new();
+
+    /// <summary>Раундовые тики без EventKey: user → achievementId → roundSerial.</summary>
     private readonly Dictionary<NetUserId, Dictionary<string, int>> _roundProgressTicks = new();
+
+    private readonly AchievementEventKeyTracker _eventKeys = new();
+
     private readonly Dictionary<(NetUserId User, string AchievementId), TimeSpan> _progressCooldownUntil = new();
     private readonly Dictionary<NetUserId, TimeSpan> _roundPresenceStart = new();
 
+    /// <summary>Сериализация вкладов на пользователя (race / duplicate async).</summary>
+    private readonly Dictionary<NetUserId, SemaphoreSlim> _userLocks = new();
+
     private int _roundSerial;
+    private AchievementGameplayGateSystem Gate => _gate ??= _systems.GetEntitySystem<AchievementGameplayGateSystem>();
 
     public event Action<ICommonSession, AchievementPlayerState, bool>? ProgressChanged;
 
@@ -48,6 +57,7 @@ public sealed class AchievementManager : IPostInjectInit
     {
         _roundSerial++;
         _roundProgressTicks.Clear();
+        _eventKeys.Clear();
         _progressCooldownUntil.Clear();
         _roundPresenceStart.Clear();
     }
@@ -97,8 +107,22 @@ public sealed class AchievementManager : IPostInjectInit
         return _byCondition.TryGetValue(conditionKey, out var list) ? list : Array.Empty<AchievementPrototype>();
     }
 
+    private SemaphoreSlim GetUserLock(NetUserId userId)
+    {
+        lock (_userLocks)
+        {
+            if (!_userLocks.TryGetValue(userId, out var sem))
+            {
+                sem = new SemaphoreSlim(1, 1);
+                _userLocks[userId] = sem;
+            }
+
+            return sem;
+        }
+    }
+
     /// <summary>
-    /// Вклад в семейство условий с антиабузом и фильтрами.
+    /// Вклад в семейство условий с антиабузом, EventKey-dedupe и индексацией по condition.
     /// </summary>
     public async Task ContributeAsync(
         ICommonSession session,
@@ -110,42 +134,81 @@ public sealed class AchievementManager : IPostInjectInit
         if (delta <= 0 || !_cache.ContainsKey(session))
             return;
 
-        if (!PassesSessionGate(session))
-            return;
-
-        foreach (var proto in GetByCondition(conditionKey))
+        var sem = GetUserLock(session.UserId);
+        await sem.WaitAsync();
+        try
         {
-            if (filter != null && !filter(proto))
-                continue;
+            // EventKey: одно реальное событие — один вклад в раунде (все ачивки этого события).
+            if (!string.IsNullOrEmpty(context.EventKey) && _eventKeys.IsConsumed(session.UserId, context.EventKey))
+                return;
 
-            if (!MatchesContext(proto, context))
-                continue;
+            var anyAccepted = false;
 
-            if (proto.ProgressTarget > 1)
-                await TryAddProgressInternalAsync(session, proto, delta, context);
-            else
-                await TryUnlockInternalAsync(session, proto, context);
+            foreach (var proto in GetByCondition(conditionKey))
+            {
+                if (filter != null && !filter(proto))
+                    continue;
+
+                if (!AchievementAntiAbuseLogic.MatchesContext(proto, context))
+                    continue;
+
+                if (!Gate.CanEarnGameplay(session, proto, context.RequireInRound))
+                    continue;
+
+                bool ok;
+                if (proto.ProgressTarget > 1)
+                    ok = await TryAddProgressInternalAsync(session, proto, delta, context);
+                else
+                    ok = await TryUnlockInternalAsync(session, proto, context);
+
+                anyAccepted |= ok;
+            }
+
+            if (anyAccepted && !string.IsNullOrEmpty(context.EventKey))
+                _eventKeys.TryConsume(session.UserId, context.EventKey);
+        }
+        finally
+        {
+            sem.Release();
         }
     }
 
-    public Task<bool> TryAddProgressAsync(ICommonSession session, string achievementId, int delta = 1)
+    public async Task<bool> TryAddProgressAsync(ICommonSession session, string achievementId, int delta = 1)
     {
         if (!_prototypes.TryIndex<AchievementPrototype>(achievementId, out var proto))
-            return Task.FromResult(false);
+            return false;
 
-        return TryAddProgressInternalAsync(session, proto, delta, default);
+        var sem = GetUserLock(session.UserId);
+        await sem.WaitAsync();
+        try
+        {
+            return await TryAddProgressInternalAsync(session, proto, delta, default);
+        }
+        finally
+        {
+            sem.Release();
+        }
     }
 
-    public Task<bool> TryUnlockAsync(ICommonSession session, string achievementId)
+    public async Task<bool> TryUnlockAsync(ICommonSession session, string achievementId)
     {
         if (!_prototypes.TryIndex<AchievementPrototype>(achievementId, out var proto))
-            return Task.FromResult(false);
+            return false;
 
-        return TryUnlockInternalAsync(session, proto, default);
+        var sem = GetUserLock(session.UserId);
+        await sem.WaitAsync();
+        try
+        {
+            return await TryUnlockInternalAsync(session, proto, default);
+        }
+        finally
+        {
+            sem.Release();
+        }
     }
 
     /// <summary>
-    /// Принудительная выдача (admin), без антиабуза и без требования живого тела.
+    /// Принудительная выдача (admin), без gameplay-gate.
     /// </summary>
     public async Task<bool> TryForceUnlockAsync(ICommonSession session, string achievementId)
     {
@@ -155,12 +218,21 @@ public sealed class AchievementManager : IPostInjectInit
         if (!_cache.TryGetValue(session, out var cache))
             return false;
 
-        cache.TryGetValue(proto.ID, out var existing);
-        if (existing.Unlocked)
-            return false;
+        var sem = GetUserLock(session.UserId);
+        await sem.WaitAsync();
+        try
+        {
+            cache.TryGetValue(proto.ID, out var existing);
+            if (existing.Unlocked)
+                return false;
 
-        var target = Math.Max(1, proto.ProgressTarget);
-        return await CommitProgressAsync(session, cache, proto, existing, target);
+            var target = Math.Max(1, proto.ProgressTarget);
+            return await CommitProgressAsync(session, cache, proto, existing, target);
+        }
+        finally
+        {
+            sem.Release();
+        }
     }
 
     public Task TryUnlockMatchingAsync(
@@ -177,7 +249,7 @@ public sealed class AchievementManager : IPostInjectInit
         int delta,
         AchievementTriggerContext context)
     {
-        if (delta <= 0 || !PassesSessionGate(session))
+        if (delta <= 0)
             return false;
 
         if (!_cache.TryGetValue(session, out var cache))
@@ -187,13 +259,13 @@ public sealed class AchievementManager : IPostInjectInit
         if (existing.Unlocked)
             return false;
 
-        if (!PassesAntiAbuse(session, proto))
+        if (!PassesAntiAbuse(session, proto, context))
             return false;
 
         var newProgress = existing.Progress + delta;
         var ok = await CommitProgressAsync(session, cache, proto, existing, newProgress);
         if (ok)
-            MarkRoundTick(session, proto);
+            OnSuccessfulProgress(session, proto, context);
 
         return ok;
     }
@@ -203,9 +275,6 @@ public sealed class AchievementManager : IPostInjectInit
         AchievementPrototype proto,
         AchievementTriggerContext context)
     {
-        if (!PassesSessionGate(session))
-            return false;
-
         if (!_cache.TryGetValue(session, out var cache))
             return false;
 
@@ -213,29 +282,21 @@ public sealed class AchievementManager : IPostInjectInit
         if (existing.Unlocked)
             return false;
 
-        if (!PassesAntiAbuse(session, proto))
+        if (!PassesAntiAbuse(session, proto, context))
             return false;
 
         var target = Math.Max(1, proto.ProgressTarget);
         var ok = await CommitProgressAsync(session, cache, proto, existing, target);
         if (ok)
-            MarkRoundTick(session, proto);
+            OnSuccessfulProgress(session, proto, context);
 
         return ok;
     }
 
-    private bool PassesSessionGate(ICommonSession session)
-    {
-        if (session.AttachedEntity is not { } ent)
-            return false;
-
-        if (_entities.HasComponent<GhostComponent>(ent))
-            return false;
-
-        return true;
-    }
-
-    private bool PassesAntiAbuse(ICommonSession session, AchievementPrototype proto)
+    private bool PassesAntiAbuse(
+        ICommonSession session,
+        AchievementPrototype proto,
+        AchievementTriggerContext context)
     {
         if (proto.MinRoundSeconds > 0)
         {
@@ -246,7 +307,10 @@ public sealed class AchievementManager : IPostInjectInit
                 return false;
         }
 
-        if (proto.OncePerRound &&
+        // Без EventKey — once-per-round на ачивку (survive и т.п.).
+        // С EventKey — разные события могут давать прогресс в одном раунде.
+        if (string.IsNullOrEmpty(context.EventKey) &&
+            proto.OncePerRound &&
             _roundProgressTicks.TryGetValue(session.UserId, out var map) &&
             map.TryGetValue(proto.ID, out var serial) &&
             serial == _roundSerial)
@@ -254,70 +318,38 @@ public sealed class AchievementManager : IPostInjectInit
             return false;
         }
 
-        var cooldownKey = (session.UserId, proto.ID);
-        if (_progressCooldownUntil.TryGetValue(cooldownKey, out var until) && _timing.CurTime < until)
-            return false;
-
-        var cooldown = TimeSpan.FromSeconds(Math.Max(0, proto.ProgressCooldownSeconds));
-        if (cooldown > TimeSpan.Zero)
-            _progressCooldownUntil[cooldownKey] = _timing.CurTime + cooldown;
+        if (string.IsNullOrEmpty(context.EventKey))
+        {
+            var cooldownKey = (session.UserId, proto.ID);
+            if (_progressCooldownUntil.TryGetValue(cooldownKey, out var until) && _timing.CurTime < until)
+                return false;
+        }
 
         return true;
     }
 
-    private void MarkRoundTick(ICommonSession session, AchievementPrototype proto)
+    private void OnSuccessfulProgress(
+        ICommonSession session,
+        AchievementPrototype proto,
+        AchievementTriggerContext context)
     {
-        if (!proto.OncePerRound)
-            return;
-
-        if (!_roundProgressTicks.TryGetValue(session.UserId, out var map))
+        if (string.IsNullOrEmpty(context.EventKey) && proto.OncePerRound)
         {
-            map = new Dictionary<string, int>();
-            _roundProgressTicks[session.UserId] = map;
+            if (!_roundProgressTicks.TryGetValue(session.UserId, out var map))
+            {
+                map = new Dictionary<string, int>();
+                _roundProgressTicks[session.UserId] = map;
+            }
+
+            map[proto.ID] = _roundSerial;
         }
 
-        map[proto.ID] = _roundSerial;
-    }
-
-    private static bool MatchesContext(AchievementPrototype proto, AchievementTriggerContext context)
-    {
-        if (proto.IgnoreSuicide && context.IsSuicide)
-            return false;
-
-        if (proto.RequirePlayerVictim &&
-            (proto.Condition == AchievementConditionKeys.Kill ||
-             proto.Condition == AchievementConditionKeys.DamageDealt) &&
-            !context.VictimIsPlayerHumanoid)
+        if (string.IsNullOrEmpty(context.EventKey))
         {
-            return false;
+            var cooldown = TimeSpan.FromSeconds(Math.Max(0, proto.ProgressCooldownSeconds));
+            if (cooldown > TimeSpan.Zero)
+                _progressCooldownUntil[(session.UserId, proto.ID)] = _timing.CurTime + cooldown;
         }
-
-        if (proto.ConditionParams.TryGetValue("job", out var job) &&
-            !string.Equals(job, context.JobId, StringComparison.OrdinalIgnoreCase))
-            return false;
-
-        if (proto.ConditionParams.TryGetValue("event", out var eventId) &&
-            !string.Equals(eventId, context.EventId, StringComparison.OrdinalIgnoreCase))
-            return false;
-
-        if (proto.ConditionParams.TryGetValue("key", out var key) &&
-            !string.Equals(key, context.CounterKey, StringComparison.OrdinalIgnoreCase))
-            return false;
-
-        if (proto.ConditionParams.TryGetValue("shuttle", out var shuttle) &&
-            shuttle.Equals("emergency", StringComparison.OrdinalIgnoreCase) &&
-            !context.OnEmergencyShuttle)
-            return false;
-
-        // Антиабуз shotgun: бинарные без params не открываем пачкой.
-        if (proto.ProgressTarget <= 1 &&
-            proto.ConditionParams.Count == 0 &&
-            !proto.AllowGenericTrigger)
-        {
-            return false;
-        }
-
-        return true;
     }
 
     private async Task<bool> CommitProgressAsync(
@@ -327,6 +359,10 @@ public sealed class AchievementManager : IPostInjectInit
         AchievementPlayerState existing,
         int newProgress)
     {
+        // Уже unlocked — никаких повторных write/notify.
+        if (existing.Unlocked)
+            return false;
+
         var entry = await _db.UpsertFishAchievementProgressAsync(
             session.UserId.UserId,
             proto.ID,
@@ -336,8 +372,13 @@ public sealed class AchievementManager : IPostInjectInit
         var state = ToState(entry);
         cache[proto.ID] = state;
         var justUnlocked = state.Unlocked && !existing.Unlocked;
+        var progressChanged = state.Progress != existing.Progress;
+
+        if (!justUnlocked && !progressChanged)
+            return false;
+
         ProgressChanged?.Invoke(session, state, justUnlocked);
-        return justUnlocked || state.Progress != existing.Progress;
+        return true;
     }
 
     private async Task LoadData(ICommonSession session, CancellationToken cancel)
@@ -355,6 +396,7 @@ public sealed class AchievementManager : IPostInjectInit
     private void ClientDisconnected(ICommonSession session)
     {
         _cache.Remove(session);
+        // Round ticks / EventKeys / cooldown по UserId сохраняем — reconnect в том же раунде не сбрасывает антиабуз.
         _roundPresenceStart.Remove(session.UserId);
     }
 

@@ -8,9 +8,9 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.GameTicking;
 using Content.Shared.GameTicking.Components;
+using Content.Shared.Damage.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
@@ -21,11 +21,12 @@ using Content.Shared.Tag;
 using Robust.Server.Player;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Fish.Achievements;
 
 /// <summary>
-/// Event-driven handlers для всех семейств условий достижений.
+/// Event-driven handlers. Один gameplay-event → один EventKey → без duplicate progress.
 /// </summary>
 public sealed class AchievementConditionSystem : EntitySystem
 {
@@ -34,6 +35,7 @@ public sealed class AchievementConditionSystem : EntitySystem
     [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly IPlayerManager _players = default!;
     [Dependency] private readonly TagSystem _tags = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private static readonly ProtoId<TagPrototype> MouseTag = "Mouse";
     private static readonly ProtoId<TagPrototype> HamsterTag = "Hamster";
@@ -51,8 +53,8 @@ public sealed class AchievementConditionSystem : EntitySystem
         SubscribeLocalEvent<ActorComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<ActorComponent, ItemConstructionCreated>(OnCrafted);
         SubscribeLocalEvent<ActorComponent, DidEquipEvent>(OnEquipped);
+        // Только UserInteractHand — InteractionAttempt давал duplicate на то же действие.
         SubscribeLocalEvent<ActorComponent, UserInteractHandEvent>(OnUserInteractHand);
-        SubscribeLocalEvent<ActorComponent, InteractionAttemptEvent>(OnInteractionAttempt);
         SubscribeLocalEvent<GameRuleStartedEvent>(OnGameRuleStarted);
         SubscribeLocalEvent<EmergencyShuttleComponent, FTLCompletedEvent>(OnEmergencyShuttleArrived);
         SubscribeLocalEvent<SunriseExplosionEvent>(OnExplosion);
@@ -68,14 +70,21 @@ public sealed class AchievementConditionSystem : EntitySystem
         _achievements.MarkRoundPresence(ev.Player);
 
         if (ev.LateJoin)
-            await _achievements.ContributeAsync(ev.Player, AchievementConditionKeys.FirstLateJoin);
+        {
+            await _achievements.ContributeAsync(
+                ev.Player,
+                AchievementConditionKeys.FirstLateJoin,
+                new AchievementTriggerContext(EventKey: $"latejoin:{ev.Player.UserId}:{ev.JoinOrder}"));
+        }
 
         if (!string.IsNullOrEmpty(ev.JobId))
         {
             await _achievements.ContributeAsync(
                 ev.Player,
                 AchievementConditionKeys.JobPlay,
-                new AchievementTriggerContext(JobId: ev.JobId));
+                new AchievementTriggerContext(
+                    JobId: ev.JobId,
+                    EventKey: $"job:{ev.Player.UserId}:{ev.JobId}"));
         }
     }
 
@@ -90,14 +99,20 @@ public sealed class AchievementConditionSystem : EntitySystem
                 continue;
 
             var onShuttle = IsOnEmergencyShuttle(ent);
-            var ctx = new AchievementTriggerContext(OnEmergencyShuttle: onShuttle);
+            // Без EventKey → once-per-round на ачивку (один тик выживания за раунд).
+            var ctx = new AchievementTriggerContext(
+                OnEmergencyShuttle: onShuttle,
+                RequireInRound: false); // уже PostRound
 
             await _achievements.ContributeAsync(session, AchievementConditionKeys.RoundEndAlive, ctx);
             await _achievements.ContributeAsync(session, AchievementConditionKeys.RoundSurvive, ctx);
             await _achievements.ContributeAsync(
                 session,
                 AchievementConditionKeys.Counter,
-                new AchievementTriggerContext(CounterKey: "rounds-survived", OnEmergencyShuttle: onShuttle));
+                new AchievementTriggerContext(
+                    CounterKey: "rounds-survived",
+                    OnEmergencyShuttle: onShuttle,
+                    RequireInRound: false));
 
             if (onShuttle)
                 await _achievements.ContributeAsync(session, AchievementConditionKeys.ShuttleArrive, ctx);
@@ -130,12 +145,20 @@ public sealed class AchievementConditionSystem : EntitySystem
             return;
 
         var suicide = args.Origin == args.Target;
-        var ctx = new AchievementTriggerContext(IsSuicide: suicide);
+        var deathKey = $"death:{GetNetEntity(args.Target)}";
 
-        await _achievements.ContributeAsync(session, AchievementConditionKeys.Death, ctx);
+        await _achievements.ContributeAsync(
+            session,
+            AchievementConditionKeys.Death,
+            new AchievementTriggerContext(IsSuicide: suicide, EventKey: deathKey));
 
         if (HasComp<AchievementSlippedMarkerComponent>(args.Target))
-            await _achievements.ContributeAsync(session, AchievementConditionKeys.SlipDeath, ctx);
+        {
+            await _achievements.ContributeAsync(
+                session,
+                AchievementConditionKeys.SlipDeath,
+                new AchievementTriggerContext(IsSuicide: suicide, EventKey: $"slipdeath:{GetNetEntity(args.Target)}"));
+        }
 
         RemComp<AchievementSlippedMarkerComponent>(args.Target);
     }
@@ -151,13 +174,20 @@ public sealed class AchievementConditionSystem : EntitySystem
         if (_tags.HasTag(ev.Entity, MouseTag) || _tags.HasTag(ev.Entity, HamsterTag))
             return;
 
+        // Godmode / admin-инструменты на киллере — не фарм.
+        if (session.AttachedEntity is { } killerEnt && HasComp<GodmodeComponent>(killerEnt))
+            return;
+
         var victimIsPlayerHumanoid = HasComp<ActorComponent>(ev.Entity) &&
                                      HasComp<HumanoidProfileComponent>(ev.Entity);
 
+        // Один kill-event на жертву; разные жертвы → разный EventKey → можно несколько за раунд.
         _ = _achievements.ContributeAsync(
             session,
             AchievementConditionKeys.Kill,
-            new AchievementTriggerContext(VictimIsPlayerHumanoid: victimIsPlayerHumanoid));
+            new AchievementTriggerContext(
+                VictimIsPlayerHumanoid: victimIsPlayerHumanoid,
+                EventKey: $"kill:{GetNetEntity(ev.Entity)}"));
     }
 
     private async void OnDamageChanged(EntityUid uid, ActorComponent actor, DamageChangedEvent args)
@@ -165,43 +195,64 @@ public sealed class AchievementConditionSystem : EntitySystem
         if (args.DamageDelta == null)
             return;
 
+        // Heal: только чужой лекарь без godmode; EventKey на пациента+секундный bucket.
         if (!args.DamageIncreased && args.Origin is { } healer && healer != uid)
         {
+            if (HasComp<GodmodeComponent>(healer))
+                return;
+
             if (TryComp<ActorComponent>(healer, out var healerActor))
-                await _achievements.ContributeAsync(healerActor.PlayerSession, AchievementConditionKeys.Heal);
+            {
+                var bucket = (int)_timing.CurTime.TotalSeconds;
+                await _achievements.ContributeAsync(
+                    healerActor.PlayerSession,
+                    AchievementConditionKeys.Heal,
+                    new AchievementTriggerContext(EventKey: $"heal:{GetNetEntity(uid)}:{bucket}"));
+            }
         }
 
+        // Damage dealt: не дублируем kill (KillReported). Грубый bucket + жертва.
         if (args.DamageIncreased && args.Origin is { } attacker && attacker != uid)
         {
+            if (HasComp<GodmodeComponent>(attacker))
+                return;
+
             if (!TryComp<ActorComponent>(attacker, out var attackerActor))
                 return;
 
+            var bucket = (int)_timing.CurTime.TotalSeconds;
             await _achievements.ContributeAsync(
                 attackerActor.PlayerSession,
                 AchievementConditionKeys.DamageDealt,
                 new AchievementTriggerContext(
-                    VictimIsPlayerHumanoid: HasComp<HumanoidProfileComponent>(uid)));
+                    VictimIsPlayerHumanoid: HasComp<HumanoidProfileComponent>(uid),
+                    EventKey: $"dmg:{GetNetEntity(uid)}:{GetNetEntity(attacker)}:{bucket}"));
         }
     }
 
     private void OnCrafted(EntityUid uid, ActorComponent actor, ref ItemConstructionCreated args)
     {
-        _ = _achievements.ContributeAsync(actor.PlayerSession, AchievementConditionKeys.Craft);
+        _ = _achievements.ContributeAsync(
+            actor.PlayerSession,
+            AchievementConditionKeys.Craft,
+            new AchievementTriggerContext(EventKey: $"craft:{GetNetEntity(args.Item)}"));
     }
 
     private async void OnEquipped(EntityUid uid, ActorComponent actor, DidEquipEvent args)
     {
-        await _achievements.ContributeAsync(actor.PlayerSession, AchievementConditionKeys.ItemPickup);
+        await _achievements.ContributeAsync(
+            actor.PlayerSession,
+            AchievementConditionKeys.ItemPickup,
+            new AchievementTriggerContext(EventKey: $"equip:{GetNetEntity(args.Equipment)}"));
     }
 
     private async void OnUserInteractHand(EntityUid uid, ActorComponent actor, UserInteractHandEvent args)
     {
-        await _achievements.ContributeAsync(actor.PlayerSession, AchievementConditionKeys.Interaction);
-    }
-
-    private async void OnInteractionAttempt(EntityUid uid, ActorComponent actor, InteractionAttemptEvent args)
-    {
-        await _achievements.ContributeAsync(actor.PlayerSession, AchievementConditionKeys.Interaction);
+        var bucket = _timing.CurTick.Value / 10; // ~антиспам без глобального бана разных целей
+        await _achievements.ContributeAsync(
+            actor.PlayerSession,
+            AchievementConditionKeys.Interaction,
+            new AchievementTriggerContext(EventKey: $"interact:{GetNetEntity(args.Target)}:{bucket}"));
     }
 
     private void OnGameRuleStarted(ref GameRuleStartedEvent ev)
@@ -209,13 +260,17 @@ public sealed class AchievementConditionSystem : EntitySystem
         if (string.IsNullOrEmpty(ev.RuleId))
             return;
 
-        var ctx = new AchievementTriggerContext(EventId: ev.RuleId);
         foreach (var session in _players.Sessions)
         {
             if (session.AttachedEntity == null)
                 continue;
 
-            _ = _achievements.ContributeAsync(session, AchievementConditionKeys.StationEvent, ctx);
+            _ = _achievements.ContributeAsync(
+                session,
+                AchievementConditionKeys.StationEvent,
+                new AchievementTriggerContext(
+                    EventId: ev.RuleId,
+                    EventKey: $"event:{ev.RuleId}:{session.UserId}"));
         }
     }
 
@@ -235,13 +290,16 @@ public sealed class AchievementConditionSystem : EntitySystem
             _ = _achievements.ContributeAsync(
                 session,
                 AchievementConditionKeys.ShuttleArrive,
-                new AchievementTriggerContext(OnEmergencyShuttle: true));
+                new AchievementTriggerContext(
+                    OnEmergencyShuttle: true,
+                    EventKey: $"shuttle:{session.UserId}:{GetNetEntity(uid)}"));
         }
     }
 
     private async void OnExplosion(SunriseExplosionEvent ev)
     {
         var radius = Math.Max(ev.AffectedTiles / 4f, 8f);
+        var epicenterKey = $"{ev.Epicenter.MapId}:{ev.Epicenter.Position.X:F0}:{ev.Epicenter.Position.Y:F0}";
         foreach (var session in _players.Sessions)
         {
             if (session.AttachedEntity is not { } ent)
@@ -254,7 +312,10 @@ public sealed class AchievementConditionSystem : EntitySystem
             if ((coords.Position - ev.Epicenter.Position).Length() > radius)
                 continue;
 
-            await _achievements.ContributeAsync(session, AchievementConditionKeys.Explosion);
+            await _achievements.ContributeAsync(
+                session,
+                AchievementConditionKeys.Explosion,
+                new AchievementTriggerContext(EventKey: $"boom:{epicenterKey}:{session.UserId}"));
         }
     }
 }
