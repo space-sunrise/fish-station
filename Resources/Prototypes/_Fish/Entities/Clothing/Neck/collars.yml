@@ -4,11 +4,12 @@
   id: ClothingNeckCollarBase
   name: grey collar
   description: A collar with a leash ring. Why do you need it?
+  categories: [ DoNotMap ]
   components:
   - type: Item
     size: Small
     sprite: _Fish/Clothing/Neck/Misc/collar.rsi
-    color: "#DCDCDC"
+    # color: "#DADADA"
   - type: Butcherable
     butcheringType: Knife
     spawned:
@@ -24,95 +25,13 @@
     clothingVisuals:
       collar:
       - state: equipped-NECK
-        color: "#DCDCDC"
+        # color: "#DADADA"
   - type: Sprite
     sprite: _Fish/Clothing/Neck/Misc/collar.rsi
-    scale: 0.75, 0.75
     layers:
     - state: icon
-      color: "#DCDCDC"
+      # color: "#DADADA"
   - type: Collar
   - type: Tag
     tags:
     - Recyclable
-
-# Colored
-- type: entity
-  parent: ClothingNeckCollarBase
-  id: ClothingNeckCollarRed
-  name: red collar
-  components:
-  - type: Item
-    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
-    color: "#ff6b6b"
-  - type: Clothing
-    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
-    clothingVisuals:
-      collar:
-      - state: equipped-NECK
-        color: "#ff6b6b"
-  - type: Sprite
-    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
-    layers:
-    - state: icon
-      color: "#ff6b6b"
-      
-- type: entity
-  parent: ClothingNeckCollarBase
-  id: ClothingNeckCollarBlue
-  name: blue collar
-  components:
-  - type: Item
-    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
-    color: "#6bcbff"
-  - type: Clothing
-    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
-    clothingVisuals:
-      collar:
-      - state: equipped-NECK
-        color: "#6bcbff"
-  - type: Sprite
-    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
-    layers:
-    - state: icon
-      color: "#6bcbff"
-      
-- type: entity
-  parent: ClothingNeckCollarBase
-  id: ClothingNeckCollarPink
-  name: pink collar
-  components:
-  - type: Item
-    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
-    color: "#FF7AF0"
-  - type: Clothing
-    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
-    clothingVisuals:
-      collar:
-      - state: equipped-NECK
-        color: "#FF7AF0"
-  - type: Sprite
-    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
-    layers:
-    - state: icon
-      color: "#FF7AF0"
-      
-- type: entity
-  parent: ClothingNeckCollarBase
-  id: ClothingNeckCollarGreen
-  name: green collar
-  components:
-  - type: Item
-    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
-    color: "#82ffa3"
-  - type: Clothing
-    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
-    clothingVisuals:
-      collar:
-      - state: equipped-NECK
-        color: "#82ffa3"
-  - type: Sprite
-    sprite: _Fish/Clothing/Neck/Misc/collar.rsi
-    layers:
-    - state: icon
-      color: "#82ffa3"
