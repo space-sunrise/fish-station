@@ -40,6 +40,7 @@
 - Аудит SS13: активен (исторические builds + CM + смысловая дедупликация)
 - Condition handlers: **полное покрытие** всех ключей `AchievementConditionKeys` (event-driven)
 - Антиабуз: `oncePerRound`, cooldown, `minRoundSeconds`, ghost-gate, ignore suicide, kill только player-humanoid, shotgun-защита (`allowGenericTrigger` / progressTarget)
+- Локали: нормальные name/desc (ru-RU + en-US); у `secret: true` до unlock показывается `secretDescription` — загадка/намёк без прямого спойлера условия
 
 Подробности: `AchievementsSources.md`, `AchievementsCatalog.md`, CSV-снимки в этой папке.
 Архитектура: `AchievementsArchitecture.md`.
