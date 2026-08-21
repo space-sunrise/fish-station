@@ -13,7 +13,6 @@ public static class AchievementAntiAbuseLogic
     {
         return MatchesContext(
             proto.Condition,
-            proto.ProgressTarget,
             proto.AllowGenericTrigger,
             proto.RequirePlayerVictim,
             proto.IgnoreSuicide,
@@ -23,7 +22,6 @@ public static class AchievementAntiAbuseLogic
 
     public static bool MatchesContext(
         string condition,
-        int progressTarget,
         bool allowGenericTrigger,
         bool requirePlayerVictim,
         bool ignoreSuicide,
@@ -58,8 +56,8 @@ public static class AchievementAntiAbuseLogic
             !context.OnEmergencyShuttle)
             return false;
 
-        // Без params и без allowGenericTrigger — не матчим ни бинарные, ни progress.
-        // Иначе сотни stub-ачивок с progressTarget>1 ловят любой Contribute своей семьи (2 клика → 2/40 у всех).
+        // Без params и без allowGenericTrigger — не матчим.
+        // Иначе stub-ачивки без фильтров ловят любой Contribute своей семьи.
         if (conditionParams.Count == 0 && !allowGenericTrigger)
             return false;
 

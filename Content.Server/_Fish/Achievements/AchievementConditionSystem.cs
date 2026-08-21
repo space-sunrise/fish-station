@@ -118,9 +118,7 @@ public sealed class AchievementConditionSystem : EntitySystem
                     OnEmergencyShuttle: onShuttle,
                     RequireInRound: false));
 
-            if (onShuttle)
-                await _achievements.ContributeAsync(session, AchievementConditionKeys.ShuttleArrive, ctx);
-
+            // ShuttleArrive только на FTLCompleted — иначе +2 за раунд (FTL + round-end).
             if (_mind.TryGetMind(ent, out var mindId, out _) && _roles.MindIsAntagonist(mindId))
                 await _achievements.ContributeAsync(session, AchievementConditionKeys.AntagWin, ctx);
         }

@@ -161,12 +161,18 @@ public sealed class AchievementWindow : FancyWindow
 
         AddCategoryButton(null, Loc.GetString("fish-achievements-category-all"), null);
 
+        string? firstCategory = null;
         foreach (var category in _prototypes.EnumeratePrototypes<AchievementCategoryPrototype>()
                      .OrderBy(c => c.Order)
                      .ThenBy(c => c.ID))
         {
+            firstCategory ??= category.ID;
             AddCategoryButton(category.ID, Loc.GetString(category.Name), null);
         }
+
+        // Не открываем «Все» по умолчанию — иначе ~500 контролов за раз.
+        if (_selectedCategory == null && firstCategory != null)
+            _selectedCategory = firstCategory;
 
         RefreshCategorySelection();
     }
@@ -212,12 +218,23 @@ public sealed class AchievementWindow : FancyWindow
         if (_prototypes == null || _states == null)
             return;
 
-        var achievements = _prototypes.EnumeratePrototypes<AchievementPrototype>()
-            .Where(a => _selectedCategory == null || a.Category == _selectedCategory)
-            .OrderBy(a => a.Order)
-            .ThenBy(a => a.ID);
+        IEnumerable<AchievementPrototype> achievements = _prototypes
+            .EnumeratePrototypes<AchievementPrototype>()
+            .Where(a => _selectedCategory == null || a.Category == _selectedCategory);
 
-        foreach (var proto in achievements)
+        // «Все»: без сотен manual-заглушек — только живые условия и уже начатый прогресс.
+        if (_selectedCategory == null)
+        {
+            achievements = achievements.Where(a =>
+            {
+                if (a.Condition != AchievementConditionKeys.Manual)
+                    return true;
+
+                return _states.TryGetValue(a.ID, out var st) && (st.Unlocked || st.Progress > 0);
+            });
+        }
+
+        foreach (var proto in achievements.OrderBy(a => a.Order).ThenBy(a => a.ID))
         {
             _states.TryGetValue(proto.ID, out var state);
             var control = new AchievementEntryControl();

@@ -73,6 +73,10 @@ public sealed class AchievementManager : IPostInjectInit
         _byCondition.Clear();
         foreach (var proto in _prototypes.EnumeratePrototypes<AchievementPrototype>())
         {
+            // manual — каталожные заглушки, event-handlers их не крутят.
+            if (proto.Condition == AchievementConditionKeys.Manual)
+                continue;
+
             if (!_byCondition.TryGetValue(proto.Condition, out var list))
             {
                 list = [];
@@ -153,17 +157,27 @@ public sealed class AchievementManager : IPostInjectInit
         if (delta <= 0 || !_cache.ContainsKey(session))
             return;
 
+        // Дешёвые early-out до lock: duplicate EventKey / пустая семья условий.
+        if (!string.IsNullOrEmpty(context.EventKey) &&
+            _eventKeys.IsConsumed(session.UserId, context.EventKey))
+            return;
+
+        var candidates = GetByCondition(conditionKey);
+        if (candidates.Count == 0)
+            return;
+
         var sem = GetUserLock(session.UserId);
         await sem.WaitAsync();
         try
         {
-            // EventKey: одно реальное событие — один вклад в раунде (все ачивки этого события).
-            if (!string.IsNullOrEmpty(context.EventKey) && _eventKeys.IsConsumed(session.UserId, context.EventKey))
+            // Повторная проверка под lock (гонка двух Contribute с одним EventKey).
+            if (!string.IsNullOrEmpty(context.EventKey) &&
+                _eventKeys.IsConsumed(session.UserId, context.EventKey))
                 return;
 
             var anyAccepted = false;
 
-            foreach (var proto in GetByCondition(conditionKey))
+            foreach (var proto in candidates)
             {
                 if (filter != null && !filter(proto))
                     continue;
@@ -252,14 +266,6 @@ public sealed class AchievementManager : IPostInjectInit
         {
             sem.Release();
         }
-    }
-
-    public Task TryUnlockMatchingAsync(
-        ICommonSession session,
-        string conditionKey,
-        Func<AchievementPrototype, bool>? filter = null)
-    {
-        return ContributeAsync(session, conditionKey, filter: filter);
     }
 
     private async Task<bool> TryAddProgressInternalAsync(

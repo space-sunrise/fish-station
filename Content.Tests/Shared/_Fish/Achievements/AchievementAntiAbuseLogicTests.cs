@@ -19,7 +19,6 @@ public sealed class AchievementAntiAbuseLogicTests
         Assert.That(
             AchievementAntiAbuseLogic.MatchesContext(
                 AchievementConditionKeys.Manual,
-                progressTarget: 1,
                 allowGenericTrigger: false,
                 requirePlayerVictim: true,
                 ignoreSuicide: true,
@@ -34,7 +33,6 @@ public sealed class AchievementAntiAbuseLogicTests
         Assert.That(
             AchievementAntiAbuseLogic.MatchesContext(
                 AchievementConditionKeys.FirstLateJoin,
-                progressTarget: 1,
                 allowGenericTrigger: true,
                 requirePlayerVictim: true,
                 ignoreSuicide: true,
@@ -49,7 +47,6 @@ public sealed class AchievementAntiAbuseLogicTests
         Assert.That(
             AchievementAntiAbuseLogic.MatchesContext(
                 AchievementConditionKeys.Interaction,
-                progressTarget: 40,
                 allowGenericTrigger: false,
                 requirePlayerVictim: true,
                 ignoreSuicide: true,
@@ -64,7 +61,6 @@ public sealed class AchievementAntiAbuseLogicTests
         Assert.That(
             AchievementAntiAbuseLogic.MatchesContext(
                 AchievementConditionKeys.Kill,
-                progressTarget: 3,
                 allowGenericTrigger: true,
                 requirePlayerVictim: true,
                 ignoreSuicide: true,
@@ -75,7 +71,6 @@ public sealed class AchievementAntiAbuseLogicTests
         Assert.That(
             AchievementAntiAbuseLogic.MatchesContext(
                 AchievementConditionKeys.Kill,
-                progressTarget: 3,
                 allowGenericTrigger: true,
                 requirePlayerVictim: true,
                 ignoreSuicide: true,
@@ -90,7 +85,6 @@ public sealed class AchievementAntiAbuseLogicTests
         Assert.That(
             AchievementAntiAbuseLogic.MatchesContext(
                 AchievementConditionKeys.Death,
-                progressTarget: 3,
                 allowGenericTrigger: false,
                 requirePlayerVictim: true,
                 ignoreSuicide: true,

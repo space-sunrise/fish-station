@@ -1,4 +1,4 @@
-﻿# Fish CRT UI
+# Fish CRT UI
 
 Reusable client-side controls for CM-SS13-inspired interfaces. The library provides locally scoped palettes,
 semantic colors, icons, and optional display effects without changing the global SS14 stylesheet.
@@ -29,7 +29,6 @@ Available reusable controls:
 - `FishCrtActionButton` - outline, filled, navigation, or danger action;
 - `FishCrtLabel` - normal, heading, or semantic status text;
 - `FishCrtSeparator` - horizontal or vertical separator;
-- `FishCrtTwoColumnContainer` - two equal-width wrapping columns around a divider;
 - `FishCrtIcon` - palette-aware RSI icon.
 
 Prefer semantic properties such as `Tone`, `Variant`, and `Selected` over directly changing child colors. Buttons use

@@ -902,12 +902,14 @@
 - type: achievement
   id: FishAch_Fish
   name: achievement-fishach_fish-name
-  description: achievement-fishach_fish-desc
+  description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: first-late-join
+  condition: manual
+  progressTarget: 1
   oncePerRound: true
   order: 174
   # source: Goonstation
+  # catalog-duplicate: FirstBreath уже закрывает first-late-join
 
 - type: achievement
   id: FishAch_ForYourOhmGood
