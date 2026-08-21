@@ -195,8 +195,7 @@ public sealed class FishCrtThemeScope : PanelContainer
             Element<RichTextLabel>().Class(FishCrtStyleClasses.Text)
                 .Prop(Control.StylePropertyModulateSelf, ResolvedPalette.Foreground),
             Element<RichTextLabel>().Class(FishCrtStyleClasses.CompactText)
-                .Prop(Label.StylePropertyFont,
-                    _resourceCache.GetFont("/EngineFonts/NotoSans/NotoSansMono-Regular.ttf", 10)),
+                .Prop(Label.StylePropertyFont, _resourceCache.NotoStack(size: 10)),
         }).ToArray();
 
         return new Stylesheet(rules);

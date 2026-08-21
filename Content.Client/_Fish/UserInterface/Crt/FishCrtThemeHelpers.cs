@@ -17,14 +17,13 @@ internal static class FishCrtThemeHelpers
         bool heading = false)
     {
         var message = new FormattedMessage();
-        var nanoHeadingDefaults = !context.ThemeEnabled && heading && fontSize <= 0;
-        var fontId = context.ThemeEnabled
-            ? "Monospace"
-            : heading
-                ? nanoHeadingDefaults
-                    ? "DefaultBold"
-                    : "NotoSansDisplayBold"
-                : "Default";
+        // Fish: обычные Nano-шрифты вместо Monospace (меньше «терминал CM13»)
+        var nanoHeadingDefaults = heading && fontSize <= 0;
+        var fontId = heading
+            ? nanoHeadingDefaults
+                ? "DefaultBold"
+                : "NotoSansDisplayBold"
+            : "Default";
         var resolvedFontSize = nanoHeadingDefaults ? 16 : fontSize;
         Dictionary<string, MarkupParameter>? attributes = null;
         if (resolvedFontSize > 0)

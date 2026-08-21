@@ -19,6 +19,10 @@ public enum FishCrtPalettePreset
     Green,
     Purple,
     Red,
+    /// <summary>
+    /// Голубо-серая палитра ближе к Nano/Sunrise, без «морского терминала».
+    /// </summary>
+    Slate,
     Spp,
     White,
     Yellow,
@@ -115,11 +119,33 @@ public static class FishCrtPalettes
             FishCrtPalettePreset.Green => Create("#00EB4E", "#001000", "#00EB4E"),
             FishCrtPalettePreset.Purple => Create("#C634D0", "#100302", "#C634D0"),
             FishCrtPalettePreset.Red => Create("#D03434", "#100302", "#D03434"),
+            // Голубо-серый: фон как PanelDark, акценты как Nano button blues
+            FishCrtPalettePreset.Slate => CreateSlate(),
             FishCrtPalettePreset.Spp => Create("#DBBF23", "#511814", "#DBBF23"),
             FishCrtPalettePreset.White => Create("#CCCCCC", "#666666", "#CCCCCC"),
             FishCrtPalettePreset.Yellow => Create("#FFD000", "#101000", "#FFD000"),
             _ => Create("#8ACBFF", "#00000F", "#82C5F2"),
         };
+    }
+
+    private static FishCrtPalette CreateSlate()
+    {
+        var foreground = Color.FromHex("#B7C3D6");
+        var background = Color.FromHex("#1E1E22");
+        var border = Color.FromHex("#6A758C");
+        var fill = Color.FromHex("#4A5570");
+        return new FishCrtPalette(
+            foreground,
+            background,
+            border,
+            fill,
+            Color.FromHex("#E8EEF6"),
+            Color.FromHex("#5FAF72"),
+            Color.FromHex("#C9A05A"),
+            Color.FromHex("#C85A5A"),
+            Color.FromHex("#8A93A5"),
+            Color.FromHex("#2A2B33"),
+            Color.FromHex("#7A8294"));
     }
 
     private static FishCrtPalette Create(string foreground, string background, string fill)

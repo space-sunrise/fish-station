@@ -2,17 +2,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using Content.Client._Fish.UserInterface.Crt;
+using Content.Client.UserInterface.Controls;
 using Content.Shared._Fish.Achievements;
 using Robust.Client.UserInterface.Controls;
-using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client._Fish.Achievements;
 
 /// <summary>
-/// Окно списка достижений в CRT-стиле Fish.
+/// Окно достижений: мягкий голубо-серый стиль ближе к Nano, без CRT-scanlines.
 /// </summary>
-public sealed class AchievementWindow : DefaultWindow
+public sealed class AchievementWindow : FancyWindow
 {
     private readonly FishCrtLabel _summary;
     private readonly BoxContainer _categoryRow;
@@ -28,15 +28,17 @@ public sealed class AchievementWindow : DefaultWindow
     {
         Title = Loc.GetString("fish-achievements-window-title");
         MinSize = new Vector2(560, 460);
-        SetSize = new Vector2(620, 520);
+        SetSize = new Vector2(640, 540);
 
+        // Slate + без эффектов: не «терминал маринов», а спокойная панель под Nano
         var theme = new FishCrtThemeScope
         {
-            Palette = FishCrtPalettePreset.Green,
-            Effects = FishCrtEffects.HorizontalScanlines,
+            Palette = FishCrtPalettePreset.Slate,
+            Effects = FishCrtEffects.None,
             HorizontalExpand = true,
             VerticalExpand = true,
-            BorderThickness = 1,
+            BorderThickness = 0,
+            BackgroundOpacity = 0,
         };
 
         var root = new BoxContainer
@@ -44,18 +46,31 @@ public sealed class AchievementWindow : DefaultWindow
             Orientation = BoxContainer.LayoutOrientation.Vertical,
             HorizontalExpand = true,
             VerticalExpand = true,
-            SeparationOverride = 6,
-            Margin = new Thickness(8),
+            SeparationOverride = 8,
+            Margin = new Thickness(10, 8, 10, 10),
+        };
+
+        var header = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            HorizontalExpand = true,
+            SeparationOverride = 2,
         };
 
         _summary = new FishCrtLabel
         {
             Heading = true,
+            TextFontSize = 15,
             Text = Loc.GetString("fish-achievements-summary", ("unlocked", 0), ("total", 0)),
         };
-
-        root.AddChild(_summary);
-        root.AddChild(new FishCrtSeparator { MinHeight = 2 });
+        header.AddChild(_summary);
+        header.AddChild(new FishCrtSeparator
+        {
+            MinHeight = 1,
+            Thickness = 1,
+            Margin = new Thickness(0, 4, 0, 2),
+        });
+        root.AddChild(header);
 
         root.AddChild(new FishCrtLabel
         {
@@ -68,7 +83,7 @@ public sealed class AchievementWindow : DefaultWindow
         {
             HorizontalExpand = true,
             VerticalExpand = false,
-            MinHeight = 68,
+            MinHeight = 40,
             HScrollEnabled = true,
             VScrollEnabled = false,
         };
@@ -77,7 +92,7 @@ public sealed class AchievementWindow : DefaultWindow
         {
             Orientation = BoxContainer.LayoutOrientation.Horizontal,
             HorizontalExpand = true,
-            SeparationOverride = 4,
+            SeparationOverride = 5,
         };
         categoryScroll.AddChild(_categoryRow);
         root.AddChild(categoryScroll);
@@ -85,10 +100,11 @@ public sealed class AchievementWindow : DefaultWindow
         var listPanel = new FishCrtPanel
         {
             Variant = FishCrtPanelVariant.Inset,
-            Effects = FishCrtEffects.HorizontalScanlines,
+            Effects = FishCrtEffects.None,
             HorizontalExpand = true,
             VerticalExpand = true,
-            BackgroundOpacity = 0.85f,
+            BackgroundOpacity = 0.55f,
+            BorderThickness = 1,
         };
 
         var scroll = new ScrollContainer
@@ -96,21 +112,21 @@ public sealed class AchievementWindow : DefaultWindow
             HorizontalExpand = true,
             VerticalExpand = true,
             HScrollEnabled = false,
-            Margin = new Thickness(4),
+            Margin = new Thickness(6),
         };
 
         _list = new BoxContainer
         {
             Orientation = BoxContainer.LayoutOrientation.Vertical,
             HorizontalExpand = true,
-            SeparationOverride = 4,
+            SeparationOverride = 5,
         };
 
         scroll.AddChild(_list);
         listPanel.AddChild(scroll);
         root.AddChild(listPanel);
         theme.AddChild(root);
-        Contents.AddChild(theme);
+        ContentsContainer.AddChild(theme);
     }
 
     public void Populate(
@@ -143,19 +159,19 @@ public sealed class AchievementWindow : DefaultWindow
         if (_prototypes == null)
             return;
 
-        AddCategoryButton(null, Loc.GetString("fish-achievements-category-all"), FishCrtIcons.Users);
+        AddCategoryButton(null, Loc.GetString("fish-achievements-category-all"), null);
 
         foreach (var category in _prototypes.EnumeratePrototypes<AchievementCategoryPrototype>()
                      .OrderBy(c => c.Order)
                      .ThenBy(c => c.ID))
         {
-            AddCategoryButton(category.ID, Loc.GetString(category.Name), FishCrtIcons.Medal);
+            AddCategoryButton(category.ID, Loc.GetString(category.Name), null);
         }
 
         RefreshCategorySelection();
     }
 
-    private void AddCategoryButton(string? categoryId, string text, string iconState)
+    private void AddCategoryButton(string? categoryId, string text, string? iconState)
     {
         var button = new FishCrtActionButton
         {
@@ -163,7 +179,7 @@ public sealed class AchievementWindow : DefaultWindow
             IconState = iconState,
             Variant = FishCrtButtonVariant.Outline,
             ContentAlignment = FishCrtContentAlignment.Center,
-            MinHeight = 28,
+            MinHeight = 26,
             ToolTip = text,
         };
 
@@ -226,7 +242,7 @@ public sealed class AchievementWindow : DefaultWindow
 }
 
 /// <summary>
-/// Карточка одного достижения в CRT-панели.
+/// Карточка достижения: спокойная панель без CRT-эффектов.
 /// </summary>
 public sealed class AchievementEntryControl : BoxContainer
 {
@@ -247,7 +263,7 @@ public sealed class AchievementEntryControl : BoxContainer
             HorizontalExpand = true,
             Variant = FishCrtPanelVariant.Surface,
             Effects = FishCrtEffects.None,
-            BackgroundOpacity = 0.72f,
+            BackgroundOpacity = 0.62f,
             BorderThickness = 1,
         };
 
@@ -255,28 +271,29 @@ public sealed class AchievementEntryControl : BoxContainer
         {
             Orientation = LayoutOrientation.Horizontal,
             HorizontalExpand = true,
-            SeparationOverride = 8,
-            Margin = new Thickness(8, 6),
+            SeparationOverride = 10,
+            Margin = new Thickness(10, 8),
         };
 
         _statusIcon = new FishCrtIcon
         {
             IconState = FishCrtIcons.Medal,
-            SetWidth = 22,
-            SetHeight = 22,
+            SetWidth = 20,
+            SetHeight = 20,
             VerticalAlignment = VAlignment.Top,
             Margin = new Thickness(0, 2, 0, 0),
+            Tone = FishCrtTone.Muted,
         };
 
         var textColumn = new BoxContainer
         {
             Orientation = LayoutOrientation.Vertical,
             HorizontalExpand = true,
-            SeparationOverride = 2,
+            SeparationOverride = 3,
         };
 
-        _title = new FishCrtLabel { Heading = true };
-        _description = new FishCrtLabel { HorizontalExpand = true, Tone = FishCrtTone.Muted };
+        _title = new FishCrtLabel { Heading = true, TextFontSize = 13 };
+        _description = new FishCrtLabel { HorizontalExpand = true, Tone = FishCrtTone.Muted, TextFontSize = 11 };
         _progressLabel = new FishCrtLabel { Tone = FishCrtTone.Muted, TextFontSize = 11 };
         _progress = new ProgressBar
         {
@@ -284,7 +301,7 @@ public sealed class AchievementEntryControl : BoxContainer
             MaxValue = 1,
             Visible = false,
             HorizontalExpand = true,
-            MinHeight = 10,
+            MinHeight = 8,
         };
 
         textColumn.AddChild(_title);
@@ -333,7 +350,7 @@ public sealed class AchievementEntryControl : BoxContainer
             _progressLabel.Visible = false;
         }
 
-        _panel.Variant = unlocked ? FishCrtPanelVariant.Surface : FishCrtPanelVariant.Inset;
+        _panel.BackgroundOpacity = unlocked ? 0.72f : 0.5f;
         _description.Tone = unlocked ? FishCrtTone.Default : FishCrtTone.Muted;
     }
 }
