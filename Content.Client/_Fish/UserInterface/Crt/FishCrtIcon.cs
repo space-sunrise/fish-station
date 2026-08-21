@@ -12,7 +12,7 @@ public sealed class FishCrtIcon : TextureRect, IFishCrtThemedControl
 {
     public static readonly ResPath DefaultRsiPath = new("/Textures/_Fish/Interface/CRT/crt_icons.rsi");
 
-    private static readonly ISawmill Log = Logger.GetSawmill("fish-crt");
+    private static readonly ISawmill Sawmill = Logger.GetSawmill("fish-crt");
 
     private readonly IResourceCache _resourceCache;
     private string? _iconState;
@@ -120,12 +120,12 @@ public sealed class FishCrtIcon : TextureRect, IFishCrtThemedControl
             }
 
             Texture = null;
-            Log.Warning($"CRT icon state '{IconState}' does not exist in '{RsiPath}'.");
+            Sawmill.Warning($"CRT icon state '{IconState}' does not exist in '{RsiPath}'.");
         }
         catch (Exception exception)
         {
             Texture = null;
-            Log.Error($"Failed to load CRT icon state '{IconState}' from '{RsiPath}': {exception}");
+            Sawmill.Error($"Failed to load CRT icon state '{IconState}' from '{RsiPath}': {exception}");
         }
     }
 }

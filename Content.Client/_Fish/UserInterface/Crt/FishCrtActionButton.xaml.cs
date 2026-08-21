@@ -16,7 +16,7 @@ public sealed partial class FishCrtActionButton : ContainerButton, IFishCrtTheme
 {
     public static readonly ResPath DefaultIconRsiPath = new("/Textures/_Fish/Interface/CRT/crt_icons.rsi");
 
-    private static readonly ISawmill Log = Logger.GetSawmill("fish-crt");
+    private static readonly ISawmill Sawmill = Logger.GetSawmill("fish-crt");
 
     private readonly IResourceCache _resourceCache;
     private readonly StyleBoxFlat _transparentStyle = new() { BackgroundColor = Color.Transparent };
@@ -213,12 +213,12 @@ public sealed partial class FishCrtActionButton : ContainerButton, IFishCrtTheme
             }
 
             IconControl.Texture = null;
-            Log.Warning($"CRT icon state '{IconState}' does not exist in '{IconRsiPath}'.");
+            Sawmill.Warning($"CRT icon state '{IconState}' does not exist in '{IconRsiPath}'.");
         }
         catch (Exception exception)
         {
             IconControl.Texture = null;
-            Log.Error($"Failed to load CRT icon state '{IconState}' from '{IconRsiPath}': {exception}");
+            Sawmill.Error($"Failed to load CRT icon state '{IconState}' from '{IconRsiPath}': {exception}");
         }
     }
 
