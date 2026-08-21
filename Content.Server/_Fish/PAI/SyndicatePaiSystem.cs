@@ -2,11 +2,11 @@ using Content.Server.Medical;
 using Content.Server.Medical.Components;
 using Content.Server.Store.Systems;
 using Content.Shared._Fish.PAI;
+using Content.Shared._Sunrise.CriminalRecords;
+using Content.Shared._Sunrise.CriminalRecords.Components;
 using Content.Shared._Sunrise.InnateItem;
 using Content.Shared.Actions;
-using Content.Shared.CriminalRecords.Components;
 using Content.Shared.Doors.Components;
-using Content.Shared.CriminalRecords;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.FixedPoint;
@@ -15,18 +15,24 @@ using Content.Shared.Item.ItemToggle;
 using Content.Shared.MedicalScanner;
 using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
+using Content.Shared.Station;
+using Content.Shared.Station.Components;
+using Content.Shared.StationRecords;
 using Content.Shared.Store;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server._Fish.PAI;
 
 public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
 {
     [Dependency] private readonly SharedPopupSystem _serverPopup = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedActionsSystem _serverActions = default!;
     [Dependency] private readonly SharedContainerSystem _serverContainer = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
@@ -38,6 +44,9 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
     [Dependency] private readonly HealthAnalyzerSystem _healthAnalyzer = default!;
     [Dependency] private readonly ItemToggleSystem _itemToggle = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _serverUi = default!;
+    [Dependency] private readonly SharedStationSystem _station = default!;
+
+    private const string SunriseCriminalRecordsBui = "SunriseCriminalRecordsConsoleBoundUserInterface";
 
     private static readonly EntProtoId InnateInstantActionProto = "InnateInstantActionAction";
     private static readonly EntProtoId InnateEntityTargetActionProto = "InnateEntityTargetAction";
@@ -252,9 +261,100 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
             return;
         }
 
-        EnsureComp<CriminalRecordsConsoleComponent>(ent.Owner);
-        _serverUi.TryToggleUi(ent.Owner, CriminalRecordsConsoleKey.Key, args.Performer);
+        // Консоль на пИИ в инвентаре не имеет GridUid — привязываем станцию носителя/игрока
+        if (!TryBindSecRecordsStation(ent, args.Performer))
+        {
+            _serverPopup.PopupEntity(Loc.GetString("syndicate-pai-sec-no-station"), ent.Owner, args.Performer);
+            return;
+        }
+
+        EnsureSecRecordsUi(ent.Owner);
+        // Убираем старую ванильную консоль, если осталась после прошлых версий
+        RemComp<Content.Shared.CriminalRecords.Components.CriminalRecordsConsoleComponent>(ent.Owner);
+        EnsureComp<SunriseCriminalRecordsConsoleComponent>(ent.Owner);
+        _serverUi.TryToggleUi(ent.Owner, SunriseCriminalRecordsConsoleKey.Key, args.Performer);
         args.Handled = true;
+    }
+
+    /// <summary>
+    /// Регистрирует Sunrise BUI на пИИ без правки ванильного прототипа.
+    /// </summary>
+    private void EnsureSecRecordsUi(EntityUid pai)
+    {
+        // interactionRange <= 0 — без лимита; пИИ открывает UI на себе из инвентаря/КПК
+        _serverUi.SetUi(pai, SunriseCriminalRecordsConsoleKey.Key,
+            new InterfaceData(SunriseCriminalRecordsBui, interactionRange: -1f, requireInputValidation: false));
+    }
+
+    /// <summary>
+    /// Fish использует Sunrise criminal records; ванильный GetOwningStation для предметов в контейнере пустой.
+    /// </summary>
+    private bool TryBindSecRecordsStation(Entity<SyndicatePaiComponent> ent, EntityUid user)
+    {
+        EntityUid? station = FindStationNear(ent.Owner);
+
+        if (TryGetCarrier(ent.Owner, out var carrier) && carrier != null)
+            station ??= FindStationNear(carrier.Value);
+
+        station ??= FindStationNear(user);
+
+        if (ent.Comp.Master is { Valid: true } master && !TerminatingOrDeleted(master))
+            station ??= FindStationNear(master);
+
+        if (station == null || !HasComp<StationRecordsComponent>(station))
+        {
+            foreach (var candidate in _station.GetStations())
+            {
+                if (!HasComp<StationRecordsComponent>(candidate))
+                    continue;
+
+                station = candidate;
+                break;
+            }
+        }
+
+        if (station == null || !HasComp<StationRecordsComponent>(station))
+            return false;
+
+        EnsureComp<StationTrackerComponent>(ent.Owner);
+        _station.SetStation(ent.Owner, station);
+        return true;
+    }
+
+    private EntityUid? FindStationNear(EntityUid entity)
+    {
+        if (HasComp<StationDataComponent>(entity))
+            return entity;
+
+        if (TryComp<StationMemberComponent>(entity, out var member))
+            return member.Station;
+
+        var current = entity;
+        for (var depth = 0; depth < 24; depth++)
+        {
+            if (!TryComp(current, out TransformComponent? xform))
+                break;
+
+            if (xform.GridUid is { Valid: true } grid)
+            {
+                if (TryComp<StationMemberComponent>(grid, out var gridMember))
+                    return gridMember.Station;
+            }
+
+            if (HasComp<MapGridComponent>(current) &&
+                TryComp<StationMemberComponent>(current, out var selfMember))
+            {
+                return selfMember.Station;
+            }
+
+            var parent = xform.ParentUid;
+            if (!parent.IsValid() || parent == current)
+                break;
+
+            current = parent;
+        }
+
+        return null;
     }
 
     private void OnStoreBuyFinished(ref StoreBuyFinishedEvent args)
@@ -336,7 +436,9 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
             return;
 
         ent.Comp.SecRecordsUnlocked = true;
-        EnsureComp<CriminalRecordsConsoleComponent>(ent.Owner);
+        // Sunrise criminal records — тот же UI, что у станционных/handheld консолей Fish
+        EnsureSecRecordsUi(ent.Owner);
+        EnsureComp<SunriseCriminalRecordsConsoleComponent>(ent.Owner);
         Dirty(ent);
         _serverPopup.PopupEntity(Loc.GetString("syndicate-pai-module-sec-unlocked"), ent.Owner, ent.Owner);
     }

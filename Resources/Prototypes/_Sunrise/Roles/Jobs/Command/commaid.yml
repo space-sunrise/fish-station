@@ -13,7 +13,7 @@
   startingGear: ComMaidGear
   icon: "JobIconComMaid"
   supervisors: job-supervisors-captain
-  canBeAntag: true
+  canBeAntag: false # Fish-edit
   displayWeight: 0
   weight: 5
   alternativeTitles:
@@ -28,6 +28,11 @@
   - Bar
   - Theatre
   - Maintenance
+# Fish-Start
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+# Fish-End
 
 - type: startingGear
   id: ComMaidGear

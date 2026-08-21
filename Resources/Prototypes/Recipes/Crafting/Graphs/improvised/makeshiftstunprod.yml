@@ -12,8 +12,7 @@
           steps:
             - material: MetalRod
               amount: 1
-            # Fish-edit
-            - component: PowerCell
+            - tag: PowerCell
               name: construction-graph-tag-power-cell-small
               icon:
                 sprite: Objects/Power/power_cells.rsi

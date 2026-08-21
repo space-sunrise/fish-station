@@ -46,6 +46,8 @@ public static class BanPanelEuiStateMsg
 [Serializable, NetSerializable]
 public sealed record Ban
 {
+    // Fish-start - поддержка отложенных банов
+    /*
     public Ban(
         string? target,
         (IPAddress, int)? ipAddressTuple,
@@ -85,4 +87,49 @@ public sealed record Ban
     public readonly ProtoId<JobPrototype>[]? BannedJobs;
     public readonly ProtoId<AntagPrototype>[]? BannedAntags;
     public readonly bool Erase;
+    */
+
+    public Ban(
+        string? target,
+        (IPAddress, int)? ipAddressTuple,
+        bool useLastIp,
+        ImmutableTypedHwid? hwid,
+        bool useLastHwid,
+        uint banDurationMinutes,
+        string reason,
+        NoteSeverity severity,
+        ProtoId<JobPrototype>[]? bannedJobs,
+        ProtoId<AntagPrototype>[]? bannedAntags,
+        bool erase,
+        bool defer)
+    {
+        Target = target;
+        IpAddress = ipAddressTuple?.Item1.ToString();
+        IpAddressHid = ipAddressTuple?.Item2.ToString() ?? "0";
+        UseLastIp = useLastIp;
+        Hwid = hwid;
+        UseLastHwid = useLastHwid;
+        BanDurationMinutes = banDurationMinutes;
+        Reason = reason;
+        Severity = severity;
+        BannedJobs = bannedJobs;
+        BannedAntags = bannedAntags;
+        Erase = erase;
+        Defer = defer;
+    }
+
+    public readonly string? Target;
+    public readonly string? IpAddress;
+    public readonly string? IpAddressHid;
+    public readonly bool UseLastIp;
+    public readonly ImmutableTypedHwid? Hwid;
+    public readonly bool UseLastHwid;
+    public readonly uint BanDurationMinutes;
+    public readonly string Reason;
+    public readonly NoteSeverity Severity;
+    public readonly ProtoId<JobPrototype>[]? BannedJobs;
+    public readonly ProtoId<AntagPrototype>[]? BannedAntags;
+    public readonly bool Erase;
+    public readonly bool Defer;
+    // Fish-end
 }

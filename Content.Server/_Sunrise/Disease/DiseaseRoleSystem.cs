@@ -10,13 +10,12 @@ using Robust.Shared.Prototypes;
 using Content.Shared.FixedPoint;
 using Content.Shared.Popups;
 using Content.Shared.Store.Components;
-using Robust.Shared.Timing;
 using Content.Shared.Zombies;
+using Robust.Shared.Timing;
 using Robust.Server.Audio;
 using Robust.Server.Player;
 using System.Text;
 using Content.Shared.Mobs;
-using Content.Shared.Inventory;
 
 namespace Content.Server._Sunrise.Disease;
 
@@ -29,9 +28,7 @@ public sealed class DiseaseRoleSystem : SharedDiseaseRoleSystem
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedChargesSystem _sharedCharges = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
 
     private static readonly List<string> _bloodReagents = new()
@@ -75,15 +72,14 @@ public sealed class DiseaseRoleSystem : SharedDiseaseRoleSystem
                 _popup.PopupEntity(Loc.GetString("disease-infect-already-sick"), args.Performer, args.Performer);
                 return;
             }
-            if (HasComp<DiseaseImmuneComponent>(args.Target) || HasComp<DiseaseTempImmuneComponent>(args.Target))
+            if (HasComp<DiseaseImmuneComponent>(args.Target))
             {
                 _popup.PopupEntity(Loc.GetString("disease-infect-immune"), args.Performer, args.Performer);
                 return;
             }
 
-            var targetEv = new ZombificationResistanceQueryEvent(SlotFlags.HEAD | SlotFlags.MASK | SlotFlags.OUTERCLOTHING);
-            RaiseLocalEvent(args.Target, targetEv);
-            if (targetEv.TotalCoefficient < 1.0f)
+            var protection = GetDiseaseProtectionCoefficient(args.Target);
+            if (protection < 1.0f)
             {
                 _popup.PopupEntity(Loc.GetString("disease-infect-protected"), args.Performer, args.Performer);
                 return;

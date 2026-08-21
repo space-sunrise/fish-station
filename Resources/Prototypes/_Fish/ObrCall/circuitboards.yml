@@ -1,0 +1,31 @@
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: ObrCentCommComputerCircuitboard
+  name: CentComm OBR call console board
+  description: A computer circuit board for a CentComm OBR call console.
+  components:
+  - type: Sprite
+    state: cpu_command
+  - type: ComputerBoard
+    prototype: ComputerObrCentCommConsole
+  - type: StaticPrice
+    price: 5000
+  - type: Tag
+    tags:
+    - HighRiskItem
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: ObrStationComputerCircuitboard
+  name: station OBR purchase console board
+  description: A computer circuit board for a station OBR purchase console.
+  components:
+  - type: Sprite
+    state: cpu_command
+  - type: ComputerBoard
+    prototype: ComputerObrStationConsole
+  - type: StaticPrice
+    price: 5000
+  - type: Tag
+    tags:
+    - HighRiskItem

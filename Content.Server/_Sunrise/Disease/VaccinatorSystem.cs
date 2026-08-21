@@ -4,7 +4,6 @@ using Content.Server.Power.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Server.Paper;
-using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
@@ -16,11 +15,10 @@ using System.Collections.Frozen;
 using Content.Shared.Paper;
 using Robust.Shared.Utility;
 using static Content.Shared.Paper.PaperComponent;
-using Robust.Shared.Prototypes;
 using System.Linq;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Content.Shared.Chemistry.Reagent;
-using System.Linq;
 using System.Text;
 using Content.Shared.Power;
 
@@ -99,7 +97,7 @@ public sealed class VaccinatorSystem : SharedVaccinatorSystem
                 {
                     if (paper != null)
                     {
-                        EntityManager.DeleteEntity(paper);
+                        Del(paper);
                         return;
                     }
                 }
@@ -110,7 +108,7 @@ public sealed class VaccinatorSystem : SharedVaccinatorSystem
             {
                 if (printeds) continue;
                 else printeds = true;
-                var printed = EntityManager.SpawnEntity("ForensicReportPaper", Transform(GetEntity(args.Uid)).Coordinates);
+                var printed = Spawn("ForensicReportPaper", Transform(GetEntity(args.Uid)).Coordinates);
                 paper = printed;
                 _metaData.SetEntityName(printed, "Технология изготовления вакцины");
                 var text = new StringBuilder();

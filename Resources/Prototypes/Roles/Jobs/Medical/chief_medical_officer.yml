@@ -19,7 +19,7 @@
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
   supervisors: job-supervisors-captain
-  canBeAntag: true # Sunrise-Edit
+  canBeAntag: false # Fish-edit
   radioBold: true # Sunrise-Edit
   displayWeight: 60 # Sunrise-Edit
   # Sunrise-Start
@@ -36,7 +36,7 @@
   - Cryogenics
   special:
   - !type:AddImplantSpecial
-    implants: [ DeathRattleImplantBlueShield ] # Sunrise-Edit
+    implants: [ MindShieldImplant, DeathRattleImplantBlueShield ] # Fish-edit
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
@@ -48,7 +48,6 @@
   equipment:
     id: CMOPDA
     ears: ClothingHeadsetCMO
-    belt: ClothingBeltMedicalFilled
   storage:
     back:
     - Flash
