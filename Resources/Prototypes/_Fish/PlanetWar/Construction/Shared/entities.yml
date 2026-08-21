@@ -1140,7 +1140,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: MagazineLightRifleHP
+  parent: BaseMagazineLightRifle
   id: MagazineLightRifleWM
   components:
   - type: PhysicalComposition
