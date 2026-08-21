@@ -1,18 +1,30 @@
-﻿using Content.Client.Stylesheets;
+﻿using Content.Client.Resources;
+using Content.Client.Stylesheets;
 using Robust.Client.Graphics;
+using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.IoC;
+using Robust.Shared.Utility;
 
 namespace Content.Client._Fish.UserInterface.Crt;
 
 public sealed class FishCrtPanel : PanelContainer, IFishCrtThemedControl
 {
+    private static readonly ResPath RoundedTexPath = new("/Textures/Interface/Nano/rounded_button.svg.96dpi.png");
+    private static readonly ResPath RoundedBorderedTexPath = new("/Textures/Interface/Nano/rounded_button_bordered.svg.96dpi.png");
+
     private readonly FishCrtEffectRenderer _effectsRenderer = new();
     private readonly StyleBoxFlat _crtStyle = new();
     private readonly StyleBoxFlat _nanoWarningStyle = new();
+    private readonly StyleBoxTexture _roundedStyle = new();
+    private readonly IResourceCache _resourceCache;
+
     private Color? _backgroundOverride;
     private Color? _borderOverride;
     private float _backgroundOpacity = 0.72f;
     private float _borderThickness = 1;
+    private bool _rounded;
+    private bool _roundedTexturesReady;
     private FishCrtThemeContext _context = new(
         FishCrtPalettes.Get(FishCrtPalettePreset.Blue),
         new FishCrtAppearanceSettings(true, true));
@@ -34,6 +46,22 @@ public sealed class FishCrtPanel : PanelContainer, IFishCrtThemedControl
     public float ScanlineSpacing { get; set; } = 2;
     public float ScanlineThickness { get; set; } = 1;
     public float StripeWidth { get; set; } = 18;
+
+    /// <summary>
+    /// Мягкие скруглённые углы через Nano StyleBoxTexture (вместо квадратного StyleBoxFlat).
+    /// </summary>
+    public bool Rounded
+    {
+        get => _rounded;
+        set
+        {
+            if (_rounded == value)
+                return;
+
+            _rounded = value;
+            UpdateStyle();
+        }
+    }
 
     public float BorderThickness
     {
@@ -57,6 +85,7 @@ public sealed class FishCrtPanel : PanelContainer, IFishCrtThemedControl
 
     public FishCrtPanel()
     {
+        _resourceCache = IoCManager.Resolve<IResourceCache>();
         PanelOverride = _crtStyle;
         UpdateStyle();
     }
@@ -103,6 +132,16 @@ public sealed class FishCrtPanel : PanelContainer, IFishCrtThemedControl
             _context.Palette.Background.WithAlpha(0.3f));
     }
 
+    private void EnsureRoundedTextures()
+    {
+        if (_roundedTexturesReady)
+            return;
+
+        _roundedStyle.SetPatchMargin(StyleBox.Margin.All, 10);
+        _roundedStyle.SetPadding(StyleBox.Margin.All, 1);
+        _roundedTexturesReady = true;
+    }
+
     private void UpdateStyle()
     {
         RemoveStyleClass(StyleNano.StyleClassBorderedWindowPanel);
@@ -114,7 +153,6 @@ public sealed class FishCrtPanel : PanelContainer, IFishCrtThemedControl
             return;
         }
 
-        PanelOverride = _crtStyle;
         var palette = _context.Palette;
         var background = Variant switch
         {
@@ -125,9 +163,37 @@ public sealed class FishCrtPanel : PanelContainer, IFishCrtThemedControl
             _ => palette.Background.WithAlpha(Math.Clamp(BackgroundOpacity, 0, 1)),
         };
         var border = Variant == FishCrtPanelVariant.Warning ? palette.Warning : palette.Border;
+        background = _backgroundOverride ?? background;
+        border = _borderOverride ?? border;
 
-        _crtStyle.BackgroundColor = _backgroundOverride ?? background;
-        _crtStyle.BorderColor = _borderOverride ?? border;
+        if (Rounded && Variant != FishCrtPanelVariant.Transparent)
+        {
+            EnsureRoundedTextures();
+            var useBorder = BorderThickness > 0.01f;
+            _roundedStyle.Texture = _resourceCache.GetTexture(useBorder ? RoundedBorderedTexPath : RoundedTexPath);
+            // StyleBoxTexture красит всю плашку одним Modulate — берём фон; рамка уже в текстуре.
+            _roundedStyle.Modulate = background.A <= 0.001f ? border.WithAlpha(0.85f) : background;
+            PanelOverride = _roundedStyle;
+            return;
+        }
+
+        // Для кнопок с override-цветами и Rounded=true Variant часто Transparent.
+        if (Rounded && (_backgroundOverride != null || _borderOverride != null))
+        {
+            EnsureRoundedTextures();
+            var useBorder = BorderThickness > 0.01f;
+            _roundedStyle.Texture = _resourceCache.GetTexture(useBorder ? RoundedBorderedTexPath : RoundedTexPath);
+            var fill = _backgroundOverride ?? background;
+            if (fill.A <= 0.001f)
+                fill = (_borderOverride ?? border).WithAlpha(0.35f);
+            _roundedStyle.Modulate = fill;
+            PanelOverride = _roundedStyle;
+            return;
+        }
+
+        PanelOverride = _crtStyle;
+        _crtStyle.BackgroundColor = background;
+        _crtStyle.BorderColor = border;
         _crtStyle.BorderThickness = new Thickness(BorderThickness);
     }
 

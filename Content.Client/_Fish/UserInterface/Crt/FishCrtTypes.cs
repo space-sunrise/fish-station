@@ -119,7 +119,7 @@ public static class FishCrtPalettes
             FishCrtPalettePreset.Green => Create("#00EB4E", "#001000", "#00EB4E"),
             FishCrtPalettePreset.Purple => Create("#C634D0", "#100302", "#C634D0"),
             FishCrtPalettePreset.Red => Create("#D03434", "#100302", "#D03434"),
-            // Голубо-серый: фон как PanelDark, акценты как Nano button blues
+            // Голубо-серый: мягче Nano, без «квадратного терминала»
             FishCrtPalettePreset.Slate => CreateSlate(),
             FishCrtPalettePreset.Spp => Create("#DBBF23", "#511814", "#DBBF23"),
             FishCrtPalettePreset.White => Create("#CCCCCC", "#666666", "#CCCCCC"),
@@ -130,22 +130,22 @@ public static class FishCrtPalettes
 
     private static FishCrtPalette CreateSlate()
     {
-        var foreground = Color.FromHex("#B7C3D6");
-        var background = Color.FromHex("#1E1E22");
-        var border = Color.FromHex("#6A758C");
-        var fill = Color.FromHex("#4A5570");
+        var foreground = Color.FromHex("#D5DCE8");
+        var background = Color.FromHex("#2A2E38");
+        var border = Color.FromHex("#6E7A90");
+        var fill = Color.FromHex("#5C6B88");
         return new FishCrtPalette(
             foreground,
             background,
             border,
             fill,
-            Color.FromHex("#E8EEF6"),
-            Color.FromHex("#5FAF72"),
-            Color.FromHex("#C9A05A"),
-            Color.FromHex("#C85A5A"),
-            Color.FromHex("#8A93A5"),
-            Color.FromHex("#2A2B33"),
-            Color.FromHex("#7A8294"));
+            Color.FromHex("#F2F5FA"),
+            Color.FromHex("#6FBE84"),
+            Color.FromHex("#D0AE6A"),
+            Color.FromHex("#D06A6A"),
+            Color.FromHex("#9AA3B5"),
+            Color.FromHex("#343844"),
+            Color.FromHex("#858E9F"));
     }
 
     private static FishCrtPalette Create(string foreground, string background, string fill)
