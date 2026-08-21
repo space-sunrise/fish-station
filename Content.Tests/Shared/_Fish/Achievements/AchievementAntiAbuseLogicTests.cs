@@ -44,13 +44,28 @@ public sealed class AchievementAntiAbuseLogicTests
     }
 
     [Test]
+    public void ProgressWithoutAllowGenericOrParams_IsRejected()
+    {
+        Assert.That(
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.Interaction,
+                progressTarget: 40,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                EmptyParams,
+                default),
+            Is.False);
+    }
+
+    [Test]
     public void KillRequiresPlayerVictim()
     {
         Assert.That(
             AchievementAntiAbuseLogic.MatchesContext(
                 AchievementConditionKeys.Kill,
                 progressTarget: 3,
-                allowGenericTrigger: false,
+                allowGenericTrigger: true,
                 requirePlayerVictim: true,
                 ignoreSuicide: true,
                 EmptyParams,
@@ -61,7 +76,7 @@ public sealed class AchievementAntiAbuseLogicTests
             AchievementAntiAbuseLogic.MatchesContext(
                 AchievementConditionKeys.Kill,
                 progressTarget: 3,
-                allowGenericTrigger: false,
+                allowGenericTrigger: true,
                 requirePlayerVictim: true,
                 ignoreSuicide: true,
                 EmptyParams,

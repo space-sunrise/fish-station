@@ -1099,3 +1099,19 @@ achievement-fishach_orig_hugsnotdrugs-desc = Обнимите того, кто �
 achievement-fishach_orig_cprstreak-name = Серия СЛР
 achievement-fishach_orig_cprstreak-desc = Выполните СЛР на двух разных пациентов.
 achievement-fishach_ghostbuster-secret = Кому ты позвонишь?
+
+# generic completable / pending
+achievement-fish-catalog-pending-desc = Коллекционная запись каталога. Автопрогресс идёт в связанное общее достижение.
+achievement-fish-generic-interaction-40-desc = Совершите 40 взаимодействий рукой с объектами.
+achievement-fish-generic-damagedealt-20-desc = Нанесите урон игрокам-гуманоидам 20 раз (тиков).
+achievement-fish-generic-interaction-30-desc = Совершите 30 взаимодействий рукой с объектами.
+achievement-fish-generic-kill-3-desc = Убейте 3 игроков-гуманоидов.
+achievement-fish-generic-death-3-desc = Умрите 3 раз (не суицидом).
+achievement-fish-generic-jobplay-3-desc = Сыграйте 3 смен (спавн на роль).
+achievement-fish-generic-craft-15-desc = Скрафтите 15 предметов.
+achievement-fish-generic-stationevent-5-desc = Застаньте начало 5 станционных событий, будучи в раунде.
+achievement-fish-generic-heal-10-desc = Вылечите других игроков 10 раз.
+achievement-fish-generic-explosion-3-desc = Окажитесь рядом с 3 взрывами.
+achievement-fish-generic-roundendalive-5-desc = Доживите до конца раунда живым 5 раз.
+achievement-fish-generic-shuttlearrive-3-desc = Прибудьте на аварийном шаттле живым 3 раз.
+achievement-fish-generic-itempickup-25-desc = Экипируйте предметы 25 раз.

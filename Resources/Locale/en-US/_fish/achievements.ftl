@@ -1099,3 +1099,19 @@ achievement-fishach_orig_hugsnotdrugs-desc = Hug someone who is in critical.
 achievement-fishach_orig_cprstreak-name = CPR Streak
 achievement-fishach_orig_cprstreak-desc = Perform CPR on two different patients.
 achievement-fishach_ghostbuster-secret = Who you gonna call?
+
+# generic completable / pending
+achievement-fish-catalog-pending-desc = Catalog flavor entry. Auto-tracking uses the related generic achievement.
+achievement-fish-generic-interaction-40-desc = Perform 40 hand interactions with objects.
+achievement-fish-generic-damagedealt-20-desc = Deal damage to player humanoids 20 times.
+achievement-fish-generic-interaction-30-desc = Perform 30 hand interactions with objects.
+achievement-fish-generic-kill-3-desc = Kill 3 player humanoids.
+achievement-fish-generic-death-3-desc = Die 3 times (not by suicide).
+achievement-fish-generic-jobplay-3-desc = Spawn into a job 3 times.
+achievement-fish-generic-craft-15-desc = Craft 15 items.
+achievement-fish-generic-stationevent-5-desc = Be in-round for the start of 5 station events.
+achievement-fish-generic-heal-10-desc = Heal other players 10 times.
+achievement-fish-generic-explosion-3-desc = Be near 3 explosions.
+achievement-fish-generic-roundendalive-5-desc = Survive to round end alive 5 times.
+achievement-fish-generic-shuttlearrive-3-desc = Arrive alive on the emergency shuttle 3 times.
+achievement-fish-generic-itempickup-25-desc = Equip items 25 times.

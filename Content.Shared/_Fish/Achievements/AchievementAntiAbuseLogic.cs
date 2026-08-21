@@ -58,12 +58,10 @@ public static class AchievementAntiAbuseLogic
             !context.OnEmergencyShuttle)
             return false;
 
-        if (progressTarget <= 1 &&
-            conditionParams.Count == 0 &&
-            !allowGenericTrigger)
-        {
+        // Без params и без allowGenericTrigger — не матчим ни бинарные, ни progress.
+        // Иначе сотни stub-ачивок с progressTarget>1 ловят любой Contribute своей семьи (2 клика → 2/40 у всех).
+        if (conditionParams.Count == 0 && !allowGenericTrigger)
             return false;
-        }
 
         return true;
     }

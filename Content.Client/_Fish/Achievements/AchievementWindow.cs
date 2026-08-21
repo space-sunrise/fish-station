@@ -335,7 +335,8 @@ public sealed class AchievementEntryControl : BoxContainer
         }
 
         var target = System.Math.Max(1, proto.ProgressTarget);
-        if (target > 1)
+        var showProgress = target > 1 && proto.Condition != AchievementConditionKeys.Manual;
+        if (showProgress)
         {
             _progress.Visible = true;
             _progress.MaxValue = target;
