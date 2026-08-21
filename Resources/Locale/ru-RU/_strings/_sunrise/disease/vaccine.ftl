@@ -1,4 +1,10 @@
 reagent-name-disease-blood = мутная кровь
+reagent-name-disease-blood-first = мутная кровь
+reagent-description-disease-blood-first = очень странная мутная жидкость. Напоминает кровь.
+reagent-name-disease-blood-second = липемическая кровь
+reagent-description-disease-blood-second = мутно-белесая кровь с высоким содержанием жировых частиц из-за патогена.
+reagent-name-disease-blood-third = гнилая кровь
+reagent-description-disease-blood-third = разложившаяся темная кровь со зловонным запахом, пораженная вирусом.
 reagent-description-disease-bad-physical-desc = мерзкое
 reagent-description-disease-strange-physical-desc = странное
 mixing-verb-vaccinator = вакцинатор
@@ -10,3 +16,5 @@ reagent-name-vaccine = антивирусин
 reagent-description-vaccine = с лёгкостью сможет освободить вас от оков вируса! Не связывается с иммунитетом.
 reagent-name-vaccine-plus = антивирусин Плюс
 reagent-description-vaccine-plus = наделит вас иммунитетом перед вирусом!
+reagent-name-immunator = иммунатор
+reagent-description-immunator = просто наделит вас иммунитетом перед вирусом, но не излечит текущую болезнь!

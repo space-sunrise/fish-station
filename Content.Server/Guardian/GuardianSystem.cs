@@ -16,6 +16,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes; // Fish-edit
 using Robust.Shared.Utility;
 
 namespace Content.Server.Guardian
@@ -34,6 +35,9 @@ namespace Content.Server.Guardian
         [Dependency] private readonly GibbingSystem _gibbing = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
+        // Fish-start - Константа для AddAction
+        [ValidatePrototypeId<EntityPrototype>] private const string ActionGuardianReturn = "ActionGuardianReturn";
+        // Fish-end
 
         public override void Initialize()
         {
@@ -168,7 +172,7 @@ namespace Content.Server.Guardian
             }
 
             if (!existing)
-                _actionSystem.AddAction(uid, "ActionGuardianReturn");
+                _actionSystem.AddAction(uid, ActionGuardianReturn);
             //Fish-end
         }
 

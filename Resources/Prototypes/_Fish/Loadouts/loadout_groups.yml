@@ -91,6 +91,14 @@
   - CentcommSatchelFish
 
 - type: loadoutGroup
+  id: OversightBackFish
+  name: loadout-group-centcomm-back
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - OversightSatchelWithStampFish
+
+- type: loadoutGroup
   id: CentCommOperatorEyesFish
   name: loadout-group-centcomm-eyes
   loadouts:

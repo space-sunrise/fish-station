@@ -1,0 +1,33 @@
+obr-call-window-title = OBR Call Console
+obr-call-window-header = Emergency Response Teams
+obr-call-window-header-centcomm = CentComm — Deploy OBR
+obr-call-window-header-station = Station — Purchase OBR Support
+obr-call-window-balance = Station funds:
+obr-call-window-balance-value = {$amount}
+obr-call-window-mission = Mission / briefing:
+obr-call-window-teams = Available teams
+obr-call-window-cost = Cost: {$amount}
+obr-call-window-call-button = Call
+
+obr-team-amber-name = OBR Amber
+obr-team-amber-desc = Standard emergency response team.
+obr-team-red-name = OBR Red
+obr-team-red-desc = Armed response team for high-threat situations.
+obr-team-gamma-name = OBR Gamma
+obr-team-gamma-desc = Maximum force response. CentComm only.
+obr-team-cburn-name = CBURN
+obr-team-cburn-desc = Biological / chemical hazard response team.
+
+obr-call-success = {$team} has been dispatched.
+obr-call-error-access = Access denied.
+obr-call-error-busy = Call already in progress. Wait a moment.
+obr-call-error-unknown-team = Unknown response team.
+obr-call-error-team-unavailable = This team is not available on this console.
+obr-call-error-already-active = This team is already en route or active.
+obr-call-error-no-station = No valid station found.
+obr-call-error-no-grid = Station has no dockable grid.
+obr-call-error-no-bank = Station bank account not found.
+obr-call-error-insufficient-funds = Insufficient station funds.
+obr-call-error-rule-failed = Failed to start response team deployment.
+obr-call-error-shuttle-failed = Failed to spawn response shuttle.
+obr-call-mission-briefing = OBR Mission: {$mission}

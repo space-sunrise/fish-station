@@ -16,13 +16,13 @@
   flavor: medicine
   color: "#86caf7"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
         - !type:CureDiseaseInfection
           conditions:
             - !type:ReagentCondition
               reagent: Vaccine
-              min: 10
+              min: 9 # Fish-edit
 
 - type: reagent
   id: VaccinePlus
@@ -33,11 +33,28 @@
   flavor: medicine
   color: "#8192ea"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
         - !type:CureDiseaseInfection
           innoculate: true
           conditions:
             - !type:ReagentCondition
               reagent: VaccinePlus
-              min: 5
+              min: 4 # Fish-edit
+
+- type: reagent
+  id: Immunator
+  name: reagent-name-immunator
+  group: Medicine
+  desc: reagent-description-immunator
+  physicalDesc: reagent-description-disease-strange-physical-desc
+  flavor: medicine
+  color: "#ffc107"
+  metabolisms:
+    Bloodstream:
+      effects:
+        - !type:GiveDiseaseImmunity
+          conditions:
+            - !type:ReagentCondition
+              reagent: Immunator
+              min: 4 # Fish-edit

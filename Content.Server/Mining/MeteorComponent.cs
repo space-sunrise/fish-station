@@ -1,3 +1,4 @@
+using Content.Server._Fish.ObrCall;
 using Content.Shared.Damage;
 
 namespace Content.Server.Mining;
@@ -5,7 +6,9 @@ namespace Content.Server.Mining;
 /// <summary>
 /// This is used for meteors which hit objects, dealing damage to destroy/kill the object and dealing equal damage back to itself.
 /// </summary>
-[RegisterComponent, Access(typeof(MeteorSystem))]
+// ===== FISH EDIT START: OBR DISTANT ARRIVAL =====
+[RegisterComponent, Access(typeof(MeteorSystem), typeof(ObrCallSystem))]
+// ===== FISH EDIT END: OBR DISTANT ARRIVAL =====
 public sealed partial class MeteorComponent : Component
 {
     /// <summary>

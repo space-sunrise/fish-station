@@ -22,47 +22,6 @@
           priorityTag: DockFishSecurity
       - type: StationEmergencyShuttle
         emergencyShuttlePath: /Maps/_Fish/Shuttles/emergency_gate.yml
-      - type: StationGoal
-        goals:
-        - Shuttle
-        - Singularity
-        - SolarPanels
-        - Artifacts
-        - Bank
-        - Zoo
-        - MiningOutpost
-        - Tesla
-        - XenobiologyRepair
-        - VirusologyAmbusol
-        - Containment
-        - WeaponsSecurity
-        - MaintsRepair
-        - DormsBuild
-        - BattleShuttle
-        - Transit
-        - NukeRoom
-        - Permabrig
-        - Farm
-        - Delegates
-        - Cyborgs
-        - Testing
-        - Anomaly
-        - Replenishment
-        - IntelWeapons
-        - Reports
-        - Reconnaissance
-        - Saboteurs
-        - Furs
-        - Crew
-        - CleaningUp
-        - HumanitarianAid
-        - PersonnelRecovery
-        - CrewEducation
-        - Virology
-        - SampleCollection
-        - Examination
-        - StationGoalPolymorph
-        - VirusFlesh
       - type: StationJobs
         availableJobs:
           #command
@@ -104,7 +63,7 @@
           Roboticist: [ 2, 2 ]
           #security
           HeadOfSecurity: [ 1, 1 ]
-          Warden: [ 1, 1 ]
+          Warden: [ 2, 2 ]
           SeniorOfficer: [ 1, 1 ]
           Detective: [ 1, 1 ]
           Brigmedic: [ 1, 1 ]
@@ -172,7 +131,6 @@
         - Reports
         - Reconnaissance
         - Saboteurs
-        - Furs
         - Crew
         - CleaningUp
         - HumanitarianAid

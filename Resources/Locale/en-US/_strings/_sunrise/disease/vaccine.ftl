@@ -1,4 +1,10 @@
-reagent-name-disease-blood = мутная кровь
+reagent-name-disease-blood = turbid blood
+reagent-name-disease-blood-first = turbid blood
+reagent-description-disease-blood-first = a very strange turbid liquid. Resembles blood.
+reagent-name-disease-blood-second = lipemic blood
+reagent-description-disease-blood-second = cloudy, milky blood with high lipid content caused by the pathogen.
+reagent-name-disease-blood-third = putrid blood
+reagent-description-disease-blood-third = decomposed dark blood with a foul stench, infested with the virus.
 reagent-description-disease-bad-physical-desc = мерзкое
 reagent-description-disease-strange-physical-desc = странное
 mixing-verb-vaccinator = вакцинатор
@@ -10,3 +16,5 @@ reagent-name-vaccine = антивирусин
 reagent-description-vaccine = с лёгкостью сможет освободить вас от оков вируса! Не связывается с иммунитетом.
 reagent-name-vaccine-plus = антивирусин Плюс
 reagent-description-vaccine-plus = наделит вас иммунитетом перед вирусом!
+reagent-name-immunator = immunator
+reagent-description-immunator = grants immunity to the disease without curing it!

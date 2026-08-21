@@ -74,6 +74,7 @@ entities:
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
+    - type: CentCommShuttle
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
@@ -2443,7 +2444,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,-5.5
       parent: 1
-- proto: CentcommComputerComms
+- proto: FishComputerCommsObr
   entities:
   - uid: 78
     components:
@@ -2742,7 +2743,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -5.5,0.5
       parent: 1
-- proto: ComputerShuttle
+- proto: FishComputerShuttleObr
   entities:
   - uid: 491
     components:
@@ -3120,7 +3121,7 @@ entities:
       parent: 572
     - type: Physics
       canCollide: False
-- proto: FaxMachineCentcom
+- proto: FaxMachineBase
   entities:
   - uid: 731
     components:
@@ -4727,52 +4728,50 @@ entities:
       parent: 1
 - proto: RandomHumanoidSpawnerCBURNUnit
   entities:
+  - uid: 885
+    components:
+    - type: Transform
+      pos: 0.5,4.5
+      parent: 1
   - uid: 886
     components:
     - type: Transform
-      pos: -0.5123508,3.5117054
+      pos: -0.5,3.5
       parent: 1
   - uid: 887
     components:
     - type: Transform
-      pos: -0.5905025,1.4946795
+      pos: -0.5,1.5
       parent: 1
   - uid: 888
     components:
     - type: Transform
-      pos: -0.54361224,0.5878
+      pos: -0.5,0.5
       parent: 1
   - uid: 889
     components:
     - type: Transform
-      pos: -0.5279796,-0.3190794
+      pos: -0.5,-0.5
       parent: 1
   - uid: 890
     components:
     - type: Transform
-      pos: 1.2539093,-0.16272163
+      pos: 1.5,-0.5
       parent: 1
   - uid: 891
     components:
     - type: Transform
-      pos: 1.4883683,0.5565281
+      pos: 1.5,0.5
       parent: 1
   - uid: 892
     components:
     - type: Transform
-      pos: 1.4727376,1.5572233
+      pos: 1.5,1.5
       parent: 1
   - uid: 893
     components:
     - type: Transform
-      pos: 1.4727376,3.3397112
-      parent: 1
-- proto: RandomHumanoidSpawnerCBURNUnitEVA
-  entities:
-  - uid: 885
-    components:
-    - type: Transform
-      pos: 0.5505307,4.731576
+      pos: 1.5,3.5
       parent: 1
 - proto: RandomVending
   entities:
@@ -5466,7 +5465,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -1.5,7.5
       parent: 1
-- proto: TelecomServerT3
+- proto: TelecomServer
   entities:
   - uid: 572
     components:
@@ -5493,9 +5492,6 @@ entities:
           showEnts: False
           occludes: True
           ents: []
-
-    missingComponents:
-    - Temperature
 - proto: ThrusterLarge
   entities:
   - uid: 263

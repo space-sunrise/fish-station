@@ -19,8 +19,6 @@ public sealed class SmallDiseaseRuleSystem : GameRuleSystem<SmallDiseaseRuleComp
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
 
     public override void Initialize()
@@ -32,7 +30,7 @@ public sealed class SmallDiseaseRuleSystem : GameRuleSystem<SmallDiseaseRuleComp
     {
         base.Started(uid, component, gameRule, args);
 
-        Timer.Spawn(TimeSpan.FromMinutes(6), () =>
+        Timer.Spawn(TimeSpan.FromMinutes(10), () =>
         {
             var message = Loc.GetString("disease-biohazard-announcement");
             var sender = Loc.GetString("disease-biohazard-announcement-sender");
@@ -49,7 +47,7 @@ public sealed class SmallDiseaseRuleSystem : GameRuleSystem<SmallDiseaseRuleComp
         }
 
         // 1. Find potential victims (Humanoid, Has Mind, Not Dead, Not Sick)
-        var query = EntityQueryEnumerator<HumanoidAppearanceComponent, MindContainerComponent, MobStateComponent, TransformComponent>();
+        var query = EntityQueryEnumerator<HumanoidProfileComponent, MindContainerComponent, MobStateComponent, TransformComponent>();
         var candidates = new List<EntityUid>();
 
         while (query.MoveNext(out var entity, out _, out _, out _, out var xform))

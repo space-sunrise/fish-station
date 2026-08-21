@@ -1,14 +1,18 @@
 // Fish edit - Vulpkanin PlanetWar Meme Mode
 using Content.Server.GameTicking.Rules;
-using Content.Server.Humanoid;
+using Content.Shared.Body;
 using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
+using Content.Shared._Sunrise.Humanoid;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Fish.PlanetWar;
 
 public sealed class PlanetWarVulpkaninRuleSystem : GameRuleSystem<PlanetWarVulpkaninRuleComponent>
 {
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+    [Dependency] private readonly HumanoidProfileSystem _humanoidProfile = default!;
+    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
+    [Dependency] private readonly SunriseHumanoidProfileSystem _sunriseProfile = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
 
     public override void Update(float frameTime)
@@ -36,18 +40,17 @@ public sealed class PlanetWarVulpkaninRuleSystem : GameRuleSystem<PlanetWarVulpk
             // Timer expired: remove component and morph species to Vulpkanin
             RemCompDeferred<PWVulpkaninCursePendingComponent>(uid);
 
-            if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+            if (!HasComp<HumanoidProfileComponent>(uid))
                 continue;
-
-            // Change species to Vulpkanin directly on the original entity
-            _humanoid.SetSpecies(uid, "Vulpkanin", humanoid: humanoid);
 
             // Generate random Vulpkanin appearance (ears, snout, tail, markings, colors)
             var profile = HumanoidCharacterProfile.RandomWithSpecies("Vulpkanin");
 
             // Load profile while preserving the entity's custom role name
             var originalName = Name(uid);
-            _humanoid.LoadProfile(uid, profile, humanoid);
+            _humanoidProfile.ApplyProfileTo(uid, profile);
+            _visualBody.ApplyProfileTo(uid, profile);
+            _sunriseProfile.ApplyProfileTo(uid, profile);
             _metaData.SetEntityName(uid, originalName);
         }
     }

@@ -25,7 +25,8 @@ public sealed partial class AnnouncementSpeakerComponent : Component
     /// Volume modifier for announcements played through this speaker.
     /// </summary>
     [DataField("volumeModifier")]
-    public float VolumeModifier = 1.0f;
+    // Fish-edit - уменьшено в 2 раза громкость по умолчанию
+    public float VolumeModifier = 0.5f;
 
     /// <summary>
     /// Whether this speaker requires power to function.

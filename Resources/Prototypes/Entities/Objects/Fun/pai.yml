@@ -165,15 +165,44 @@
   # Sunrise-Edit
   - type: StationAiVision
     enabled: false
+  # FIsh edit start - модули только через встроенный магазин (бюджет ~15)
   - type: InnateItem
-    entityTargetActions:
-    - AccessBreaker
-    - HandheldHealthAnalyzer
+    instantActions: []
+    entityTargetActions: []
+  # FIsh edit end
   - type: Biocode
     factions:
     - Syndicate
     - Thief
   # Sunrise-End
+  # FIsh edit start - Syndicate pAI medical suite / master binding / module shop
+  - type: SyndicatePai
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+        requireInputValidation: false
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+        requireInputValidation: false
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
+      enum.StationMapUiKey.Key:
+        type: StationMapBoundUserInterface
+        requireInputValidation: false
+      enum.SyndicatePaiUiKey.Key:
+        type: SyndicatePaiBoundUserInterface
+        requireInputValidation: false
+      # FIsh edit: ванильный CriminalRecords UI убран; SunriseCriminalRecordsConsole вешается в SyndicatePaiSystem
+  - type: Store
+    categories:
+    - SyndicatePAIModules
+    currencyWhitelist:
+    - SiliconMemory
+    balance:
+      SiliconMemory: 15
+  # FIsh edit end
 
 - type: entity
   parent: PersonalAI

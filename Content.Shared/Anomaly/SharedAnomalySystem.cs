@@ -106,6 +106,7 @@ public abstract class SharedAnomalySystem : EntitySystem
             var beh = _prototype.Index<AnomalyBehaviorPrototype>(component.CurrentBehavior);
             powerMod = beh.PulsePowerModifier;
         }
+        powerMod *= 2f; // Fish-edit
         var ev = new AnomalyPulseEvent(uid, component.Stability, component.Severity, powerMod);
         RaiseLocalEvent(uid, ref ev, true);
     }
@@ -431,6 +432,9 @@ public abstract class SharedAnomalySystem : EntitySystem
 
             if (!settings.CanSpawnOnEntities)
             {
+                // If it can't spawn on entities, ensure that maximum one entity will be spawned here this pulse.
+                tilerefs.Remove(tileref);
+
                 var valid = true;
                 foreach (var ent in _map.GetAnchoredEntities(xform.GridUid.Value, grid, tileref.GridIndices))
                 {
@@ -447,7 +451,6 @@ public abstract class SharedAnomalySystem : EntitySystem
                 }
                 if (!valid)
                 {
-                    tilerefs.Remove(tileref);
                     continue;
                 }
             }
