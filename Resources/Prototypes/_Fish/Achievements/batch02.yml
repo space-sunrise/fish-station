@@ -1,0 +1,2176 @@
+﻿- type: achievement
+  id: FishAch_MostlyArmless
+  name: achievement-fishach_mostlyarmless-name
+  description: achievement-fishach_mostlyarmless-desc
+  category: FishAchStation
+  condition: shuttle-arrive
+  order: 300
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_MyBolognaHasAFirstName
+  name: achievement-fishach_mybolognahasafirstname-name
+  description: achievement-fishach_mybolognahasafirstname-desc
+  category: FishAchSecret
+  condition: manual
+  order: 301
+  secret: true
+  secretDescription: achievement-fishach_mybolognahasafirstname-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Neitherfashionablenoirstylish
+  name: achievement-fishach_neitherfashionablenoirstylish-name
+  description: achievement-fishach_neitherfashionablenoirstylish-desc
+  category: FishAchMisc
+  condition: round-end-alive
+  order: 302
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Nero
+  name: achievement-fishach_nero-name
+  description: achievement-fishach_nero-desc
+  category: FishAchSecret
+  condition: manual
+  order: 303
+  secret: true
+  secretDescription: achievement-fishach_nero-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_NewtonsCrew
+  name: achievement-fishach_newtonscrew-name
+  description: achievement-fishach_newtonscrew-desc
+  category: FishAchSecret
+  condition: manual
+  order: 304
+  secret: true
+  secretDescription: achievement-fishach_newtonscrew-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_NoahsShuttle
+  name: achievement-fishach_noahsshuttle-name
+  description: achievement-fishach_noahsshuttle-desc
+  category: FishAchSurvival
+  condition: shuttle-arrive
+  order: 305
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_OhDoctor
+  name: achievement-fishach_ohdoctor-name
+  description: achievement-fishach_ohdoctor-desc
+  category: FishAchSecret
+  condition: manual
+  order: 306
+  secret: true
+  secretDescription: achievement-fishach_ohdoctor-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Olbuddyolpal
+  name: achievement-fishach_olbuddyolpal-name
+  description: achievement-fishach_olbuddyolpal-desc
+  category: FishAchSecret
+  condition: manual
+  order: 307
+  secret: true
+  secretDescription: achievement-fishach_olbuddyolpal-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_OldEnemy
+  name: achievement-fishach_oldenemy-name
+  description: achievement-fishach_oldenemy-desc
+  category: FishAchSecret
+  condition: manual
+  order: 308
+  secret: true
+  secretDescription: achievement-fishach_oldenemy-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_OnMyOwnEightSpaceLegs
+  name: achievement-fishach_onmyowneightspacelegs-name
+  description: achievement-fishach_onmyowneightspacelegs-desc
+  category: FishAchSecret
+  condition: manual
+  order: 309
+  secret: true
+  secretDescription: achievement-fishach_onmyowneightspacelegs-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_OnMyOwnTwoSpaceLegs
+  name: achievement-fishach_onmyowntwospacelegs-name
+  description: achievement-fishach_onmyowntwospacelegs-desc
+  category: FishAchCombat
+  condition: kill
+  order: 310
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_OneArmedBandit
+  name: achievement-fishach_onearmedbandit-name
+  description: achievement-fishach_onearmedbandit-desc
+  category: FishAchSecret
+  condition: manual
+  order: 311
+  secret: true
+  secretDescription: achievement-fishach_onearmedbandit-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_OriginalSin
+  name: achievement-fishach_originalsin-name
+  description: achievement-fishach_originalsin-desc
+  category: FishAchSecret
+  condition: manual
+  order: 312
+  secret: true
+  secretDescription: achievement-fishach_originalsin-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_OWMYBALLS
+  name: achievement-fishach_owmyballs-name
+  description: achievement-fishach_owmyballs-desc
+  category: FishAchSurvival
+  condition: death
+  order: 313
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_PartyHard
+  name: achievement-fishach_partyhard-name
+  description: achievement-fishach_partyhard-desc
+  category: FishAchSurvival
+  condition: death
+  order: 314
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Patchwork
+  name: achievement-fishach_patchwork-name
+  description: achievement-fishach_patchwork-desc
+  category: FishAchRoles
+  condition: heal
+  order: 315
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Primordial
+  name: achievement-fishach_primordial-name
+  description: achievement-fishach_primordial-desc
+  category: FishAchSurvival
+  condition: shuttle-arrive
+  order: 316
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Primumnonnocere
+  name: achievement-fishach_primumnonnocere-name
+  description: achievement-fishach_primumnonnocere-desc
+  category: FishAchRoles
+  condition: manual
+  order: 317
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_ProfessionalThief
+  name: achievement-fishach_professionalthief-name
+  description: achievement-fishach_professionalthief-desc
+  category: FishAchMisc
+  condition: manual
+  order: 318
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Progenitor
+  name: achievement-fishach_progenitor-name
+  description: achievement-fishach_progenitor-desc
+  category: FishAchRoles
+  condition: round-end-alive
+  order: 319
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Puerilehumour
+  name: achievement-fishach_puerilehumour-name
+  description: achievement-fishach_puerilehumour-desc
+  category: FishAchRoles
+  condition: round-end-alive
+  order: 320
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_QuitCloningAround
+  name: achievement-fishach_quitcloningaround-name
+  description: achievement-fishach_quitcloningaround-desc
+  category: FishAchMisc
+  condition: heal
+  order: 321
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_RedHood
+  name: achievement-fishach_redhood-name
+  description: achievement-fishach_redhood-desc
+  category: FishAchMisc
+  condition: manual
+  order: 322
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_ReeferMadness
+  name: achievement-fishach_reefermadness-name
+  description: achievement-fishach_reefermadness-desc
+  category: FishAchRoles
+  condition: round-end-alive
+  order: 323
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_RemembertoWashBehindtheAntennae
+  name: achievement-fishach_remembertowashbehindtheantennae-name
+  description: achievement-fishach_remembertowashbehindtheantennae-desc
+  category: FishAchSecret
+  condition: manual
+  order: 324
+  secret: true
+  secretDescription: achievement-fishach_remembertowashbehindtheantennae-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_ReservedParking
+  name: achievement-fishach_reservedparking-name
+  description: achievement-fishach_reservedparking-desc
+  category: FishAchStation
+  condition: death
+  order: 325
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_RookieThief
+  name: achievement-fishach_rookiethief-name
+  description: achievement-fishach_rookiethief-desc
+  category: FishAchSecret
+  condition: manual
+  order: 326
+  secret: true
+  secretDescription: achievement-fishach_rookiethief-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Sheesh
+  name: achievement-fishach_sheesh-name
+  description: achievement-fishach_sheesh-desc
+  category: FishAchSecret
+  condition: manual
+  order: 327
+  secret: true
+  secretDescription: achievement-fishach_sheesh-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_ShitFest
+  name: achievement-fishach_shitfest-name
+  description: achievement-fishach_shitfest-desc
+  category: FishAchStation
+  condition: manual
+  order: 328
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Shitforbrains
+  name: achievement-fishach_shitforbrains-name
+  description: achievement-fishach_shitforbrains-desc
+  category: FishAchSurvival
+  condition: shuttle-arrive
+  order: 329
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_ShutUpandJam
+  name: achievement-fishach_shutupandjam-name
+  description: achievement-fishach_shutupandjam-desc
+  category: FishAchSecret
+  condition: manual
+  order: 330
+  secret: true
+  secretDescription: achievement-fishach_shutupandjam-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_SilentRunning
+  name: achievement-fishach_silentrunning-name
+  description: achievement-fishach_silentrunning-desc
+  category: FishAchStation
+  condition: round-end-alive
+  order: 331
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_SlowBurn
+  name: achievement-fishach_slowburn-name
+  description: achievement-fishach_slowburn-desc
+  category: FishAchRoles
+  condition: manual
+  order: 332
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_SmoothOperator
+  name: achievement-fishach_smoothoperator-name
+  description: achievement-fishach_smoothoperator-desc
+  category: FishAchSurvival
+  condition: shuttle-arrive
+  order: 333
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_SpaceHam
+  name: achievement-fishach_spaceham-name
+  description: achievement-fishach_spaceham-desc
+  category: FishAchSecret
+  condition: manual
+  order: 334
+  secret: true
+  secretDescription: achievement-fishach_spaceham-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_SpaceshipofTheseus
+  name: achievement-fishach_spaceshipoftheseus-name
+  description: achievement-fishach_spaceshipoftheseus-desc
+  category: FishAchSecret
+  condition: manual
+  order: 335
+  secret: true
+  secretDescription: achievement-fishach_spaceshipoftheseus-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Spamhaus
+  name: achievement-fishach_spamhaus-name
+  description: achievement-fishach_spamhaus-desc
+  category: FishAchSecret
+  condition: manual
+  order: 336
+  secret: true
+  secretDescription: achievement-fishach_spamhaus-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Spotless
+  name: achievement-fishach_spotless-name
+  description: achievement-fishach_spotless-desc
+  category: FishAchCombat
+  condition: death
+  order: 337
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_SuitableHowabouttheOubliette
+  name: achievement-fishach_suitablehowabouttheoubliette-name
+  description: achievement-fishach_suitablehowabouttheoubliette-desc
+  category: FishAchMisc
+  condition: manual
+  order: 338
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Survivor
+  name: achievement-fishach_survivor-name
+  description: achievement-fishach_survivor-desc
+  category: FishAchSecret
+  condition: manual
+  order: 339
+  secret: true
+  secretDescription: achievement-fishach_survivor-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_SuspiciousCharacter
+  name: achievement-fishach_suspiciouscharacter-name
+  description: achievement-fishach_suspiciouscharacter-desc
+  category: FishAchSecret
+  condition: manual
+  order: 340
+  secret: true
+  secretDescription: achievement-fishach_suspiciouscharacter-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_TaxHaven
+  name: achievement-fishach_taxhaven-name
+  description: achievement-fishach_taxhaven-desc
+  category: FishAchCombat
+  condition: manual
+  order: 341
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_TerritorialDefender
+  name: achievement-fishach_territorialdefender-name
+  description: achievement-fishach_territorialdefender-desc
+  category: FishAchMisc
+  condition: manual
+  order: 342
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_ThankYouBusDriver
+  name: achievement-fishach_thankyoubusdriver-name
+  description: achievement-fishach_thankyoubusdriver-desc
+  category: FishAchSecret
+  condition: manual
+  order: 343
+  secret: true
+  secretDescription: achievement-fishach_thankyoubusdriver-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Thattastedfunny
+  name: achievement-fishach_thattastedfunny-name
+  description: achievement-fishach_thattastedfunny-desc
+  category: FishAchRoles
+  condition: manual
+  order: 344
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Thatsnomoonthats
+  name: achievement-fishach_thatsnomoonthats-name
+  description: achievement-fishach_thatsnomoonthats-desc
+  category: FishAchSecret
+  condition: manual
+  order: 345
+  secret: true
+  secretDescription: achievement-fishach_thatsnomoonthats-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_TheForceisstrongwiththis
+  name: achievement-fishach_theforceisstrongwiththis-name
+  description: achievement-fishach_theforceisstrongwiththis-desc
+  category: FishAchSecret
+  condition: manual
+  order: 346
+  secret: true
+  secretDescription: achievement-fishach_theforceisstrongwiththis-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Themailalwaysgoesthrough
+  name: achievement-fishach_themailalwaysgoesthrough-name
+  description: achievement-fishach_themailalwaysgoesthrough-desc
+  category: FishAchSurvival
+  condition: round-end-alive
+  order: 347
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_TheSyndicateConnection
+  name: achievement-fishach_thesyndicateconnection-name
+  description: achievement-fishach_thesyndicateconnection-desc
+  category: FishAchSurvival
+  condition: round-end-alive
+  order: 348
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Thisobjectmenaceswithspikesof
+  name: achievement-fishach_thisobjectmenaceswithspikesof-name
+  description: achievement-fishach_thisobjectmenaceswithspikesof-desc
+  category: FishAchStation
+  condition: manual
+  order: 349
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Thisstationisours
+  name: achievement-fishach_thisstationisours-name
+  description: achievement-fishach_thisstationisours-desc
+  category: FishAchStation
+  condition: manual
+  order: 350
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Throughthefireandflames
+  name: achievement-fishach_throughthefireandflames-name
+  description: achievement-fishach_throughthefireandflames-desc
+  category: FishAchFunny
+  condition: manual
+  order: 351
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Tinkerer
+  name: achievement-fishach_tinkerer-name
+  description: achievement-fishach_tinkerer-desc
+  category: FishAchSecret
+  condition: manual
+  order: 352
+  secret: true
+  secretDescription: achievement-fishach_tinkerer-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Tipsy
+  name: achievement-fishach_tipsy-name
+  description: achievement-fishach_tipsy-desc
+  category: FishAchMisc
+  condition: round-end-alive
+  order: 353
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Tothestars
+  name: achievement-fishach_tothestars-name
+  description: achievement-fishach_tothestars-desc
+  category: FishAchMisc
+  condition: manual
+  order: 354
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_TooCool
+  name: achievement-fishach_toocool-name
+  description: achievement-fishach_toocool-desc
+  category: FishAchMisc
+  condition: manual
+  order: 355
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_TooFastTooFurious
+  name: achievement-fishach_toofasttoofurious-name
+  description: achievement-fishach_toofasttoofurious-desc
+  category: FishAchCombat
+  condition: kill
+  order: 356
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_TrailofBlood
+  name: achievement-fishach_trailofblood-name
+  description: achievement-fishach_trailofblood-desc
+  category: FishAchSecret
+  condition: manual
+  order: 357
+  secret: true
+  secretDescription: achievement-fishach_trailofblood-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Tryjigglingthehandle
+  name: achievement-fishach_tryjigglingthehandle-name
+  description: achievement-fishach_tryjigglingthehandle-desc
+  category: FishAchSecret
+  condition: manual
+  order: 358
+  secret: true
+  secretDescription: achievement-fishach_tryjigglingthehandle-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_UnlikethedirectorIwentto
+  name: achievement-fishach_unlikethedirectoriwentto-name
+  description: achievement-fishach_unlikethedirectoriwentto-desc
+  category: FishAchRoles
+  condition: manual
+  order: 359
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Unperson
+  name: achievement-fishach_unperson-name
+  description: achievement-fishach_unperson-desc
+  category: FishAchSurvival
+  condition: round-end-alive
+  order: 360
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_UntappedPotential
+  name: achievement-fishach_untappedpotential-name
+  description: achievement-fishach_untappedpotential-desc
+  category: FishAchCombat
+  condition: kill
+  order: 361
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_VacuumSealed
+  name: achievement-fishach_vacuumsealed-name
+  description: achievement-fishach_vacuumsealed-desc
+  category: FishAchRoles
+  condition: manual
+  order: 362
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_VehicularManslaughter
+  name: achievement-fishach_vehicularmanslaughter-name
+  description: achievement-fishach_vehicularmanslaughter-desc
+  category: FishAchSurvival
+  condition: death
+  order: 363
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_VirtualAscension
+  name: achievement-fishach_virtualascension-name
+  description: achievement-fishach_virtualascension-desc
+  category: FishAchSecret
+  condition: manual
+  order: 364
+  secret: true
+  secretDescription: achievement-fishach_virtualascension-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Wedidntstartthefire
+  name: achievement-fishach_wedidntstartthefire-name
+  description: achievement-fishach_wedidntstartthefire-desc
+  category: FishAchRoles
+  condition: manual
+  order: 365
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_WeirdScience
+  name: achievement-fishach_weirdscience-name
+  description: achievement-fishach_weirdscience-desc
+  category: FishAchSecret
+  condition: manual
+  order: 366
+  secret: true
+  secretDescription: achievement-fishach_weirdscience-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Whatsthisboxdoinghere
+  name: achievement-fishach_whatsthisboxdoinghere-name
+  description: achievement-fishach_whatsthisboxdoinghere-desc
+  category: FishAchSurvival
+  condition: shuttle-arrive
+  order: 367
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Whereweregoingwewon
+  name: achievement-fishach_whereweregoingwewon-name
+  description: achievement-fishach_whereweregoingwewon-desc
+  category: FishAchRoles
+  condition: manual
+  order: 368
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Wheresthesmokinggun
+  name: achievement-fishach_wheresthesmokinggun-name
+  description: achievement-fishach_wheresthesmokinggun-desc
+  category: FishAchCombat
+  condition: round-end-alive
+  order: 369
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Wonk
+  name: achievement-fishach_wonk-name
+  description: achievement-fishach_wonk-desc
+  category: FishAchSecret
+  condition: manual
+  order: 370
+  secret: true
+  secretDescription: achievement-fishach_wonk-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_WrathoftheFather
+  name: achievement-fishach_wrathofthefather-name
+  description: achievement-fishach_wrathofthefather-desc
+  category: FishAchSecret
+  condition: manual
+  order: 371
+  secret: true
+  secretDescription: achievement-fishach_wrathofthefather-secret
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Yield
+  name: achievement-fishach_yield-name
+  description: achievement-fishach_yield-desc
+  category: FishAchSurvival
+  condition: death
+  order: 372
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Youreameanone
+  name: achievement-fishach_youreameanone-name
+  description: achievement-fishach_youreameanone-desc
+  category: FishAchMisc
+  condition: manual
+  order: 373
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_YourenoElminster
+  name: achievement-fishach_yourenoelminster-name
+  description: achievement-fishach_yourenoelminster-desc
+  category: FishAchCombat
+  condition: manual
+  order: 374
+  # source: Goonstation
+
+- type: achievement
+  id: FishAch_Perfectchemistryblossom
+  name: achievement-fishach_perfectchemistryblossom-name
+  description: achievement-fishach_perfectchemistryblossom-desc
+  category: FishAchMisc
+  condition: manual
+  order: 375
+  # source: Monkestation
+
+- type: achievement
+  id: FishAch_Rule1
+  name: achievement-fishach_rule1-name
+  description: achievement-fishach_rule1-desc
+  category: FishAchMisc
+  condition: manual
+  order: 376
+  # source: Monkestation
+
+- type: achievement
+  id: FishAch_SecretsbehindtheSpiderDoor
+  name: achievement-fishach_secretsbehindthespiderdoor-name
+  description: achievement-fishach_secretsbehindthespiderdoor-desc
+  category: FishAchMisc
+  condition: manual
+  order: 377
+  # source: Monkestation
+
+- type: achievement
+  id: FishAch_TheJaredLetooffruits
+  name: achievement-fishach_thejaredletooffruits-name
+  description: achievement-fishach_thejaredletooffruits-desc
+  category: FishAchFunny
+  condition: manual
+  order: 378
+  # source: Monkestation
+
+- type: achievement
+  id: FishAch_ABowldNewWorld
+  name: achievement-fishach_abowldnewworld-name
+  description: achievement-fishach_abowldnewworld-desc
+  category: FishAchSurvival
+  condition: death
+  order: 379
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_BloodDrunkMinersKilled
+  name: achievement-fishach_blooddrunkminerskilled-name
+  description: achievement-fishach_blooddrunkminerskilled-desc
+  category: FishAchCombat
+  condition: death
+  order: 380
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_BossesKilled
+  name: achievement-fishach_bosseskilled-name
+  description: achievement-fishach_bosseskilled-desc
+  category: FishAchCombat
+  condition: death
+  order: 381
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_BubblegumsKilled
+  name: achievement-fishach_bubblegumskilled-name
+  description: achievement-fishach_bubblegumskilled-desc
+  category: FishAchCombat
+  condition: death
+  order: 382
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_ColossusKilled
+  name: achievement-fishach_colossuskilled-name
+  description: achievement-fishach_colossuskilled-desc
+  category: FishAchCombat
+  condition: death
+  order: 383
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_DemonicFrostMinerCrusher
+  name: achievement-fishach_demonicfrostminercrusher-name
+  description: achievement-fishach_demonicfrostminercrusher-desc
+  category: FishAchCombat
+  condition: manual
+  order: 384
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_DemonicFrostMinerKiller
+  name: achievement-fishach_demonicfrostminerkiller-name
+  description: achievement-fishach_demonicfrostminerkiller-desc
+  category: FishAchCombat
+  condition: kill
+  order: 385
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_DiskPlease
+  name: achievement-fishach_diskplease-name
+  description: achievement-fishach_diskplease-desc
+  category: FishAchMisc
+  condition: manual
+  order: 386
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_DrakesKilled
+  name: achievement-fishach_drakeskilled-name
+  description: achievement-fishach_drakeskilled-desc
+  category: FishAchCombat
+  condition: death
+  order: 387
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_Gettinganupgrade
+  name: achievement-fishach_gettinganupgrade-name
+  description: achievement-fishach_gettinganupgrade-desc
+  category: FishAchMisc
+  condition: manual
+  order: 388
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_HAGOTTEM
+  name: achievement-fishach_hagottem-name
+  description: achievement-fishach_hagottem-desc
+  category: FishAchMisc
+  condition: manual
+  order: 389
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_Helbitaljanken
+  name: achievement-fishach_helbitaljanken-name
+  description: achievement-fishach_helbitaljanken-desc
+  category: FishAchMisc
+  condition: manual
+  order: 390
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_HierophantsKilled
+  name: achievement-fishach_hierophantskilled-name
+  description: achievement-fishach_hierophantskilled-desc
+  category: FishAchCombat
+  condition: death
+  order: 391
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_HowDoISwitchHands
+  name: achievement-fishach_howdoiswitchhands-name
+  description: achievement-fishach_howdoiswitchhands-desc
+  category: FishAchMisc
+  condition: manual
+  order: 392
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_IWasaTeenageAnarchist
+  name: achievement-fishach_iwasateenageanarchist-name
+  description: achievement-fishach_iwasateenageanarchist-desc
+  category: FishAchRoles
+  condition: manual
+  order: 393
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_KKKiiilllmmmeee
+  name: achievement-fishach_kkkiiilllmmmeee-name
+  description: achievement-fishach_kkkiiilllmmmeee-desc
+  category: FishAchSurvival
+  condition: round-end-alive
+  order: 394
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_Legendaryminer
+  name: achievement-fishach_legendaryminer-name
+  description: achievement-fishach_legendaryminer-desc
+  category: FishAchRoles
+  condition: manual
+  order: 395
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_LegionsKilled
+  name: achievement-fishach_legionskilled-name
+  description: achievement-fishach_legionskilled-desc
+  category: FishAchCombat
+  condition: death
+  order: 396
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_Longshift
+  name: achievement-fishach_longshift-name
+  description: achievement-fishach_longshift-desc
+  category: FishAchMisc
+  condition: manual
+  order: 397
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_LookOutSir
+  name: achievement-fishach_lookoutsir-name
+  description: achievement-fishach_lookoutsir-desc
+  category: FishAchMisc
+  condition: manual
+  order: 398
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_MisterSandman
+  name: achievement-fishach_mistersandman-name
+  description: achievement-fishach_mistersandman-desc
+  category: FishAchRoles
+  condition: manual
+  order: 399
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_MyWatchlistStatusisNotImportant
+  name: achievement-fishach_mywatchliststatusisnotimportant-name
+  description: achievement-fishach_mywatchliststatusisnotimportant-desc
+  category: FishAchRoles
+  condition: manual
+  order: 400
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_OneLeanMeanCleaningMachine
+  name: achievement-fishach_oneleanmeancleaningmachine-name
+  description: achievement-fishach_oneleanmeancleaningmachine-desc
+  category: FishAchMisc
+  condition: manual
+  order: 401
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_Timewaster
+  name: achievement-fishach_timewaster-name
+  description: achievement-fishach_timewaster-desc
+  category: FishAchMisc
+  condition: manual
+  order: 402
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_WendigoCrusher
+  name: achievement-fishach_wendigocrusher-name
+  description: achievement-fishach_wendigocrusher-desc
+  category: FishAchMisc
+  condition: manual
+  order: 403
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_WendigoKiller
+  name: achievement-fishach_wendigokiller-name
+  description: achievement-fishach_wendigokiller-desc
+  category: FishAchCombat
+  condition: kill
+  order: 404
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_WendigosKilled
+  name: achievement-fishach_wendigoskilled-name
+  description: achievement-fishach_wendigoskilled-desc
+  category: FishAchCombat
+  condition: death
+  order: 405
+  # source: Monkestation, Shiptest, TGStation
+
+- type: achievement
+  id: FishAch_Allthatperish
+  name: achievement-fishach_allthatperish-name
+  description: achievement-fishach_allthatperish-desc
+  category: FishAchMisc
+  condition: manual
+  order: 406
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_AllWithinTheoreticalLimits
+  name: achievement-fishach_allwithintheoreticallimits-name
+  description: achievement-fishach_allwithintheoreticallimits-desc
+  category: FishAchMisc
+  condition: manual
+  order: 407
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_Archmage
+  name: achievement-fishach_archmage-name
+  description: achievement-fishach_archmage-desc
+  category: FishAchStation
+  condition: manual
+  order: 408
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_Ascension
+  name: achievement-fishach_ascension-name
+  description: achievement-fishach_ascension-desc
+  category: FishAchMisc
+  condition: manual
+  order: 409
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_AssistantVictory
+  name: achievement-fishach_assistantvictory-name
+  description: achievement-fishach_assistantvictory-desc
+  category: FishAchCombat
+  condition: death
+  order: 410
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_CentcomGradeAcceptableService
+  name: achievement-fishach_centcomgradeacceptableservice-name
+  description: achievement-fishach_centcomgradeacceptableservice-desc
+  category: FishAchStation
+  condition: shuttle-arrive
+  order: 411
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_CentcomGradeExemplaryService
+  name: achievement-fishach_centcomgradeexemplaryservice-name
+  description: achievement-fishach_centcomgradeexemplaryservice-desc
+  category: FishAchStation
+  condition: shuttle-arrive
+  order: 412
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_CentcomGradeShittyService
+  name: achievement-fishach_centcomgradeshittyservice-name
+  description: achievement-fishach_centcomgradeshittyservice-desc
+  category: FishAchStation
+  condition: shuttle-arrive
+  order: 413
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_ChangelingVictory
+  name: achievement-fishach_changelingvictory-name
+  description: achievement-fishach_changelingvictory-desc
+  category: FishAchMisc
+  condition: manual
+  order: 414
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_ChaplainVictory
+  name: achievement-fishach_chaplainvictory-name
+  description: achievement-fishach_chaplainvictory-desc
+  category: FishAchMisc
+  condition: manual
+  order: 415
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_Clickbait
+  name: achievement-fishach_clickbait-name
+  description: achievement-fishach_clickbait-desc
+  category: FishAchMisc
+  condition: manual
+  order: 416
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_ClownVictory
+  name: achievement-fishach_clownvictory-name
+  description: achievement-fishach_clownvictory-desc
+  category: FishAchCombat
+  condition: kill
+  order: 417
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_DemonicFrostMinersKilled
+  name: achievement-fishach_demonicfrostminerskilled-name
+  description: achievement-fishach_demonicfrostminerskilled-desc
+  category: FishAchCombat
+  condition: death
+  order: 418
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_DetectiveVictory
+  name: achievement-fishach_detectivevictory-name
+  description: achievement-fishach_detectivevictory-desc
+  category: FishAchRoles
+  condition: manual
+  order: 419
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_Frenching
+  name: achievement-fishach_frenching-name
+  description: achievement-fishach_frenching-desc
+  category: FishAchMisc
+  condition: manual
+  order: 420
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_FugitiveVictory
+  name: achievement-fishach_fugitivevictory-name
+  description: achievement-fishach_fugitivevictory-desc
+  category: FishAchMisc
+  condition: manual
+  order: 421
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_GodsWrath
+  name: achievement-fishach_godswrath-name
+  description: achievement-fishach_godswrath-desc
+  category: FishAchMisc
+  condition: manual
+  order: 422
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_Hardcorerandompoints
+  name: achievement-fishach_hardcorerandompoints-name
+  description: achievement-fishach_hardcorerandompoints-desc
+  category: FishAchSurvival
+  condition: round-end-alive
+  order: 423
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_HeadofPersonnelVictory
+  name: achievement-fishach_headofpersonnelvictory-name
+  description: achievement-fishach_headofpersonnelvictory-desc
+  category: FishAchRoles
+  condition: manual
+  order: 424
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_HeadofSecurityVictory
+  name: achievement-fishach_headofsecurityvictory-name
+  description: achievement-fishach_headofsecurityvictory-desc
+  category: FishAchRoles
+  condition: manual
+  order: 425
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_HillsofRust
+  name: achievement-fishach_hillsofrust-name
+  description: achievement-fishach_hillsofrust-desc
+  category: FishAchMisc
+  condition: manual
+  order: 426
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_HotDamn
+  name: achievement-fishach_hotdamn-name
+  description: achievement-fishach_hotdamn-desc
+  category: FishAchMisc
+  condition: manual
+  order: 427
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_IfNarSieissogood
+  name: achievement-fishach_ifnarsieissogood-name
+  description: achievement-fishach_ifnarsieissogood-desc
+  category: FishAchMisc
+  condition: manual
+  order: 428
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_IntentoScore
+  name: achievement-fishach_intentoscore-name
+  description: achievement-fishach_intentoscore-desc
+  category: FishAchMisc
+  condition: manual
+  order: 429
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_Itarrived
+  name: achievement-fishach_itarrived-name
+  description: achievement-fishach_itarrived-desc
+  category: FishAchStation
+  condition: manual
+  order: 430
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_LawyerVictory
+  name: achievement-fishach_lawyervictory-name
+  description: achievement-fishach_lawyervictory-desc
+  category: FishAchMisc
+  condition: manual
+  order: 431
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_Legendaryfisher
+  name: achievement-fishach_legendaryfisher-name
+  description: achievement-fishach_legendaryfisher-desc
+  category: FishAchStation
+  condition: shuttle-arrive
+  order: 432
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_MaintenancePillsConsumed
+  name: achievement-fishach_maintenancepillsconsumed-name
+  description: achievement-fishach_maintenancepillsconsumed-desc
+  category: FishAchMisc
+  condition: manual
+  order: 433
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_MedicalDoctorVictory
+  name: achievement-fishach_medicaldoctorvictory-name
+  description: achievement-fishach_medicaldoctorvictory-desc
+  category: FishAchRoles
+  condition: manual
+  order: 434
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_NightmareVictory
+  name: achievement-fishach_nightmarevictory-name
+  description: achievement-fishach_nightmarevictory-desc
+  category: FishAchMisc
+  condition: manual
+  order: 435
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_NightwatchersEyes
+  name: achievement-fishach_nightwatcherseyes-name
+  description: achievement-fishach_nightwatcherseyes-desc
+  category: FishAchMisc
+  condition: manual
+  order: 436
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_ObsessedVictory
+  name: achievement-fishach_obsessedvictory-name
+  description: achievement-fishach_obsessedvictory-desc
+  category: FishAchMisc
+  condition: manual
+  order: 437
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_Outdebted
+  name: achievement-fishach_outdebted-name
+  description: achievement-fishach_outdebted-desc
+  category: FishAchMisc
+  condition: manual
+  order: 438
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_PsychologistVictory
+  name: achievement-fishach_psychologistvictory-name
+  description: achievement-fishach_psychologistvictory-desc
+  category: FishAchMisc
+  condition: manual
+  order: 439
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_SecurityOfficerVictory
+  name: achievement-fishach_securityofficervictory-name
+  description: achievement-fishach_securityofficervictory-desc
+  category: FishAchRoles
+  condition: manual
+  order: 440
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_SilverandSteel
+  name: achievement-fishach_silverandsteel-name
+  description: achievement-fishach_silverandsteel-desc
+  category: FishAchMisc
+  condition: manual
+  order: 441
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_SOULdOut
+  name: achievement-fishach_souldout-name
+  description: achievement-fishach_souldout-desc
+  category: FishAchFunny
+  condition: manual
+  order: 442
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_StyleScore
+  name: achievement-fishach_stylescore-name
+  description: achievement-fishach_stylescore-desc
+  category: FishAchMisc
+  condition: manual
+  order: 443
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_TendrilScore
+  name: achievement-fishach_tendrilscore-name
+  description: achievement-fishach_tendrilscore-desc
+  category: FishAchMisc
+  condition: manual
+  order: 444
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_TheLastAct
+  name: achievement-fishach_thelastact-name
+  description: achievement-fishach_thelastact-desc
+  category: FishAchMisc
+  condition: kill
+  order: 445
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_TheManInsidetheMODsuit
+  name: achievement-fishach_themaninsidethemodsuit-name
+  description: achievement-fishach_themaninsidethemodsuit-desc
+  category: FishAchMisc
+  condition: manual
+  order: 446
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_ThePictureofHealth
+  name: achievement-fishach_thepictureofhealth-name
+  description: achievement-fishach_thepictureofhealth-desc
+  category: FishAchMisc
+  condition: heal
+  order: 447
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_ThoughtfeederVictory
+  name: achievement-fishach_thoughtfeedervictory-name
+  description: achievement-fishach_thoughtfeedervictory-desc
+  category: FishAchRoles
+  condition: manual
+  order: 448
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_TouristsServedasBartenderHighscore
+  name: achievement-fishach_touristsservedasbartenderhighscore-name
+  description: achievement-fishach_touristsservedasbartenderhighscore-desc
+  category: FishAchMisc
+  condition: manual
+  order: 449
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_TouristsServedasChefHighscore
+  name: achievement-fishach_touristsservedaschefhighscore-name
+  description: achievement-fishach_touristsservedaschefhighscore-desc
+  category: FishAchRoles
+  condition: manual
+  order: 450
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_TraitorVictory
+  name: achievement-fishach_traitorvictory-name
+  description: achievement-fishach_traitorvictory-desc
+  category: FishAchMisc
+  condition: manual
+  order: 451
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_TramSurfer
+  name: achievement-fishach_tramsurfer-name
+  description: achievement-fishach_tramsurfer-desc
+  category: FishAchMisc
+  condition: manual
+  order: 452
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_UniversallyHated
+  name: achievement-fishach_universallyhated-name
+  description: achievement-fishach_universallyhated-desc
+  category: FishAchMisc
+  condition: manual
+  order: 453
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_VortexofArms
+  name: achievement-fishach_vortexofarms-name
+  description: achievement-fishach_vortexofarms-desc
+  category: FishAchMisc
+  condition: manual
+  order: 454
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_WardenVictory
+  name: achievement-fishach_wardenvictory-name
+  description: achievement-fishach_wardenvictory-desc
+  category: FishAchSurvival
+  condition: death
+  order: 455
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_WHATJUSTHAPPENED
+  name: achievement-fishach_whatjusthappened-name
+  description: achievement-fishach_whatjusthappened-desc
+  category: FishAchCombat
+  condition: shuttle-arrive
+  order: 456
+  # source: Monkestation, TGStation
+
+- type: achievement
+  id: FishAch_NestExterminator
+  name: achievement-fishach_nestexterminator-name
+  description: achievement-fishach_nestexterminator-desc
+  category: FishAchMisc
+  condition: manual
+  order: 457
+  # source: Shiptest
+
+- type: achievement
+  id: FishAch_NestScore
+  name: achievement-fishach_nestscore-name
+  description: achievement-fishach_nestscore-desc
+  category: FishAchMisc
+  condition: manual
+  order: 458
+  # source: Shiptest
+
+- type: achievement
+  id: FishAch_Rule3
+  name: achievement-fishach_rule3-name
+  description: achievement-fishach_rule3-desc
+  category: FishAchMisc
+  condition: manual
+  order: 459
+  # source: Shiptest
+
+- type: achievement
+  id: FishAch_ANastyFall
+  name: achievement-fishach_anastyfall-name
+  description: achievement-fishach_anastyfall-desc
+  category: FishAchStation
+  condition: manual
+  order: 460
+  # source: TGStation
+
+- type: achievement
+  id: FishAch_CoronerVictory
+  name: achievement-fishach_coronervictory-name
+  description: achievement-fishach_coronervictory-desc
+  category: FishAchMisc
+  condition: manual
+  order: 461
+  # source: TGStation
+
+- type: achievement
+  id: FishAch_FishSpeciesCaught
+  name: achievement-fishach_fishspeciescaught-name
+  description: achievement-fishach_fishspeciescaught-desc
+  category: FishAchMisc
+  condition: manual
+  order: 462
+  # source: TGStation
+
+- type: achievement
+  id: FishAch_InFlandersFields
+  name: achievement-fishach_inflandersfields-name
+  description: achievement-fishach_inflandersfields-desc
+  category: FishAchMisc
+  condition: manual
+  order: 463
+  # source: TGStation
+
+- type: achievement
+  id: FishAch_KingGoatCrusher
+  name: achievement-fishach_kinggoatcrusher-name
+  description: achievement-fishach_kinggoatcrusher-desc
+  category: FishAchMisc
+  condition: manual
+  order: 464
+  # source: TGStation
+
+- type: achievement
+  id: FishAch_KingGoatKiller
+  name: achievement-fishach_kinggoatkiller-name
+  description: achievement-fishach_kinggoatkiller-desc
+  category: FishAchCombat
+  condition: kill
+  order: 465
+  # source: TGStation
+
+- type: achievement
+  id: FishAch_OrdealofSisyphus
+  name: achievement-fishach_ordealofsisyphus-name
+  description: achievement-fishach_ordealofsisyphus-desc
+  category: FishAchStation
+  condition: shuttle-arrive
+  order: 466
+  # source: TGStation
+
+- type: achievement
+  id: FishAch_Rule8
+  name: achievement-fishach_rule8-name
+  description: achievement-fishach_rule8-desc
+  category: FishAchMisc
+  condition: manual
+  order: 467
+  # source: TGStation
+
+- type: achievement
+  id: FishAch_SecretsoftheLockedLabyrinth
+  name: achievement-fishach_secretsofthelockedlabyrinth-name
+  description: achievement-fishach_secretsofthelockedlabyrinth-desc
+  category: FishAchMisc
+  condition: manual
+  order: 468
+  # source: TGStation
+
+- type: achievement
+  id: FishAch_SwarmerBeaconsKilled
+  name: achievement-fishach_swarmerbeaconskilled-name
+  description: achievement-fishach_swarmerbeaconskilled-desc
+  category: FishAchCombat
+  condition: death
+  order: 469
+  # source: TGStation
+
+- type: achievement
+  id: FishAch_TheThingKilled
+  name: achievement-fishach_thethingkilled-name
+  description: achievement-fishach_thethingkilled-desc
+  category: FishAchCombat
+  condition: death
+  order: 470
+  # source: TGStation
+
+- type: achievement
+  id: FishAch_ThingCrusher
+  name: achievement-fishach_thingcrusher-name
+  description: achievement-fishach_thingcrusher-desc
+  category: FishAchMisc
+  condition: manual
+  order: 471
+  # source: TGStation
+
+- type: achievement
+  id: FishAch_ThingKiller
+  name: achievement-fishach_thingkiller-name
+  description: achievement-fishach_thingkiller-desc
+  category: FishAchCombat
+  condition: kill
+  order: 472
+  # source: TGStation
+
+- type: achievement
+  id: FishAch_UnhealthySnacks
+  name: achievement-fishach_unhealthysnacks-name
+  description: achievement-fishach_unhealthysnacks-desc
+  category: FishAchMisc
+  condition: heal
+  order: 473
+  # source: TGStation
+
+- type: achievement
+  id: FishAch_UnlockedPDAThemes
+  name: achievement-fishach_unlockedpdathemes-name
+  description: achievement-fishach_unlockedpdathemes-desc
+  category: FishAchMisc
+  condition: manual
+  order: 474
+  # source: TGStation
+
+- type: achievement
+  id: FishAch_YourLifeInYourHands
+  name: achievement-fishach_yourlifeinyourhands-name
+  description: achievement-fishach_yourlifeinyourhands-desc
+  category: FishAchMisc
+  condition: manual
+  order: 475
+  # source: TGStation
+
+- type: achievement
+  id: FishAch_YoureWhatYouEat
+  name: achievement-fishach_yourewhatyoueat-name
+  description: achievement-fishach_yourewhatyoueat-desc
+  category: FishAchSurvival
+  condition: death
+  order: 476
+  # source: TGStation
+
+- type: achievement
+  id: FishAch_ArcaneFailure
+  name: achievement-fishach_arcanefailure-name
+  description: achievement-fishach_arcanefailure-desc
+  category: FishAchSecret
+  condition: manual
+  order: 477
+  secret: true
+  secretDescription: achievement-fishach_arcanefailure-secret
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_BacktoCarbon
+  name: achievement-fishach_backtocarbon-name
+  description: achievement-fishach_backtocarbon-desc
+  category: FishAchMisc
+  condition: manual
+  order: 478
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_BadassSyndie
+  name: achievement-fishach_badasssyndie-name
+  description: achievement-fishach_badasssyndie-desc
+  category: FishAchSurvival
+  condition: death
+  order: 479
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_BloodRites
+  name: achievement-fishach_bloodrites-name
+  description: achievement-fishach_bloodrites-desc
+  category: FishAchCombat
+  condition: manual
+  order: 480
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_BrainDamage
+  name: achievement-fishach_braindamage-name
+  description: achievement-fishach_braindamage-desc
+  category: FishAchSecret
+  condition: manual
+  order: 481
+  secret: true
+  secretDescription: achievement-fishach_braindamage-secret
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_BreathofDeath
+  name: achievement-fishach_breathofdeath-name
+  description: achievement-fishach_breathofdeath-desc
+  category: FishAchSecret
+  condition: death
+  order: 482
+  secret: true
+  secretDescription: achievement-fishach_breathofdeath-secret
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_BreathofLife
+  name: achievement-fishach_breathoflife-name
+  description: achievement-fishach_breathoflife-desc
+  category: FishAchMisc
+  condition: manual
+  order: 483
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_BurninHell
+  name: achievement-fishach_burninhell-name
+  description: achievement-fishach_burninhell-desc
+  category: FishAchSecret
+  condition: round-end-alive
+  order: 484
+  secret: true
+  secretDescription: achievement-fishach_burninhell-secret
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_Catastrophe
+  name: achievement-fishach_catastrophe-name
+  description: achievement-fishach_catastrophe-desc
+  category: FishAchSecret
+  condition: manual
+  order: 485
+  secret: true
+  secretDescription: achievement-fishach_catastrophe-secret
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_ClockingIn
+  name: achievement-fishach_clockingin-name
+  description: achievement-fishach_clockingin-desc
+  category: FishAchMisc
+  condition: manual
+  order: 486
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_CountdeVille
+  name: achievement-fishach_countdeville-name
+  description: achievement-fishach_countdeville-desc
+  category: FishAchMisc
+  condition: manual
+  order: 487
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_DeltaAlert
+  name: achievement-fishach_deltaalert-name
+  description: achievement-fishach_deltaalert-desc
+  category: FishAchMisc
+  condition: manual
+  order: 488
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_DownwithNanotrasen
+  name: achievement-fishach_downwithnanotrasen-name
+  description: achievement-fishach_downwithnanotrasen-desc
+  category: FishAchMisc
+  condition: manual
+  order: 489
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_DukeofDucats
+  name: achievement-fishach_dukeofducats-name
+  description: achievement-fishach_dukeofducats-desc
+  category: FishAchRoles
+  condition: round-end-alive
+  order: 490
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_EmbracetheBird
+  name: achievement-fishach_embracethebird-name
+  description: achievement-fishach_embracethebird-desc
+  category: FishAchSecret
+  condition: manual
+  order: 491
+  secret: true
+  secretDescription: achievement-fishach_embracethebird-secret
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_FiveYearPlan
+  name: achievement-fishach_fiveyearplan-name
+  description: achievement-fishach_fiveyearplan-desc
+  category: FishAchMisc
+  condition: manual
+  order: 492
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_Flatlined
+  name: achievement-fishach_flatlined-name
+  description: achievement-fishach_flatlined-desc
+  category: FishAchSurvival
+  condition: death
+  order: 493
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_FromTheShadows
+  name: achievement-fishach_fromtheshadows-name
+  description: achievement-fishach_fromtheshadows-desc
+  category: FishAchMisc
+  condition: manual
+  order: 494
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_GlorytoCargonia
+  name: achievement-fishach_glorytocargonia-name
+  description: achievement-fishach_glorytocargonia-desc
+  category: FishAchSurvival
+  condition: round-end-alive
+  order: 495
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_GreyGoo
+  name: achievement-fishach_greygoo-name
+  description: achievement-fishach_greygoo-desc
+  category: FishAchMisc
+  condition: manual
+  order: 496
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_HonestWork
+  name: achievement-fishach_honestwork-name
+  description: achievement-fishach_honestwork-desc
+  category: FishAchRoles
+  condition: manual
+  order: 497
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_HonoraryNukie
+  name: achievement-fishach_honorarynukie-name
+  description: achievement-fishach_honorarynukie-desc
+  category: FishAchSecret
+  condition: kill
+  order: 498
+  secret: true
+  secretDescription: achievement-fishach_honorarynukie-secret
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_ILiveAgain
+  name: achievement-fishach_iliveagain-name
+  description: achievement-fishach_iliveagain-desc
+  category: FishAchMisc
+  condition: manual
+  order: 499
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_IsaacClarke
+  name: achievement-fishach_isaacclarke-name
+  description: achievement-fishach_isaacclarke-desc
+  category: FishAchSurvival
+  condition: round-end-alive
+  order: 500
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_KickAssandChewBubblegum
+  name: achievement-fishach_kickassandchewbubblegum-name
+  description: achievement-fishach_kickassandchewbubblegum-desc
+  category: FishAchCombat
+  condition: kill
+  order: 501
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_KingofCredits
+  name: achievement-fishach_kingofcredits-name
+  description: achievement-fishach_kingofcredits-desc
+  category: FishAchRoles
+  condition: manual
+  order: 502
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_LeadLined
+  name: achievement-fishach_leadlined-name
+  description: achievement-fishach_leadlined-desc
+  category: FishAchSecret
+  condition: round-end-alive
+  order: 503
+  secret: true
+  secretDescription: achievement-fishach_leadlined-secret
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_Lifesaver
+  name: achievement-fishach_lifesaver-name
+  description: achievement-fishach_lifesaver-desc
+  category: FishAchMisc
+  condition: heal
+  order: 504
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_MasterofBlood
+  name: achievement-fishach_masterofblood-name
+  description: achievement-fishach_masterofblood-desc
+  category: FishAchCombat
+  condition: manual
+  order: 505
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_MissionFailedWellGetem
+  name: achievement-fishach_missionfailedwellgetem-name
+  description: achievement-fishach_missionfailedwellgetem-desc
+  category: FishAchMisc
+  condition: manual
+  order: 506
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_NiceandToasty
+  name: achievement-fishach_niceandtoasty-name
+  description: achievement-fishach_niceandtoasty-desc
+  category: FishAchMisc
+  condition: manual
+  order: 507
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_Onmyauthority
+  name: achievement-fishach_onmyauthority-name
+  description: achievement-fishach_onmyauthority-desc
+  category: FishAchMisc
+  condition: manual
+  order: 508
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_QuadrupleCross
+  name: achievement-fishach_quadruplecross-name
+  description: achievement-fishach_quadruplecross-desc
+  category: FishAchMisc
+  condition: manual
+  order: 509
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_RatvarsHand
+  name: achievement-fishach_ratvarshand-name
+  description: achievement-fishach_ratvarshand-desc
+  category: FishAchMisc
+  condition: manual
+  order: 510
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_ReverseCard
+  name: achievement-fishach_reversecard-name
+  description: achievement-fishach_reversecard-desc
+  category: FishAchMisc
+  condition: manual
+  order: 511
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_ScholarsoftheArcane
+  name: achievement-fishach_scholarsofthearcane-name
+  description: achievement-fishach_scholarsofthearcane-desc
+  category: FishAchCombat
+  condition: manual
+  order: 512
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_SilenceBird
+  name: achievement-fishach_silencebird-name
+  description: achievement-fishach_silencebird-desc
+  category: FishAchSecret
+  condition: manual
+  order: 513
+  secret: true
+  secretDescription: achievement-fishach_silencebird-secret
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_SpaceAids
+  name: achievement-fishach_spaceaids-name
+  description: achievement-fishach_spaceaids-desc
+  category: FishAchSurvival
+  condition: round-end-alive
+  order: 514
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_TheDarkShadow
+  name: achievement-fishach_thedarkshadow-name
+  description: achievement-fishach_thedarkshadow-desc
+  category: FishAchMisc
+  condition: manual
+  order: 515
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_TheThing
+  name: achievement-fishach_thething-name
+  description: achievement-fishach_thething-desc
+  category: FishAchMisc
+  condition: manual
+  order: 516
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_Top1
+  name: achievement-fishach_top1-name
+  description: achievement-fishach_top1-desc
+  category: FishAchMisc
+  condition: manual
+  order: 517
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_TripleCross
+  name: achievement-fishach_triplecross-name
+  description: achievement-fishach_triplecross-desc
+  category: FishAchMisc
+  condition: manual
+  order: 518
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_TurfWar
+  name: achievement-fishach_turfwar-name
+  description: achievement-fishach_turfwar-desc
+  category: FishAchStation
+  condition: manual
+  order: 519
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_VivalaRevolution
+  name: achievement-fishach_vivalarevolution-name
+  description: achievement-fishach_vivalarevolution-desc
+  category: FishAchMisc
+  condition: manual
+  order: 520
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_Yaaaahr
+  name: achievement-fishach_yaaaahr-name
+  description: achievement-fishach_yaaaahr-desc
+  category: FishAchMisc
+  condition: manual
+  order: 521
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_YouSpinMeRound
+  name: achievement-fishach_youspinmeround-name
+  description: achievement-fishach_youspinmeround-desc
+  category: FishAchSecret
+  condition: manual
+  order: 522
+  secret: true
+  secretDescription: achievement-fishach_youspinmeround-secret
+  # source: Yogstation
+
+- type: achievement
+  id: FishAch_HullLullaby
+  name: achievement-fishach_hulllullaby-name
+  description: achievement-fishach_hulllullaby-desc
+  category: FishAchStation
+  condition: manual
+  order: 523
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_QuietMedbay
+  name: achievement-fishach_quietmedbay-name
+  description: achievement-fishach_quietmedbay-desc
+  category: FishAchRoles
+  condition: manual
+  order: 524
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_PaperworkTsunami
+  name: achievement-fishach_paperworktsunami-name
+  description: achievement-fishach_paperworktsunami-desc
+  category: FishAchRoles
+  condition: manual
+  order: 525
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_ClownCourt
+  name: achievement-fishach_clowncourt-name
+  description: achievement-fishach_clowncourt-desc
+  category: FishAchFunny
+  condition: manual
+  order: 526
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_JanitorZen
+  name: achievement-fishach_janitorzen-name
+  description: achievement-fishach_janitorzen-desc
+  category: FishAchRoles
+  condition: manual
+  order: 527
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_GhostTour
+  name: achievement-fishach_ghosttour-name
+  description: achievement-fishach_ghosttour-desc
+  category: FishAchMisc
+  condition: manual
+  order: 528
+  secret: true
+  secretDescription: achievement-fishach_ghosttour-secret
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_IdSwapArtist
+  name: achievement-fishach_idswapartist-name
+  description: achievement-fishach_idswapartist-desc
+  category: FishAchFunny
+  condition: manual
+  order: 529
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_AtmosPoetry
+  name: achievement-fishach_atmospoetry-name
+  description: achievement-fishach_atmospoetry-desc
+  category: FishAchStation
+  condition: manual
+  order: 530
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_CargoMiracle
+  name: achievement-fishach_cargomiracle-name
+  description: achievement-fishach_cargomiracle-desc
+  category: FishAchRoles
+  condition: manual
+  order: 531
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_SilentSingularity
+  name: achievement-fishach_silentsingularity-name
+  description: achievement-fishach_silentsingularity-desc
+  category: FishAchSecret
+  condition: manual
+  order: 532
+  secret: true
+  secretDescription: achievement-fishach_silentsingularity-secret
+  # source: Fish-original

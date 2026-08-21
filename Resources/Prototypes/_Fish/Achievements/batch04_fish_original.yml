@@ -1,0 +1,597 @@
+﻿- type: achievement
+  id: FishAch_Orig_PlasmaPerfume
+  name: achievement-fishach_orig_plasmaperfume-name
+  description: achievement-fishach_orig_plasmaperfume-desc
+  category: FishAchFunny
+  condition: manual
+  order: 2000
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_CaptainsToast
+  name: achievement-fishach_orig_captainstoast-name
+  description: achievement-fishach_orig_captainstoast-desc
+  category: FishAchRoles
+  condition: manual
+  order: 2001
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_ChaplainBlessing
+  name: achievement-fishach_orig_chaplainblessing-name
+  description: achievement-fishach_orig_chaplainblessing-desc
+  category: FishAchRoles
+  condition: manual
+  order: 2002
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_LawyerObjection
+  name: achievement-fishach_orig_lawyerobjection-name
+  description: achievement-fishach_orig_lawyerobjection-desc
+  category: FishAchRoles
+  condition: manual
+  order: 2003
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_PsychEval
+  name: achievement-fishach_orig_psycheval-name
+  description: achievement-fishach_orig_psycheval-desc
+  category: FishAchRoles
+  condition: manual
+  order: 2004
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_DetectiveNoir
+  name: achievement-fishach_orig_detectivenoir-name
+  description: achievement-fishach_orig_detectivenoir-desc
+  category: FishAchRoles
+  condition: manual
+  order: 2005
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_MinerPayday
+  name: achievement-fishach_orig_minerpayday-name
+  description: achievement-fishach_orig_minerpayday-desc
+  category: FishAchRoles
+  condition: manual
+  order: 2006
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_SalvageHaul
+  name: achievement-fishach_orig_salvagehaul-name
+  description: achievement-fishach_orig_salvagehaul-desc
+  category: FishAchMisc
+  condition: manual
+  order: 2007
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_XenoarchPulse
+  name: achievement-fishach_orig_xenoarchpulse-name
+  description: achievement-fishach_orig_xenoarchpulse-desc
+  category: FishAchRoles
+  condition: manual
+  order: 2008
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_AnomalyBabysit
+  name: achievement-fishach_orig_anomalybabysit-name
+  description: achievement-fishach_orig_anomalybabysit-desc
+  category: FishAchRoles
+  condition: manual
+  order: 2009
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_ChemRoulette
+  name: achievement-fishach_orig_chemroulette-name
+  description: achievement-fishach_orig_chemroulette-desc
+  category: FishAchFunny
+  condition: manual
+  order: 2010
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_SmokeAndMirrors
+  name: achievement-fishach_orig_smokeandmirrors-name
+  description: achievement-fishach_orig_smokeandmirrors-desc
+  category: FishAchFunny
+  condition: manual
+  order: 2011
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_EmagCuriosity
+  name: achievement-fishach_orig_emagcuriosity-name
+  description: achievement-fishach_orig_emagcuriosity-desc
+  category: FishAchSecret
+  condition: manual
+  order: 2012
+  secret: true
+  secretDescription: achievement-fishach_orig_emagcuriosity-secret
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_LawsetPoetry
+  name: achievement-fishach_orig_lawsetpoetry-name
+  description: achievement-fishach_orig_lawsetpoetry-desc
+  category: FishAchSecret
+  condition: manual
+  order: 2013
+  secret: true
+  secretDescription: achievement-fishach_orig_lawsetpoetry-secret
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_UploadDrama
+  name: achievement-fishach_orig_uploaddrama-name
+  description: achievement-fishach_orig_uploaddrama-desc
+  category: FishAchCombat
+  condition: manual
+  order: 2014
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_RevLeaflet
+  name: achievement-fishach_orig_revleaflet-name
+  description: achievement-fishach_orig_revleaflet-desc
+  category: FishAchCombat
+  condition: manual
+  order: 2015
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_TraitorDeadDrop
+  name: achievement-fishach_orig_traitordeaddrop-name
+  description: achievement-fishach_orig_traitordeaddrop-desc
+  category: FishAchCombat
+  condition: manual
+  order: 2016
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_NukiePlanB
+  name: achievement-fishach_orig_nukieplanb-name
+  description: achievement-fishach_orig_nukieplanb-desc
+  category: FishAchCombat
+  condition: manual
+  order: 2017
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_CultSigilTour
+  name: achievement-fishach_orig_cultsigiltour-name
+  description: achievement-fishach_orig_cultsigiltour-desc
+  category: FishAchCombat
+  condition: manual
+  order: 2018
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_WizardSpark
+  name: achievement-fishach_orig_wizardspark-name
+  description: achievement-fishach_orig_wizardspark-desc
+  category: FishAchCombat
+  condition: manual
+  order: 2019
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_LingSnack
+  name: achievement-fishach_orig_lingsnack-name
+  description: achievement-fishach_orig_lingsnack-desc
+  category: FishAchCombat
+  condition: manual
+  order: 2020
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_HereticStep
+  name: achievement-fishach_orig_hereticstep-name
+  description: achievement-fishach_orig_hereticstep-desc
+  category: FishAchCombat
+  condition: manual
+  order: 2021
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_SpaceDragonMeal
+  name: achievement-fishach_orig_spacedragonmeal-name
+  description: achievement-fishach_orig_spacedragonmeal-desc
+  category: FishAchCombat
+  condition: manual
+  order: 2022
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_BlobPerimeter
+  name: achievement-fishach_orig_blobperimeter-name
+  description: achievement-fishach_orig_blobperimeter-desc
+  category: FishAchCombat
+  condition: manual
+  order: 2023
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_ZombieVaccine
+  name: achievement-fishach_orig_zombievaccine-name
+  description: achievement-fishach_orig_zombievaccine-desc
+  category: FishAchRoles
+  condition: heal
+  order: 2024
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_SurgeryMarathon
+  name: achievement-fishach_orig_surgerymarathon-name
+  description: achievement-fishach_orig_surgerymarathon-desc
+  category: FishAchRoles
+  condition: heal
+  order: 2025
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_DefibHero
+  name: achievement-fishach_orig_defibhero-name
+  description: achievement-fishach_orig_defibhero-desc
+  category: FishAchRoles
+  condition: heal
+  order: 2026
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_ChemLabClean
+  name: achievement-fishach_orig_chemlabclean-name
+  description: achievement-fishach_orig_chemlabclean-desc
+  category: FishAchRoles
+  condition: manual
+  order: 2027
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_VirologyWatch
+  name: achievement-fishach_orig_virologywatch-name
+  description: achievement-fishach_orig_virologywatch-desc
+  category: FishAchRoles
+  condition: manual
+  order: 2028
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_ParamedicDash
+  name: achievement-fishach_orig_paramedicdash-name
+  description: achievement-fishach_orig_paramedicdash-desc
+  category: FishAchRoles
+  condition: manual
+  order: 2029
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_BrigMedicBond
+  name: achievement-fishach_orig_brigmedicbond-name
+  description: achievement-fishach_orig_brigmedicbond-desc
+  category: FishAchRoles
+  condition: manual
+  order: 2030
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_IAAAudit
+  name: achievement-fishach_orig_iaaaudit-name
+  description: achievement-fishach_orig_iaaaudit-desc
+  category: FishAchRoles
+  condition: manual
+  order: 2031
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_ReporterScoop
+  name: achievement-fishach_orig_reporterscoop-name
+  description: achievement-fishach_orig_reporterscoop-desc
+  category: FishAchRoles
+  condition: manual
+  order: 2032
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_LibrarianSilence
+  name: achievement-fishach_orig_librariansilence-name
+  description: achievement-fishach_orig_librariansilence-desc
+  category: FishAchFunny
+  condition: manual
+  order: 2033
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_ClownCarTheory
+  name: achievement-fishach_orig_clowncartheory-name
+  description: achievement-fishach_orig_clowncartheory-desc
+  category: FishAchFunny
+  condition: manual
+  order: 2034
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_Honkvasion
+  name: achievement-fishach_orig_honkvasion-name
+  description: achievement-fishach_orig_honkvasion-desc
+  category: FishAchFunny
+  condition: manual
+  order: 2035
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_MimeWall
+  name: achievement-fishach_orig_mimewall-name
+  description: achievement-fishach_orig_mimewall-desc
+  category: FishAchFunny
+  condition: manual
+  order: 2036
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_MusicianSetlist
+  name: achievement-fishach_orig_musiciansetlist-name
+  description: achievement-fishach_orig_musiciansetlist-desc
+  category: FishAchFunny
+  condition: manual
+  order: 2037
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_BoxerKnockout
+  name: achievement-fishach_orig_boxerknockout-name
+  description: achievement-fishach_orig_boxerknockout-desc
+  category: FishAchCombat
+  condition: kill
+  order: 2038
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_StageMagician
+  name: achievement-fishach_orig_stagemagician-name
+  description: achievement-fishach_orig_stagemagician-desc
+  category: FishAchFunny
+  condition: manual
+  order: 2039
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_CuratorExhibit
+  name: achievement-fishach_orig_curatorexhibit-name
+  description: achievement-fishach_orig_curatorexhibit-desc
+  category: FishAchMisc
+  condition: manual
+  order: 2040
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_LawyerPlea
+  name: achievement-fishach_orig_lawyerplea-name
+  description: achievement-fishach_orig_lawyerplea-desc
+  category: FishAchRoles
+  condition: manual
+  order: 2041
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_QMNegotiation
+  name: achievement-fishach_orig_qmnegotiation-name
+  description: achievement-fishach_orig_qmnegotiation-desc
+  category: FishAchRoles
+  condition: manual
+  order: 2042
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_CESingularityBabysil
+  name: achievement-fishach_orig_cesingularitybabysil-name
+  description: achievement-fishach_orig_cesingularitybabysil-desc
+  category: FishAchStation
+  condition: manual
+  order: 2043
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_AtmosTempArt
+  name: achievement-fishach_orig_atmostempart-name
+  description: achievement-fishach_orig_atmostempart-desc
+  category: FishAchStation
+  condition: manual
+  order: 2044
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_SolarsMarathon
+  name: achievement-fishach_orig_solarsmarathon-name
+  description: achievement-fishach_orig_solarsmarathon-desc
+  category: FishAchStation
+  condition: manual
+  order: 2045
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_SMDelamDrill
+  name: achievement-fishach_orig_smdelamdrill-name
+  description: achievement-fishach_orig_smdelamdrill-desc
+  category: FishAchStation
+  condition: manual
+  order: 2046
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_GridCheckSurvivor
+  name: achievement-fishach_orig_gridchecksurvivor-name
+  description: achievement-fishach_orig_gridchecksurvivor-desc
+  category: FishAchSurvival
+  condition: manual
+  order: 2047
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_RadiationTan
+  name: achievement-fishach_orig_radiationtan-name
+  description: achievement-fishach_orig_radiationtan-desc
+  category: FishAchSurvival
+  condition: manual
+  order: 2048
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_SpaceMapMemory
+  name: achievement-fishach_orig_spacemapmemory-name
+  description: achievement-fishach_orig_spacemapmemory-desc
+  category: FishAchMisc
+  condition: manual
+  order: 2049
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_DebrisPicnic
+  name: achievement-fishach_orig_debrispicnic-name
+  description: achievement-fishach_orig_debrispicnic-desc
+  category: FishAchMisc
+  condition: manual
+  order: 2050
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_GatewayTourist
+  name: achievement-fishach_orig_gatewaytourist-name
+  description: achievement-fishach_orig_gatewaytourist-desc
+  category: FishAchMisc
+  condition: manual
+  order: 2051
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_LavalandPostcard
+  name: achievement-fishach_orig_lavalandpostcard-name
+  description: achievement-fishach_orig_lavalandpostcard-desc
+  category: FishAchMisc
+  condition: manual
+  order: 2052
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_GhostRoleDebut
+  name: achievement-fishach_orig_ghostroledebut-name
+  description: achievement-fishach_orig_ghostroledebut-desc
+  category: FishAchMisc
+  condition: manual
+  order: 2053
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_MentorQuestion
+  name: achievement-fishach_orig_mentorquestion-name
+  description: achievement-fishach_orig_mentorquestion-desc
+  category: FishAchMisc
+  condition: manual
+  order: 2054
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_AhelpPolite
+  name: achievement-fishach_orig_ahelppolite-name
+  description: achievement-fishach_orig_ahelppolite-desc
+  category: FishAchMisc
+  condition: manual
+  order: 2055
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_MapVoteVoice
+  name: achievement-fishach_orig_mapvotevoice-name
+  description: achievement-fishach_orig_mapvotevoice-desc
+  category: FishAchMisc
+  condition: manual
+  order: 2056
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_LobbyRegular
+  name: achievement-fishach_orig_lobbyregular-name
+  description: achievement-fishach_orig_lobbyregular-desc
+  category: FishAchMisc
+  condition: manual
+  order: 2057
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_CharacterArtist
+  name: achievement-fishach_orig_characterartist-name
+  description: achievement-fishach_orig_characterartist-desc
+  category: FishAchMisc
+  condition: manual
+  order: 2058
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_LoadoutMax
+  name: achievement-fishach_orig_loadoutmax-name
+  description: achievement-fishach_orig_loadoutmax-desc
+  category: FishAchMisc
+  condition: manual
+  order: 2059
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_SpeciesTour
+  name: achievement-fishach_orig_speciestour-name
+  description: achievement-fishach_orig_speciestour-desc
+  category: FishAchMisc
+  condition: manual
+  order: 2060
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_AccentPractice
+  name: achievement-fishach_orig_accentpractice-name
+  description: achievement-fishach_orig_accentpractice-desc
+  category: FishAchFunny
+  condition: manual
+  order: 2061
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_HandshakeDiplomat
+  name: achievement-fishach_orig_handshakediplomat-name
+  description: achievement-fishach_orig_handshakediplomat-desc
+  category: FishAchMisc
+  condition: interaction
+  order: 2062
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_HighFiveChain
+  name: achievement-fishach_orig_highfivechain-name
+  description: achievement-fishach_orig_highfivechain-desc
+  category: FishAchFunny
+  condition: interaction
+  order: 2063
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_HugsNotDrugs
+  name: achievement-fishach_orig_hugsnotdrugs-name
+  description: achievement-fishach_orig_hugsnotdrugs-desc
+  category: FishAchFunny
+  condition: interaction
+  order: 2064
+  # source: Fish-original
+
+- type: achievement
+  id: FishAch_Orig_CPRStreak
+  name: achievement-fishach_orig_cprstreak-name
+  description: achievement-fishach_orig_cprstreak-desc
+  category: FishAchRoles
+  condition: heal
+  order: 2065
+  # source: Fish-original
