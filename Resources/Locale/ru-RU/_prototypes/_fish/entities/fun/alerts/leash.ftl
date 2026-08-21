@@ -7,6 +7,7 @@ leash-detached-target = Поводок отстегнули от вашего о
 leash-choking = Ошейник впивается в шею и душит вас!
 leash-remove-collar-start = Вы начинаете возиться с застёжкой ошейника.
 leash-remove-collar-fail = Вам не удаётся снять ошейник.
+leash-remove-collar-fail-chance = Попытка снять ошейник не увенчалась успехом.
 leash-remove-collar-success = Вам удаётся снять ошейник.
 leash-remove-collar-blocked = Сначала нужно расстегнуть ошейник.
 leash-cannot-pick-up = Поводок натянулся.

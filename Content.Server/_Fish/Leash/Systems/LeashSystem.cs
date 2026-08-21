@@ -50,6 +50,7 @@ public sealed partial class LeashSystem : EntitySystem
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private IGameTiming _timing = default!;
+	[Dependency] private IRobustRandom _random = default!;
 
     private readonly HashSet<EntityUid> _allowedCollarUnequips = new();
 
@@ -394,46 +395,55 @@ public sealed partial class LeashSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnRemoveCollarDoAfter(EntityUid uid, CollarWearerComponent component, RemoveCollarDoAfterEvent args)
+private void OnRemoveCollarDoAfter(EntityUid uid, CollarWearerComponent component, RemoveCollarDoAfterEvent args)
+{
+    if (args.Handled)
+        return;
+
+    args.Handled = true;
+
+    if (component.Collar is not { Valid: true } collarUid ||
+        !TryComp<CollarComponent>(collarUid, out var collar) ||
+        collar.Wearer != uid)
     {
-        if (args.Handled)
-            return;
+        return;
+    }
 
-        args.Handled = true;
+    if (args.Cancelled)
+    {
+        _popup.PopupEntity(Loc.GetString("leash-remove-collar-fail"), uid, uid, PopupType.SmallCaution);
+        return;
+    }
 
-        if (component.Collar is not { Valid: true } collarUid ||
-            !TryComp<CollarComponent>(collarUid, out var collar) ||
-            collar.Wearer != uid)
+    if (collar.RemoveSuccessChance < 1f)
+    {
+        if (_random.NextFloat() > collar.RemoveSuccessChance)
         {
+            _popup.PopupEntity(Loc.GetString("leash-remove-collar-fail-chance"), uid, uid, PopupType.SmallCaution);
             return;
         }
+    }
 
-        if (args.Cancelled)
+    EntityUid? removedItem;
+    _allowedCollarUnequips.Add(collarUid);
+    try
+    {
+        if (!_inventory.TryUnequip(uid, uid, "neck", out removedItem, checkDoafter: false))
         {
             _popup.PopupEntity(Loc.GetString("leash-remove-collar-fail"), uid, uid, PopupType.SmallCaution);
             return;
         }
-
-        EntityUid? removedItem;
-        _allowedCollarUnequips.Add(collarUid);
-        try
-        {
-            if (!_inventory.TryUnequip(uid, uid, "neck", out removedItem, checkDoafter: false))
-            {
-                _popup.PopupEntity(Loc.GetString("leash-remove-collar-fail"), uid, uid, PopupType.SmallCaution);
-                return;
-            }
-        }
-        finally
-        {
-            _allowedCollarUnequips.Remove(collarUid);
-        }
-
-        if (removedItem != null)
-            _hands.PickupOrDrop(uid, removedItem.Value);
-
-        _popup.PopupEntity(Loc.GetString("leash-remove-collar-success"), uid, uid);
     }
+    finally
+    {
+        _allowedCollarUnequips.Remove(collarUid);
+    }
+
+    if (removedItem != null)
+        _hands.PickupOrDrop(uid, removedItem.Value);
+
+    _popup.PopupEntity(Loc.GetString("leash-remove-collar-success"), uid, uid);
+}
 
     private void HandleLeashReleased(EntityUid uid, LeashComponent component, EntityUid user)
     {

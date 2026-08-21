@@ -11,6 +11,9 @@ public sealed partial class CollarComponent : Component
 
     [DataField]
     public ProtoId<AlertPrototype> Alert = "Collared";
+	
+    [DataField]
+    public float RemoveSuccessChance = 1f;
 
     public EntityUid? Wearer;
     public EntityUid? AttachedLeash;

@@ -32,6 +32,8 @@
     - state: icon
       # color: "#DADADA"
   - type: Collar
+    breakoutTime: 4
+    removeSuccessChance: 0.7
   - type: Tag
     tags:
     - Recyclable
