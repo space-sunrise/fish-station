@@ -38,7 +38,8 @@
 - Исключено как gameplay-награды: BeeCoin / cosmetic unlocks / role weighting (условия сохранены где уместно)
 - Аудит архитектуры Fish/SS14: завершён
 - Аудит SS13: активен (исторические builds + CM + смысловая дедупликация)
-- Condition handlers: покрыты seed-семейства; большая часть каталога ещё `manual`/общие ключи
+- Condition handlers: **полное покрытие** всех ключей `AchievementConditionKeys` (event-driven)
+- Антиабуз: `oncePerRound`, cooldown, `minRoundSeconds`, ghost-gate, ignore suicide, kill только player-humanoid, shotgun-защита (`allowGenericTrigger` / progressTarget)
 
 Подробности: `AchievementsSources.md`, `AchievementsCatalog.md`, CSV-снимки в этой папке.
 Архитектура: `AchievementsArchitecture.md`.

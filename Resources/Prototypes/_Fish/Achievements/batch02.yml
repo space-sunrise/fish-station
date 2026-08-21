@@ -1,9 +1,12 @@
-﻿- type: achievement
+- type: achievement
   id: FishAch_MostlyArmless
   name: achievement-fishach_mostlyarmless-name
   description: achievement-fishach_mostlyarmless-desc
   category: FishAchStation
   condition: shuttle-arrive
+  progressTarget: 3
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 300
   # source: Goonstation
 
@@ -12,7 +15,10 @@
   name: achievement-fishach_mybolognahasafirstname-name
   description: achievement-fishach_mybolognahasafirstname-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 301
   secret: true
   secretDescription: achievement-fishach_mybolognahasafirstname-secret
@@ -24,6 +30,9 @@
   description: achievement-fishach_neitherfashionablenoirstylish-desc
   category: FishAchMisc
   condition: round-end-alive
+  progressTarget: 5
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 302
   # source: Goonstation
 
@@ -32,7 +41,10 @@
   name: achievement-fishach_nero-name
   description: achievement-fishach_nero-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 303
   secret: true
   secretDescription: achievement-fishach_nero-secret
@@ -43,7 +55,10 @@
   name: achievement-fishach_newtonscrew-name
   description: achievement-fishach_newtonscrew-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 304
   secret: true
   secretDescription: achievement-fishach_newtonscrew-secret
@@ -55,6 +70,9 @@
   description: achievement-fishach_noahsshuttle-desc
   category: FishAchSurvival
   condition: shuttle-arrive
+  progressTarget: 3
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 305
   # source: Goonstation
 
@@ -63,7 +81,9 @@
   name: achievement-fishach_ohdoctor-name
   description: achievement-fishach_ohdoctor-desc
   category: FishAchSecret
-  condition: manual
+  condition: heal
+  progressTarget: 10
+  oncePerRound: true
   order: 306
   secret: true
   secretDescription: achievement-fishach_ohdoctor-secret
@@ -74,7 +94,10 @@
   name: achievement-fishach_olbuddyolpal-name
   description: achievement-fishach_olbuddyolpal-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 307
   secret: true
   secretDescription: achievement-fishach_olbuddyolpal-secret
@@ -85,7 +108,10 @@
   name: achievement-fishach_oldenemy-name
   description: achievement-fishach_oldenemy-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 308
   secret: true
   secretDescription: achievement-fishach_oldenemy-secret
@@ -96,7 +122,10 @@
   name: achievement-fishach_onmyowneightspacelegs-name
   description: achievement-fishach_onmyowneightspacelegs-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 309
   secret: true
   secretDescription: achievement-fishach_onmyowneightspacelegs-secret
@@ -108,6 +137,9 @@
   description: achievement-fishach_onmyowntwospacelegs-desc
   category: FishAchCombat
   condition: kill
+  progressTarget: 3
+  oncePerRound: true
+  requirePlayerVictim: true
   order: 310
   # source: Goonstation
 
@@ -116,7 +148,10 @@
   name: achievement-fishach_onearmedbandit-name
   description: achievement-fishach_onearmedbandit-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 311
   secret: true
   secretDescription: achievement-fishach_onearmedbandit-secret
@@ -127,7 +162,10 @@
   name: achievement-fishach_originalsin-name
   description: achievement-fishach_originalsin-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 312
   secret: true
   secretDescription: achievement-fishach_originalsin-secret
@@ -139,6 +177,8 @@
   description: achievement-fishach_owmyballs-desc
   category: FishAchSurvival
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 313
   # source: Goonstation
 
@@ -148,6 +188,8 @@
   description: achievement-fishach_partyhard-desc
   category: FishAchSurvival
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 314
   # source: Goonstation
 
@@ -157,6 +199,9 @@
   description: achievement-fishach_patchwork-desc
   category: FishAchRoles
   condition: heal
+  progressTarget: 10
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 315
   # source: Goonstation
 
@@ -166,6 +211,9 @@
   description: achievement-fishach_primordial-desc
   category: FishAchSurvival
   condition: shuttle-arrive
+  progressTarget: 3
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 316
   # source: Goonstation
 
@@ -174,7 +222,10 @@
   name: achievement-fishach_primumnonnocere-name
   description: achievement-fishach_primumnonnocere-desc
   category: FishAchRoles
-  condition: manual
+  condition: heal
+  progressTarget: 10
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 317
   # source: Goonstation
 
@@ -183,7 +234,10 @@
   name: achievement-fishach_professionalthief-name
   description: achievement-fishach_professionalthief-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 318
   # source: Goonstation
 
@@ -193,6 +247,9 @@
   description: achievement-fishach_progenitor-desc
   category: FishAchRoles
   condition: round-end-alive
+  progressTarget: 5
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 319
   # source: Goonstation
 
@@ -202,6 +259,9 @@
   description: achievement-fishach_puerilehumour-desc
   category: FishAchRoles
   condition: round-end-alive
+  progressTarget: 5
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 320
   # source: Goonstation
 
@@ -211,6 +271,9 @@
   description: achievement-fishach_quitcloningaround-desc
   category: FishAchMisc
   condition: heal
+  progressTarget: 10
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 321
   # source: Goonstation
 
@@ -219,7 +282,10 @@
   name: achievement-fishach_redhood-name
   description: achievement-fishach_redhood-desc
   category: FishAchMisc
-  condition: manual
+  condition: heal
+  progressTarget: 10
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 322
   # source: Goonstation
 
@@ -229,6 +295,9 @@
   description: achievement-fishach_reefermadness-desc
   category: FishAchRoles
   condition: round-end-alive
+  progressTarget: 5
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 323
   # source: Goonstation
 
@@ -237,7 +306,10 @@
   name: achievement-fishach_remembertowashbehindtheantennae-name
   description: achievement-fishach_remembertowashbehindtheantennae-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 324
   secret: true
   secretDescription: achievement-fishach_remembertowashbehindtheantennae-secret
@@ -249,6 +321,8 @@
   description: achievement-fishach_reservedparking-desc
   category: FishAchStation
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 325
   # source: Goonstation
 
@@ -257,7 +331,10 @@
   name: achievement-fishach_rookiethief-name
   description: achievement-fishach_rookiethief-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 326
   secret: true
   secretDescription: achievement-fishach_rookiethief-secret
@@ -268,7 +345,10 @@
   name: achievement-fishach_sheesh-name
   description: achievement-fishach_sheesh-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 327
   secret: true
   secretDescription: achievement-fishach_sheesh-secret
@@ -279,7 +359,10 @@
   name: achievement-fishach_shitfest-name
   description: achievement-fishach_shitfest-desc
   category: FishAchStation
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 328
   # source: Goonstation
 
@@ -289,6 +372,9 @@
   description: achievement-fishach_shitforbrains-desc
   category: FishAchSurvival
   condition: shuttle-arrive
+  progressTarget: 3
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 329
   # source: Goonstation
 
@@ -297,7 +383,10 @@
   name: achievement-fishach_shutupandjam-name
   description: achievement-fishach_shutupandjam-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 330
   secret: true
   secretDescription: achievement-fishach_shutupandjam-secret
@@ -309,6 +398,9 @@
   description: achievement-fishach_silentrunning-desc
   category: FishAchStation
   condition: round-end-alive
+  progressTarget: 5
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 331
   # source: Goonstation
 
@@ -317,7 +409,10 @@
   name: achievement-fishach_slowburn-name
   description: achievement-fishach_slowburn-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 332
   # source: Goonstation
 
@@ -327,6 +422,9 @@
   description: achievement-fishach_smoothoperator-desc
   category: FishAchSurvival
   condition: shuttle-arrive
+  progressTarget: 3
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 333
   # source: Goonstation
 
@@ -335,7 +433,10 @@
   name: achievement-fishach_spaceham-name
   description: achievement-fishach_spaceham-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 334
   secret: true
   secretDescription: achievement-fishach_spaceham-secret
@@ -346,7 +447,10 @@
   name: achievement-fishach_spaceshipoftheseus-name
   description: achievement-fishach_spaceshipoftheseus-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 335
   secret: true
   secretDescription: achievement-fishach_spaceshipoftheseus-secret
@@ -357,7 +461,10 @@
   name: achievement-fishach_spamhaus-name
   description: achievement-fishach_spamhaus-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 336
   secret: true
   secretDescription: achievement-fishach_spamhaus-secret
@@ -369,6 +476,8 @@
   description: achievement-fishach_spotless-desc
   category: FishAchCombat
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 337
   # source: Goonstation
 
@@ -377,7 +486,10 @@
   name: achievement-fishach_suitablehowabouttheoubliette-name
   description: achievement-fishach_suitablehowabouttheoubliette-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 338
   # source: Goonstation
 
@@ -386,7 +498,10 @@
   name: achievement-fishach_survivor-name
   description: achievement-fishach_survivor-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 339
   secret: true
   secretDescription: achievement-fishach_survivor-secret
@@ -397,7 +512,10 @@
   name: achievement-fishach_suspiciouscharacter-name
   description: achievement-fishach_suspiciouscharacter-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 340
   secret: true
   secretDescription: achievement-fishach_suspiciouscharacter-secret
@@ -408,7 +526,10 @@
   name: achievement-fishach_taxhaven-name
   description: achievement-fishach_taxhaven-desc
   category: FishAchCombat
-  condition: manual
+  condition: station-event
+  progressTarget: 5
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 341
   # source: Goonstation
 
@@ -417,7 +538,10 @@
   name: achievement-fishach_territorialdefender-name
   description: achievement-fishach_territorialdefender-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 342
   # source: Goonstation
 
@@ -426,7 +550,10 @@
   name: achievement-fishach_thankyoubusdriver-name
   description: achievement-fishach_thankyoubusdriver-desc
   category: FishAchSecret
-  condition: manual
+  condition: damage-dealt
+  progressTarget: 20
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 343
   secret: true
   secretDescription: achievement-fishach_thankyoubusdriver-secret
@@ -437,7 +564,10 @@
   name: achievement-fishach_thattastedfunny-name
   description: achievement-fishach_thattastedfunny-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 344
   # source: Goonstation
 
@@ -446,7 +576,10 @@
   name: achievement-fishach_thatsnomoonthats-name
   description: achievement-fishach_thatsnomoonthats-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 345
   secret: true
   secretDescription: achievement-fishach_thatsnomoonthats-secret
@@ -457,7 +590,10 @@
   name: achievement-fishach_theforceisstrongwiththis-name
   description: achievement-fishach_theforceisstrongwiththis-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 346
   secret: true
   secretDescription: achievement-fishach_theforceisstrongwiththis-secret
@@ -469,6 +605,9 @@
   description: achievement-fishach_themailalwaysgoesthrough-desc
   category: FishAchSurvival
   condition: round-end-alive
+  progressTarget: 5
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 347
   # source: Goonstation
 
@@ -478,6 +617,9 @@
   description: achievement-fishach_thesyndicateconnection-desc
   category: FishAchSurvival
   condition: round-end-alive
+  progressTarget: 5
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 348
   # source: Goonstation
 
@@ -486,7 +628,10 @@
   name: achievement-fishach_thisobjectmenaceswithspikesof-name
   description: achievement-fishach_thisobjectmenaceswithspikesof-desc
   category: FishAchStation
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 349
   # source: Goonstation
 
@@ -495,7 +640,10 @@
   name: achievement-fishach_thisstationisours-name
   description: achievement-fishach_thisstationisours-desc
   category: FishAchStation
-  condition: manual
+  condition: station-event
+  progressTarget: 5
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 350
   # source: Goonstation
 
@@ -504,7 +652,10 @@
   name: achievement-fishach_throughthefireandflames-name
   description: achievement-fishach_throughthefireandflames-desc
   category: FishAchFunny
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 351
   # source: Goonstation
 
@@ -513,7 +664,10 @@
   name: achievement-fishach_tinkerer-name
   description: achievement-fishach_tinkerer-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 352
   secret: true
   secretDescription: achievement-fishach_tinkerer-secret
@@ -525,6 +679,9 @@
   description: achievement-fishach_tipsy-desc
   category: FishAchMisc
   condition: round-end-alive
+  progressTarget: 5
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 353
   # source: Goonstation
 
@@ -533,7 +690,10 @@
   name: achievement-fishach_tothestars-name
   description: achievement-fishach_tothestars-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 354
   # source: Goonstation
 
@@ -542,7 +702,10 @@
   name: achievement-fishach_toocool-name
   description: achievement-fishach_toocool-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 355
   # source: Goonstation
 
@@ -552,6 +715,9 @@
   description: achievement-fishach_toofasttoofurious-desc
   category: FishAchCombat
   condition: kill
+  progressTarget: 3
+  oncePerRound: true
+  requirePlayerVictim: true
   order: 356
   # source: Goonstation
 
@@ -560,7 +726,9 @@
   name: achievement-fishach_trailofblood-name
   description: achievement-fishach_trailofblood-desc
   category: FishAchSecret
-  condition: manual
+  condition: kill
+  progressTarget: 3
+  oncePerRound: true
   order: 357
   secret: true
   secretDescription: achievement-fishach_trailofblood-secret
@@ -571,7 +739,10 @@
   name: achievement-fishach_tryjigglingthehandle-name
   description: achievement-fishach_tryjigglingthehandle-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 358
   secret: true
   secretDescription: achievement-fishach_tryjigglingthehandle-secret
@@ -582,7 +753,10 @@
   name: achievement-fishach_unlikethedirectoriwentto-name
   description: achievement-fishach_unlikethedirectoriwentto-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 359
   # source: Goonstation
 
@@ -592,6 +766,9 @@
   description: achievement-fishach_unperson-desc
   category: FishAchSurvival
   condition: round-end-alive
+  progressTarget: 5
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 360
   # source: Goonstation
 
@@ -601,6 +778,9 @@
   description: achievement-fishach_untappedpotential-desc
   category: FishAchCombat
   condition: kill
+  progressTarget: 3
+  oncePerRound: true
+  requirePlayerVictim: true
   order: 361
   # source: Goonstation
 
@@ -609,7 +789,10 @@
   name: achievement-fishach_vacuumsealed-name
   description: achievement-fishach_vacuumsealed-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 362
   # source: Goonstation
 
@@ -619,6 +802,8 @@
   description: achievement-fishach_vehicularmanslaughter-desc
   category: FishAchSurvival
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 363
   # source: Goonstation
 
@@ -627,7 +812,10 @@
   name: achievement-fishach_virtualascension-name
   description: achievement-fishach_virtualascension-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 364
   secret: true
   secretDescription: achievement-fishach_virtualascension-secret
@@ -638,7 +826,10 @@
   name: achievement-fishach_wedidntstartthefire-name
   description: achievement-fishach_wedidntstartthefire-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 365
   # source: Goonstation
 
@@ -647,7 +838,10 @@
   name: achievement-fishach_weirdscience-name
   description: achievement-fishach_weirdscience-desc
   category: FishAchSecret
-  condition: manual
+  condition: death
+  progressTarget: 3
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 366
   secret: true
   secretDescription: achievement-fishach_weirdscience-secret
@@ -659,6 +853,9 @@
   description: achievement-fishach_whatsthisboxdoinghere-desc
   category: FishAchSurvival
   condition: shuttle-arrive
+  progressTarget: 3
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 367
   # source: Goonstation
 
@@ -667,7 +864,10 @@
   name: achievement-fishach_whereweregoingwewon-name
   description: achievement-fishach_whereweregoingwewon-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 368
   # source: Goonstation
 
@@ -677,6 +877,9 @@
   description: achievement-fishach_wheresthesmokinggun-desc
   category: FishAchCombat
   condition: round-end-alive
+  progressTarget: 5
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 369
   # source: Goonstation
 
@@ -685,7 +888,10 @@
   name: achievement-fishach_wonk-name
   description: achievement-fishach_wonk-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 370
   secret: true
   secretDescription: achievement-fishach_wonk-secret
@@ -696,7 +902,10 @@
   name: achievement-fishach_wrathofthefather-name
   description: achievement-fishach_wrathofthefather-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 371
   secret: true
   secretDescription: achievement-fishach_wrathofthefather-secret
@@ -708,6 +917,8 @@
   description: achievement-fishach_yield-desc
   category: FishAchSurvival
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 372
   # source: Goonstation
 
@@ -716,7 +927,10 @@
   name: achievement-fishach_youreameanone-name
   description: achievement-fishach_youreameanone-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 373
   # source: Goonstation
 
@@ -725,7 +939,10 @@
   name: achievement-fishach_yourenoelminster-name
   description: achievement-fishach_yourenoelminster-desc
   category: FishAchCombat
-  condition: manual
+  condition: station-event
+  progressTarget: 5
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 374
   # source: Goonstation
 
@@ -734,7 +951,10 @@
   name: achievement-fishach_perfectchemistryblossom-name
   description: achievement-fishach_perfectchemistryblossom-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 375
   # source: Monkestation
 
@@ -743,7 +963,10 @@
   name: achievement-fishach_rule1-name
   description: achievement-fishach_rule1-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 376
   # source: Monkestation
 
@@ -752,7 +975,9 @@
   name: achievement-fishach_secretsbehindthespiderdoor-name
   description: achievement-fishach_secretsbehindthespiderdoor-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 30
+  oncePerRound: true
   order: 377
   # source: Monkestation
 
@@ -761,7 +986,10 @@
   name: achievement-fishach_thejaredletooffruits-name
   description: achievement-fishach_thejaredletooffruits-desc
   category: FishAchFunny
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 378
   # source: Monkestation
 
@@ -771,6 +999,8 @@
   description: achievement-fishach_abowldnewworld-desc
   category: FishAchSurvival
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 379
   # source: Monkestation, Shiptest, TGStation
 
@@ -780,6 +1010,8 @@
   description: achievement-fishach_blooddrunkminerskilled-desc
   category: FishAchCombat
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 380
   # source: Monkestation, Shiptest, TGStation
 
@@ -789,6 +1021,8 @@
   description: achievement-fishach_bosseskilled-desc
   category: FishAchCombat
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 381
   # source: Monkestation, Shiptest, TGStation
 
@@ -798,6 +1032,8 @@
   description: achievement-fishach_bubblegumskilled-desc
   category: FishAchCombat
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 382
   # source: Monkestation, Shiptest, TGStation
 
@@ -807,6 +1043,8 @@
   description: achievement-fishach_colossuskilled-desc
   category: FishAchCombat
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 383
   # source: Monkestation, Shiptest, TGStation
 
@@ -815,7 +1053,10 @@
   name: achievement-fishach_demonicfrostminercrusher-name
   description: achievement-fishach_demonicfrostminercrusher-desc
   category: FishAchCombat
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 384
   # source: Monkestation, Shiptest, TGStation
 
@@ -825,6 +1066,9 @@
   description: achievement-fishach_demonicfrostminerkiller-desc
   category: FishAchCombat
   condition: kill
+  progressTarget: 3
+  oncePerRound: true
+  requirePlayerVictim: true
   order: 385
   # source: Monkestation, Shiptest, TGStation
 
@@ -833,7 +1077,10 @@
   name: achievement-fishach_diskplease-name
   description: achievement-fishach_diskplease-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 386
   # source: Monkestation, Shiptest, TGStation
 
@@ -843,6 +1090,8 @@
   description: achievement-fishach_drakeskilled-desc
   category: FishAchCombat
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 387
   # source: Monkestation, Shiptest, TGStation
 
@@ -851,7 +1100,10 @@
   name: achievement-fishach_gettinganupgrade-name
   description: achievement-fishach_gettinganupgrade-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 388
   # source: Monkestation, Shiptest, TGStation
 
@@ -860,7 +1112,10 @@
   name: achievement-fishach_hagottem-name
   description: achievement-fishach_hagottem-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 389
   # source: Monkestation, Shiptest, TGStation
 
@@ -869,7 +1124,10 @@
   name: achievement-fishach_helbitaljanken-name
   description: achievement-fishach_helbitaljanken-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 390
   # source: Monkestation, Shiptest, TGStation
 
@@ -879,6 +1137,8 @@
   description: achievement-fishach_hierophantskilled-desc
   category: FishAchCombat
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 391
   # source: Monkestation, Shiptest, TGStation
 
@@ -887,7 +1147,10 @@
   name: achievement-fishach_howdoiswitchhands-name
   description: achievement-fishach_howdoiswitchhands-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 392
   # source: Monkestation, Shiptest, TGStation
 
@@ -896,7 +1159,10 @@
   name: achievement-fishach_iwasateenageanarchist-name
   description: achievement-fishach_iwasateenageanarchist-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 393
   # source: Monkestation, Shiptest, TGStation
 
@@ -906,6 +1172,9 @@
   description: achievement-fishach_kkkiiilllmmmeee-desc
   category: FishAchSurvival
   condition: round-end-alive
+  progressTarget: 5
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 394
   # source: Monkestation, Shiptest, TGStation
 
@@ -914,7 +1183,10 @@
   name: achievement-fishach_legendaryminer-name
   description: achievement-fishach_legendaryminer-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 395
   # source: Monkestation, Shiptest, TGStation
 
@@ -924,6 +1196,8 @@
   description: achievement-fishach_legionskilled-desc
   category: FishAchCombat
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 396
   # source: Monkestation, Shiptest, TGStation
 
@@ -932,7 +1206,9 @@
   name: achievement-fishach_longshift-name
   description: achievement-fishach_longshift-desc
   category: FishAchMisc
-  condition: manual
+  condition: job-play
+  progressTarget: 3
+  oncePerRound: true
   order: 397
   # source: Monkestation, Shiptest, TGStation
 
@@ -941,7 +1217,10 @@
   name: achievement-fishach_lookoutsir-name
   description: achievement-fishach_lookoutsir-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 398
   # source: Monkestation, Shiptest, TGStation
 
@@ -950,7 +1229,10 @@
   name: achievement-fishach_mistersandman-name
   description: achievement-fishach_mistersandman-desc
   category: FishAchRoles
-  condition: manual
+  condition: heal
+  progressTarget: 10
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 399
   # source: Monkestation, Shiptest, TGStation
 
@@ -959,7 +1241,10 @@
   name: achievement-fishach_mywatchliststatusisnotimportant-name
   description: achievement-fishach_mywatchliststatusisnotimportant-desc
   category: FishAchRoles
-  condition: manual
+  condition: heal
+  progressTarget: 10
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 400
   # source: Monkestation, Shiptest, TGStation
 
@@ -968,7 +1253,10 @@
   name: achievement-fishach_oneleanmeancleaningmachine-name
   description: achievement-fishach_oneleanmeancleaningmachine-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 401
   # source: Monkestation, Shiptest, TGStation
 
@@ -977,7 +1265,10 @@
   name: achievement-fishach_timewaster-name
   description: achievement-fishach_timewaster-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 402
   # source: Monkestation, Shiptest, TGStation
 
@@ -986,7 +1277,10 @@
   name: achievement-fishach_wendigocrusher-name
   description: achievement-fishach_wendigocrusher-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 403
   # source: Monkestation, Shiptest, TGStation
 
@@ -996,6 +1290,9 @@
   description: achievement-fishach_wendigokiller-desc
   category: FishAchCombat
   condition: kill
+  progressTarget: 3
+  oncePerRound: true
+  requirePlayerVictim: true
   order: 404
   # source: Monkestation, Shiptest, TGStation
 
@@ -1005,6 +1302,8 @@
   description: achievement-fishach_wendigoskilled-desc
   category: FishAchCombat
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 405
   # source: Monkestation, Shiptest, TGStation
 
@@ -1013,7 +1312,10 @@
   name: achievement-fishach_allthatperish-name
   description: achievement-fishach_allthatperish-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 406
   # source: Monkestation, TGStation
 
@@ -1022,7 +1324,10 @@
   name: achievement-fishach_allwithintheoreticallimits-name
   description: achievement-fishach_allwithintheoreticallimits-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 407
   # source: Monkestation, TGStation
 
@@ -1031,7 +1336,10 @@
   name: achievement-fishach_archmage-name
   description: achievement-fishach_archmage-desc
   category: FishAchStation
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 408
   # source: Monkestation, TGStation
 
@@ -1040,7 +1348,10 @@
   name: achievement-fishach_ascension-name
   description: achievement-fishach_ascension-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 409
   # source: Monkestation, TGStation
 
@@ -1050,6 +1361,8 @@
   description: achievement-fishach_assistantvictory-desc
   category: FishAchCombat
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 410
   # source: Monkestation, TGStation
 
@@ -1059,6 +1372,9 @@
   description: achievement-fishach_centcomgradeacceptableservice-desc
   category: FishAchStation
   condition: shuttle-arrive
+  progressTarget: 3
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 411
   # source: Monkestation, TGStation
 
@@ -1068,6 +1384,9 @@
   description: achievement-fishach_centcomgradeexemplaryservice-desc
   category: FishAchStation
   condition: shuttle-arrive
+  progressTarget: 3
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 412
   # source: Monkestation, TGStation
 
@@ -1077,6 +1396,9 @@
   description: achievement-fishach_centcomgradeshittyservice-desc
   category: FishAchStation
   condition: shuttle-arrive
+  progressTarget: 3
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 413
   # source: Monkestation, TGStation
 
@@ -1085,7 +1407,10 @@
   name: achievement-fishach_changelingvictory-name
   description: achievement-fishach_changelingvictory-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 414
   # source: Monkestation, TGStation
 
@@ -1094,7 +1419,10 @@
   name: achievement-fishach_chaplainvictory-name
   description: achievement-fishach_chaplainvictory-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 415
   # source: Monkestation, TGStation
 
@@ -1103,7 +1431,9 @@
   name: achievement-fishach_clickbait-name
   description: achievement-fishach_clickbait-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 30
+  oncePerRound: true
   order: 416
   # source: Monkestation, TGStation
 
@@ -1113,6 +1443,9 @@
   description: achievement-fishach_clownvictory-desc
   category: FishAchCombat
   condition: kill
+  progressTarget: 3
+  oncePerRound: true
+  requirePlayerVictim: true
   order: 417
   # source: Monkestation, TGStation
 
@@ -1122,6 +1455,8 @@
   description: achievement-fishach_demonicfrostminerskilled-desc
   category: FishAchCombat
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 418
   # source: Monkestation, TGStation
 
@@ -1130,7 +1465,10 @@
   name: achievement-fishach_detectivevictory-name
   description: achievement-fishach_detectivevictory-desc
   category: FishAchRoles
-  condition: manual
+  condition: heal
+  progressTarget: 10
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 419
   # source: Monkestation, TGStation
 
@@ -1139,7 +1477,10 @@
   name: achievement-fishach_frenching-name
   description: achievement-fishach_frenching-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 420
   # source: Monkestation, TGStation
 
@@ -1148,7 +1489,10 @@
   name: achievement-fishach_fugitivevictory-name
   description: achievement-fishach_fugitivevictory-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 421
   # source: Monkestation, TGStation
 
@@ -1157,7 +1501,10 @@
   name: achievement-fishach_godswrath-name
   description: achievement-fishach_godswrath-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 422
   # source: Monkestation, TGStation
 
@@ -1167,6 +1514,9 @@
   description: achievement-fishach_hardcorerandompoints-desc
   category: FishAchSurvival
   condition: round-end-alive
+  progressTarget: 5
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 423
   # source: Monkestation, TGStation
 
@@ -1175,7 +1525,10 @@
   name: achievement-fishach_headofpersonnelvictory-name
   description: achievement-fishach_headofpersonnelvictory-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 424
   # source: Monkestation, TGStation
 
@@ -1184,7 +1537,10 @@
   name: achievement-fishach_headofsecurityvictory-name
   description: achievement-fishach_headofsecurityvictory-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 425
   # source: Monkestation, TGStation
 
@@ -1193,7 +1549,10 @@
   name: achievement-fishach_hillsofrust-name
   description: achievement-fishach_hillsofrust-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 426
   # source: Monkestation, TGStation
 
@@ -1202,7 +1561,10 @@
   name: achievement-fishach_hotdamn-name
   description: achievement-fishach_hotdamn-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 427
   # source: Monkestation, TGStation
 
@@ -1211,7 +1573,10 @@
   name: achievement-fishach_ifnarsieissogood-name
   description: achievement-fishach_ifnarsieissogood-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 428
   # source: Monkestation, TGStation
 
@@ -1220,7 +1585,10 @@
   name: achievement-fishach_intentoscore-name
   description: achievement-fishach_intentoscore-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 429
   # source: Monkestation, TGStation
 
@@ -1229,7 +1597,10 @@
   name: achievement-fishach_itarrived-name
   description: achievement-fishach_itarrived-desc
   category: FishAchStation
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 430
   # source: Monkestation, TGStation
 
@@ -1238,7 +1609,10 @@
   name: achievement-fishach_lawyervictory-name
   description: achievement-fishach_lawyervictory-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 431
   # source: Monkestation, TGStation
 
@@ -1248,6 +1622,9 @@
   description: achievement-fishach_legendaryfisher-desc
   category: FishAchStation
   condition: shuttle-arrive
+  progressTarget: 3
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 432
   # source: Monkestation, TGStation
 
@@ -1256,7 +1633,10 @@
   name: achievement-fishach_maintenancepillsconsumed-name
   description: achievement-fishach_maintenancepillsconsumed-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 433
   # source: Monkestation, TGStation
 
@@ -1265,7 +1645,9 @@
   name: achievement-fishach_medicaldoctorvictory-name
   description: achievement-fishach_medicaldoctorvictory-desc
   category: FishAchRoles
-  condition: manual
+  condition: heal
+  progressTarget: 10
+  oncePerRound: true
   order: 434
   # source: Monkestation, TGStation
 
@@ -1274,7 +1656,10 @@
   name: achievement-fishach_nightmarevictory-name
   description: achievement-fishach_nightmarevictory-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 435
   # source: Monkestation, TGStation
 
@@ -1283,7 +1668,10 @@
   name: achievement-fishach_nightwatcherseyes-name
   description: achievement-fishach_nightwatcherseyes-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 436
   # source: Monkestation, TGStation
 
@@ -1292,7 +1680,10 @@
   name: achievement-fishach_obsessedvictory-name
   description: achievement-fishach_obsessedvictory-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 437
   # source: Monkestation, TGStation
 
@@ -1301,7 +1692,10 @@
   name: achievement-fishach_outdebted-name
   description: achievement-fishach_outdebted-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 438
   # source: Monkestation, TGStation
 
@@ -1310,7 +1704,10 @@
   name: achievement-fishach_psychologistvictory-name
   description: achievement-fishach_psychologistvictory-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 439
   # source: Monkestation, TGStation
 
@@ -1319,7 +1716,10 @@
   name: achievement-fishach_securityofficervictory-name
   description: achievement-fishach_securityofficervictory-desc
   category: FishAchRoles
-  condition: manual
+  condition: death
+  progressTarget: 3
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 440
   # source: Monkestation, TGStation
 
@@ -1328,7 +1728,10 @@
   name: achievement-fishach_silverandsteel-name
   description: achievement-fishach_silverandsteel-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 441
   # source: Monkestation, TGStation
 
@@ -1337,7 +1740,10 @@
   name: achievement-fishach_souldout-name
   description: achievement-fishach_souldout-desc
   category: FishAchFunny
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 442
   # source: Monkestation, TGStation
 
@@ -1346,7 +1752,10 @@
   name: achievement-fishach_stylescore-name
   description: achievement-fishach_stylescore-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 443
   # source: Monkestation, TGStation
 
@@ -1355,7 +1764,10 @@
   name: achievement-fishach_tendrilscore-name
   description: achievement-fishach_tendrilscore-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 444
   # source: Monkestation, TGStation
 
@@ -1365,6 +1777,9 @@
   description: achievement-fishach_thelastact-desc
   category: FishAchMisc
   condition: kill
+  progressTarget: 3
+  oncePerRound: true
+  requirePlayerVictim: true
   order: 445
   # source: Monkestation, TGStation
 
@@ -1373,7 +1788,10 @@
   name: achievement-fishach_themaninsidethemodsuit-name
   description: achievement-fishach_themaninsidethemodsuit-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 446
   # source: Monkestation, TGStation
 
@@ -1383,6 +1801,9 @@
   description: achievement-fishach_thepictureofhealth-desc
   category: FishAchMisc
   condition: heal
+  progressTarget: 10
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 447
   # source: Monkestation, TGStation
 
@@ -1391,7 +1812,10 @@
   name: achievement-fishach_thoughtfeedervictory-name
   description: achievement-fishach_thoughtfeedervictory-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 448
   # source: Monkestation, TGStation
 
@@ -1400,7 +1824,10 @@
   name: achievement-fishach_touristsservedasbartenderhighscore-name
   description: achievement-fishach_touristsservedasbartenderhighscore-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 449
   # source: Monkestation, TGStation
 
@@ -1409,7 +1836,9 @@
   name: achievement-fishach_touristsservedaschefhighscore-name
   description: achievement-fishach_touristsservedaschefhighscore-desc
   category: FishAchRoles
-  condition: manual
+  condition: job-play
+  progressTarget: 3
+  oncePerRound: true
   order: 450
   # source: Monkestation, TGStation
 
@@ -1418,7 +1847,10 @@
   name: achievement-fishach_traitorvictory-name
   description: achievement-fishach_traitorvictory-desc
   category: FishAchMisc
-  condition: manual
+  condition: station-event
+  progressTarget: 5
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 451
   # source: Monkestation, TGStation
 
@@ -1427,7 +1859,10 @@
   name: achievement-fishach_tramsurfer-name
   description: achievement-fishach_tramsurfer-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 452
   # source: Monkestation, TGStation
 
@@ -1436,7 +1871,10 @@
   name: achievement-fishach_universallyhated-name
   description: achievement-fishach_universallyhated-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 453
   # source: Monkestation, TGStation
 
@@ -1445,7 +1883,10 @@
   name: achievement-fishach_vortexofarms-name
   description: achievement-fishach_vortexofarms-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 454
   # source: Monkestation, TGStation
 
@@ -1455,6 +1896,8 @@
   description: achievement-fishach_wardenvictory-desc
   category: FishAchSurvival
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 455
   # source: Monkestation, TGStation
 
@@ -1464,6 +1907,9 @@
   description: achievement-fishach_whatjusthappened-desc
   category: FishAchCombat
   condition: shuttle-arrive
+  progressTarget: 3
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 456
   # source: Monkestation, TGStation
 
@@ -1472,7 +1918,10 @@
   name: achievement-fishach_nestexterminator-name
   description: achievement-fishach_nestexterminator-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 457
   # source: Shiptest
 
@@ -1481,7 +1930,10 @@
   name: achievement-fishach_nestscore-name
   description: achievement-fishach_nestscore-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 458
   # source: Shiptest
 
@@ -1490,7 +1942,10 @@
   name: achievement-fishach_rule3-name
   description: achievement-fishach_rule3-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 459
   # source: Shiptest
 
@@ -1499,7 +1954,10 @@
   name: achievement-fishach_anastyfall-name
   description: achievement-fishach_anastyfall-desc
   category: FishAchStation
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 460
   # source: TGStation
 
@@ -1508,7 +1966,10 @@
   name: achievement-fishach_coronervictory-name
   description: achievement-fishach_coronervictory-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 461
   # source: TGStation
 
@@ -1517,7 +1978,10 @@
   name: achievement-fishach_fishspeciescaught-name
   description: achievement-fishach_fishspeciescaught-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 462
   # source: TGStation
 
@@ -1526,7 +1990,10 @@
   name: achievement-fishach_inflandersfields-name
   description: achievement-fishach_inflandersfields-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 463
   # source: TGStation
 
@@ -1535,7 +2002,10 @@
   name: achievement-fishach_kinggoatcrusher-name
   description: achievement-fishach_kinggoatcrusher-desc
   category: FishAchMisc
-  condition: manual
+  condition: death
+  progressTarget: 3
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 464
   # source: TGStation
 
@@ -1545,6 +2015,9 @@
   description: achievement-fishach_kinggoatkiller-desc
   category: FishAchCombat
   condition: kill
+  progressTarget: 3
+  oncePerRound: true
+  requirePlayerVictim: true
   order: 465
   # source: TGStation
 
@@ -1554,6 +2027,9 @@
   description: achievement-fishach_ordealofsisyphus-desc
   category: FishAchStation
   condition: shuttle-arrive
+  progressTarget: 3
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 466
   # source: TGStation
 
@@ -1562,7 +2038,10 @@
   name: achievement-fishach_rule8-name
   description: achievement-fishach_rule8-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 467
   # source: TGStation
 
@@ -1571,7 +2050,10 @@
   name: achievement-fishach_secretsofthelockedlabyrinth-name
   description: achievement-fishach_secretsofthelockedlabyrinth-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 468
   # source: TGStation
 
@@ -1581,6 +2063,8 @@
   description: achievement-fishach_swarmerbeaconskilled-desc
   category: FishAchCombat
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 469
   # source: TGStation
 
@@ -1590,6 +2074,8 @@
   description: achievement-fishach_thethingkilled-desc
   category: FishAchCombat
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 470
   # source: TGStation
 
@@ -1598,7 +2084,10 @@
   name: achievement-fishach_thingcrusher-name
   description: achievement-fishach_thingcrusher-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 471
   # source: TGStation
 
@@ -1608,6 +2097,9 @@
   description: achievement-fishach_thingkiller-desc
   category: FishAchCombat
   condition: kill
+  progressTarget: 3
+  oncePerRound: true
+  requirePlayerVictim: true
   order: 472
   # source: TGStation
 
@@ -1617,6 +2109,9 @@
   description: achievement-fishach_unhealthysnacks-desc
   category: FishAchMisc
   condition: heal
+  progressTarget: 10
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 473
   # source: TGStation
 
@@ -1625,7 +2120,10 @@
   name: achievement-fishach_unlockedpdathemes-name
   description: achievement-fishach_unlockedpdathemes-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 474
   # source: TGStation
 
@@ -1634,7 +2132,10 @@
   name: achievement-fishach_yourlifeinyourhands-name
   description: achievement-fishach_yourlifeinyourhands-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 475
   # source: TGStation
 
@@ -1644,6 +2145,8 @@
   description: achievement-fishach_yourewhatyoueat-desc
   category: FishAchSurvival
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 476
   # source: TGStation
 
@@ -1652,7 +2155,10 @@
   name: achievement-fishach_arcanefailure-name
   description: achievement-fishach_arcanefailure-desc
   category: FishAchSecret
-  condition: manual
+  condition: station-event
+  progressTarget: 5
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 477
   secret: true
   secretDescription: achievement-fishach_arcanefailure-secret
@@ -1663,7 +2169,10 @@
   name: achievement-fishach_backtocarbon-name
   description: achievement-fishach_backtocarbon-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 478
   # source: Yogstation
 
@@ -1673,6 +2182,8 @@
   description: achievement-fishach_badasssyndie-desc
   category: FishAchSurvival
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 479
   # source: Yogstation
 
@@ -1681,7 +2192,9 @@
   name: achievement-fishach_bloodrites-name
   description: achievement-fishach_bloodrites-desc
   category: FishAchCombat
-  condition: manual
+  condition: kill
+  progressTarget: 3
+  oncePerRound: true
   order: 480
   # source: Yogstation
 
@@ -1690,7 +2203,9 @@
   name: achievement-fishach_braindamage-name
   description: achievement-fishach_braindamage-desc
   category: FishAchSecret
-  condition: manual
+  condition: damage-dealt
+  progressTarget: 20
+  oncePerRound: true
   order: 481
   secret: true
   secretDescription: achievement-fishach_braindamage-secret
@@ -1702,6 +2217,8 @@
   description: achievement-fishach_breathofdeath-desc
   category: FishAchSecret
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 482
   secret: true
   secretDescription: achievement-fishach_breathofdeath-secret
@@ -1712,7 +2229,10 @@
   name: achievement-fishach_breathoflife-name
   description: achievement-fishach_breathoflife-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 483
   # source: Yogstation
 
@@ -1722,6 +2242,9 @@
   description: achievement-fishach_burninhell-desc
   category: FishAchSecret
   condition: round-end-alive
+  progressTarget: 5
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 484
   secret: true
   secretDescription: achievement-fishach_burninhell-secret
@@ -1732,7 +2255,10 @@
   name: achievement-fishach_catastrophe-name
   description: achievement-fishach_catastrophe-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 485
   secret: true
   secretDescription: achievement-fishach_catastrophe-secret
@@ -1743,7 +2269,10 @@
   name: achievement-fishach_clockingin-name
   description: achievement-fishach_clockingin-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 486
   # source: Yogstation
 
@@ -1752,7 +2281,10 @@
   name: achievement-fishach_countdeville-name
   description: achievement-fishach_countdeville-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 487
   # source: Yogstation
 
@@ -1761,7 +2293,10 @@
   name: achievement-fishach_deltaalert-name
   description: achievement-fishach_deltaalert-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 488
   # source: Yogstation
 
@@ -1770,7 +2305,10 @@
   name: achievement-fishach_downwithnanotrasen-name
   description: achievement-fishach_downwithnanotrasen-desc
   category: FishAchMisc
-  condition: manual
+  condition: station-event
+  progressTarget: 5
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 489
   # source: Yogstation
 
@@ -1780,6 +2318,9 @@
   description: achievement-fishach_dukeofducats-desc
   category: FishAchRoles
   condition: round-end-alive
+  progressTarget: 5
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 490
   # source: Yogstation
 
@@ -1788,7 +2329,10 @@
   name: achievement-fishach_embracethebird-name
   description: achievement-fishach_embracethebird-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 491
   secret: true
   secretDescription: achievement-fishach_embracethebird-secret
@@ -1799,7 +2343,10 @@
   name: achievement-fishach_fiveyearplan-name
   description: achievement-fishach_fiveyearplan-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 492
   # source: Yogstation
 
@@ -1809,6 +2356,8 @@
   description: achievement-fishach_flatlined-desc
   category: FishAchSurvival
   condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 493
   # source: Yogstation
 
@@ -1817,7 +2366,10 @@
   name: achievement-fishach_fromtheshadows-name
   description: achievement-fishach_fromtheshadows-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 494
   # source: Yogstation
 
@@ -1827,6 +2379,9 @@
   description: achievement-fishach_glorytocargonia-desc
   category: FishAchSurvival
   condition: round-end-alive
+  progressTarget: 5
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 495
   # source: Yogstation
 
@@ -1835,7 +2390,10 @@
   name: achievement-fishach_greygoo-name
   description: achievement-fishach_greygoo-desc
   category: FishAchMisc
-  condition: manual
+  condition: station-event
+  progressTarget: 5
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 496
   # source: Yogstation
 
@@ -1844,7 +2402,10 @@
   name: achievement-fishach_honestwork-name
   description: achievement-fishach_honestwork-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 497
   # source: Yogstation
 
@@ -1854,6 +2415,9 @@
   description: achievement-fishach_honorarynukie-desc
   category: FishAchSecret
   condition: kill
+  progressTarget: 3
+  oncePerRound: true
+  requirePlayerVictim: true
   order: 498
   secret: true
   secretDescription: achievement-fishach_honorarynukie-secret
@@ -1864,7 +2428,10 @@
   name: achievement-fishach_iliveagain-name
   description: achievement-fishach_iliveagain-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 499
   # source: Yogstation
 
@@ -1874,6 +2441,9 @@
   description: achievement-fishach_isaacclarke-desc
   category: FishAchSurvival
   condition: round-end-alive
+  progressTarget: 5
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 500
   # source: Yogstation
 
@@ -1883,6 +2453,9 @@
   description: achievement-fishach_kickassandchewbubblegum-desc
   category: FishAchCombat
   condition: kill
+  progressTarget: 3
+  oncePerRound: true
+  requirePlayerVictim: true
   order: 501
   # source: Yogstation
 
@@ -1891,7 +2464,10 @@
   name: achievement-fishach_kingofcredits-name
   description: achievement-fishach_kingofcredits-desc
   category: FishAchRoles
-  condition: manual
+  condition: job-play
+  progressTarget: 3
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 502
   # source: Yogstation
 
@@ -1901,6 +2477,9 @@
   description: achievement-fishach_leadlined-desc
   category: FishAchSecret
   condition: round-end-alive
+  progressTarget: 5
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 503
   secret: true
   secretDescription: achievement-fishach_leadlined-secret
@@ -1912,6 +2491,9 @@
   description: achievement-fishach_lifesaver-desc
   category: FishAchMisc
   condition: heal
+  progressTarget: 10
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 504
   # source: Yogstation
 
@@ -1920,7 +2502,9 @@
   name: achievement-fishach_masterofblood-name
   description: achievement-fishach_masterofblood-desc
   category: FishAchCombat
-  condition: manual
+  condition: kill
+  progressTarget: 3
+  oncePerRound: true
   order: 505
   # source: Yogstation
 
@@ -1929,7 +2513,10 @@
   name: achievement-fishach_missionfailedwellgetem-name
   description: achievement-fishach_missionfailedwellgetem-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 506
   # source: Yogstation
 
@@ -1938,7 +2525,10 @@
   name: achievement-fishach_niceandtoasty-name
   description: achievement-fishach_niceandtoasty-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 507
   # source: Yogstation
 
@@ -1947,7 +2537,10 @@
   name: achievement-fishach_onmyauthority-name
   description: achievement-fishach_onmyauthority-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 508
   # source: Yogstation
 
@@ -1956,7 +2549,10 @@
   name: achievement-fishach_quadruplecross-name
   description: achievement-fishach_quadruplecross-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 509
   # source: Yogstation
 
@@ -1965,7 +2561,10 @@
   name: achievement-fishach_ratvarshand-name
   description: achievement-fishach_ratvarshand-desc
   category: FishAchMisc
-  condition: manual
+  condition: job-play
+  progressTarget: 3
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 510
   # source: Yogstation
 
@@ -1974,7 +2573,10 @@
   name: achievement-fishach_reversecard-name
   description: achievement-fishach_reversecard-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 511
   # source: Yogstation
 
@@ -1983,7 +2585,10 @@
   name: achievement-fishach_scholarsofthearcane-name
   description: achievement-fishach_scholarsofthearcane-desc
   category: FishAchCombat
-  condition: manual
+  condition: station-event
+  progressTarget: 5
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 512
   # source: Yogstation
 
@@ -1992,7 +2597,10 @@
   name: achievement-fishach_silencebird-name
   description: achievement-fishach_silencebird-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 513
   secret: true
   secretDescription: achievement-fishach_silencebird-secret
@@ -2004,6 +2612,9 @@
   description: achievement-fishach_spaceaids-desc
   category: FishAchSurvival
   condition: round-end-alive
+  progressTarget: 5
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 514
   # source: Yogstation
 
@@ -2012,7 +2623,10 @@
   name: achievement-fishach_thedarkshadow-name
   description: achievement-fishach_thedarkshadow-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 515
   # source: Yogstation
 
@@ -2021,7 +2635,10 @@
   name: achievement-fishach_thething-name
   description: achievement-fishach_thething-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 516
   # source: Yogstation
 
@@ -2030,7 +2647,10 @@
   name: achievement-fishach_top1-name
   description: achievement-fishach_top1-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 517
   # source: Yogstation
 
@@ -2039,7 +2659,9 @@
   name: achievement-fishach_triplecross-name
   description: achievement-fishach_triplecross-desc
   category: FishAchMisc
-  condition: manual
+  condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 518
   # source: Yogstation
 
@@ -2048,7 +2670,10 @@
   name: achievement-fishach_turfwar-name
   description: achievement-fishach_turfwar-desc
   category: FishAchStation
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 519
   # source: Yogstation
 
@@ -2057,7 +2682,10 @@
   name: achievement-fishach_vivalarevolution-name
   description: achievement-fishach_vivalarevolution-desc
   category: FishAchMisc
-  condition: manual
+  condition: station-event
+  progressTarget: 5
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 520
   # source: Yogstation
 
@@ -2066,7 +2694,10 @@
   name: achievement-fishach_yaaaahr-name
   description: achievement-fishach_yaaaahr-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 521
   # source: Yogstation
 
@@ -2075,7 +2706,10 @@
   name: achievement-fishach_youspinmeround-name
   description: achievement-fishach_youspinmeround-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 522
   secret: true
   secretDescription: achievement-fishach_youspinmeround-secret
@@ -2086,7 +2720,10 @@
   name: achievement-fishach_hulllullaby-name
   description: achievement-fishach_hulllullaby-desc
   category: FishAchStation
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 523
   # source: Fish-original
 
@@ -2095,7 +2732,10 @@
   name: achievement-fishach_quietmedbay-name
   description: achievement-fishach_quietmedbay-desc
   category: FishAchRoles
-  condition: manual
+  condition: heal
+  progressTarget: 10
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 524
   # source: Fish-original
 
@@ -2104,7 +2744,10 @@
   name: achievement-fishach_paperworktsunami-name
   description: achievement-fishach_paperworktsunami-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 525
   # source: Fish-original
 
@@ -2113,7 +2756,9 @@
   name: achievement-fishach_clowncourt-name
   description: achievement-fishach_clowncourt-desc
   category: FishAchFunny
-  condition: manual
+  condition: interaction
+  progressTarget: 30
+  oncePerRound: true
   order: 526
   # source: Fish-original
 
@@ -2122,7 +2767,10 @@
   name: achievement-fishach_janitorzen-name
   description: achievement-fishach_janitorzen-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 527
   # source: Fish-original
 
@@ -2131,7 +2779,9 @@
   name: achievement-fishach_ghosttour-name
   description: achievement-fishach_ghosttour-desc
   category: FishAchMisc
-  condition: manual
+  condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 528
   secret: true
   secretDescription: achievement-fishach_ghosttour-secret
@@ -2142,7 +2792,10 @@
   name: achievement-fishach_idswapartist-name
   description: achievement-fishach_idswapartist-desc
   category: FishAchFunny
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 529
   # source: Fish-original
 
@@ -2151,7 +2804,10 @@
   name: achievement-fishach_atmospoetry-name
   description: achievement-fishach_atmospoetry-desc
   category: FishAchStation
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 530
   # source: Fish-original
 
@@ -2160,7 +2816,10 @@
   name: achievement-fishach_cargomiracle-name
   description: achievement-fishach_cargomiracle-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 531
   # source: Fish-original
 
@@ -2169,8 +2828,11 @@
   name: achievement-fishach_silentsingularity-name
   description: achievement-fishach_silentsingularity-desc
   category: FishAchSecret
-  condition: manual
+  condition: explosion
+  progressTarget: 3
+  oncePerRound: true
   order: 532
   secret: true
   secretDescription: achievement-fishach_silentsingularity-secret
   # source: Fish-original
+

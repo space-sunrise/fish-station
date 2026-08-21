@@ -97,6 +97,19 @@
 
 Уникальные условия реализуются отдельными server-side handlers только после подтверждения, что существующее событие или общее условие не подходит.
 
+## Антиабуз
+
+Выдача идёт только через `AchievementManager.ContributeAsync` / force-admin:
+
+- ghost и отсутствие attached entity блокируют прогресс;
+- `oncePerRound` — не более одного тика прогресса на достижение за раунд;
+- `progressCooldownSeconds` — интервал между тиками;
+- `minRoundSeconds` — минимальное присутствие в раунде;
+- `ignoreSuicide` — самоубийства не считаются;
+- `requirePlayerVictim` для kill/damage — только player-humanoid жертвы (мыши/хомяки отсекаются отдельно);
+- бинарные прототипы без `conditionParams` не открываются пачкой: нужен `allowGenericTrigger` или `progressTarget > 1`;
+- admin `achgrant` обходит антиабуз через `TryForceUnlockAsync`.
+
 ## UI и сеть
 
 Один `AchievementUIController` управляет одним переиспользуемым окном.

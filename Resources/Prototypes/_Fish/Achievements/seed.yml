@@ -1,5 +1,4 @@
-# Seed-набор для проверки архитектуры. Полный каталог переносится отдельно.
-# Названия адаптированы под Fish, не copy-paste из SS13.
+# Seed-набор. allowGenericTrigger — единственные бинарные «без params».
 
 - type: achievement
   id: FishAchFirstBreath
@@ -7,6 +6,8 @@
   description: achievement-fish-first-breath-desc
   category: FishAchSurvival
   condition: first-late-join
+  allowGenericTrigger: true
+  oncePerRound: true
   order: 1
 
 - type: achievement
@@ -15,6 +16,9 @@
   description: achievement-fish-still-standing-desc
   category: FishAchSurvival
   condition: round-end-alive
+  allowGenericTrigger: true
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 2
 
 - type: achievement
@@ -24,6 +28,8 @@
   secretDescription: achievement-fish-banana-requiem-secret
   category: FishAchFunny
   condition: slip-death
+  allowGenericTrigger: true
+  ignoreSuicide: true
   secret: true
   order: 1
 
@@ -33,6 +39,9 @@
   description: achievement-fish-centcomm-tourist-desc
   category: FishAchStation
   condition: shuttle-arrive
+  allowGenericTrigger: true
+  oncePerRound: true
+  minRoundSeconds: 120
   order: 1
 
 - type: achievement
@@ -44,4 +53,6 @@
   conditionParams:
     key: rounds-survived
   progressTarget: 10
+  oncePerRound: true
+  minRoundSeconds: 180
   order: 10

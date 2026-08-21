@@ -1,9 +1,11 @@
-﻿- type: achievement
+- type: achievement
   id: FishAch_Orig_PlasmaPerfume
   name: achievement-fishach_orig_plasmaperfume-name
   description: achievement-fishach_orig_plasmaperfume-desc
   category: FishAchFunny
-  condition: manual
+  condition: explosion
+  progressTarget: 3
+  oncePerRound: true
   order: 2000
   # source: Fish-original
 
@@ -12,7 +14,9 @@
   name: achievement-fishach_orig_captainstoast-name
   description: achievement-fishach_orig_captainstoast-desc
   category: FishAchRoles
-  condition: manual
+  condition: job-play
+  progressTarget: 3
+  oncePerRound: true
   order: 2001
   # source: Fish-original
 
@@ -21,7 +25,10 @@
   name: achievement-fishach_orig_chaplainblessing-name
   description: achievement-fishach_orig_chaplainblessing-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2002
   # source: Fish-original
 
@@ -30,7 +37,10 @@
   name: achievement-fishach_orig_lawyerobjection-name
   description: achievement-fishach_orig_lawyerobjection-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2003
   # source: Fish-original
 
@@ -39,7 +49,10 @@
   name: achievement-fishach_orig_psycheval-name
   description: achievement-fishach_orig_psycheval-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2004
   # source: Fish-original
 
@@ -48,7 +61,10 @@
   name: achievement-fishach_orig_detectivenoir-name
   description: achievement-fishach_orig_detectivenoir-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2005
   # source: Fish-original
 
@@ -57,7 +73,10 @@
   name: achievement-fishach_orig_minerpayday-name
   description: achievement-fishach_orig_minerpayday-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2006
   # source: Fish-original
 
@@ -66,7 +85,10 @@
   name: achievement-fishach_orig_salvagehaul-name
   description: achievement-fishach_orig_salvagehaul-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2007
   # source: Fish-original
 
@@ -75,7 +97,10 @@
   name: achievement-fishach_orig_xenoarchpulse-name
   description: achievement-fishach_orig_xenoarchpulse-desc
   category: FishAchRoles
-  condition: manual
+  condition: station-event
+  progressTarget: 5
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2008
   # source: Fish-original
 
@@ -84,7 +109,10 @@
   name: achievement-fishach_orig_anomalybabysit-name
   description: achievement-fishach_orig_anomalybabysit-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2009
   # source: Fish-original
 
@@ -93,7 +121,10 @@
   name: achievement-fishach_orig_chemroulette-name
   description: achievement-fishach_orig_chemroulette-desc
   category: FishAchFunny
-  condition: manual
+  condition: round-end-alive
+  progressTarget: 5
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2010
   # source: Fish-original
 
@@ -102,7 +133,10 @@
   name: achievement-fishach_orig_smokeandmirrors-name
   description: achievement-fishach_orig_smokeandmirrors-desc
   category: FishAchFunny
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2011
   # source: Fish-original
 
@@ -111,7 +145,10 @@
   name: achievement-fishach_orig_emagcuriosity-name
   description: achievement-fishach_orig_emagcuriosity-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2012
   secret: true
   secretDescription: achievement-fishach_orig_emagcuriosity-secret
@@ -122,7 +159,10 @@
   name: achievement-fishach_orig_lawsetpoetry-name
   description: achievement-fishach_orig_lawsetpoetry-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2013
   secret: true
   secretDescription: achievement-fishach_orig_lawsetpoetry-secret
@@ -133,7 +173,10 @@
   name: achievement-fishach_orig_uploaddrama-name
   description: achievement-fishach_orig_uploaddrama-desc
   category: FishAchCombat
-  condition: manual
+  condition: round-end-alive
+  progressTarget: 5
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2014
   # source: Fish-original
 
@@ -142,7 +185,10 @@
   name: achievement-fishach_orig_revleaflet-name
   description: achievement-fishach_orig_revleaflet-desc
   category: FishAchCombat
-  condition: manual
+  condition: station-event
+  progressTarget: 5
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2015
   # source: Fish-original
 
@@ -151,7 +197,9 @@
   name: achievement-fishach_orig_traitordeaddrop-name
   description: achievement-fishach_orig_traitordeaddrop-desc
   category: FishAchCombat
-  condition: manual
+  condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 2016
   # source: Fish-original
 
@@ -160,7 +208,10 @@
   name: achievement-fishach_orig_nukieplanb-name
   description: achievement-fishach_orig_nukieplanb-desc
   category: FishAchCombat
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2017
   # source: Fish-original
 
@@ -169,7 +220,9 @@
   name: achievement-fishach_orig_cultsigiltour-name
   description: achievement-fishach_orig_cultsigiltour-desc
   category: FishAchCombat
-  condition: manual
+  condition: station-event
+  progressTarget: 5
+  oncePerRound: true
   order: 2018
   # source: Fish-original
 
@@ -178,7 +231,9 @@
   name: achievement-fishach_orig_wizardspark-name
   description: achievement-fishach_orig_wizardspark-desc
   category: FishAchCombat
-  condition: manual
+  condition: station-event
+  progressTarget: 5
+  oncePerRound: true
   order: 2019
   # source: Fish-original
 
@@ -187,7 +242,10 @@
   name: achievement-fishach_orig_lingsnack-name
   description: achievement-fishach_orig_lingsnack-desc
   category: FishAchCombat
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2020
   # source: Fish-original
 
@@ -196,7 +254,10 @@
   name: achievement-fishach_orig_hereticstep-name
   description: achievement-fishach_orig_hereticstep-desc
   category: FishAchCombat
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2021
   # source: Fish-original
 
@@ -205,7 +266,10 @@
   name: achievement-fishach_orig_spacedragonmeal-name
   description: achievement-fishach_orig_spacedragonmeal-desc
   category: FishAchCombat
-  condition: manual
+  condition: round-end-alive
+  progressTarget: 5
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2022
   # source: Fish-original
 
@@ -214,7 +278,9 @@
   name: achievement-fishach_orig_blobperimeter-name
   description: achievement-fishach_orig_blobperimeter-desc
   category: FishAchCombat
-  condition: manual
+  condition: station-event
+  progressTarget: 5
+  oncePerRound: true
   order: 2023
   # source: Fish-original
 
@@ -224,6 +290,9 @@
   description: achievement-fishach_orig_zombievaccine-desc
   category: FishAchRoles
   condition: heal
+  progressTarget: 10
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2024
   # source: Fish-original
 
@@ -233,6 +302,9 @@
   description: achievement-fishach_orig_surgerymarathon-desc
   category: FishAchRoles
   condition: heal
+  progressTarget: 10
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2025
   # source: Fish-original
 
@@ -242,6 +314,9 @@
   description: achievement-fishach_orig_defibhero-desc
   category: FishAchRoles
   condition: heal
+  progressTarget: 10
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2026
   # source: Fish-original
 
@@ -250,7 +325,10 @@
   name: achievement-fishach_orig_chemlabclean-name
   description: achievement-fishach_orig_chemlabclean-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2027
   # source: Fish-original
 
@@ -259,7 +337,10 @@
   name: achievement-fishach_orig_virologywatch-name
   description: achievement-fishach_orig_virologywatch-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2028
   # source: Fish-original
 
@@ -268,7 +349,9 @@
   name: achievement-fishach_orig_paramedicdash-name
   description: achievement-fishach_orig_paramedicdash-desc
   category: FishAchRoles
-  condition: manual
+  condition: heal
+  progressTarget: 10
+  oncePerRound: true
   order: 2029
   # source: Fish-original
 
@@ -277,7 +360,9 @@
   name: achievement-fishach_orig_brigmedicbond-name
   description: achievement-fishach_orig_brigmedicbond-desc
   category: FishAchRoles
-  condition: manual
+  condition: heal
+  progressTarget: 10
+  oncePerRound: true
   order: 2030
   # source: Fish-original
 
@@ -286,7 +371,10 @@
   name: achievement-fishach_orig_iaaaudit-name
   description: achievement-fishach_orig_iaaaudit-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2031
   # source: Fish-original
 
@@ -295,7 +383,10 @@
   name: achievement-fishach_orig_reporterscoop-name
   description: achievement-fishach_orig_reporterscoop-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2032
   # source: Fish-original
 
@@ -304,7 +395,10 @@
   name: achievement-fishach_orig_librariansilence-name
   description: achievement-fishach_orig_librariansilence-desc
   category: FishAchFunny
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2033
   # source: Fish-original
 
@@ -313,7 +407,9 @@
   name: achievement-fishach_orig_clowncartheory-name
   description: achievement-fishach_orig_clowncartheory-desc
   category: FishAchFunny
-  condition: manual
+  condition: interaction
+  progressTarget: 30
+  oncePerRound: true
   order: 2034
   # source: Fish-original
 
@@ -322,7 +418,10 @@
   name: achievement-fishach_orig_honkvasion-name
   description: achievement-fishach_orig_honkvasion-desc
   category: FishAchFunny
-  condition: manual
+  condition: shuttle-arrive
+  progressTarget: 3
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2035
   # source: Fish-original
 
@@ -331,7 +430,9 @@
   name: achievement-fishach_orig_mimewall-name
   description: achievement-fishach_orig_mimewall-desc
   category: FishAchFunny
-  condition: manual
+  condition: job-play
+  progressTarget: 3
+  oncePerRound: true
   order: 2036
   # source: Fish-original
 
@@ -340,7 +441,10 @@
   name: achievement-fishach_orig_musiciansetlist-name
   description: achievement-fishach_orig_musiciansetlist-desc
   category: FishAchFunny
-  condition: manual
+  condition: death
+  progressTarget: 3
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2037
   # source: Fish-original
 
@@ -350,6 +454,9 @@
   description: achievement-fishach_orig_boxerknockout-desc
   category: FishAchCombat
   condition: kill
+  progressTarget: 3
+  oncePerRound: true
+  requirePlayerVictim: true
   order: 2038
   # source: Fish-original
 
@@ -358,7 +465,10 @@
   name: achievement-fishach_orig_stagemagician-name
   description: achievement-fishach_orig_stagemagician-desc
   category: FishAchFunny
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2039
   # source: Fish-original
 
@@ -367,7 +477,10 @@
   name: achievement-fishach_orig_curatorexhibit-name
   description: achievement-fishach_orig_curatorexhibit-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2040
   # source: Fish-original
 
@@ -376,7 +489,10 @@
   name: achievement-fishach_orig_lawyerplea-name
   description: achievement-fishach_orig_lawyerplea-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2041
   # source: Fish-original
 
@@ -385,7 +501,10 @@
   name: achievement-fishach_orig_qmnegotiation-name
   description: achievement-fishach_orig_qmnegotiation-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2042
   # source: Fish-original
 
@@ -394,7 +513,9 @@
   name: achievement-fishach_orig_cesingularitybabysil-name
   description: achievement-fishach_orig_cesingularitybabysil-desc
   category: FishAchStation
-  condition: manual
+  condition: explosion
+  progressTarget: 3
+  oncePerRound: true
   order: 2043
   # source: Fish-original
 
@@ -403,7 +524,10 @@
   name: achievement-fishach_orig_atmostempart-name
   description: achievement-fishach_orig_atmostempart-desc
   category: FishAchStation
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2044
   # source: Fish-original
 
@@ -412,7 +536,10 @@
   name: achievement-fishach_orig_solarsmarathon-name
   description: achievement-fishach_orig_solarsmarathon-desc
   category: FishAchStation
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2045
   # source: Fish-original
 
@@ -421,7 +548,10 @@
   name: achievement-fishach_orig_smdelamdrill-name
   description: achievement-fishach_orig_smdelamdrill-desc
   category: FishAchStation
-  condition: manual
+  condition: explosion
+  progressTarget: 3
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2046
   # source: Fish-original
 
@@ -430,7 +560,10 @@
   name: achievement-fishach_orig_gridchecksurvivor-name
   description: achievement-fishach_orig_gridchecksurvivor-desc
   category: FishAchSurvival
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2047
   # source: Fish-original
 
@@ -439,7 +572,10 @@
   name: achievement-fishach_orig_radiationtan-name
   description: achievement-fishach_orig_radiationtan-desc
   category: FishAchSurvival
-  condition: manual
+  condition: round-end-alive
+  progressTarget: 5
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2048
   # source: Fish-original
 
@@ -448,7 +584,10 @@
   name: achievement-fishach_orig_spacemapmemory-name
   description: achievement-fishach_orig_spacemapmemory-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2049
   # source: Fish-original
 
@@ -457,7 +596,10 @@
   name: achievement-fishach_orig_debrispicnic-name
   description: achievement-fishach_orig_debrispicnic-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2050
   # source: Fish-original
 
@@ -466,7 +608,10 @@
   name: achievement-fishach_orig_gatewaytourist-name
   description: achievement-fishach_orig_gatewaytourist-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2051
   # source: Fish-original
 
@@ -475,7 +620,10 @@
   name: achievement-fishach_orig_lavalandpostcard-name
   description: achievement-fishach_orig_lavalandpostcard-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2052
   # source: Fish-original
 
@@ -484,7 +632,9 @@
   name: achievement-fishach_orig_ghostroledebut-name
   description: achievement-fishach_orig_ghostroledebut-desc
   category: FishAchMisc
-  condition: manual
+  condition: death
+  progressTarget: 3
+  oncePerRound: true
   order: 2053
   # source: Fish-original
 
@@ -493,7 +643,10 @@
   name: achievement-fishach_orig_mentorquestion-name
   description: achievement-fishach_orig_mentorquestion-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2054
   # source: Fish-original
 
@@ -502,7 +655,10 @@
   name: achievement-fishach_orig_ahelppolite-name
   description: achievement-fishach_orig_ahelppolite-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2055
   # source: Fish-original
 
@@ -511,7 +667,10 @@
   name: achievement-fishach_orig_mapvotevoice-name
   description: achievement-fishach_orig_mapvotevoice-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2056
   # source: Fish-original
 
@@ -520,7 +679,10 @@
   name: achievement-fishach_orig_lobbyregular-name
   description: achievement-fishach_orig_lobbyregular-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2057
   # source: Fish-original
 
@@ -529,7 +691,10 @@
   name: achievement-fishach_orig_characterartist-name
   description: achievement-fishach_orig_characterartist-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2058
   # source: Fish-original
 
@@ -538,7 +703,10 @@
   name: achievement-fishach_orig_loadoutmax-name
   description: achievement-fishach_orig_loadoutmax-desc
   category: FishAchMisc
-  condition: manual
+  condition: item-pickup
+  progressTarget: 25
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2059
   # source: Fish-original
 
@@ -547,7 +715,10 @@
   name: achievement-fishach_orig_speciestour-name
   description: achievement-fishach_orig_speciestour-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2060
   # source: Fish-original
 
@@ -556,7 +727,10 @@
   name: achievement-fishach_orig_accentpractice-name
   description: achievement-fishach_orig_accentpractice-desc
   category: FishAchFunny
-  condition: manual
+  condition: interaction
+  progressTarget: 40
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2061
   # source: Fish-original
 
@@ -566,6 +740,9 @@
   description: achievement-fishach_orig_handshakediplomat-desc
   category: FishAchMisc
   condition: interaction
+  progressTarget: 30
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2062
   # source: Fish-original
 
@@ -575,6 +752,9 @@
   description: achievement-fishach_orig_highfivechain-desc
   category: FishAchFunny
   condition: interaction
+  progressTarget: 30
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2063
   # source: Fish-original
 
@@ -584,6 +764,9 @@
   description: achievement-fishach_orig_hugsnotdrugs-desc
   category: FishAchFunny
   condition: interaction
+  progressTarget: 30
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2064
   # source: Fish-original
 
@@ -593,5 +776,9 @@
   description: achievement-fishach_orig_cprstreak-desc
   category: FishAchRoles
   condition: heal
+  progressTarget: 10
+  oncePerRound: true
+  progressCooldownSeconds: 5
   order: 2065
   # source: Fish-original
+
