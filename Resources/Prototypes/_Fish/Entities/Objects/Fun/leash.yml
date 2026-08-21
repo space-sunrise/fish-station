@@ -34,17 +34,17 @@
     sprite: _Fish/Objects/Fun/leash.rsi
     layers:
     - state: icon
-      color: "#B32200"
+      color: "#ff6b6b"
     - state: leash-icon
   - type: Item
     sprite: _Fish/Objects/Fun/leash.rsi
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#B32200"
+        color: "#ff6b6b"
       right:
       - state: inhand-right
-        color: "#B32200"
+        color: "#ff6b6b"
         
 - type: entity
   parent: LeashBase
@@ -55,17 +55,17 @@
     sprite: _Fish/Objects/Fun/leash.rsi
     layers:
     - state: icon
-      color: "#0060B3"
+      color: "#6bcbff"
     - state: leash-icon
   - type: Item
     sprite: _Fish/Objects/Fun/leash.rsi
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#0060B3"
+        color: "#6bcbff"
       right:
       - state: inhand-right
-        color: "#0060B3"
+        color: "#6bcbff"
         
 - type: entity
   parent: LeashBase
@@ -97,14 +97,14 @@
     sprite: _Fish/Objects/Fun/leash.rsi
     layers:
     - state: icon
-      color: "#009118"
+      color: "#82ffa3"
     - state: leash-icon
   - type: Item
     sprite: _Fish/Objects/Fun/leash.rsi
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#009118"
+        color: "#82ffa3"
       right:
       - state: inhand-right
-        color: "#009118"
+        color: "#82ffa3"

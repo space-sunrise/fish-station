@@ -23,6 +23,7 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.Verbs;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
@@ -51,8 +52,6 @@ public sealed partial class LeashSystem : EntitySystem
     [Dependency] private IGameTiming _timing = default!;
 
     private readonly HashSet<EntityUid> _allowedCollarUnequips = new();
-    // Словарь для хранения инициатора снятия ошейника (ключ — ошейник, значение — инициатор)
-    private readonly Dictionary<EntityUid, EntityUid> _unequipInitiators = new();
 
     public override void Initialize()
     {
@@ -62,6 +61,8 @@ public sealed partial class LeashSystem : EntitySystem
         SubscribeLocalEvent<CollarComponent, BeingUnequippedAttemptEvent>(OnCollarUnequipAttempt);
         SubscribeLocalEvent<CollarComponent, GotUnequippedEvent>(OnCollarUnequipped);
         SubscribeLocalEvent<CollarComponent, EntityTerminatingEvent>(OnCollarTerminating);
+        SubscribeLocalEvent<CollarComponent, GetVerbsEvent<AlternativeVerb>>(OnCollarGetVerbs);
+
         SubscribeLocalEvent<LeashComponent, AfterInteractEvent>(OnLeashAfterInteract);
         SubscribeLocalEvent<LeashComponent, GotEquippedHandEvent>(OnLeashEquippedHand);
         SubscribeLocalEvent<LeashComponent, GotUnequippedHandEvent>(OnLeashUnequippedHand);
@@ -77,6 +78,8 @@ public sealed partial class LeashSystem : EntitySystem
         SubscribeLocalEvent<CollarWearerComponent, DoAfterAttemptEvent<CarryDoAfterEvent>>(OnCarryDoAfterAttempt);
         SubscribeLocalEvent<LeashHolderComponent, DoAfterAttemptEvent<CarryDoAfterEvent>>(OnCarryDoAfterAttempt);
         SubscribeLocalEvent<DisposalUnitComponent, BeforeDisposalFlushEvent>(OnBeforeDisposalFlush);
+
+        SubscribeLocalEvent<RemoveCollarDoAfterEvent>(OnRemoveCollarDoAfterVerb);
     }
 
     public override void Update(float frameTime)
@@ -95,11 +98,10 @@ public sealed partial class LeashSystem : EntitySystem
         if (args.Slot != "neck")
             return;
 
-        // Для версии 274 используем EquipTarget
-        component.Wearer = args.EquipTarget;
-        var wearer = EnsureComp<CollarWearerComponent>(args.EquipTarget);
+        component.Wearer = args.Equipee;
+        var wearer = EnsureComp<CollarWearerComponent>(args.Equipee);
         wearer.Collar = uid;
-        _alerts.ShowAlert(args.EquipTarget, component.Alert);
+        _alerts.ShowAlert(args.Equipee, component.Alert);
     }
 
     private void OnCollarUnequipAttempt(EntityUid uid, CollarComponent component, BeingUnequippedAttemptEvent args)
@@ -107,30 +109,14 @@ public sealed partial class LeashSystem : EntitySystem
         if (args.Slot != "neck")
             return;
 
-        // В версии 274 в этом событии есть поле User — инициатор
-        var initiator = args.User;
-        _unequipInitiators[uid] = initiator; // Запоминаем, кто пытается снять
-
-        // Разрешаем снятие всем, можно добавить проверку дистанции при желании
-        // Если хотите, чтобы только владелец мог снимать — раскомментируйте:
-        // if (initiator != component.Wearer)
-        // {
-        //     args.Cancel();
-        //     args.Reason = "leash-remove-collar-blocked";
-        //     _popup.PopupEntity(Loc.GetString("leash-remove-collar-blocked"), initiator, initiator, PopupType.SmallCaution);
-        // }
+        if (_allowedCollarUnequips.Contains(uid))
+            return;
     }
 
     private void OnCollarUnequipped(EntityUid uid, CollarComponent component, GotUnequippedEvent args)
     {
-        // В версии 274 в GotUnequippedEvent есть EquipTarget (владелец)
-        var owner = args.EquipTarget;
+        var owner = args.Equipee;
 
-        // Получаем инициатора из словаря
-        _unequipInitiators.TryGetValue(uid, out var initiator);
-        _unequipInitiators.Remove(uid);
-
-        // Отвязываем поводок
         DetachLeashFromCollar(uid, component);
 
         if (TryComp<CollarWearerComponent>(owner, out var wearer) && wearer.Collar == uid)
@@ -140,34 +126,6 @@ public sealed partial class LeashSystem : EntitySystem
 
         component.Wearer = null;
         _alerts.ClearAlert(owner, component.Alert);
-
-        // Если инициатор известен и это не владелец, передаём ошейник ему
-        if (initiator != null && initiator != owner)
-        {
-            // Ошейник уже снят и находится в инвентаре владельца (предположительно).
-            // Пытаемся переместить его в руки инициатору.
-            // Сначала проверяем, не держит ли его кто-то.
-            if (TryComp<ItemComponent>(uid, out var item))
-            {
-                // Попробуем взять ошейник у владельца и передать инициатору
-                // Для этого используем PickupOrDrop с указанием инициатора как получателя
-                if (!_hands.TryPickupAnyHand(initiator.Value, uid))
-                {
-                    // Если не вышло положить в руки, роняем на пол
-                    Transform(uid).AttachToGridOrMap();
-                    _popup.PopupEntity(Loc.GetString("leash-remove-collar-dropped"), uid, uid);
-                }
-                else
-                {
-                    _popup.PopupEntity(Loc.GetString("leash-remove-collar-transferred"), uid, uid);
-                }
-            }
-        }
-        else
-        {
-            // Если инициатор не известен или это владелец — ошейник остаётся у владельца
-            _popup.PopupEntity(Loc.GetString("leash-remove-collar-success"), owner, owner);
-        }
     }
 
     private void OnCollarTerminating(EntityUid uid, CollarComponent component, ref EntityTerminatingEvent args)
@@ -176,6 +134,95 @@ public sealed partial class LeashSystem : EntitySystem
 
         if (component.Wearer is { Valid: true } wearer)
             _alerts.ClearAlert(wearer, component.Alert);
+    }
+
+    private void OnCollarGetVerbs(EntityUid uid, CollarComponent component, GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanInteract || !args.CanAccess)
+            return;
+
+        if (component.Wearer == null || component.Wearer == args.User)
+            return;
+
+        var verb = new AlternativeVerb
+        {
+            Act = () => TryRemoveCollarWithDoAfter(args.User, uid, component),
+            Text = Loc.GetString("leash-remove-collar-verb"),
+            Priority = 2,
+        };
+        args.Verbs.Add(verb);
+    }
+
+    private void TryRemoveCollarWithDoAfter(EntityUid user, EntityUid collarUid, CollarComponent collar)
+    {
+        if (collar.Wearer == null)
+            return;
+
+        var doAfter = new DoAfterArgs(EntityManager, user, collar.BreakoutTime, new RemoveCollarDoAfterEvent(), collar.Wearer.Value, target: collar.Wearer, used: collarUid)
+        {
+            BreakOnMove = true,
+            BreakOnDamage = true,
+            NeedHand = true,
+            BreakOnDropItem = false,
+        };
+
+        if (!_doAfter.TryStartDoAfter(doAfter))
+        {
+            _popup.PopupEntity(Loc.GetString("leash-remove-collar-fail"), user, user, PopupType.SmallCaution);
+            return;
+        }
+
+        _popup.PopupEntity(Loc.GetString("leash-remove-collar-start"), user, user);
+    }
+
+    private void OnRemoveCollarDoAfterVerb(RemoveCollarDoAfterEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+
+        var (user, target, used) = (args.Args.User, args.Args.Target, args.Args.Used);
+        if (target == null || used == null)
+            return;
+
+        var collarUid = used.Value;
+        if (!TryComp<CollarComponent>(collarUid, out var collar) || collar.Wearer != target)
+            return;
+
+        if (args.Cancelled)
+        {
+            _popup.PopupEntity(Loc.GetString("leash-remove-collar-fail"), target.Value, target.Value, PopupType.SmallCaution);
+            return;
+        }
+
+        EntityUid? removedItem;
+        _allowedCollarUnequips.Add(collarUid);
+        try
+        {
+            if (!_inventory.TryUnequip(target.Value, user, "neck", out removedItem, checkDoafter: false))
+            {
+                _popup.PopupEntity(Loc.GetString("leash-remove-collar-fail"), target.Value, target.Value, PopupType.SmallCaution);
+                return;
+            }
+        }
+        finally
+        {
+            _allowedCollarUnequips.Remove(collarUid);
+        }
+
+        if (removedItem != null)
+        {
+            if (!_hands.TryPickupAnyHand(user, removedItem.Value))
+            {
+                Transform(removedItem.Value).AttachToGridOrMap();
+                _popup.PopupEntity(Loc.GetString("leash-remove-collar-dropped"), user, user);
+            }
+            else
+            {
+                _popup.PopupEntity(Loc.GetString("leash-remove-collar-transferred"), user, user);
+            }
+        }
     }
 
     private void OnLeashAfterInteract(EntityUid uid, LeashComponent component, AfterInteractEvent args)
@@ -216,7 +263,6 @@ public sealed partial class LeashSystem : EntitySystem
         TryStartLeashPull(uid, component);
     }
 
-    // Перекладывание в другую руку НЕ отцепляет
     private void OnLeashUnequippedHand(EntityUid uid, LeashComponent component, GotUnequippedHandEvent args)
     {
         if (component.Holder != args.User)
@@ -224,6 +270,7 @@ public sealed partial class LeashSystem : EntitySystem
 
         RemoveHolderLeash(uid, args.User);
         component.Holder = null;
+        UpdateLeashVisuals(uid, component);
     }
 
     private void OnLeashDropped(EntityUid uid, LeashComponent component, DroppedEvent args)
@@ -343,9 +390,7 @@ public sealed partial class LeashSystem : EntitySystem
             return;
         }
 
-        if (!TryStartRemoveCollarDoAfter(uid, uid, collarUid, collar))
-            return;
-
+        TryStartRemoveCollarDoAfter(uid, collarUid, collar);
         args.Handled = true;
     }
 
@@ -397,12 +442,10 @@ public sealed partial class LeashSystem : EntitySystem
 
         if (component.AttachedCollar != null)
             DetachLeash(uid, component);
-        else
-            UpdateLeashVisuals(uid, component);
-
         StopLeashPull(uid, component);
         RemoveHolderLeash(uid, component.Holder);
         component.Holder = null;
+        UpdateLeashVisuals(uid, component);
     }
 
     private void AttachLeash(EntityUid leashUid, LeashComponent leash, EntityUid collarUid, CollarComponent collar, EntityUid user)
@@ -627,9 +670,9 @@ public sealed partial class LeashSystem : EntitySystem
         return vector.LengthSquared() > 0f ? Vector2.Normalize(vector) : Vector2.Zero;
     }
 
-    private bool TryStartRemoveCollarDoAfter(EntityUid user, EntityUid wearerUid, EntityUid collarUid, CollarComponent collar)
+    private bool TryStartRemoveCollarDoAfter(EntityUid user, EntityUid collarUid, CollarComponent collar)
     {
-        var doAfter = new DoAfterArgs(EntityManager, user, collar.BreakoutTime, new RemoveCollarDoAfterEvent(), wearerUid, target: wearerUid, used: collarUid)
+        var doAfter = new DoAfterArgs(EntityManager, user, collar.BreakoutTime, new RemoveCollarDoAfterEvent(), user, target: user, used: collarUid)
         {
             BreakOnMove = true,
             BreakOnDamage = true,
@@ -640,7 +683,7 @@ public sealed partial class LeashSystem : EntitySystem
         if (!_doAfter.TryStartDoAfter(doAfter))
             return false;
 
-        _popup.PopupEntity(Loc.GetString("leash-remove-collar-start"), wearerUid, wearerUid);
+        _popup.PopupEntity(Loc.GetString("leash-remove-collar-start"), user, user);
         return true;
     }
 

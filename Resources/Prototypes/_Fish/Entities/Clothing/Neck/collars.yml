@@ -16,8 +16,8 @@
       amount: 1
   - type: Clothing
     quickEquip: true
-    equipSound: /Audio/Item/belt_equip.ogg
-    unequipSound: /Audio/Item/belt_equip.ogg
+    equipSound: /Audio/Items/belt_equip.ogg
+    unequipSound: /Audio/Items/belt_equip.ogg
     equipDelay: 2
     unequipDelay: 1
     sprite: _Fish/Clothing/Neck/Misc/collar.rsi
@@ -44,18 +44,18 @@
   components:
   - type: Item
     sprite: _Fish/Clothing/Neck/Misc/collar.rsi
-    color: "#B32200"
+    color: "#ff6b6b"
   - type: Clothing
     sprite: _Fish/Clothing/Neck/Misc/collar.rsi
     clothingVisuals:
       collar:
       - state: equipped-NECK
-        color: "#B32200"
+        color: "#ff6b6b"
   - type: Sprite
     sprite: _Fish/Clothing/Neck/Misc/collar.rsi
     layers:
     - state: icon
-      color: "#B32200"
+      color: "#ff6b6b"
       
 - type: entity
   parent: ClothingNeckCollarBase
@@ -64,18 +64,18 @@
   components:
   - type: Item
     sprite: _Fish/Clothing/Neck/Misc/collar.rsi
-    color: "#0060B3"
+    color: "#6bcbff"
   - type: Clothing
     sprite: _Fish/Clothing/Neck/Misc/collar.rsi
     clothingVisuals:
       collar:
       - state: equipped-NECK
-        color: "#0060B3"
+        color: "#6bcbff"
   - type: Sprite
     sprite: _Fish/Clothing/Neck/Misc/collar.rsi
     layers:
     - state: icon
-      color: "#0060B3"
+      color: "#6bcbff"
       
 - type: entity
   parent: ClothingNeckCollarBase
@@ -104,15 +104,15 @@
   components:
   - type: Item
     sprite: _Fish/Clothing/Neck/Misc/collar.rsi
-    color: "#009118"
+    color: "#82ffa3"
   - type: Clothing
     sprite: _Fish/Clothing/Neck/Misc/collar.rsi
     clothingVisuals:
       collar:
       - state: equipped-NECK
-        color: "#009118"
+        color: "#82ffa3"
   - type: Sprite
     sprite: _Fish/Clothing/Neck/Misc/collar.rsi
     layers:
     - state: icon
-      color: "#009118"
+      color: "#82ffa3"

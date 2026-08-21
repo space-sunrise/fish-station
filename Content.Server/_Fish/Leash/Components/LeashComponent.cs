@@ -32,6 +32,12 @@ public sealed partial class LeashComponent : Component
     [DataField]
     public float PullForce = 32f;
 
+    [DataField]
+    public List<float> Modes = new() { 1f, 2.5f, 4f, 5.5f, 7f };
+
+    [DataField]
+    public int CurrentModeIndex = 2;
+
     public EntityUid? AttachedCollar;
     public EntityUid? Holder;
     public TimeSpan NextChokeTime;

@@ -11,3 +11,4 @@ leash-remove-collar-success = Вам удаётся снять ошейник.
 leash-remove-collar-blocked = Сначала нужно расстегнуть ошейник.
 leash-cannot-pick-up = Поводок натянулся.
 leash-cannot-carry = Поводок натянулся.
+leash-mode-changed = Длина поводка установлена на { $length } метр.
