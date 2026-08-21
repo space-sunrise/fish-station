@@ -8,7 +8,7 @@ namespace Content.Shared._Fish.Achievements;
 /// <summary>
 /// Декларативное определение достижения. Без наград и gameplay-бонусов.
 /// </summary>
-[Prototype("achievement")]
+[Prototype]
 public sealed partial class AchievementPrototype : IPrototype
 {
     [IdDataField]

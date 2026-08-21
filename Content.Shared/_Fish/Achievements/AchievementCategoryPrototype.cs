@@ -6,7 +6,7 @@ namespace Content.Shared._Fish.Achievements;
 /// <summary>
 /// Категория достижений для UI-фильтров.
 /// </summary>
-[Prototype("achievementCategory")]
+[Prototype]
 public sealed partial class AchievementCategoryPrototype : IPrototype
 {
     [IdDataField]
