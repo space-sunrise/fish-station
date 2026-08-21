@@ -1,7 +1,10 @@
 fish-achievements-button = Achievements
 fish-achievements-window-title = Achievements
 fish-achievements-summary = Unlocked: {$unlocked} / {$total}
+fish-achievements-categories-label = Categories
 fish-achievements-category-all = All
+fish-ui-options-crt-theme = Use the CRT interface theme
+fish-ui-options-crt-effects = Use CRT visual effects
 fish-achievements-category-combat = Combat
 fish-achievements-category-survival = Survival
 fish-achievements-category-roles = Roles

@@ -29,5 +29,17 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<string> EorgPopupLink =
             CVarDef.Create("fish.eorg_popup_link", "https://discord.com/channels/837289702369263676/1496182871562387667", CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        /// Клиентский CRT-тема для Fish UI (достижения и др.). Архив локально.
+        /// </summary>
+        public static readonly CVarDef<bool> FishCrtThemeEnabled =
+            CVarDef.Create("fish.crt_theme_enabled", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+        /// <summary>
+        /// CRT-эффекты (scanlines и т.п.). Имеют смысл только при включённой CRT-теме.
+        /// </summary>
+        public static readonly CVarDef<bool> FishCrtEffectsEnabled =
+            CVarDef.Create("fish.crt_effects_enabled", true, CVar.CLIENTONLY | CVar.ARCHIVE);
     }
 }
