@@ -58,7 +58,8 @@ public sealed class AchievementConditionSystem : EntitySystem
         SubscribeLocalEvent<AchievementTrackedComponent, DidEquipEvent>(OnEquipped);
         SubscribeLocalEvent<AchievementTrackedComponent, UserInteractHandEvent>(OnUserInteractHand);
         SubscribeLocalEvent<GameRuleStartedEvent>(OnGameRuleStarted);
-        SubscribeLocalEvent<EmergencyShuttleComponent, FTLCompletedEvent>(OnEmergencyShuttleArrived);
+        // Broadcast: directed EmergencyShuttleComponent+FTLCompleted уже занят EmergencyShuttleSystem.
+        SubscribeLocalEvent<FTLCompletedEvent>(OnEmergencyShuttleArrived);
         SubscribeLocalEvent<SunriseExplosionEvent>(OnExplosion);
     }
 
@@ -289,8 +290,12 @@ public sealed class AchievementConditionSystem : EntitySystem
         }
     }
 
-    private void OnEmergencyShuttleArrived(EntityUid uid, EmergencyShuttleComponent component, ref FTLCompletedEvent args)
+    private void OnEmergencyShuttleArrived(ref FTLCompletedEvent args)
     {
+        var uid = args.Entity;
+        if (!HasComp<EmergencyShuttleComponent>(uid))
+            return;
+
         foreach (var session in _players.Sessions)
         {
             if (session.AttachedEntity is not { } ent)
