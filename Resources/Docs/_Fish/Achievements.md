@@ -35,5 +35,20 @@
 - Перенесено: 0
 - Адаптировано: 0
 - Исключено: 0
+- Аудит архитектуры Fish/SS14: завершён
+- Аудит SS13: выполняется
 
 Значения обновляются только после проверки источников и фактического изменения каталога.
+
+## Аудит Fish/SS14
+
+Готовой системы достижений в проекте нет. Для реализации выбраны существующие инфраструктурные решения:
+
+- `UserDbDataManager` и `PlayTimeTrackingManager` как образец lifecycle account data;
+- `IServerDbManager` и partial-расширения `ServerDbBase` для persistence;
+- `RoadmapLikesSystem` как образец типизированной server/client синхронизации;
+- общий `UIController` и одно окно для Lobby и ESC;
+- существующие popup/chat notification API;
+- YAML-прототипы и FTL-локализация.
+
+Подробные решения и список минимальных core-hooks находятся в `AchievementsArchitecture.md`.
