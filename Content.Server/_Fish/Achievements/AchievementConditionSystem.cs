@@ -19,6 +19,7 @@ using Content.Shared.Roles;
 using Content.Shared.Slippery;
 using Content.Shared.Tag;
 using Robust.Server.Player;
+using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -36,6 +37,7 @@ public sealed class AchievementConditionSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _players = default!;
     [Dependency] private readonly TagSystem _tags = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     private static readonly ProtoId<TagPrototype> MouseTag = "Mouse";
     private static readonly ProtoId<TagPrototype> HamsterTag = "Hamster";
@@ -50,11 +52,11 @@ public sealed class AchievementConditionSystem : EntitySystem
         SubscribeLocalEvent<SlipEvent>(OnSlip);
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<KillReportedEvent>(OnKillReported);
-        SubscribeLocalEvent<ActorComponent, DamageChangedEvent>(OnDamageChanged);
-        SubscribeLocalEvent<ActorComponent, ItemConstructionCreated>(OnCrafted);
-        SubscribeLocalEvent<ActorComponent, DidEquipEvent>(OnEquipped);
-        // Только UserInteractHand — InteractionAttempt давал duplicate на то же действие.
-        SubscribeLocalEvent<ActorComponent, UserInteractHandEvent>(OnUserInteractHand);
+        // Не ActorComponent: RT допускает одну directed-подписку на (comp, event), Actor уже занят StatsBoard.
+        SubscribeLocalEvent<AchievementTrackedComponent, DamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<AchievementTrackedComponent, ItemConstructionCreated>(OnCrafted);
+        SubscribeLocalEvent<AchievementTrackedComponent, DidEquipEvent>(OnEquipped);
+        SubscribeLocalEvent<AchievementTrackedComponent, UserInteractHandEvent>(OnUserInteractHand);
         SubscribeLocalEvent<GameRuleStartedEvent>(OnGameRuleStarted);
         SubscribeLocalEvent<EmergencyShuttleComponent, FTLCompletedEvent>(OnEmergencyShuttleArrived);
         SubscribeLocalEvent<SunriseExplosionEvent>(OnExplosion);
@@ -67,6 +69,7 @@ public sealed class AchievementConditionSystem : EntitySystem
 
     private async void OnPlayerSpawn(PlayerSpawnCompleteEvent ev)
     {
+        EnsureComp<AchievementTrackedComponent>(ev.Mob);
         _achievements.MarkRoundPresence(ev.Player);
 
         if (ev.LateJoin)
@@ -190,9 +193,12 @@ public sealed class AchievementConditionSystem : EntitySystem
                 EventKey: $"kill:{GetNetEntity(ev.Entity)}"));
     }
 
-    private async void OnDamageChanged(EntityUid uid, ActorComponent actor, DamageChangedEvent args)
+    private async void OnDamageChanged(EntityUid uid, AchievementTrackedComponent tracked, DamageChangedEvent args)
     {
         if (args.DamageDelta == null)
+            return;
+
+        if (!TryComp<ActorComponent>(uid, out _))
             return;
 
         // Heal: только чужой лекарь без godmode; EventKey на пациента+секундный bucket.
@@ -230,25 +236,34 @@ public sealed class AchievementConditionSystem : EntitySystem
         }
     }
 
-    private void OnCrafted(EntityUid uid, ActorComponent actor, ref ItemConstructionCreated args)
+    private void OnCrafted(EntityUid uid, AchievementTrackedComponent tracked, ref ItemConstructionCreated args)
     {
+        if (!TryComp<ActorComponent>(uid, out var actor))
+            return;
+
         _ = _achievements.ContributeAsync(
             actor.PlayerSession,
             AchievementConditionKeys.Craft,
             new AchievementTriggerContext(EventKey: $"craft:{GetNetEntity(args.Item)}"));
     }
 
-    private async void OnEquipped(EntityUid uid, ActorComponent actor, DidEquipEvent args)
+    private async void OnEquipped(EntityUid uid, AchievementTrackedComponent tracked, DidEquipEvent args)
     {
+        if (!TryComp<ActorComponent>(uid, out var actor))
+            return;
+
         await _achievements.ContributeAsync(
             actor.PlayerSession,
             AchievementConditionKeys.ItemPickup,
             new AchievementTriggerContext(EventKey: $"equip:{GetNetEntity(args.Equipment)}"));
     }
 
-    private async void OnUserInteractHand(EntityUid uid, ActorComponent actor, UserInteractHandEvent args)
+    private async void OnUserInteractHand(EntityUid uid, AchievementTrackedComponent tracked, UserInteractHandEvent args)
     {
-        var bucket = _timing.CurTick.Value / 10; // ~антиспам без глобального бана разных целей
+        if (!TryComp<ActorComponent>(uid, out var actor))
+            return;
+
+        var bucket = _timing.CurTick.Value / 10;
         await _achievements.ContributeAsync(
             actor.PlayerSession,
             AchievementConditionKeys.Interaction,
@@ -305,7 +320,7 @@ public sealed class AchievementConditionSystem : EntitySystem
             if (session.AttachedEntity is not { } ent)
                 continue;
 
-            var coords = Transform(ent).MapPosition;
+            var coords = _transform.GetMapCoordinates(ent);
             if (coords.MapId != ev.Epicenter.MapId)
                 continue;
 
