@@ -2,14 +2,6 @@
   id: PetMateVendInventory
   startingInventory:
     # Collars
-    ClothingNeckCollarBase: 2
-    ClothingNeckCollarRed: 2
-    ClothingNeckCollarBlue: 2
-    ClothingNeckCollarPink: 2
-    ClothingNeckCollarGreen: 2
+    ClothingNeckCollarBase: 3
     # Leashs
-    LeashBase: 2
-    LeashRed: 2
-    LeashBlue: 2
-    LeashPink: 2
-    LeashGreen: 2
+    LeashBase: 3
