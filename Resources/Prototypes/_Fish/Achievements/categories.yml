@@ -1,0 +1,34 @@
+- type: achievementCategory
+  id: FishAchCombat
+  order: 10
+  name: fish-achievements-category-combat
+
+- type: achievementCategory
+  id: FishAchSurvival
+  order: 20
+  name: fish-achievements-category-survival
+
+- type: achievementCategory
+  id: FishAchRoles
+  order: 30
+  name: fish-achievements-category-roles
+
+- type: achievementCategory
+  id: FishAchStation
+  order: 40
+  name: fish-achievements-category-station
+
+- type: achievementCategory
+  id: FishAchFunny
+  order: 50
+  name: fish-achievements-category-funny
+
+- type: achievementCategory
+  id: FishAchSecret
+  order: 90
+  name: fish-achievements-category-secret
+
+- type: achievementCategory
+  id: FishAchMisc
+  order: 100
+  name: fish-achievements-category-misc
