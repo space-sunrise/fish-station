@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using Content.Client._Fish.Achievements.UI;
 using Content.Client.Gameplay;
 using Content.Client.Lobby;
-using Content.Client.Popups;
 using Content.Shared._Fish.Achievements;
-using Content.Shared.Popups;
+using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Client._Fish.Achievements;
 
@@ -21,8 +22,11 @@ public sealed class AchievementUIController :
 {
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly IEntitySystemManager _systems = default!;
+    [Dependency] private readonly IUserInterfaceManager _ui = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private AchievementWindow? _window;
+    private FishAchievementToastHost? _toastHost;
     private readonly Dictionary<string, AchievementPlayerState> _states = new();
     private bool _subscribed;
 
@@ -34,6 +38,8 @@ public sealed class AchievementUIController :
 
     private void EnsureSubscribed()
     {
+        EnsureToastHost();
+
         if (_subscribed)
         {
             _systems.GetEntitySystem<AchievementClientSystem>().RequestSnapshot();
@@ -73,6 +79,18 @@ public sealed class AchievementUIController :
         _window = null;
     }
 
+    private void EnsureToastHost()
+    {
+        if (_toastHost != null)
+            return;
+
+        _toastHost = new FishAchievementToastHost(_timing)
+        {
+            Name = "FishAchievementToastHost",
+        };
+        _ui.PopupRoot.AddChild(_toastHost);
+    }
+
     private void OnSnapshot(List<AchievementPlayerState> entries)
     {
         _states.Clear();
@@ -94,10 +112,9 @@ public sealed class AchievementUIController :
             ? Loc.GetString(proto.Name)
             : ev.Entry.AchievementId;
 
-        var message = Loc.GetString(
-            ev.NotificationLocId ?? "fish-achievements-unlocked",
-            ("name", name));
-
-        _systems.GetEntitySystem<PopupSystem>().PopupCursor(message, PopupType.Large);
+        EnsureToastHost();
+        _toastHost?.Push(
+            Loc.GetString(ev.NotificationLocId ?? "fish-achievements-unlocked", ("name", name)),
+            name);
     }
 }

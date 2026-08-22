@@ -1,6 +1,12 @@
 fish-achievements-button = Достижения
-fish-achievements-window-title = Достижения
+fish-achievements-window-title = Журнал достижений
 fish-achievements-summary = Получено: {$unlocked} / {$total}
+fish-achievements-progress-percent = {$percent}%
+fish-achievements-progress-count = Прогресс: {$current} / {$target}
+fish-achievements-detail-hint = Выберите достижение слева, чтобы посмотреть описание
+fish-achievements-status-unlocked = Получено
+fish-achievements-status-locked = Не получено
+fish-achievements-status-secret = Секретное достижение
 fish-achievements-categories-label = Категории
 fish-achievements-category-all = Все
 fish-ui-options-crt-theme = Использовать CRT-тему интерфейса

@@ -23,4 +23,10 @@ public sealed partial class AchievementCategoryPrototype : IPrototype
     /// </summary>
     [DataField(required: true)]
     public LocId Name = string.Empty;
+
+    /// <summary>
+    /// Иконка вкладки (state из crt_icons.rsi). Если пусто — medal.
+    /// </summary>
+    [DataField]
+    public string? Icon;
 }

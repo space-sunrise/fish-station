@@ -1,6 +1,12 @@
 fish-achievements-button = Achievements
-fish-achievements-window-title = Achievements
+fish-achievements-window-title = Achievement Log
 fish-achievements-summary = Unlocked: {$unlocked} / {$total}
+fish-achievements-progress-percent = {$percent}%
+fish-achievements-progress-count = Progress: {$current} / {$target}
+fish-achievements-detail-hint = Select an achievement to view details
+fish-achievements-status-unlocked = Unlocked
+fish-achievements-status-locked = Locked
+fish-achievements-status-secret = Secret achievement
 fish-achievements-categories-label = Categories
 fish-achievements-category-all = All
 fish-ui-options-crt-theme = Use the CRT interface theme

@@ -23,6 +23,10 @@ public enum FishCrtPalettePreset
     /// Голубо-серая палитра ближе к Nano/Sunrise, без «морского терминала».
     /// </summary>
     Slate,
+    /// <summary>
+    /// Тёмная станционная палитра для окна достижений (navy + cyan).
+    /// </summary>
+    Station,
     Spp,
     White,
     Yellow,
@@ -121,6 +125,7 @@ public static class FishCrtPalettes
             FishCrtPalettePreset.Red => Create("#D03434", "#100302", "#D03434"),
             // Голубо-серый: мягче Nano, без «квадратного терминала»
             FishCrtPalettePreset.Slate => CreateSlate(),
+            FishCrtPalettePreset.Station => CreateStation(),
             FishCrtPalettePreset.Spp => Create("#DBBF23", "#511814", "#DBBF23"),
             FishCrtPalettePreset.White => Create("#CCCCCC", "#666666", "#CCCCCC"),
             FishCrtPalettePreset.Yellow => Create("#FFD000", "#101000", "#FFD000"),
@@ -146,6 +151,22 @@ public static class FishCrtPalettes
             Color.FromHex("#9AA3B5"),
             Color.FromHex("#343844"),
             Color.FromHex("#858E9F"));
+    }
+
+    private static FishCrtPalette CreateStation()
+    {
+        return new FishCrtPalette(
+            Color.FromHex("#E3ECF5"),
+            Color.FromHex("#121820"),
+            Color.FromHex("#5EC4E8"),
+            Color.FromHex("#2A3544"),
+            Color.FromHex("#F2F8FC"),
+            Color.FromHex("#6FBE84"),
+            Color.FromHex("#D0AE6A"),
+            Color.FromHex("#D06A6A"),
+            Color.FromHex("#8FA0B8"),
+            Color.FromHex("#1A2230"),
+            Color.FromHex("#6B7A90"));
     }
 
     private static FishCrtPalette Create(string foreground, string background, string fill)

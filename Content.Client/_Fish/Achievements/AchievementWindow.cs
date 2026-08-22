@@ -1,43 +1,44 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using Content.Client._Fish.Achievements.UI;
 using Content.Client._Fish.UserInterface.Crt;
-using Content.Client.Resources;
 using Content.Client.UserInterface.Controls;
 using Content.Shared._Fish.Achievements;
 using Robust.Client.Graphics;
-using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface.Controls;
-using Robust.Shared.IoC;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 namespace Content.Client._Fish.Achievements;
 
 /// <summary>
-/// Окно достижений: мягкий скруглённый Slate-стиль ближе к современному Nano.
+/// Окно достижений: станционный журнал с вкладками-иконками, сеткой карточек и панелью деталей.
 /// </summary>
 public sealed class AchievementWindow : FancyWindow
 {
     private readonly FishCrtLabel _summary;
+    private readonly FishCrtLabel _percentLabel;
+    private readonly ProgressBar _globalProgress;
     private readonly BoxContainer _categoryRow;
-    private readonly BoxContainer _list;
-    private readonly Dictionary<string, AchievementEntryControl> _entries = new();
+    private readonly GridContainer _grid;
+    private readonly FishAchievementDetailPane _detail;
+    private readonly Dictionary<string, FishAchievementCard> _cards = new();
     private readonly Dictionary<FishCrtActionButton, string?> _categoryButtons = new();
 
     private IPrototypeManager? _prototypes;
     private IReadOnlyDictionary<string, AchievementPlayerState>? _states;
     private string? _selectedCategory;
+    private string? _selectedAchievementId;
 
     public AchievementWindow()
     {
         Title = Loc.GetString("fish-achievements-window-title");
-        MinSize = new Vector2(580, 480);
-        SetSize = new Vector2(660, 560);
+        MinSize = new Vector2(880, 580);
+        SetSize = new Vector2(960, 640);
 
         var theme = new FishCrtThemeScope
         {
-            Palette = FishCrtPalettePreset.Slate,
+            Palette = FishCrtPalettePreset.Station,
             Effects = FishCrtEffects.None,
             HorizontalExpand = true,
             VerticalExpand = true,
@@ -51,38 +52,70 @@ public sealed class AchievementWindow : FancyWindow
             HorizontalExpand = true,
             VerticalExpand = true,
             SeparationOverride = 10,
-            Margin = new Thickness(12, 10, 12, 12),
+            Margin = new Thickness(12, 8, 12, 12),
         };
 
-        var header = new BoxContainer
+        var header = new FishCrtPanel
+        {
+            Variant = FishCrtPanelVariant.Surface,
+            Rounded = true,
+            Effects = FishCrtEffects.None,
+            BackgroundOpacity = 0.65f,
+            BorderThickness = 0,
+            HorizontalExpand = true,
+        };
+
+        var headerInner = new BoxContainer
         {
             Orientation = BoxContainer.LayoutOrientation.Vertical,
             HorizontalExpand = true,
-            SeparationOverride = 4,
-            Margin = new Thickness(2, 0, 2, 2),
+            SeparationOverride = 6,
+            Margin = new Thickness(14, 10),
+        };
+
+        var headerTop = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Horizontal,
+            HorizontalExpand = true,
         };
 
         _summary = new FishCrtLabel
         {
             Heading = true,
-            TextFontSize = 16,
+            TextFontSize = 15,
+            HorizontalExpand = true,
             Text = Loc.GetString("fish-achievements-summary", ("unlocked", 0), ("total", 0)),
         };
-        header.AddChild(_summary);
-        header.AddChild(new FishCrtLabel
+
+        _percentLabel = new FishCrtLabel
         {
-            Text = Loc.GetString("fish-achievements-categories-label"),
+            TextFontSize = 13,
             Tone = FishCrtTone.Muted,
-            TextFontSize = 11,
-            Margin = new Thickness(0, 6, 0, 0),
-        });
+            HorizontalAlignment = HAlignment.Right,
+            Text = Loc.GetString("fish-achievements-progress-percent", ("percent", 0)),
+        };
+
+        headerTop.AddChild(_summary);
+        headerTop.AddChild(_percentLabel);
+
+        _globalProgress = new ProgressBar
+        {
+            MinValue = 0,
+            MaxValue = 100,
+            Value = 0,
+            MinHeight = 8,
+            HorizontalExpand = true,
+        };
+
+        headerInner.AddChild(headerTop);
+        headerInner.AddChild(_globalProgress);
+        header.AddChild(headerInner);
         root.AddChild(header);
 
         var categoryScroll = new ScrollContainer
         {
             HorizontalExpand = true,
-            VerticalExpand = false,
-            MinHeight = 44,
+            MinHeight = 52,
             HScrollEnabled = true,
             VScrollEnabled = false,
         };
@@ -90,41 +123,60 @@ public sealed class AchievementWindow : FancyWindow
         _categoryRow = new BoxContainer
         {
             Orientation = BoxContainer.LayoutOrientation.Horizontal,
-            HorizontalExpand = true,
-            SeparationOverride = 6,
+            SeparationOverride = 8,
         };
         categoryScroll.AddChild(_categoryRow);
         root.AddChild(categoryScroll);
 
-        var listPanel = new FishCrtPanel
+        var body = new BoxContainer
         {
-            Variant = FishCrtPanelVariant.Inset,
-            Effects = FishCrtEffects.None,
-            Rounded = true,
+            Orientation = BoxContainer.LayoutOrientation.Horizontal,
             HorizontalExpand = true,
             VerticalExpand = true,
-            BackgroundOpacity = 0.42f,
-            BorderThickness = 0,
+            SeparationOverride = 10,
         };
 
-        var scroll = new ScrollContainer
+        var catalogPanel = new FishCrtPanel
+        {
+            Variant = FishCrtPanelVariant.Inset,
+            Rounded = true,
+            Effects = FishCrtEffects.None,
+            BackgroundOpacity = 0.48f,
+            BorderThickness = 0,
+            HorizontalExpand = true,
+            VerticalExpand = true,
+            SizeFlagsStretchRatio = 1.35f,
+        };
+
+        var catalogScroll = new ScrollContainer
         {
             HorizontalExpand = true,
             VerticalExpand = true,
             HScrollEnabled = false,
-            Margin = new Thickness(10, 10, 10, 10),
+            Margin = new Thickness(10),
         };
 
-        _list = new BoxContainer
+        _grid = new GridContainer
         {
-            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            Columns = 2,
+            HSeparationOverride = 8,
+            VSeparationOverride = 8,
             HorizontalExpand = true,
-            SeparationOverride = 8,
         };
 
-        scroll.AddChild(_list);
-        listPanel.AddChild(scroll);
-        root.AddChild(listPanel);
+        catalogScroll.AddChild(_grid);
+        catalogPanel.AddChild(catalogScroll);
+
+        _detail = new FishAchievementDetailPane
+        {
+            MinWidth = 300,
+            SizeFlagsStretchRatio = 1f,
+        };
+
+        body.AddChild(catalogPanel);
+        body.AddChild(_detail);
+        root.AddChild(body);
+
         theme.AddChild(root);
         ContentsContainer.AddChild(theme);
     }
@@ -137,15 +189,23 @@ public sealed class AchievementWindow : FancyWindow
         _states = states;
 
         RebuildCategories();
-        RebuildList();
+        RebuildGrid();
     }
 
     public void UpdateEntry(AchievementPlayerState state)
     {
-        if (_entries.TryGetValue(state.AchievementId, out var control) && _prototypes != null)
+        if (_cards.TryGetValue(state.AchievementId, out var card) &&
+            _prototypes != null &&
+            _prototypes.TryIndex<AchievementPrototype>(state.AchievementId, out var proto))
         {
-            if (_prototypes.TryIndex<AchievementPrototype>(state.AchievementId, out var proto))
-                control.Update(proto, state);
+            card.Bind(proto, state);
+        }
+
+        if (_selectedAchievementId == state.AchievementId &&
+            _prototypes != null &&
+            _prototypes.TryIndex<AchievementPrototype>(state.AchievementId, out var selected))
+        {
+            _detail.Bind(selected, state);
         }
 
         UpdateSummary();
@@ -159,7 +219,7 @@ public sealed class AchievementWindow : FancyWindow
         if (_prototypes == null)
             return;
 
-        AddCategoryButton(null, Loc.GetString("fish-achievements-category-all"), null);
+        AddCategoryTab(null, Loc.GetString("fish-achievements-category-all"), FishCrtIcons.Home);
 
         string? firstCategory = null;
         foreach (var category in _prototypes.EnumeratePrototypes<AchievementCategoryPrototype>()
@@ -167,38 +227,38 @@ public sealed class AchievementWindow : FancyWindow
                      .ThenBy(c => c.ID))
         {
             firstCategory ??= category.ID;
-            AddCategoryButton(category.ID, Loc.GetString(category.Name), null);
+            var icon = string.IsNullOrWhiteSpace(category.Icon) ? FishCrtIcons.Medal : category.Icon!;
+            AddCategoryTab(category.ID, Loc.GetString(category.Name), icon);
         }
 
-        // Не открываем «Все» по умолчанию — иначе ~500 контролов за раз.
         if (_selectedCategory == null && firstCategory != null)
             _selectedCategory = firstCategory;
 
         RefreshCategorySelection();
     }
 
-    private void AddCategoryButton(string? categoryId, string text, string? iconState)
+    private void AddCategoryTab(string? categoryId, string tooltip, string iconState)
     {
         var button = new FishCrtActionButton
         {
-            Text = text,
             IconState = iconState,
-            Variant = FishCrtButtonVariant.Outline,
-            ContentAlignment = FishCrtContentAlignment.Center,
-            MinHeight = 32,
-            ContentMargin = new Thickness(14, 6),
-            TextFontSize = 12,
-            ToolTip = text,
+            ToolTip = tooltip,
+            Variant = categoryId == _selectedCategory ? FishCrtButtonVariant.Filled : FishCrtButtonVariant.Outline,
+            Selected = categoryId == _selectedCategory,
+            MinHeight = 44,
+            MinWidth = 44,
+            ContentMargin = new Thickness(10, 8),
         };
         button.Background.Rounded = true;
-        button.Background.BorderThickness = 0;
+        button.Background.BorderThickness = categoryId == _selectedCategory ? 0 : 1;
         button.Background.Effects = FishCrtEffects.None;
 
         button.OnPressed += _ =>
         {
             _selectedCategory = categoryId;
+            _selectedAchievementId = null;
             RefreshCategorySelection();
-            RebuildList();
+            RebuildGrid();
         };
 
         _categoryButtons[button] = categoryId;
@@ -216,19 +276,22 @@ public sealed class AchievementWindow : FancyWindow
         }
     }
 
-    private void RebuildList()
+    private void RebuildGrid()
     {
-        _list.RemoveAllChildren();
-        _entries.Clear();
+        _grid.RemoveAllChildren();
+        _cards.Clear();
 
         if (_prototypes == null || _states == null)
+        {
+            _detail.ShowPlaceholder();
+            UpdateSummary();
             return;
+        }
 
         IEnumerable<AchievementPrototype> achievements = _prototypes
             .EnumeratePrototypes<AchievementPrototype>()
             .Where(a => _selectedCategory == null || a.Category == _selectedCategory);
 
-        // «Все»: без сотен manual-заглушек — только живые условия и уже начатый прогресс.
         if (_selectedCategory == null)
         {
             achievements = achievements.Where(a =>
@@ -240,16 +303,63 @@ public sealed class AchievementWindow : FancyWindow
             });
         }
 
-        foreach (var proto in achievements.OrderBy(a => a.Order).ThenBy(a => a.ID))
+        var list = achievements.OrderBy(a => a.Order).ThenBy(a => a.ID).ToList();
+        FishAchievementCard? firstCard = null;
+
+        foreach (var proto in list)
         {
             _states.TryGetValue(proto.ID, out var state);
-            var control = new AchievementEntryControl();
-            control.Update(proto, state);
-            _entries[proto.ID] = control;
-            _list.AddChild(control);
+            var card = new FishAchievementCard();
+            card.Bind(proto, state);
+            card.SetSelected(proto.ID == _selectedAchievementId);
+            card.OnPressed += _ => SelectAchievement(proto.ID);
+
+            _cards[proto.ID] = card;
+            _grid.AddChild(card);
+            firstCard ??= card;
+        }
+
+        if (_selectedAchievementId != null &&
+            _cards.ContainsKey(_selectedAchievementId) &&
+            _prototypes.TryIndex<AchievementPrototype>(_selectedAchievementId, out var selectedProto))
+        {
+            _states.TryGetValue(_selectedAchievementId, out var selectedState);
+            _detail.Bind(selectedProto, selectedState);
+            _cards[_selectedAchievementId].SetSelected(true);
+        }
+        else if (firstCard != null)
+        {
+            SelectAchievement(firstCard.AchievementId);
+        }
+        else
+        {
+            _selectedAchievementId = null;
+            _detail.ShowPlaceholder();
         }
 
         UpdateSummary();
+    }
+
+    private void SelectAchievement(string achievementId)
+    {
+        if (_selectedAchievementId == achievementId)
+            return;
+
+        if (_selectedAchievementId != null && _cards.TryGetValue(_selectedAchievementId, out var prev))
+            prev.SetSelected(false);
+
+        _selectedAchievementId = achievementId;
+
+        if (_cards.TryGetValue(achievementId, out var card))
+            card.SetSelected(true);
+
+        if (_prototypes != null &&
+            _states != null &&
+            _prototypes.TryIndex<AchievementPrototype>(achievementId, out var proto))
+        {
+            _states.TryGetValue(achievementId, out var state);
+            _detail.Bind(proto, state);
+        }
     }
 
     private void UpdateSummary()
@@ -259,145 +369,21 @@ public sealed class AchievementWindow : FancyWindow
 
         var total = _prototypes.EnumeratePrototypes<AchievementPrototype>().Count();
         var unlocked = _states.Values.Count(s => s.Unlocked);
+        var percent = total > 0 ? (int) System.Math.Round(unlocked * 100d / total) : 0;
+
         _summary.Text = Loc.GetString("fish-achievements-summary", ("unlocked", unlocked), ("total", total));
         _summary.Tone = unlocked > 0 ? FishCrtTone.Good : FishCrtTone.Default;
-    }
-}
+        _percentLabel.Text = Loc.GetString("fish-achievements-progress-percent", ("percent", percent));
+        _globalProgress.Value = percent;
 
-/// <summary>
-/// Карточка достижения: скруглённая мягкая панель.
-/// </summary>
-public sealed class AchievementEntryControl : BoxContainer
-{
-    private static readonly ResPath ProgressBgPath = new("/Textures/Interface/Nano/rounded_button.svg.96dpi.png");
-
-    private readonly FishCrtPanel _panel;
-    private readonly FishCrtLabel _title;
-    private readonly FishCrtLabel _description;
-    private readonly ProgressBar _progress;
-    private readonly FishCrtLabel _progressLabel;
-    private readonly FishCrtIcon _statusIcon;
-    private readonly StyleBoxTexture _progressBg;
-    private readonly StyleBoxTexture _progressFg;
-
-    public AchievementEntryControl()
-    {
-        Orientation = LayoutOrientation.Vertical;
-        HorizontalExpand = true;
-
-        var cache = IoCManager.Resolve<IResourceCache>();
-        _progressBg = new StyleBoxTexture
+        var palette = FishCrtThemeHelpers.FindContext(_globalProgress).Palette;
+        _globalProgress.BackgroundStyleBoxOverride = new StyleBoxFlat
         {
-            Texture = cache.GetTexture(ProgressBgPath),
-            Modulate = Color.FromHex("#1A1D24"),
+            BackgroundColor = palette.Background.WithAlpha(0.95f),
         };
-        _progressBg.SetPatchMargin(StyleBox.Margin.All, 10);
-        _progressFg = new StyleBoxTexture
+        _globalProgress.ForegroundStyleBoxOverride = new StyleBoxFlat
         {
-            Texture = cache.GetTexture(ProgressBgPath),
-            Modulate = Color.FromHex("#6FBE84"),
+            BackgroundColor = palette.Border,
         };
-        _progressFg.SetPatchMargin(StyleBox.Margin.All, 10);
-
-        _panel = new FishCrtPanel
-        {
-            HorizontalExpand = true,
-            Variant = FishCrtPanelVariant.Surface,
-            Effects = FishCrtEffects.None,
-            Rounded = true,
-            BackgroundOpacity = 0.78f,
-            BorderThickness = 0,
-        };
-
-        var row = new BoxContainer
-        {
-            Orientation = LayoutOrientation.Horizontal,
-            HorizontalExpand = true,
-            SeparationOverride = 12,
-            Margin = new Thickness(14, 12),
-        };
-
-        _statusIcon = new FishCrtIcon
-        {
-            IconState = FishCrtIcons.Medal,
-            SetWidth = 22,
-            SetHeight = 22,
-            VerticalAlignment = VAlignment.Top,
-            Margin = new Thickness(0, 2, 0, 0),
-            Tone = FishCrtTone.Muted,
-        };
-
-        var textColumn = new BoxContainer
-        {
-            Orientation = LayoutOrientation.Vertical,
-            HorizontalExpand = true,
-            SeparationOverride = 4,
-        };
-
-        _title = new FishCrtLabel { Heading = true, TextFontSize = 13 };
-        _description = new FishCrtLabel { HorizontalExpand = true, Tone = FishCrtTone.Muted, TextFontSize = 11 };
-        _progressLabel = new FishCrtLabel { Tone = FishCrtTone.Muted, TextFontSize = 11 };
-        _progress = new ProgressBar
-        {
-            MinValue = 0,
-            MaxValue = 1,
-            Visible = false,
-            HorizontalExpand = true,
-            MinHeight = 10,
-            Margin = new Thickness(0, 2, 0, 0),
-        };
-        _progress.BackgroundStyleBoxOverride = _progressBg;
-        _progress.ForegroundStyleBoxOverride = _progressFg;
-
-        textColumn.AddChild(_title);
-        textColumn.AddChild(_description);
-        textColumn.AddChild(_progress);
-        textColumn.AddChild(_progressLabel);
-
-        row.AddChild(_statusIcon);
-        row.AddChild(textColumn);
-        _panel.AddChild(row);
-        AddChild(_panel);
-    }
-
-    public void Update(AchievementPrototype proto, AchievementPlayerState state)
-    {
-        var unlocked = state.Unlocked;
-        _title.Text = Loc.GetString(proto.Name);
-        _title.Tone = unlocked ? FishCrtTone.Good : FishCrtTone.Default;
-
-        if (proto.Secret && !unlocked)
-        {
-            _description.Text = Loc.GetString(proto.SecretDescription ?? "fish-achievements-secret-placeholder");
-            _statusIcon.IconState = FishCrtIcons.Warning;
-            _statusIcon.Tone = FishCrtTone.Warning;
-        }
-        else
-        {
-            _description.Text = Loc.GetString(proto.Description);
-            _statusIcon.IconState = FishCrtIcons.Medal;
-            _statusIcon.Tone = unlocked ? FishCrtTone.Good : FishCrtTone.Muted;
-        }
-
-        var target = System.Math.Max(1, proto.ProgressTarget);
-        var showProgress = target > 1 && proto.Condition != AchievementConditionKeys.Manual;
-        if (showProgress)
-        {
-            _progress.Visible = true;
-            _progress.MaxValue = target;
-            _progress.Value = System.Math.Clamp(state.Progress, 0, target);
-            _progressLabel.Text = $"{state.Progress}/{target}";
-            _progressLabel.Visible = true;
-            _progressLabel.Tone = unlocked ? FishCrtTone.Good : FishCrtTone.Muted;
-            _progressFg.Modulate = unlocked ? Color.FromHex("#6FBE84") : Color.FromHex("#7A8BB0");
-        }
-        else
-        {
-            _progress.Visible = false;
-            _progressLabel.Visible = false;
-        }
-
-        _panel.BackgroundOpacity = unlocked ? 0.88f : 0.68f;
-        _description.Tone = unlocked ? FishCrtTone.Default : FishCrtTone.Muted;
     }
 }
