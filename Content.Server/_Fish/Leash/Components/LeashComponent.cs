@@ -10,7 +10,7 @@ public sealed partial class LeashComponent : Component
     {
         DamageDict =
         {
-            ["Asphyxiation"] = 1,
+            ["Asphyxiation"] = 0.75,
         },
     };
 
@@ -32,10 +32,10 @@ public sealed partial class LeashComponent : Component
     [DataField]
     public float PullForce = 32f;
 
-    [DataField]
+    [DataField("modes")]
     public List<float> Modes = new() { 1f, 2.5f, 4f, 5.5f, 7f };
 
-    [DataField]
+    [DataField("currentModeIndex")]
     public int CurrentModeIndex = 2;
 
     public EntityUid? AttachedCollar;

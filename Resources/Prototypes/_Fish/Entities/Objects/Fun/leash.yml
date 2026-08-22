@@ -24,3 +24,5 @@
       - state: inhand-right
         # color: "#DCDCDC"
   - type: Leash
+    modes: [1, 2.5, 4, 5.5, 7]
+    currentModeIndex: 2
