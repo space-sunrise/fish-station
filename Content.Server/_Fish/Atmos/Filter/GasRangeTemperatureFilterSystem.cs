@@ -16,7 +16,6 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Content.Server.Administration.Logs;
 using Content.Server.NodeContainer.EntitySystems;
-using Content.Shared.Atmos.Components;
 
 namespace Content.Server.Atmos.Piping.Trinary.EntitySystems;
 
