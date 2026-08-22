@@ -56,7 +56,7 @@
       announcement: alert-level-sierra-announcement
       selectable: false
       sound:
-        path: /Audio/_Fish/Misc/sierra.ogg # Sunrise-Edit
+        path: /Audio/_Fish/Misc/sierra.ogg # Fish-edit
         params:
           volume: -2
       disableSelection: true
@@ -85,7 +85,7 @@
       announcement: alert-level-delta-announcement
       selectable: false
       sound:
-        path: /Audio/Misc/delta.ogg
+        path: /Audio/_Fish/Misc/delta.ogg # Fish-edit
         params:
           volume: -3
       disableSelection: true
