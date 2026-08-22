@@ -5,6 +5,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Database;
 using Content.Shared._Fish.Achievements;
+using Content.Shared.CCVar;
+using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -23,12 +25,19 @@ public sealed class AchievementManager : IPostInjectInit
     [Dependency] private readonly ILogManager _log = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IEntitySystemManager _systems = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private ISawmill _sawmill = default!;
     private AchievementGameplayGateSystem? _gate;
 
     private readonly Dictionary<ICommonSession, Dictionary<string, AchievementPlayerState>> _cache = new();
     private readonly Dictionary<string, List<AchievementPrototype>> _byCondition = new();
+
+    /// <summary>achievementId с реальной строкой в БД (загружено или upsert).</summary>
+    private readonly Dictionary<NetUserId, HashSet<string>> _persistedAchievementIds = new();
+
+    /// <summary>Upsert в БД за текущий раунд (per user).</summary>
+    private readonly Dictionary<NetUserId, int> _dbUpsertsThisRound = new();
 
     /// <summary>Раундовые тики без EventKey: user → achievementId → roundSerial.</summary>
     private readonly Dictionary<NetUserId, Dictionary<string, int>> _roundProgressTicks = new();
@@ -61,6 +70,7 @@ public sealed class AchievementManager : IPostInjectInit
         _eventKeys.Clear();
         _progressCooldownUntil.Clear();
         _roundPresenceStart.Clear();
+        _dbUpsertsThisRound.Clear();
     }
 
     public void MarkRoundPresence(ICommonSession session)
@@ -260,7 +270,7 @@ public sealed class AchievementManager : IPostInjectInit
                 return false;
 
             var target = Math.Max(1, proto.ProgressTarget);
-            return await CommitProgressAsync(session, cache, proto, existing, target);
+            return await CommitProgressAsync(session, cache, proto, existing, target, forcePersist: true);
         }
         finally
         {
@@ -382,17 +392,42 @@ public sealed class AchievementManager : IPostInjectInit
         Dictionary<string, AchievementPlayerState> cache,
         AchievementPrototype proto,
         AchievementPlayerState existing,
-        int newProgress)
+        int newProgress,
+        bool forcePersist = false)
     {
         // Уже unlocked — никаких повторных write/notify.
         if (existing.Unlocked)
             return false;
+
+        var target = Math.Max(1, proto.ProgressTarget);
+        var wouldUnlock = newProgress >= target;
+        var hasDbRow = HasPersistedRow(session.UserId, proto.ID);
+
+        if (!forcePersist)
+        {
+            if (!Gate.CanPersistToDatabase(session))
+                return ApplyMemoryProgress(session, cache, proto, existing, newProgress);
+
+            if (_cfg.GetCVar(FishCVars.AchievementsPersistOnlyOnUnlock) && !wouldUnlock && !hasDbRow)
+                return ApplyMemoryProgress(session, cache, proto, existing, newProgress);
+
+            if (!TryConsumeDbUpsertBudget(session.UserId))
+            {
+                _sawmill.Info(
+                    "Achievement DB budget exceeded for {User}, achievement {Id} kept in RAM",
+                    session.UserId,
+                    proto.ID);
+                return ApplyMemoryProgress(session, cache, proto, existing, newProgress);
+            }
+        }
 
         var entry = await _db.UpsertFishAchievementProgressAsync(
             session.UserId.UserId,
             proto.ID,
             newProgress,
             proto.ProgressTarget);
+
+        MarkPersisted(session.UserId, proto.ID);
 
         var state = ToState(entry);
         cache[proto.ID] = state;
@@ -406,16 +441,77 @@ public sealed class AchievementManager : IPostInjectInit
         return true;
     }
 
+    /// <summary>
+    /// Прогресс только в серверном RAM — без строки в БД (сессия / reconnect теряет partial).
+    /// </summary>
+    private bool ApplyMemoryProgress(
+        ICommonSession session,
+        Dictionary<string, AchievementPlayerState> cache,
+        AchievementPrototype proto,
+        AchievementPlayerState existing,
+        int newProgress)
+    {
+        var target = Math.Max(1, proto.ProgressTarget);
+        var clamped = Math.Clamp(newProgress, 0, target);
+        if (clamped == existing.Progress)
+            return false;
+
+        var unlocked = clamped >= target;
+        var state = new AchievementPlayerState(
+            proto.ID,
+            clamped,
+            unlocked,
+            unlocked ? _timing.CurTime : null);
+
+        cache[proto.ID] = state;
+        var justUnlocked = unlocked && !existing.Unlocked;
+        ProgressChanged?.Invoke(session, state, justUnlocked);
+        return true;
+    }
+
+    private bool HasPersistedRow(NetUserId user, string achievementId)
+    {
+        return _persistedAchievementIds.TryGetValue(user, out var set) && set.Contains(achievementId);
+    }
+
+    private void MarkPersisted(NetUserId user, string achievementId)
+    {
+        if (!_persistedAchievementIds.TryGetValue(user, out var set))
+        {
+            set = new HashSet<string>();
+            _persistedAchievementIds[user] = set;
+        }
+
+        set.Add(achievementId);
+    }
+
+    private bool TryConsumeDbUpsertBudget(NetUserId user)
+    {
+        var max = _cfg.GetCVar(FishCVars.AchievementsMaxDbUpsertsPerRound);
+        if (max <= 0)
+            return true;
+
+        _dbUpsertsThisRound.TryGetValue(user, out var count);
+        if (count >= max)
+            return false;
+
+        _dbUpsertsThisRound[user] = count + 1;
+        return true;
+    }
+
     private async Task LoadData(ICommonSession session, CancellationToken cancel)
     {
         var rows = await _db.GetFishAchievementsAsync(session.UserId.UserId, cancel);
         var dict = new Dictionary<string, AchievementPlayerState>(rows.Count);
+        var persisted = new HashSet<string>(rows.Count);
         foreach (var row in rows)
         {
             dict[row.AchievementId] = ToState(row);
+            persisted.Add(row.AchievementId);
         }
 
         _cache[session] = dict;
+        _persistedAchievementIds[session.UserId] = persisted;
     }
 
     private void ClientDisconnected(ICommonSession session)

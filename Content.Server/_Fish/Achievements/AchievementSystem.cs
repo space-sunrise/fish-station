@@ -1,6 +1,9 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Content.Shared._Fish.Achievements;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Fish.Achievements;
 
@@ -10,6 +13,10 @@ namespace Content.Server._Fish.Achievements;
 public sealed class AchievementSystem : EntitySystem
 {
     [Dependency] private readonly AchievementManager _achievements = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+
+    private static readonly TimeSpan SnapshotRequestCooldown = TimeSpan.FromSeconds(2);
+    private readonly Dictionary<NetUserId, TimeSpan> _lastSnapshotRequest = new();
 
     public override void Initialize()
     {
@@ -27,6 +34,12 @@ public sealed class AchievementSystem : EntitySystem
 
     private void OnRequestAchievements(RequestAchievementsEvent ev, EntitySessionEventArgs args)
     {
+        var user = args.SenderSession.UserId;
+        var now = _timing.CurTime;
+        if (_lastSnapshotRequest.TryGetValue(user, out var last) && now - last < SnapshotRequestCooldown)
+            return;
+
+        _lastSnapshotRequest[user] = now;
         SendSnapshot(args.SenderSession);
     }
 

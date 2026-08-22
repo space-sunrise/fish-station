@@ -1,20 +1,26 @@
 using Content.Server.Administration.Systems;
 using Content.Server.GameTicking;
+using Content.Server.Players.PlayTimeTracking;
 using Content.Shared._Fish.Achievements;
+using Content.Shared.CCVar;
 using Content.Shared.Ghost;
 using Content.Shared.Mind;
+using Content.Shared.Players.PlayTimeTracking;
+using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 
 namespace Content.Server._Fish.Achievements;
 
 /// <summary>
-/// Единый gate: обычный раунд / ghost / visiting / Admin Arena.
+/// Единый gate: gameplay (раунд / ghost / arena) и persistence (playtime → БД).
 /// </summary>
 public sealed class AchievementGameplayGateSystem : EntitySystem
 {
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly AdminTestArenaSystem _adminArena = default!;
+    [Dependency] private readonly PlayTimeTrackingManager _playTime = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     /// <summary>
     /// Можно ли засчитывать gameplay-достижение этому session.
@@ -43,6 +49,20 @@ public sealed class AchievementGameplayGateSystem : EntitySystem
             return false;
 
         return true;
+    }
+
+    /// <summary>
+    /// Можно ли писать в fish_achievement_progress (anti-DB-flood для новорегов).
+    /// </summary>
+    public bool CanPersistToDatabase(ICommonSession session)
+    {
+        var minMinutes = _cfg.GetCVar(FishCVars.AchievementsMinOverallPlaytimeMinutes);
+        if (minMinutes <= 0)
+            return true;
+
+        _playTime.FlushTracker(session);
+        var overall = _playTime.GetPlayTimeForTracker(session, PlayTimeTrackingShared.TrackerOverall);
+        return overall >= TimeSpan.FromMinutes(minMinutes);
     }
 
     public bool IsInAdminTestArena(EntityUid ent)
