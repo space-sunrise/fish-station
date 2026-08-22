@@ -8,7 +8,7 @@
   components:
   - type: StationEvent
     startAnnouncement: null
-    startAudio: /Audio/_Sunrise/Announcements/sunrise_ert_accepted.ogg
+    startAudio: /Audio/_Fish/Misc/yesert.ogg
     # null — правило не автозавершается; шаттл остаётся, повторный вызов блокируется.
     duration: null
     maxOccurrences: 99
@@ -22,7 +22,7 @@
   components:
   - type: StationEvent
     startAnnouncement: null
-    startAudio: /Audio/_Sunrise/Announcements/sunrise_ert_accepted.ogg
+    startAudio: /Audio/_Fish/Misc/yesert.ogg
     duration: null
     maxOccurrences: 99
     weight: 0
@@ -35,7 +35,7 @@
   components:
   - type: StationEvent
     startAnnouncement: null
-    startAudio: /Audio/_Sunrise/Announcements/sunrise_ert_accepted.ogg
+    startAudio: /Audio/_Fish/Misc/yesert.ogg
     duration: null
     maxOccurrences: 99
     weight: 0
@@ -48,7 +48,7 @@
   components:
   - type: StationEvent
     startAnnouncement: null
-    startAudio: /Audio/_Sunrise/Announcements/sunrise_ert_accepted.ogg
+    startAudio: /Audio/_Fish/Misc/yesert.ogg
     duration: null
     maxOccurrences: 99
     weight: 0
@@ -61,7 +61,7 @@
   components:
   - type: StationEvent
     startAnnouncement: null
-    startAudio: /Audio/_Sunrise/Announcements/sunrise_outbreak5.ogg
+    startAudio: /Audio/_Fish/Misc/outbreakZ.ogg
     duration: null
     maxOccurrences: 99
     weight: 0

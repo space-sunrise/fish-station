@@ -1,4 +1,16 @@
 ﻿Entries:
+- author: Pifagor
+  time: '2026-08-22T09:00:00.0000000+00:00'
+  changes:
+  - type: Fix
+    message: Консоль покупки ОБР снова показывает баланс карго на боевых картах (StandardNanotrasenStation).
+    id: 24
+- author: Pifagor
+  time: '2026-08-19T16:50:00.0000000+00:00'
+  changes:
+  - type: Fix
+    message: Консоль покупки ОБР снова видит баланс основной станции; стоимость доступных отрядов удвоена.
+    id: 23
 - author: dng-cher
   time: '2026-08-16T10:30:08.0000000+00:00'
   changes:

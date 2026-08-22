@@ -17,6 +17,7 @@ public sealed class ObrCallIntegrationTests
     private static readonly EntProtoId AmberRuleId = "FishObrShuttleAmber";
     private static readonly EntProtoId MissionRoleId = "MindRoleObrMission";
     private static readonly ProtoId<ObrCallSettingsPrototype> SettingsId = "DefaultObrCallSettings";
+    private static readonly EntProtoId StandardStationId = "StandardNanotrasenStation";
 
     [Test]
     public async Task PrototypesExistAndGammaNotOnStationList()
@@ -43,9 +44,25 @@ public sealed class ObrCallIntegrationTests
             Assert.That(gamma.StationAvailable, Is.False);
             Assert.That(gamma.CentCommAvailable, Is.True);
 
-            Assert.That(proto.Index(AmberId).StationCost, Is.EqualTo(50000));
-            Assert.That(proto.Index(RedId).StationCost, Is.EqualTo(100000));
-            Assert.That(proto.Index(CburnId).StationCost, Is.EqualTo(100000));
+            Assert.That(proto.Index(AmberId).StationCost, Is.EqualTo(100000));
+            Assert.That(proto.Index(RedId).StationCost, Is.EqualTo(200000));
+            Assert.That(proto.Index(CburnId).StationCost, Is.EqualTo(200000));
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task StandardNanotrasenStation_HasMainStationAndCentCommLink()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+
+        await server.WaitAssertion(() =>
+        {
+            var stationProto = server.ProtoMan.Index(StandardStationId);
+            Assert.That(stationProto.Components.ContainsKey("MainStation"), Is.True);
+            Assert.That(stationProto.Components.ContainsKey("StationCentComm"), Is.True);
         });
 
         await pair.CleanReturnAsync();
