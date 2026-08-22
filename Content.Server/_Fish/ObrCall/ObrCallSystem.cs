@@ -9,7 +9,6 @@ using Content.Server.Roles;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
-using Content.Server._Sunrise.StationCentComm;
 using Content.Server._Sunrise.Storyteller.Components;
 using Content.Shared._Fish.ObrCall;
 using Content.Shared.Cargo.Prototypes;
@@ -303,7 +302,7 @@ public sealed partial class ObrCallSystem : EntitySystem
 
     /// <summary>
     /// Для покупки — основная станция с банковским счётом (как у cargo console / storyteller metrics).
-    /// Для ЦК — основная игровая станция без CentComm.
+    /// Для ЦК — основная игровая станция (MainStation), даже если у неё есть привязка CentComm-шаттла.
     /// </summary>
     private bool TryGetTargetStation(EntityUid console, bool purchaseMode, out EntityUid station)
     {
@@ -329,13 +328,12 @@ public sealed partial class ObrCallSystem : EntitySystem
     {
         station = EntityUid.Invalid;
 
-        if (HasComp<StationCentCommComponent>(candidate))
-            return false;
-
         if (!HasComp<StationDataComponent>(candidate))
             return false;
 
         // Sunrise: баланс и метрики считаются только по MainStation.
+        // Не фильтровать StationCentComm: он есть у StandardNanotrasenStation (привязка шаттла ЦК),
+        // а не только у отдельной карты NanotrasenCentralCommand.
         if (!HasComp<MainStationComponent>(candidate))
             return false;
 
