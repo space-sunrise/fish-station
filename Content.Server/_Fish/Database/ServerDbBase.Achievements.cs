@@ -71,4 +71,22 @@ public abstract partial class ServerDbBase
         await db.DbContext.SaveChangesAsync(cancel);
         return entry;
     }
+
+    /// <summary>
+    /// Удаляет весь прогресс достижений аккаунта (например, при перманентном бане).
+    /// </summary>
+    public async Task<int> DeleteFishAchievementsAsync(Guid player, CancellationToken cancel = default)
+    {
+        await using var db = await GetDb(cancel);
+        var rows = await db.DbContext.FishAchievementProgress
+            .Where(e => e.PlayerUserId == player)
+            .ToListAsync(cancel);
+
+        if (rows.Count == 0)
+            return 0;
+
+        db.DbContext.FishAchievementProgress.RemoveRange(rows);
+        await db.DbContext.SaveChangesAsync(cancel);
+        return rows.Count;
+    }
 }

@@ -74,6 +74,8 @@ public sealed class AchievementEventKeyTracker
 
     public void Clear() => _consumed.Clear();
 
+    public void ClearUser(NetUserId user) => _consumed.Remove(user);
+
     public bool IsConsumed(NetUserId user, string eventKey)
     {
         return _consumed.TryGetValue(user, out var set) && set.Contains(eventKey);

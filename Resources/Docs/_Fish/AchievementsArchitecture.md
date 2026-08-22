@@ -74,7 +74,8 @@
 - накопительный прогресс обновляется атомарно или сериализуется существующим DB command pipeline;
 - reconnect повторно загружает состояние из базы;
 - round end и disconnect выполняют flush незаписанного прогресса;
-- повторная разблокировка идемпотентна.
+- повторная разблокировка идемпотентна;
+- при **перманентном server-ban** (`ExpirationTime == null`) все строки `fish_achievement_progress` аккаунта удаляются, RAM-кеш сбрасывается (`AchievementBanCleanupSystem` → `ServerBanIssued`).
 
 ## Event-driven условия
 

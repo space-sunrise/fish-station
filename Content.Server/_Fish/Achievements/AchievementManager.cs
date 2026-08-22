@@ -521,6 +521,42 @@ public sealed class AchievementManager : IPostInjectInit
         _roundPresenceStart.Remove(session.UserId);
     }
 
+    /// <summary>
+    /// Сбрасывает RAM-состояние достижений аккаунта (после purge в БД).
+    /// </summary>
+    public void PurgePlayer(NetUserId userId, ICommonSession? session = null)
+    {
+        if (session != null)
+        {
+            _cache.Remove(session);
+        }
+        else
+        {
+            foreach (var cachedSession in _cache.Keys.ToList())
+            {
+                if (cachedSession.UserId == userId)
+                    _cache.Remove(cachedSession);
+            }
+        }
+
+        _persistedAchievementIds.Remove(userId);
+        _dbUpsertsThisRound.Remove(userId);
+        _roundProgressTicks.Remove(userId);
+        _roundPresenceStart.Remove(userId);
+        _eventKeys.ClearUser(userId);
+
+        foreach (var key in _progressCooldownUntil.Keys.ToList())
+        {
+            if (key.User == userId)
+                _progressCooldownUntil.Remove(key);
+        }
+
+        lock (_userLocks)
+        {
+            _userLocks.Remove(userId);
+        }
+    }
+
     private static AchievementPlayerState ToState(FishAchievementProgress entry)
     {
         TimeSpan? unlockedAt = entry.UnlockedAt is { } at

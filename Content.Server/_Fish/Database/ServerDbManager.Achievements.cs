@@ -16,6 +16,8 @@ public partial interface IServerDbManager
         int progress,
         int progressTarget,
         CancellationToken cancel = default);
+
+    Task<int> DeleteFishAchievementsAsync(Guid player, CancellationToken cancel = default);
 }
 
 public sealed partial class ServerDbManager
@@ -36,5 +38,11 @@ public sealed partial class ServerDbManager
         DbWriteOpsMetric.Inc();
         return RunDbCommand(() =>
             _db.UpsertFishAchievementProgressAsync(player, achievementId, progress, progressTarget, cancel));
+    }
+
+    public Task<int> DeleteFishAchievementsAsync(Guid player, CancellationToken cancel = default)
+    {
+        DbWriteOpsMetric.Inc();
+        return RunDbCommand(() => _db.DeleteFishAchievementsAsync(player, cancel));
     }
 }
