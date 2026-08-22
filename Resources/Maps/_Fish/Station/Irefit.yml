@@ -131281,14 +131281,6 @@ entities:
     - type: Transform
       pos: 8.5,69.5
       parent: 2
-- proto: FishJudgeGavel
-  entities:
-  - uid: 14771
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 54.530144,22.828953
-      parent: 2
 - proto: Flash
   entities:
   - uid: 15809
