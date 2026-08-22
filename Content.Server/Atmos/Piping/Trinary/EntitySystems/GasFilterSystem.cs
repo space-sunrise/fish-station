@@ -54,7 +54,7 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
         {
             if (!filter.Enabled
                 || !_nodeContainer.TryGetNodes(uid, filter.InletName, filter.FilterName, filter.OutletName, out PipeNode? inletNode, out PipeNode? filterNode, out PipeNode? outletNode)
-                || (outletNode.Air.Pressure >= Atmospherics.MaxOutputPressure && filterNode.Air.Pressure >= Atmospherics.MaxOutputPressure)) // No need to transfer if targets are full.
+                || (outletNode.Air.Pressure >= Atmospherics.MaxOutputPressure)) // No need to transfer if targets are full. Fish edit. Реанимируем сабфреймы
             {
                 _ambientSoundSystem.SetAmbience(uid, false);
                 return;
