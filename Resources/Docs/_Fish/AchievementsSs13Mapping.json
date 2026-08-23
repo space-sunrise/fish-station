@@ -171,5 +171,99 @@
     "conditionParams": {},
     "status": "blocked",
     "blockedReason": "Bicycle vehicle mechanic absent in Fish"
+  },
+  {
+    "id": "FishAch_ClownCourt",
+    "source": "Fish-original (mock trial with judge gavel)",
+    "sourceTrigger": "GavelHammer AfterInteract on GavelBlock ×30",
+    "sourceCondition": "Hold public mock trial — strike gavel block 30 times",
+    "fishEquivalent": "GavelSystem + GavelHammer/GavelBlock (Sunrise) + FishJudgeGavel parent",
+    "fishTrigger": "GavelSystem.OnHit → AchievementConditionKeys.GavelStrike",
+    "condition": "gavel-strike",
+    "conditionParams": { "target": "GavelBlock" },
+    "progressTarget": 30,
+    "status": "fully_specific"
+  },
+  {
+    "id": "FishAch_AtmosPoetry",
+    "source": "Fish-original",
+    "sourceTrigger": "Stabilize critical atmos incident without explosions",
+    "sourceCondition": "Resolve danger-level atmos/fire incident without nearby explosion",
+    "fishEquivalent": "BLOCKED: no player-attributed atmos stabilization completion event",
+    "fishTrigger": null,
+    "condition": "interaction",
+    "conditionParams": {},
+    "status": "blocked",
+    "blockedReason": "Atmos incident stabilization tracking absent; GasPipe interaction is not equivalent"
+  },
+  {
+    "id": "FishAch_Thatwasstupidofyou",
+    "source": "BeeStation/code/__DEFINES/achievements.dm MEDAL_DETONATE_WELDERBOMB",
+    "sourceTrigger": "Detonate welder bomb (lit welder + fuel tank)",
+    "sourceCondition": "Player causes welder bomb explosion",
+    "fishEquivalent": "BLOCKED: WelderComponent notes TODO; no welder-bomb detonation event",
+    "fishTrigger": null,
+    "condition": "interaction",
+    "conditionParams": {},
+    "status": "blocked",
+    "blockedReason": "Welder bomb detonation mechanic absent; generic explosion is false positive"
+  },
+  {
+    "id": "FishAch_SurvivaloftheFittest",
+    "source": "BeeStation/code/__DEFINES/achievements.dm MEDAL_USE_WEIGHT_MACHINE",
+    "sourceTrigger": "Use weight machine in gym",
+    "sourceCondition": "Successfully use exercise/weight machine",
+    "fishEquivalent": "BLOCKED: no weight/exercise machine in Fish/Sunrise",
+    "fishTrigger": null,
+    "condition": "interaction",
+    "conditionParams": {},
+    "status": "blocked",
+    "blockedReason": "Weight machine mechanic absent; GunShotEvent was false positive"
+  },
+  {
+    "id": "FishAch_Misclick",
+    "source": "Goonstation — crowbar floor misclick joke",
+    "sourceTrigger": "Pry intact floor tile with crowbar during fight",
+    "sourceCondition": "Deconstruct intact (non-burnt/damaged) floor tile with prying tool",
+    "fishEquivalent": "SharedToolSystem.Tile TileToolDoAfterEvent + intact tile filter",
+    "fishTrigger": "AchievementConditionSystem.Fun.OnTileToolDoAfter",
+    "condition": "tile-pry",
+    "conditionParams": { "tag": "IntactFloor" },
+    "status": "fully_specific"
+  },
+  {
+    "id": "FishAch_GoreFest",
+    "source": "Goonstation — gibbed death",
+    "sourceTrigger": "Player body gibbed (explosion etc.)",
+    "sourceCondition": "Get gibbed; suicide counts",
+    "fishEquivalent": "GibbingSystem BeingGibbedEvent",
+    "fishTrigger": "AchievementConditionSystem.Exploration.OnBeingGibbed",
+    "condition": "gibbed",
+    "conditionParams": {},
+    "status": "fully_specific"
+  },
+  {
+    "id": "FishAch_RoundandFull",
+    "source": "BeeStation MEDAL_CLOWNCARKING",
+    "sourceTrigger": "Clown car / round and full",
+    "sourceCondition": "Fill clown car with clowns",
+    "fishEquivalent": "BLOCKED: clown car vehicle absent",
+    "fishTrigger": null,
+    "condition": "interaction",
+    "conditionParams": {},
+    "status": "blocked",
+    "blockedReason": "Clown car (MEDAL_CLOWNCARKING) mechanic absent; generic death was false positive"
+  },
+  {
+    "id": "FishAch_BestMealofMyLife",
+    "source": "BeeStation MEDAL_MINTGIB",
+    "sourceTrigger": "Eat supermatter / Zarathustra",
+    "sourceCondition": "Ingest supermatter crystal",
+    "fishEquivalent": "BLOCKED: SupermatterCrystal ingest achievement hook not verified",
+    "fishTrigger": null,
+    "condition": "interaction",
+    "conditionParams": {},
+    "status": "blocked",
+    "blockedReason": "Supermatter/Zarathustra ingest trigger not mapped"
   }
 ]

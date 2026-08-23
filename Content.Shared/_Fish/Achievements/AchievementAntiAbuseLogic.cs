@@ -119,6 +119,7 @@ public static class AchievementAntiAbuseLogic
             AchievementConditionKeys.RoundSurvive => true,
             AchievementConditionKeys.ShuttleArrive => true,
             AchievementConditionKeys.ChasmFall => true,
+            AchievementConditionKeys.Gibbed => true,
             _ => false,
         };
     }

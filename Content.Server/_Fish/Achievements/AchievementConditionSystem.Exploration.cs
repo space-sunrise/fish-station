@@ -10,6 +10,7 @@ using Content.Shared.Chasm;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
+using Content.Shared.Gibbing;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Roles.Components;
@@ -38,6 +39,7 @@ public sealed partial class AchievementConditionSystem
         SubscribeLocalEvent<SiliconLawProviderComponent, SiliconEmaggedEvent>(OnSiliconEmagged);
         SubscribeLocalEvent<BloodstreamComponent, SolutionContainerChangedEvent>(OnBloodstreamChanged);
         SubscribeLocalEvent<ChasmFallingComponent, ComponentInit>(OnChasmFalling);
+        SubscribeLocalEvent<ActorComponent, BeingGibbedEvent>(OnBeingGibbed);
     }
 
     private void OnExamined(ExaminedEvent args)
@@ -179,6 +181,16 @@ public sealed partial class AchievementConditionSystem
             AchievementConditionKeys.ChasmFall,
             new AchievementTriggerContext(
                 EventKey: $"chasm:{GetNetEntity(uid)}"));
+    }
+
+    private void OnBeingGibbed(EntityUid uid, ActorComponent actor, ref BeingGibbedEvent args)
+    {
+        _ = _achievements.ContributeAsync(
+            actor.PlayerSession,
+            AchievementConditionKeys.Gibbed,
+            new AchievementTriggerContext(
+                EntityPrototypeId: GetPrototypeId(uid),
+                EventKey: $"gib:{GetNetEntity(uid)}"));
     }
 
     /// <summary>Один progress за reagent id на игрока за раунд.</summary>

@@ -158,6 +158,84 @@ public sealed class AchievementAntiAbuseLogicTests
     }
 
     [Test]
+    public void TargetParam_FiltersGavelStrike()
+    {
+        var targetParams = new Dictionary<string, string> { { AchievementConditionParams.Target, "GavelBlock" } };
+        Assert.That(
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.GavelStrike,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                targetParams,
+                new AchievementTriggerContext(EntityPrototypeId: "GavelBlock")),
+            Is.True);
+
+        Assert.That(
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.GavelStrike,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                targetParams,
+                new AchievementTriggerContext(EntityPrototypeId: "ClownRecorder")),
+            Is.False);
+    }
+
+    [Test]
+    public void TagParam_FiltersIntactFloorTilePry()
+    {
+        var tagParams = new Dictionary<string, string> { { AchievementConditionParams.Tag, "IntactFloor" } };
+        Assert.That(
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.TilePry,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                tagParams,
+                new AchievementTriggerContext(VerifiedTag: "IntactFloor")),
+            Is.True);
+
+        Assert.That(
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.TilePry,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                tagParams,
+                new AchievementTriggerContext(VerifiedTag: null)),
+            Is.False);
+    }
+
+    [Test]
+    public void GunShotGeneric_DoesNotMatchSurvivalWhenBlocked()
+    {
+        Assert.That(
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.GunShot,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                EmptyParams,
+                new AchievementTriggerContext(WeaponPrototypeId: "WeaponRevolver")),
+            Is.False);
+    }
+
+    [Test]
+    public void InherentlySpecific_GibbedWithoutParams()
+    {
+        Assert.That(
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.Gibbed,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                EmptyParams,
+                default),
+            Is.True);
+    }
+
+    [Test]
     public void EventKeyDedupe_SameKeyRejectedTwice()
     {
         var tracker = new AchievementEventKeyTracker();

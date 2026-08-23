@@ -64,6 +64,9 @@ public sealed partial class AchievementTriggerAuditYamlTests
         AchievementConditionKeys.AiLawChanges,
         AchievementConditionKeys.ReagentMetabolize,
         AchievementConditionKeys.ChasmFall,
+        AchievementConditionKeys.GavelStrike,
+        AchievementConditionKeys.TilePry,
+        AchievementConditionKeys.Gibbed,
     };
 
     private static readonly HashSet<string> InherentlySpecificConditions = new()
@@ -77,6 +80,7 @@ public sealed partial class AchievementTriggerAuditYamlTests
         AchievementConditionKeys.RoundSurvive,
         AchievementConditionKeys.ShuttleArrive,
         AchievementConditionKeys.ChasmFall,
+        AchievementConditionKeys.Gibbed,
     };
 
     private static string FindRepoRoot()

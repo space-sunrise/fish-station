@@ -2957,15 +2957,18 @@
 - type: achievement
   id: FishAch_ClownCourt
   name: achievement-fishach_clowncourt-name
-  description: achievement-fish-generic-interaction-30-desc
+  description: achievement-fishach_clowncourt-desc
   category: FishAchFunny
-  condition: interaction
+  condition: gavel-strike
   conditionParams:
-    target: ClownRecorder
+    target: GavelBlock
+
+
   progressTarget: 30
   oncePerRound: true
   order: 526
   # source: Fish-original
+
 - type: achievement
   id: FishAch_JanitorZen
   name: achievement-fishach_janitorzen-name
@@ -3007,16 +3010,15 @@
 - type: achievement
   id: FishAch_AtmosPoetry
   name: achievement-fishach_atmospoetry-name
-  description: achievement-fish-generic-interaction-40-desc
+  description: achievement-fishach_atmospoetry-desc
   category: FishAchStation
   condition: interaction
-  conditionParams:
-    target: GasPipe
-  progressTarget: 40
+  progressTarget: 1
   oncePerRound: true
-  progressCooldownSeconds: 5
   order: 530
   # source: Fish-original
+  # blocked: no atmos incident stabilization event without explosions
+
 - type: achievement
   id: FishAch_CargoMiracle
   name: achievement-fishach_cargomiracle-name

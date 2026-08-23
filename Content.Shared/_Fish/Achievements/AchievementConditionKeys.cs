@@ -39,4 +39,10 @@ public static class AchievementConditionKeys
     public const string AiLawChanges = "ai-law-changes";
     public const string ReagentMetabolize = "reagent-metabolize";
     public const string ChasmFall = "chasm-fall";
+    /// <summary>Удар судейским молотком по GavelBlock (AfterInteractEvent).</summary>
+    public const string GavelStrike = "gavel-strike";
+    /// <summary>Отрыв целого floor tile crowbar/pry-tool (TileToolDoAfterEvent).</summary>
+    public const string TilePry = "tile-pry";
+    /// <summary>Тело разобрано GibbingSystem (BeingGibbedEvent).</summary>
+    public const string Gibbed = "gibbed";
 }

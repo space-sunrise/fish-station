@@ -1,15 +1,15 @@
 - type: achievement
   id: FishAch_BestMealofMyLife
   name: achievement-fishach_bestmealofmylife-name
-  description: achievement-fish-catalog-pending-desc
+  description: achievement-fishach_bestmealofmylife-desc
   category: FishAchMisc
-  condition: item-ingest
-  allowGenericTrigger: true
+  condition: interaction
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
   order: 100
   # source: BeeStation
+  # blocked: ingest SupermatterCrystal / Zarathustra mechanic not mapped
   # catalog-duplicate: progress goes to primary sibling
 - type: achievement
   id: FishAch_CrossingtheHorizon
@@ -32,6 +32,8 @@
   condition: ai-law-changes
   conditionParams:
     job: StationAi
+
+
 
 
   progressTarget: 15
@@ -132,6 +134,8 @@
     reagent: Desoxyephedrine
 
 
+
+
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -210,16 +214,17 @@
 - type: achievement
   id: FishAch_SurvivaloftheFittest
   name: achievement-fishach_survivalofthefittest-name
-  description: achievement-fish-catalog-pending-desc
+  description: achievement-fishach_survivalofthefittest-desc
   category: FishAchCombat
-  condition: gun-shot
-  allowGenericTrigger: true
+  condition: interaction
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
   order: 115
   # source: BeeStation
+  # blocked: weight machine mechanic absent in Fish/Sunrise
   # catalog-duplicate: progress goes to primary sibling
+
 - type: achievement
   id: FishAch_SwarmBeaconCrusher
   name: achievement-fishach_swarmbeaconcrusher-name
@@ -250,16 +255,17 @@
 - type: achievement
   id: FishAch_Thatwasstupidofyou
   name: achievement-fishach_thatwasstupidofyou-name
-  description: achievement-fish-catalog-pending-desc
+  description: achievement-fishach_thatwasstupidofyou-desc
   category: FishAchMisc
-  condition: explosion
-  allowGenericTrigger: true
+  condition: interaction
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
   order: 118
   # source: BeeStation
+  # blocked: welder bomb detonation mechanic absent in Fish/Sunrise
   # catalog-duplicate: progress goes to primary sibling
+
 - type: achievement
   id: FishAch_ThisLousyAchievement
   name: achievement-fishach_thislousyachievement-name
@@ -509,6 +515,8 @@
     tag: Meteor
 
 
+
+
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -519,16 +527,17 @@
 - type: achievement
   id: FishAch_RoundandFull
   name: achievement-fishach_roundandfull-name
-  description: achievement-fish-catalog-pending-desc
+  description: achievement-fishach_roundandfull-desc
   category: FishAchMisc
-  condition: death
-  allowGenericTrigger: true
+  condition: interaction
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
   order: 138
   # source: BeeStation/ Monkestation/ TGStation
+  # blocked: MEDAL_CLOWNCARKING — clown car mechanic absent
   # catalog-duplicate: progress goes to primary sibling
+
 - type: achievement
   id: FishAch_TendrilExterminator
   name: achievement-fishach_tendrilexterminator-name
@@ -551,6 +560,8 @@
   condition: emote
   conditionParams:
     emote: Honk
+
+
 
 
   progressTarget: 100
@@ -580,6 +591,8 @@
   condition: objective-complete
   conditionParams:
     objective: *
+
+
 
 
   progressTarget: 1
@@ -1130,14 +1143,16 @@
 - type: achievement
   id: FishAch_GoreFest
   name: achievement-fishach_gorefest-name
-  description: achievement-fish-catalog-pending-desc
+  description: achievement-fishach_gorefest-desc
   category: FishAchSurvival
-  condition: death
+  condition: gibbed
+  ignoreSuicide: false
   progressTarget: 1
   oncePerRound: true
   order: 182
   # source: Goonstation
   # catalog-duplicate: progress goes to primary sibling
+
 - type: achievement
   id: FishAch_GuardinGnome
   name: achievement-fishach_guardingnome-name
@@ -1611,14 +1626,19 @@
 - type: achievement
   id: FishAch_Misclick
   name: achievement-fishach_misclick-name
-  description: achievement-fish-catalog-pending-desc
+  description: achievement-fishach_misclick-desc
   category: FishAchMisc
-  condition: interaction
+  condition: tile-pry
+  conditionParams:
+    tag: IntactFloor
+
+
   progressTarget: 1
   oncePerRound: true
   order: 217
   # source: Goonstation
   # catalog-duplicate: progress goes to primary sibling
+
 - type: achievement
   id: FishAch_MISSIONCOMPLETE
   name: achievement-fishach_missioncomplete-name

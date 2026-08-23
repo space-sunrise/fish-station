@@ -22,6 +22,8 @@ TRIGGER_BY_CONDITION = {
     "objective-complete": "RoundEndMessageEvent",
     "became-ghost": "MindRemovedMessage",
     "chasm-fall": "ChasmFallingComponent/ComponentInit",
+    "gavel-strike": "GavelSystem.OnHit/GavelHammer AfterInteract",
+    "tile-pry": "TileToolDoAfterEvent/SharedToolSystem.Tile",
 }
 
 
