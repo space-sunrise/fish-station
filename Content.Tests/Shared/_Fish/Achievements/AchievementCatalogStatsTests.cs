@@ -181,12 +181,23 @@ public sealed class AchievementCatalogStatsTests
 
     private static string FindRepoRoot()
     {
-        var dir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
-        while (!string.IsNullOrEmpty(dir))
+        // Content Tests в CI идут из артефакта без полного checkout: обходим несколько стартовых точек.
+        foreach (var start in new[]
+                 {
+                     TestContext.CurrentContext.TestDirectory,
+                     Directory.GetCurrentDirectory(),
+                     AppContext.BaseDirectory,
+                     Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
+                 })
         {
-            if (Directory.Exists(Path.Combine(dir, "Resources", "Prototypes", "_Fish", "Achievements")))
-                return dir;
-            dir = Directory.GetParent(dir)?.FullName ?? string.Empty;
+            var dir = start;
+            while (!string.IsNullOrEmpty(dir))
+            {
+                if (Directory.Exists(Path.Combine(dir, "Resources", "Prototypes", "_Fish", "Achievements")))
+                    return dir;
+
+                dir = Directory.GetParent(dir)?.FullName ?? string.Empty;
+            }
         }
 
         throw new InvalidOperationException("repo root not found");

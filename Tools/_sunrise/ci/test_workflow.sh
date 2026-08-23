@@ -89,7 +89,10 @@ archive_build() {
             mkdir -p /tmp/content-tests-build-output/Tools/_sunrise/ci
             cp Tools/_sunrise/ci/test_workflow.sh \
                 /tmp/content-tests-build-output/Tools/_sunrise/ci/test_workflow.sh
+            # YAML-аудит ачивок читает прототипы/доки с диска — без checkout на job Content Tests.
             tar -I 'zstd -T0 -3' -cf /tmp/content-tests-build-output/content-tests-build.tar.zst \
+                Resources/Prototypes/_Fish/Achievements \
+                Resources/Docs/_Fish \
                 Tools/_sunrise/ci bin/Content.Tests
             ;;
         profile)
