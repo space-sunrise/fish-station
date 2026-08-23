@@ -16,7 +16,7 @@
   category: FishAchCombat
   condition: station-event
   conditionParams:
-    event: BlobGameMode
+    event: KudzuGrowth
   progressTarget: 5
   oncePerRound: true
   order: 2023

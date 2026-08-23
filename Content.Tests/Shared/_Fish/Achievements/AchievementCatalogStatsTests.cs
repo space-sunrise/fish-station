@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using Content.Shared._Fish.Achievements;
@@ -128,5 +130,26 @@ public sealed class AchievementCatalogStatsTests
         Assert.That(combat.Percent, Is.EqualTo(50));
         Assert.That(misc.Total, Is.EqualTo(1));
         Assert.That(misc.Unlocked, Is.EqualTo(0));
+    }
+
+    [Test]
+    public void CatalogBaseline_Has117Achievements()
+    {
+        var auditPath = Path.Combine(FindRepoRoot(), "Resources", "Docs", "_Fish", "AchievementsTriggerAudit.json");
+        using var doc = System.Text.Json.JsonDocument.Parse(File.ReadAllText(auditPath));
+        Assert.That(doc.RootElement.GetArrayLength(), Is.EqualTo(117));
+    }
+
+    private static string FindRepoRoot()
+    {
+        var dir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
+        while (!string.IsNullOrEmpty(dir))
+        {
+            if (Directory.Exists(Path.Combine(dir, "Resources", "Prototypes", "_Fish", "Achievements")))
+                return dir;
+            dir = Directory.GetParent(dir)?.FullName ?? string.Empty;
+        }
+
+        throw new InvalidOperationException("repo root not found");
     }
 }

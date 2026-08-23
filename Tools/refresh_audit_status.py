@@ -57,7 +57,9 @@ TRIGGER = {
 
 
 def ftl_desc(ach_id: str) -> str:
-    if ach_id.startswith("FishAch_"):
+    if ach_id.startswith("FishAchExp_"):
+        key = ach_id.replace("FishAchExp_", "achievement-fishexp-", 1).lower() + "-desc"
+    elif ach_id.startswith("FishAch_"):
         key = ach_id.replace("FishAch_", "achievement-fishach_", 1).lower() + "-desc"
     else:
         # seed: FishAchFirstBreath → achievement-fish-first-breath-desc

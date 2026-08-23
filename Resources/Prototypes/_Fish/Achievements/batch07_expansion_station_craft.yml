@@ -1,0 +1,304 @@
+- type: achievement
+  id: FishAchExp_Appendix
+  name: achievement-fishexp-appendix-name
+  description: achievement-fishexp-appendix-desc
+  category: FishAchFunny
+  condition: surgery
+  conditionParams:
+    target: SurgeryStepRemoveAppendix
+  minRoundSeconds: 180
+  oncePerRound: true
+  order: 1703
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_CloseIncision
+  name: achievement-fishexp-closeincision-name
+  description: achievement-fishexp-closeincision-desc
+  category: FishAchRoles
+  condition: surgery
+  conditionParams:
+    target: SurgeryStepCloseIncision
+  progressTarget: 5
+  minRoundSeconds: 180
+  oncePerRound: true
+  order: 1704
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_DefibHero
+  name: achievement-fishexp-defibhero-name
+  description: achievement-fishexp-defibhero-desc
+  category: FishAchRoles
+  condition: defibrillate
+  allowGenericTrigger: true
+  progressTarget: 8
+  minRoundSeconds: 180
+  oncePerRound: true
+  order: 1705
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_FieldMedic
+  name: achievement-fishexp-fieldmedic-name
+  description: achievement-fishexp-fieldmedic-desc
+  category: FishAchRoles
+  condition: heal
+  allowGenericTrigger: true
+  progressTarget: 25
+  minRoundSeconds: 300
+  oncePerRound: true
+  order: 1706
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_UltimiumBuzz
+  name: achievement-fishexp-ultimiumbuzz-name
+  description: achievement-fishexp-ultimiumbuzz-desc
+  category: FishAchMisc
+  condition: reagent-metabolize
+  conditionParams:
+    reagent: Ultimium
+  minRoundSeconds: 180
+  oncePerRound: true
+  order: 1800
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_ZenthiumHaze
+  name: achievement-fishexp-zenthiumhaze-name
+  description: achievement-fishexp-zenthiumhaze-desc
+  category: FishAchMisc
+  condition: reagent-metabolize
+  conditionParams:
+    reagent: Zenthium
+  minRoundSeconds: 180
+  oncePerRound: true
+  order: 1801
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_MethRun
+  name: achievement-fishexp-methrun-name
+  description: achievement-fishexp-methrun-desc
+  category: FishAchFunny
+  condition: reagent-metabolize
+  conditionParams:
+    reagent: Desoxyephedrine
+  minRoundSeconds: 120
+  oncePerRound: true
+  order: 1802
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_OmnizineMiracle
+  name: achievement-fishexp-omnizinemiracle-name
+  description: achievement-fishexp-omnizinemiracle-desc
+  category: FishAchRoles
+  condition: reagent-metabolize
+  conditionParams:
+    reagent: Omnizine
+  minRoundSeconds: 120
+  oncePerRound: true
+  order: 1803
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_BananaDine
+  name: achievement-fishexp-bananadine-name
+  description: achievement-fishexp-bananadine-desc
+  category: FishAchFunny
+  condition: reagent-metabolize
+  conditionParams:
+    reagent: Bananadine
+  minRoundSeconds: 60
+  oncePerRound: true
+  order: 1804
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_UnholyWater
+  name: achievement-fishexp-unholywater-name
+  description: achievement-fishexp-unholywater-desc
+  category: FishAchSecret
+  condition: reagent-metabolize
+  conditionParams:
+    reagent: Unholywater
+  secret: true
+  secretDescription: achievement-fishexp-unholywater-secret
+  oncePerRound: true
+  order: 1805
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_TearGasTears
+  name: achievement-fishexp-teargastears-name
+  description: achievement-fishexp-teargastears-desc
+  category: FishAchSurvival
+  condition: reagent-metabolize
+  conditionParams:
+    reagent: TearGas
+  minRoundSeconds: 120
+  oncePerRound: true
+  order: 1806
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_HappinessOverdose
+  name: achievement-fishexp-happinessoverdose-name
+  description: achievement-fishexp-happinessoverdose-desc
+  category: FishAchFunny
+  condition: reagent-metabolize
+  conditionParams:
+    reagent: Happiness
+  minRoundSeconds: 60
+  oncePerRound: true
+  order: 1807
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_SecVendor
+  name: achievement-fishexp-secvendor-name
+  description: achievement-fishexp-secvendor-desc
+  category: FishAchStation
+  condition: interaction
+  conditionParams:
+    target: VendingMachineSec
+  minRoundSeconds: 120
+  oncePerRound: true
+  order: 1900
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_EvacConsole
+  name: achievement-fishexp-evacconsole-name
+  description: achievement-fishexp-evacconsole-desc
+  category: FishAchStation
+  condition: interaction
+  conditionParams:
+    target: ComputerEmergencyShuttle
+  minRoundSeconds: 180
+  oncePerRound: true
+  order: 1901
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_NukeInspect
+  name: achievement-fishexp-nukeinspect-name
+  description: achievement-fishexp-nukeinspect-desc
+  category: FishAchStation
+  condition: interaction
+  conditionParams:
+    target: NuclearBomb
+  minRoundSeconds: 180
+  oncePerRound: true
+  order: 1902
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_ChemDispense
+  name: achievement-fishexp-chemdispense-name
+  description: achievement-fishexp-chemdispense-desc
+  category: FishAchStation
+  condition: interaction
+  conditionParams:
+    target: ChemDispenser
+  minRoundSeconds: 120
+  oncePerRound: true
+  order: 1903
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_ObrConsole
+  name: achievement-fishexp-obrconsole-name
+  description: achievement-fishexp-obrconsole-desc
+  category: FishAchStation
+  condition: interaction
+  conditionParams:
+    target: FishComputerShuttleObr
+  minRoundSeconds: 180
+  oncePerRound: true
+  order: 1904
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_Autolathe
+  name: achievement-fishexp-autolathe-name
+  description: achievement-fishexp-autolathe-desc
+  category: FishAchStation
+  condition: interaction
+  conditionParams:
+    target: Autolathe
+  minRoundSeconds: 120
+  oncePerRound: true
+  order: 1905
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_CloneConsole
+  name: achievement-fishexp-cloneconsole-name
+  description: achievement-fishexp-cloneconsole-desc
+  category: FishAchStation
+  condition: interaction
+  conditionParams:
+    target: ComputerCloningConsole
+  minRoundSeconds: 180
+  oncePerRound: true
+  order: 1906
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_SinguloGen
+  name: achievement-fishexp-singulogen-name
+  description: achievement-fishexp-singulogen-desc
+  category: FishAchStation
+  condition: interaction
+  conditionParams:
+    target: SingularityGenerator
+  minRoundSeconds: 300
+  oncePerRound: true
+  order: 1907
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_SalvageConsole
+  name: achievement-fishexp-salvageconsole-name
+  description: achievement-fishexp-salvageconsole-desc
+  category: FishAchStation
+  condition: interaction
+  conditionParams:
+    target: SalvageExpeditionConsole
+  minRoundSeconds: 180
+  oncePerRound: true
+  order: 1908
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_IcarusTerminal
+  name: achievement-fishexp-icarusterminal-name
+  description: achievement-fishexp-icarusterminal-desc
+  category: FishAchStation
+  condition: interaction
+  conditionParams:
+    target: ComputerIcarus
+  minRoundSeconds: 180
+  oncePerRound: true
+  order: 1909
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_SpearSmith
+  name: achievement-fishexp-spearsmith-name
+  description: achievement-fishexp-spearsmith-desc
+  category: FishAchMisc
+  condition: craft
+  conditionParams:
+    item: Spear
+  progressTarget: 5
+  minRoundSeconds: 120
+  oncePerRound: true
+  order: 2000
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_RodRunner
+  name: achievement-fishexp-rodrunner-name
+  description: achievement-fishexp-rodrunner-desc
+  category: FishAchMisc
+  condition: craft
+  conditionParams:
+    item: MetalRod
+  progressTarget: 20
+  minRoundSeconds: 120
+  oncePerRound: true
+  order: 2001
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_ImprovBow
+  name: achievement-fishexp-improvbow-name
+  description: achievement-fishexp-improvbow-desc
+  category: FishAchMisc
+  condition: craft
+  conditionParams:
+    item: ImprovisedBow
+  minRoundSeconds: 120
+  oncePerRound: true
+  order: 2002
+  # source: Fish-expansion

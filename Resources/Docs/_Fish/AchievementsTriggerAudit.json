@@ -18,6 +18,1086 @@
     "reason": "id:shuttle-arrive"
   },
   {
+    "id": "FishAchExp_AbductorLights",
+    "condition": "station-event",
+    "conditionParams": {
+      "event": "AbductorsSpawn"
+    },
+    "trigger": "GameRuleStartedEvent",
+    "description": "Be aboard when abductors arrive.",
+    "status": "fully_specific",
+    "reason": "params:event"
+  },
+  {
+    "id": "FishAchExp_ApcBuild",
+    "condition": "craft",
+    "conditionParams": {
+      "item": "APC"
+    },
+    "trigger": "ItemConstructionCreated",
+    "description": "Build three APC units.",
+    "status": "fully_specific",
+    "reason": "params:item"
+  },
+  {
+    "id": "FishAchExp_Appendix",
+    "condition": "surgery",
+    "conditionParams": {
+      "target": "SurgeryStepRemoveAppendix"
+    },
+    "trigger": "FishSurgeryStepCompleteEvent",
+    "description": "Perform an appendix removal.",
+    "status": "fully_specific",
+    "reason": "params:target"
+  },
+  {
+    "id": "FishAchExp_AssaultAlarm",
+    "condition": "station-event",
+    "conditionParams": {
+      "event": "AssaultOps"
+    },
+    "trigger": "GameRuleStartedEvent",
+    "description": "Survive the assault ops announcement.",
+    "status": "fully_specific",
+    "reason": "params:event"
+  },
+  {
+    "id": "FishAchExp_AssaultDrop",
+    "condition": "antag-selected",
+    "conditionParams": {
+      "antag": "AssaultOperative"
+    },
+    "trigger": "antag-selected",
+    "description": "Deploy as an assault operative.",
+    "status": "fully_specific",
+    "reason": "params:antag"
+  },
+  {
+    "id": "FishAchExp_Autolathe",
+    "condition": "interaction",
+    "conditionParams": {
+      "target": "Autolathe"
+    },
+    "trigger": "UserInteractHandEvent",
+    "description": "Operate an autolathe.",
+    "status": "fully_specific",
+    "reason": "params:target"
+  },
+  {
+    "id": "FishAchExp_AxeMurder",
+    "condition": "kill",
+    "conditionParams": {
+      "weapon": "FireAxe"
+    },
+    "trigger": "KillReportedEvent",
+    "description": "Drop two targets with a fire axe.",
+    "status": "fully_specific",
+    "reason": "params:weapon"
+  },
+  {
+    "id": "FishAchExp_BananaDiet",
+    "condition": "item-ingest",
+    "conditionParams": {
+      "item": "FoodBanana"
+    },
+    "trigger": "IngestedEvent",
+    "description": "Eat five bananas.",
+    "status": "fully_specific",
+    "reason": "params:item"
+  },
+  {
+    "id": "FishAchExp_BananaDine",
+    "condition": "reagent-metabolize",
+    "conditionParams": {
+      "reagent": "Bananadine"
+    },
+    "trigger": "SolutionContainerChangedEvent",
+    "description": "Metabolize bananadine.",
+    "status": "fully_specific",
+    "reason": "params:reagent"
+  },
+  {
+    "id": "FishAchExp_BlastRadius",
+    "condition": "explosion",
+    "conditionParams": {},
+    "trigger": "SunriseExplosionEvent",
+    "description": "Survive near five explosions.",
+    "status": "generic_but_valid",
+    "reason": "allowGenericTrigger"
+  },
+  {
+    "id": "FishAchExp_BloodMoon",
+    "condition": "station-event",
+    "conditionParams": {
+      "event": "BloodCult"
+    },
+    "trigger": "GameRuleStartedEvent",
+    "description": "Witness the blood cult round start.",
+    "status": "fully_specific",
+    "reason": "params:event"
+  },
+  {
+    "id": "FishAchExp_BrainSurgeon",
+    "condition": "surgery",
+    "conditionParams": {
+      "target": "SurgeryStepExtractBrain"
+    },
+    "trigger": "FishSurgeryStepCompleteEvent",
+    "description": "Extract a brain during surgery.",
+    "status": "fully_specific",
+    "reason": "params:target"
+  },
+  {
+    "id": "FishAchExp_BrigmedicOath",
+    "condition": "heal",
+    "conditionParams": {},
+    "trigger": "DamageChangedEvent",
+    "description": "Patch up fifteen crewmates — brig included.",
+    "status": "generic_but_valid",
+    "reason": "allowGenericTrigger"
+  },
+  {
+    "id": "FishAchExp_BulldogBurst",
+    "condition": "gun-shot",
+    "conditionParams": {
+      "weapon": "WeaponShotgunBulldog"
+    },
+    "trigger": "GunShotEvent",
+    "description": "Empty a bulldog shotgun across ten engagements.",
+    "status": "fully_specific",
+    "reason": "params:weapon"
+  },
+  {
+    "id": "FishAchExp_ChairCraft",
+    "condition": "craft",
+    "conditionParams": {
+      "item": "Chair"
+    },
+    "trigger": "ItemConstructionCreated",
+    "description": "Craft ten chairs.",
+    "status": "fully_specific",
+    "reason": "params:item"
+  },
+  {
+    "id": "FishAchExp_ChangelingHunger",
+    "condition": "antag-selected",
+    "conditionParams": {
+      "antag": "Changeling"
+    },
+    "trigger": "antag-selected",
+    "description": "Get selected as a changeling.",
+    "status": "fully_specific",
+    "reason": "params:antag"
+  },
+  {
+    "id": "FishAchExp_ChemDispense",
+    "condition": "interaction",
+    "conditionParams": {
+      "target": "ChemDispenser"
+    },
+    "trigger": "UserInteractHandEvent",
+    "description": "Use a chem dispenser.",
+    "status": "fully_specific",
+    "reason": "params:target"
+  },
+  {
+    "id": "FishAchExp_CloneConsole",
+    "condition": "interaction",
+    "conditionParams": {
+      "target": "ComputerCloningConsole"
+    },
+    "trigger": "UserInteractHandEvent",
+    "description": "Access the cloning console.",
+    "status": "fully_specific",
+    "reason": "params:target"
+  },
+  {
+    "id": "FishAchExp_CloseIncision",
+    "condition": "surgery",
+    "conditionParams": {
+      "target": "SurgeryStepCloseIncision"
+    },
+    "trigger": "FishSurgeryStepCompleteEvent",
+    "description": "Close five surgical incisions.",
+    "status": "fully_specific",
+    "reason": "params:target"
+  },
+  {
+    "id": "FishAchExp_CorgiBite",
+    "condition": "item-ingest",
+    "conditionParams": {
+      "item": "FoodMeatCorgi"
+    },
+    "trigger": "IngestedEvent",
+    "description": "Eat corgi meat.",
+    "status": "fully_specific",
+    "reason": "params:item"
+  },
+  {
+    "id": "FishAchExp_DanceFloor",
+    "condition": "emote",
+    "conditionParams": {
+      "emote": "Dance"
+    },
+    "trigger": "EmoteEvent",
+    "description": "Dance eight times.",
+    "status": "fully_specific",
+    "reason": "params:emote"
+  },
+  {
+    "id": "FishAchExp_DefibHero",
+    "condition": "defibrillate",
+    "conditionParams": {},
+    "trigger": "TargetDefibrillatedEvent",
+    "description": "Shock eight patients back from the brink.",
+    "status": "generic_but_valid",
+    "reason": "allowGenericTrigger"
+  },
+  {
+    "id": "FishAchExp_DisablerDiscipline",
+    "condition": "gun-shot",
+    "conditionParams": {
+      "weapon": "WeaponDisabler"
+    },
+    "trigger": "GunShotEvent",
+    "description": "Non-lethally engage ten times with a disabler.",
+    "status": "fully_specific",
+    "reason": "params:weapon"
+  },
+  {
+    "id": "FishAchExp_DragonRise",
+    "condition": "station-event",
+    "conditionParams": {
+      "event": "DragonSpawn"
+    },
+    "trigger": "GameRuleStartedEvent",
+    "description": "Witness a space dragon spawn event.",
+    "status": "fully_specific",
+    "reason": "params:event"
+  },
+  {
+    "id": "FishAchExp_EnergyBlade",
+    "condition": "kill",
+    "conditionParams": {
+      "weapon": "EnergySword"
+    },
+    "trigger": "KillReportedEvent",
+    "description": "Eliminate three foes with an energy sword.",
+    "status": "fully_specific",
+    "reason": "params:weapon"
+  },
+  {
+    "id": "FishAchExp_EnergySwordPickup",
+    "condition": "item-pickup",
+    "conditionParams": {
+      "item": "EnergySword"
+    },
+    "trigger": "item-pickup",
+    "description": "Equip an energy sword.",
+    "status": "fully_specific",
+    "reason": "params:item"
+  },
+  {
+    "id": "FishAchExp_EvacConsole",
+    "condition": "interaction",
+    "conditionParams": {
+      "target": "ComputerEmergencyShuttle"
+    },
+    "trigger": "UserInteractHandEvent",
+    "description": "Access the emergency shuttle console.",
+    "status": "fully_specific",
+    "reason": "params:target"
+  },
+  {
+    "id": "FishAchExp_EvacVeteran",
+    "condition": "shuttle-arrive",
+    "conditionParams": {},
+    "trigger": "FTLCompletedEvent",
+    "description": "Arrive on CentComm five times.",
+    "status": "fully_specific",
+    "reason": "id:shuttle-arrive"
+  },
+  {
+    "id": "FishAchExp_FieldMedic",
+    "condition": "heal",
+    "conditionParams": {},
+    "trigger": "DamageChangedEvent",
+    "description": "Heal crewmates twenty-five times in one shift.",
+    "status": "generic_but_valid",
+    "reason": "allowGenericTrigger"
+  },
+  {
+    "id": "FishAchExp_FleshConvert",
+    "condition": "antag-selected",
+    "conditionParams": {
+      "antag": "FleshCultist"
+    },
+    "trigger": "antag-selected",
+    "description": "Join the flesh cult.",
+    "status": "fully_specific",
+    "reason": "params:antag"
+  },
+  {
+    "id": "FishAchExp_FleshOutbreak",
+    "condition": "station-event",
+    "conditionParams": {
+      "event": "FleshCult"
+    },
+    "trigger": "GameRuleStartedEvent",
+    "description": "Be present when the flesh cult rises.",
+    "status": "fully_specific",
+    "reason": "params:event"
+  },
+  {
+    "id": "FishAchExp_FleshPudge",
+    "condition": "kill",
+    "conditionParams": {
+      "target": "MobFleshPudge"
+    },
+    "trigger": "KillReportedEvent",
+    "description": "Destroy three flesh pudge blobs.",
+    "status": "fully_specific",
+    "reason": "params:target"
+  },
+  {
+    "id": "FishAchExp_FleshWorm",
+    "condition": "kill",
+    "conditionParams": {
+      "target": "MobFleshWorm"
+    },
+    "trigger": "KillReportedEvent",
+    "description": "Kill five flesh worms.",
+    "status": "fully_specific",
+    "reason": "params:target"
+  },
+  {
+    "id": "FishAchExp_FlipTable",
+    "condition": "emote",
+    "conditionParams": {
+      "emote": "Flip"
+    },
+    "trigger": "EmoteEvent",
+    "description": "Perform five flip emotes.",
+    "status": "fully_specific",
+    "reason": "params:emote"
+  },
+  {
+    "id": "FishAchExp_FloorThief",
+    "condition": "tile-pry",
+    "conditionParams": {
+      "tag": "IntactFloor"
+    },
+    "trigger": "FishTilePriedEvent",
+    "description": "Pry twelve intact floor tiles.",
+    "status": "fully_specific",
+    "reason": "params:tag"
+  },
+  {
+    "id": "FishAchExp_FoxYip",
+    "condition": "emote",
+    "conditionParams": {
+      "emote": "Fox"
+    },
+    "trigger": "EmoteEvent",
+    "description": "Use the kitsune fox emote ten times.",
+    "status": "fully_specific",
+    "reason": "params:emote"
+  },
+  {
+    "id": "FishAchExp_FugitiveEscape",
+    "condition": "objective-complete",
+    "conditionParams": {
+      "objective": "FugitiveEscapeShuttleObjective"
+    },
+    "trigger": "RoundEndMessageEvent",
+    "description": "Escape on the shuttle as the fugitive.",
+    "status": "fully_specific",
+    "reason": "params:objective"
+  },
+  {
+    "id": "FishAchExp_FugitiveRun",
+    "condition": "antag-selected",
+    "conditionParams": {
+      "antag": "Fugitive"
+    },
+    "trigger": "antag-selected",
+    "description": "Spawn as the fugitive and stay alive.",
+    "status": "fully_specific",
+    "reason": "params:antag"
+  },
+  {
+    "id": "FishAchExp_GibbedOut",
+    "condition": "gibbed",
+    "conditionParams": {},
+    "trigger": "BeingGibbedEvent",
+    "description": "Be gibbed.",
+    "status": "fully_specific",
+    "reason": "id:gibbed"
+  },
+  {
+    "id": "FishAchExp_HamsterDonut",
+    "condition": "objective-complete",
+    "conditionParams": {
+      "objective": "AnimalEatDonutObjective"
+    },
+    "trigger": "RoundEndMessageEvent",
+    "description": "Complete the hamster donut objective.",
+    "status": "fully_specific",
+    "reason": "params:objective"
+  },
+  {
+    "id": "FishAchExp_HamsterShift",
+    "condition": "station-event",
+    "conditionParams": {
+      "event": "AnimalObjectives"
+    },
+    "trigger": "GameRuleStartedEvent",
+    "description": "Play during the animal objectives event.",
+    "status": "fully_specific",
+    "reason": "params:event"
+  },
+  {
+    "id": "FishAchExp_HappinessOverdose",
+    "condition": "reagent-metabolize",
+    "conditionParams": {
+      "reagent": "Happiness"
+    },
+    "trigger": "SolutionContainerChangedEvent",
+    "description": "Metabolize happiness reagent.",
+    "status": "fully_specific",
+    "reason": "params:reagent"
+  },
+  {
+    "id": "FishAchExp_HeartRemoval",
+    "condition": "surgery",
+    "conditionParams": {
+      "target": "SurgeryStepRemoveHeart"
+    },
+    "trigger": "FishSurgeryStepCompleteEvent",
+    "description": "Remove a patient's heart on the table.",
+    "status": "fully_specific",
+    "reason": "params:target"
+  },
+  {
+    "id": "FishAchExp_HeartTransplant",
+    "condition": "surgery",
+    "conditionParams": {
+      "target": "SurgeryStepInsertHeart"
+    },
+    "trigger": "FishSurgeryStepCompleteEvent",
+    "description": "Insert a donor heart.",
+    "status": "fully_specific",
+    "reason": "params:target"
+  },
+  {
+    "id": "FishAchExp_HellRamen",
+    "condition": "item-ingest",
+    "conditionParams": {
+      "item": "DrinkHellRamen"
+    },
+    "trigger": "IngestedEvent",
+    "description": "Drink hell ramen.",
+    "status": "fully_specific",
+    "reason": "params:item"
+  },
+  {
+    "id": "FishAchExp_HonkArmy",
+    "condition": "emote",
+    "conditionParams": {
+      "emote": "Honk"
+    },
+    "trigger": "EmoteEvent",
+    "description": "Honk twenty times.",
+    "status": "fully_specific",
+    "reason": "params:emote"
+  },
+  {
+    "id": "FishAchExp_IcarusTerminal",
+    "condition": "interaction",
+    "conditionParams": {
+      "target": "ComputerIcarus"
+    },
+    "trigger": "UserInteractHandEvent",
+    "description": "Touch the Icarus assault terminal.",
+    "status": "fully_specific",
+    "reason": "params:target"
+  },
+  {
+    "id": "FishAchExp_ImprovBow",
+    "condition": "craft",
+    "conditionParams": {
+      "item": "ImprovisedBow"
+    },
+    "trigger": "ItemConstructionCreated",
+    "description": "Craft an improvised bow.",
+    "status": "fully_specific",
+    "reason": "params:item"
+  },
+  {
+    "id": "FishAchExp_IonStorm",
+    "condition": "station-event",
+    "conditionParams": {
+      "event": "IonStorm"
+    },
+    "trigger": "GameRuleStartedEvent",
+    "description": "Endure an ion storm as silicon or crew.",
+    "status": "fully_specific",
+    "reason": "params:event"
+  },
+  {
+    "id": "FishAchExp_JudgeOnBench",
+    "condition": "role-added",
+    "conditionParams": {
+      "job": "CentcommSectoralJudge"
+    },
+    "trigger": "RoleAddedEvent",
+    "description": "Serve a shift as the sectoral judge.",
+    "status": "fully_specific",
+    "reason": "params:job"
+  },
+  {
+    "id": "FishAchExp_JudgeStamp",
+    "condition": "item-pickup",
+    "conditionParams": {
+      "item": "RubberStampSectoralJudge"
+    },
+    "trigger": "item-pickup",
+    "description": "Equip the sectoral judge stamp.",
+    "status": "fully_specific",
+    "reason": "params:item"
+  },
+  {
+    "id": "FishAchExp_KillTomePickup",
+    "condition": "item-pickup",
+    "conditionParams": {
+      "item": "KillTome"
+    },
+    "trigger": "item-pickup",
+    "description": "Hold the kill tome.",
+    "status": "fully_specific",
+    "reason": "params:item"
+  },
+  {
+    "id": "FishAchExp_KillTomeRead",
+    "condition": "examine",
+    "conditionParams": {
+      "target": "KillTome"
+    },
+    "trigger": "ExaminedEvent",
+    "description": "Examine the kill tome.",
+    "status": "fully_specific",
+    "reason": "params:target"
+  },
+  {
+    "id": "FishAchExp_KitchenKnife",
+    "condition": "kill",
+    "conditionParams": {
+      "weapon": "CombatKnife"
+    },
+    "trigger": "KillReportedEvent",
+    "description": "Win two fights with a combat knife.",
+    "status": "fully_specific",
+    "reason": "params:weapon"
+  },
+  {
+    "id": "FishAchExp_KudzuCreep",
+    "condition": "station-event",
+    "conditionParams": {
+      "event": "KudzuGrowth"
+    },
+    "trigger": "GameRuleStartedEvent",
+    "description": "Watch kudzu claim part of the station.",
+    "status": "fully_specific",
+    "reason": "params:event"
+  },
+  {
+    "id": "FishAchExp_LaserTag",
+    "condition": "gun-shot",
+    "conditionParams": {
+      "weapon": "WeaponLaserCarbine"
+    },
+    "trigger": "GunShotEvent",
+    "description": "Fire a laser carbine in anger fifteen times.",
+    "status": "fully_specific",
+    "reason": "params:weapon"
+  },
+  {
+    "id": "FishAchExp_LawyerBot",
+    "condition": "ai-law-changes",
+    "conditionParams": {},
+    "trigger": "FishAiLawChangedEvent",
+    "description": "Have your silicon laws changed five times.",
+    "status": "generic_but_valid",
+    "reason": "allowGenericTrigger"
+  },
+  {
+    "id": "FishAchExp_LecterLine",
+    "condition": "gun-shot",
+    "conditionParams": {
+      "weapon": "WeaponRifleLecter"
+    },
+    "trigger": "GunShotEvent",
+    "description": "Put twenty rounds downrange with a Lecter.",
+    "status": "fully_specific",
+    "reason": "params:weapon"
+  },
+  {
+    "id": "FishAchExp_LingSurvive",
+    "condition": "objective-complete",
+    "conditionParams": {
+      "objective": "ChangelingSurviveObjective"
+    },
+    "trigger": "RoundEndMessageEvent",
+    "description": "Survive the round as a changeling.",
+    "status": "fully_specific",
+    "reason": "params:objective"
+  },
+  {
+    "id": "FishAchExp_MagistratSeal",
+    "condition": "role-added",
+    "conditionParams": {
+      "job": "Magistrat"
+    },
+    "trigger": "RoleAddedEvent",
+    "description": "Hold the magistrate post for a full round.",
+    "status": "fully_specific",
+    "reason": "params:job"
+  },
+  {
+    "id": "FishAchExp_MagnumMoment",
+    "condition": "gun-shot",
+    "conditionParams": {
+      "weapon": "WeaponEnergyMagnum"
+    },
+    "trigger": "GunShotEvent",
+    "description": "Use the energy magnum eight times.",
+    "status": "fully_specific",
+    "reason": "params:weapon"
+  },
+  {
+    "id": "FishAchExp_MangoCroissant",
+    "condition": "item-ingest",
+    "conditionParams": {
+      "item": "FoodBakedMangoCroissant"
+    },
+    "trigger": "IngestedEvent",
+    "description": "Try the Fish mango croissant.",
+    "status": "fully_specific",
+    "reason": "params:item"
+  },
+  {
+    "id": "FishAchExp_MeteorWatch",
+    "condition": "examine",
+    "conditionParams": {
+      "tag": "Meteor"
+    },
+    "trigger": "ExaminedEvent",
+    "description": "Examine three meteors.",
+    "status": "fully_specific",
+    "reason": "params:tag"
+  },
+  {
+    "id": "FishAchExp_MethRun",
+    "condition": "reagent-metabolize",
+    "conditionParams": {
+      "reagent": "Desoxyephedrine"
+    },
+    "trigger": "SolutionContainerChangedEvent",
+    "description": "Metabolize desoxyephedrine.",
+    "status": "fully_specific",
+    "reason": "params:reagent"
+  },
+  {
+    "id": "FishAchExp_MindTheGap",
+    "condition": "chasm-fall",
+    "conditionParams": {},
+    "trigger": "ChasmFallingComponent/ComponentInit",
+    "description": "Fall into a chasm.",
+    "status": "fully_specific",
+    "reason": "id:chasm-fall"
+  },
+  {
+    "id": "FishAchExp_NukeInspect",
+    "condition": "interaction",
+    "conditionParams": {
+      "target": "NuclearBomb"
+    },
+    "trigger": "UserInteractHandEvent",
+    "description": "Interact with the nuclear bomb.",
+    "status": "fully_specific",
+    "reason": "params:target"
+  },
+  {
+    "id": "FishAchExp_NukeOpsManifest",
+    "condition": "antag-selected",
+    "conditionParams": {
+      "antag": "Nukeops"
+    },
+    "trigger": "antag-selected",
+    "description": "Join the nuclear operatives team.",
+    "status": "fully_specific",
+    "reason": "params:antag"
+  },
+  {
+    "id": "FishAchExp_ObrConsole",
+    "condition": "interaction",
+    "conditionParams": {
+      "target": "FishComputerShuttleObr"
+    },
+    "trigger": "UserInteractHandEvent",
+    "description": "Use the OBR shuttle console.",
+    "status": "fully_specific",
+    "reason": "params:target"
+  },
+  {
+    "id": "FishAchExp_ObrRed",
+    "condition": "station-event",
+    "conditionParams": {
+      "event": "FishObrShuttleRed"
+    },
+    "trigger": "GameRuleStartedEvent",
+    "description": "Be on-station when a red OBR shuttle is called.",
+    "status": "fully_specific",
+    "reason": "params:event"
+  },
+  {
+    "id": "FishAchExp_OldTimer",
+    "condition": "counter",
+    "conditionParams": {
+      "key": "rounds-survived"
+    },
+    "trigger": "counter",
+    "description": "Survive fifty counted rounds.",
+    "status": "fully_specific",
+    "reason": "params:key"
+  },
+  {
+    "id": "FishAchExp_OmnizineMiracle",
+    "condition": "reagent-metabolize",
+    "conditionParams": {
+      "reagent": "Omnizine"
+    },
+    "trigger": "SolutionContainerChangedEvent",
+    "description": "Process omnizine in your body.",
+    "status": "fully_specific",
+    "reason": "params:reagent"
+  },
+  {
+    "id": "FishAchExp_PlanetWar",
+    "condition": "station-event",
+    "conditionParams": {
+      "event": "PlanetWarRule"
+    },
+    "trigger": "GameRuleStartedEvent",
+    "description": "Join a Planet War gamemode round.",
+    "status": "fully_specific",
+    "reason": "params:event"
+  },
+  {
+    "id": "FishAchExp_PrisonerStreak",
+    "condition": "role-added",
+    "conditionParams": {
+      "job": "PlanetPrisoner"
+    },
+    "trigger": "RoleAddedEvent",
+    "description": "Spawn as a planet-prison inmate and survive the shift.",
+    "status": "fully_specific",
+    "reason": "params:job"
+  },
+  {
+    "id": "FishAchExp_PythonShot",
+    "condition": "gun-shot",
+    "conditionParams": {
+      "weapon": "WeaponRevolverPython"
+    },
+    "trigger": "GunShotEvent",
+    "description": "Fire a revolver python until it feels personal.",
+    "status": "fully_specific",
+    "reason": "params:weapon"
+  },
+  {
+    "id": "FishAchExp_RoboticistSpark",
+    "condition": "craft",
+    "conditionParams": {
+      "item": "MachineFrame"
+    },
+    "trigger": "ItemConstructionCreated",
+    "description": "Assemble eight machine frames from scratch.",
+    "status": "fully_specific",
+    "reason": "params:item"
+  },
+  {
+    "id": "FishAchExp_RodRunner",
+    "condition": "craft",
+    "conditionParams": {
+      "item": "MetalRod"
+    },
+    "trigger": "ItemConstructionCreated",
+    "description": "Craft twenty metal rods.",
+    "status": "fully_specific",
+    "reason": "params:item"
+  },
+  {
+    "id": "FishAchExp_RoundVeteran25",
+    "condition": "round-end-alive",
+    "conditionParams": {},
+    "trigger": "round-end-alive",
+    "description": "Survive twenty-five rounds to the end.",
+    "status": "fully_specific",
+    "reason": "id:round-end-alive"
+  },
+  {
+    "id": "FishAchExp_SaluteCaptain",
+    "condition": "emote",
+    "conditionParams": {
+      "emote": "Salute"
+    },
+    "trigger": "EmoteEvent",
+    "description": "Salute ten times.",
+    "status": "fully_specific",
+    "reason": "params:emote"
+  },
+  {
+    "id": "FishAchExp_SalvageConsole",
+    "condition": "interaction",
+    "conditionParams": {
+      "target": "SalvageExpeditionConsole"
+    },
+    "trigger": "UserInteractHandEvent",
+    "description": "Plan a salvage expedition.",
+    "status": "fully_specific",
+    "reason": "params:target"
+  },
+  {
+    "id": "FishAchExp_SecVendor",
+    "condition": "interaction",
+    "conditionParams": {
+      "target": "VendingMachineSec"
+    },
+    "trigger": "UserInteractHandEvent",
+    "description": "Use the security equipment vendor.",
+    "status": "fully_specific",
+    "reason": "params:target"
+  },
+  {
+    "id": "FishAchExp_SinguloGen",
+    "condition": "interaction",
+    "conditionParams": {
+      "target": "SingularityGenerator"
+    },
+    "trigger": "UserInteractHandEvent",
+    "description": "Interact with the singularity generator.",
+    "status": "fully_specific",
+    "reason": "params:target"
+  },
+  {
+    "id": "FishAchExp_Spaghettified",
+    "condition": "singularity-consumed",
+    "conditionParams": {},
+    "trigger": "EventHorizonConsumedEntityEvent",
+    "description": "Get consumed by a singularity.",
+    "status": "fully_specific",
+    "reason": "id:singularity-consumed"
+  },
+  {
+    "id": "FishAchExp_SpearSmith",
+    "condition": "craft",
+    "conditionParams": {
+      "item": "Spear"
+    },
+    "trigger": "ItemConstructionCreated",
+    "description": "Craft five spears.",
+    "status": "fully_specific",
+    "reason": "params:item"
+  },
+  {
+    "id": "FishAchExp_SpecOpsDeploy",
+    "condition": "role-added",
+    "conditionParams": {
+      "job": "SpecOpsOfficer"
+    },
+    "trigger": "RoleAddedEvent",
+    "description": "Take the Spec Ops officer role during a round.",
+    "status": "fully_specific",
+    "reason": "params:job"
+  },
+  {
+    "id": "FishAchExp_StealCaptainId",
+    "condition": "objective-complete",
+    "conditionParams": {
+      "objective": "CaptainIDStealObjective"
+    },
+    "trigger": "RoundEndMessageEvent",
+    "description": "Steal the captain's ID as a traitor.",
+    "status": "fully_specific",
+    "reason": "params:objective"
+  },
+  {
+    "id": "FishAchExp_StealIan",
+    "condition": "objective-complete",
+    "conditionParams": {
+      "objective": "IanStealObjective"
+    },
+    "trigger": "RoundEndMessageEvent",
+    "description": "Complete the thief objective to steal Ian.",
+    "status": "fully_specific",
+    "reason": "params:objective"
+  },
+  {
+    "id": "FishAchExp_TearGasTears",
+    "condition": "reagent-metabolize",
+    "conditionParams": {
+      "reagent": "TearGas"
+    },
+    "trigger": "SolutionContainerChangedEvent",
+    "description": "Metabolize tear gas — willingly or not.",
+    "status": "fully_specific",
+    "reason": "params:reagent"
+  },
+  {
+    "id": "FishAchExp_ThiefList",
+    "condition": "antag-selected",
+    "conditionParams": {
+      "antag": "Thief"
+    },
+    "trigger": "antag-selected",
+    "description": "Roll thief and receive your steal objectives.",
+    "status": "fully_specific",
+    "reason": "params:antag"
+  },
+  {
+    "id": "FishAchExp_TraitorBriefing",
+    "condition": "antag-selected",
+    "conditionParams": {
+      "antag": "Traitor"
+    },
+    "trigger": "antag-selected",
+    "description": "Receive a syndicate uplink assignment.",
+    "status": "fully_specific",
+    "reason": "params:antag"
+  },
+  {
+    "id": "FishAchExp_TraitorEscape",
+    "condition": "objective-complete",
+    "conditionParams": {
+      "objective": "EscapeShuttleObjective"
+    },
+    "trigger": "RoundEndMessageEvent",
+    "description": "Complete a traitor escape shuttle objective.",
+    "status": "fully_specific",
+    "reason": "params:objective"
+  },
+  {
+    "id": "FishAchExp_UltimiumBuzz",
+    "condition": "reagent-metabolize",
+    "conditionParams": {
+      "reagent": "Ultimium"
+    },
+    "trigger": "SolutionContainerChangedEvent",
+    "description": "Metabolize ultimium gas in your bloodstream.",
+    "status": "fully_specific",
+    "reason": "params:reagent"
+  },
+  {
+    "id": "FishAchExp_UnholyWater",
+    "condition": "reagent-metabolize",
+    "conditionParams": {
+      "reagent": "Unholywater"
+    },
+    "trigger": "SolutionContainerChangedEvent",
+    "description": "Drink unholy water and live to tell.",
+    "status": "fully_specific",
+    "reason": "params:reagent"
+  },
+  {
+    "id": "FishAchExp_Veteran100h",
+    "condition": "playtime-minutes",
+    "conditionParams": {
+      "threshold": "6000"
+    },
+    "trigger": "AchievementPlaytimeSystem",
+    "description": "Reach one hundred hours of total playtime.",
+    "status": "fully_specific",
+    "reason": "params:threshold"
+  },
+  {
+    "id": "FishAchExp_Veteran10h",
+    "condition": "playtime-minutes",
+    "conditionParams": {
+      "threshold": "600"
+    },
+    "trigger": "AchievementPlaytimeSystem",
+    "description": "Accumulate ten hours of overall playtime.",
+    "status": "fully_specific",
+    "reason": "params:threshold"
+  },
+  {
+    "id": "FishAchExp_Veteran30h",
+    "condition": "playtime-minutes",
+    "conditionParams": {
+      "threshold": "1800"
+    },
+    "trigger": "AchievementPlaytimeSystem",
+    "description": "Accumulate thirty hours on the server.",
+    "status": "fully_specific",
+    "reason": "params:threshold"
+  },
+  {
+    "id": "FishAchExp_Veteran50h",
+    "condition": "playtime-minutes",
+    "conditionParams": {
+      "threshold": "3000"
+    },
+    "trigger": "AchievementPlaytimeSystem",
+    "description": "Spend fifty hours aboard Fish Station.",
+    "status": "fully_specific",
+    "reason": "params:threshold"
+  },
+  {
+    "id": "FishAchExp_WizardHat",
+    "condition": "antag-selected",
+    "conditionParams": {
+      "antag": "Wizard"
+    },
+    "trigger": "antag-selected",
+    "description": "Become the station's resident wizard.",
+    "status": "fully_specific",
+    "reason": "params:antag"
+  },
+  {
+    "id": "FishAchExp_WizardLive",
+    "condition": "objective-complete",
+    "conditionParams": {
+      "objective": "WizardSurviveObjective"
+    },
+    "trigger": "RoundEndMessageEvent",
+    "description": "Complete the wizard survive objective.",
+    "status": "fully_specific",
+    "reason": "params:objective"
+  },
+  {
+    "id": "FishAchExp_ZenthiumHaze",
+    "condition": "reagent-metabolize",
+    "conditionParams": {
+      "reagent": "Zenthium"
+    },
+    "trigger": "SolutionContainerChangedEvent",
+    "description": "Survive zenthium in your veins.",
+    "status": "fully_specific",
+    "reason": "params:reagent"
+  },
+  {
+    "id": "FishAchExp_ZombieHour",
+    "condition": "station-event",
+    "conditionParams": {
+      "event": "ZombieOutbreak"
+    },
+    "trigger": "GameRuleStartedEvent",
+    "description": "Be alive when the zombie outbreak begins.",
+    "status": "fully_specific",
+    "reason": "params:event"
+  },
+  {
     "id": "FishAchFirstBreath",
     "condition": "first-late-join",
     "conditionParams": {},
@@ -108,7 +1188,7 @@
     "id": "FishAch_Orig_BlobPerimeter",
     "condition": "station-event",
     "conditionParams": {
-      "event": "BlobGameMode"
+      "event": "KudzuGrowth"
     },
     "trigger": "GameRuleStartedEvent",
     "description": "Hold a defensive line against blob expansion.",
