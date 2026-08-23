@@ -96,6 +96,8 @@ def classify(entry: dict) -> tuple[str, str]:
         return "blocked", entry.get("reason", "unmapped")
     if entry["allowGeneric"]:
         return "generic_but_valid", "allowGenericTrigger"
+    if entry["condition"] == "role-added" and not entry["params"].get("job"):
+        return "blocked", "role-no-job"
     if entry["params"]:
         return "fully_specific", f"params:{','.join(sorted(entry['params']))}"
     if entry["condition"] in INHERENT:

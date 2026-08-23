@@ -2410,8 +2410,8 @@
     "trigger": "RoleAddedEvent",
     "conditionParams": {},
     "source": "FishAchRoles",
-    "status": "generic_but_valid",
-    "reason": "role-added",
+    "status": "blocked",
+    "reason": "role-no-job",
     "description": "You were doing a great job sticking it to the system until that vending machine decided to fight back."
   },
   {
@@ -2430,8 +2430,8 @@
     "trigger": "RoleAddedEvent",
     "conditionParams": {},
     "source": "FishAchRoles",
-    "status": "generic_but_valid",
-    "reason": "role-added",
+    "status": "blocked",
+    "reason": "role-no-job",
     "description": "No mere rock can stop me!"
   },
   {
@@ -3451,8 +3451,8 @@
     "trigger": "RoleAddedEvent",
     "conditionParams": {},
     "source": "FishAchRoles",
-    "status": "generic_but_valid",
-    "reason": "role-added",
+    "status": "blocked",
+    "reason": "role-no-job",
     "description": "As the QM, have a million cargo credits by the end of the round"
   },
   {
@@ -3587,8 +3587,8 @@
     "trigger": "RoleAddedEvent",
     "conditionParams": {},
     "source": "FishAchRoles",
-    "status": "generic_but_valid",
-    "reason": "role-added",
+    "status": "blocked",
+    "reason": "role-no-job",
     "description": "As the QM, beat the current record of cargo credits:"
   },
   {
@@ -3839,8 +3839,8 @@
     "trigger": "RoleAddedEvent",
     "conditionParams": {},
     "source": "FishAchRoles",
-    "status": "generic_but_valid",
-    "reason": "role-added",
+    "status": "blocked",
+    "reason": "role-no-job",
     "description": "File a mountain of forms before the shift ends."
   },
   {
@@ -3909,8 +3909,8 @@
     "trigger": "RoleAddedEvent",
     "conditionParams": {},
     "source": "FishAchRoles",
-    "status": "generic_but_valid",
-    "reason": "role-added",
+    "status": "blocked",
+    "reason": "role-no-job",
     "description": "Bring cargo budget back positive after a losing streak."
   },
   {
@@ -4169,8 +4169,8 @@
     "trigger": "RoleAddedEvent",
     "conditionParams": {},
     "source": "FishAchRoles",
-    "status": "generic_but_valid",
-    "reason": "role-added",
+    "status": "blocked",
+    "reason": "role-no-job",
     "description": "Fix a plasma leak before it ignites."
   },
   {
@@ -4179,8 +4179,8 @@
     "trigger": "RoleAddedEvent",
     "conditionParams": {},
     "source": "FishAchRoles",
-    "status": "generic_but_valid",
-    "reason": "role-added",
+    "status": "blocked",
+    "reason": "role-no-job",
     "description": "Deliver a research artifact sample to R&D."
   },
   {
@@ -4189,8 +4189,8 @@
     "trigger": "RoleAddedEvent",
     "conditionParams": {},
     "source": "FishAchRoles",
-    "status": "generic_but_valid",
-    "reason": "role-added",
+    "status": "blocked",
+    "reason": "role-no-job",
     "description": "Assemble three cyborgs in one shift."
   },
   {
@@ -4199,8 +4199,8 @@
     "trigger": "RoleAddedEvent",
     "conditionParams": {},
     "source": "FishAchRoles",
-    "status": "generic_but_valid",
-    "reason": "role-added",
+    "status": "blocked",
+    "reason": "role-no-job",
     "description": "Finish a security shift without declaring red alert yourself."
   },
   {
@@ -4221,8 +4221,8 @@
     "trigger": "RoleAddedEvent",
     "conditionParams": {},
     "source": "FishAchRoles",
-    "status": "generic_but_valid",
-    "reason": "role-added",
+    "status": "blocked",
+    "reason": "role-no-job",
     "description": "Issue ten job changes in one shift."
   },
   {
@@ -4707,8 +4707,8 @@
     "trigger": "RoleAddedEvent",
     "conditionParams": {},
     "source": "FishAchRoles",
-    "status": "generic_but_valid",
-    "reason": "role-added",
+    "status": "blocked",
+    "reason": "role-no-job",
     "description": "Redeem a full ore crate at ore processor."
   },
   {
@@ -4727,8 +4727,8 @@
     "trigger": "RoleAddedEvent",
     "conditionParams": {},
     "source": "FishAchRoles",
-    "status": "generic_but_valid",
-    "reason": "role-added",
+    "status": "blocked",
+    "reason": "role-no-job",
     "description": "Fully analyze an artifact node tree."
   },
   {
@@ -4737,8 +4737,8 @@
     "trigger": "RoleAddedEvent",
     "conditionParams": {},
     "source": "FishAchRoles",
-    "status": "generic_but_valid",
-    "reason": "role-added",
+    "status": "blocked",
+    "reason": "role-no-job",
     "description": "Keep an anomaly stable for ten minutes."
   },
   {
@@ -4945,8 +4945,8 @@
     "trigger": "RoleAddedEvent",
     "conditionParams": {},
     "source": "FishAchRoles",
-    "status": "generic_but_valid",
-    "reason": "role-added",
+    "status": "blocked",
+    "reason": "role-no-job",
     "description": "Contain an outbreak before it leaves medbay."
   },
   {
@@ -4989,8 +4989,8 @@
     "trigger": "RoleAddedEvent",
     "conditionParams": {},
     "source": "FishAchRoles",
-    "status": "generic_but_valid",
-    "reason": "role-added",
+    "status": "blocked",
+    "reason": "role-no-job",
     "description": "Publish a news article about an ongoing crisis."
   },
   {
@@ -5335,8 +5335,8 @@
     "trigger": "RoleAddedEvent",
     "conditionParams": {},
     "source": "FishAchRoles",
-    "status": "generic_but_valid",
-    "reason": "role-added",
+    "status": "blocked",
+    "reason": "role-no-job",
     "description": "Perform CPR on two different patients."
   },
   {
