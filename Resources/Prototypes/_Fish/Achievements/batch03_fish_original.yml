@@ -1,9 +1,10 @@
 - type: achievement
   id: FishAch_Combat_CorridorsOfPain
   name: achievement-fishach_combat_corridorsofpain-name
-  description: achievement-fish-generic-kill-3-desc
+  description: achievement-fishach_combat_corridorsofpain-desc
   category: FishAchCombat
   condition: kill
+  allowGenericTrigger: true
   progressTarget: 3
   oncePerRound: true
   requirePlayerVictim: true
@@ -12,7 +13,7 @@
 - type: achievement
   id: FishAch_Misc_FirstShift
   name: achievement-fishach_misc_firstshift-name
-  description: achievement-fish-generic-jobplay-3-desc
+  description: achievement-fishach_misc_firstshift-desc
   category: FishAchMisc
   condition: role-added
   conditionParams:
@@ -24,7 +25,7 @@
 - type: achievement
   id: FishAch_Misc_LabelMaker
   name: achievement-fishach_misc_labelmaker-name
-  description: achievement-fish-generic-craft-15-desc
+  description: achievement-fishach_misc_labelmaker-desc
   category: FishAchMisc
   condition: craft
   conditionParams:

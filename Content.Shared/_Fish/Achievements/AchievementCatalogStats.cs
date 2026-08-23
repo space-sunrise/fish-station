@@ -40,9 +40,37 @@ public static class AchievementCatalogStats
         IPrototypeManager prototypes,
         IReadOnlyDictionary<string, AchievementPlayerState> states)
     {
-        var visible = EnumerateVisible(prototypes, states, AllCategoriesId).ToList();
+        return CountForSelection(prototypes, states, AllCategoriesId);
+    }
+
+    /// <summary>
+    /// Прогресс выбранной вкладки: «Все» или конкретная категория.
+    /// </summary>
+    public static (int Unlocked, int Total) CountForSelection(
+        IPrototypeManager prototypes,
+        IReadOnlyDictionary<string, AchievementPlayerState> states,
+        string? categoryId)
+    {
+        var visible = EnumerateVisible(prototypes, states, categoryId).ToList();
         var unlocked = visible.Count(a => states.TryGetValue(a.ID, out var st) && st.Unlocked);
         return (unlocked, visible.Count);
+    }
+
+    public static CategoryProgress GetSelectionProgress(
+        IPrototypeManager prototypes,
+        IReadOnlyDictionary<string, AchievementPlayerState> states,
+        string? categoryId)
+    {
+        var (unlocked, total) = CountForSelection(prototypes, states, categoryId);
+        var percent = total > 0 ? (int) System.Math.Round(unlocked * 100d / total) : 0;
+
+        if (categoryId == null || categoryId == AllCategoriesId)
+            return new CategoryProgress(AllCategoriesId, "fish-achievements-category-all", unlocked, total, percent);
+
+        if (prototypes.TryIndex<AchievementCategoryPrototype>(categoryId, out var category))
+            return new CategoryProgress(category.ID, category.Name, unlocked, total, percent);
+
+        return new CategoryProgress(categoryId, categoryId, unlocked, total, percent);
     }
 
     public static IReadOnlyList<CategoryProgress> CountByCategory(
@@ -58,9 +86,7 @@ public static class AchievementCatalogStats
         var result = new List<CategoryProgress>(categories.Count);
         foreach (var category in categories)
         {
-            var items = EnumerateVisible(prototypes, states, category.ID).ToList();
-            var total = items.Count;
-            var unlocked = items.Count(a => states.TryGetValue(a.ID, out var st) && st.Unlocked);
+            var (unlocked, total) = CountForSelection(prototypes, states, category.ID);
             var percent = total > 0 ? (int) System.Math.Round(unlocked * 100d / total) : 0;
             result.Add(new CategoryProgress(category.ID, category.Name, unlocked, total, percent));
         }

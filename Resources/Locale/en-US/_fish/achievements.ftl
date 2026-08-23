@@ -53,25 +53,25 @@ achievement-fishach_ghosttour-secret = The station remembers. You don't — yet.
 
 # batch03 fish-original
 achievement-fishach_combat_corridorsofpain-name = Corridors Of Pain
-achievement-fishach_combat_corridorsofpain-desc = Win a chase that spans three departments.
+achievement-fishach_combat_corridorsofpain-desc = Kill three player humanoids in one shift.
 achievement-fishach_misc_firstshift-name = First Shift
-achievement-fishach_misc_firstshift-desc = Complete your first full round on the server.
+achievement-fishach_misc_firstshift-desc = Spawn as a passenger three times.
 achievement-fishach_misc_labelmaker-name = Label Maker
-achievement-fishach_misc_labelmaker-desc = Label ten different items.
+achievement-fishach_misc_labelmaker-desc = Craft fifteen sheets of paper.
 
 # batch04
 achievement-fishach_orig_chemroulette-name = Chem Roulette
-achievement-fishach_orig_chemroulette-desc = Drink an unlabeled beaker and survive.
+achievement-fishach_orig_chemroulette-desc = Eat or drink something questionable.
 achievement-fishach_orig_blobperimeter-name = Kudzu Line
-achievement-fishach_orig_blobperimeter-desc = Hold the line while kudzu spreads through the station.
+achievement-fishach_orig_blobperimeter-desc = Be present for kudzu growth five times.
 achievement-fishach_orig_brigmedicbond-name = Brigmedic Bond
-achievement-fishach_orig_brigmedicbond-desc = Heal a prisoner and a security officer in the same shift.
+achievement-fishach_orig_brigmedicbond-desc = Heal other players ten times in one shift.
 achievement-fishach_orig_honkvasion-name = Honkacuation
-achievement-fishach_orig_honkvasion-desc = Be on the evacuation shuttle while fully dressed as a clown.
+achievement-fishach_orig_honkvasion-desc = Arrive at CentComm on the evacuation shuttle three times.
 achievement-fishach_orig_cesingularitybabysil-name = Singularity Babysitter
-achievement-fishach_orig_cesingularitybabysil-desc = Keep the engine contained through a major event.
+achievement-fishach_orig_cesingularitybabysil-desc = Be near three explosions.
 achievement-fishach_orig_loadoutmax-name = Loadout Max
-achievement-fishach_orig_loadoutmax-desc = Equip a role with a complete preferred loadout.
+achievement-fishach_orig_loadoutmax-desc = Equip items twenty-five times in one shift.
 achievement-fishach_ghostbuster-secret = Who you gonna call?
 
 # generic completable / pending

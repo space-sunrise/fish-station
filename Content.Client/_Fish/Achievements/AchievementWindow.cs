@@ -12,15 +12,14 @@ using Robust.Shared.Prototypes;
 namespace Content.Client._Fish.Achievements;
 
 /// <summary>
-/// Окно достижений: станционный журнал с вкладками-иконками, сеткой карточек и панелью деталей.
+/// Окно достижений: вкладки категорий, один progress bar для выбранного раздела, сетка и детали.
 /// </summary>
 public sealed class AchievementWindow : FancyWindow
 {
     private readonly FishCrtLabel _summary;
     private readonly FishCrtLabel _percentLabel;
-    private readonly ProgressBar _globalProgress;
+    private readonly ProgressBar _selectionProgress;
     private readonly BoxContainer _categoryRow;
-    private readonly BoxContainer _categoryProgressRow;
     private readonly GridContainer _grid;
     private readonly FishAchievementDetailPane _detail;
     private readonly Dictionary<string, FishAchievementCard> _cards = new();
@@ -29,7 +28,6 @@ public sealed class AchievementWindow : FancyWindow
     private IPrototypeManager? _prototypes;
     private IReadOnlyDictionary<string, AchievementPlayerState>? _states;
     private string? _selectedCategory = AchievementCatalogStats.AllCategoriesId;
-
     private string? _selectedAchievementId;
 
     public AchievementWindow()
@@ -100,7 +98,7 @@ public sealed class AchievementWindow : FancyWindow
         headerTop.AddChild(_summary);
         headerTop.AddChild(_percentLabel);
 
-        _globalProgress = new ProgressBar
+        _selectionProgress = new ProgressBar
         {
             MinValue = 0,
             MaxValue = 100,
@@ -110,7 +108,7 @@ public sealed class AchievementWindow : FancyWindow
         };
 
         headerInner.AddChild(headerTop);
-        headerInner.AddChild(_globalProgress);
+        headerInner.AddChild(_selectionProgress);
         header.AddChild(headerInner);
         root.AddChild(header);
 
@@ -129,23 +127,6 @@ public sealed class AchievementWindow : FancyWindow
         };
         categoryScroll.AddChild(_categoryRow);
         root.AddChild(categoryScroll);
-
-        var categoryProgressScroll = new ScrollContainer
-        {
-            HorizontalExpand = true,
-            MaxHeight = 120,
-            HScrollEnabled = false,
-            VScrollEnabled = true,
-        };
-
-        _categoryProgressRow = new BoxContainer
-        {
-            Orientation = BoxContainer.LayoutOrientation.Vertical,
-            SeparationOverride = 4,
-            HorizontalExpand = true,
-        };
-        categoryProgressScroll.AddChild(_categoryProgressRow);
-        root.AddChild(categoryProgressScroll);
 
         var body = new BoxContainer
         {
@@ -227,8 +208,7 @@ public sealed class AchievementWindow : FancyWindow
             _detail.Bind(selected, state);
         }
 
-        UpdateSummary();
-        RebuildCategoryProgress();
+        UpdateSelectionProgress();
     }
 
     private void RebuildCategories()
@@ -253,7 +233,7 @@ public sealed class AchievementWindow : FancyWindow
             _selectedCategory = AchievementCatalogStats.AllCategoriesId;
 
         RefreshCategorySelection();
-        RebuildCategoryProgress();
+        UpdateSelectionProgress();
     }
 
     private void AddCategoryTab(string? categoryId, string tooltip, string iconState)
@@ -295,61 +275,6 @@ public sealed class AchievementWindow : FancyWindow
         }
     }
 
-    private void RebuildCategoryProgress()
-    {
-        _categoryProgressRow.RemoveAllChildren();
-
-        if (_prototypes == null || _states == null)
-            return;
-
-        var palette = FishCrtThemeHelpers.FindContext(_categoryProgressRow).Palette;
-
-        foreach (var row in AchievementCatalogStats.CountByCategory(_prototypes, _states))
-        {
-            if (row.Total == 0)
-                continue;
-
-            var line = new BoxContainer
-            {
-                Orientation = BoxContainer.LayoutOrientation.Vertical,
-                SeparationOverride = 2,
-                HorizontalExpand = true,
-            };
-
-            line.AddChild(new FishCrtLabel
-            {
-                TextFontSize = 11,
-                Tone = FishCrtTone.Muted,
-                Text = Loc.GetString(
-                    "fish-achievements-category-progress",
-                    ("name", Loc.GetString(row.DisplayName)),
-                    ("unlocked", row.Unlocked),
-                    ("total", row.Total),
-                    ("percent", row.Percent)),
-            });
-
-            var bar = new ProgressBar
-            {
-                MinValue = 0,
-                MaxValue = 100,
-                Value = row.Percent,
-                MinHeight = 6,
-                HorizontalExpand = true,
-            };
-            bar.BackgroundStyleBoxOverride = new StyleBoxFlat
-            {
-                BackgroundColor = palette.Background.WithAlpha(0.95f),
-            };
-            bar.ForegroundStyleBoxOverride = new StyleBoxFlat
-            {
-                BackgroundColor = palette.Border,
-            };
-
-            line.AddChild(bar);
-            _categoryProgressRow.AddChild(line);
-        }
-    }
-
     private void RebuildGrid()
     {
         _grid.RemoveAllChildren();
@@ -358,7 +283,7 @@ public sealed class AchievementWindow : FancyWindow
         if (_prototypes == null || _states == null)
         {
             _detail.ShowPlaceholder();
-            UpdateSummary();
+            UpdateSelectionProgress();
             return;
         }
 
@@ -401,7 +326,7 @@ public sealed class AchievementWindow : FancyWindow
             _detail.ShowPlaceholder();
         }
 
-        UpdateSummary();
+        UpdateSelectionProgress();
     }
 
     private void SelectAchievement(string achievementId)
@@ -426,25 +351,33 @@ public sealed class AchievementWindow : FancyWindow
         }
     }
 
-    private void UpdateSummary()
+    /// <summary>
+    /// Один progress bar: «Все» или выбранная категория.
+    /// </summary>
+    private void UpdateSelectionProgress()
     {
         if (_prototypes == null || _states == null)
             return;
 
-        var (unlocked, total) = AchievementCatalogStats.CountGlobal(_prototypes, _states);
-        var percent = total > 0 ? (int) System.Math.Round(unlocked * 100d / total) : 0;
+        var progress = AchievementCatalogStats.GetSelectionProgress(_prototypes, _states, _selectedCategory);
+        var name = Loc.GetString(progress.DisplayName);
 
-        _summary.Text = Loc.GetString("fish-achievements-summary", ("unlocked", unlocked), ("total", total));
-        _summary.Tone = unlocked > 0 ? FishCrtTone.Good : FishCrtTone.Default;
-        _percentLabel.Text = Loc.GetString("fish-achievements-progress-percent", ("percent", percent));
-        _globalProgress.Value = percent;
+        _summary.Text = Loc.GetString(
+            "fish-achievements-category-progress",
+            ("name", name),
+            ("unlocked", progress.Unlocked),
+            ("total", progress.Total),
+            ("percent", progress.Percent));
+        _summary.Tone = progress.Unlocked > 0 ? FishCrtTone.Good : FishCrtTone.Default;
+        _percentLabel.Text = Loc.GetString("fish-achievements-progress-percent", ("percent", progress.Percent));
+        _selectionProgress.Value = progress.Percent;
 
-        var palette = FishCrtThemeHelpers.FindContext(_globalProgress).Palette;
-        _globalProgress.BackgroundStyleBoxOverride = new StyleBoxFlat
+        var palette = FishCrtThemeHelpers.FindContext(_selectionProgress).Palette;
+        _selectionProgress.BackgroundStyleBoxOverride = new StyleBoxFlat
         {
             BackgroundColor = palette.Background.WithAlpha(0.95f),
         };
-        _globalProgress.ForegroundStyleBoxOverride = new StyleBoxFlat
+        _selectionProgress.ForegroundStyleBoxOverride = new StyleBoxFlat
         {
             BackgroundColor = palette.Border,
         };

@@ -1,9 +1,10 @@
 - type: achievement
   id: FishAch_Orig_ChemRoulette
   name: achievement-fishach_orig_chemroulette-name
-  description: achievement-fish-generic-roundendalive-5-desc
+  description: achievement-fishach_orig_chemroulette-desc
   category: FishAchFunny
   condition: item-ingest
+  allowGenericTrigger: true
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -12,8 +13,8 @@
 - type: achievement
   id: FishAch_Orig_BlobPerimeter
   name: achievement-fishach_orig_blobperimeter-name
-  description: achievement-fish-generic-stationevent-5-desc
-  category: FishAchCombat
+  description: achievement-fishach_orig_blobperimeter-desc
+  category: FishAchStation
   condition: station-event
   conditionParams:
     event: KudzuGrowth
@@ -24,9 +25,10 @@
 - type: achievement
   id: FishAch_Orig_BrigMedicBond
   name: achievement-fishach_orig_brigmedicbond-name
-  description: achievement-fish-generic-heal-10-desc
+  description: achievement-fishach_orig_brigmedicbond-desc
   category: FishAchRoles
   condition: heal
+  allowGenericTrigger: true
   progressTarget: 10
   oncePerRound: true
   order: 2030
@@ -34,7 +36,7 @@
 - type: achievement
   id: FishAch_Orig_Honkvasion
   name: achievement-fishach_orig_honkvasion-name
-  description: achievement-fish-generic-shuttlearrive-3-desc
+  description: achievement-fishach_orig_honkvasion-desc
   category: FishAchFunny
   condition: shuttle-arrive
   progressTarget: 3
@@ -45,9 +47,10 @@
 - type: achievement
   id: FishAch_Orig_CESingularityBabysil
   name: achievement-fishach_orig_cesingularitybabysil-name
-  description: achievement-fish-generic-explosion-3-desc
+  description: achievement-fishach_orig_cesingularitybabysil-desc
   category: FishAchStation
   condition: explosion
+  allowGenericTrigger: true
   progressTarget: 3
   oncePerRound: true
   order: 2043
@@ -55,9 +58,10 @@
 - type: achievement
   id: FishAch_Orig_LoadoutMax
   name: achievement-fishach_orig_loadoutmax-name
-  description: achievement-fish-generic-itempickup-25-desc
+  description: achievement-fishach_orig_loadoutmax-desc
   category: FishAchMisc
   condition: item-pickup
+  allowGenericTrigger: true
   progressTarget: 25
   oncePerRound: true
   progressCooldownSeconds: 5

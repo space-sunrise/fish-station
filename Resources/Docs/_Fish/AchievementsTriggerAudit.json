@@ -1149,9 +1149,9 @@
     "condition": "kill",
     "conditionParams": {},
     "trigger": "KillReportedEvent",
-    "description": "Win a chase that spans three departments.",
+    "description": "Kill three player humanoids in one shift.",
     "status": "generic_but_valid",
-    "reason": "kill"
+    "reason": "allowGenericTrigger"
   },
   {
     "id": "FishAch_GhostTour",
@@ -1169,7 +1169,7 @@
       "job": "Passenger"
     },
     "trigger": "RoleAddedEvent",
-    "description": "Complete your first full round on the server.",
+    "description": "Spawn as a passenger three times.",
     "status": "fully_specific",
     "reason": "params:job"
   },
@@ -1180,7 +1180,7 @@
       "item": "Paper"
     },
     "trigger": "ItemConstructionCreated",
-    "description": "Label ten different items.",
+    "description": "Craft fifteen sheets of paper.",
     "status": "fully_specific",
     "reason": "params:item"
   },
@@ -1191,7 +1191,7 @@
       "event": "KudzuGrowth"
     },
     "trigger": "GameRuleStartedEvent",
-    "description": "Hold a defensive line against blob expansion.",
+    "description": "Be present for kudzu growth five times.",
     "status": "fully_specific",
     "reason": "params:event"
   },
@@ -1200,34 +1200,34 @@
     "condition": "heal",
     "conditionParams": {},
     "trigger": "DamageChangedEvent",
-    "description": "Heal a prisoner and a security officer in the same shift.",
+    "description": "Heal other players ten times in one shift.",
     "status": "generic_but_valid",
-    "reason": "heal"
+    "reason": "allowGenericTrigger"
   },
   {
     "id": "FishAch_Orig_CESingularityBabysil",
     "condition": "explosion",
     "conditionParams": {},
     "trigger": "SunriseExplosionEvent",
-    "description": "Keep the engine contained through a major event.",
+    "description": "Be near three explosions.",
     "status": "generic_but_valid",
-    "reason": "explosion"
+    "reason": "allowGenericTrigger"
   },
   {
     "id": "FishAch_Orig_ChemRoulette",
     "condition": "item-ingest",
     "conditionParams": {},
     "trigger": "IngestedEvent",
-    "description": "Drink an unlabeled beaker and survive.",
+    "description": "Eat or drink something questionable.",
     "status": "generic_but_valid",
-    "reason": "item-ingest"
+    "reason": "allowGenericTrigger"
   },
   {
     "id": "FishAch_Orig_Honkvasion",
     "condition": "shuttle-arrive",
     "conditionParams": {},
     "trigger": "FTLCompletedEvent",
-    "description": "Be on the evacuation shuttle while fully dressed as a clown.",
+    "description": "Arrive at CentComm on the evacuation shuttle three times.",
     "status": "fully_specific",
     "reason": "id:shuttle-arrive"
   },
@@ -1236,8 +1236,8 @@
     "condition": "item-pickup",
     "conditionParams": {},
     "trigger": "item-pickup",
-    "description": "Equip a role with a complete preferred loadout.",
+    "description": "Equip items twenty-five times in one shift.",
     "status": "generic_but_valid",
-    "reason": "item-pickup"
+    "reason": "allowGenericTrigger"
   }
 ]

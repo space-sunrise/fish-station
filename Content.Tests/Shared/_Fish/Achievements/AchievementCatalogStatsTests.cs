@@ -133,6 +133,40 @@ public sealed class AchievementCatalogStatsTests
     }
 
     [Test]
+    public void SelectionProgress_AllAndCategory_AreIndependent()
+    {
+        var states = new Dictionary<string, AchievementPlayerState>
+        {
+            ["A"] = new("A", 0, true, null),
+            ["B"] = new("B", 0, false, null),
+        };
+
+        var protoMan = CreateProtoMan(
+            new[]
+            {
+                Proto("A", "FishAchCombat"),
+                Proto("B", "FishAchCombat"),
+                Proto("C", "FishAchMisc"),
+            },
+            new[]
+            {
+                Category("FishAchCombat", 10),
+                Category("FishAchMisc", 100),
+            });
+
+        var all = AchievementCatalogStats.GetSelectionProgress(protoMan, states, AchievementCatalogStats.AllCategoriesId);
+        Assert.That(all.Unlocked, Is.EqualTo(1));
+        Assert.That(all.Total, Is.EqualTo(3));
+        Assert.That(all.Percent, Is.EqualTo(33));
+
+        var combat = AchievementCatalogStats.GetSelectionProgress(protoMan, states, "FishAchCombat");
+        Assert.That(combat.Unlocked, Is.EqualTo(1));
+        Assert.That(combat.Total, Is.EqualTo(2));
+        Assert.That(combat.Percent, Is.EqualTo(50));
+        Assert.That(combat.CategoryId, Is.EqualTo("FishAchCombat"));
+    }
+
+    [Test]
     public void CatalogBaseline_Has117Achievements()
     {
         var auditPath = Path.Combine(FindRepoRoot(), "Resources", "Docs", "_Fish", "AchievementsTriggerAudit.json");
