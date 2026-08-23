@@ -31,7 +31,7 @@ public sealed partial class AchievementConditionSystem
     partial void InitializeExploration()
     {
         SubscribeLocalEvent<ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<EventHorizonConsumedEntityEvent>(OnEventHorizonConsumed);
+        SubscribeLocalEvent<ActorComponent, EventHorizonConsumedEntityEvent>(OnEventHorizonConsumed);
         SubscribeLocalEvent<MobStateActionsComponent, CritSuccumbEvent>(OnSuccumb);
         SubscribeLocalEvent<AchievementTrackedComponent, EmoteEvent>(OnEmote);
         SubscribeLocalEvent<SiliconLawUpdaterComponent, EntInsertedIntoContainerMessage>(OnLawBoardInserted);
@@ -60,11 +60,8 @@ public sealed partial class AchievementConditionSystem
                 EventKey: $"examine:{GetNetEntity(args.Examined)}:{actor.PlayerSession.UserId}"));
     }
 
-    private void OnEventHorizonConsumed(EventHorizonConsumedEntityEvent args)
+    private void OnEventHorizonConsumed(EntityUid uid, ActorComponent actor, ref EventHorizonConsumedEntityEvent args)
     {
-        if (!TryComp<ActorComponent>(args.Entity, out var actor))
-            return;
-
         // Только singularity/event horizon, не произвольный consume.
         if (!HasComp<SingularityComponent>(args.EventHorizonUid) &&
             !HasComp<EventHorizonComponent>(args.EventHorizonUid))
@@ -74,7 +71,7 @@ public sealed partial class AchievementConditionSystem
             actor.PlayerSession,
             AchievementConditionKeys.SingularityConsumed,
             new AchievementTriggerContext(
-                EventKey: $"singulo:{GetNetEntity(args.Entity)}"));
+                EventKey: $"singulo:{GetNetEntity(uid)}"));
     }
 
     private void OnSuccumb(EntityUid uid, MobStateActionsComponent component, CritSuccumbEvent args)

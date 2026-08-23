@@ -87,22 +87,41 @@ public sealed partial class AchievementTriggerAuditYamlTests
 
     private static string FindRepoRoot()
     {
-        var dir = TestContext.CurrentContext.TestDirectory;
-        while (!string.IsNullOrEmpty(dir))
+        foreach (var start in new[]
+                 {
+                     TestContext.CurrentContext.TestDirectory,
+                     Directory.GetCurrentDirectory(),
+                     AppContext.BaseDirectory,
+                 })
         {
-            if (Directory.Exists(Path.Combine(dir, "Resources", "Prototypes", "_Fish", "Achievements")))
-                return dir;
+            var dir = start;
+            while (!string.IsNullOrEmpty(dir))
+            {
+                if (Directory.Exists(Path.Combine(dir, "Resources", "Prototypes", "_Fish", "Achievements")))
+                    return dir;
 
-            dir = Directory.GetParent(dir)?.FullName ?? string.Empty;
+                dir = Directory.GetParent(dir)?.FullName ?? string.Empty;
+            }
         }
 
         throw new InvalidOperationException("Could not locate achievement prototypes directory");
     }
 
+    private static int LoadAuditBaselineCount(string repoRoot)
+    {
+        var auditPath = Path.Combine(repoRoot, "Resources", "Docs", "_Fish", "AchievementsTriggerAudit.json");
+        if (!File.Exists(auditPath))
+            throw new InvalidOperationException($"Missing audit baseline: {auditPath}");
+
+        using var doc = System.Text.Json.JsonDocument.Parse(File.ReadAllText(auditPath));
+        return doc.RootElement.GetArrayLength();
+    }
+
     [Test]
     public void YamlInventory_MatchesAuditBaseline()
     {
-        var dir = Path.Combine(FindRepoRoot(), "Resources", "Prototypes", "_Fish", "Achievements");
+        var repoRoot = FindRepoRoot();
+        var dir = Path.Combine(repoRoot, "Resources", "Prototypes", "_Fish", "Achievements");
         Assert.That(Directory.Exists(dir), Is.True, dir);
 
         var ids = new List<string>();
@@ -133,7 +152,7 @@ public sealed partial class AchievementTriggerAuditYamlTests
             }
         }
 
-        Assert.That(ids, Has.Count.EqualTo(215));
+        Assert.That(ids, Has.Count.EqualTo(LoadAuditBaselineCount(repoRoot)));
 
         var manual = conditions.Count(c => c == AchievementConditionKeys.Manual);
         var gameplay = conditions.Count(c => c != AchievementConditionKeys.Manual);
