@@ -20,6 +20,7 @@ public sealed class AchievementWindow : FancyWindow
     private readonly FishCrtLabel _percentLabel;
     private readonly ProgressBar _globalProgress;
     private readonly BoxContainer _categoryRow;
+    private readonly BoxContainer _categoryProgressRow;
     private readonly GridContainer _grid;
     private readonly FishAchievementDetailPane _detail;
     private readonly Dictionary<string, FishAchievementCard> _cards = new();
@@ -27,7 +28,8 @@ public sealed class AchievementWindow : FancyWindow
 
     private IPrototypeManager? _prototypes;
     private IReadOnlyDictionary<string, AchievementPlayerState>? _states;
-    private string? _selectedCategory;
+    private string? _selectedCategory = AchievementCatalogStats.AllCategoriesId;
+
     private string? _selectedAchievementId;
 
     public AchievementWindow()
@@ -128,6 +130,23 @@ public sealed class AchievementWindow : FancyWindow
         categoryScroll.AddChild(_categoryRow);
         root.AddChild(categoryScroll);
 
+        var categoryProgressScroll = new ScrollContainer
+        {
+            HorizontalExpand = true,
+            MaxHeight = 120,
+            HScrollEnabled = false,
+            VScrollEnabled = true,
+        };
+
+        _categoryProgressRow = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            SeparationOverride = 4,
+            HorizontalExpand = true,
+        };
+        categoryProgressScroll.AddChild(_categoryProgressRow);
+        root.AddChild(categoryProgressScroll);
+
         var body = new BoxContainer
         {
             Orientation = BoxContainer.LayoutOrientation.Horizontal,
@@ -209,6 +228,7 @@ public sealed class AchievementWindow : FancyWindow
         }
 
         UpdateSummary();
+        RebuildCategoryProgress();
     }
 
     private void RebuildCategories()
@@ -219,22 +239,21 @@ public sealed class AchievementWindow : FancyWindow
         if (_prototypes == null)
             return;
 
-        AddCategoryTab(null, Loc.GetString("fish-achievements-category-all"), FishCrtIcons.Home);
+        AddCategoryTab(AchievementCatalogStats.AllCategoriesId, Loc.GetString("fish-achievements-category-all"), FishCrtIcons.Home);
 
-        string? firstCategory = null;
         foreach (var category in _prototypes.EnumeratePrototypes<AchievementCategoryPrototype>()
                      .OrderBy(c => c.Order)
                      .ThenBy(c => c.ID))
         {
-            firstCategory ??= category.ID;
             var icon = string.IsNullOrWhiteSpace(category.Icon) ? FishCrtIcons.Medal : category.Icon!;
             AddCategoryTab(category.ID, Loc.GetString(category.Name), icon);
         }
 
-        if (_selectedCategory == null && firstCategory != null)
-            _selectedCategory = firstCategory;
+        if (_selectedCategory == null)
+            _selectedCategory = AchievementCatalogStats.AllCategoriesId;
 
         RefreshCategorySelection();
+        RebuildCategoryProgress();
     }
 
     private void AddCategoryTab(string? categoryId, string tooltip, string iconState)
@@ -276,6 +295,61 @@ public sealed class AchievementWindow : FancyWindow
         }
     }
 
+    private void RebuildCategoryProgress()
+    {
+        _categoryProgressRow.RemoveAllChildren();
+
+        if (_prototypes == null || _states == null)
+            return;
+
+        var palette = FishCrtThemeHelpers.FindContext(_categoryProgressRow).Palette;
+
+        foreach (var row in AchievementCatalogStats.CountByCategory(_prototypes, _states))
+        {
+            if (row.Total == 0)
+                continue;
+
+            var line = new BoxContainer
+            {
+                Orientation = BoxContainer.LayoutOrientation.Vertical,
+                SeparationOverride = 2,
+                HorizontalExpand = true,
+            };
+
+            line.AddChild(new FishCrtLabel
+            {
+                TextFontSize = 11,
+                Tone = FishCrtTone.Muted,
+                Text = Loc.GetString(
+                    "fish-achievements-category-progress",
+                    ("name", Loc.GetString(row.DisplayName)),
+                    ("unlocked", row.Unlocked),
+                    ("total", row.Total),
+                    ("percent", row.Percent)),
+            });
+
+            var bar = new ProgressBar
+            {
+                MinValue = 0,
+                MaxValue = 100,
+                Value = row.Percent,
+                MinHeight = 6,
+                HorizontalExpand = true,
+            };
+            bar.BackgroundStyleBoxOverride = new StyleBoxFlat
+            {
+                BackgroundColor = palette.Background.WithAlpha(0.95f),
+            };
+            bar.ForegroundStyleBoxOverride = new StyleBoxFlat
+            {
+                BackgroundColor = palette.Border,
+            };
+
+            line.AddChild(bar);
+            _categoryProgressRow.AddChild(line);
+        }
+    }
+
     private void RebuildGrid()
     {
         _grid.RemoveAllChildren();
@@ -288,19 +362,12 @@ public sealed class AchievementWindow : FancyWindow
             return;
         }
 
-        IEnumerable<AchievementPrototype> achievements = _prototypes
-            .EnumeratePrototypes<AchievementPrototype>()
-            .Where(a => _selectedCategory == null || a.Category == _selectedCategory)
-            // catalog stub (manual) — только если уже есть прогресс/unlock (achgrant / legacy)
-            .Where(a =>
-            {
-                if (a.Condition != AchievementConditionKeys.Manual)
-                    return true;
+        var list = AchievementCatalogStats
+            .EnumerateVisible(_prototypes, _states, _selectedCategory)
+            .OrderBy(a => a.Order)
+            .ThenBy(a => a.ID)
+            .ToList();
 
-                return _states.TryGetValue(a.ID, out var st) && (st.Unlocked || st.Progress > 0);
-            });
-
-        var list = achievements.OrderBy(a => a.Order).ThenBy(a => a.ID).ToList();
         FishAchievementCard? firstCard = null;
 
         foreach (var proto in list)
@@ -364,8 +431,7 @@ public sealed class AchievementWindow : FancyWindow
         if (_prototypes == null || _states == null)
             return;
 
-        var total = _prototypes.EnumeratePrototypes<AchievementPrototype>().Count();
-        var unlocked = _states.Values.Count(s => s.Unlocked);
+        var (unlocked, total) = AchievementCatalogStats.CountGlobal(_prototypes, _states);
         var percent = total > 0 ? (int) System.Math.Round(unlocked * 100d / total) : 0;
 
         _summary.Text = Loc.GetString("fish-achievements-summary", ("unlocked", unlocked), ("total", total));

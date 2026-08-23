@@ -456,6 +456,11 @@ public sealed class AchievementManager : IPostInjectInit
         if (clamped == existing.Progress)
             return false;
 
+        var wouldUnlock = clamped >= target;
+        // Тот же Overall playtime gate, что и для БД — без unlock в RAM для новорегов/ботов.
+        if (wouldUnlock && !Gate.CanPersistToDatabase(session))
+            clamped = target - 1;
+
         var unlocked = clamped >= target;
         var state = new AchievementPlayerState(
             proto.ID,

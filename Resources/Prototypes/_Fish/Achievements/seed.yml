@@ -1,4 +1,14 @@
 - type: achievement
+  id: FishAchFirstBreath
+  name: achievement-fish-first-breath-name
+  description: achievement-fish-first-breath-desc
+  category: FishAchSurvival
+  condition: first-late-join
+  progressTarget: 1
+  oncePerRound: true
+  minRoundSeconds: 180
+  order: 10
+- type: achievement
   id: FishAchStillStanding
   name: achievement-fish-still-standing-name
   description: achievement-fish-still-standing-desc
@@ -7,6 +17,17 @@
   oncePerRound: true
   minRoundSeconds: 180
   order: 2
+- type: achievement
+  id: FishAchBananaRequiem
+  name: achievement-fish-banana-requiem-name
+  description: achievement-fish-banana-requiem-desc
+  category: FishAchFunny
+  condition: slip-death
+  progressTarget: 1
+  oncePerRound: true
+  minRoundSeconds: 120
+  secret: true
+  order: 30
 - type: achievement
   id: FishAchCentcommTourist
   name: achievement-fish-centcomm-tourist-name
@@ -22,7 +43,7 @@
   description: achievement-fish-habitual-survivor-desc
   category: FishAchSurvival
   condition: round-end-alive
-  progressTarget: 1
+  progressTarget: 10
   oncePerRound: true
   minRoundSeconds: 180
   order: 10

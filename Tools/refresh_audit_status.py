@@ -36,6 +36,7 @@ TRIGGER = {
     "reagent-metabolize": "SolutionContainerChangedEvent",
     "succumb": "CritSuccumbEvent",
     "emote": "EmoteEvent",
+    "ai-law-changes": "FishAiLawChangedEvent",
     "objective-complete": "RoundEndMessageEvent",
     "became-ghost": "MindRemovedMessage",
     "item-ingest": "IngestedEvent",

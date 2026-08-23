@@ -1,6 +1,5 @@
-using Content.Server.Mining;
-using Content.Server.Singularity.Events;
 using Content.Shared._Fish.Achievements;
+using Content.Shared._Fish.Achievements.Events;
 using Content.Shared.Body.Components;
 using Content.Shared.Chat;
 using Content.Shared.Chemistry.Components;
@@ -14,10 +13,9 @@ using Content.Shared.Gibbing;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Roles.Components;
-using Content.Shared.Silicons.Laws;
-using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Singularity.Components;
-using Robust.Shared.Containers;
+using Content.Server.Mining;
+using Content.Server.Singularity.Events;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 
@@ -32,14 +30,17 @@ public sealed partial class AchievementConditionSystem
     {
         SubscribeLocalEvent<ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<ActorComponent, EventHorizonConsumedEntityEvent>(OnEventHorizonConsumed);
-        SubscribeLocalEvent<MobStateActionsComponent, CritSuccumbEvent>(OnSuccumb);
+        SubscribeLocalEvent<FishCritSuccumbEvent>(OnFishCritSuccumb);
         SubscribeLocalEvent<AchievementTrackedComponent, EmoteEvent>(OnEmote);
-        SubscribeLocalEvent<SiliconLawUpdaterComponent, EntInsertedIntoContainerMessage>(OnLawBoardInserted);
-        SubscribeLocalEvent<SiliconLawProviderComponent, IonStormLawsEvent>(OnIonStormLaws);
-        SubscribeLocalEvent<SiliconLawProviderComponent, SiliconEmaggedEvent>(OnSiliconEmagged);
+        SubscribeLocalEvent<FishAiLawChangedEvent>(OnFishAiLawChanged);
         SubscribeLocalEvent<BloodstreamComponent, SolutionContainerChangedEvent>(OnBloodstreamChanged);
         SubscribeLocalEvent<ChasmFallingComponent, ComponentInit>(OnChasmFalling);
         SubscribeLocalEvent<ActorComponent, BeingGibbedEvent>(OnBeingGibbed);
+    }
+
+    private void OnFishAiLawChanged(ref FishAiLawChangedEvent args)
+    {
+        ContributeAiLawChange(args.Silicon, $"{args.Source}:{_timing.CurTick}");
     }
 
     private void OnExamined(ExaminedEvent args)
@@ -74,12 +75,12 @@ public sealed partial class AchievementConditionSystem
                 EventKey: $"singulo:{GetNetEntity(uid)}"));
     }
 
-    private void OnSuccumb(EntityUid uid, MobStateActionsComponent component, CritSuccumbEvent args)
+    private void OnFishCritSuccumb(ref FishCritSuccumbEvent args)
     {
-        if (!TryComp<ActorComponent>(uid, out var actor))
+        if (!TryComp<ActorComponent>(args.Mob, out var actor))
             return;
 
-        if (!TryComp<MobStateComponent>(uid, out var mob) || mob.CurrentState != MobState.Critical)
+        if (!TryComp<MobStateComponent>(args.Mob, out var mob) || mob.CurrentState != MobState.Critical)
             return;
 
         _ = _achievements.ContributeAsync(
@@ -100,26 +101,6 @@ public sealed partial class AchievementConditionSystem
             new AchievementTriggerContext(
                 EmotePrototypeId: args.Emote.ID,
                 EventKey: $"emote:{args.Emote.ID}:{_timing.CurTick}:{actor.PlayerSession.UserId}"));
-    }
-
-    private void OnLawBoardInserted(EntityUid uid, SiliconLawUpdaterComponent updater, EntInsertedIntoContainerMessage args)
-    {
-        if (!TryComp<SiliconLawProviderComponent>(args.Entity, out _))
-            return;
-
-        var query = EntityManager.CompRegistryQueryEnumerator(updater.Components);
-        while (query.MoveNext(out var siliconUid))
-            ContributeAiLawChange(siliconUid, $"upload:{GetNetEntity(uid)}:{_timing.CurTick}");
-    }
-
-    private void OnIonStormLaws(EntityUid uid, SiliconLawProviderComponent component, ref IonStormLawsEvent args)
-    {
-        ContributeAiLawChange(uid, $"ion:{_timing.CurTick}");
-    }
-
-    private void OnSiliconEmagged(EntityUid uid, SiliconLawProviderComponent component, ref SiliconEmaggedEvent args)
-    {
-        ContributeAiLawChange(uid, $"emag:{_timing.CurTick}");
     }
 
     private void ContributeAiLawChange(EntityUid siliconUid, string suffix)
