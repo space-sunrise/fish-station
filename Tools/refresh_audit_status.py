@@ -28,7 +28,7 @@ INHERENT = {
 
 TRIGGER = {
     "gavel-strike": "GavelSystem.OnHit",
-    "tile-pry": "TileToolDoAfterEvent",
+    "tile-pry": "FishTilePriedEvent",
     "gibbed": "BeingGibbedEvent",
     "singularity-consumed": "EventHorizonConsumedEntityEvent",
     "chasm-fall": "ChasmFallingComponent/ComponentInit",
