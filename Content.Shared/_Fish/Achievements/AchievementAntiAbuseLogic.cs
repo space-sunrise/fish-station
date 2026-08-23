@@ -120,6 +120,7 @@ public static class AchievementAntiAbuseLogic
             AchievementConditionKeys.ShuttleArrive => true,
             AchievementConditionKeys.ChasmFall => true,
             AchievementConditionKeys.Gibbed => true,
+            AchievementConditionKeys.SlipDeath => true,
             _ => false,
         };
     }

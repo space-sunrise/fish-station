@@ -1,17 +1,4 @@
 - type: achievement
-  id: FishAch_BestMealofMyLife
-  name: achievement-fishach_bestmealofmylife-name
-  description: achievement-fishach_bestmealofmylife-desc
-  category: FishAchMisc
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 100
-  # source: BeeStation
-  # blocked: ingest SupermatterCrystal / Zarathustra mechanic not mapped
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
   id: FishAch_CrossingtheHorizon
   name: achievement-fishach_crossingthehorizon-name
   description: achievement-fish-catalog-pending-desc
@@ -23,7 +10,6 @@
   order: 101
   # source: BeeStation
   # catalog-duplicate: progress goes to primary sibling
-
 - type: achievement
   id: FishAch_Davemymindisgoing
   name: achievement-fishach_davemymindisgoing-name
@@ -42,7 +28,6 @@
   order: 102
   # source: BeeStation
   # catalog-duplicate: progress goes to primary sibling
-
 - type: achievement
   id: FishAch_GGGhosts
   name: achievement-fishach_ggghosts-name
@@ -55,7 +40,6 @@
   order: 103
   # source: BeeStation
   # catalog-duplicate: progress goes to primary sibling
-
 - type: achievement
   id: FishAch_GrilledSeasonedVeteran
   name: achievement-fishach_grilledseasonedveteran-name
@@ -123,7 +107,6 @@
   order: 108
   # source: BeeStation
   # catalog-duplicate: progress goes to primary sibling
-
 - type: achievement
   id: FishAch_NYOOOOM
   name: achievement-fishach_nyoooom-name
@@ -142,20 +125,6 @@
   order: 109
   # source: BeeStation
   # catalog-duplicate: progress goes to primary sibling
-
-- type: achievement
-  id: FishAch_OverextendedTheJoke
-  name: achievement-fishach_overextendedthejoke-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchMisc
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 110
-  # source: BeeStation
-  # catalog-duplicate: progress goes to primary sibling
-
 - type: achievement
   id: FishAch_Pleasejustendthepain
   name: achievement-fishach_pleasejustendthepain-name
@@ -168,7 +137,6 @@
   order: 111
   # source: BeeStation
   # catalog-duplicate: progress goes to primary sibling
-
 - type: achievement
   id: FishAch_SeasonedVeteran
   name: achievement-fishach_seasonedveteran-name
@@ -212,20 +180,6 @@
   # source: BeeStation
   # catalog-duplicate: progress goes to primary sibling
 - type: achievement
-  id: FishAch_SurvivaloftheFittest
-  name: achievement-fishach_survivalofthefittest-name
-  description: achievement-fishach_survivalofthefittest-desc
-  category: FishAchCombat
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 115
-  # source: BeeStation
-  # blocked: weight machine mechanic absent in Fish/Sunrise
-  # catalog-duplicate: progress goes to primary sibling
-
-- type: achievement
   id: FishAch_SwarmBeaconCrusher
   name: achievement-fishach_swarmbeaconcrusher-name
   description: achievement-fish-catalog-pending-desc
@@ -253,33 +207,6 @@
   # source: BeeStation
   # catalog-duplicate: progress goes to primary sibling
 - type: achievement
-  id: FishAch_Thatwasstupidofyou
-  name: achievement-fishach_thatwasstupidofyou-name
-  description: achievement-fishach_thatwasstupidofyou-desc
-  category: FishAchMisc
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 118
-  # source: BeeStation
-  # blocked: welder bomb detonation mechanic absent in Fish/Sunrise
-  # catalog-duplicate: progress goes to primary sibling
-
-- type: achievement
-  id: FishAch_ThisLousyAchievement
-  name: achievement-fishach_thislousyachievement-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchMisc
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 119
-  # source: BeeStation
-  # catalog-duplicate: progress goes to primary sibling
-
-- type: achievement
   id: FishAch_Veteran
   name: achievement-fishach_veteran-name
   description: achievement-fish-catalog-pending-desc
@@ -293,19 +220,6 @@
   order: 120
   # source: BeeStation
   # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_WHOOSH
-  name: achievement-fishach_whoosh-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchMisc
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 121
-  # source: BeeStation
-  # catalog-duplicate: progress goes to primary sibling
-
 - type: achievement
   id: FishAch_BloodDrunkMinerCrusher
   name: achievement-fishach_blooddrunkminercrusher-name
@@ -426,19 +340,6 @@
   # source: BeeStation/ Monkestation/ Shiptest/ TGStation
   # catalog-duplicate: progress goes to primary sibling
 - type: achievement
-  id: FishAch_FeatofStrength
-  name: achievement-fishach_featofstrength-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchMisc
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 131
-  # source: BeeStation/ Monkestation/ Shiptest/ TGStation
-  # catalog-duplicate: progress goes to primary sibling
-
-- type: achievement
   id: FishAch_HierophantCrusher
   name: achievement-fishach_hierophantcrusher-name
   description: achievement-fish-catalog-pending-desc
@@ -465,19 +366,6 @@
   order: 133
   # source: BeeStation/ Monkestation/ Shiptest/ TGStation
   # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_Jackpot
-  name: achievement-fishach_jackpot-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchMisc
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 134
-  # source: BeeStation/ Monkestation/ Shiptest/ TGStation
-  # catalog-duplicate: progress goes to primary sibling
-
 - type: achievement
   id: FishAch_LegionCrusher
   name: achievement-fishach_legioncrusher-name
@@ -523,21 +411,6 @@
   order: 137
   # source: BeeStation/ Monkestation/ Shiptest/ TGStation
   # catalog-duplicate: progress goes to primary sibling
-
-- type: achievement
-  id: FishAch_RoundandFull
-  name: achievement-fishach_roundandfull-name
-  description: achievement-fishach_roundandfull-desc
-  category: FishAchMisc
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 138
-  # source: BeeStation/ Monkestation/ TGStation
-  # blocked: MEDAL_CLOWNCARKING — clown car mechanic absent
-  # catalog-duplicate: progress goes to primary sibling
-
 - type: achievement
   id: FishAch_TendrilExterminator
   name: achievement-fishach_tendrilexterminator-name
@@ -570,7 +443,6 @@
   order: 140
   # source: BeeStation/ Monkestation/ TGStation
   # catalog-duplicate: progress goes to primary sibling
-
 - type: achievement
   id: FishAch_VeryImportantPiscis
   name: achievement-fishach_veryimportantpiscis-name
@@ -582,53 +454,6 @@
   progressCooldownSeconds: 5
   order: 141
   # source: BeeStation/ Monkestation/ TGStation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_Greentext
-  name: achievement-fishach_greentext-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchMisc
-  condition: objective-complete
-  conditionParams:
-    objective: *
-
-
-
-
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 142
-  # source: BeeStation/ Yogstation
-  # catalog-duplicate: progress goes to primary sibling
-
-- type: achievement
-  id: FishAch_10bux
-  name: achievement-fishach_10bux-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchSecret
-  condition: manual
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 143
-  secret: true
-  secretDescription: achievement-fishach_10bux-secret
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_121Jiggawatts
-  name: achievement-fishach_121jiggawatts-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchRoles
-  condition: objective-complete
-  conditionParams:
-    objective: Objectives
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 144
-  # source: Goonstation
   # catalog-duplicate: progress goes to primary sibling
 - type: achievement
   id: FishAch_100Mdash
@@ -644,20 +469,6 @@
   order: 145
   secret: true
   secretDescription: achievement-fishach_100mdash-secret
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_40K
-  name: achievement-fishach_40k-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchMisc
-  condition: objective-complete
-  conditionParams:
-    objective: Objectives
-  progressTarget: 1
-  oncePerRound: true
-  minRoundSeconds: 180
-  order: 146
   # source: Goonstation
   # catalog-duplicate: progress goes to primary sibling
 - type: achievement
@@ -688,18 +499,6 @@
   order: 148
   secret: true
   secretDescription: achievement-fishach_ahollyjollyspacemas-secret
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_Ashockingdemise
-  name: achievement-fishach_ashockingdemise-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchMisc
-  condition: manual
-  progressTarget: 1
-  oncePerRound: true
-  minRoundSeconds: 180
-  order: 149
   # source: Goonstation
   # catalog-duplicate: progress goes to primary sibling
 - type: achievement
@@ -749,34 +548,6 @@
   # source: Goonstation
   # catalog-duplicate: progress goes to primary sibling
 - type: achievement
-  id: FishAch_Bettertoburnoutthanfade
-  name: achievement-fishach_bettertoburnoutthanfade-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchRoles
-  condition: objective-complete
-  conditionParams:
-    objective: Objectives
-  progressTarget: 1
-  oncePerRound: true
-  minRoundSeconds: 180
-  order: 153
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_BillMasen
-  name: achievement-fishach_billmasen-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchSurvival
-  condition: objective-complete
-  conditionParams:
-    objective: Objectives
-  progressTarget: 1
-  oncePerRound: true
-  minRoundSeconds: 180
-  order: 154
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
   id: FishAch_BlackandBlue
   name: achievement-fishach_blackandblue-name
   description: achievement-fish-catalog-pending-desc
@@ -786,31 +557,6 @@
   progressTarget: 400
   oncePerRound: true
   order: 155
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_BlockStacker
-  name: achievement-fishach_blockstacker-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchMisc
-  condition: manual
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 156
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_BombiniisMissing
-  name: achievement-fishach_bombiniismissing-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchSecret
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  order: 157
-  secret: true
-  secretDescription: achievement-fishach_bombiniismissing-secret
   # source: Goonstation
   # catalog-duplicate: progress goes to primary sibling
 - type: achievement
@@ -825,20 +571,6 @@
   oncePerRound: true
   progressCooldownSeconds: 5
   order: 158
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_BurytheDead
-  name: achievement-fishach_burythedead-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchStation
-  condition: objective-complete
-  conditionParams:
-    objective: Objectives
-  progressTarget: 1
-  oncePerRound: true
-  minRoundSeconds: 180
-  order: 159
   # source: Goonstation
   # catalog-duplicate: progress goes to primary sibling
 - type: achievement
@@ -886,46 +618,6 @@
   # source: Goonstation
   # catalog-duplicate: progress goes to primary sibling
 - type: achievement
-  id: FishAch_ChevalierduSorbet
-  name: achievement-fishach_chevalierdusorbet-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchSecret
-  condition: manual
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 163
-  secret: true
-  secretDescription: achievement-fishach_chevalierdusorbet-secret
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_Contributor
-  name: achievement-fishach_contributor-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchMisc
-  condition: manual
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 164
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_CreamoftheCrop
-  name: achievement-fishach_creamofthecrop-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchMisc
-  condition: objective-complete
-  conditionParams:
-    objective: Objectives
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 165
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
   id: FishAch_Damned
   name: achievement-fishach_damned-name
   description: achievement-fish-catalog-pending-desc
@@ -935,20 +627,6 @@
   progressTarget: 1
   oncePerRound: true
   order: 166
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_DangerousGame
-  name: achievement-fishach_dangerousgame-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchMisc
-  condition: objective-complete
-  conditionParams:
-    objective: Objectives
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 167
   # source: Goonstation
   # catalog-duplicate: progress goes to primary sibling
 - type: achievement
@@ -963,34 +641,6 @@
   oncePerRound: true
   minRoundSeconds: 180
   order: 168
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_DeepFreeze
-  name: achievement-fishach_deepfreeze-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchSecret
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 169
-  secret: true
-  secretDescription: achievement-fishach_deepfreeze-secret
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_DraculaJr
-  name: achievement-fishach_draculajr-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchMisc
-  condition: objective-complete
-  conditionParams:
-    objective: Objectives
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 170
   # source: Goonstation
   # catalog-duplicate: progress goes to primary sibling
 - type: achievement
@@ -1044,19 +694,6 @@
   # source: Goonstation
   # catalog-duplicate: FirstBreath уже закрывает first-late-join
 - type: achievement
-  id: FishAch_ForYourOhmGood
-  name: achievement-fishach_foryourohmgood-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchStation
-  condition: objective-complete
-  conditionParams:
-    objective: Objectives
-  progressTarget: 1
-  oncePerRound: true
-  order: 175
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
   id: FishAch_FormatComplete
   name: achievement-fishach_formatcomplete-name
   description: achievement-fish-catalog-pending-desc
@@ -1073,74 +710,6 @@
   # source: Goonstation
   # catalog-duplicate: progress goes to primary sibling
 - type: achievement
-  id: FishAch_FunTimes
-  name: achievement-fishach_funtimes-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchMisc
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 177
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_GlassCeiling
-  name: achievement-fishach_glassceiling-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchRoles
-  condition: objective-complete
-  conditionParams:
-    objective: Objectives
-  progressTarget: 1
-  oncePerRound: true
-  minRoundSeconds: 180
-  order: 178
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_GoawayBatin
-  name: achievement-fishach_goawaybatin-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchSecret
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 179
-  secret: true
-  secretDescription: achievement-fishach_goawaybatin-secret
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_GooGone
-  name: achievement-fishach_googone-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchSecret
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 180
-  secret: true
-  secretDescription: achievement-fishach_googone-secret
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_GoodFeasting
-  name: achievement-fishach_goodfeasting-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchMisc
-  condition: objective-complete
-  conditionParams:
-    objective: Objectives
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 181
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
   id: FishAch_GoreFest
   name: achievement-fishach_gorefest-name
   description: achievement-fishach_gorefest-desc
@@ -1150,49 +719,6 @@
   progressTarget: 1
   oncePerRound: true
   order: 182
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-
-- type: achievement
-  id: FishAch_GuardinGnome
-  name: achievement-fishach_guardingnome-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchSurvival
-  condition: objective-complete
-  conditionParams:
-    objective: Objectives
-  progressTarget: 1
-  oncePerRound: true
-  minRoundSeconds: 180
-  order: 183
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_GuerrierDuGelato
-  name: achievement-fishach_guerrierdugelato-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchSecret
-  condition: manual
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 184
-  secret: true
-  secretDescription: achievement-fishach_guerrierdugelato-secret
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_Helios
-  name: achievement-fishach_helios-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchSecret
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 185
-  secret: true
-  secretDescription: achievement-fishach_helios-secret
   # source: Goonstation
   # catalog-duplicate: progress goes to primary sibling
 - type: achievement
@@ -1262,20 +788,6 @@
   # source: Goonstation
   # catalog-duplicate: progress goes to primary sibling
 - type: achievement
-  id: FishAch_Idontgiveashit
-  name: achievement-fishach_idontgiveashit-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchRoles
-  condition: objective-complete
-  conditionParams:
-    objective: Objectives
-  progressTarget: 1
-  oncePerRound: true
-  minRoundSeconds: 180
-  order: 191
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
   id: FishAch_Ihelped
   name: achievement-fishach_ihelped-name
   description: achievement-fish-catalog-pending-desc
@@ -1301,48 +813,6 @@
   order: 193
   secret: true
   secretDescription: achievement-fishach_ijustcleanedthat-secret
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_ISpy
-  name: achievement-fishach_ispy-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchSecret
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 194
-  secret: true
-  secretDescription: achievement-fishach_ispy-secret
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_Icarus
-  name: achievement-fishach_icarus-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchSecret
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 195
-  secret: true
-  secretDescription: achievement-fishach_icarus-secret
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_IdentityTheft
-  name: achievement-fishach_identitytheft-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchSecret
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 196
-  secret: true
-  secretDescription: achievement-fishach_identitytheft-secret
   # source: Goonstation
   # catalog-duplicate: progress goes to primary sibling
 - type: achievement
@@ -1392,34 +862,6 @@
   # source: Goonstation
   # catalog-duplicate: progress goes to primary sibling
 - type: achievement
-  id: FishAch_ITSATRAP
-  name: achievement-fishach_itsatrap-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchSecret
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 200
-  secret: true
-  secretDescription: achievement-fishach_itsatrap-secret
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_Itsfrickinfreezinginhere
-  name: achievement-fishach_itsfrickinfreezinginhere-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchRoles
-  condition: objective-complete
-  conditionParams:
-    objective: Objectives
-  progressTarget: 1
-  oncePerRound: true
-  minRoundSeconds: 180
-  order: 201
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
   id: FishAch_Itsjustafleshwound
   name: achievement-fishach_itsjustafleshwound-name
   description: achievement-fish-catalog-pending-desc
@@ -1431,47 +873,6 @@
   oncePerRound: true
   minRoundSeconds: 180
   order: 202
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_ItsnotDoortoHeaven
-  name: achievement-fishach_itsnotdoortoheaven-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchRoles
-  condition: objective-complete
-  conditionParams:
-    objective: Objectives
-  progressTarget: 1
-  oncePerRound: true
-  order: 203
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_Itsnoteasybeinggreen
-  name: achievement-fishach_itsnoteasybeinggreen-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchSecret
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 204
-  secret: true
-  secretDescription: achievement-fishach_itsnoteasybeinggreen-secret
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_ItsameMario
-  name: achievement-fishach_itsamemario-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchSecret
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 205
-  secret: true
-  secretDescription: achievement-fishach_itsamemario-secret
   # source: Goonstation
   # catalog-duplicate: progress goes to primary sibling
 - type: achievement
@@ -1501,76 +902,6 @@
   # source: Goonstation
   # catalog-duplicate: progress goes to primary sibling
 - type: achievement
-  id: FishAch_Leavenomanbehind
-  name: achievement-fishach_leavenomanbehind-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchSecret
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 208
-  secret: true
-  secretDescription: achievement-fishach_leavenomanbehind-secret
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_LicensedArchaeologist
-  name: achievement-fishach_licensedarchaeologist-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchRoles
-  condition: objective-complete
-  conditionParams:
-    objective: Objectives
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 209
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_Lifeuhfindsaway
-  name: achievement-fishach_lifeuhfindsaway-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchMisc
-  condition: objective-complete
-  conditionParams:
-    objective: Objectives
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 210
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_LockBlock
-  name: achievement-fishach_lockblock-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchSecret
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 211
-  secret: true
-  secretDescription: achievement-fishach_lockblock-secret
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_ManwithaScan
-  name: achievement-fishach_manwithascan-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchRoles
-  condition: objective-complete
-  conditionParams:
-    objective: Objectives
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 212
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
   id: FishAch_ManhattanProject
   name: achievement-fishach_manhattanproject-name
   description: achievement-fish-catalog-pending-desc
@@ -1579,48 +910,6 @@
   progressTarget: 1
   oncePerRound: true
   order: 213
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_Manynamesmanyfaces
-  name: achievement-fishach_manynamesmanyfaces-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchSurvival
-  condition: objective-complete
-  conditionParams:
-    objective: Objectives
-  progressTarget: 1
-  oncePerRound: true
-  minRoundSeconds: 180
-  order: 214
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_MasterofUnlocking
-  name: achievement-fishach_masterofunlocking-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchSecret
-  condition: interaction
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 215
-  secret: true
-  secretDescription: achievement-fishach_masterofunlocking-secret
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_Methisahellofa
-  name: achievement-fishach_methisahellofa-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchRoles
-  condition: objective-complete
-  conditionParams:
-    objective: Objectives
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 216
   # source: Goonstation
   # catalog-duplicate: progress goes to primary sibling
 - type: achievement
@@ -1636,34 +925,5 @@
   progressTarget: 1
   oncePerRound: true
   order: 217
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-
-- type: achievement
-  id: FishAch_MISSIONCOMPLETE
-  name: achievement-fishach_missioncomplete-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchMisc
-  condition: objective-complete
-  conditionParams:
-    objective: *
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 218
-  # source: Goonstation
-  # catalog-duplicate: progress goes to primary sibling
-- type: achievement
-  id: FishAch_MonkeyDuty
-  name: achievement-fishach_monkeyduty-name
-  description: achievement-fish-catalog-pending-desc
-  category: FishAchCombat
-  condition: objective-complete
-  conditionParams:
-    objective: Objectives
-  progressTarget: 1
-  oncePerRound: true
-  progressCooldownSeconds: 5
-  order: 219
   # source: Goonstation
   # catalog-duplicate: progress goes to primary sibling

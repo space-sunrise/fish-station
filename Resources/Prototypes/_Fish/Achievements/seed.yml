@@ -1,20 +1,3 @@
-
-
-
-
-
-
-
-# Seed-набор. allowGenericTrigger — единственные бинарные «без params».
-
-- type: achievement
-  id: FishAchFirstBreath
-  name: achievement-fish-first-breath-name
-  description: achievement-fish-first-breath-desc
-  category: FishAchSurvival
-  condition: interaction
-  oncePerRound: true
-  order: 1
 - type: achievement
   id: FishAchStillStanding
   name: achievement-fish-still-standing-name
@@ -24,16 +7,6 @@
   oncePerRound: true
   minRoundSeconds: 180
   order: 2
-- type: achievement
-  id: FishAchBananaRequiem
-  name: achievement-fish-banana-requiem-name
-  description: achievement-fish-banana-requiem-desc
-  secretDescription: achievement-fish-banana-requiem-secret
-  category: FishAchFunny
-  condition: interaction
-  ignoreSuicide: true
-  secret: true
-  order: 1
 - type: achievement
   id: FishAchCentcommTourist
   name: achievement-fish-centcomm-tourist-name

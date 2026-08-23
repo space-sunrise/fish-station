@@ -6,6 +6,28 @@
 
 ---
 
+## Executive Summary (final — 2026-08-23)
+
+| Метрика | Число |
+|---------|------:|
+| **Всего достижений** | **215** |
+| **fully_specific** | **172** |
+| **generic_but_valid** | **43** |
+| **generic_suspicious** | **0** |
+| **blocked** | **0** |
+| **manual** | **0** |
+| **Removed (impossible/fake)** | **279** |
+
+### Final cleanup pass
+
+- Удалены все `blocked` / `manual` записи из каталога (не оставлены stubs)
+- Удалены `objective-complete` с placeholder `Objectives` / `*` (нет Fish objective mapping)
+- Seed: `FishAchFirstBreath` → `first-late-join`, `FishAchBananaRequiem` → `slip-death`
+- `Tools/finalize_achievements_catalog.py` — безопасное удаление блоков + FTL/audit/mapping
+- `Tools/refresh_audit_status.py` — CRLF-safe парсинг YAML
+
+---
+
 ## Executive Summary (refine pass — 2026-08-23)
 
 | Метрика | Число |

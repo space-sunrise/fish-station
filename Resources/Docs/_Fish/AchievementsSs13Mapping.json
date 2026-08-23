@@ -18,7 +18,9 @@
     "fishEquivalent": "ExaminedEvent + MeteorComponent",
     "fishTrigger": "AchievementConditionSystem.Exploration.OnExamined",
     "condition": "examine",
-    "conditionParams": { "tag": "Meteor" },
+    "conditionParams": {
+      "tag": "Meteor"
+    },
     "status": "fully_specific"
   },
   {
@@ -29,7 +31,9 @@
     "fishEquivalent": "Desoxyephedrine in bloodstream (Fish meth analog) → SolutionContainerChangedEvent",
     "fishTrigger": "AchievementConditionSystem.Exploration.OnBloodstreamChanged",
     "condition": "reagent-metabolize",
-    "conditionParams": { "reagent": "Desoxyephedrine" },
+    "conditionParams": {
+      "reagent": "Desoxyephedrine"
+    },
     "status": "fully_specific"
   },
   {
@@ -51,7 +55,9 @@
     "fishEquivalent": "SiliconLawUpdater insert + IonStormLawsEvent + SiliconEmaggedEvent",
     "fishTrigger": "AchievementConditionSystem.Exploration.ContributeAiLawChange",
     "condition": "ai-law-changes",
-    "conditionParams": { "job": "StationAi" },
+    "conditionParams": {
+      "job": "StationAi"
+    },
     "progressTarget": 15,
     "status": "fully_specific"
   },
@@ -63,19 +69,10 @@
     "fishEquivalent": "EmoteEvent with EmotePrototype Honk",
     "fishTrigger": "AchievementConditionSystem.Exploration.OnEmote",
     "condition": "emote",
-    "conditionParams": { "emote": "Honk" },
+    "conditionParams": {
+      "emote": "Honk"
+    },
     "progressTarget": 100,
-    "status": "fully_specific"
-  },
-  {
-    "id": "FishAch_Greentext",
-    "source": "BeeStation/code/game/gamemodes/roundend.dm:155",
-    "sourceTrigger": "all antag objectives complete at round end",
-    "sourceCondition": "Player completes all assigned objectives",
-    "fishEquivalent": "ObjectiveCompleteEvent at RoundEnd (objective: *)",
-    "fishTrigger": "AchievementConditionSystem.RoundEnd.ProcessRoundEndObjectives",
-    "condition": "objective-complete",
-    "conditionParams": { "objective": "*" },
     "status": "fully_specific"
   },
   {
@@ -90,42 +87,6 @@
     "status": "fully_specific"
   },
   {
-    "id": "FishAch_Jackpot",
-    "source": "BeeStation/code/game/machinery/computer/arcade.dm:111",
-    "sourceTrigger": "1-in-1M pulse rifle prize from arcade",
-    "sourceCondition": "Win pulse rifle from arcade machine",
-    "fishEquivalent": "BLOCKED: SpaceVillainArcade has no pulse rifle jackpot prize",
-    "fishTrigger": null,
-    "condition": "interaction",
-    "conditionParams": {},
-    "status": "blocked",
-    "blockedReason": "Arcade pulse rifle jackpot mechanic absent in Fish/Sunrise"
-  },
-  {
-    "id": "FishAch_OverextendedTheJoke",
-    "source": "BeeStation/code/modules/awaymissions/super_secret_room.dm:83",
-    "sourceTrigger": "speaking_tile interact count == 5643 → give_award(time_waste)",
-    "sourceCondition": "Interact with error-room speaking_tile 5643 times in one round",
-    "fishEquivalent": "BLOCKED: no speaking_tile / super_secret_room easter egg in Fish",
-    "fishTrigger": null,
-    "condition": "interaction",
-    "conditionParams": {},
-    "status": "blocked",
-    "blockedReason": "Error-handling speaking_tile easter egg (5643 interactions) not present in Fish"
-  },
-  {
-    "id": "FishAch_YourLifeInYourHands",
-    "source": "tgstation/code/modules/meteors/meteor_deflection.dm:71",
-    "sourceTrigger": "meteor_combat check_punch_award → give_award(meteor_punch)",
-    "sourceCondition": "Punch meteor in combat mode with legendary athletics (NOT examine)",
-    "fishEquivalent": "BLOCKED: TG meteor_combat punch/deflection component not ported",
-    "fishTrigger": null,
-    "condition": "interaction",
-    "conditionParams": {},
-    "status": "blocked",
-    "blockedReason": "Meteor punch/deflection mechanic absent; distinct from meteor_examine (Your Life Before Your Eyes)"
-  },
-  {
     "id": "FishAch_MindtheGap",
     "source": "BeeStation/code/__DEFINES/achievements.dm MEDAL_CHASMJAUNT",
     "sourceTrigger": "chasm jaunt / fall into chasm (lavaland)",
@@ -137,42 +98,6 @@
     "status": "fully_specific"
   },
   {
-    "id": "FishAch_WHOOSH",
-    "source": "BeeStation/code/__DEFINES/achievements.dm MEDAL_UNWRENCH_HIGH_PRESSURE",
-    "sourceTrigger": "unwrench high-pressure atmos pipe",
-    "sourceCondition": "Unwrench pressurized gas pipe",
-    "fishEquivalent": "BLOCKED: high-pressure pipe unwrench achievement hook not mapped to Fish atmos",
-    "fishTrigger": null,
-    "condition": "interaction",
-    "conditionParams": {},
-    "status": "blocked",
-    "blockedReason": "High-pressure pipe unwrench trigger not verified in Fish atmos systems"
-  },
-  {
-    "id": "FishAch_FeatofStrength",
-    "source": "BeeStation/code/__DEFINES/achievements.dm MEDAL_RODSUPLEX",
-    "sourceTrigger": "immovable rod suplex / rod passing player",
-    "sourceCondition": "Rod suplex feat with immovable rod",
-    "fishEquivalent": "BLOCKED: rod suplex/grabbing mechanic not ported",
-    "fishTrigger": null,
-    "condition": "interaction",
-    "conditionParams": {},
-    "status": "blocked",
-    "blockedReason": "Rod suplex (MEDAL_RODSUPLEX) mechanic absent in Fish"
-  },
-  {
-    "id": "FishAch_ThisLousyAchievement",
-    "source": "BeeStation/code/__DEFINES/achievements.dm MEDAL_BIKE",
-    "sourceTrigger": "ride bicycle vehicle",
-    "sourceCondition": "Use bicycle vehicle",
-    "fishEquivalent": "BLOCKED: bicycle vehicle not present in Fish",
-    "fishTrigger": null,
-    "condition": "interaction",
-    "conditionParams": {},
-    "status": "blocked",
-    "blockedReason": "Bicycle vehicle mechanic absent in Fish"
-  },
-  {
     "id": "FishAch_ClownCourt",
     "source": "Fish-original (mock trial with judge gavel)",
     "sourceTrigger": "GavelHammer AfterInteract on GavelBlock ×30",
@@ -180,45 +105,11 @@
     "fishEquivalent": "GavelSystem + GavelHammer/GavelBlock (Sunrise) + FishJudgeGavel parent",
     "fishTrigger": "GavelSystem.OnHit → AchievementConditionKeys.GavelStrike",
     "condition": "gavel-strike",
-    "conditionParams": { "target": "GavelBlock" },
+    "conditionParams": {
+      "target": "GavelBlock"
+    },
     "progressTarget": 30,
     "status": "fully_specific"
-  },
-  {
-    "id": "FishAch_AtmosPoetry",
-    "source": "Fish-original",
-    "sourceTrigger": "Stabilize critical atmos incident without explosions",
-    "sourceCondition": "Resolve danger-level atmos/fire incident without nearby explosion",
-    "fishEquivalent": "BLOCKED: no player-attributed atmos stabilization completion event",
-    "fishTrigger": null,
-    "condition": "interaction",
-    "conditionParams": {},
-    "status": "blocked",
-    "blockedReason": "Atmos incident stabilization tracking absent; GasPipe interaction is not equivalent"
-  },
-  {
-    "id": "FishAch_Thatwasstupidofyou",
-    "source": "BeeStation/code/__DEFINES/achievements.dm MEDAL_DETONATE_WELDERBOMB",
-    "sourceTrigger": "Detonate welder bomb (lit welder + fuel tank)",
-    "sourceCondition": "Player causes welder bomb explosion",
-    "fishEquivalent": "BLOCKED: WelderComponent notes TODO; no welder-bomb detonation event",
-    "fishTrigger": null,
-    "condition": "interaction",
-    "conditionParams": {},
-    "status": "blocked",
-    "blockedReason": "Welder bomb detonation mechanic absent; generic explosion is false positive"
-  },
-  {
-    "id": "FishAch_SurvivaloftheFittest",
-    "source": "BeeStation/code/__DEFINES/achievements.dm MEDAL_USE_WEIGHT_MACHINE",
-    "sourceTrigger": "Use weight machine in gym",
-    "sourceCondition": "Successfully use exercise/weight machine",
-    "fishEquivalent": "BLOCKED: no weight/exercise machine in Fish/Sunrise",
-    "fishTrigger": null,
-    "condition": "interaction",
-    "conditionParams": {},
-    "status": "blocked",
-    "blockedReason": "Weight machine mechanic absent; GunShotEvent was false positive"
   },
   {
     "id": "FishAch_Misclick",
@@ -228,7 +119,9 @@
     "fishEquivalent": "SharedToolSystem.Tile TileToolDoAfterEvent + intact tile filter",
     "fishTrigger": "AchievementConditionSystem.Fun.OnTileToolDoAfter",
     "condition": "tile-pry",
-    "conditionParams": { "tag": "IntactFloor" },
+    "conditionParams": {
+      "tag": "IntactFloor"
+    },
     "status": "fully_specific"
   },
   {
@@ -241,29 +134,5 @@
     "condition": "gibbed",
     "conditionParams": {},
     "status": "fully_specific"
-  },
-  {
-    "id": "FishAch_RoundandFull",
-    "source": "BeeStation MEDAL_CLOWNCARKING",
-    "sourceTrigger": "Clown car / round and full",
-    "sourceCondition": "Fill clown car with clowns",
-    "fishEquivalent": "BLOCKED: clown car vehicle absent",
-    "fishTrigger": null,
-    "condition": "interaction",
-    "conditionParams": {},
-    "status": "blocked",
-    "blockedReason": "Clown car (MEDAL_CLOWNCARKING) mechanic absent; generic death was false positive"
-  },
-  {
-    "id": "FishAch_BestMealofMyLife",
-    "source": "BeeStation MEDAL_MINTGIB",
-    "sourceTrigger": "Eat supermatter / Zarathustra",
-    "sourceCondition": "Ingest supermatter crystal",
-    "fishEquivalent": "BLOCKED: SupermatterCrystal ingest achievement hook not verified",
-    "fishTrigger": null,
-    "condition": "interaction",
-    "conditionParams": {},
-    "status": "blocked",
-    "blockedReason": "Supermatter/Zarathustra ingest trigger not mapped"
   }
 ]

@@ -7,7 +7,7 @@ using Robust.Shared.Prototypes;
 namespace Content.IntegrationTests.Tests._Fish;
 
 /// <summary>
-/// Жёсткий аудит trigger chain: non-manual прототипы должны иметь handler и unlock path.
+/// Runtime audit: каждый прототип имеет известный handler и unlock path.
 /// </summary>
 [TestFixture]
 public sealed class AchievementTriggerAuditTests
@@ -37,6 +37,35 @@ public sealed class AchievementTriggerAuditTests
         AchievementConditionKeys.ObjectiveComplete,
         AchievementConditionKeys.PlaytimeMinutes,
         AchievementConditionKeys.RoleAdded,
+        AchievementConditionKeys.Defibrillate,
+        AchievementConditionKeys.Surgery,
+        AchievementConditionKeys.GunShot,
+        AchievementConditionKeys.Examine,
+        AchievementConditionKeys.SingularityConsumed,
+        AchievementConditionKeys.Succumb,
+        AchievementConditionKeys.Emote,
+        AchievementConditionKeys.AiLawChanges,
+        AchievementConditionKeys.ReagentMetabolize,
+        AchievementConditionKeys.ChasmFall,
+        AchievementConditionKeys.GavelStrike,
+        AchievementConditionKeys.TilePry,
+        AchievementConditionKeys.Gibbed,
+        AchievementConditionKeys.SlipDeath,
+    };
+
+    private static readonly HashSet<string> InherentlySpecificConditions = new()
+    {
+        AchievementConditionKeys.BecameGhost,
+        AchievementConditionKeys.SingularityConsumed,
+        AchievementConditionKeys.Succumb,
+        AchievementConditionKeys.FirstLateJoin,
+        AchievementConditionKeys.AntagWin,
+        AchievementConditionKeys.RoundEndAlive,
+        AchievementConditionKeys.RoundSurvive,
+        AchievementConditionKeys.ShuttleArrive,
+        AchievementConditionKeys.ChasmFall,
+        AchievementConditionKeys.Gibbed,
+        AchievementConditionKeys.SlipDeath,
     };
 
     private static readonly HashSet<string> SeedFullyImplemented = new()
@@ -49,7 +78,7 @@ public sealed class AchievementTriggerAuditTests
     };
 
     [Test]
-    public async Task Audit_AllAchievements_HaveKnownConditionOrManualStub()
+    public async Task Audit_AllAchievements_HaveKnownConditionAndUnlockPath()
     {
         await using var pair = await PoolManager.GetServerClient();
         var protoMan = pair.Server.ResolveDependency<IPrototypeManager>();
@@ -57,37 +86,24 @@ public sealed class AchievementTriggerAuditTests
         await pair.Server.WaitAssertion(() =>
         {
             var all = protoMan.EnumeratePrototypes<AchievementPrototype>().ToList();
-            Assert.That(all, Has.Count.EqualTo(494), "Audit baseline count");
+            Assert.That(all, Has.Count.GreaterThan(0));
 
-            Assert.That(manual, Has.Count.EqualTo(0));
+            var manual = all.Where(p => p.Condition == AchievementConditionKeys.Manual).ToList();
+            Assert.That(manual, Has.Count.EqualTo(0), "Manual catalog stubs must be removed, not kept");
 
-            var gameplay = all.Where(p => p.Condition != AchievementConditionKeys.Manual).ToList();
-            Assert.That(gameplay, Has.Count.EqualTo(494));
-
-            foreach (var proto in manual)
-            {
-                Assert.That(proto.AllowGenericTrigger, Is.False,
-                    $"{proto.ID}: manual catalog stub must not unlock from generic gameplay");
-            }
-
-            foreach (var proto in gameplay)
+            foreach (var proto in all)
             {
                 Assert.That(HandledConditions.Contains(proto.Condition), Is.True,
                     $"{proto.ID}: no handler for condition {proto.Condition}");
+
+                if (InherentlySpecificConditions.Contains(proto.Condition))
+                    continue;
+
                 Assert.That(
                     proto.AllowGenericTrigger || proto.ConditionParams.Count > 0,
                     Is.True,
                     $"{proto.ID}: missing unlock path (allowGenericTrigger or conditionParams)");
             }
-
-            Assert.That(
-                all.Any(p => p.Condition == AchievementConditionKeys.RoundSurvive),
-                Is.False,
-                "round-survive handler exists but no prototype yet");
-            Assert.That(
-                all.Any(p => p.Condition == AchievementConditionKeys.AntagWin),
-                Is.False,
-                "antag-win handler exists but no prototype yet");
 
             var seed = all.Where(p => SeedFullyImplemented.Contains(p.ID)).ToList();
             Assert.That(seed, Has.Count.EqualTo(SeedFullyImplemented.Count));

@@ -14,7 +14,7 @@ namespace Content.Tests.Shared._Fish.Achievements;
 [TestFixture]
 public sealed partial class AchievementTriggerAuditYamlTests
 {
-    [GeneratedRegex(@"- type: achievement[\s\S]*?(?=\n- type:|\z)", RegexOptions.Multiline)]
+    [GeneratedRegex(@"- type: achievement\r?\n[\s\S]*?(?=\r?\n- type: |\z)", RegexOptions.Multiline)]
     private static partial Regex AchievementBlockRegex();
 
     [GeneratedRegex(@"^\s+id:\s+(\S+)\s*$", RegexOptions.Multiline)]
@@ -67,6 +67,7 @@ public sealed partial class AchievementTriggerAuditYamlTests
         AchievementConditionKeys.GavelStrike,
         AchievementConditionKeys.TilePry,
         AchievementConditionKeys.Gibbed,
+        AchievementConditionKeys.SlipDeath,
     };
 
     private static readonly HashSet<string> InherentlySpecificConditions = new()
@@ -81,6 +82,7 @@ public sealed partial class AchievementTriggerAuditYamlTests
         AchievementConditionKeys.ShuttleArrive,
         AchievementConditionKeys.ChasmFall,
         AchievementConditionKeys.Gibbed,
+        AchievementConditionKeys.SlipDeath,
     };
 
     private static string FindRepoRoot()
@@ -131,14 +133,13 @@ public sealed partial class AchievementTriggerAuditYamlTests
             }
         }
 
-        Assert.That(ids, Has.Count.EqualTo(494));
+        Assert.That(ids, Has.Count.EqualTo(215));
 
         var manual = conditions.Count(c => c == AchievementConditionKeys.Manual);
         var gameplay = conditions.Count(c => c != AchievementConditionKeys.Manual);
 
-        // manual только для admin-only blocked (Contributor и т.п.)
-        Assert.That(manual, Is.LessThanOrEqualTo(10));
-        Assert.That(gameplay + manual, Is.EqualTo(494));
+        Assert.That(manual, Is.EqualTo(0));
+        Assert.That(gameplay, Is.EqualTo(ids.Count));
 
         for (var i = 0; i < ids.Count; i++)
         {

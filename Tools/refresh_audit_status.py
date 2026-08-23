@@ -23,7 +23,7 @@ HANDLED = {
 
 INHERENT = {
     "became-ghost", "singularity-consumed", "succumb", "first-late-join", "antag-win",
-    "round-end-alive", "round-survive", "shuttle-arrive", "chasm-fall", "gibbed",
+    "round-end-alive", "round-survive", "shuttle-arrive", "chasm-fall", "gibbed", "slip-death",
 }
 
 TRIGGER = {
@@ -56,7 +56,13 @@ TRIGGER = {
 
 
 def ftl_desc(ach_id: str) -> str:
-    key = ach_id.replace("FishAch_", "achievement-fishach_", 1).lower() + "-desc"
+    if ach_id.startswith("FishAch_"):
+        key = ach_id.replace("FishAch_", "achievement-fishach_", 1).lower() + "-desc"
+    else:
+        # seed: FishAchFirstBreath → achievement-fish-first-breath-desc
+        frag = ach_id.replace("FishAch", "achievement-fish-", 1)
+        # camelCase to kebab: FirstBreath → first-breath
+        key = re.sub(r"([a-z])([A-Z])", r"\1-\2", frag).lower() + "-desc"
     for line in FTL.read_text(encoding="utf-8").splitlines():
         if line.startswith(f"{key} = "):
             return line.split(" = ", 1)[1].strip()
@@ -65,10 +71,13 @@ def ftl_desc(ach_id: str) -> str:
 
 def parse_yaml() -> dict[str, dict]:
     out: dict[str, dict] = {}
+    block_pat = re.compile(r"- type: achievement\r?\n[\s\S]*?(?=\r?\n- type: |\Z)")
     for path in sorted(ACH_DIR.glob("*.yml")):
+        if path.name == "categories.yml":
+            continue
         text = path.read_text(encoding="utf-8")
-        for block in re.split(r"(?=\n- type: achievement)", text)[1:]:
-            aid_m = re.search(r"^  id: (FishAch_\w+)", block, re.M)
+        for block in block_pat.findall(text):
+            aid_m = re.search(r"^  id: (FishAch\w+)", block, re.M)
             if not aid_m:
                 continue
             aid = aid_m.group(1)
@@ -109,29 +118,27 @@ def classify(entry: dict) -> tuple[str, str]:
 
 def main() -> None:
     yaml = parse_yaml()
-    audit = json.loads(AUDIT.read_text(encoding="utf-8"))
-    by_id = {r["id"]: r for r in audit}
-    for aid, y in yaml.items():
-        row = by_id.get(aid, {"id": aid})
+    rows: list[dict] = []
+    for aid, y in sorted(yaml.items()):
+        row: dict = {"id": aid}
         row["condition"] = y["condition"]
         row["conditionParams"] = y["params"]
         row["trigger"] = TRIGGER.get(y["condition"], y["condition"])
         row["description"] = ftl_desc(aid)
         if y["blocked"]:
             row["status"] = "blocked"
-            if not row.get("reason") or row["reason"].startswith("id:"):
-                row["reason"] = "documented-blocked"
+            row["reason"] = "documented-blocked"
         else:
             status, reason = classify(y)
             row["status"] = status
             row["reason"] = reason
-        by_id[aid] = row
+        rows.append(row)
 
-    AUDIT.write_text(json.dumps(list(by_id.values()), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    AUDIT.write_text(json.dumps(rows, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     counts: dict[str, int] = {}
-    for r in by_id.values():
+    for r in rows:
         counts[r.get("status", "?")] = counts.get(r.get("status", "?"), 0) + 1
-    print("Audit refreshed:", counts)
+    print(f"Audit rebuilt: {len(rows)} entries", counts)
 
 
 if __name__ == "__main__":
