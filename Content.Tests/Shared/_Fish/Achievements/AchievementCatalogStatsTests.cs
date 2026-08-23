@@ -50,12 +50,17 @@ public sealed class AchievementCatalogStatsTests
         return cat;
     }
 
+    private static IPrototypeManager CreateProtoMan(IEnumerable<AchievementPrototype> achievements)
+    {
+        return CreateProtoMan(achievements, Array.Empty<AchievementCategoryPrototype>());
+    }
+
     private static IPrototypeManager CreateProtoMan(
         IEnumerable<AchievementPrototype> achievements,
-        IEnumerable<AchievementCategoryPrototype>? categories = null)
+        IEnumerable<AchievementCategoryPrototype> categories)
     {
         var achList = achievements.ToList();
-        var catList = categories?.ToList() ?? new List<AchievementCategoryPrototype>();
+        var catList = categories.ToList();
 
         var mock = new Mock<IPrototypeManager>();
         mock.Setup(m => m.EnumeratePrototypes<AchievementPrototype>()).Returns(achList);
