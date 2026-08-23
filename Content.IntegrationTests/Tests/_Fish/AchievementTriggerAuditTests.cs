@@ -83,30 +83,29 @@ public sealed class AchievementTriggerAuditTests
         await using var pair = await PoolManager.GetServerClient();
         var protoMan = pair.Server.ResolveDependency<IPrototypeManager>();
 
-        await pair.Server.WaitAssertion(() =>
+        var all = protoMan.EnumeratePrototypes<AchievementPrototype>().ToList();
+        Assert.That(all, Has.Count.GreaterThan(0));
+
+        var manual = all.Where(p => p.Condition == AchievementConditionKeys.Manual).ToList();
+        Assert.That(manual, Has.Count.EqualTo(0), "Manual catalog stubs must be removed, not kept");
+
+        foreach (var proto in all)
         {
-            var all = protoMan.EnumeratePrototypes<AchievementPrototype>().ToList();
-            Assert.That(all, Has.Count.GreaterThan(0));
+            Assert.That(HandledConditions.Contains(proto.Condition), Is.True,
+                $"{proto.ID}: no handler for condition {proto.Condition}");
 
-            var manual = all.Where(p => p.Condition == AchievementConditionKeys.Manual).ToList();
-            Assert.That(manual, Has.Count.EqualTo(0), "Manual catalog stubs must be removed, not kept");
+            if (InherentlySpecificConditions.Contains(proto.Condition))
+                continue;
 
-            foreach (var proto in all)
-            {
-                Assert.That(HandledConditions.Contains(proto.Condition), Is.True,
-                    $"{proto.ID}: no handler for condition {proto.Condition}");
+            Assert.That(
+                proto.AllowGenericTrigger || proto.ConditionParams.Count > 0,
+                Is.True,
+                $"{proto.ID}: missing unlock path (allowGenericTrigger or conditionParams)");
+        }
 
-                if (InherentlySpecificConditions.Contains(proto.Condition))
-                    continue;
+        var seed = all.Where(p => SeedFullyImplemented.Contains(p.ID)).ToList();
+        Assert.That(seed, Has.Count.EqualTo(SeedFullyImplemented.Count));
 
-                Assert.That(
-                    proto.AllowGenericTrigger || proto.ConditionParams.Count > 0,
-                    Is.True,
-                    $"{proto.ID}: missing unlock path (allowGenericTrigger or conditionParams)");
-            }
-
-            var seed = all.Where(p => SeedFullyImplemented.Contains(p.ID)).ToList();
-            Assert.That(seed, Has.Count.EqualTo(SeedFullyImplemented.Count));
-        });
+        await pair.CleanReturnAsync();
     }
 }
