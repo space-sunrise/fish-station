@@ -43,7 +43,7 @@ TRIGGER = {
     "kill": "KillReportedEvent",
     "gun-shot": "GunShotEvent",
     "defibrillate": "TargetDefibrillatedEvent",
-    "surgery": "SurgeryStepCompleteEvent",
+    "surgery": "FishSurgeryStepCompleteEvent",
     "interaction": "UserInteractHandEvent",
     "death": "MobStateChangedEvent",
     "station-event": "GameRuleStartedEvent",

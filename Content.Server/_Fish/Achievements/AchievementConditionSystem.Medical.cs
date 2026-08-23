@@ -1,7 +1,6 @@
 using Content.Shared._Fish.Achievements;
+using Content.Shared._Fish.Achievements.Events;
 using Content.Shared.Medical;
-using Content.Shared.Starlight.Medical.Surgery.Events;
-using Content.Shared.Starlight.Medical.Surgery.Steps;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Player;
@@ -13,7 +12,7 @@ public sealed partial class AchievementConditionSystem
     partial void InitializeMedical()
     {
         SubscribeLocalEvent<TargetDefibrillatedEvent>(OnTargetDefibrillated);
-        SubscribeLocalEvent<SurgeryStepComponent, SurgeryStepCompleteEvent>(OnSurgeryStepComplete);
+        SubscribeLocalEvent<FishSurgeryStepCompleteEvent>(OnFishSurgeryStepComplete);
         SubscribeLocalEvent<GunComponent, GunShotEvent>(OnGunShot);
     }
 
@@ -30,7 +29,7 @@ public sealed partial class AchievementConditionSystem
                 EventKey: $"defib:{GetNetEntity(ev.User)}:{GetNetEntity(ev.Defibrillator.Owner)}:{_timing.CurTick}"));
     }
 
-    private void OnSurgeryStepComplete(Entity<SurgeryStepComponent> ent, ref SurgeryStepCompleteEvent args)
+    private void OnFishSurgeryStepComplete(ref FishSurgeryStepCompleteEvent args)
     {
         if (!TryComp<ActorComponent>(args.User, out var actor))
             return;
