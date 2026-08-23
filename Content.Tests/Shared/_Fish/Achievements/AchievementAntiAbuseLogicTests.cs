@@ -94,6 +94,56 @@ public sealed class AchievementAntiAbuseLogicTests
     }
 
     [Test]
+    public void WeaponParam_FiltersMismatch()
+    {
+        var weaponParams = new Dictionary<string, string> { { AchievementConditionParams.Weapon, "WeaponRevolver" } };
+        Assert.That(
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.GunShot,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                weaponParams,
+                new AchievementTriggerContext(WeaponPrototypeId: "WeaponRevolver")),
+            Is.True);
+
+        Assert.That(
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.GunShot,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                weaponParams,
+                new AchievementTriggerContext(WeaponPrototypeId: "WeaponLaserGun")),
+            Is.False);
+    }
+
+    [Test]
+    public void TargetParam_FiltersInteraction()
+    {
+        var targetParams = new Dictionary<string, string> { { AchievementConditionParams.Target, "MobMule" } };
+        Assert.That(
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.Interaction,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                targetParams,
+                new AchievementTriggerContext(EntityPrototypeId: "MobMule")),
+            Is.True);
+
+        Assert.That(
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.Interaction,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                targetParams,
+                new AchievementTriggerContext(EntityPrototypeId: "VendingMachine")),
+            Is.False);
+    }
+
+    [Test]
     public void EventKeyDedupe_SameKeyRejectedTwice()
     {
         var tracker = new AchievementEventKeyTracker();

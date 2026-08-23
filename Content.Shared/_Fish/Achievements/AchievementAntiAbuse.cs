@@ -64,4 +64,16 @@ public readonly record struct AchievementTriggerContext(
     /// Одно и то же EventKey не даёт повторный прогресс в раунде.
     /// </summary>
     string? EventKey = null,
-    bool RequireInRound = true);
+    bool RequireInRound = true,
+    /// <summary>EntProtoId сущности события (жертва, предмет, цель).</summary>
+    string? EntityPrototypeId = null,
+    /// <summary>Tag, подтверждённый handler'ом на цели.</summary>
+    string? VerifiedTag = null,
+    /// <summary>AntagPrototype id при выборе антага.</summary>
+    string? AntagPrototypeId = null,
+    /// <summary>Objective prototype id при завершении.</summary>
+    string? ObjectivePrototypeId = null,
+    /// <summary>Account playtime minutes snapshot для playtime-minutes.</summary>
+    int PlaytimeMinutes = 0,
+    /// <summary>EntProtoId оружия (gun / kill filter).</summary>
+    string? WeaponPrototypeId = null);

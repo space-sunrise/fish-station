@@ -39,21 +39,55 @@ public static class AchievementAntiAbuseLogic
             return false;
         }
 
-        if (conditionParams.TryGetValue("job", out var job) &&
+        if (conditionParams.TryGetValue(AchievementConditionParams.Job, out var job) &&
             !string.Equals(job, context.JobId, StringComparison.OrdinalIgnoreCase))
             return false;
 
-        if (conditionParams.TryGetValue("event", out var eventId) &&
+        if (conditionParams.TryGetValue(AchievementConditionParams.Event, out var eventId) &&
             !string.Equals(eventId, context.EventId, StringComparison.OrdinalIgnoreCase))
             return false;
 
-        if (conditionParams.TryGetValue("key", out var key) &&
+        if (conditionParams.TryGetValue(AchievementConditionParams.CounterKey, out var key) &&
             !string.Equals(key, context.CounterKey, StringComparison.OrdinalIgnoreCase))
             return false;
 
-        if (conditionParams.TryGetValue("shuttle", out var shuttle) &&
+        if (conditionParams.TryGetValue(AchievementConditionParams.Shuttle, out var shuttle) &&
             shuttle.Equals("emergency", StringComparison.OrdinalIgnoreCase) &&
             !context.OnEmergencyShuttle)
+            return false;
+
+        if (conditionParams.TryGetValue(AchievementConditionParams.Target, out var target) &&
+            !string.Equals(target, context.EntityPrototypeId, StringComparison.OrdinalIgnoreCase))
+            return false;
+
+        if (conditionParams.TryGetValue(AchievementConditionParams.Tag, out var tag) &&
+            !string.Equals(tag, context.VerifiedTag, StringComparison.OrdinalIgnoreCase))
+            return false;
+
+        if (conditionParams.TryGetValue(AchievementConditionParams.Item, out var item) &&
+            !string.Equals(item, context.EntityPrototypeId, StringComparison.OrdinalIgnoreCase))
+            return false;
+
+        if (conditionParams.TryGetValue(AchievementConditionParams.Antag, out var antag) &&
+            !string.Equals(antag, context.AntagPrototypeId, StringComparison.OrdinalIgnoreCase))
+            return false;
+
+        if (conditionParams.TryGetValue(AchievementConditionParams.Objective, out var objective))
+        {
+            if (objective == "*" && context.ObjectivePrototypeId != null)
+                return true;
+
+            if (!string.Equals(objective, context.ObjectivePrototypeId, StringComparison.OrdinalIgnoreCase))
+                return false;
+        }
+
+        if (conditionParams.TryGetValue(AchievementConditionParams.ThresholdMinutes, out var thresholdStr) &&
+            int.TryParse(thresholdStr, out var threshold) &&
+            context.PlaytimeMinutes < threshold)
+            return false;
+
+        if (conditionParams.TryGetValue(AchievementConditionParams.Weapon, out var weapon) &&
+            !string.Equals(weapon, context.WeaponPrototypeId, StringComparison.OrdinalIgnoreCase))
             return false;
 
         // Без params и без allowGenericTrigger — не матчим.

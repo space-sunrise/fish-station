@@ -1,0 +1,5346 @@
+[
+  {
+    "id": "FishAch_CrossingtheHorizon",
+    "condition": "station-event",
+    "trigger": "GameRuleStartedEvent",
+    "conditionParams": {
+      "event": "Singularity"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:ce-horizon",
+    "description": "Someone submit an OSHA complaint about that CE!"
+  },
+  {
+    "id": "FishAch_Davemymindisgoing",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "AirlockGlass"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:pod-bay",
+    "description": "Open the pod bay doors, H.O.N.K.E.R.S."
+  },
+  {
+    "id": "FishAch_GGGhosts",
+    "condition": "became-ghost",
+    "trigger": "MindRemovedMessage",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "id:ggghosts",
+    "description": "Some people say that being a ghost is better than being alive. You don't have much of a choice now."
+  },
+  {
+    "id": "FishAch_GrilledSeasonedVeteran",
+    "condition": "playtime-minutes",
+    "trigger": "PlayTimeTrackingManager",
+    "conditionParams": {
+      "threshold": "600"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "playtime",
+    "description": "Easy come, easy go."
+  },
+  {
+    "id": "FishAch_KILLMEKILLMEKILLME",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "id:killmekillmekillme",
+    "description": "Green, Mean, Honking Machine"
+  },
+  {
+    "id": "FishAch_LetsPlayGLOBALTHERMONUCLEARWAR",
+    "condition": "station-event",
+    "trigger": "GameRuleStartedEvent",
+    "conditionParams": {
+      "event": "NuclearOperative"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "event:NuclearOperative",
+    "description": "Wouldn't you rather play chess?"
+  },
+  {
+    "id": "FishAch_LittleChickadee",
+    "condition": "item-ingest",
+    "trigger": "IngestedEvent",
+    "conditionParams": {
+      "item": "DrinkBeerCan"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:beer",
+    "description": "No, well, ten beers"
+  },
+  {
+    "id": "FishAch_MindtheGap",
+    "condition": "shuttle-arrive",
+    "trigger": "FTLCompletedEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:mind-gap",
+    "description": "Pays to be prepared"
+  },
+  {
+    "id": "FishAch_NYOOOOM",
+    "condition": "death",
+    "trigger": "MobStateChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "generic_but_valid",
+    "reason": "id:speed-death",
+    "description": "You're Walter, and not the Warden's dog."
+  },
+  {
+    "id": "FishAch_OverextendedTheJoke",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Speak no evil, hear no evil, see just errors"
+  },
+  {
+    "id": "FishAch_Pleasejustendthepain",
+    "condition": "round-end-alive",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "shuttle": "emergency"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:escape-pain",
+    "description": "Shuffling off this mortal coil while the getting's good."
+  },
+  {
+    "id": "FishAch_SeasonedVeteran",
+    "condition": "playtime-minutes",
+    "trigger": "PlayTimeTrackingManager",
+    "conditionParams": {
+      "threshold": "600"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "playtime",
+    "description": "You could have gotten a bachelor's degree with this time."
+  },
+  {
+    "id": "FishAch_SousVideGrilledSeasonedVeteran",
+    "condition": "playtime-minutes",
+    "trigger": "PlayTimeTrackingManager",
+    "conditionParams": {
+      "threshold": "600"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "playtime",
+    "description": "Good lord, you've spent half a year playing this game."
+  },
+  {
+    "id": "FishAch_Soyboy",
+    "condition": "item-ingest",
+    "trigger": "IngestedEvent",
+    "conditionParams": {
+      "item": "DrinkSoyMilkCarton"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:soyboy",
+    "description": "Drank soymilk."
+  },
+  {
+    "id": "FishAch_SurvivaloftheFittest",
+    "condition": "gun-shot",
+    "trigger": "GunShotEvent",
+    "conditionParams": {},
+    "source": "FishAchCombat",
+    "status": "generic_but_valid",
+    "reason": "id:survival-gun",
+    "description": "Sun's out, guns out!"
+  },
+  {
+    "id": "FishAch_SwarmBeaconCrusher",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "boss-id:swarmbeacon",
+    "description": "GET THEM OFF OF ME!"
+  },
+  {
+    "id": "FishAch_SwarmBeaconKiller",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:swarmbeacon",
+    "description": "GET THEM OFF OF ME!"
+  },
+  {
+    "id": "FishAch_Thatwasstupidofyou",
+    "condition": "explosion",
+    "trigger": "SunriseExplosionEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "generic_but_valid",
+    "reason": "explosion",
+    "description": "(distant explosion noises)"
+  },
+  {
+    "id": "FishAch_ThisLousyAchievement",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Not worth the effort"
+  },
+  {
+    "id": "FishAch_Veteran",
+    "condition": "playtime-minutes",
+    "trigger": "PlayTimeTrackingManager",
+    "conditionParams": {
+      "threshold": "600"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "playtime",
+    "description": "You've spent a lot of time on this game, have a reward!"
+  },
+  {
+    "id": "FishAch_WHOOSH",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "FishAch_WHOOSH"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "interact:FishAch_WHOOSH",
+    "description": "Pushing down on me, pressing down on you."
+  },
+  {
+    "id": "FishAch_BloodDrunkMinerCrusher",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchFunny",
+    "status": "fully_specific",
+    "reason": "boss-id:blooddrunkminer",
+    "description": "I guess he couldn't handle his drink that well."
+  },
+  {
+    "id": "FishAch_BloodDrunkMinerKiller",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:blooddrunkminer",
+    "description": "I guess he couldn't handle his drink that well."
+  },
+  {
+    "id": "FishAch_BossKiller",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:boss",
+    "description": "You've come a long ways from asking how to switch hands."
+  },
+  {
+    "id": "FishAch_BubblegumCrusher",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "boss-id:bubblegum",
+    "description": "I guess he wasn't made of candy after all"
+  },
+  {
+    "id": "FishAch_BubblegumKiller",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:bubblegum",
+    "description": "I guess he wasn't made of candy after all"
+  },
+  {
+    "id": "FishAch_ColossusCrusher",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "boss-id:colossus",
+    "description": "The bigger they are... the better the loot"
+  },
+  {
+    "id": "FishAch_ColossusKiller",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:colossus",
+    "description": "The bigger they are... the better the loot"
+  },
+  {
+    "id": "FishAch_DrakeCrusher",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "target": "MobDragonDungeon"
+    },
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "boss-id:drake",
+    "description": "Now I can wear Rune Platebodies!"
+  },
+  {
+    "id": "FishAch_DrakeKiller",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "target": "MobDragonDungeon"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:drake",
+    "description": "Now I can wear Rune Platebodies!"
+  },
+  {
+    "id": "FishAch_FeatofStrength",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "SingularityGenerator"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:feat-strength",
+    "description": "If the rod is immovable, is it passing you or are you passing it?"
+  },
+  {
+    "id": "FishAch_HierophantCrusher",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "boss-id:hierophant",
+    "description": "Hierophant, but not triumphant."
+  },
+  {
+    "id": "FishAch_HierophantKiller",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:hierophant",
+    "description": "Hierophant, but not triumphant."
+  },
+  {
+    "id": "FishAch_Jackpot",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "ArcadePrize"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:jackpot",
+    "description": "Win a pulse rifle from an arcade machine"
+  },
+  {
+    "id": "FishAch_LegionCrusher",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "boss-id:legion",
+    "description": "We were many... now we are none."
+  },
+  {
+    "id": "FishAch_LegionKiller",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:legion",
+    "description": "We were many..now we are none."
+  },
+  {
+    "id": "FishAch_YourLifeBeforeYourEyes",
+    "condition": "explosion",
+    "trigger": "SunriseExplosionEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:space-debris",
+    "description": "Take a close look at hurtling space debris"
+  },
+  {
+    "id": "FishAch_RoundandFull",
+    "condition": "death",
+    "trigger": "MobStateChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "generic_but_valid",
+    "reason": "id:speed-death",
+    "description": "Well at least you aren't down the river, I hear they eat people there."
+  },
+  {
+    "id": "FishAch_TendrilExterminator",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "boss-id:tendril",
+    "description": "Watch your step"
+  },
+  {
+    "id": "FishAch_TheBestDriver",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "BikeHorn"
+    },
+    "source": "FishAchFunny",
+    "status": "fully_specific",
+    "reason": "id:honk",
+    "description": "100 honks later"
+  },
+  {
+    "id": "FishAch_VeryImportantPiscis",
+    "condition": "round-end-alive",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:piscis",
+    "description": "You can rest well now."
+  },
+  {
+    "id": "FishAch_Greentext",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "*"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:greentext",
+    "description": "A winner is you!"
+  },
+  {
+    "id": "FishAch_10bux",
+    "condition": "manual",
+    "trigger": "manual",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "blocked:10bux",
+    "description": "Entrusted with the secret."
+  },
+  {
+    "id": "FishAch_121Jiggawatts",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Chief Engineer objective of earning one hundred thousand (100000) credits from the PTL. Great Scott!"
+  },
+  {
+    "id": "FishAch_100Mdash",
+    "condition": "item-ingest",
+    "trigger": "IngestedEvent",
+    "conditionParams": {
+      "item": "DrinkBeerCan"
+    },
+    "source": "FishAchSecret",
+    "status": "fully_specific",
+    "reason": "id:beer",
+    "description": "Time for beer."
+  },
+  {
+    "id": "FishAch_40K",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Miner objective of fabricating 3 industrial armor suits by the end of the round."
+  },
+  {
+    "id": "FishAch_421",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "SignRedFour"
+    },
+    "source": "FishAchSecret",
+    "status": "fully_specific",
+    "reason": "interact:SignRedFour",
+    "description": "Four, two, one — and the house remembers."
+  },
+  {
+    "id": "FishAch_AHollyJollySpacemas",
+    "condition": "death",
+    "trigger": "MobStateChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "generic_but_valid",
+    "reason": "death",
+    "description": "Spent your Spacemas being beaten to death with toolboxes."
+  },
+  {
+    "id": "FishAch_Ashockingdemise",
+    "condition": "manual",
+    "trigger": "manual",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "blocked:ashockingdemise",
+    "description": "As an Arcfiend, stop at least six hearts using Jolt. It is not cumulative; you must do this within a single round. Jolt "
+  },
+  {
+    "id": "FishAch_AdjutantOnline",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Captain"
+    },
+    "source": "FishAchSecret",
+    "status": "fully_specific",
+    "reason": "job:Captain",
+    "description": "Good morning, Captain."
+  },
+  {
+    "id": "FishAch_Banned",
+    "condition": "death",
+    "trigger": "MobStateChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "generic_but_valid",
+    "reason": "id:banned",
+    "description": "Heinous villainy."
+  },
+  {
+    "id": "FishAch_BearHug",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "generic_but_valid",
+    "reason": "id:bearhug",
+    "description": "A warm squeeze with cold consequences."
+  },
+  {
+    "id": "FishAch_Bettertoburnoutthanfade",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Scientist objective and Research Director objective of escaping on the emergency shuttle while on fire with"
+  },
+  {
+    "id": "FishAch_BillMasen",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Botanist objective of having three mutated plants alive at the end of the round."
+  },
+  {
+    "id": "FishAch_BlackandBlue",
+    "condition": "death",
+    "trigger": "MobStateChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "generic_but_valid",
+    "reason": "death",
+    "description": "As in, your corpse is black and blue. Blue, because you're dead and aren't getting oxygen, and black, because you died w"
+  },
+  {
+    "id": "FishAch_BlockStacker",
+    "condition": "manual",
+    "trigger": "manual",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "blocked:blockstacker",
+    "description": "Score 30,000 points on Robustris Pro."
+  },
+  {
+    "id": "FishAch_BombiniisMissing",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Someone small and loud went missing."
+  },
+  {
+    "id": "FishAch_BrownPants",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Captain"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "id:captain-pants",
+    "description": "The medal's icon illustrates it very well: as a Captain, you must successfully insert the authentication disk into the N"
+  },
+  {
+    "id": "FishAch_BurytheDead",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchStation",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Chaplain objective of having zero corpses on station at the end of the round."
+  },
+  {
+    "id": "FishAch_ButtonPusher",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "SignalButton"
+    },
+    "source": "FishAchSecret",
+    "status": "fully_specific",
+    "reason": "id:button",
+    "description": "Seriously?"
+  },
+  {
+    "id": "FishAch_Call1800CODER",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "Call"
+    },
+    "source": "FishAchStation",
+    "status": "fully_specific",
+    "reason": "interact:Call",
+    "description": "runtime error: Cannot execute player.unlock_medal() (Cause Goonstation's code to return an error. This does not necessar"
+  },
+  {
+    "id": "FishAch_CaptainsLog",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "PaperOffice"
+    },
+    "source": "FishAchSecret",
+    "status": "fully_specific",
+    "reason": "id:captains-log",
+    "description": "Make it official. Stardate optional."
+  },
+  {
+    "id": "FishAch_ChevalierduSorbet",
+    "condition": "manual",
+    "trigger": "manual",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "blocked:chevalierdusorbet",
+    "description": "Deliver the Magma King his Just Desserts"
+  },
+  {
+    "id": "FishAch_Contributor",
+    "condition": "manual",
+    "trigger": "manual",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "blocked:contributor",
+    "description": "You cannot get this medal on your own. An admin has to give it to you. This medal is typically bestowed on people who ha"
+  },
+  {
+    "id": "FishAch_CreamoftheCrop",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "As a Wrestler complete all of your objectives."
+  },
+  {
+    "id": "FishAch_Damned",
+    "condition": "death",
+    "trigger": "MobStateChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "generic_but_valid",
+    "reason": "death",
+    "description": "Die via the suicide command; just enter suicide in the command bar/text parser at the bottom of your screen. The command"
+  },
+  {
+    "id": "FishAch_DangerousGame",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "As a hunter collect enough a high enough value of skulls to complete your objective."
+  },
+  {
+    "id": "FishAch_Deadoraliveyourecoming",
+    "condition": "round-end-alive",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "shuttle": "emergency"
+    },
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "round-end-shuttle",
+    "description": "Complete the Security Officer objective or Head of Security objective of having an antagonist in handcuffs on the escape"
+  },
+  {
+    "id": "FishAch_DeepFreeze",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "it is absolutely famished..."
+  },
+  {
+    "id": "FishAch_DraculaJr",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "As a Vampire accumulate enough blood to complete the'Accumulate at least [number] units of blood in total' objective."
+  },
+  {
+    "id": "FishAch_DUI",
+    "condition": "item-ingest",
+    "trigger": "IngestedEvent",
+    "conditionParams": {
+      "item": "Ethanol"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "ingest:Ethanol",
+    "description": "Driving under the influence while on a MULEBot, specifically. Run someone over with a MULEBot while riding on it and whi"
+  },
+  {
+    "id": "FishAch_Expendable",
+    "condition": "death",
+    "trigger": "MobStateChangedEvent",
+    "conditionParams": {
+      "job": "Revolutionary"
+    },
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "death",
+    "description": "Die as a Revolutionary, specifically a regular one, not a Head Revolutionary. If you died via the suicide verb, it doesn"
+  },
+  {
+    "id": "FishAch_Felldownthestairs",
+    "condition": "death",
+    "trigger": "MobStateChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "generic_but_valid",
+    "reason": "death",
+    "description": "Die while handcuffed. Again, it doesn't matter how you die, so long as you didn't use the suicide command for it (which "
+  },
+  {
+    "id": "FishAch_Fish",
+    "condition": "first-late-join",
+    "trigger": "first-late-join",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:fish",
+    "description": "Late join into an ongoing round for the first time."
+  },
+  {
+    "id": "FishAch_ForYourOhmGood",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchStation",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Get vaporized by walking into an extremely high-power power transmission laser. The laser needs somewhere in the range o"
+  },
+  {
+    "id": "FishAch_FormatComplete",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "StationAiCore"
+    },
+    "source": "FishAchSecret",
+    "status": "fully_specific",
+    "reason": "id:ai-laws",
+    "description": "AI, what are your current laws?"
+  },
+  {
+    "id": "FishAch_FunTimes",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "FishAch_FunTimes"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "interact:FishAch_FunTimes",
+    "description": "Participate in one of the contests on the forums. These used to be monthly, but now they're enacted on admin discretion."
+  },
+  {
+    "id": "FishAch_GlassCeiling",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Staff Assistant objective of having a non-assistant ID assigned to you at the end of the round. This ranges"
+  },
+  {
+    "id": "FishAch_GoawayBatin",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Frito Pendejo, public defender."
+  },
+  {
+    "id": "FishAch_GooGone",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "It's Good for the Gander"
+  },
+  {
+    "id": "FishAch_GoodFeasting",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "As a werewolf, reach your objective number of victims fed on."
+  },
+  {
+    "id": "FishAch_GoreFest",
+    "condition": "death",
+    "trigger": "MobStateChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "id:gibbed",
+    "description": "Get gibbed. If you're unfamiliar with that term, it means your body basically explodes into a mess of body parts and ass"
+  },
+  {
+    "id": "FishAch_GuardinGnome",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Staff Assistant objective of ensuring Gnome Chompski is on the emergency shuttle OR escape on the emergency"
+  },
+  {
+    "id": "FishAch_GuerrierDuGelato",
+    "condition": "manual",
+    "trigger": "manual",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "blocked:guerrierdugelato",
+    "description": "Complete Chapter II"
+  },
+  {
+    "id": "FishAch_Helios",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Just havin' a good time, chillin' out."
+  },
+  {
+    "id": "FishAch_HesdeadJim",
+    "condition": "surgery",
+    "trigger": "SurgeryStepCompleteEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "fully_specific",
+    "reason": "id:bones",
+    "description": "Bones."
+  },
+  {
+    "id": "FishAch_HighFive",
+    "condition": "item-pickup",
+    "trigger": "DidEquipEvent",
+    "conditionParams": {
+      "item": "WeldingFuelTankHighCapacity"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "equip",
+    "description": "While there is indeed a high-five emote, you don't earn it via that. Instead, you need to shock someone with stun gloves"
+  },
+  {
+    "id": "FishAch_HIGHVOLTAGE",
+    "condition": "death",
+    "trigger": "MobStateChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "generic_but_valid",
+    "reason": "death",
+    "description": "Get electrocuted in some way; you don't necessarily have to die because of it. The game actually offers quite a few ways"
+  },
+  {
+    "id": "FishAch_honkHONKmotherFU",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "BikeHorn"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "id:honk",
+    "description": "Complete the Staff Assistant objective of wearing at least one piece of Clown clothing at the end of the round."
+  },
+  {
+    "id": "FishAch_HUMANOIDMUSTNOTESCAPE",
+    "condition": "death",
+    "trigger": "MobStateChangedEvent",
+    "conditionParams": {
+      "shuttle": "emergency"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "death-shuttle",
+    "description": "Die on the escape shuttle. Doesn't matter how, so long as it wasn't through the suicide command. Since the shuttle is so"
+  },
+  {
+    "id": "FishAch_Idontgiveashit",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Staff Assistant objective of having your butt by any means at the end of the round. A safe bet for having y"
+  },
+  {
+    "id": "FishAch_Ihelped",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "SecurityOfficer"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "job:SecurityOfficer",
+    "description": "End a round as a Security Assistant."
+  },
+  {
+    "id": "FishAch_Ijustcleanedthat",
+    "condition": "slip-death",
+    "trigger": "SlipEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "fully_specific",
+    "reason": "id:slip",
+    "description": "Slip 'n slide."
+  },
+  {
+    "id": "FishAch_ISpy",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "I spy with my little eye."
+  },
+  {
+    "id": "FishAch_Icarus",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Flew too close!"
+  },
+  {
+    "id": "FishAch_IdentityTheft",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Good thing these are not laminated."
+  },
+  {
+    "id": "FishAch_Illuminated",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Chemist"
+    },
+    "source": "FishAchSecret",
+    "status": "fully_specific",
+    "reason": "job:Chemist",
+    "description": "Old-school chemist's club."
+  },
+  {
+    "id": "FishAch_ImIn",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "ResearchDirector"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "job:ResearchDirector",
+    "description": "Successfully gain superuser access on a TermOS terminal via the su command. The AI, Captain, Cyborgs, Head of Security, "
+  },
+  {
+    "id": "FishAch_Isitreallythattimeagain",
+    "condition": "item-pickup",
+    "trigger": "DidEquipEvent",
+    "conditionParams": {
+      "item": "FishAch_Isitreallythattimeagain"
+    },
+    "source": "FishAchSecret",
+    "status": "fully_specific",
+    "reason": "equip",
+    "description": "Gordon would approve."
+  },
+  {
+    "id": "FishAch_ITSATRAP",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "BANG, bang!"
+  },
+  {
+    "id": "FishAch_Itsfrickinfreezinginhere",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Medical Doctor objective and Medical Director objective of having the Medical Objects#Cryogenic Healing Pod"
+  },
+  {
+    "id": "FishAch_Itsjustafleshwound",
+    "condition": "round-end-alive",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "shuttle": "emergency"
+    },
+    "source": "FishAchStation",
+    "status": "fully_specific",
+    "reason": "round-end-shuttle",
+    "description": "Make it to Central Command (aka, CentCom) with a bullet (or more) embedded in you. The precise type doesn't matter, and "
+  },
+  {
+    "id": "FishAch_ItsnotDoortoHeaven",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Engineer objective of having at least two functional command teleporters"
+  },
+  {
+    "id": "FishAch_Itsnoteasybeinggreen",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Your muscles hurt."
+  },
+  {
+    "id": "FishAch_ItsameMario",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "It's-a you, in space."
+  },
+  {
+    "id": "FishAch_JimiHeselden",
+    "condition": "death",
+    "trigger": "MobStateChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "generic_but_valid",
+    "reason": "death",
+    "description": "Ride a segway into outer space/ the sea. A reference to Jimi Heselden, an executive (but not founder or inventor) of Seg"
+  },
+  {
+    "id": "FishAch_Law1Dontbean",
+    "condition": "item-pickup",
+    "trigger": "DidEquipEvent",
+    "conditionParams": {
+      "item": "AsimovCircuitBoard"
+    },
+    "source": "FishAchFunny",
+    "status": "fully_specific",
+    "reason": "equip",
+    "description": "Asimov's laws were definitely behind, because ol' Isaac did not foresee a robot wearing someone's ass as a hat. As the m"
+  },
+  {
+    "id": "FishAch_Leavenomanbehind",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "The ultimate sacrifice."
+  },
+  {
+    "id": "FishAch_LicensedArchaeologist",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Scientist or Research Director objective of activating 10 artifacts in a single shift."
+  },
+  {
+    "id": "FishAch_Lifeuhfindsaway",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Geneticist objective and Medical Director objective of having at least 5 people scanned in the Clone Consol"
+  },
+  {
+    "id": "FishAch_LockBlock",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Made friends with a welder."
+  },
+  {
+    "id": "FishAch_ManwithaScan",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Engineer objective of having 10 or more objects scanned in the ruckingeur kit."
+  },
+  {
+    "id": "FishAch_ManhattanProject",
+    "condition": "surgery",
+    "trigger": "SurgeryStepCompleteEvent",
+    "conditionParams": {},
+    "source": "FishAchStation",
+    "status": "fully_specific",
+    "reason": "surgery",
+    "description": "Successfully destroy the station with a nuclear detonation as a Nuclear Operative"
+  },
+  {
+    "id": "FishAch_Manynamesmanyfaces",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "As a Changeling, complete the Changeling objective'Absorb the DNA of at least [absorb_count] more crew members in additi"
+  },
+  {
+    "id": "FishAch_MasterofUnlocking",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Performed the steps required to unlock the Good Ending from the solarium riddle."
+  },
+  {
+    "id": "FishAch_Methisahellofa",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Scientist objective and Research Director objective of ending the round with methamphetamine in your system"
+  },
+  {
+    "id": "FishAch_Misclick",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Pry up a floor tile from some flooring using a crowbar; this is specifically for intact flooring, so you can't get this "
+  },
+  {
+    "id": "FishAch_MISSIONCOMPLETE",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "*"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:missioncomplete",
+    "description": "As an Antagonist complete your objectives."
+  },
+  {
+    "id": "FishAch_MonkeyDuty",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the 'Keep Monsieur Stirstir brigged but also make sure that he comes to absolutely no harm' Security Officer, S"
+  },
+  {
+    "id": "FishAch_MyBolognaHasAFirstName",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "And it's O-NO HELP GET IT OFF GET IT OFF AAA"
+  },
+  {
+    "id": "FishAch_Neitherfashionablenoirstylish",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Detective objective of wearing your coat, hat, and uniform at the end of the round."
+  },
+  {
+    "id": "FishAch_Nero",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Watching the world burn."
+  },
+  {
+    "id": "FishAch_NewtonsCrew",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Stare into the sun."
+  },
+  {
+    "id": "FishAch_NoahsShuttle",
+    "condition": "shuttle-arrive",
+    "trigger": "FTLCompletedEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "shuttle",
+    "description": "Have 7 station pets on the shuttle when it arrives at Central Command. Station pets include pretty much every Critter(i."
+  },
+  {
+    "id": "FishAch_OhDoctor",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Just the spot."
+  },
+  {
+    "id": "FishAch_Olbuddyolpal",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "I really admire how you stack the odds against yourself! Yeah, make things challenging!"
+  },
+  {
+    "id": "FishAch_OldEnemy",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Tensions between Nanotrasen and the Syndicate are reaching a boiling point."
+  },
+  {
+    "id": "FishAch_OnMyOwnEightSpaceLegs",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Why do something yourself when someone else will happily do it for you?"
+  },
+  {
+    "id": "FishAch_OnMyOwnTwoSpaceLegs",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the in-game tutorial, meaning the one you enter by clicking the Play Tutorial button in the server's lobby. Mor"
+  },
+  {
+    "id": "FishAch_OneArmedBandit",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Особое условие по мотивам «One Armed Bandit»."
+  },
+  {
+    "id": "FishAch_OriginalSin",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Take a bite"
+  },
+  {
+    "id": "FishAch_OWMYBALLS",
+    "condition": "death",
+    "trigger": "MobStateChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "generic_but_valid",
+    "reason": "death",
+    "description": "Some places just can't take the pain. Get groin-punched by Senator Death Badman as a result of ingesting mimicillium."
+  },
+  {
+    "id": "FishAch_PartyHard",
+    "condition": "death",
+    "trigger": "MobStateChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "generic_but_valid",
+    "reason": "death",
+    "description": "Die next to a tube of (deployed) neon lining or with a glowstick(any kind) in your inventory while drunk. Any level of d"
+  },
+  {
+    "id": "FishAch_Patchwork",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Medical Doctor objective and Medical Director objective of having used ten or more medical patches on injur"
+  },
+  {
+    "id": "FishAch_Primordial",
+    "condition": "round-end-alive",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "shuttle": "emergency"
+    },
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "round-end-shuttle",
+    "description": "Complete the Staff Assistant objective of escaping on the escape shuttle as a monkey. This can easily be achieved by goi"
+  },
+  {
+    "id": "FishAch_Primumnonnocere",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Medical Doctor objective and Medical Director objective of not preforming a single violent act the entire r"
+  },
+  {
+    "id": "FishAch_ProfessionalThief",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "As Spy Thief, complete your ' Steal at least X items in total via your uplink.' objective."
+  },
+  {
+    "id": "FishAch_Progenitor",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Roboticist Doctor objective and Medical Director objective of having at least three living Cyborgs at the e"
+  },
+  {
+    "id": "FishAch_Puerilehumour",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Roboticist objective and Medical Director objective of having at least five buttbots on station at the end "
+  },
+  {
+    "id": "FishAch_QuitCloningAround",
+    "condition": "heal",
+    "trigger": "DamageChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "generic_but_valid",
+    "reason": "heal",
+    "description": "Acquire more than 7 cloner defects, which means getting cloned multiple times. 'Diminishing reruns' indeed..."
+  },
+  {
+    "id": "FishAch_RedHood",
+    "condition": "surgery",
+    "trigger": "SurgeryStepCompleteEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "surgery",
+    "description": "There are two ways to earn this. The first is to get your head cut off through surgery. Getting decapitated via a katana"
+  },
+  {
+    "id": "FishAch_ReeferMadness",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Botanist objective of having no Cannabis plants, seeds, or products inside botany at the end of the round. "
+  },
+  {
+    "id": "FishAch_RemembertoWashBehindtheAntennae",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Особое условие по мотивам «Remember to Wash Behind the Antennae»."
+  },
+  {
+    "id": "FishAch_ReservedParking",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchStation",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Have the emergency shuttle land on you. You can't be in a pod, locker, or anything else that might protect you, meaning "
+  },
+  {
+    "id": "FishAch_RookieThief",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Bzzt."
+  },
+  {
+    "id": "FishAch_Sheesh",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Особое условие по мотивам «Sheesh!»."
+  },
+  {
+    "id": "FishAch_ShitFest",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "MisterBlueShit100"
+    },
+    "source": "FishAchStation",
+    "status": "fully_specific",
+    "reason": "interact:MisterBlueShit100",
+    "description": "Blow yourself up with Empowered High-Pressure Intestines."
+  },
+  {
+    "id": "FishAch_Shitforbrains",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Staff Assistant objective of having your own butt on your head when you escape on the shuttle. A safe bet f"
+  },
+  {
+    "id": "FishAch_ShutUpandJam",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "The year is 2041."
+  },
+  {
+    "id": "FishAch_SilentRunning",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchStation",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Roboticist objective and Medical Director objective of having at least five Medibots on station at the end "
+  },
+  {
+    "id": "FishAch_SlowBurn",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Chief Engineer and Engineer objective of having all furnaces on station running. Furnaces can be found in E"
+  },
+  {
+    "id": "FishAch_SmoothOperator",
+    "condition": "round-end-alive",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "shuttle": "emergency"
+    },
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "round-end-shuttle",
+    "description": "Complete the Medical Doctor objective and Medical Director objective of being completely unharmed when the escape shuttl"
+  },
+  {
+    "id": "FishAch_SpaceHam",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Porky."
+  },
+  {
+    "id": "FishAch_SpaceshipofTheseus",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Despite all that, you're still in the same boat."
+  },
+  {
+    "id": "FishAch_Spamhaus",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Hi"
+  },
+  {
+    "id": "FishAch_Spotless",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the one of the Janitor objectives of keeping the Bar, Brig, or Medbay completely clean with no blood, gibs, oil"
+  },
+  {
+    "id": "FishAch_SuitableHowabouttheOubliette",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Stuff someone down a brig chute."
+  },
+  {
+    "id": "FishAch_Survivor",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Time for counseling?"
+  },
+  {
+    "id": "FishAch_SuspiciousCharacter",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Just who was that man, with the plan?"
+  },
+  {
+    "id": "FishAch_TaxHaven",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Quartermaster objective of accumulating a budget of 100K credits. This ranges from easy to difficult depend"
+  },
+  {
+    "id": "FishAch_TerritorialDefender",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "As a Space Phoenix, complete all your objectives."
+  },
+  {
+    "id": "FishAch_ThankYouBusDriver",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "It never hurts to be polite!"
+  },
+  {
+    "id": "FishAch_Thattastedfunny",
+    "condition": "item-ingest",
+    "trigger": "IngestedEvent",
+    "conditionParams": {
+      "item": "FoodMeatHuman"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "ingest:FoodMeatHuman",
+    "description": "Eat a dish with manmeat that came from a Clown. Get it, honk honk? Alternatively, as a Werewolf, consume a Clown via the"
+  },
+  {
+    "id": "FishAch_Thatsnomoonthats",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Особое условие по мотивам «That's no moon, that's a GOURMAND!»."
+  },
+  {
+    "id": "FishAch_TheForceisstrongwiththis",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "*fwissshhhhhh*"
+  },
+  {
+    "id": "FishAch_Themailalwaysgoesthrough",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Staff Assistant and Technical Trainee objective of 'Escape on the shuttle alive wearing at least one piece "
+  },
+  {
+    "id": "FishAch_TheSyndicateConnection",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Traitor objective of rescuing Monsieur StirStir, the monkey wearing an orange beret and orange prisoner jum"
+  },
+  {
+    "id": "FishAch_Thisobjectmenaceswithspikesof",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "this"
+    },
+    "source": "FishAchStation",
+    "status": "fully_specific",
+    "reason": "interact:this",
+    "description": "Make a custom mining tool with a Mining Power of at least 600. Doesn't matter which type of tool or materials used, just"
+  },
+  {
+    "id": "FishAch_Thisstationisours",
+    "condition": "station-event",
+    "trigger": "GameRuleStartedEvent",
+    "conditionParams": {
+      "event": "Revolutionary"
+    },
+    "source": "FishAchStation",
+    "status": "fully_specific",
+    "reason": "event:Revolutionary",
+    "description": "As a head revolutionary, live to see your revolution come to a success!"
+  },
+  {
+    "id": "FishAch_Throughthefireandflames",
+    "condition": "station-event",
+    "trigger": "GameRuleStartedEvent",
+    "conditionParams": {
+      "event": "Dragon"
+    },
+    "source": "FishAchFunny",
+    "status": "fully_specific",
+    "reason": "event:Dragon",
+    "description": "We carry on! While the name references the hit DragonForce song, getting this medal is much more mundane than its name o"
+  },
+  {
+    "id": "FishAch_Tinkerer",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Особое условие по мотивам «Tinkerer»."
+  },
+  {
+    "id": "FishAch_Tipsy",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Detective objective of having ethanol in your system at the end of the round."
+  },
+  {
+    "id": "FishAch_Tothestars",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "As a Flockmind or Flocktrace who has been in the Flock some time, successfully transmit the Signal."
+  },
+  {
+    "id": "FishAch_TooCool",
+    "condition": "item-pickup",
+    "trigger": "DidEquipEvent",
+    "conditionParams": {
+      "item": "cool"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "equip",
+    "description": "Win one of the contests that occur on the forums. There used to be a contest every month, but now they're held basically"
+  },
+  {
+    "id": "FishAch_TooFastTooFurious",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "id:toofasttoofurious",
+    "description": "Activate rocket shoes while on a wheelchair, like in that gif. This kills you."
+  },
+  {
+    "id": "FishAch_TrailofBlood",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "You have successfully solved the rather intriguing case of your family inheritance, enjoy your reward."
+  },
+  {
+    "id": "FishAch_Tryjigglingthehandle",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Особое условие по мотивам «Try jiggling the handle»."
+  },
+  {
+    "id": "FishAch_UnlikethedirectorIwentto",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Clown"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "job:Clown",
+    "description": "Have your Clown Application approved on the forums or have a clown that has claimed the reward willingly give you a dipl"
+  },
+  {
+    "id": "FishAch_Unperson",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Head of Personnel objective of being alive but not being on the station or escape level at the end of the r"
+  },
+  {
+    "id": "FishAch_UntappedPotential",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Traitor objective of killing all other antagonists"
+  },
+  {
+    "id": "FishAch_VacuumSealed",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Staff Assistant objective of having a space suit in your inventory or be wearing it. NOTE:Diving suits also"
+  },
+  {
+    "id": "FishAch_VehicularManslaughter",
+    "condition": "heal",
+    "trigger": "DamageChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "heal",
+    "description": "Drive a Space Pod/ minisub/ car into someone and do enough damage that they enter critical condition, which is when they"
+  },
+  {
+    "id": "FishAch_VirtualAscension",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Особое условие по мотивам «Virtual Ascension»."
+  },
+  {
+    "id": "FishAch_Wedidntstartthefire",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Scientist objective and Research Director objective of ensuring that there are no burnt floors in Chemistry"
+  },
+  {
+    "id": "FishAch_WeirdScience",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "That's gross! That's sick! I am not digging up dead girls!"
+  },
+  {
+    "id": "FishAch_Whatsthisboxdoinghere",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Staff Assistant objective and Medical Director objective of ensuring Head Surgeon, the Medibot/ cardboard b"
+  },
+  {
+    "id": "FishAch_Whereweregoingwewon",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Scientist objective and Research Director objective'Create a portal to the void'."
+  },
+  {
+    "id": "FishAch_Wheresthesmokinggun",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete the Detective objective of smoking a cigarette at the end of the round."
+  },
+  {
+    "id": "FishAch_Wonk",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Owl always love you"
+  },
+  {
+    "id": "FishAch_WrathoftheFather",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Особое условие по мотивам «Wrath of the Father»."
+  },
+  {
+    "id": "FishAch_Yield",
+    "condition": "death",
+    "trigger": "MobStateChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "generic_but_valid",
+    "reason": "death",
+    "description": "That is, yield to death. While dying, use the succumb command; you enter this via the text parser/command bar on the bot"
+  },
+  {
+    "id": "FishAch_Youreameanone",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "*"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "all-objectives",
+    "description": "As a Grinch complete your objectives."
+  },
+  {
+    "id": "FishAch_YourenoElminster",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "*"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "all-objectives",
+    "description": "As a Wizard complete your objectives."
+  },
+  {
+    "id": "FishAch_Perfectchemistryblossom",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Chemist"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:job:Chemist",
+    "description": "Passed the chemistry tutorial with perfect purity!"
+  },
+  {
+    "id": "FishAch_Rule1",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Call an admin this is ILLEGAL!!"
+  },
+  {
+    "id": "FishAch_SecretsbehindtheSpiderDoor",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "Secret"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "interact:Secret",
+    "description": "You managed to open a gate into the mansus."
+  },
+  {
+    "id": "FishAch_TheJaredLetooffruits",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchFunny",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Cantelopes dumb friend they insist on bringing to the party. The worst part of everything it is in."
+  },
+  {
+    "id": "FishAch_ABowldNewWorld",
+    "condition": "death",
+    "trigger": "MobStateChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "generic_but_valid",
+    "reason": "death",
+    "description": "There's a lot of grisly ways to kick it on the Spinward Periphery, but drowning to death in a toilet probably wasn't wha"
+  },
+  {
+    "id": "FishAch_BloodDrunkMinersKilled",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:blooddrunkminers",
+    "description": "You've killed HOW many?"
+  },
+  {
+    "id": "FishAch_BossesKilled",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:boss",
+    "description": "You've killed HOW many?"
+  },
+  {
+    "id": "FishAch_BubblegumsKilled",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:bubblegum",
+    "description": "You've killed HOW many?"
+  },
+  {
+    "id": "FishAch_ColossusKilled",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:colossus",
+    "description": "You've killed HOW many?"
+  },
+  {
+    "id": "FishAch_DemonicFrostMinerCrusher",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:demonicfrostminer",
+    "description": "Definitely harder than the Blood-Drunk Miner."
+  },
+  {
+    "id": "FishAch_DemonicFrostMinerKiller",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:demonicfrostminer",
+    "description": "Definitely harder than the Blood-Drunk Miner."
+  },
+  {
+    "id": "FishAch_DiskPlease",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "disk"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "interact:disk",
+    "description": "Is the man currently pointing a loaded rocket launcher at your head point blank really dumb enough to pull the trigger? "
+  },
+  {
+    "id": "FishAch_DrakesKilled",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "target": "MobDragonDungeon"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:drake",
+    "description": "You've killed HOW many?"
+  },
+  {
+    "id": "FishAch_Gettinganupgrade",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Make your first unique material item!"
+  },
+  {
+    "id": "FishAch_HAGOTTEM",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Made you look!"
+  },
+  {
+    "id": "FishAch_Helbitaljanken",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "You janked hard"
+  },
+  {
+    "id": "FishAch_HierophantsKilled",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:hierophant",
+    "description": "You've killed HOW many?"
+  },
+  {
+    "id": "FishAch_HowDoISwitchHands",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "If you saw someone casually club themselves upside the head with a toolbox anywhere in the galaxy but here, you'd probab"
+  },
+  {
+    "id": "FishAch_IWasaTeenageAnarchist",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {},
+    "source": "FishAchRoles",
+    "status": "blocked",
+    "reason": "role-no-job",
+    "description": "You were doing a great job sticking it to the system until that vending machine decided to fight back."
+  },
+  {
+    "id": "FishAch_KKKiiilllmmmeee",
+    "condition": "round-end-alive",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "generic_but_valid",
+    "reason": "survival",
+    "description": "You were a little too ambitious, but hey, I guess you're still alive?"
+  },
+  {
+    "id": "FishAch_Legendaryminer",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {},
+    "source": "FishAchRoles",
+    "status": "blocked",
+    "reason": "role-no-job",
+    "description": "No mere rock can stop me!"
+  },
+  {
+    "id": "FishAch_LegionsKilled",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:legion",
+    "description": "You've killed HOW many?"
+  },
+  {
+    "id": "FishAch_Longshift",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Well, that didn't take long."
+  },
+  {
+    "id": "FishAch_LookOutSir",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Either awarded for making the ultimate sacrifice for your comrades, or a really dumb attempt at grenade jumping."
+  },
+  {
+    "id": "FishAch_MisterSandman",
+    "condition": "surgery",
+    "trigger": "SurgeryStepCompleteEvent",
+    "conditionParams": {},
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "surgery",
+    "description": "Mechanically speaking, there's no real benefit to being unconscious during surgery. Weird how insistent this doctor is a"
+  },
+  {
+    "id": "FishAch_MyWatchlistStatusisNotImportant",
+    "condition": "heal",
+    "trigger": "DamageChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "heal",
+    "description": "You may be under the impression that violent video games are a harmless pastime, but the security and medical personnel "
+  },
+  {
+    "id": "FishAch_OneLeanMeanCleaningMachine",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "How does it feel to know that your workplace values a mop bucket on wheels more than you?"
+  },
+  {
+    "id": "FishAch_Timewaster",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Speak no evil, hear no evil, see just errors"
+  },
+  {
+    "id": "FishAch_WendigoCrusher",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "boss-id:wendigo",
+    "description": "You've now ruined years of mythical storytelling."
+  },
+  {
+    "id": "FishAch_WendigoKiller",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:wendigo",
+    "description": "You've now ruined years of mythical storytelling."
+  },
+  {
+    "id": "FishAch_WendigosKilled",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:wendigo",
+    "description": "You've killed HOW many?"
+  },
+  {
+    "id": "FishAch_Allthatperish",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Place of a different being, different time. Everything ends there... but maybe it is just the beginning?"
+  },
+  {
+    "id": "FishAch_AllWithinTheoreticalLimits",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "I never thought I'd see a resonance cascade, let alone prevent one..."
+  },
+  {
+    "id": "FishAch_Archmage",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "FishAch_Archmage"
+    },
+    "source": "FishAchStation",
+    "status": "fully_specific",
+    "reason": "interact:FishAch_Archmage",
+    "description": "Made a big impression on the station with your phenomenal cosmic power."
+  },
+  {
+    "id": "FishAch_Ascension",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Caedite eos. Novit enim Dominus qui sunt eius."
+  },
+  {
+    "id": "FishAch_AssistantVictory",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {},
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "id:assistantvictory",
+    "description": "If you got killed instead of someone more important, you just flexed the true strength of your \\"
+  },
+  {
+    "id": "FishAch_CentcomGradeAcceptableService",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchStation",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Well, it'll do! You and your department did just fine."
+  },
+  {
+    "id": "FishAch_CentcomGradeExemplaryService",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "CentCom"
+    },
+    "source": "FishAchStation",
+    "status": "fully_specific",
+    "reason": "interact:CentCom",
+    "description": "Centcom is very impressed with your department!"
+  },
+  {
+    "id": "FishAch_CentcomGradeShittyService",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchStation",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Well, you at least tried. How about trying harder?"
+  },
+  {
+    "id": "FishAch_ChangelingVictory",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Changeling"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:job:Changeling",
+    "description": "I think the changelings are metacomming."
+  },
+  {
+    "id": "FishAch_ChaplainVictory",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Chaplain"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:job:Chaplain",
+    "description": "The curse finally broken."
+  },
+  {
+    "id": "FishAch_Clickbait",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Where's my free smartphone?!?"
+  },
+  {
+    "id": "FishAch_ClownVictory",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Clown"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "id:job:Clown",
+    "description": "Did you know this works on traitors, despite their immunity? If you hit the jackpot and manage to kill one, they'll salt"
+  },
+  {
+    "id": "FishAch_DemonicFrostMinersKilled",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:demonicfrostminer",
+    "description": "You've killed HOW many?"
+  },
+  {
+    "id": "FishAch_DetectiveVictory",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Detective"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "id:job:Detective",
+    "description": "If you did this with a Medical Doctor in the game, i'm not really that impressed."
+  },
+  {
+    "id": "FishAch_Frenching",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Just a taste, for science!"
+  },
+  {
+    "id": "FishAch_FugitiveVictory",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Changeling"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "job:Changeling",
+    "description": "I'm just the description on an achievement, but if you end up having to choose between town and changelings, go changeli"
+  },
+  {
+    "id": "FishAch_GodsWrath",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Did you think you could get away with defiling the word of God?"
+  },
+  {
+    "id": "FishAch_Hardcorerandompoints",
+    "condition": "round-end-alive",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "generic_but_valid",
+    "reason": "survival",
+    "description": "Well, I might be a blind, deaf, crippled guy, but hey, at least I'm alive."
+  },
+  {
+    "id": "FishAch_HeadofPersonnelVictory",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "HeadOfPersonnel"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "id:job:HeadOfPersonnel",
+    "description": "King of Assistants, waster of a single mafia's night, thrower of games."
+  },
+  {
+    "id": "FishAch_HeadofSecurityVictory",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "HeadOfSecurity"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "id:job:HeadOfSecurity",
+    "description": "Certified not shitcurity."
+  },
+  {
+    "id": "FishAch_HillsofRust",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "You've summoned a piece of the Hill of rust, and so the Hills welcome you."
+  },
+  {
+    "id": "FishAch_HotDamn",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Sometimes you need to make some noise to make a point."
+  },
+  {
+    "id": "FishAch_IfNarSieissogood",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Even interdimensional space deitys need a friend."
+  },
+  {
+    "id": "FishAch_IntentoScore",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "A blast from the future?"
+  },
+  {
+    "id": "FishAch_Itarrived",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchStation",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "You managed to teleport an entity on the station that really shouldn't be there."
+  },
+  {
+    "id": "FishAch_LawyerVictory",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Lawyer"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:job:Lawyer",
+    "description": "Oh don't mind me, i'm just the worst rol- Oops, I just instantly ended the game."
+  },
+  {
+    "id": "FishAch_Legendaryfisher",
+    "condition": "first-late-join",
+    "trigger": "first-late-join",
+    "conditionParams": {},
+    "source": "FishAchStation",
+    "status": "fully_specific",
+    "reason": "id:fish",
+    "description": "Give a spaceman a fish and you feed him for a while; teach a spaceman to fish and you feed him until the shuttle arrives"
+  },
+  {
+    "id": "FishAch_MaintenancePillsConsumed",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Wait why?"
+  },
+  {
+    "id": "FishAch_MedicalDoctorVictory",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "MedicalDoctor"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "id:job:MedicalDoctor",
+    "description": "Congratulations on learning how to not talk!"
+  },
+  {
+    "id": "FishAch_NightmareVictory",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "DID YOUR LIGHT FLICKER?!"
+  },
+  {
+    "id": "FishAch_NightwatchersEyes",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "You've risen above the flames, became one with the ashes. You've been reborn as one with the Nightwatcher."
+  },
+  {
+    "id": "FishAch_ObsessedVictory",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "You got your target lynched, so instead of being spiteful and annoying, you're just smug and annoying."
+  },
+  {
+    "id": "FishAch_Outdebted",
+    "condition": "item-pickup",
+    "trigger": "DidEquipEvent",
+    "conditionParams": {
+      "item": "FishAch_Outdebted"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "equip",
+    "description": "I've paid my dues, shift after shift... I've done my sentence but commited no griff..."
+  },
+  {
+    "id": "FishAch_PsychologistVictory",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "You learned how to not reveal someone random night one! Or... maybe you're just a lucky bastard."
+  },
+  {
+    "id": "FishAch_SecurityOfficerVictory",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "SecurityOfficer"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "id:job:SecurityOfficer",
+    "description": "Don't worry, you can win this if you're dead! You... did use your ability to become dead, right?"
+  },
+  {
+    "id": "FishAch_SilverandSteel",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "You've become the master of all duellists - the paragon of blades."
+  },
+  {
+    "id": "FishAch_SOULdOut",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchFunny",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "My eternal soul was destroyed to make a toolbox look funny and all I got was this achievement..."
+  },
+  {
+    "id": "FishAch_StyleScore",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "You might not be a robot, but you were damn close."
+  },
+  {
+    "id": "FishAch_TendrilScore",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Watch your step"
+  },
+  {
+    "id": "FishAch_TheLastAct",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "You managed to become the ringleader and slay the lie."
+  },
+  {
+    "id": "FishAch_TheManInsidetheMODsuit",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Ignore the warning label on a springlock MODsuit."
+  },
+  {
+    "id": "FishAch_ThePictureofHealth",
+    "condition": "item-pickup",
+    "trigger": "DidEquipEvent",
+    "conditionParams": {
+      "item": "FishAch_ThePictureofHealth"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "equip",
+    "description": "Don't be such a baby, it's just a heart attack. You've bounced back from worse!"
+  },
+  {
+    "id": "FishAch_ThoughtfeederVictory",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Clown"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "job:Clown",
+    "description": "Clown's best friend. And Obsessed. And fugitive? Whose side are you on?!"
+  },
+  {
+    "id": "FishAch_TouristsServedasBartenderHighscore",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Bartender"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:job:Bartender",
+    "description": "Your highscore on serving tourist bots as bartender."
+  },
+  {
+    "id": "FishAch_TouristsServedasChefHighscore",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Chef"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "id:job:Chef",
+    "description": "Your highscore on serving tourist bots as chef."
+  },
+  {
+    "id": "FishAch_TraitorVictory",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Traitor"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:job:Traitor",
+    "description": "Guys, we still have two more changelings to ki-!! TRAITOR VICTORY !!"
+  },
+  {
+    "id": "FishAch_TramSurfer",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Lights out, guerilla radio!"
+  },
+  {
+    "id": "FishAch_UniversallyHated",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Managed to get more than 12 votes when put up on trial, jesus christ."
+  },
+  {
+    "id": "FishAch_VortexofArms",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "You've became something more, something greater. A piece of the emperor resides within you, and you within him."
+  },
+  {
+    "id": "FishAch_WardenVictory",
+    "condition": "death",
+    "trigger": "MobStateChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "generic_but_valid",
+    "reason": "death",
+    "description": "Make changelings think you're detective, go on lockdown, actual detective investigates you and dies. Cha cha real smooth"
+  },
+  {
+    "id": "FishAch_WHATJUSTHAPPENED",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchCombat",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "As a blood cultist, be part of a team that summons 3 shuttle curses within 10 seconds. Imagine cleaning up after them, g"
+  },
+  {
+    "id": "FishAch_NestExterminator",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Watch your step"
+  },
+  {
+    "id": "FishAch_NestScore",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Watch your step"
+  },
+  {
+    "id": "FishAch_Rule3",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Call an admin this is ILLEGAL!!"
+  },
+  {
+    "id": "FishAch_ANastyFall",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "FishAch_ANastyFall"
+    },
+    "source": "FishAchStation",
+    "status": "fully_specific",
+    "reason": "interact:FishAch_ANastyFall",
+    "description": "...And the earth opened its mouth and swallowed them and their station- all the HOP's men and all their possessions."
+  },
+  {
+    "id": "FishAch_CoronerVictory",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Detective"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "job:Detective",
+    "description": "Useless... until the one night the thoughtfeeder confidently claims themselves as detective. Mafia's true bullshit detec"
+  },
+  {
+    "id": "FishAch_FishSpeciesCaught",
+    "condition": "first-late-join",
+    "trigger": "first-late-join",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:fish",
+    "description": "How many different species of fish you've caught so far. Gotta fish 'em all."
+  },
+  {
+    "id": "FishAch_InFlandersFields",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Особое условие по мотивам «In Flanders Fields»."
+  },
+  {
+    "id": "FishAch_KingGoatCrusher",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "boss-id:kinggoat",
+    "description": "The king is dead, long live the king!"
+  },
+  {
+    "id": "FishAch_KingGoatKiller",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:kinggoat",
+    "description": "The king is dead, long live the king!"
+  },
+  {
+    "id": "FishAch_OrdealofSisyphus",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchStation",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Successfully carry a boulder from Lavaland all the way to Centcom, without ever dropping it. We must imagine you're happ"
+  },
+  {
+    "id": "FishAch_Rule8",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Call an admin this is ILLEGAL!!"
+  },
+  {
+    "id": "FishAch_SecretsoftheLockedLabyrinth",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "Secret"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "interact:Secret",
+    "description": "You managed to open a gate into the mansus."
+  },
+  {
+    "id": "FishAch_SwarmerBeaconsKilled",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:swarmerbeacon",
+    "description": "You've killed HOW many?"
+  },
+  {
+    "id": "FishAch_TheThingKilled",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:thething",
+    "description": "You've killed HOW many?"
+  },
+  {
+    "id": "FishAch_ThingCrusher",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "boss-id:thing",
+    "description": "MacReady would be proud."
+  },
+  {
+    "id": "FishAch_ThingKiller",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "boss-id:thing",
+    "description": "Thank goodness it was not infectious. Probably."
+  },
+  {
+    "id": "FishAch_UnhealthySnacks",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "You were curious to taste it. And then another. You must have more!"
+  },
+  {
+    "id": "FishAch_UnlockedPDAThemes",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Any special PDA theme that you've installed on your PDA, which will then be added to your roundstart PDA on future round"
+  },
+  {
+    "id": "FishAch_YourLifeInYourHands",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Give some space debris a piece of your mind"
+  },
+  {
+    "id": "FishAch_YoureWhatYouEat",
+    "condition": "death",
+    "trigger": "MobStateChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "generic_but_valid",
+    "reason": "death",
+    "description": "Nutritionists often recommend a balanced and varied diet. However that clearly isn't the case for some creatures."
+  },
+  {
+    "id": "FishAch_ArcaneFailure",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchSecret",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "As a wizard, fail your objectives."
+  },
+  {
+    "id": "FishAch_BacktoCarbon",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Get cremated"
+  },
+  {
+    "id": "FishAch_BadassSyndie",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "*"
+    },
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "all-objectives",
+    "description": "As a traitor, complete your objectives without buying any items"
+  },
+  {
+    "id": "FishAch_BloodRites",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchCombat",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "As a member of blood cult, summon Nar'sie"
+  },
+  {
+    "id": "FishAch_BrainDamage",
+    "condition": "damage-dealt",
+    "trigger": "DamageChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "generic_but_valid",
+    "reason": "damage",
+    "description": "Dab."
+  },
+  {
+    "id": "FishAch_BreathofDeath",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "... with incompatible lungs"
+  },
+  {
+    "id": "FishAch_BreathofLife",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Perform CPR on someone..."
+  },
+  {
+    "id": "FishAch_BurninHell",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Get cremated... alive"
+  },
+  {
+    "id": "FishAch_Catastrophe",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Emag a particle accelerator"
+  },
+  {
+    "id": "FishAch_ClockingIn",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "As a servant of Ratvar, summon Ratvar"
+  },
+  {
+    "id": "FishAch_CountdeVille",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "*"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "all-objectives",
+    "description": "As a vampire, complete your objectives"
+  },
+  {
+    "id": "FishAch_DeltaAlert",
+    "condition": "surgery",
+    "trigger": "SurgeryStepCompleteEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "surgery",
+    "description": "As a nuclear operative, score a major or minor victory"
+  },
+  {
+    "id": "FishAch_DownwithNanotrasen",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "*"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "all-objectives",
+    "description": "As a revolutionary, complete your objectives"
+  },
+  {
+    "id": "FishAch_DukeofDucats",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {},
+    "source": "FishAchRoles",
+    "status": "blocked",
+    "reason": "role-no-job",
+    "description": "As the QM, have a million cargo credits by the end of the round"
+  },
+  {
+    "id": "FishAch_EmbracetheBird",
+    "condition": "craft",
+    "trigger": "ItemConstructionCreated",
+    "conditionParams": {
+      "item": "FishAch_EmbracetheBird"
+    },
+    "source": "FishAchSecret",
+    "status": "fully_specific",
+    "reason": "craft",
+    "description": "As a network admin, create a script that makes poly LOUD"
+  },
+  {
+    "id": "FishAch_FiveYearPlan",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "As a member of the Supply department, complete ten bounties."
+  },
+  {
+    "id": "FishAch_Flatlined",
+    "condition": "death",
+    "trigger": "MobStateChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "generic_but_valid",
+    "reason": "death",
+    "description": "You died"
+  },
+  {
+    "id": "FishAch_FromTheShadows",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "*"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "all-objectives",
+    "description": "As a revenant, complete your objectives"
+  },
+  {
+    "id": "FishAch_GlorytoCargonia",
+    "condition": "round-end-alive",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "survive",
+    "description": "Survive a full round as part of the Supply department."
+  },
+  {
+    "id": "FishAch_GreyGoo",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "*"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "all-objectives",
+    "description": "As a blob, complete your objectives"
+  },
+  {
+    "id": "FishAch_HonestWork",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "StationEngineer"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "job:StationEngineer",
+    "description": "Set up one of the solar arrays as part of the Engineering team."
+  },
+  {
+    "id": "FishAch_HonoraryNukie",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchSecret",
+    "status": "fully_specific",
+    "reason": "id:honorarynukie",
+    "description": "Kill yourself using the nuclear authentication disk"
+  },
+  {
+    "id": "FishAch_ILiveAgain",
+    "condition": "craft",
+    "trigger": "ItemConstructionCreated",
+    "conditionParams": {
+      "item": "SunriseOrganBaseLiver"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "craft",
+    "description": "As a roboticist, create a cyborg"
+  },
+  {
+    "id": "FishAch_IsaacClarke",
+    "condition": "round-end-alive",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "survive",
+    "description": "Survive a full round as part of the Engineering team."
+  },
+  {
+    "id": "FishAch_KickAssandChewBubblegum",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {
+      "tag": "NpcBoss"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "id:kickassandchewbubblegum",
+    "description": "Kill Bubblegum, the king of slaughter demons."
+  },
+  {
+    "id": "FishAch_KingofCredits",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {},
+    "source": "FishAchRoles",
+    "status": "blocked",
+    "reason": "role-no-job",
+    "description": "As the QM, beat the current record of cargo credits:"
+  },
+  {
+    "id": "FishAch_LeadLined",
+    "condition": "explosion",
+    "trigger": "SunriseExplosionEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "generic_but_valid",
+    "reason": "explosion",
+    "description": "Survive an explosion while inside of a freezer"
+  },
+  {
+    "id": "FishAch_Lifesaver",
+    "condition": "defibrillate",
+    "trigger": "TargetDefibrillatedEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "defibr",
+    "description": "Successfully defibrillate someone"
+  },
+  {
+    "id": "FishAch_MasterofBlood",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchCombat",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "As a cult master, summon Nar'sie"
+  },
+  {
+    "id": "FishAch_MissionFailedWellGetem",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "As an antagonist, fail your objectives."
+  },
+  {
+    "id": "FishAch_NiceandToasty",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Get set on fire in a fire-resistant suit."
+  },
+  {
+    "id": "FishAch_Onmyauthority",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Trigger a keycard authentication device event, by yourself."
+  },
+  {
+    "id": "FishAch_QuadrupleCross",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "*"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "all-objectives",
+    "description": "As an external affairs agent, complete your objectives"
+  },
+  {
+    "id": "FishAch_RatvarsHand",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "As the Eminence, summon Ratvar"
+  },
+  {
+    "id": "FishAch_ReverseCard",
+    "condition": "station-event",
+    "trigger": "GameRuleStartedEvent",
+    "conditionParams": {
+      "event": "NuclearOperative"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "event:NuclearOperative",
+    "description": "As a member of the crew, deal a humiliating defeat to the nuclear team"
+  },
+  {
+    "id": "FishAch_ScholarsoftheArcane",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "*"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "all-objectives",
+    "description": "As a wizard, complete your objectives"
+  },
+  {
+    "id": "FishAch_SilenceBird",
+    "condition": "craft",
+    "trigger": "ItemConstructionCreated",
+    "conditionParams": {
+      "item": "FishAch_Role_SecRadioSilence"
+    },
+    "source": "FishAchSecret",
+    "status": "fully_specific",
+    "reason": "craft",
+    "description": "As a network admin, create a script that mutes poly"
+  },
+  {
+    "id": "FishAch_SpaceAids",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "*"
+    },
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "all-objectives",
+    "description": "As a sentient disease, survive and complete your objectives"
+  },
+  {
+    "id": "FishAch_TheDarkShadow",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "As a darkspawn, ascend successfully"
+  },
+  {
+    "id": "FishAch_TheThing",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "*"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "all-objectives",
+    "description": "As a changeling, complete your objectives"
+  },
+  {
+    "id": "FishAch_Top1",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Have one million credits on your ID."
+  },
+  {
+    "id": "FishAch_TripleCross",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "*"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "all-objectives",
+    "description": "As an internal affairs agent, complete your objectives"
+  },
+  {
+    "id": "FishAch_TurfWar",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchStation",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "As a gang member, take over the station"
+  },
+  {
+    "id": "FishAch_VivalaRevolution",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "*"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "all-objectives",
+    "description": "As a head revolutionary, complete your objectives"
+  },
+  {
+    "id": "FishAch_Yaaaahr",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "As member of the pirate crew, collect sufficient bounty from the crew"
+  },
+  {
+    "id": "FishAch_YouSpinMeRound",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "CurtainsPink"
+    },
+    "source": "FishAchSecret",
+    "status": "fully_specific",
+    "reason": "interact:CurtainsPink",
+    "description": "Use a surgical drill to spin right round like a record baby"
+  },
+  {
+    "id": "FishAch_HullLullaby",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchStation",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Finish a shift without a hull breach announcement."
+  },
+  {
+    "id": "FishAch_QuietMedbay",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete a medical shift without common-radio distress spam."
+  },
+  {
+    "id": "FishAch_PaperworkTsunami",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {},
+    "source": "FishAchRoles",
+    "status": "blocked",
+    "reason": "role-no-job",
+    "description": "File a mountain of forms before the shift ends."
+  },
+  {
+    "id": "FishAch_ClownCourt",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "ClownRecorder"
+    },
+    "source": "FishAchFunny",
+    "status": "fully_specific",
+    "reason": "id:clowncourt",
+    "description": "Hold a public mock trial with a judge gavel."
+  },
+  {
+    "id": "FishAch_JanitorZen",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Janitor"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "id:job:Janitor",
+    "description": "Keep a chosen department spotless until round end."
+  },
+  {
+    "id": "FishAch_GhostTour",
+    "condition": "became-ghost",
+    "trigger": "MindRemovedMessage",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:ghosttour",
+    "description": "As a ghost, visit every major department."
+  },
+  {
+    "id": "FishAch_IdSwapArtist",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchFunny",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Swap someone else's ID and make them notice too late."
+  },
+  {
+    "id": "FishAch_AtmosPoetry",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "GasPipe"
+    },
+    "source": "FishAchStation",
+    "status": "fully_specific",
+    "reason": "id:atmospoetry",
+    "description": "Stabilize a critical atmos incident without explosions."
+  },
+  {
+    "id": "FishAch_CargoMiracle",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {},
+    "source": "FishAchRoles",
+    "status": "blocked",
+    "reason": "role-no-job",
+    "description": "Bring cargo budget back positive after a losing streak."
+  },
+  {
+    "id": "FishAch_SilentSingularity",
+    "condition": "station-event",
+    "trigger": "GameRuleStartedEvent",
+    "conditionParams": {
+      "event": "Singularity"
+    },
+    "source": "FishAchSecret",
+    "status": "fully_specific",
+    "reason": "event:Singularity",
+    "description": "You met a hunger that does not roar."
+  },
+  {
+    "id": "FishAch_Combat_FriendlyFireAudit",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchCombat",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Survive a firefight without hitting a crewmate."
+  },
+  {
+    "id": "FishAch_Combat_DoorKickDiplomat",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchCombat",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Win a fight that started at an airlock."
+  },
+  {
+    "id": "FishAch_Combat_DisarmChampion",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchCombat",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Disarm the same opponent three times in one fight."
+  },
+  {
+    "id": "FishAch_Combat_FlashBeforeAsk",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchCombat",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Flash someone before any words are spoken."
+  },
+  {
+    "id": "FishAch_Combat_ShieldWall",
+    "condition": "damage-dealt",
+    "trigger": "DamageChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchCombat",
+    "status": "generic_but_valid",
+    "reason": "damage",
+    "description": "Block fatal damage using another mob as cover."
+  },
+  {
+    "id": "FishAch_Combat_KnifeOnlyPolicy",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchCombat",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Down an armed opponent while holding only a knife."
+  },
+  {
+    "id": "FishAch_Combat_StunThenTea",
+    "condition": "item-ingest",
+    "trigger": "IngestedEvent",
+    "conditionParams": {},
+    "source": "FishAchCombat",
+    "status": "blocked",
+    "reason": "ingest-no-item",
+    "description": "Cuff someone and then offer them a drink."
+  },
+  {
+    "id": "FishAch_Combat_WindowExit",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchCombat",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Enter combat by smashing through a window."
+  },
+  {
+    "id": "FishAch_Combat_CorridorsOfPain",
+    "condition": "kill",
+    "trigger": "KillReportedEvent",
+    "conditionParams": {},
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "id:corridorsofpain",
+    "description": "Win a chase that spans three departments."
+  },
+  {
+    "id": "FishAch_Survive_AlmostWentCritical",
+    "condition": "counter",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "key": "rounds-survived"
+    },
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "id:survive-count",
+    "description": "End the round below 30% health but alive."
+  },
+  {
+    "id": "FishAch_Survive_WalkItOff",
+    "condition": "round-end-alive",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "id:survive",
+    "description": "Recover from critical without being cloned."
+  },
+  {
+    "id": "FishAch_Survive_SpacewalkNovice",
+    "condition": "round-end-alive",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "id:survive",
+    "description": "Survive your first unprotected space exposure."
+  },
+  {
+    "id": "FishAch_Survive_FireBlanketHero",
+    "condition": "round-end-alive",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "id:survive",
+    "description": "Extinguish yourself after catching fire."
+  },
+  {
+    "id": "FishAch_Survive_InternalsInstinct",
+    "condition": "round-end-alive",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "id:survive",
+    "description": "Put on internals within 5 seconds of a breach."
+  },
+  {
+    "id": "FishAch_Survive_BedrestVacation",
+    "condition": "round-end-alive",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "id:survive",
+    "description": "Spend 5+ minutes buckled to a rollerbed and live."
+  },
+  {
+    "id": "FishAch_Survive_CryoNap",
+    "condition": "round-end-alive",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "id:survive",
+    "description": "Enter and leave cryo alive in one shift."
+  },
+  {
+    "id": "FishAch_Survive_NoCloneNeeded",
+    "condition": "round-end-alive",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "id:survive",
+    "description": "Survive a round that had a cloning facility online."
+  },
+  {
+    "id": "FishAch_Survive_OneHandWonder",
+    "condition": "round-end-alive",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "id:survive",
+    "description": "Reach CentComm missing one arm."
+  },
+  {
+    "id": "FishAch_Survive_BloodOnTheBoots",
+    "condition": "round-end-alive",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "id:survive",
+    "description": "Survive while leaving a trail of your own blood."
+  },
+  {
+    "id": "FishAch_Role_ChefWithStandards",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Chef"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "id:job:Chef",
+    "description": "Serve 10 plated meals in one shift."
+  },
+  {
+    "id": "FishAch_Role_BartenderPeacemaker",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Bartender"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "id:job:Bartender",
+    "description": "Break up a bar fight without a gun."
+  },
+  {
+    "id": "FishAch_Role_BotanyJackpot",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "ArcadePrize"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "id:jackpot",
+    "description": "Harvest a high-potency mutant plant."
+  },
+  {
+    "id": "FishAch_Role_EngineerLightsOn",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "StationEngineer"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "id:job:StationEngineer",
+    "description": "Restore power after a station-wide blackout."
+  },
+  {
+    "id": "FishAch_Role_AtmosWhisperer",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {},
+    "source": "FishAchRoles",
+    "status": "blocked",
+    "reason": "role-no-job",
+    "description": "Fix a plasma leak before it ignites."
+  },
+  {
+    "id": "FishAch_Role_SciSampleFirst",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {},
+    "source": "FishAchRoles",
+    "status": "blocked",
+    "reason": "role-no-job",
+    "description": "Deliver a research artifact sample to R&D."
+  },
+  {
+    "id": "FishAch_Role_RoboAssemblyLine",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {},
+    "source": "FishAchRoles",
+    "status": "blocked",
+    "reason": "role-no-job",
+    "description": "Assemble three cyborgs in one shift."
+  },
+  {
+    "id": "FishAch_Role_SecRadioSilence",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {},
+    "source": "FishAchRoles",
+    "status": "blocked",
+    "reason": "role-no-job",
+    "description": "Finish a security shift without declaring red alert yourself."
+  },
+  {
+    "id": "FishAch_Role_WardenPaperTrail",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Process five prisoners with complete records."
+  },
+  {
+    "id": "FishAch_Role_HoPStamp",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {},
+    "source": "FishAchRoles",
+    "status": "blocked",
+    "reason": "role-no-job",
+    "description": "Issue ten job changes in one shift."
+  },
+  {
+    "id": "FishAch_Station_MeteorReception",
+    "condition": "station-event",
+    "trigger": "GameRuleStartedEvent",
+    "conditionParams": {
+      "event": "MeteorSwarm"
+    },
+    "source": "FishAchStation",
+    "status": "fully_specific",
+    "reason": "event:MeteorSwarm",
+    "description": "Survive a meteor wave on the station hull."
+  },
+  {
+    "id": "FishAch_Station_GridlockGenius",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchStation",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Unclog a hallway traffic jam during crisis."
+  },
+  {
+    "id": "FishAch_Station_DoorPriority",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchStation",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Emergency-bolt a department during a raid."
+  },
+  {
+    "id": "FishAch_Station_SpareIdHunt",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchStation",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Find and secure the spare ID."
+  },
+  {
+    "id": "FishAch_Station_TelecommsHymn",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchStation",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Repair telecomms after a total outage."
+  },
+  {
+    "id": "FishAch_Station_DisposalOlympics",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchStation",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Travel between two departments via disposals."
+  },
+  {
+    "id": "FishAch_Station_MaintCartographer",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchStation",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Traverse maintenance from one end of the map to the other."
+  },
+  {
+    "id": "FishAch_Station_EvacUsher",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchStation",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Help get ten people onto the shuttle."
+  },
+  {
+    "id": "FishAch_Station_BridgeIsClosed",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchStation",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Keep the bridge locked through a major crisis."
+  },
+  {
+    "id": "FishAch_Station_ArrivalsHost",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchStation",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Greet five latejoins at arrivals."
+  },
+  {
+    "id": "FishAch_Funny_PieDiplomacy",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchFunny",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Hit a head of staff with a cream pie."
+  },
+  {
+    "id": "FishAch_Funny_BikeHornSolo",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "MobSkeletonBiker"
+    },
+    "source": "FishAchFunny",
+    "status": "fully_specific",
+    "reason": "interact:MobSkeletonBiker",
+    "description": "Honk 50 times in one minute."
+  },
+  {
+    "id": "FishAch_Funny_SoapOpera",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "Soap"
+    },
+    "source": "FishAchFunny",
+    "status": "fully_specific",
+    "reason": "interact:Soap",
+    "description": "Cause three slips with the same soap."
+  },
+  {
+    "id": "FishAch_Funny_ClosetEscapeArtist",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchFunny",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Escape from a welded locker."
+  },
+  {
+    "id": "FishAch_Funny_MouseHatFashion",
+    "condition": "item-pickup",
+    "trigger": "DidEquipEvent",
+    "conditionParams": {
+      "item": "mouse"
+    },
+    "source": "FishAchFunny",
+    "status": "fully_specific",
+    "reason": "equip",
+    "description": "Wear a mouse as a hat."
+  },
+  {
+    "id": "FishAch_Funny_MimeLecture",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Mime"
+    },
+    "source": "FishAchFunny",
+    "status": "fully_specific",
+    "reason": "id:job:Mime",
+    "description": "Get five people to watch a mime performance."
+  },
+  {
+    "id": "FishAch_Funny_CigaretteTiming",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchFunny",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Light a cigarette during a shuttle launch."
+  },
+  {
+    "id": "FishAch_Funny_TableflipEtiquette",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchFunny",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Flip a table in the library."
+  },
+  {
+    "id": "FishAch_Funny_SingInTheBrig",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchFunny",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Play music while imprisoned."
+  },
+  {
+    "id": "FishAch_Funny_RubberStampKing",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchFunny",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Cover a paper in five different stamps."
+  },
+  {
+    "id": "FishAch_Secret_MaintenanceOracle",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Forty quiet conversations with the tunnels later..."
+  },
+  {
+    "id": "FishAch_Secret_QuietAI",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "An AI that listens more than it lectures."
+  },
+  {
+    "id": "FishAch_Secret_ThirdLawDebate",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Silicon ethics, argued until sparks fly."
+  },
+  {
+    "id": "FishAch_Secret_LostAndFoundRelic",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Claimed something that was never quite yours."
+  },
+  {
+    "id": "FishAch_Secret_EchoesInSolars",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Heard the station breathe between solar panels."
+  },
+  {
+    "id": "FishAch_Secret_NameOnTheManifest",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Your name was on the list. The story was not."
+  },
+  {
+    "id": "FishAch_Secret_WrongShuttle",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Arrived somewhere that was not the plan."
+  },
+  {
+    "id": "FishAch_Secret_VendingJackpot",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "ArcadePrize"
+    },
+    "source": "FishAchSecret",
+    "status": "fully_specific",
+    "reason": "id:jackpot",
+    "description": "The machine finally paid out."
+  },
+  {
+    "id": "FishAch_Secret_CameraBlindSpot",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Moved where the cameras politely look away."
+  },
+  {
+    "id": "FishAch_Secret_TheOtherButton",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "MothershipPinpointerPiece"
+    },
+    "source": "FishAchSecret",
+    "status": "fully_specific",
+    "reason": "interact:MothershipPinpointerPiece",
+    "description": "Pressed the button everyone ignores."
+  },
+  {
+    "id": "FishAch_Misc_FirstShift",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Passenger"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:firstshift",
+    "description": "Complete your first full round on the server."
+  },
+  {
+    "id": "FishAch_Misc_Bookworm",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Read three different books in one shift."
+  },
+  {
+    "id": "FishAch_Misc_GalleryCritic",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Examine ten different posters or paintings."
+  },
+  {
+    "id": "FishAch_Misc_CoffeeDependent",
+    "condition": "item-ingest",
+    "trigger": "IngestedEvent",
+    "conditionParams": {
+      "item": "DrinkCoffee"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "ingest:DrinkCoffee",
+    "description": "Drink coffee three times in one round."
+  },
+  {
+    "id": "FishAch_Misc_PDAArchivist",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Fill your PDA messenger with ten contacts."
+  },
+  {
+    "id": "FishAch_Misc_CrowbarCollector",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Carry three crowbars at once."
+  },
+  {
+    "id": "FishAch_Misc_LightbulbMoment",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Replace twenty broken lights."
+  },
+  {
+    "id": "FishAch_Misc_WirecutterBallet",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Cut and mend the same wire twice."
+  },
+  {
+    "id": "FishAch_Misc_ToolbeltComplete",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Fill a toolbelt with unique tools."
+  },
+  {
+    "id": "FishAch_Misc_LabelMaker",
+    "condition": "craft",
+    "trigger": "ItemConstructionCreated",
+    "conditionParams": {
+      "item": "Paper"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:labelmaker",
+    "description": "Label ten different items."
+  },
+  {
+    "id": "FishAch_Orig_CaptainsToast",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Captain"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "id:job:Captain",
+    "description": "As captain, make a station-wide announcement toast."
+  },
+  {
+    "id": "FishAch_Orig_ChaplainBlessing",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Chaplain"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "id:job:Chaplain",
+    "description": "Bless five crewmembers in one shift."
+  },
+  {
+    "id": "FishAch_Orig_LawyerObjection",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Lawyer"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "id:job:Lawyer",
+    "description": "Win an in-round trial argument as a lawyer."
+  },
+  {
+    "id": "FishAch_Orig_PsychEval",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete a therapy session with another player."
+  },
+  {
+    "id": "FishAch_Orig_DetectiveNoir",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Detective"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "id:job:Detective",
+    "description": "Solve a crime using only examination and records."
+  },
+  {
+    "id": "FishAch_Orig_MinerPayday",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {},
+    "source": "FishAchRoles",
+    "status": "blocked",
+    "reason": "role-no-job",
+    "description": "Redeem a full ore crate at ore processor."
+  },
+  {
+    "id": "FishAch_Orig_SalvageHaul",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Return from salvage with a high-value artifact."
+  },
+  {
+    "id": "FishAch_Orig_XenoarchPulse",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {},
+    "source": "FishAchRoles",
+    "status": "blocked",
+    "reason": "role-no-job",
+    "description": "Fully analyze an artifact node tree."
+  },
+  {
+    "id": "FishAch_Orig_AnomalyBabysit",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {},
+    "source": "FishAchRoles",
+    "status": "blocked",
+    "reason": "role-no-job",
+    "description": "Keep an anomaly stable for ten minutes."
+  },
+  {
+    "id": "FishAch_Orig_ChemRoulette",
+    "condition": "item-ingest",
+    "trigger": "IngestedEvent",
+    "conditionParams": {},
+    "source": "FishAchFunny",
+    "status": "blocked",
+    "reason": "ingest-no-item",
+    "description": "Drink an unlabeled beaker and survive."
+  },
+  {
+    "id": "FishAch_Orig_SmokeAndMirrors",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchFunny",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Escape pursuers using a smoke grenade."
+  },
+  {
+    "id": "FishAch_Orig_EmagCuriosity",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Curiosity, laminated in purple."
+  },
+  {
+    "id": "FishAch_Orig_LawsetPoetry",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSecret",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Rewrote silicon commandments into verse."
+  },
+  {
+    "id": "FishAch_Orig_UploadDrama",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchCombat",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "As AI or antagonist, survive an upload attempt confrontation."
+  },
+  {
+    "id": "FishAch_Orig_RevLeaflet",
+    "condition": "station-event",
+    "trigger": "GameRuleStartedEvent",
+    "conditionParams": {
+      "event": "Revolutionary"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "event:Revolutionary",
+    "description": "Distribute revolutionary propaganda without being caught for 10 minutes."
+  },
+  {
+    "id": "FishAch_Orig_TraitorDeadDrop",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Traitor"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "id:job:Traitor",
+    "description": "Hide an uplink item in maintenance and recover it later."
+  },
+  {
+    "id": "FishAch_Orig_NukiePlanB",
+    "condition": "surgery",
+    "trigger": "SurgeryStepCompleteEvent",
+    "conditionParams": {},
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "surgery",
+    "description": "As a nuclear operative, secure the disk without armed combat."
+  },
+  {
+    "id": "FishAch_Orig_CultSigilTour",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchCombat",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Draw cult runes in three different departments."
+  },
+  {
+    "id": "FishAch_Orig_WizardSpark",
+    "condition": "station-event",
+    "trigger": "GameRuleStartedEvent",
+    "conditionParams": {
+      "event": "Wizard"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "event:Wizard",
+    "description": "Cast five different spells in one shift."
+  },
+  {
+    "id": "FishAch_Orig_LingSnack",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchCombat",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Absorb a victim and walk past security unnoticed."
+  },
+  {
+    "id": "FishAch_Orig_HereticStep",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Heretic"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "id:job:Heretic",
+    "description": "Complete a heretic knowledge ritual."
+  },
+  {
+    "id": "FishAch_Orig_SpaceDragonMeal",
+    "condition": "station-event",
+    "trigger": "GameRuleStartedEvent",
+    "conditionParams": {
+      "event": "Dragon"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "event:Dragon",
+    "description": "As or against a space dragon, survive the first roar."
+  },
+  {
+    "id": "FishAch_Orig_BlobPerimeter",
+    "condition": "station-event",
+    "trigger": "GameRuleStartedEvent",
+    "conditionParams": {
+      "event": "BlobGameMode"
+    },
+    "source": "FishAchCombat",
+    "status": "fully_specific",
+    "reason": "id:blobperimeter",
+    "description": "Hold a defensive line against blob expansion."
+  },
+  {
+    "id": "FishAch_Orig_ZombieVaccine",
+    "condition": "station-event",
+    "trigger": "GameRuleStartedEvent",
+    "conditionParams": {
+      "event": "Zombie"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "event:Zombie",
+    "description": "Cure a zombified crewmember."
+  },
+  {
+    "id": "FishAch_Orig_SurgeryMarathon",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete three surgeries in one shift."
+  },
+  {
+    "id": "FishAch_Orig_DefibHero",
+    "condition": "defibrillate",
+    "trigger": "TargetDefibrillatedEvent",
+    "conditionParams": {},
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "defibr",
+    "description": "Successfully defibrillate someone in the hallway."
+  },
+  {
+    "id": "FishAch_Orig_ChemLabClean",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Chemist"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "job:Chemist",
+    "description": "End the round with chemistry free of reactions on the floor."
+  },
+  {
+    "id": "FishAch_Orig_VirologyWatch",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {},
+    "source": "FishAchRoles",
+    "status": "blocked",
+    "reason": "role-no-job",
+    "description": "Contain an outbreak before it leaves medbay."
+  },
+  {
+    "id": "FishAch_Orig_ParamedicDash",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Paramedic"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "id:job:Paramedic",
+    "description": "Rescue a critical patient from another department."
+  },
+  {
+    "id": "FishAch_Orig_BrigMedicBond",
+    "condition": "heal",
+    "trigger": "DamageChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "id:brigmedicbond",
+    "description": "Heal a prisoner and a security officer in the same shift."
+  },
+  {
+    "id": "FishAch_Orig_IAAAudit",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete an internal affairs investigation report."
+  },
+  {
+    "id": "FishAch_Orig_ReporterScoop",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {},
+    "source": "FishAchRoles",
+    "status": "blocked",
+    "reason": "role-no-job",
+    "description": "Publish a news article about an ongoing crisis."
+  },
+  {
+    "id": "FishAch_Orig_LibrarianSilence",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Librarian"
+    },
+    "source": "FishAchFunny",
+    "status": "fully_specific",
+    "reason": "id:job:Librarian",
+    "description": "Keep the library quiet during a station emergency."
+  },
+  {
+    "id": "FishAch_Orig_ClownCarTheory",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Clown"
+    },
+    "source": "FishAchFunny",
+    "status": "fully_specific",
+    "reason": "id:job:Clown",
+    "description": "Fit five people into a cramped vehicle or crate."
+  },
+  {
+    "id": "FishAch_Orig_Honkvasion",
+    "condition": "shuttle-arrive",
+    "trigger": "FTLCompletedEvent",
+    "conditionParams": {},
+    "source": "FishAchFunny",
+    "status": "fully_specific",
+    "reason": "id:honkvasion",
+    "description": "Be on the evacuation shuttle while fully dressed as a clown."
+  },
+  {
+    "id": "FishAch_Orig_MimeWall",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Mime"
+    },
+    "source": "FishAchFunny",
+    "status": "fully_specific",
+    "reason": "id:job:Mime",
+    "description": "Block a corridor using mime abilities or barriers."
+  },
+  {
+    "id": "FishAch_Orig_MusicianSetlist",
+    "condition": "death",
+    "trigger": "MobStateChangedEvent",
+    "conditionParams": {},
+    "source": "FishAchFunny",
+    "status": "generic_but_valid",
+    "reason": "death",
+    "description": "Play three different songs to an audience."
+  },
+  {
+    "id": "FishAch_Orig_BoxerKnockout",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchCombat",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Down someone using only boxing gloves."
+  },
+  {
+    "id": "FishAch_Orig_StageMagician",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchFunny",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Perform a magic trick that makes an item vanish."
+  },
+  {
+    "id": "FishAch_Orig_CuratorExhibit",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "CuratorJumpsuit"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "interact:CuratorJumpsuit",
+    "description": "Display three museum pieces in public."
+  },
+  {
+    "id": "FishAch_Orig_LawyerPlea",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {
+      "job": "Lawyer"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "id:job:Lawyer",
+    "description": "Successfully reduce a brig timer through roleplay."
+  },
+  {
+    "id": "FishAch_Orig_QMNegotiation",
+    "condition": "objective-complete",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {
+      "objective": "Objectives"
+    },
+    "source": "FishAchRoles",
+    "status": "fully_specific",
+    "reason": "obj:Objectives",
+    "description": "Complete a profitable trade that saves a department."
+  },
+  {
+    "id": "FishAch_Orig_CESingularityBabysil",
+    "condition": "explosion",
+    "trigger": "SunriseExplosionEvent",
+    "conditionParams": {},
+    "source": "FishAchStation",
+    "status": "fully_specific",
+    "reason": "id:cesingularitybabysil",
+    "description": "Keep the engine contained through a major event."
+  },
+  {
+    "id": "FishAch_Orig_AtmosTempArt",
+    "condition": "craft",
+    "trigger": "ItemConstructionCreated",
+    "conditionParams": {
+      "item": "Temperature"
+    },
+    "source": "FishAchStation",
+    "status": "fully_specific",
+    "reason": "craft",
+    "description": "Create a safe warm room and a safe cold room in the same shift."
+  },
+  {
+    "id": "FishAch_Orig_SolarsMarathon",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchStation",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Repair an entire solar array while spaced."
+  },
+  {
+    "id": "FishAch_Orig_SMDelamDrill",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchStation",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Participate in a successful supermatter delamination response."
+  },
+  {
+    "id": "FishAch_Orig_GridCheckSurvivor",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Keep critical machines running through a grid check."
+  },
+  {
+    "id": "FishAch_Orig_RadiationTan",
+    "condition": "round-end-alive",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "generic_but_valid",
+    "reason": "survival",
+    "description": "Survive a radiation pulse with only basic protection."
+  },
+  {
+    "id": "FishAch_Orig_SpaceMapMemory",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Navigate to a distant ruin without GPS."
+  },
+  {
+    "id": "FishAch_Orig_DebrisPicnic",
+    "condition": "item-ingest",
+    "trigger": "IngestedEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "ingest-no-item",
+    "description": "Eat food while on an asteroid or ruin."
+  },
+  {
+    "id": "FishAch_Orig_GatewayTourist",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Enter a gateway expedition and return alive."
+  },
+  {
+    "id": "FishAch_Orig_LavalandPostcard",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Return from a planetary expedition with a souvenir."
+  },
+  {
+    "id": "FishAch_Orig_GhostRoleDebut",
+    "condition": "became-ghost",
+    "trigger": "MindRemovedMessage",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:ghost",
+    "description": "Spawn into a ghost role for the first time."
+  },
+  {
+    "id": "FishAch_Orig_MentorQuestion",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {
+      "target": "FishAch_Orig_MentorQuestion"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "interact:FishAch_Orig_MentorQuestion",
+    "description": "Ask a useful mentor question and follow the advice."
+  },
+  {
+    "id": "FishAch_Orig_AhelpPolite",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Resolve an admin help without hostility."
+  },
+  {
+    "id": "FishAch_Orig_MapVoteVoice",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Cast a vote in a map or gamemode vote."
+  },
+  {
+    "id": "FishAch_Orig_LobbyRegular",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Spend ten minutes in the lobby chatting before a round."
+  },
+  {
+    "id": "FishAch_Orig_CharacterArtist",
+    "condition": "craft",
+    "trigger": "ItemConstructionCreated",
+    "conditionParams": {
+      "item": "SpawnPointFishGhostCharacterSpawnerSyndicate"
+    },
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "craft",
+    "description": "Create a new character slot with a full backstory note."
+  },
+  {
+    "id": "FishAch_Orig_LoadoutMax",
+    "condition": "item-pickup",
+    "trigger": "DidEquipEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "fully_specific",
+    "reason": "id:loadoutmax",
+    "description": "Equip a role with a complete preferred loadout."
+  },
+  {
+    "id": "FishAch_Orig_SpeciesTour",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Play three different species across rounds."
+  },
+  {
+    "id": "FishAch_Orig_AccentPractice",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchFunny",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Speak with an accent trait for a full round."
+  },
+  {
+    "id": "FishAch_Orig_HandshakeDiplomat",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchMisc",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Shake hands with five different crewmembers."
+  },
+  {
+    "id": "FishAch_Orig_HighFiveChain",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchFunny",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "High-five three people in under a minute."
+  },
+  {
+    "id": "FishAch_Orig_HugsNotDrugs",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchFunny",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "Hug someone who is in critical."
+  },
+  {
+    "id": "FishAch_Orig_CPRStreak",
+    "condition": "role-added",
+    "trigger": "RoleAddedEvent",
+    "conditionParams": {},
+    "source": "FishAchRoles",
+    "status": "blocked",
+    "reason": "role-no-job",
+    "description": "Perform CPR on two different patients."
+  },
+  {
+    "id": "FishAchFirstBreath",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "achievement-fish-first-breath-desc"
+  },
+  {
+    "id": "FishAchStillStanding",
+    "condition": "round-end-alive",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "id:survive",
+    "description": "achievement-fish-still-standing-desc"
+  },
+  {
+    "id": "FishAchBananaRequiem",
+    "condition": "interaction",
+    "trigger": "UserInteractHandEvent",
+    "conditionParams": {},
+    "source": "FishAchFunny",
+    "status": "blocked",
+    "reason": "unmapped",
+    "description": "achievement-fish-banana-requiem-desc"
+  },
+  {
+    "id": "FishAchCentcommTourist",
+    "condition": "shuttle-arrive",
+    "trigger": "FTLCompletedEvent",
+    "conditionParams": {},
+    "source": "FishAchStation",
+    "status": "fully_specific",
+    "reason": "shuttle",
+    "description": "achievement-fish-centcomm-tourist-desc"
+  },
+  {
+    "id": "FishAchHabitualSurvivor",
+    "condition": "round-end-alive",
+    "trigger": "RoundEndMessageEvent",
+    "conditionParams": {},
+    "source": "FishAchSurvival",
+    "status": "fully_specific",
+    "reason": "id:survive",
+    "description": "achievement-fish-habitual-survivor-desc"
+  }
+]

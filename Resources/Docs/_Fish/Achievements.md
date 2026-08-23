@@ -33,14 +33,13 @@
 
 - Найдено достижений до дедупликации: **510**
 - Уникальных после name-dedup: **344**
-- Перенесено (YAML-прототипы): **501**
-- Адаптировано / Fish-original в каталоге: **501**
-- Исключено как gameplay-награды: BeeCoin / cosmetic unlocks / role weighting (условия сохранены где уместно)
-- Аудит архитектуры Fish/SS14: завершён
-- Аудит SS13: активен (исторические builds + CM + смысловая дедупликация)
-- Condition handlers: **полное покрытие** всех ключей `AchievementConditionKeys` (event-driven)
-- Антиабуз: `oncePerRound`, cooldown, `minRoundSeconds`, ghost-gate, ignore suicide, kill только player-humanoid, shotgun-защита (`allowGenericTrigger` / progressTarget)
-- Локали: нормальные name/desc (ru-RU + en-US); у `secret: true` до unlock показывается `secretDescription` — загадка/намёк без прямого спойлера условия
+- Перенесено (YAML-прототипы): **494** (в `_Fish/Achievements/`)
+- **С реальным gameplay trigger:** **18** (3.6%)
+- **Catalog stubs (`condition: manual`, без trigger):** **476** (96.4%)
+- Аудит trigger chain: **`AchievementsTriggerAudit.md`** + JSON inventory
+- Condition handlers в коде: **16 семейств** (18 keys incl. manual + 2 без прототипов)
+- Антиабуз: `oncePerRound`, cooldown, `minRoundSeconds`, ghost-gate, ignore suicide, kill только player-humanoid, `allowGenericTrigger` / `conditionParams`
+- Локали: нормальные name/desc у 18 triggered; у manual — `achievement-fish-catalog-pending-desc`
 
-Подробности: `AchievementsSources.md`, `AchievementsCatalog.md`.
+Подробности: `AchievementsSources.md`, `AchievementsCatalog.md`, **`AchievementsTriggerAudit.md`**.
 Архитектура: `AchievementsArchitecture.md`.

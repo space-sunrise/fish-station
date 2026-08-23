@@ -23,4 +23,13 @@ public static class AchievementConditionKeys
     public const string StationEvent = "station-event";
     public const string FirstLateJoin = "first-late-join";
     public const string Counter = "counter";
+    public const string BecameGhost = "became-ghost";
+    public const string ItemIngest = "item-ingest";
+    public const string AntagSelected = "antag-selected";
+    public const string ObjectiveComplete = "objective-complete";
+    public const string PlaytimeMinutes = "playtime-minutes";
+    public const string RoleAdded = "role-added";
+    public const string Defibrillate = "defibrillate";
+    public const string Surgery = "surgery";
+    public const string GunShot = "gun-shot";
 }

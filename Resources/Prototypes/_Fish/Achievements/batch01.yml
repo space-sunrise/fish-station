@@ -3,7 +3,8 @@
   name: achievement-fishach_bestmealofmylife-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: item-ingest
+  allowGenericTrigger: true
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -15,7 +16,9 @@
   name: achievement-fishach_crossingthehorizon-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: station-event
+  conditionParams:
+    event: Singularity
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -27,7 +30,9 @@
   name: achievement-fishach_davemymindisgoing-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  conditionParams:
+    target: AirlockGlass
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -39,7 +44,7 @@
   name: achievement-fishach_ggghosts-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSurvival
-  condition: manual
+  condition: became-ghost
   progressTarget: 1
   oncePerRound: true
   minRoundSeconds: 180
@@ -51,7 +56,9 @@
   name: achievement-fishach_grilledseasonedveteran-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: playtime-minutes
+  conditionParams:
+    threshold: 600
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -63,10 +70,11 @@
   name: achievement-fishach_killmekillmekillme-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchCombat
-  condition: manual
+  condition: kill
+  conditionParams:
+    tag: NpcBoss
   progressTarget: 1
   oncePerRound: true
-  requirePlayerVictim: true
   order: 105
   # source: BeeStation
   # catalog-duplicate: progress goes to primary sibling
@@ -75,7 +83,9 @@
   name: achievement-fishach_letsplayglobalthermonuclearwar-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: station-event
+  conditionParams:
+    event: NuclearOperative
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -87,8 +97,10 @@
   name: achievement-fishach_littlechickadee-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
-  progressTarget: 1
+  condition: item-ingest
+  conditionParams:
+    item: DrinkBeerCan
+  progressTarget: 10
   oncePerRound: true
   progressCooldownSeconds: 5
   order: 107
@@ -99,7 +111,7 @@
   name: achievement-fishach_mindthegap-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: shuttle-arrive
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -111,7 +123,8 @@
   name: achievement-fishach_nyoooom-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: death
+  allowGenericTrigger: true
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -123,7 +136,7 @@
   name: achievement-fishach_overextendedthejoke-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -135,7 +148,9 @@
   name: achievement-fishach_pleasejustendthepain-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: round-end-alive
+  conditionParams:
+    shuttle: emergency
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -147,7 +162,9 @@
   name: achievement-fishach_seasonedveteran-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: playtime-minutes
+  conditionParams:
+    threshold: 600
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -159,7 +176,9 @@
   name: achievement-fishach_sousvidegrilledseasonedveteran-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: playtime-minutes
+  conditionParams:
+    threshold: 600
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -171,7 +190,9 @@
   name: achievement-fishach_soyboy-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: item-ingest
+  conditionParams:
+    item: DrinkSoyMilkCarton
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -183,7 +204,8 @@
   name: achievement-fishach_survivalofthefittest-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchCombat
-  condition: manual
+  condition: gun-shot
+  allowGenericTrigger: true
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -195,7 +217,9 @@
   name: achievement-fishach_swarmbeaconcrusher-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: kill
+  conditionParams:
+    tag: NpcBoss
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -207,10 +231,11 @@
   name: achievement-fishach_swarmbeaconkiller-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchCombat
-  condition: manual
+  condition: kill
+  conditionParams:
+    tag: NpcBoss
   progressTarget: 1
   oncePerRound: true
-  requirePlayerVictim: true
   order: 117
   # source: BeeStation
   # catalog-duplicate: progress goes to primary sibling
@@ -219,7 +244,8 @@
   name: achievement-fishach_thatwasstupidofyou-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: explosion
+  allowGenericTrigger: true
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -231,7 +257,7 @@
   name: achievement-fishach_thislousyachievement-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -243,7 +269,9 @@
   name: achievement-fishach_veteran-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: playtime-minutes
+  conditionParams:
+    threshold: 600
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -255,7 +283,9 @@
   name: achievement-fishach_whoosh-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  conditionParams:
+    target: FishAch_WHOOSH
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -267,7 +297,9 @@
   name: achievement-fishach_blooddrunkminercrusher-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchFunny
-  condition: manual
+  condition: kill
+  conditionParams:
+    tag: NpcBoss
   progressTarget: 1
   oncePerRound: true
   order: 122
@@ -278,10 +310,11 @@
   name: achievement-fishach_blooddrunkminerkiller-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchCombat
-  condition: manual
+  condition: kill
+  conditionParams:
+    tag: NpcBoss
   progressTarget: 1
   oncePerRound: true
-  requirePlayerVictim: true
   order: 123
   # source: BeeStation/ Monkestation/ Shiptest/ TGStation
   # catalog-duplicate: progress goes to primary sibling
@@ -290,10 +323,11 @@
   name: achievement-fishach_bosskiller-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchCombat
-  condition: manual
+  condition: kill
+  conditionParams:
+    tag: NpcBoss
   progressTarget: 1
   oncePerRound: true
-  requirePlayerVictim: true
   order: 124
   # source: BeeStation/ Monkestation/ Shiptest/ TGStation
   # catalog-duplicate: progress goes to primary sibling
@@ -302,7 +336,9 @@
   name: achievement-fishach_bubblegumcrusher-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: kill
+  conditionParams:
+    tag: NpcBoss
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -314,10 +350,11 @@
   name: achievement-fishach_bubblegumkiller-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchCombat
-  condition: manual
+  condition: kill
+  conditionParams:
+    tag: NpcBoss
   progressTarget: 1
   oncePerRound: true
-  requirePlayerVictim: true
   order: 126
   # source: BeeStation/ Monkestation/ Shiptest/ TGStation
   # catalog-duplicate: progress goes to primary sibling
@@ -326,7 +363,9 @@
   name: achievement-fishach_colossuscrusher-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: kill
+  conditionParams:
+    tag: NpcBoss
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -338,10 +377,11 @@
   name: achievement-fishach_colossuskiller-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchCombat
-  condition: manual
+  condition: kill
+  conditionParams:
+    tag: NpcBoss
   progressTarget: 1
   oncePerRound: true
-  requirePlayerVictim: true
   order: 128
   # source: BeeStation/ Monkestation/ Shiptest/ TGStation
   # catalog-duplicate: progress goes to primary sibling
@@ -350,7 +390,9 @@
   name: achievement-fishach_drakecrusher-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSurvival
-  condition: manual
+  condition: kill
+  conditionParams:
+    target: MobDragonDungeon
   progressTarget: 1
   oncePerRound: true
   order: 129
@@ -361,7 +403,9 @@
   name: achievement-fishach_drakekiller-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchCombat
-  condition: manual
+  condition: kill
+  conditionParams:
+    target: MobDragonDungeon
   progressTarget: 1
   oncePerRound: true
   order: 130
@@ -372,7 +416,9 @@
   name: achievement-fishach_featofstrength-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  conditionParams:
+    target: SingularityGenerator
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -384,7 +430,9 @@
   name: achievement-fishach_hierophantcrusher-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: kill
+  conditionParams:
+    tag: NpcBoss
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -396,10 +444,11 @@
   name: achievement-fishach_hierophantkiller-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchCombat
-  condition: manual
+  condition: kill
+  conditionParams:
+    tag: NpcBoss
   progressTarget: 1
   oncePerRound: true
-  requirePlayerVictim: true
   order: 133
   # source: BeeStation/ Monkestation/ Shiptest/ TGStation
   # catalog-duplicate: progress goes to primary sibling
@@ -408,7 +457,9 @@
   name: achievement-fishach_jackpot-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  conditionParams:
+    target: ArcadePrize
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -420,7 +471,9 @@
   name: achievement-fishach_legioncrusher-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: kill
+  conditionParams:
+    tag: NpcBoss
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -432,10 +485,11 @@
   name: achievement-fishach_legionkiller-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchCombat
-  condition: manual
+  condition: kill
+  conditionParams:
+    tag: NpcBoss
   progressTarget: 1
   oncePerRound: true
-  requirePlayerVictim: true
   order: 136
   # source: BeeStation/ Monkestation/ Shiptest/ TGStation
   # catalog-duplicate: progress goes to primary sibling
@@ -444,7 +498,7 @@
   name: achievement-fishach_yourlifebeforeyoureyes-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: explosion
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -456,7 +510,8 @@
   name: achievement-fishach_roundandfull-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: death
+  allowGenericTrigger: true
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -468,7 +523,9 @@
   name: achievement-fishach_tendrilexterminator-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: kill
+  conditionParams:
+    tag: NpcBoss
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -480,8 +537,10 @@
   name: achievement-fishach_thebestdriver-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchFunny
-  condition: manual
-  progressTarget: 1
+  condition: interaction
+  conditionParams:
+    target: BikeHorn
+  progressTarget: 100
   oncePerRound: true
   progressCooldownSeconds: 5
   order: 140
@@ -492,7 +551,7 @@
   name: achievement-fishach_veryimportantpiscis-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: round-end-alive
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -504,7 +563,9 @@
   name: achievement-fishach_greentext-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: *
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -530,7 +591,9 @@
   name: achievement-fishach_121jiggawatts-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchRoles
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: Objectives
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -542,7 +605,9 @@
   name: achievement-fishach_100mdash-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: item-ingest
+  conditionParams:
+    item: DrinkBeerCan
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -556,7 +621,9 @@
   name: achievement-fishach_40k-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: Objectives
   progressTarget: 1
   oncePerRound: true
   minRoundSeconds: 180
@@ -568,7 +635,9 @@
   name: achievement-fishach_421-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  conditionParams:
+    target: SignRedFour
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -582,7 +651,8 @@
   name: achievement-fishach_ahollyjollyspacemas-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: death
+  allowGenericTrigger: true
   progressTarget: 1
   oncePerRound: true
   order: 148
@@ -607,7 +677,9 @@
   name: achievement-fishach_adjutantonline-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: role-added
+  conditionParams:
+    job: Captain
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -621,7 +693,8 @@
   name: achievement-fishach_banned-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: death
+  allowGenericTrigger: true
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -635,7 +708,8 @@
   name: achievement-fishach_bearhug-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: kill
+  allowGenericTrigger: true
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -649,7 +723,9 @@
   name: achievement-fishach_bettertoburnoutthanfade-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchRoles
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: Objectives
   progressTarget: 1
   oncePerRound: true
   minRoundSeconds: 180
@@ -661,7 +737,9 @@
   name: achievement-fishach_billmasen-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSurvival
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: Objectives
   progressTarget: 1
   oncePerRound: true
   minRoundSeconds: 180
@@ -673,8 +751,9 @@
   name: achievement-fishach_blackandblue-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSurvival
-  condition: manual
-  progressTarget: 1
+  condition: death
+  allowGenericTrigger: true
+  progressTarget: 400
   oncePerRound: true
   order: 155
   # source: Goonstation
@@ -696,7 +775,7 @@
   name: achievement-fishach_bombiniismissing-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
   progressTarget: 1
   oncePerRound: true
   order: 157
@@ -709,7 +788,9 @@
   name: achievement-fishach_brownpants-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchCombat
-  condition: manual
+  condition: role-added
+  conditionParams:
+    job: Captain
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -721,7 +802,9 @@
   name: achievement-fishach_burythedead-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchStation
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: Objectives
   progressTarget: 1
   oncePerRound: true
   minRoundSeconds: 180
@@ -733,7 +816,9 @@
   name: achievement-fishach_buttonpusher-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  conditionParams:
+    target: SignalButton
   progressTarget: 1
   oncePerRound: true
   order: 160
@@ -746,7 +831,9 @@
   name: achievement-fishach_call1800coder-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchStation
-  condition: manual
+  condition: interaction
+  conditionParams:
+    target: Call
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -758,7 +845,9 @@
   name: achievement-fishach_captainslog-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  conditionParams:
+    target: PaperOffice
   progressTarget: 1
   oncePerRound: true
   order: 162
@@ -797,7 +886,9 @@
   name: achievement-fishach_creamofthecrop-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: Objectives
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -809,7 +900,8 @@
   name: achievement-fishach_damned-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSurvival
-  condition: manual
+  condition: death
+  allowGenericTrigger: true
   progressTarget: 1
   oncePerRound: true
   order: 166
@@ -820,7 +912,9 @@
   name: achievement-fishach_dangerousgame-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: Objectives
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -832,7 +926,9 @@
   name: achievement-fishach_deadoraliveyourecoming-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSurvival
-  condition: manual
+  condition: round-end-alive
+  conditionParams:
+    shuttle: emergency
   progressTarget: 1
   oncePerRound: true
   minRoundSeconds: 180
@@ -844,7 +940,7 @@
   name: achievement-fishach_deepfreeze-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -858,7 +954,9 @@
   name: achievement-fishach_draculajr-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: Objectives
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -870,7 +968,9 @@
   name: achievement-fishach_dui-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: item-ingest
+  conditionParams:
+    item: Ethanol
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -882,7 +982,9 @@
   name: achievement-fishach_expendable-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSurvival
-  condition: manual
+  condition: death
+  conditionParams:
+    job: Revolutionary
   progressTarget: 1
   oncePerRound: true
   order: 172
@@ -893,7 +995,8 @@
   name: achievement-fishach_felldownthestairs-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSurvival
-  condition: manual
+  condition: death
+  allowGenericTrigger: true
   progressTarget: 1
   oncePerRound: true
   order: 173
@@ -904,19 +1007,20 @@
   name: achievement-fishach_fish-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: first-late-join
   progressTarget: 1
   oncePerRound: true
   order: 174
   # source: Goonstation
   # catalog-duplicate: FirstBreath уже закрывает first-late-join
-
 - type: achievement
   id: FishAch_ForYourOhmGood
   name: achievement-fishach_foryourohmgood-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchStation
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: Objectives
   progressTarget: 1
   oncePerRound: true
   order: 175
@@ -927,7 +1031,9 @@
   name: achievement-fishach_formatcomplete-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
+  conditionParams:
+    target: StationAiCore
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -941,7 +1047,9 @@
   name: achievement-fishach_funtimes-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
+  conditionParams:
+    target: FishAch_FunTimes
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -953,7 +1061,9 @@
   name: achievement-fishach_glassceiling-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchRoles
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: Objectives
   progressTarget: 1
   oncePerRound: true
   minRoundSeconds: 180
@@ -965,7 +1075,7 @@
   name: achievement-fishach_goawaybatin-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -979,7 +1089,7 @@
   name: achievement-fishach_googone-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -993,7 +1103,9 @@
   name: achievement-fishach_goodfeasting-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: Objectives
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1005,7 +1117,7 @@
   name: achievement-fishach_gorefest-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSurvival
-  condition: manual
+  condition: death
   progressTarget: 1
   oncePerRound: true
   order: 182
@@ -1016,7 +1128,9 @@
   name: achievement-fishach_guardingnome-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSurvival
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: Objectives
   progressTarget: 1
   oncePerRound: true
   minRoundSeconds: 180
@@ -1042,7 +1156,7 @@
   name: achievement-fishach_helios-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1056,7 +1170,7 @@
   name: achievement-fishach_hesdeadjim-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: surgery
   progressTarget: 1
   oncePerRound: true
   order: 186
@@ -1069,7 +1183,9 @@
   name: achievement-fishach_highfive-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: item-pickup
+  conditionParams:
+    item: WeldingFuelTankHighCapacity
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1081,7 +1197,8 @@
   name: achievement-fishach_highvoltage-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSurvival
-  condition: manual
+  condition: death
+  allowGenericTrigger: true
   progressTarget: 1
   oncePerRound: true
   order: 188
@@ -1092,7 +1209,9 @@
   name: achievement-fishach_honkhonkmotherfu-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchRoles
-  condition: manual
+  condition: interaction
+  conditionParams:
+    target: BikeHorn
   progressTarget: 1
   oncePerRound: true
   minRoundSeconds: 180
@@ -1104,7 +1223,9 @@
   name: achievement-fishach_humanoidmustnotescape-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchCombat
-  condition: manual
+  condition: death
+  conditionParams:
+    shuttle: emergency
   progressTarget: 1
   oncePerRound: true
   order: 190
@@ -1115,7 +1236,9 @@
   name: achievement-fishach_idontgiveashit-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchRoles
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: Objectives
   progressTarget: 1
   oncePerRound: true
   minRoundSeconds: 180
@@ -1127,7 +1250,9 @@
   name: achievement-fishach_ihelped-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchRoles
-  condition: manual
+  condition: role-added
+  conditionParams:
+    job: SecurityOfficer
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1139,7 +1264,7 @@
   name: achievement-fishach_ijustcleanedthat-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: slip-death
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1153,7 +1278,7 @@
   name: achievement-fishach_ispy-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1167,7 +1292,7 @@
   name: achievement-fishach_icarus-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1181,7 +1306,7 @@
   name: achievement-fishach_identitytheft-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1195,7 +1320,9 @@
   name: achievement-fishach_illuminated-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: role-added
+  conditionParams:
+    job: Chemist
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1209,7 +1336,9 @@
   name: achievement-fishach_imin-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchRoles
-  condition: manual
+  condition: role-added
+  conditionParams:
+    job: ResearchDirector
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1221,7 +1350,9 @@
   name: achievement-fishach_isitreallythattimeagain-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: item-pickup
+  conditionParams:
+    item: FishAch_Isitreallythattimeagain
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1235,7 +1366,7 @@
   name: achievement-fishach_itsatrap-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1249,7 +1380,9 @@
   name: achievement-fishach_itsfrickinfreezinginhere-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchRoles
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: Objectives
   progressTarget: 1
   oncePerRound: true
   minRoundSeconds: 180
@@ -1261,7 +1394,9 @@
   name: achievement-fishach_itsjustafleshwound-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchStation
-  condition: manual
+  condition: round-end-alive
+  conditionParams:
+    shuttle: emergency
   progressTarget: 1
   oncePerRound: true
   minRoundSeconds: 180
@@ -1273,7 +1408,9 @@
   name: achievement-fishach_itsnotdoortoheaven-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchRoles
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: Objectives
   progressTarget: 1
   oncePerRound: true
   order: 203
@@ -1284,7 +1421,7 @@
   name: achievement-fishach_itsnoteasybeinggreen-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1298,7 +1435,7 @@
   name: achievement-fishach_itsamemario-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1312,7 +1449,8 @@
   name: achievement-fishach_jimiheselden-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSurvival
-  condition: manual
+  condition: death
+  allowGenericTrigger: true
   progressTarget: 1
   oncePerRound: true
   order: 206
@@ -1323,7 +1461,9 @@
   name: achievement-fishach_law1dontbean-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchFunny
-  condition: manual
+  condition: item-pickup
+  conditionParams:
+    item: AsimovCircuitBoard
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1335,7 +1475,7 @@
   name: achievement-fishach_leavenomanbehind-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1349,7 +1489,9 @@
   name: achievement-fishach_licensedarchaeologist-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchRoles
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: Objectives
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1361,7 +1503,9 @@
   name: achievement-fishach_lifeuhfindsaway-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: Objectives
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1373,7 +1517,7 @@
   name: achievement-fishach_lockblock-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1387,7 +1531,9 @@
   name: achievement-fishach_manwithascan-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchRoles
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: Objectives
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1399,10 +1545,9 @@
   name: achievement-fishach_manhattanproject-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchStation
-  condition: manual
+  condition: surgery
   progressTarget: 1
   oncePerRound: true
-  requirePlayerVictim: true
   order: 213
   # source: Goonstation
   # catalog-duplicate: progress goes to primary sibling
@@ -1411,7 +1556,9 @@
   name: achievement-fishach_manynamesmanyfaces-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSurvival
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: Objectives
   progressTarget: 1
   oncePerRound: true
   minRoundSeconds: 180
@@ -1423,7 +1570,7 @@
   name: achievement-fishach_masterofunlocking-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
-  condition: manual
+  condition: interaction
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1437,7 +1584,9 @@
   name: achievement-fishach_methisahellofa-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchRoles
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: Objectives
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1449,7 +1598,7 @@
   name: achievement-fishach_misclick-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: interaction
   progressTarget: 1
   oncePerRound: true
   order: 217
@@ -1460,7 +1609,9 @@
   name: achievement-fishach_missioncomplete-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: *
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -1472,7 +1623,9 @@
   name: achievement-fishach_monkeyduty-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchCombat
-  condition: manual
+  condition: objective-complete
+  conditionParams:
+    objective: Objectives
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5

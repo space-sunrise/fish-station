@@ -290,18 +290,15 @@ public sealed class AchievementWindow : FancyWindow
 
         IEnumerable<AchievementPrototype> achievements = _prototypes
             .EnumeratePrototypes<AchievementPrototype>()
-            .Where(a => _selectedCategory == null || a.Category == _selectedCategory);
-
-        if (_selectedCategory == null)
-        {
-            achievements = achievements.Where(a =>
+            .Where(a => _selectedCategory == null || a.Category == _selectedCategory)
+            // catalog stub (manual) — только если уже есть прогресс/unlock (achgrant / legacy)
+            .Where(a =>
             {
                 if (a.Condition != AchievementConditionKeys.Manual)
                     return true;
 
                 return _states.TryGetValue(a.ID, out var st) && (st.Unlocked || st.Progress > 0);
             });
-        }
 
         var list = achievements.OrderBy(a => a.Order).ThenBy(a => a.ID).ToList();
         FishAchievementCard? firstCard = null;

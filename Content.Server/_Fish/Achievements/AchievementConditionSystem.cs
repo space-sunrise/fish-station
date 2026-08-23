@@ -29,7 +29,7 @@ namespace Content.Server._Fish.Achievements;
 /// <summary>
 /// Event-driven handlers. Один gameplay-event → один EventKey → без duplicate progress.
 /// </summary>
-public sealed class AchievementConditionSystem : EntitySystem
+public sealed partial class AchievementConditionSystem : EntitySystem
 {
     [Dependency] private readonly AchievementManager _achievements = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
@@ -61,11 +61,21 @@ public sealed class AchievementConditionSystem : EntitySystem
         // Broadcast: directed EmergencyShuttleComponent+FTLCompleted уже занят EmergencyShuttleSystem.
         SubscribeLocalEvent<FTLCompletedEvent>(OnEmergencyShuttleArrived);
         SubscribeLocalEvent<SunriseExplosionEvent>(OnExplosion);
+
+        InitializeExtended();
+        InitializeMedical();
     }
+
+    partial void InitializeExtended();
+    partial void InitializeMedical();
+
+    /// <summary>Последний источник урона по жертве — для kill+weapon фильтра.</summary>
+    private readonly Dictionary<EntityUid, string?> _lastDamageWeaponProto = new();
 
     private void OnRoundRestart(RoundRestartCleanupEvent ev)
     {
         _achievements.OnRoundStarting();
+        _lastDamageWeaponProto.Clear();
     }
 
     private async void OnPlayerSpawn(PlayerSpawnCompleteEvent ev)
@@ -122,6 +132,8 @@ public sealed class AchievementConditionSystem : EntitySystem
             if (_mind.TryGetMind(ent, out var mindId, out _) && _roles.MindIsAntagonist(mindId))
                 await _achievements.ContributeAsync(session, AchievementConditionKeys.AntagWin, ctx);
         }
+
+        ProcessRoundEndObjectives(ev);
     }
 
     private bool IsOnEmergencyShuttle(EntityUid ent)
@@ -152,7 +164,10 @@ public sealed class AchievementConditionSystem : EntitySystem
         await _achievements.ContributeAsync(
             session,
             AchievementConditionKeys.Death,
-            new AchievementTriggerContext(IsSuicide: suicide, EventKey: deathKey));
+            new AchievementTriggerContext(
+                IsSuicide: suicide,
+                OnEmergencyShuttle: IsOnEmergencyShuttle(args.Target),
+                EventKey: deathKey));
 
         if (HasComp<AchievementSlippedMarkerComponent>(args.Target))
         {
@@ -183,12 +198,22 @@ public sealed class AchievementConditionSystem : EntitySystem
         var victimIsPlayerHumanoid = HasComp<ActorComponent>(ev.Entity) &&
                                      HasComp<HumanoidProfileComponent>(ev.Entity);
 
+        var victimProto = GetPrototypeId(ev.Entity);
+        string? verifiedTag = null;
+        if (_tags.HasTag(ev.Entity, NpcBossTag))
+            verifiedTag = NpcBossTag;
+
+        _lastDamageWeaponProto.TryGetValue(ev.Entity, out var weaponProto);
+
         // Один kill-event на жертву; разные жертвы → разный EventKey → можно несколько за раунд.
         _ = _achievements.ContributeAsync(
             session,
             AchievementConditionKeys.Kill,
             new AchievementTriggerContext(
                 VictimIsPlayerHumanoid: victimIsPlayerHumanoid,
+                EntityPrototypeId: victimProto,
+                VerifiedTag: verifiedTag,
+                WeaponPrototypeId: weaponProto,
                 EventKey: $"kill:{GetNetEntity(ev.Entity)}"));
     }
 
@@ -222,6 +247,10 @@ public sealed class AchievementConditionSystem : EntitySystem
             if (HasComp<GodmodeComponent>(attacker))
                 return;
 
+            var originProto = GetPrototypeId(attacker);
+            if (originProto != null)
+                _lastDamageWeaponProto[uid] = originProto;
+
             if (!TryComp<ActorComponent>(attacker, out var attackerActor))
                 return;
 
@@ -243,7 +272,9 @@ public sealed class AchievementConditionSystem : EntitySystem
         _ = _achievements.ContributeAsync(
             actor.PlayerSession,
             AchievementConditionKeys.Craft,
-            new AchievementTriggerContext(EventKey: $"craft:{GetNetEntity(args.Item)}"));
+            new AchievementTriggerContext(
+                EntityPrototypeId: GetPrototypeId(args.Item),
+                EventKey: $"craft:{GetNetEntity(args.Item)}"));
     }
 
     private async void OnEquipped(EntityUid uid, AchievementTrackedComponent tracked, DidEquipEvent args)
@@ -254,7 +285,9 @@ public sealed class AchievementConditionSystem : EntitySystem
         await _achievements.ContributeAsync(
             actor.PlayerSession,
             AchievementConditionKeys.ItemPickup,
-            new AchievementTriggerContext(EventKey: $"equip:{GetNetEntity(args.Equipment)}"));
+            new AchievementTriggerContext(
+                EntityPrototypeId: GetPrototypeId(args.Equipment),
+                EventKey: $"equip:{GetNetEntity(args.Equipment)}"));
     }
 
     private async void OnUserInteractHand(EntityUid uid, AchievementTrackedComponent tracked, UserInteractHandEvent args)
@@ -262,11 +295,14 @@ public sealed class AchievementConditionSystem : EntitySystem
         if (!TryComp<ActorComponent>(uid, out var actor))
             return;
 
+        var targetProto = GetPrototypeId(args.Target);
         var bucket = _timing.CurTick.Value / 10;
         await _achievements.ContributeAsync(
             actor.PlayerSession,
             AchievementConditionKeys.Interaction,
-            new AchievementTriggerContext(EventKey: $"interact:{GetNetEntity(args.Target)}:{bucket}"));
+            new AchievementTriggerContext(
+                EntityPrototypeId: targetProto,
+                EventKey: $"interact:{GetNetEntity(args.Target)}:{bucket}"));
     }
 
     private void OnGameRuleStarted(ref GameRuleStartedEvent ev)
