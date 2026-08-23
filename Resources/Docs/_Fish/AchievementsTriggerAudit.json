@@ -1,37 +1,44 @@
 [
   {
     "id": "FishAch_CrossingtheHorizon",
-    "condition": "station-event",
-    "trigger": "GameRuleStartedEvent",
-    "conditionParams": {
-      "event": "Singularity"
-    },
+    "condition": "singularity-consumed",
+    "trigger": "AchievementConditionSystem.Exploration.OnEventHorizonConsumed",
+    "conditionParams": {},
     "source": "FishAchMisc",
     "status": "fully_specific",
-    "reason": "id:ce-horizon",
-    "description": "Someone submit an OSHA complaint about that CE!"
+    "reason": "singularity_act() → give_award(/datum/award/achievement/misc/singularity_death)",
+    "description": "Someone submit an OSHA complaint about that CE!",
+    "ss13Source": "BeeStation/code/modules/mob/living/carbon/human/human_defense.dm:618",
+    "ss13Trigger": "singularity_act() → give_award(/datum/award/achievement/misc/singularity_death)",
+    "fishEquivalent": "EventHorizonConsumedEntityEvent + SingularityComponent/EventHorizonComponent"
   },
   {
     "id": "FishAch_Davemymindisgoing",
-    "condition": "interaction",
-    "trigger": "UserInteractHandEvent",
+    "condition": "ai-law-changes",
+    "trigger": "AchievementConditionSystem.Exploration.ContributeAiLawChange",
     "conditionParams": {
-      "target": "AirlockGlass"
+      "job": "StationAi"
     },
     "source": "FishAchMisc",
     "status": "fully_specific",
-    "reason": "id:pod-bay",
-    "description": "Open the pod bay doors, H.O.N.K.E.R.S."
+    "reason": "round-end AI law_change_counter >= 15",
+    "description": "Open the pod bay doors, H.O.N.K.E.R.S.",
+    "ss13Source": "BeeStation/code/game/gamemodes/roundend.dm:475",
+    "ss13Trigger": "round-end AI law_change_counter >= 15",
+    "fishEquivalent": "SiliconLawUpdater insert + IonStormLawsEvent + SiliconEmaggedEvent"
   },
   {
     "id": "FishAch_GGGhosts",
     "condition": "became-ghost",
-    "trigger": "MindRemovedMessage",
+    "trigger": "AchievementConditionSystem.Extended.OnMindRemoved",
     "conditionParams": {},
     "source": "FishAchSurvival",
     "status": "fully_specific",
-    "reason": "id:ggghosts",
-    "description": "Some people say that being a ghost is better than being alive. You don't have much of a choice now."
+    "reason": "first death → give_award(/datum/award/achievement/misc/ghosts)",
+    "description": "Some people say that being a ghost is better than being alive. You don't have much of a choice now.",
+    "ss13Source": "BeeStation/code/modules/mob/living/death.dm:121",
+    "ss13Trigger": "first death → give_award(/datum/award/achievement/misc/ghosts)",
+    "fishEquivalent": "MindRemovedMessage → GhostComponent transfer"
   },
   {
     "id": "FishAch_GrilledSeasonedVeteran",
@@ -83,45 +90,57 @@
   },
   {
     "id": "FishAch_MindtheGap",
-    "condition": "shuttle-arrive",
-    "trigger": "FTLCompletedEvent",
+    "condition": "chasm-fall",
+    "trigger": "AchievementConditionSystem.Exploration.OnChasmFalling",
     "conditionParams": {},
     "source": "FishAchMisc",
     "status": "fully_specific",
-    "reason": "id:mind-gap",
-    "description": "Pays to be prepared"
+    "reason": "chasm jaunt / fall into chasm (lavaland)",
+    "description": "Pays to be prepared",
+    "ss13Source": "BeeStation/code/__DEFINES/achievements.dm MEDAL_CHASMJAUNT",
+    "ss13Trigger": "chasm jaunt / fall into chasm (lavaland)",
+    "fishEquivalent": "ChasmSystem.StartFalling → ChasmFallingComponent"
   },
   {
     "id": "FishAch_NYOOOOM",
-    "condition": "death",
-    "trigger": "MobStateChangedEvent",
-    "conditionParams": {},
+    "condition": "reagent-metabolize",
+    "trigger": "AchievementConditionSystem.Exploration.OnBloodstreamChanged",
+    "conditionParams": {
+      "reagent": "Desoxyephedrine"
+    },
     "source": "FishAchMisc",
-    "status": "generic_but_valid",
-    "reason": "id:speed-death",
-    "description": "You're Walter, and not the Warden's dog."
+    "status": "fully_specific",
+    "reason": "methamphetamine on_mob_metabolize → give_award(/datum/award/achievement/misc/meth)",
+    "description": "You're Walter, and not the Warden's dog.",
+    "ss13Source": "BeeStation/code/modules/reagents/chemistry/reagents/drug_reagents.dm:159",
+    "ss13Trigger": "methamphetamine on_mob_metabolize → give_award(/datum/award/achievement/misc/meth)",
+    "fishEquivalent": "Desoxyephedrine in bloodstream (Fish meth analog) → SolutionContainerChangedEvent"
   },
   {
     "id": "FishAch_OverextendedTheJoke",
     "condition": "interaction",
-    "trigger": "UserInteractHandEvent",
+    "trigger": "interaction",
     "conditionParams": {},
     "source": "FishAchMisc",
     "status": "blocked",
-    "reason": "unmapped",
-    "description": "Speak no evil, hear no evil, see just errors"
+    "reason": "Error-handling speaking_tile easter egg (5643 interactions) not present in Fish",
+    "description": "Speak no evil, hear no evil, see just errors",
+    "ss13Source": "BeeStation/code/modules/awaymissions/super_secret_room.dm:83",
+    "ss13Trigger": "speaking_tile interact count == 5643 → give_award(time_waste)",
+    "fishEquivalent": "BLOCKED: no speaking_tile / super_secret_room easter egg in Fish"
   },
   {
     "id": "FishAch_Pleasejustendthepain",
-    "condition": "round-end-alive",
-    "trigger": "RoundEndMessageEvent",
-    "conditionParams": {
-      "shuttle": "emergency"
-    },
+    "condition": "succumb",
+    "trigger": "AchievementConditionSystem.Exploration.OnSuccumb",
+    "conditionParams": {},
     "source": "FishAchMisc",
     "status": "fully_specific",
-    "reason": "id:escape-pain",
-    "description": "Shuffling off this mortal coil while the getting's good."
+    "reason": "succumb action → give_award(/datum/award/achievement/misc/succumb)",
+    "description": "Shuffling off this mortal coil while the getting's good.",
+    "ss13Source": "BeeStation/code/modules/mob/living/living.dm:471",
+    "ss13Trigger": "succumb action → give_award(/datum/award/achievement/misc/succumb)",
+    "fishEquivalent": "CritSuccumbEvent (opens ghost EUI in Sunrise/Fish)"
   },
   {
     "id": "FishAch_SeasonedVeteran",
@@ -206,12 +225,15 @@
   {
     "id": "FishAch_ThisLousyAchievement",
     "condition": "interaction",
-    "trigger": "UserInteractHandEvent",
+    "trigger": "interaction",
     "conditionParams": {},
     "source": "FishAchMisc",
     "status": "blocked",
-    "reason": "unmapped",
-    "description": "Not worth the effort"
+    "reason": "Bicycle vehicle mechanic absent in Fish",
+    "description": "Not worth the effort",
+    "ss13Source": "BeeStation/code/__DEFINES/achievements.dm MEDAL_BIKE",
+    "ss13Trigger": "ride bicycle vehicle",
+    "fishEquivalent": "BLOCKED: bicycle vehicle not present in Fish"
   },
   {
     "id": "FishAch_Veteran",
@@ -228,14 +250,15 @@
   {
     "id": "FishAch_WHOOSH",
     "condition": "interaction",
-    "trigger": "UserInteractHandEvent",
-    "conditionParams": {
-      "target": "FishAch_WHOOSH"
-    },
+    "trigger": "interaction",
+    "conditionParams": {},
     "source": "FishAchMisc",
-    "status": "fully_specific",
-    "reason": "interact:FishAch_WHOOSH",
-    "description": "Pushing down on me, pressing down on you."
+    "status": "blocked",
+    "reason": "High-pressure pipe unwrench trigger not verified in Fish atmos systems",
+    "description": "Pushing down on me, pressing down on you.",
+    "ss13Source": "BeeStation/code/__DEFINES/achievements.dm MEDAL_UNWRENCH_HIGH_PRESSURE",
+    "ss13Trigger": "unwrench high-pressure atmos pipe",
+    "fishEquivalent": "BLOCKED: high-pressure pipe unwrench achievement hook not mapped to Fish atmos"
   },
   {
     "id": "FishAch_BloodDrunkMinerCrusher",
@@ -348,14 +371,15 @@
   {
     "id": "FishAch_FeatofStrength",
     "condition": "interaction",
-    "trigger": "UserInteractHandEvent",
-    "conditionParams": {
-      "target": "SingularityGenerator"
-    },
+    "trigger": "interaction",
+    "conditionParams": {},
     "source": "FishAchMisc",
-    "status": "fully_specific",
-    "reason": "id:feat-strength",
-    "description": "If the rod is immovable, is it passing you or are you passing it?"
+    "status": "blocked",
+    "reason": "Rod suplex (MEDAL_RODSUPLEX) mechanic absent in Fish",
+    "description": "If the rod is immovable, is it passing you or are you passing it?",
+    "ss13Source": "BeeStation/code/__DEFINES/achievements.dm MEDAL_RODSUPLEX",
+    "ss13Trigger": "immovable rod suplex / rod passing player",
+    "fishEquivalent": "BLOCKED: rod suplex/grabbing mechanic not ported"
   },
   {
     "id": "FishAch_HierophantCrusher",
@@ -384,14 +408,15 @@
   {
     "id": "FishAch_Jackpot",
     "condition": "interaction",
-    "trigger": "UserInteractHandEvent",
-    "conditionParams": {
-      "target": "ArcadePrize"
-    },
+    "trigger": "interaction",
+    "conditionParams": {},
     "source": "FishAchMisc",
-    "status": "fully_specific",
-    "reason": "id:jackpot",
-    "description": "Win a pulse rifle from an arcade machine"
+    "status": "blocked",
+    "reason": "Arcade pulse rifle jackpot mechanic absent in Fish/Sunrise",
+    "description": "Win a pulse rifle from an arcade machine",
+    "ss13Source": "BeeStation/code/game/machinery/computer/arcade.dm:111",
+    "ss13Trigger": "1-in-1M pulse rifle prize from arcade",
+    "fishEquivalent": "BLOCKED: SpaceVillainArcade has no pulse rifle jackpot prize"
   },
   {
     "id": "FishAch_LegionCrusher",
@@ -419,13 +444,18 @@
   },
   {
     "id": "FishAch_YourLifeBeforeYourEyes",
-    "condition": "explosion",
-    "trigger": "SunriseExplosionEvent",
-    "conditionParams": {},
+    "condition": "examine",
+    "trigger": "AchievementConditionSystem.Exploration.OnExamined",
+    "conditionParams": {
+      "tag": "Meteor"
+    },
     "source": "FishAchMisc",
     "status": "fully_specific",
-    "reason": "id:space-debris",
-    "description": "Take a close look at hurtling space debris"
+    "reason": "check_examine_award → give_award(meteor_examine)",
+    "description": "Take a close look at hurtling space debris",
+    "ss13Source": "tgstation/code/modules/meteors/meteor_types.dm:171",
+    "ss13Trigger": "check_examine_award → give_award(meteor_examine)",
+    "fishEquivalent": "ExaminedEvent + MeteorComponent"
   },
   {
     "id": "FishAch_RoundandFull",
@@ -451,15 +481,18 @@
   },
   {
     "id": "FishAch_TheBestDriver",
-    "condition": "interaction",
-    "trigger": "UserInteractHandEvent",
+    "condition": "emote",
+    "trigger": "AchievementConditionSystem.Exploration.OnEmote",
     "conditionParams": {
-      "target": "BikeHorn"
+      "emote": "Honk"
     },
     "source": "FishAchFunny",
     "status": "fully_specific",
-    "reason": "id:honk",
-    "description": "100 honks later"
+    "reason": "100 honk emotes in round",
+    "description": "100 honks later",
+    "ss13Source": "BeeStation achievement define (honk counter)",
+    "ss13Trigger": "100 honk emotes in round",
+    "fishEquivalent": "EmoteEvent with EmotePrototype Honk"
   },
   {
     "id": "FishAch_VeryImportantPiscis",
@@ -474,14 +507,17 @@
   {
     "id": "FishAch_Greentext",
     "condition": "objective-complete",
-    "trigger": "RoundEndMessageEvent",
+    "trigger": "AchievementConditionSystem.RoundEnd.ProcessRoundEndObjectives",
     "conditionParams": {
       "objective": "*"
     },
     "source": "FishAchMisc",
     "status": "fully_specific",
-    "reason": "id:greentext",
-    "description": "A winner is you!"
+    "reason": "all antag objectives complete at round end",
+    "description": "A winner is you!",
+    "ss13Source": "BeeStation/code/game/gamemodes/roundend.dm:155",
+    "ss13Trigger": "all antag objectives complete at round end",
+    "fishEquivalent": "ObjectiveCompleteEvent at RoundEnd (objective: *)"
   },
   {
     "id": "FishAch_10bux",
@@ -867,12 +903,10 @@
     "id": "FishAch_FunTimes",
     "condition": "interaction",
     "trigger": "UserInteractHandEvent",
-    "conditionParams": {
-      "target": "FishAch_FunTimes"
-    },
+    "conditionParams": {},
     "source": "FishAchMisc",
-    "status": "fully_specific",
-    "reason": "interact:FishAch_FunTimes",
+    "status": "blocked",
+    "reason": "invalid-target:FishAch_FunTimes",
     "description": "Participate in one of the contests on the forums. These used to be monthly, but now they're enacted on admin discretion."
   },
   {
@@ -2515,12 +2549,10 @@
     "id": "FishAch_Archmage",
     "condition": "interaction",
     "trigger": "UserInteractHandEvent",
-    "conditionParams": {
-      "target": "FishAch_Archmage"
-    },
+    "conditionParams": {},
     "source": "FishAchStation",
-    "status": "fully_specific",
-    "reason": "interact:FishAch_Archmage",
+    "status": "blocked",
+    "reason": "invalid-target:FishAch_Archmage",
     "description": "Made a big impression on the station with your phenomenal cosmic power."
   },
   {
@@ -3073,12 +3105,10 @@
     "id": "FishAch_ANastyFall",
     "condition": "interaction",
     "trigger": "UserInteractHandEvent",
-    "conditionParams": {
-      "target": "FishAch_ANastyFall"
-    },
+    "conditionParams": {},
     "source": "FishAchStation",
-    "status": "fully_specific",
-    "reason": "interact:FishAch_ANastyFall",
+    "status": "blocked",
+    "reason": "invalid-target:FishAch_ANastyFall",
     "description": "...And the earth opened its mouth and swallowed them and their station- all the HOP's men and all their possessions."
   },
   {
@@ -3240,12 +3270,15 @@
   {
     "id": "FishAch_YourLifeInYourHands",
     "condition": "interaction",
-    "trigger": "UserInteractHandEvent",
+    "trigger": "interaction",
     "conditionParams": {},
     "source": "FishAchMisc",
     "status": "blocked",
-    "reason": "unmapped",
-    "description": "Give some space debris a piece of your mind"
+    "reason": "Meteor punch/deflection mechanic absent; distinct from meteor_examine (Your Life Before Your Eyes)",
+    "description": "Give some space debris a piece of your mind",
+    "ss13Source": "tgstation/code/modules/meteors/meteor_deflection.dm:71",
+    "ss13Trigger": "meteor_combat check_punch_award → give_award(meteor_punch)",
+    "fishEquivalent": "BLOCKED: TG meteor_combat punch/deflection component not ported"
   },
   {
     "id": "FishAch_YoureWhatYouEat",
@@ -4091,12 +4124,10 @@
     "id": "FishAch_Role_BotanyJackpot",
     "condition": "interaction",
     "trigger": "UserInteractHandEvent",
-    "conditionParams": {
-      "target": "ArcadePrize"
-    },
+    "conditionParams": {},
     "source": "FishAchRoles",
-    "status": "fully_specific",
-    "reason": "id:jackpot",
+    "status": "blocked",
+    "reason": "invalid-target:ArcadePrize",
     "description": "Harvest a high-potency mutant plant."
   },
   {
@@ -4457,12 +4488,10 @@
     "id": "FishAch_Secret_VendingJackpot",
     "condition": "interaction",
     "trigger": "UserInteractHandEvent",
-    "conditionParams": {
-      "target": "ArcadePrize"
-    },
+    "conditionParams": {},
     "source": "FishAchSecret",
-    "status": "fully_specific",
-    "reason": "id:jackpot",
+    "status": "blocked",
+    "reason": "invalid-target:ArcadePrize",
     "description": "The machine finally paid out."
   },
   {
@@ -4479,12 +4508,10 @@
     "id": "FishAch_Secret_TheOtherButton",
     "condition": "interaction",
     "trigger": "UserInteractHandEvent",
-    "conditionParams": {
-      "target": "MothershipPinpointerPiece"
-    },
+    "conditionParams": {},
     "source": "FishAchSecret",
-    "status": "fully_specific",
-    "reason": "interact:MothershipPinpointerPiece",
+    "status": "blocked",
+    "reason": "invalid-target:MothershipPinpointerPiece",
     "description": "Pressed the button everyone ignores."
   },
   {
@@ -5173,12 +5200,10 @@
     "id": "FishAch_Orig_MentorQuestion",
     "condition": "interaction",
     "trigger": "UserInteractHandEvent",
-    "conditionParams": {
-      "target": "FishAch_Orig_MentorQuestion"
-    },
+    "conditionParams": {},
     "source": "FishAchMisc",
-    "status": "fully_specific",
-    "reason": "interact:FishAch_Orig_MentorQuestion",
+    "status": "blocked",
+    "reason": "invalid-target:FishAch_Orig_MentorQuestion",
     "description": "Ask a useful mentor question and follow the advice."
   },
   {

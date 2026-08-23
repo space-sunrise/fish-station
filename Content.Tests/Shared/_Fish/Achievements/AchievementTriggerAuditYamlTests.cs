@@ -12,8 +12,23 @@ namespace Content.Tests.Shared._Fish.Achievements;
 /// Аудит trigger inventory по YAML без integration pool.
 /// </summary>
 [TestFixture]
-public sealed class AchievementTriggerAuditYamlTests
+public sealed partial class AchievementTriggerAuditYamlTests
 {
+    [GeneratedRegex(@"- type: achievement[\s\S]*?(?=\n- type:|\z)", RegexOptions.Multiline)]
+    private static partial Regex AchievementBlockRegex();
+
+    [GeneratedRegex(@"^\s+id:\s+(\S+)\s*$", RegexOptions.Multiline)]
+    private static partial Regex IdLineRegex();
+
+    [GeneratedRegex(@"^\s+condition:\s+(\S+)\s*$", RegexOptions.Multiline)]
+    private static partial Regex ConditionLineRegex();
+
+    [GeneratedRegex(@"^\s+allowGenericTrigger:\s+true\s*$", RegexOptions.Multiline)]
+    private static partial Regex AllowGenericRegex();
+
+    [GeneratedRegex(@"^\s+conditionParams:\s*$", RegexOptions.Multiline)]
+    private static partial Regex HasParamsRegex();
+
     private static readonly HashSet<string> HandledConditions = new()
     {
         AchievementConditionKeys.FirstLateJoin,
@@ -42,6 +57,26 @@ public sealed class AchievementTriggerAuditYamlTests
         AchievementConditionKeys.Defibrillate,
         AchievementConditionKeys.Surgery,
         AchievementConditionKeys.GunShot,
+        AchievementConditionKeys.Examine,
+        AchievementConditionKeys.SingularityConsumed,
+        AchievementConditionKeys.Succumb,
+        AchievementConditionKeys.Emote,
+        AchievementConditionKeys.AiLawChanges,
+        AchievementConditionKeys.ReagentMetabolize,
+        AchievementConditionKeys.ChasmFall,
+    };
+
+    private static readonly HashSet<string> InherentlySpecificConditions = new()
+    {
+        AchievementConditionKeys.BecameGhost,
+        AchievementConditionKeys.SingularityConsumed,
+        AchievementConditionKeys.Succumb,
+        AchievementConditionKeys.FirstLateJoin,
+        AchievementConditionKeys.AntagWin,
+        AchievementConditionKeys.RoundEndAlive,
+        AchievementConditionKeys.RoundSurvive,
+        AchievementConditionKeys.ShuttleArrive,
+        AchievementConditionKeys.ChasmFall,
     };
 
     private static string FindRepoRoot()
@@ -75,11 +110,11 @@ public sealed class AchievementTriggerAuditYamlTests
                 continue;
 
             var text = File.ReadAllText(file);
-            foreach (Match block in Regex.Matches(text, @"- type: achievement[\s\S]*?(?=\n- type:|\z)"))
+            foreach (Match block in AchievementBlockRegex().Matches(text))
             {
                 var chunk = block.Value;
-                var idMatch = Regex.Match(chunk, @"^\s+id:\s+(\S+)\s*$", RegexOptions.Multiline);
-                var condMatch = Regex.Match(chunk, @"^\s+condition:\s+(\S+)\s*$", RegexOptions.Multiline);
+                var idMatch = IdLineRegex().Match(chunk);
+                var condMatch = ConditionLineRegex().Match(chunk);
                 if (!idMatch.Success || !condMatch.Success)
                     continue;
 
@@ -87,8 +122,8 @@ public sealed class AchievementTriggerAuditYamlTests
                 var cond = condMatch.Groups[1].Value;
                 ids.Add(id);
                 conditions.Add(cond);
-                allowGeneric[id] = Regex.IsMatch(chunk, @"^\s+allowGenericTrigger:\s+true\s*$", RegexOptions.Multiline);
-                hasParams[id] = Regex.IsMatch(chunk, @"^\s+conditionParams:\s*$", RegexOptions.Multiline);
+                allowGeneric[id] = AllowGenericRegex().IsMatch(chunk);
+                hasParams[id] = HasParamsRegex().IsMatch(chunk);
             }
         }
 
@@ -115,6 +150,9 @@ public sealed class AchievementTriggerAuditYamlTests
 
             Assert.That(HandledConditions.Contains(cond), Is.True,
                 $"{id}: unknown condition {cond}");
+
+            if (InherentlySpecificConditions.Contains(cond))
+                continue;
 
             // blocked: без params и без allowGenericTrigger — ожидаемо до доработки refine
             if (!allowGeneric.GetValueOrDefault(id) && !hasParams.GetValueOrDefault(id))

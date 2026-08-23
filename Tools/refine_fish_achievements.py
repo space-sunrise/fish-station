@@ -652,6 +652,13 @@ def _trigger_for(condition: str) -> str:
         "defibrillate": "TargetDefibrillatedEvent",
         "surgery": "SurgeryStepCompleteEvent",
         "gun-shot": "GunShotEvent",
+        "examine": "ExaminedEvent",
+        "singularity-consumed": "EventHorizonConsumedEntityEvent",
+        "succumb": "CritSuccumbEvent",
+        "emote": "EmoteEvent",
+        "ai-law-changes": "SiliconLawUpdaterComponent/EntInsertedIntoContainerMessage",
+        "reagent-metabolize": "SolutionContainerChangedEvent",
+        "chasm-fall": "ChasmFallingComponent/ComponentInit",
     }.get(condition, condition)
 
 

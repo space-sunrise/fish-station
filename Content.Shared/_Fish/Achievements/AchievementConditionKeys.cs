@@ -32,4 +32,11 @@ public static class AchievementConditionKeys
     public const string Defibrillate = "defibrillate";
     public const string Surgery = "surgery";
     public const string GunShot = "gun-shot";
+    public const string Examine = "examine";
+    public const string SingularityConsumed = "singularity-consumed";
+    public const string Succumb = "succumb";
+    public const string Emote = "emote";
+    public const string AiLawChanges = "ai-law-changes";
+    public const string ReagentMetabolize = "reagent-metabolize";
+    public const string ChasmFall = "chasm-fall";
 }

@@ -16,29 +16,31 @@
   name: achievement-fishach_crossingthehorizon-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: station-event
-  conditionParams:
-    event: Singularity
+  condition: singularity-consumed
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
   order: 101
   # source: BeeStation
   # catalog-duplicate: progress goes to primary sibling
+
 - type: achievement
   id: FishAch_Davemymindisgoing
   name: achievement-fishach_davemymindisgoing-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: interaction
+  condition: ai-law-changes
   conditionParams:
-    target: AirlockGlass
-  progressTarget: 1
+    job: StationAi
+
+
+  progressTarget: 15
   oncePerRound: true
   progressCooldownSeconds: 5
   order: 102
   # source: BeeStation
   # catalog-duplicate: progress goes to primary sibling
+
 - type: achievement
   id: FishAch_GGGhosts
   name: achievement-fishach_ggghosts-name
@@ -51,6 +53,7 @@
   order: 103
   # source: BeeStation
   # catalog-duplicate: progress goes to primary sibling
+
 - type: achievement
   id: FishAch_GrilledSeasonedVeteran
   name: achievement-fishach_grilledseasonedveteran-name
@@ -111,26 +114,31 @@
   name: achievement-fishach_mindthegap-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: shuttle-arrive
+  condition: chasm-fall
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
   order: 108
   # source: BeeStation
   # catalog-duplicate: progress goes to primary sibling
+
 - type: achievement
   id: FishAch_NYOOOOM
   name: achievement-fishach_nyoooom-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: death
-  allowGenericTrigger: true
+  condition: reagent-metabolize
+  conditionParams:
+    reagent: Desoxyephedrine
+
+
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
   order: 109
   # source: BeeStation
   # catalog-duplicate: progress goes to primary sibling
+
 - type: achievement
   id: FishAch_OverextendedTheJoke
   name: achievement-fishach_overextendedthejoke-name
@@ -143,20 +151,20 @@
   order: 110
   # source: BeeStation
   # catalog-duplicate: progress goes to primary sibling
+
 - type: achievement
   id: FishAch_Pleasejustendthepain
   name: achievement-fishach_pleasejustendthepain-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: round-end-alive
-  conditionParams:
-    shuttle: emergency
+  condition: succumb
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
   order: 111
   # source: BeeStation
   # catalog-duplicate: progress goes to primary sibling
+
 - type: achievement
   id: FishAch_SeasonedVeteran
   name: achievement-fishach_seasonedveteran-name
@@ -264,6 +272,7 @@
   order: 119
   # source: BeeStation
   # catalog-duplicate: progress goes to primary sibling
+
 - type: achievement
   id: FishAch_Veteran
   name: achievement-fishach_veteran-name
@@ -284,14 +293,13 @@
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
   condition: interaction
-  conditionParams:
-    target: FishAch_WHOOSH
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
   order: 121
   # source: BeeStation
   # catalog-duplicate: progress goes to primary sibling
+
 - type: achievement
   id: FishAch_BloodDrunkMinerCrusher
   name: achievement-fishach_blooddrunkminercrusher-name
@@ -417,14 +425,13 @@
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
   condition: interaction
-  conditionParams:
-    target: SingularityGenerator
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
   order: 131
   # source: BeeStation/ Monkestation/ Shiptest/ TGStation
   # catalog-duplicate: progress goes to primary sibling
+
 - type: achievement
   id: FishAch_HierophantCrusher
   name: achievement-fishach_hierophantcrusher-name
@@ -458,14 +465,13 @@
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
   condition: interaction
-  conditionParams:
-    target: ArcadePrize
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
   order: 134
   # source: BeeStation/ Monkestation/ Shiptest/ TGStation
   # catalog-duplicate: progress goes to primary sibling
+
 - type: achievement
   id: FishAch_LegionCrusher
   name: achievement-fishach_legioncrusher-name
@@ -498,13 +504,18 @@
   name: achievement-fishach_yourlifebeforeyoureyes-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
-  condition: explosion
+  condition: examine
+  conditionParams:
+    tag: Meteor
+
+
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
   order: 137
   # source: BeeStation/ Monkestation/ Shiptest/ TGStation
   # catalog-duplicate: progress goes to primary sibling
+
 - type: achievement
   id: FishAch_RoundandFull
   name: achievement-fishach_roundandfull-name
@@ -537,15 +548,18 @@
   name: achievement-fishach_thebestdriver-name
   description: achievement-fish-catalog-pending-desc
   category: FishAchFunny
-  condition: interaction
+  condition: emote
   conditionParams:
-    target: BikeHorn
+    emote: Honk
+
+
   progressTarget: 100
   oncePerRound: true
   progressCooldownSeconds: 5
   order: 140
   # source: BeeStation/ Monkestation/ TGStation
   # catalog-duplicate: progress goes to primary sibling
+
 - type: achievement
   id: FishAch_VeryImportantPiscis
   name: achievement-fishach_veryimportantpiscis-name
@@ -566,12 +580,15 @@
   condition: objective-complete
   conditionParams:
     objective: *
+
+
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
   order: 142
   # source: BeeStation/ Yogstation
   # catalog-duplicate: progress goes to primary sibling
+
 - type: achievement
   id: FishAch_10bux
   name: achievement-fishach_10bux-name
@@ -1048,8 +1065,6 @@
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
   condition: interaction
-  conditionParams:
-    target: FishAch_FunTimes
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5

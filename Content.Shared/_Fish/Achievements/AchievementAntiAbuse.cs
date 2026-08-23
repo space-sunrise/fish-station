@@ -76,4 +76,8 @@ public readonly record struct AchievementTriggerContext(
     /// <summary>Account playtime minutes snapshot для playtime-minutes.</summary>
     int PlaytimeMinutes = 0,
     /// <summary>EntProtoId оружия (gun / kill filter).</summary>
-    string? WeaponPrototypeId = null);
+    string? WeaponPrototypeId = null,
+    /// <summary>ReagentPrototype id для reagent-metabolize.</summary>
+    string? ReagentPrototypeId = null,
+    /// <summary>EmotePrototype id для emote condition.</summary>
+    string? EmotePrototypeId = null);

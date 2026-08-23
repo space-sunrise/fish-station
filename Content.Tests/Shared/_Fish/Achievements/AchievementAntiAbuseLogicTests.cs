@@ -144,11 +144,114 @@ public sealed class AchievementAntiAbuseLogicTests
     }
 
     [Test]
+    public void InherentlySpecific_ChasmFallWithoutParams()
+    {
+        Assert.That(
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.ChasmFall,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                EmptyParams,
+                default),
+            Is.True);
+    }
+
+    [Test]
     public void EventKeyDedupe_SameKeyRejectedTwice()
     {
         var tracker = new AchievementEventKeyTracker();
         Assert.That(tracker.TryConsume(default, "kill:1"), Is.True);
         Assert.That(tracker.TryConsume(default, "kill:1"), Is.False);
         Assert.That(tracker.TryConsume(default, "kill:2"), Is.True);
+    }
+
+    [Test]
+    public void InherentlySpecific_SingularityConsumedWithoutParams()
+    {
+        Assert.That(
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.SingularityConsumed,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                EmptyParams,
+                default),
+            Is.True);
+    }
+
+    [Test]
+    public void EmoteParam_FiltersHonk()
+    {
+        var emoteParams = new Dictionary<string, string> { { AchievementConditionParams.Emote, "Honk" } };
+        Assert.That(
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.Emote,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                emoteParams,
+                new AchievementTriggerContext(EmotePrototypeId: "Honk")),
+            Is.True);
+
+        Assert.That(
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.Emote,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                emoteParams,
+                new AchievementTriggerContext(EmotePrototypeId: "Clap")),
+            Is.False);
+    }
+
+    [Test]
+    public void ReagentParam_FiltersDesoxyephedrine()
+    {
+        var reagentParams = new Dictionary<string, string> { { AchievementConditionParams.Reagent, "Desoxyephedrine" } };
+        Assert.That(
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.ReagentMetabolize,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                reagentParams,
+                new AchievementTriggerContext(ReagentPrototypeId: "Desoxyephedrine")),
+            Is.True);
+
+        Assert.That(
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.ReagentMetabolize,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                reagentParams,
+                new AchievementTriggerContext(ReagentPrototypeId: "Water")),
+            Is.False);
+    }
+
+    [Test]
+    public void ExamineTag_FiltersMeteorOnly()
+    {
+        var tagParams = new Dictionary<string, string> { { AchievementConditionParams.Tag, "Meteor" } };
+        Assert.That(
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.Examine,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                tagParams,
+                new AchievementTriggerContext(VerifiedTag: "Meteor")),
+            Is.True);
+
+        Assert.That(
+            AchievementAntiAbuseLogic.MatchesContext(
+                AchievementConditionKeys.Examine,
+                allowGenericTrigger: false,
+                requirePlayerVictim: true,
+                ignoreSuicide: true,
+                tagParams,
+                new AchievementTriggerContext(VerifiedTag: null)),
+            Is.False);
     }
 }

@@ -687,8 +687,6 @@
   description: achievement-fish-catalog-pending-desc
   category: FishAchMisc
   condition: interaction
-  conditionParams:
-    target: FishAch_Orig_MentorQuestion
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5

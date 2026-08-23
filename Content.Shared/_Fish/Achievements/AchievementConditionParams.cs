@@ -25,4 +25,8 @@ public static class AchievementConditionParams
     public const string Department = "department";
     /// <summary>EntProtoId оружия (gun-shot / kill с фильтром).</summary>
     public const string Weapon = "weapon";
+    /// <summary>EmotePrototype id.</summary>
+    public const string Emote = "emote";
+    /// <summary>ReagentPrototype id.</summary>
+    public const string Reagent = "reagent";
 }

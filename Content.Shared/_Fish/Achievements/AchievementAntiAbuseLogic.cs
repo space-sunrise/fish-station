@@ -90,12 +90,37 @@ public static class AchievementAntiAbuseLogic
             !string.Equals(weapon, context.WeaponPrototypeId, StringComparison.OrdinalIgnoreCase))
             return false;
 
-        // Без params и без allowGenericTrigger — не матчим.
-        // Иначе stub-ачивки без фильтров ловят любой Contribute своей семьи.
-        if (conditionParams.Count == 0 && !allowGenericTrigger)
+        if (conditionParams.TryGetValue(AchievementConditionParams.Emote, out var emote) &&
+            !string.Equals(emote, context.EmotePrototypeId, StringComparison.OrdinalIgnoreCase))
+            return false;
+
+        if (conditionParams.TryGetValue(AchievementConditionParams.Reagent, out var reagent) &&
+            !string.Equals(reagent, context.ReagentPrototypeId, StringComparison.OrdinalIgnoreCase))
+            return false;
+
+        // Условия, где сам handler уже задаёт единственный gameplay-смысл.
+        if (conditionParams.Count == 0 && !allowGenericTrigger &&
+            !IsInherentlySpecificCondition(condition))
             return false;
 
         return true;
+    }
+
+    private static bool IsInherentlySpecificCondition(string condition)
+    {
+        return condition switch
+        {
+            AchievementConditionKeys.BecameGhost => true,
+            AchievementConditionKeys.SingularityConsumed => true,
+            AchievementConditionKeys.Succumb => true,
+            AchievementConditionKeys.FirstLateJoin => true,
+            AchievementConditionKeys.AntagWin => true,
+            AchievementConditionKeys.RoundEndAlive => true,
+            AchievementConditionKeys.RoundSurvive => true,
+            AchievementConditionKeys.ShuttleArrive => true,
+            AchievementConditionKeys.ChasmFall => true,
+            _ => false,
+        };
     }
 }
 

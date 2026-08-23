@@ -267,8 +267,6 @@
   description: achievement-fish-catalog-pending-desc
   category: FishAchRoles
   condition: interaction
-  conditionParams:
-    target: ArcadePrize
   progressTarget: 1
   oncePerRound: true
   minRoundSeconds: 180
@@ -706,8 +704,6 @@
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
   condition: interaction
-  conditionParams:
-    target: ArcadePrize
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -736,8 +732,6 @@
   description: achievement-fish-catalog-pending-desc
   category: FishAchSecret
   condition: interaction
-  conditionParams:
-    target: MothershipPinpointerPiece
   progressTarget: 1
   oncePerRound: true
   order: 1059

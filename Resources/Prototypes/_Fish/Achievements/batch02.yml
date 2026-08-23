@@ -1442,8 +1442,6 @@
   description: achievement-fish-catalog-pending-desc
   category: FishAchStation
   condition: interaction
-  conditionParams:
-    target: FishAch_Archmage
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -2098,8 +2096,6 @@
   description: achievement-fish-catalog-pending-desc
   category: FishAchStation
   condition: interaction
-  conditionParams:
-    target: FishAch_ANastyFall
   progressTarget: 1
   oncePerRound: true
   progressCooldownSeconds: 5
@@ -2298,6 +2294,7 @@
   order: 475
   # source: TGStation
   # catalog-duplicate: progress goes to primary sibling
+
 - type: achievement
   id: FishAch_YoureWhatYouEat
   name: achievement-fishach_yourewhatyoueat-name

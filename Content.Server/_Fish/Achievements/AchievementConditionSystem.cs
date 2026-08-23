@@ -64,10 +64,13 @@ public sealed partial class AchievementConditionSystem : EntitySystem
 
         InitializeExtended();
         InitializeMedical();
+        InitializeExploration();
     }
 
     partial void InitializeExtended();
     partial void InitializeMedical();
+    partial void InitializeExploration();
+    partial void ClearExplorationRoundState();
 
     /// <summary>Последний источник урона по жертве — для kill+weapon фильтра.</summary>
     private readonly Dictionary<EntityUid, string?> _lastDamageWeaponProto = new();
@@ -76,6 +79,7 @@ public sealed partial class AchievementConditionSystem : EntitySystem
     {
         _achievements.OnRoundStarting();
         _lastDamageWeaponProto.Clear();
+        ClearExplorationRoundState();
     }
 
     private async void OnPlayerSpawn(PlayerSpawnCompleteEvent ev)
