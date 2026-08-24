@@ -110,7 +110,7 @@
     damageCoefficient: 0.95
   - type: Tag
     tags:
-    - ClothMade
+    # FIsh edit - металлический Алтын нельзя есть молям
     - FullCovered # INTERACTIONS
     - WhitelistChameleon
     - Helmet
