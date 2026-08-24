@@ -85,7 +85,7 @@
       announcement: alert-level-delta-announcement
       selectable: false
       sound:
-        path: /Audio/_Fish/Misc/delta.ogg # Fish-edit
+        path: /Audio/Misc/delta.ogg
         params:
           volume: -3
       disableSelection: true
