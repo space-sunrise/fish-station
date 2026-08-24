@@ -78,19 +78,15 @@
   - type: FoldableClothing
     foldedEquippedPrefix: up
     foldedHeldPrefix: up
-  # FIsh edit start - забрало и замедление Алтына
-  - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
-    requireActivated: false
+  # FIsh edit start - забрало Алтына
   - type: Visor
     closedDamageModifiers:
       coefficients:
-        Blunt: 0.91954023
-        Slash: 0.91954023
-        Piercing: 0.91954023
-        Heat: 0.91954023
-    closedExplosionCoefficient: 0.91954023
+        Blunt: 0.84210527
+        Slash: 0.84210527
+        Piercing: 0.84210527
+        Heat: 0.84210527
+    closedExplosionCoefficient: 0.84210527
     openingWidth: 0.84
     openingHeight: 0.62
     edgeSoftness: 0.055
@@ -102,12 +98,12 @@
     showArmorOnExamine: false # FIsh edit - динамический вывод защиты забрала
     modifiers:
       coefficients:
-        Blunt: 0.87
-        Slash: 0.87
-        Piercing: 0.87
-        Heat: 0.87
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
   - type: ExplosionResistance
-    damageCoefficient: 0.87
+    damageCoefficient: 0.95
   - type: Tag
     tags:
     - ClothMade
