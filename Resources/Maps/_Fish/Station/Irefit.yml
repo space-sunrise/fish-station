@@ -37342,12 +37342,12 @@ entities:
     - type: Transform
       pos: -30.476828,-61.699936
       parent: 2
-- proto: BriefcaseSyndieSniperBundleFilled
+- proto: BriefcaseBrownFilled
   entities:
   - uid: 23451
     components:
     - type: Transform
-      pos: -4.493739,63.6004
+      pos: -4.5,63.5
       parent: 2
 - proto: BrigTimerElectronics
   entities:
@@ -183159,7 +183159,7 @@ entities:
       parent: 2
     - type: OreSilo
       range: 300
-- proto: Magazine120mmGrenadeBlast
+- proto: MagazineGrenadeBlast
   entities:
   - uid: 40042
     components:
@@ -209292,7 +209292,7 @@ entities:
     - type: Transform
       pos: -88.5,66.5
       parent: 2
-- proto: ShuttleGunCyerxa120mm
+- proto: ShuttleGunBullfrog
   entities:
   - uid: 40043
     components:
