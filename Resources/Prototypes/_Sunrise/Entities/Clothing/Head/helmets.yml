@@ -73,8 +73,10 @@
   - type: Appearance
   - type: Foldable
     canFoldInsideContainer: true
+    # FIsh edit start - подписи действий забрала
     unfoldVerbText: visor-lower-verb
     foldVerbText: visor-raise-verb
+    # FIsh edit end
   - type: FoldableClothing
     foldedEquippedPrefix: up
     foldedHeldPrefix: up
@@ -100,8 +102,10 @@
       coefficients:
         Blunt: 0.95
         Slash: 0.95
+        # FIsh edit start - 5% защиты с поднятым забралом
         Piercing: 0.95
         Heat: 0.95
+        # FIsh edit end
   - type: ExplosionResistance
     damageCoefficient: 0.95
   - type: Tag
