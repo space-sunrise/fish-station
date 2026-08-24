@@ -10,7 +10,14 @@
     drawdepth: Mobs
     sprite: _Fish/nine_tailed_fox.rsi
     layers:
-    - state: fox
+    - state: fox-moving
+  #- type: SpriteMovement
+  #  movementLayers:
+  #    movement:
+  #      state: fox-moving
+  #  noMovementLayers:
+  #    movement:
+  #     state: fox
   - type: Physics
   - type: Fixtures
     fixtures:
