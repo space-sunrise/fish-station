@@ -112,7 +112,7 @@
         components:
         - NukeDisk
     alertLevelOnActivate: delta
-    alertLevelOnDeactivate: green
+    alertLevelOnDeactivate: red # Fish-edit
   - type: ActivatableUI
     key: enum.NukeUiKey.Key
   - type: UserInterface
