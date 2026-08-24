@@ -1,9 +1,6 @@
 # Head
 - type: loadout
-  id: SeniorPhysicianBeret
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
+  id: SeniorPhysicianBeret # Fish-edit
   equipment:
     head: ClothingHeadHatBeretSeniorPhysician
 
@@ -52,18 +49,12 @@
     jumpsuit: ClothingUniformJumpskirtMedicalDoctor
 
 - type: loadout
-  id: SeniorPhysicianJumpsuit
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
+  id: SeniorPhysicianJumpsuit # Fish-edit
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorPhysician
 
 - type: loadout
-  id: SeniorPhysicianJumpskirt
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
+  id: SeniorPhysicianJumpskirt # Fish-edit
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorPhysician
 
@@ -105,10 +96,7 @@
     outerClothing: ClothingOuterWinterMed
 
 - type: loadout
-  id: SeniorPhysicianLabCoat
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
+  id: SeniorPhysicianLabCoat # Fish-edit
   equipment:
     outerClothing: ClothingOuterCoatLabSeniorPhysician
 
@@ -125,10 +113,7 @@
     id: MedicalPDA
 
 - type: loadout
-  id: SeniorPhysicianPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
+  id: SeniorPhysicianPDA # Fish-edit
   equipment:
     id: SeniorPhysicianPDA
 
