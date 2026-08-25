@@ -1,0 +1,309 @@
+- type: achievement
+  id: FishAchExp_TraitorEscape
+  name: achievement-fishexp-traitorescape-name
+  description: achievement-fishexp-traitorescape-desc
+  category: FishAchSurvival
+  condition: objective-complete
+  conditionParams:
+    objective: EscapeShuttleObjective
+  minRoundSeconds: 300
+  oncePerRound: true
+  order: 1400
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_StealCaptainId
+  name: achievement-fishexp-stealcaptainid-name
+  description: achievement-fishexp-stealcaptainid-desc
+  category: FishAchMisc
+  condition: objective-complete
+  conditionParams:
+    objective: CaptainIDStealObjective
+  minRoundSeconds: 300
+  oncePerRound: true
+  order: 1401
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_StealIan
+  name: achievement-fishexp-stealian-name
+  description: achievement-fishexp-stealian-desc
+  category: FishAchFunny
+  condition: objective-complete
+  conditionParams:
+    objective: IanStealObjective
+  minRoundSeconds: 300
+  oncePerRound: true
+  order: 1402
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_LingSurvive
+  name: achievement-fishexp-lingsurvive-name
+  description: achievement-fishexp-lingsurvive-desc
+  category: FishAchSurvival
+  condition: objective-complete
+  conditionParams:
+    objective: ChangelingSurviveObjective
+  minRoundSeconds: 300
+  oncePerRound: true
+  order: 1403
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_WizardLive
+  name: achievement-fishexp-wizardlive-name
+  description: achievement-fishexp-wizardlive-desc
+  category: FishAchSurvival
+  condition: objective-complete
+  conditionParams:
+    objective: WizardSurviveObjective
+  minRoundSeconds: 300
+  oncePerRound: true
+  order: 1404
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_FugitiveEscape
+  name: achievement-fishexp-fugitiveescape-name
+  description: achievement-fishexp-fugitiveescape-desc
+  category: FishAchSurvival
+  condition: objective-complete
+  conditionParams:
+    objective: FugitiveEscapeShuttleObjective
+  minRoundSeconds: 300
+  oncePerRound: true
+  order: 1405
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_HamsterDonut
+  name: achievement-fishexp-hamsterdonut-name
+  description: achievement-fishexp-hamsterdonut-desc
+  category: FishAchFunny
+  condition: objective-complete
+  conditionParams:
+    objective: AnimalEatDonutObjective
+  minRoundSeconds: 60
+  oncePerRound: true
+  order: 1406
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_Veteran10h
+  name: achievement-fishexp-veteran10h-name
+  description: achievement-fishexp-veteran10h-desc
+  category: FishAchSurvival
+  condition: playtime-minutes
+  conditionParams:
+    threshold: 600
+  oncePerRound: true
+  order: 1500
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_Veteran30h
+  name: achievement-fishexp-veteran30h-name
+  description: achievement-fishexp-veteran30h-desc
+  category: FishAchSurvival
+  condition: playtime-minutes
+  conditionParams:
+    threshold: 1800
+  oncePerRound: true
+  order: 1501
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_Veteran50h
+  name: achievement-fishexp-veteran50h-name
+  description: achievement-fishexp-veteran50h-desc
+  category: FishAchSurvival
+  condition: playtime-minutes
+  conditionParams:
+    threshold: 3000
+  oncePerRound: true
+  order: 1502
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_Veteran100h
+  name: achievement-fishexp-veteran100h-name
+  description: achievement-fishexp-veteran100h-desc
+  category: FishAchSurvival
+  condition: playtime-minutes
+  conditionParams:
+    threshold: 6000
+  oncePerRound: true
+  order: 1503
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_PythonShot
+  name: achievement-fishexp-pythonshot-name
+  description: achievement-fishexp-pythonshot-desc
+  category: FishAchCombat
+  condition: gun-shot
+  conditionParams:
+    weapon: WeaponRevolverPython
+  progressTarget: 12
+  minRoundSeconds: 180
+  oncePerRound: true
+  order: 1600
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_BulldogBurst
+  name: achievement-fishexp-bulldogburst-name
+  description: achievement-fishexp-bulldogburst-desc
+  category: FishAchCombat
+  condition: gun-shot
+  conditionParams:
+    weapon: WeaponShotgunBulldog
+  progressTarget: 10
+  minRoundSeconds: 180
+  oncePerRound: true
+  order: 1601
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_LaserTag
+  name: achievement-fishexp-lasertag-name
+  description: achievement-fishexp-lasertag-desc
+  category: FishAchCombat
+  condition: gun-shot
+  conditionParams:
+    weapon: WeaponLaserCarbine
+  progressTarget: 15
+  minRoundSeconds: 180
+  oncePerRound: true
+  order: 1602
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_MagnumMoment
+  name: achievement-fishexp-magnummoment-name
+  description: achievement-fishexp-magnummoment-desc
+  category: FishAchCombat
+  condition: gun-shot
+  conditionParams:
+    weapon: WeaponEnergyMagnum
+  progressTarget: 8
+  minRoundSeconds: 180
+  oncePerRound: true
+  order: 1603
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_LecterLine
+  name: achievement-fishexp-lecterline-name
+  description: achievement-fishexp-lecterline-desc
+  category: FishAchCombat
+  condition: gun-shot
+  conditionParams:
+    weapon: WeaponRifleLecter
+  progressTarget: 20
+  minRoundSeconds: 180
+  oncePerRound: true
+  order: 1604
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_DisablerDiscipline
+  name: achievement-fishexp-disablerdiscipline-name
+  description: achievement-fishexp-disablerdiscipline-desc
+  category: FishAchCombat
+  condition: gun-shot
+  conditionParams:
+    weapon: WeaponDisabler
+  progressTarget: 10
+  minRoundSeconds: 120
+  oncePerRound: true
+  order: 1605
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_EnergyBlade
+  name: achievement-fishexp-energyblade-name
+  description: achievement-fishexp-energyblade-desc
+  category: FishAchCombat
+  condition: kill
+  conditionParams:
+    weapon: EnergySword
+  progressTarget: 3
+  minRoundSeconds: 300
+  oncePerRound: true
+  order: 1610
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_KitchenKnife
+  name: achievement-fishexp-kitchenknife-name
+  description: achievement-fishexp-kitchenknife-desc
+  category: FishAchCombat
+  condition: kill
+  conditionParams:
+    weapon: CombatKnife
+  progressTarget: 2
+  minRoundSeconds: 300
+  oncePerRound: true
+  order: 1611
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_AxeMurder
+  name: achievement-fishexp-axemurder-name
+  description: achievement-fishexp-axemurder-desc
+  category: FishAchCombat
+  condition: kill
+  conditionParams:
+    weapon: FireAxe
+  progressTarget: 2
+  minRoundSeconds: 300
+  oncePerRound: true
+  order: 1612
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_FleshPudge
+  name: achievement-fishexp-fleshpudge-name
+  description: achievement-fishexp-fleshpudge-desc
+  category: FishAchCombat
+  condition: kill
+  conditionParams:
+    target: MobFleshPudge
+  requirePlayerVictim: false
+  progressTarget: 3
+  minRoundSeconds: 180
+  oncePerRound: true
+  order: 1620
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_FleshWorm
+  name: achievement-fishexp-fleshworm-name
+  description: achievement-fishexp-fleshworm-desc
+  category: FishAchCombat
+  condition: kill
+  conditionParams:
+    target: MobFleshWorm
+  requirePlayerVictim: false
+  progressTarget: 5
+  minRoundSeconds: 180
+  oncePerRound: true
+  order: 1621
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_BrainSurgeon
+  name: achievement-fishexp-brainsurgeon-name
+  description: achievement-fishexp-brainsurgeon-desc
+  category: FishAchRoles
+  condition: surgery
+  conditionParams:
+    target: SurgeryStepExtractBrain
+  minRoundSeconds: 300
+  oncePerRound: true
+  order: 1700
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_HeartTransplant
+  name: achievement-fishexp-hearttransplant-name
+  description: achievement-fishexp-hearttransplant-desc
+  category: FishAchRoles
+  condition: surgery
+  conditionParams:
+    target: SurgeryStepInsertHeart
+  minRoundSeconds: 300
+  oncePerRound: true
+  order: 1701
+  # source: Fish-expansion
+- type: achievement
+  id: FishAchExp_HeartRemoval
+  name: achievement-fishexp-heartremoval-name
+  description: achievement-fishexp-heartremoval-desc
+  category: FishAchRoles
+  condition: surgery
+  conditionParams:
+    target: SurgeryStepRemoveHeart
+  minRoundSeconds: 300
+  oncePerRound: true
+  order: 1702
+  # source: Fish-expansion

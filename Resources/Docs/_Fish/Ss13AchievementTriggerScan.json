@@ -1,0 +1,179 @@
+[
+  {
+    "repo": "BeeStation",
+    "file": "code/modules/mob/living/death.dm",
+    "line": 121,
+    "code": "INVOKE_ASYNC(client, TYPE_PROC_REF(/client, give_award), /datum/award/achievement/misc/ghosts, src)",
+    "context": [
+      "\t\t//This first death of the game will not incur a ghost role cooldown",
+      "\t\tclient.next_ghost_role_tick = client.next_ghost_role_tick || suiciding ? world.time + CONFIG_GET(number/ghost_role_cooldown) : world.time",
+      "",
+      "\t\tINVOKE_ASYNC(client, TYPE_PROC_REF(/client, give_award), /datum/award/achievement/misc/ghosts, src)",
+      "",
+      "\tif(mind?.current)",
+      "\t\tclient?.tgui_panel?.give_dead_popup()"
+    ]
+  },
+  {
+    "repo": "BeeStation",
+    "file": "code/modules/mob/living/living.dm",
+    "line": 471,
+    "code": "client.give_award(/datum/award/achievement/misc/succumb, client.mob)",
+    "context": [
+      "\t\tto_chat(src, span_notice(\"You have given up life and succumbed to death.\"))",
+      "",
+      "\tif (src.client)",
+      "\t\tclient.give_award(/datum/award/achievement/misc/succumb, client.mob)",
+      "",
+      "\tinvestigate_log(\"has succumbed to death.\", INVESTIGATE_DEATHS)",
+      "\tdeath()"
+    ]
+  },
+  {
+    "repo": "BeeStation",
+    "file": "code/modules/mob/living/carbon/human/human_defense.dm",
+    "line": 618,
+    "code": "client.give_award(/datum/award/achievement/misc/singularity_death, client.mob)",
+    "context": [
+      "\t. = 20",
+      "",
+      "\tif (client)",
+      "\t\tclient.give_award(/datum/award/achievement/misc/singularity_death, client.mob)",
+      "",
+      "\tswitch(mind?.assigned_role.type)",
+      "\t\tif(/datum/job/chief_engineer, /datum/job/station_engineer)"
+    ]
+  },
+  {
+    "repo": "BeeStation",
+    "file": "code/game/machinery/computer/arcade.dm",
+    "line": 111,
+    "code": "user.client.give_award(/datum/award/achievement/misc/pulse, user)",
+    "context": [
+      "\tvar/atom/movable/the_prize",
+      "\tif(prob(0.0001)) //1 in a million",
+      "\t\tthe_prize = new /obj/item/gun/energy/pulse/prize(drop_location())",
+      "\t\tuser.client.give_award(/datum/award/achievement/misc/pulse, user)",
+      "\telse",
+      "\t\tthe_prize = new prizeselect(drop_location())",
+      ""
+    ]
+  },
+  {
+    "repo": "BeeStation",
+    "file": "code/modules/awaymissions/super_secret_room.dm",
+    "line": 83,
+    "code": "user.client.give_award(/datum/award/achievement/misc/time_waste, user)",
+    "context": [
+      "\t\tif(1000)",
+      "\t\t\tSpeakPeace(list(\"The ends exists somewhere beyond meaningful milestones.\", \"There will be no more messages until then.\", \"You disgust me.\"))",
+      "\t\tif(5643)",
+      "\t\t\tuser.client.give_award(/datum/award/achievement/misc/time_waste, user)",
+      "\t\t\tvar/obj/item/reagent_containers/cup/glass/trophy/gold_cup/never_ends = new(get_turf(user))",
+      "\t\t\tnever_ends.name = \"Overextending The Joke: First Place\"",
+      "\t\t\tnever_ends.desc = \"And so we are left alone with our regrets.\""
+    ]
+  },
+  {
+    "repo": "BeeStation",
+    "file": "code/modules/mob/living/simple_animal/hostile/megafauna/megafauna.dm",
+    "line": 143,
+    "code": "L.client.give_award(/datum/award/achievement/boss/boss_killer, L)",
+    "context": [
+      "\tfor(var/mob/living/L in grant_achievement)",
+      "\t\tif(L.stat || !L.client)",
+      "\t\t\tcontinue",
+      "\t\tL.client.give_award(/datum/award/achievement/boss/boss_killer, L)",
+      "\t\tL.client.give_award(achievement_type, L)",
+      "\t\tif(crusher_kill && istype(L.get_active_held_item(), /obj/item/kinetic_crusher))",
+      "\t\t\tL.client.give_award(crusher_achievement_type, L)"
+    ]
+  },
+  {
+    "repo": "BeeStation",
+    "file": "code/modules/mob/living/simple_animal/hostile/megafauna/megafauna.dm",
+    "line": 144,
+    "code": "L.client.give_award(achievement_type, L)",
+    "context": [
+      "\t\tif(L.stat || !L.client)",
+      "\t\t\tcontinue",
+      "\t\tL.client.give_award(/datum/award/achievement/boss/boss_killer, L)",
+      "\t\tL.client.give_award(achievement_type, L)",
+      "\t\tif(crusher_kill && istype(L.get_active_held_item(), /obj/item/kinetic_crusher))",
+      "\t\t\tL.client.give_award(crusher_achievement_type, L)",
+      "\t\tL.client.give_award(/datum/award/score/boss_score, L) //Score progression for bosses killed in general"
+    ]
+  },
+  {
+    "repo": "BeeStation",
+    "file": "code/modules/mob/living/simple_animal/hostile/megafauna/megafauna.dm",
+    "line": 146,
+    "code": "L.client.give_award(crusher_achievement_type, L)",
+    "context": [
+      "\t\tL.client.give_award(/datum/award/achievement/boss/boss_killer, L)",
+      "\t\tL.client.give_award(achievement_type, L)",
+      "\t\tif(crusher_kill && istype(L.get_active_held_item(), /obj/item/kinetic_crusher))",
+      "\t\t\tL.client.give_award(crusher_achievement_type, L)",
+      "\t\tL.client.give_award(/datum/award/score/boss_score, L) //Score progression for bosses killed in general",
+      "\t\tL.client.give_award(score_achievement_type, L) //Score progression for specific boss killed",
+      "\treturn TRUE"
+    ]
+  },
+  {
+    "repo": "BeeStation",
+    "file": "code/modules/mob/living/simple_animal/hostile/megafauna/megafauna.dm",
+    "line": 147,
+    "code": "L.client.give_award(/datum/award/score/boss_score, L) //Score progression for bosses killed in general",
+    "context": [
+      "\t\tL.client.give_award(achievement_type, L)",
+      "\t\tif(crusher_kill && istype(L.get_active_held_item(), /obj/item/kinetic_crusher))",
+      "\t\t\tL.client.give_award(crusher_achievement_type, L)",
+      "\t\tL.client.give_award(/datum/award/score/boss_score, L) //Score progression for bosses killed in general",
+      "\t\tL.client.give_award(score_achievement_type, L) //Score progression for specific boss killed",
+      "\treturn TRUE",
+      ""
+    ]
+  },
+  {
+    "repo": "BeeStation",
+    "file": "code/modules/mob/living/simple_animal/hostile/megafauna/megafauna.dm",
+    "line": 148,
+    "code": "L.client.give_award(score_achievement_type, L) //Score progression for specific boss killed",
+    "context": [
+      "\t\tif(crusher_kill && istype(L.get_active_held_item(), /obj/item/kinetic_crusher))",
+      "\t\t\tL.client.give_award(crusher_achievement_type, L)",
+      "\t\tL.client.give_award(/datum/award/score/boss_score, L) //Score progression for bosses killed in general",
+      "\t\tL.client.give_award(score_achievement_type, L) //Score progression for specific boss killed",
+      "\treturn TRUE",
+      "",
+      "/datum/action/innate/megafauna_attack"
+    ]
+  },
+  {
+    "repo": "tgstation",
+    "file": "code/modules/meteors/meteor_types.dm",
+    "line": 171,
+    "code": "user.client.give_award(/datum/award/achievement/misc/meteor_examine, user)",
+    "context": [
+      "",
+      "/obj/effect/meteor/proc/check_examine_award(mob/user)",
+      "\tif(!(flags_1 & ADMIN_SPAWNED_1) && isliving(user))",
+      "\t\tuser.client.give_award(/datum/award/achievement/misc/meteor_examine, user)",
+      "",
+      "",
+      "/**"
+    ]
+  },
+  {
+    "repo": "tgstation",
+    "file": "code/modules/meteors/meteor_deflection.dm",
+    "line": 71,
+    "code": "user.client.give_award(/datum/award/achievement/misc/meteor_punch, user)",
+    "context": [
+      "",
+      "/datum/component/meteor_combat/proc/check_punch_award(mob/user)",
+      "\tif(achievement_enabled && !(astype(parent, /atom).flags_1 & ADMIN_SPAWNED_1) && isliving(user))",
+      "\t\tuser.client.give_award(/datum/award/achievement/misc/meteor_punch, user)"
+    ]
+  }
+]

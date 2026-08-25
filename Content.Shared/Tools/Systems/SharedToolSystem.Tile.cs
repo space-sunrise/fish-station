@@ -1,3 +1,4 @@
+using Content.Shared._Fish.Achievements.Events;
 using Content.Shared.Database;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Interaction;
@@ -46,6 +47,7 @@ public abstract partial class SharedToolSystem
         }
 
         var tileRef = _maps.GetTileRef(gridUid, grid, args.GridTile);
+        var tileDef = (ContentTileDefinition)_tileDefManager[tileRef.Tile.TypeId];
         var coords = _maps.ToCoordinates(tileRef, grid);
         if (comp.RequiresUnobstructed && _turfs.IsTileBlocked(gridUid, tileRef.GridIndices, CollisionGroup.MobMask))
             return;
@@ -58,6 +60,11 @@ public abstract partial class SharedToolSystem
             LogImpact.Medium,
             $"{ToPrettyString(args.User):player} used {ToPrettyString(ent)} to edit the tile at {coords}");
         args.Handled = true;
+
+        // Fish-Edit start: broadcast для achievements (без duplicate ToolTileCompatible subscription)
+        var fishEv = new FishTilePriedEvent(args.User, gridUid, args.GridTile, ent, tileDef.ID);
+        RaiseLocalEvent(ref fishEv);
+        // Fish-Edit end
     }
 
     private bool UseToolOnTile(Entity<ToolTileCompatibleComponent?, ToolComponent?> ent, EntityUid user, EntityCoordinates clickLocation)
