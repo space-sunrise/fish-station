@@ -101,7 +101,7 @@
     explosionType: DefaultStandardEffect # Sunrise edit
     maxIntensity: 100
     intensitySlope: 5
-    totalIntensity: 5000000
+    totalIntensity: 11100000 # Fish-edit
     diskSlot:
       name: nuke-slot-component-slot-name-disk
       insertSound:
@@ -112,7 +112,7 @@
         components:
         - NukeDisk
     alertLevelOnActivate: delta
-    alertLevelOnDeactivate: green
+    alertLevelOnDeactivate: red # Fish-edit
   - type: ActivatableUI
     key: enum.NukeUiKey.Key
   - type: UserInterface

@@ -1,0 +1,35 @@
+{
+  "refined": 490,
+  "with_params": 224,
+  "blocked": 199,
+  "by_status": {
+    "fully_specific": 264,
+    "generic_but_valid": 27,
+    "blocked": 199
+  },
+  "by_condition": {
+    "station-event": 12,
+    "interaction": 203,
+    "became-ghost": 3,
+    "playtime-minutes": 4,
+    "kill": 42,
+    "item-ingest": 9,
+    "shuttle-arrive": 4,
+    "death": 20,
+    "round-end-alive": 22,
+    "gun-shot": 1,
+    "explosion": 4,
+    "objective-complete": 69,
+    "manual": 6,
+    "role-added": 58,
+    "first-late-join": 3,
+    "surgery": 6,
+    "item-pickup": 8,
+    "slip-death": 1,
+    "heal": 4,
+    "damage-dealt": 2,
+    "craft": 6,
+    "defibrillate": 2,
+    "counter": 1
+  }
+}

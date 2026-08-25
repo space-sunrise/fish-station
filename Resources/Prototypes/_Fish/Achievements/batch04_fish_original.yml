@@ -1,0 +1,69 @@
+- type: achievement
+  id: FishAch_Orig_ChemRoulette
+  name: achievement-fishach_orig_chemroulette-name
+  description: achievement-fishach_orig_chemroulette-desc
+  category: FishAchFunny
+  condition: item-ingest
+  allowGenericTrigger: true
+  progressTarget: 1
+  oncePerRound: true
+  progressCooldownSeconds: 5
+  order: 2010
+  # source: Fish-original
+- type: achievement
+  id: FishAch_Orig_BlobPerimeter
+  name: achievement-fishach_orig_blobperimeter-name
+  description: achievement-fishach_orig_blobperimeter-desc
+  category: FishAchStation
+  condition: station-event
+  conditionParams:
+    event: KudzuGrowth
+  progressTarget: 5
+  oncePerRound: true
+  order: 2023
+  # source: Fish-original
+- type: achievement
+  id: FishAch_Orig_BrigMedicBond
+  name: achievement-fishach_orig_brigmedicbond-name
+  description: achievement-fishach_orig_brigmedicbond-desc
+  category: FishAchRoles
+  condition: heal
+  allowGenericTrigger: true
+  progressTarget: 10
+  oncePerRound: true
+  order: 2030
+  # source: Fish-original
+- type: achievement
+  id: FishAch_Orig_Honkvasion
+  name: achievement-fishach_orig_honkvasion-name
+  description: achievement-fishach_orig_honkvasion-desc
+  category: FishAchFunny
+  condition: shuttle-arrive
+  progressTarget: 3
+  oncePerRound: true
+  progressCooldownSeconds: 5
+  order: 2035
+  # source: Fish-original
+- type: achievement
+  id: FishAch_Orig_CESingularityBabysil
+  name: achievement-fishach_orig_cesingularitybabysil-name
+  description: achievement-fishach_orig_cesingularitybabysil-desc
+  category: FishAchStation
+  condition: explosion
+  allowGenericTrigger: true
+  progressTarget: 3
+  oncePerRound: true
+  order: 2043
+  # source: Fish-original
+- type: achievement
+  id: FishAch_Orig_LoadoutMax
+  name: achievement-fishach_orig_loadoutmax-name
+  description: achievement-fishach_orig_loadoutmax-desc
+  category: FishAchMisc
+  condition: item-pickup
+  allowGenericTrigger: true
+  progressTarget: 25
+  oncePerRound: true
+  progressCooldownSeconds: 5
+  order: 2059
+  # source: Fish-original

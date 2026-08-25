@@ -69,6 +69,7 @@
   - HeatExchangerBend
   - GasFilter
   - GasMixer
+  - GasRangeTemperatureFilter #Fish edit
 
 - type: quickConstructionCategory
   id: SteelTiles
