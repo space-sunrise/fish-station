@@ -37,7 +37,7 @@
   gasVisbilityFactor: 500
   color: 8B4513
   reagent: Nitrium
-  pricePerMole: 8
+  pricePerMole: 8 #Fish edit
   gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
   gasOverlayState: nitriumGas
 
@@ -156,7 +156,7 @@
   gasVisbilityFactor: 2.0
   color: 0022ff
   reagent: Electrovae
-  pricePerMole: 2
+  pricePerMole: 2 #Fish edit
 
 - type: gas
   id: ChargedElectrovae
@@ -170,4 +170,4 @@
   gasVisbilityFactor: 3.0
   color: ddff00
   reagent: ChargedElectrovae
-  pricePerMole: 5
+  pricePerMole: 5 #Fish edit
