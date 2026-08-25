@@ -14,7 +14,7 @@
     color: "#fff8"
     layers:
     - state: animated
-      map: [ "ghostVariant" ]
+      map: [ "ghostVariant" ] # Fish-edit
       shader: unshaded
     #Fish-end
   - type: Tag
