@@ -24,7 +24,7 @@ public sealed class VisorSystem : EntitySystem
         SubscribeLocalEvent<VisorComponent, ClothingGotUnequippedEvent>(OnUnequipped);
         SubscribeLocalEvent<VisorComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<VisorComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<VisorComponent, FoldedEvent>(OnFolded);
+        SubscribeLocalEvent<VisorComponent, VisorToggledEvent>(OnVisorToggled);
         SubscribeLocalEvent<VisorComponent, InventoryRelayedEvent<CoefficientQueryEvent>>(OnCoefficientQuery);
         SubscribeLocalEvent<VisorComponent, InventoryRelayedEvent<DamageModifyEvent>>(OnDamageModify);
         SubscribeLocalEvent<VisorComponent, InventoryRelayedEvent<GetExplosionResistanceEvent>>(OnExplosionResistance);
@@ -65,7 +65,7 @@ public sealed class VisorSystem : EntitySystem
         ent.Comp.CurrentWearer = null;
     }
 
-    private void OnFolded(Entity<VisorComponent> ent, ref FoldedEvent args)
+    private void OnVisorToggled(Entity<VisorComponent> ent, ref VisorToggledEvent args)
     {
         if (ent.Comp.CurrentWearer is not { } wearer && !TryGetWearer(ent, out wearer))
             return;

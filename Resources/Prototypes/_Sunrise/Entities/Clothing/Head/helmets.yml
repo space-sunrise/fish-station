@@ -81,19 +81,32 @@
     foldedEquippedPrefix: up
     foldedHeldPrefix: up
   # FIsh edit start - забрало Алтына
+  - type: ItemToggle
+    activated: true
+    onUse: false
+    onActivate: false
+    canActivateInhand: false
+    popupActivate: visor-lowered-popup
+    popupDeactivate: visor-raised-popup
+  - type: ToggleClothing
+    action: FishActionToggleAltynVisor
+    disableOnUnequip: true
+    targetSlot: head
   - type: Visor
     closedDamageModifiers:
       coefficients:
+    # FIsh edit start - перемножение коэффициентов что бы давало ровно 20% резистов а не ~19.20
         Blunt: 0.84210527
         Slash: 0.84210527
         Piercing: 0.84210527
         Heat: 0.84210527
     closedExplosionCoefficient: 0.84210527
+    # FIsh edit end
     openingWidth: 0.84
     openingHeight: 0.62
     edgeSoftness: 0.055
     cornerRadius: 0.085
-    darkness: 0.86
+    darkness: 1.0
     fadeDuration: 0.18
   # FIsh edit end
   - type: Armor
