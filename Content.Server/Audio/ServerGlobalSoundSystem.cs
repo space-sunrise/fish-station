@@ -3,9 +3,11 @@ using Content.Shared.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Console;
+// #Fish edit start: added for admin sound management (Networking and LINQ)
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using System.Linq;
+// #Fish edit end
 
 namespace Content.Server.Audio;
 
@@ -15,15 +17,20 @@ public sealed class ServerGlobalSoundSystem : SharedGlobalSoundSystem
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
+    // #Fish edit start: store per‑player admin sound entities for later stopping
     private readonly Dictionary<NetUserId, List<EntityUid>> _playerAdminSounds = new();
+    // #Fish edit end
 
     public override void Shutdown()
     {
+        // #Fish edit start: stop all admin sounds when system shuts down
         StopAllAdminSounds();
+        // #Fish edit end
         base.Shutdown();
         _conHost.UnregisterCommand("playglobalsound");
     }
 
+    // #Fish edit start: completely rewritten to create individual sound entities per player
     public void PlayAdminGlobal(Filter playerFilter, ResolvedSoundSpecifier specifier, AudioParams? audioParams = null, bool replay = true)
     {
         var sessions = playerFilter.Recipients;
@@ -42,7 +49,9 @@ public sealed class ServerGlobalSoundSystem : SharedGlobalSoundSystem
             }
         }
     }
+    // #Fish edit end
 
+    // #Fish edit start: new methods to stop admin sounds (all or for a specific player)
     public void StopAllAdminSounds()
     {
         foreach (var list in _playerAdminSounds.Values)
@@ -68,6 +77,9 @@ public sealed class ServerGlobalSoundSystem : SharedGlobalSoundSystem
             _playerAdminSounds.Remove(userId);
         }
     }
+    // #Fish edit end
+
+    // --- Everything below is unchanged from the original file ---
 
     private Filter GetStationAndPvs(EntityUid source)
     {
