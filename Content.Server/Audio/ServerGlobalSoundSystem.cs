@@ -3,7 +3,9 @@ using Content.Shared.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Console;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
+using System.Linq;
 
 namespace Content.Server.Audio;
 
@@ -13,16 +15,58 @@ public sealed class ServerGlobalSoundSystem : SharedGlobalSoundSystem
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
+    private readonly Dictionary<NetUserId, List<EntityUid>> _playerAdminSounds = new();
+
     public override void Shutdown()
     {
+        StopAllAdminSounds();
         base.Shutdown();
         _conHost.UnregisterCommand("playglobalsound");
     }
 
     public void PlayAdminGlobal(Filter playerFilter, ResolvedSoundSpecifier specifier, AudioParams? audioParams = null, bool replay = true)
     {
-        var msg = new AdminSoundEvent(specifier, audioParams);
-        RaiseNetworkEvent(msg, playerFilter, recordReplay: replay);
+        var sessions = playerFilter.Recipients;
+        if (sessions == null || !sessions.Any())
+            return;
+
+        foreach (var session in sessions)
+        {
+            var userId = session.UserId;
+            var result = _audio.PlayGlobal(specifier, Filter.Empty().AddPlayer(session), replay, audioParams);
+            if (result != null)
+            {
+                if (!_playerAdminSounds.ContainsKey(userId))
+                    _playerAdminSounds[userId] = new List<EntityUid>();
+                _playerAdminSounds[userId].Add(result.Value.Entity);
+            }
+        }
+    }
+
+    public void StopAllAdminSounds()
+    {
+        foreach (var list in _playerAdminSounds.Values)
+        {
+            foreach (var entity in list)
+            {
+                if (Exists(entity))
+                    Del(entity);
+            }
+        }
+        _playerAdminSounds.Clear();
+    }
+
+    public void StopPlayerAdminSounds(NetUserId userId)
+    {
+        if (_playerAdminSounds.TryGetValue(userId, out var list))
+        {
+            foreach (var entity in list)
+            {
+                if (Exists(entity))
+                    Del(entity);
+            }
+            _playerAdminSounds.Remove(userId);
+        }
     }
 
     private Filter GetStationAndPvs(EntityUid source)
@@ -41,10 +85,6 @@ public sealed class ServerGlobalSoundSystem : SharedGlobalSoundSystem
 
     public void StopStationEventMusic(EntityUid source, StationEventMusicType type)
     {
-        // TODO REPLAYS
-        // these start & stop events are gonna be a PITA
-        // theres probably some nice way of handling them. Maybe it just needs dedicated replay data (in which case these events should NOT get recorded).
-
         var msg = new StopStationEventMusic(type);
         var filter = GetStationAndPvs(source);
         RaiseNetworkEvent(msg, filter);
@@ -59,7 +99,6 @@ public sealed class ServerGlobalSoundSystem : SharedGlobalSoundSystem
     {
         var audio = AudioParams.Default.WithVolume(-8);
         var msg = new StationEventMusicEvent(specifier, type, audio);
-
         var filter = GetStationAndPvs(source);
         RaiseNetworkEvent(msg, filter);
     }
