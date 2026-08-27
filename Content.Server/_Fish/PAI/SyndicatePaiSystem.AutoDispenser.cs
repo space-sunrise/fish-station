@@ -76,9 +76,10 @@ public sealed partial class SyndicatePaiSystem
         if (!TryGetAutoHypo(ent, out var hypo) || hypo == null)
             return;
 
-        if (!TryComp<SolutionRegenerationComponent>(hypo.Value, out var regen) ||
-            !_serverSolutions.TryGetSolution(hypo.Value, regen.SolutionName, out _, out var solution))
+        if (!TryGetRegenSolution(hypo.Value, out var solEnt, out _) || solEnt == null)
             return;
+
+        var solution = solEnt.Value.Comp.Solution;
 
         // Экстренный гипо вводит весь резервуар (CurrentTransferAmount = null)
         if (solution.Volume <= FixedPoint2.Zero)

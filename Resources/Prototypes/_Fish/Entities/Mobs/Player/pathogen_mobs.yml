@@ -38,13 +38,7 @@
   - type: RandomHumanoidAppearance
     randomizeName: false
 
-- type: entity
-  parent: MobHumanTerminator
-  id: MobTerminatorRandomization
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
+# MobTerminatorRandomization removed (MobHumanTerminator removed in upstream)
 
 # Sunrise / Extra
 - type: entity
