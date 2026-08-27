@@ -5,7 +5,7 @@ using Content.Shared.Inventory;
 
 namespace Content.Client.Chat.TypingIndicator;
 
-public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingIndicatorComponent>
+public sealed partial class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingIndicatorComponent>
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;

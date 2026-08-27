@@ -24,7 +24,7 @@ namespace Content.Server.Guardian
     /// <summary>
     /// A guardian has a host it's attached to that it fights for. A fighting spirit.
     /// </summary>
-    public sealed class GuardianSystem : EntitySystem
+    public sealed partial class GuardianSystem : EntitySystem
     {
         [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;

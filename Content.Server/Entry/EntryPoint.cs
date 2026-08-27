@@ -53,7 +53,7 @@ using Content.Server._Sunrise.Auth;
 
 namespace Content.Server.Entry
 {
-    public sealed class EntryPoint : GameServer
+    public sealed partial class EntryPoint : GameServer
     {
         internal const string ConfigPresetsDir = "/ConfigPresets/";
         private const string ConfigPresetsDirBuild = $"{ConfigPresetsDir}Build/";

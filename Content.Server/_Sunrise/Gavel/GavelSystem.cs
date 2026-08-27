@@ -1,4 +1,4 @@
-﻿using Content.Server.Popups;
+using Content.Server.Popups;
 using Content.Server._Fish.Achievements;
 using Content.Shared._Fish.Achievements;
 using Content.Shared.Examine;
@@ -10,7 +10,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Sunrise.Gavel;
 
-public sealed class GavelSystem : EntitySystem
+public sealed partial class GavelSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
