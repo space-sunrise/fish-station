@@ -525,8 +525,25 @@ def diff_changelog(
     """
     Находит новые записи, которых не было в предыдущей публикации.
     """
-    old_entry_ids = {e["id"] for e in old["Entries"]}
-    return (e for e in cur["Entries"] if e["id"] not in old_entry_ids)
+    old_entries = old.get("Entries", [])
+    cur_entries = cur.get("Entries", [])
+    
+    # Если у старых записей есть id — используем их
+    if old_entries and "id" in old_entries[0]:
+        old_ids = {e["id"] for e in old_entries if "id" in e}
+        return (e for e in cur_entries if e.get("id") not in old_ids)
+    
+    # Если id нет — сравниваем по содержимому (author + time + changes)
+    def make_key(entry):
+        # Преобразуем изменения в стабильную строку
+        changes_str = str(sorted([
+            (c.get("type", ""), c.get("message", ""))
+            for c in entry.get("changes", [])
+        ]))
+        return (entry.get("author"), entry.get("time"), changes_str)
+    
+    old_keys = {make_key(e) for e in old_entries}
+    return (e for e in cur_entries if make_key(e) not in old_keys)
 
 
 def get_discord_body(content: str):
