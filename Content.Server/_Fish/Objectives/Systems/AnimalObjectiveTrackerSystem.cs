@@ -12,7 +12,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Fish.Objectives.Systems;
 
-public sealed class AnimalObjectiveTrackerSystem : EntitySystem
+public sealed partial class AnimalObjectiveTrackerSystem : EntitySystem
 {
     private static readonly ProtoId<TagPrototype> PaperTag = "Paper";
     private static readonly TimeSpan LocationScanInterval = TimeSpan.FromSeconds(1);

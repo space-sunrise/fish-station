@@ -12,7 +12,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Fish.Objectives.Systems;
 
-public sealed class AnimalObjectivesSystem : EntitySystem
+public sealed partial class AnimalObjectivesSystem : EntitySystem
 {
     private static readonly EntProtoId AnimalObjectivesRuleId = "AnimalObjectives";
 

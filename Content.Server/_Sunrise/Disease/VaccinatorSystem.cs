@@ -25,7 +25,7 @@ using Content.Shared.Power;
 namespace Content.Server.Chemistry.EntitySystems;
 
 /// <inheritdoc/>
-public sealed class VaccinatorSystem : SharedVaccinatorSystem
+public sealed partial class VaccinatorSystem : SharedVaccinatorSystem
 {
     /// <inheritdoc/>
     ///
