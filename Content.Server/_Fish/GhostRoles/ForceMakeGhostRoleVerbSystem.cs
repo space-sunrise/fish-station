@@ -13,8 +13,8 @@ namespace Content.Server._Fish.GhostRoles;
 /// </summary>
 public sealed class ForceMakeGhostRoleVerbSystem : EntitySystem
 {
-    [Dependency] private readonly IAdminManager _admins = default!;
-    [Dependency] private readonly ForceMakeGhostRoleSystem _forceMake = default!;
+    [Dependency] private IAdminManager _admins = default!;
+    [Dependency] private ForceMakeGhostRoleSystem _forceMake = default!;
 
     public override void Initialize()
     {

@@ -16,7 +16,7 @@ public sealed class AnimalObjectivesSystem : EntitySystem
 {
     private static readonly EntProtoId AnimalObjectivesRuleId = "AnimalObjectives";
 
-    [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ObjectivesSystem _objectives = default!;

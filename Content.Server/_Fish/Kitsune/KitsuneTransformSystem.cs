@@ -25,16 +25,16 @@ namespace Content.Server._Fish.Kitsune;
 
 public sealed class KitsuneTransformSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly SpriteColorSystem _spriteColor = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SunriseHumanoidBodySystem _sunriseBody = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private ActionsSystem _actions = default!;
+    [Dependency] private DoAfterSystem _doAfter = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private DamageableSystem _damage = default!;
+    [Dependency] private SpriteColorSystem _spriteColor = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SunriseHumanoidBodySystem _sunriseBody = default!;
 
     // Dictionary to track when each transformed entity should auto-revert
     private Dictionary<EntityUid, float> _transformDurations = new();
