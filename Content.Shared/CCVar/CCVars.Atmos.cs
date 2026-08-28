@@ -159,7 +159,7 @@ public sealed partial class CCVars
     ///     Setting this to zero disables the limits.
     /// </summary>
     public static readonly CVarDef<float> AtmosTankFragment =
-        CVarDef.Create("atmos.max_explosion_range", 1f, CVar.SERVERONLY); // Fish-Edit
+        CVarDef.Create("atmos.max_explosion_range", 1f, CVar.REPLICATED | CVar.SERVER); // Fish-Edit
 
     /// <summary>
     /// Whether atmospherics will process delta-pressure damage on entities with a DeltaPressureComponent.
