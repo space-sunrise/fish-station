@@ -12,7 +12,7 @@ using static Robust.Client.UserInterface.Controls.BoxContainer;
 
 namespace Content.Client._Fish.Arcade.Minesweeper;
 
-public sealed class MinesweeperMenu : DefaultWindow
+public sealed partial class MinesweeperMenu : DefaultWindow
 {
 
     private const int CellSize = 32;

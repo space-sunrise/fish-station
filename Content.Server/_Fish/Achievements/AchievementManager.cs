@@ -19,13 +19,13 @@ namespace Content.Server._Fish.Achievements;
 /// </summary>
 public sealed partial class AchievementManager : IPostInjectInit
 {
-    [Dependency] private readonly IServerDbManager _db = default!;
-    [Dependency] private readonly UserDbDataManager _userDb = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly ILogManager _log = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IEntitySystemManager _systems = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IServerDbManager _db = default!;
+    [Dependency] private UserDbDataManager _userDb = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
+    [Dependency] private ILogManager _log = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IEntitySystemManager _systems = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private ISawmill _sawmill = default!;
     private AchievementGameplayGateSystem? _gate;

@@ -16,10 +16,10 @@ namespace Content.Server._Fish.Achievements;
 /// </summary>
 public sealed partial class AchievementPlaytimeSystem : EntitySystem
 {
-    [Dependency] private readonly AchievementManager _achievements = default!;
-    [Dependency] private readonly PlayTimeTrackingManager _playTime = default!;
-    [Dependency] private readonly IPlayerManager _players = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private AchievementManager _achievements = default!;
+    [Dependency] private PlayTimeTrackingManager _playTime = default!;
+    [Dependency] private IPlayerManager _players = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private TimeSpan _nextCheck;
 

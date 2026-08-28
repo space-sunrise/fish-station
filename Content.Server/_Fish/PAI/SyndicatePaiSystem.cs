@@ -43,8 +43,8 @@ public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
     [Dependency] private IGameTiming _gameTiming = default!;
     [Dependency] private HealthAnalyzerSystem _healthAnalyzer = default!;
     [Dependency] private ItemToggleSystem _itemToggle = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _serverUi = default!;
-    [Dependency] private readonly SharedStationSystem _station = default!;
+    [Dependency] private SharedUserInterfaceSystem _serverUi = default!;
+    [Dependency] private SharedStationSystem _station = default!;
 
     private const string SunriseCriminalRecordsBui = "SunriseCriminalRecordsConsoleBoundUserInterface";
 

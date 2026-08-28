@@ -9,7 +9,7 @@ namespace Content.Client._Fish.Clothing;
 /// <summary>
 /// Draws the helmet visor mask in world space without obscuring the UI.
 /// </summary>
-public sealed class VisorOverlay : Overlay
+public sealed partial class VisorOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> Shader = "FishVisorMask";
     private const float OpacityEpsilon = 0.001f;

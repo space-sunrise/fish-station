@@ -14,7 +14,7 @@ namespace Content.Server._Fish.Clothing;
 /// </summary>
 public sealed partial class VisorSystem : EntitySystem
 {
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private InventorySystem _inventory = default!;
 
     public override void Initialize()
     {

@@ -17,10 +17,10 @@ public sealed class AnimalObjectivesSystem : EntitySystem
     private static readonly EntProtoId AnimalObjectivesRuleId = "AnimalObjectives";
 
     [Dependency] private GameTicker _gameTicker = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ObjectivesSystem _objectives = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ObjectivesSystem _objectives = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
 
     public override void Initialize()
     {
