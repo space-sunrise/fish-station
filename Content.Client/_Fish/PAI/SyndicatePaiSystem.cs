@@ -7,8 +7,8 @@ namespace Content.Client._Fish.PAI;
 
 public sealed class SyndicatePaiSystem : SharedSyndicatePaiSystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {

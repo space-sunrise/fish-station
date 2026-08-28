@@ -29,9 +29,9 @@ public sealed class VaccinatorSystem : SharedVaccinatorSystem
 {
     /// <inheritdoc/>
     ///
-    [Dependency] private readonly PaperSystem _paperSystem = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private PaperSystem _paperSystem = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     /// <summary>
     /// A cache of all reactions indexed by at most ONE of their required reactants.

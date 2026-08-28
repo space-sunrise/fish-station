@@ -39,7 +39,7 @@ public sealed partial class ObrCallSystem : EntitySystem
 
     private static readonly TimeSpan CallLockDuration = TimeSpan.FromSeconds(3);
 
-    [Dependency] private readonly AccessReaderSystem _access = default!;
+    [Dependency] private AccessReaderSystem _access = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly CargoSystem _cargo = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;

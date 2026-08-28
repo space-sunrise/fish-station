@@ -10,7 +10,7 @@ namespace Content.Server._Fish.Singularity;
 /// </summary>
 public sealed class ContainmentFieldAdminAlertSystem : EntitySystem
 {
-    [Dependency] private readonly IChatManager _chat = default!;
+    [Dependency] private IChatManager _chat = default!;
     [Dependency] private readonly SharedStationSystem _station = default!;
 
     private readonly HashSet<EntityUid> _wasAboveThreshold = new();

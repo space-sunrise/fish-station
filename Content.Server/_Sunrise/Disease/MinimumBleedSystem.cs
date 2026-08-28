@@ -19,7 +19,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Server.Medical;
 public sealed class MinimumBleedSystem : EntitySystem
 {
-    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+    [Dependency] private BloodstreamSystem _bloodstream = default!;
     public override void Initialize()
     {
         base.Initialize();

@@ -14,8 +14,8 @@ public sealed class VisorOverlay : Overlay
     private static readonly ProtoId<ShaderPrototype> Shader = "FishVisorMask";
     private const float OpacityEpsilon = 0.001f;
 
-    [Dependency] private readonly IEyeManager _eye = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IEyeManager _eye = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     private readonly ShaderInstance _shader;
     private float _targetOpacity;

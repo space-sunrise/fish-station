@@ -15,7 +15,7 @@ namespace Content.Server._Fish.Kitsune
 {
     public sealed class KitsuneFoxLightsSystem : EntitySystem
     {
-        [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private IGameTiming _timing = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
         [Dependency] private readonly DamageableSystem _damageable = default!;

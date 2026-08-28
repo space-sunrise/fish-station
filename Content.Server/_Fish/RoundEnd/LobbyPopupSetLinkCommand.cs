@@ -9,7 +9,7 @@ namespace Content.Server._Fish.RoundEnd
     [AdminCommand(AdminFlags.Admin)]
     public sealed class LobbyPopupSetLinkCommand : LocalizedCommands
     {
-        [Dependency] private readonly IConfigurationManager _configManager = default!;
+        [Dependency] private IConfigurationManager _configManager = default!;
 
         public override string Command => "lobbypopupsetlink";
 

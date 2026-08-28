@@ -20,8 +20,8 @@ namespace Content.Server._Fish.JudgeGavel;
 /// </summary>
 public sealed class JudgeGavelSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;

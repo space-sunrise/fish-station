@@ -20,7 +20,7 @@ namespace Content.Server._Fish.Kitsune
 {
     public sealed class KitsuneFireSystem : EntitySystem
     {
-        [Dependency] private readonly DamageableSystem _damageable = default!;
+        [Dependency] private DamageableSystem _damageable = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;

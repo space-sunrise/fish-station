@@ -13,8 +13,8 @@ namespace Content.Server._Fish.GhostRoles;
 [AdminCommand(AdminFlags.Admin)]
 public sealed class ForceMakeGhostRoleCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly ForceMakeGhostRoleSystem _forceMake = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private ForceMakeGhostRoleSystem _forceMake = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public override string Command => "forceghostrole";
 

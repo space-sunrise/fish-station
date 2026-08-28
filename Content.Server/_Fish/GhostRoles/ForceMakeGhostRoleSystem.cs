@@ -12,7 +12,7 @@ namespace Content.Server._Fish.GhostRoles;
 /// </summary>
 public sealed class ForceMakeGhostRoleSystem : EntitySystem
 {
-    [Dependency] private readonly GhostRoleSystem _ghostRoles = default!;
+    [Dependency] private GhostRoleSystem _ghostRoles = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
 
     /// <summary>

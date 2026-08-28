@@ -12,7 +12,7 @@ internal interface IFishCrtAppearanceManager
 
 internal sealed class FishCrtAppearanceManager : IFishCrtAppearanceManager, IPostInjectInit
 {
-    [Dependency] private readonly IConfigurationManager _configuration = default!;
+    [Dependency] private IConfigurationManager _configuration = default!;
 
     public FishCrtAppearanceSettings Settings { get; private set; } = new(true, true);
 
