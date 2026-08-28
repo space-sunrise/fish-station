@@ -13,7 +13,7 @@ namespace Content.Client._Fish.Achievements;
 /// <summary>
 /// Единый контроллер окна достижений для Lobby и ESC.
 /// </summary>
-public sealed class AchievementUIController :
+public sealed partial class AchievementUIController :
     UIController,
     IOnStateEntered<LobbyState>,
     IOnStateEntered<GameplayState>,

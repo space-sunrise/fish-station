@@ -13,7 +13,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Fish.Kitsune
 {
-    public sealed class KitsuneFoxLightsSystem : EntitySystem
+    public sealed partial class KitsuneFoxLightsSystem : EntitySystem
     {
         [Dependency] private IGameTiming _timing = default!;
         [Dependency] private SharedTransformSystem _transform = default!;

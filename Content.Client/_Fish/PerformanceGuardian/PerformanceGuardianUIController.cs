@@ -11,7 +11,7 @@ using Robust.Shared.Timing;
 namespace Content.Client._Fish.PerformanceGuardian;
 
 [UsedImplicitly]
-public sealed class PerformanceGuardianUIController : UIController,
+public sealed partial class PerformanceGuardianUIController : UIController,
     IOnStateEntered<GameplayState>,
     IOnStateExited<GameplayState>,
     IOnSystemChanged<PerformanceGuardianSystem>

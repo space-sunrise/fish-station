@@ -18,7 +18,7 @@ namespace Content.Server._Fish.JudgeGavel;
 /// <summary>
 ///     System for the Admin Judge Gavel.
 /// </summary>
-public sealed class JudgeGavelSystem : EntitySystem
+public sealed partial class JudgeGavelSystem : EntitySystem
 {
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;

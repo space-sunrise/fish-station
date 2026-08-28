@@ -18,7 +18,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Fish.Kitsune
 {
-    public sealed class KitsuneFireSystem : EntitySystem
+    public sealed partial class KitsuneFireSystem : EntitySystem
     {
         [Dependency] private DamageableSystem _damageable = default!;
         [Dependency] private IGameTiming _timing = default!;

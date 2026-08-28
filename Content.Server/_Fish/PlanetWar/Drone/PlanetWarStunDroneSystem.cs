@@ -17,7 +17,7 @@ namespace Content.Server._Fish.PlanetWar.Drone
     /// <summary>
     /// Handles PlanetWar stun drones triggering.
     /// </summary>
-    public sealed class PlanetWarStunDroneSystem : EntitySystem
+    public sealed partial class PlanetWarStunDroneSystem : EntitySystem
     {
         [Dependency] private FlashSystem _flash = default!;
         [Dependency] private EmpSystem _emp = default!;

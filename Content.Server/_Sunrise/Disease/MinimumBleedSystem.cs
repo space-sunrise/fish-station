@@ -17,7 +17,7 @@ using Content.Server.Popups;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Systems;
 using Content.Server.Medical;
-public sealed class MinimumBleedSystem : EntitySystem
+public sealed partial class MinimumBleedSystem : EntitySystem
 {
     [Dependency] private BloodstreamSystem _bloodstream = default!;
     public override void Initialize()

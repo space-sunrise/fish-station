@@ -23,7 +23,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Fish.Kitsune;
 
-public sealed class KitsuneTransformSystem : EntitySystem
+public sealed partial class KitsuneTransformSystem : EntitySystem
 {
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private ActionsSystem _actions = default!;

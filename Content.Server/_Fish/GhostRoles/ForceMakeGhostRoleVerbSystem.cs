@@ -11,7 +11,7 @@ namespace Content.Server._Fish.GhostRoles;
 /// Пункт контекстного меню Admin: «Принудительная гост роль».
 /// Подписка на GetVerbsEvent — без правок AdminVerbSystem.
 /// </summary>
-public sealed class ForceMakeGhostRoleVerbSystem : EntitySystem
+public sealed partial class ForceMakeGhostRoleVerbSystem : EntitySystem
 {
     [Dependency] private IAdminManager _admins = default!;
     [Dependency] private ForceMakeGhostRoleSystem _forceMake = default!;

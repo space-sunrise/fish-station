@@ -36,7 +36,7 @@ using Content.Server._Sunrise.Misc.ShiftedAsciiTableAccent;
 
 namespace Content.Server._Sunrise.Disease;
 
-public sealed class SickSystem : SharedSickSystem
+public sealed partial class SickSystem : SharedSickSystem
 {
     [Dependency] private AutoEmoteSystem _autoEmote = default!;
     [Dependency] private StoreSystem _store = default!;

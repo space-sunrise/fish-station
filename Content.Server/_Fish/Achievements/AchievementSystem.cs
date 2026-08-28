@@ -10,7 +10,7 @@ namespace Content.Server._Fish.Achievements;
 /// <summary>
 /// Сеть и server-side hooks семейств условий.
 /// </summary>
-public sealed class AchievementSystem : EntitySystem
+public sealed partial class AchievementSystem : EntitySystem
 {
     [Dependency] private readonly AchievementManager _achievements = default!;
     [Dependency] private readonly IGameTiming _timing = default!;

@@ -11,7 +11,7 @@ namespace Content.Server._Fish.GhostRoles;
 /// Админ-команда forceghostrole — принудительная ghost role по UID.
 /// </summary>
 [AdminCommand(AdminFlags.Admin)]
-public sealed class ForceMakeGhostRoleCommand : LocalizedEntityCommands
+public sealed partial class ForceMakeGhostRoleCommand : LocalizedEntityCommands
 {
     [Dependency] private ForceMakeGhostRoleSystem _forceMake = default!;
     [Dependency] private IPrototypeManager _prototype = default!;

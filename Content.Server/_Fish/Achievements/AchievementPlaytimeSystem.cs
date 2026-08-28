@@ -14,7 +14,7 @@ namespace Content.Server._Fish.Achievements;
 /// <summary>
 /// Account-wide playtime thresholds → achievement unlock.
 /// </summary>
-public sealed class AchievementPlaytimeSystem : EntitySystem
+public sealed partial class AchievementPlaytimeSystem : EntitySystem
 {
     [Dependency] private readonly AchievementManager _achievements = default!;
     [Dependency] private readonly PlayTimeTrackingManager _playTime = default!;

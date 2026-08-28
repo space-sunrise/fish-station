@@ -5,7 +5,7 @@ using System.Numerics;
 
 namespace Content.Server.Traits.Assorted;
 
-public sealed class SleepySystem : EntitySystem
+public sealed partial class SleepySystem : EntitySystem
 {
     [Dependency] private Shared.StatusEffectNew.StatusEffectsSystem _statusEffects = default!;
     [Dependency] private IRobustRandom _random = default!;

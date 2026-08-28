@@ -10,7 +10,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Sunrise.Disease;
 
-public sealed class DiseaseRuleSystem : GameRuleSystem<DiseaseRuleComponent>
+public sealed partial class DiseaseRuleSystem : GameRuleSystem<DiseaseRuleComponent>
 {
     [Dependency] private ChatSystem _chatSystem = default!;
 

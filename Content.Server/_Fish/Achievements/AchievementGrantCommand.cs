@@ -13,7 +13,7 @@ namespace Content.Server._Fish.Achievements;
 /// Админ-команда для ручных/особых достижений.
 /// </summary>
 [AdminCommand(AdminFlags.Admin)]
-public sealed class AchievementGrantCommand : IConsoleCommand
+public sealed partial class AchievementGrantCommand : IConsoleCommand
 {
     [Dependency] private readonly AchievementManager _achievements = default!;
     [Dependency] private readonly IPlayerManager _players = default!;

@@ -21,7 +21,7 @@ using Content.Shared.Atmos.Components;
 namespace Content.Server.Atmos.Piping.Trinary.EntitySystems;
 
 [UsedImplicitly]
-public sealed class GasRangeTemperatureFilterSystem : EntitySystem
+public sealed partial class GasRangeTemperatureFilterSystem : EntitySystem
 {
     [Dependency] private UserInterfaceSystem _userInterface = default!;
     [Dependency] private IAdminLogManager _adminLogger = default!;

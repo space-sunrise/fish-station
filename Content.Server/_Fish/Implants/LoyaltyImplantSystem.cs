@@ -12,7 +12,7 @@ using Content.Shared.Mindshield.Components;
 
 namespace Content.Server.Implants;
 
-public sealed class LoyaltyImplantSystem : EntitySystem
+public sealed partial class LoyaltyImplantSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IRobustRandom _random = default!;

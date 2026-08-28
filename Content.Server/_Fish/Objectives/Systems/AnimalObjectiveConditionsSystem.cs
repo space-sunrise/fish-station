@@ -6,7 +6,7 @@ using Content.Shared.Warps;
 
 namespace Content.Server._Fish.Objectives.Systems;
 
-public sealed class AnimalObjectiveConditionsSystem : EntitySystem
+public sealed partial class AnimalObjectiveConditionsSystem : EntitySystem
 {
     [Dependency] private NumberObjectiveSystem _number = default!;
 

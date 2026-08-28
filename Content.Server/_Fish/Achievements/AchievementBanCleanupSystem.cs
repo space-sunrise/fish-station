@@ -13,7 +13,7 @@ namespace Content.Server._Fish.Achievements;
 /// <summary>
 /// При перманентном server-ban удаляет fish_achievement_progress и RAM-кеш аккаунта.
 /// </summary>
-public sealed class AchievementBanCleanupSystem : EntitySystem
+public sealed partial class AchievementBanCleanupSystem : EntitySystem
 {
     [Dependency] private IBanManager _bans = default!;
     [Dependency] private readonly IServerDbManager _db = default!;

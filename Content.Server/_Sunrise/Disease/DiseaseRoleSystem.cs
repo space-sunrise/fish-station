@@ -21,7 +21,7 @@ namespace Content.Server._Sunrise.Disease;
 
 using Robust.Server.GameObjects;
 
-public sealed class DiseaseRoleSystem : SharedDiseaseRoleSystem
+public sealed partial class DiseaseRoleSystem : SharedDiseaseRoleSystem
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedActionsSystem _actionsSystem = default!;

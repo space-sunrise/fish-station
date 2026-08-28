@@ -3,7 +3,7 @@ using Content.Shared.Objectives.Components;
 
 namespace Content.Server._Fish.Objectives.Systems;
 
-public sealed class AnimalRoleRequirementSystem : EntitySystem
+public sealed partial class AnimalRoleRequirementSystem : EntitySystem
 {
     [Dependency] private AnimalObjectivesSystem _animalObjectives = default!;
 

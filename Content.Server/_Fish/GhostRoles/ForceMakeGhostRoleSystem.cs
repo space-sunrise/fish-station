@@ -10,7 +10,7 @@ namespace Content.Server._Fish.GhostRoles;
 /// Принудительное создание ghost role без правок MindSystem / GhostRoleSystem.
 /// Только публичные API; поля GhostRole с ограниченным Access не трогаем.
 /// </summary>
-public sealed class ForceMakeGhostRoleSystem : EntitySystem
+public sealed partial class ForceMakeGhostRoleSystem : EntitySystem
 {
     [Dependency] private GhostRoleSystem _ghostRoles = default!;
     [Dependency] private SharedMindSystem _mind = default!;

@@ -5,7 +5,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Client._Fish.PAI;
 
-public sealed class SyndicatePaiSystem : SharedSyndicatePaiSystem
+public sealed partial class SyndicatePaiSystem : SharedSyndicatePaiSystem
 {
     [Dependency] private SpriteSystem _sprite = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;

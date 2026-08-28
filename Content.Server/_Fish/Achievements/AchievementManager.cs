@@ -17,7 +17,7 @@ namespace Content.Server._Fish.Achievements;
 /// <summary>
 /// Account-wide кеш, persistence и антиабуз. Выдача только с сервера по NetUserId.
 /// </summary>
-public sealed class AchievementManager : IPostInjectInit
+public sealed partial class AchievementManager : IPostInjectInit
 {
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly UserDbDataManager _userDb = default!;

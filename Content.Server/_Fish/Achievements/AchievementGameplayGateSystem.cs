@@ -14,7 +14,7 @@ namespace Content.Server._Fish.Achievements;
 /// <summary>
 /// Единый gate: gameplay (раунд / ghost / arena) и persistence (playtime → БД).
 /// </summary>
-public sealed class AchievementGameplayGateSystem : EntitySystem
+public sealed partial class AchievementGameplayGateSystem : EntitySystem
 {
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;

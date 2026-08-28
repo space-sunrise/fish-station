@@ -15,7 +15,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Sunrise.Disease;
 
-public sealed class SmallDiseaseRuleSystem : GameRuleSystem<SmallDiseaseRuleComponent>
+public sealed partial class SmallDiseaseRuleSystem : GameRuleSystem<SmallDiseaseRuleComponent>
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;

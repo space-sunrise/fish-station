@@ -5,7 +5,7 @@ using Robust.Shared.Configuration;
 
 namespace Content.Client._Fish.RoundEnd
 {
-    public sealed class NoEorgPopupUIController : UIController, IOnStateEntered<LobbyState>
+    public sealed partial class NoEorgPopupUIController : UIController, IOnStateEntered<LobbyState>
     {
         [Dependency] private readonly IConfigurationManager _cfg = default!;
 

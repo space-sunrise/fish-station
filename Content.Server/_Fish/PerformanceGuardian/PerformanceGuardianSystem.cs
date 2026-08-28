@@ -12,7 +12,7 @@ namespace Content.Server._Fish.PerformanceGuardian;
 /// <summary>
 /// Фасад: idle-мониторинг, диагностика по инциденту/кнопке, сеть для админов.
 /// </summary>
-public sealed class PerformanceGuardianSystem : EntitySystem
+public sealed partial class PerformanceGuardianSystem : EntitySystem
 {
     [Dependency] private IAdminManager _admins = default!;
     [Dependency] private IConfigurationManager _cfg = default!;

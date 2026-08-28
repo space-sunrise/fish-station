@@ -15,7 +15,7 @@ namespace Content.Server._Fish.GhostRoles;
 /// <summary>
 /// Спавнит персонажа игрока из профиля при взятии ghost role через <see cref="GhostRoleProfileSpawnerComponent"/>.
 /// </summary>
-public sealed class GhostRoleProfileSpawnerSystem : EntitySystem
+public sealed partial class GhostRoleProfileSpawnerSystem : EntitySystem
 {
     [Dependency] private GameTicker _gameTicker = default!;
     [Dependency] private GhostRoleSystem _ghostRole = default!;
