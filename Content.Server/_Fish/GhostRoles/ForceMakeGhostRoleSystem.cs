@@ -13,7 +13,7 @@ namespace Content.Server._Fish.GhostRoles;
 public sealed class ForceMakeGhostRoleSystem : EntitySystem
 {
     [Dependency] private GhostRoleSystem _ghostRoles = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
 
     /// <summary>
     /// Форсирует ghost role на сущности. Работает без Mind, с пустым/устаревшим MindContainer,

@@ -14,10 +14,10 @@ namespace Content.Server._Fish.PAI;
 
 public sealed partial class SyndicatePaiSystem
 {
-    [Dependency] private readonly MobThresholdSystem _mobThresholds = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedInteractionSystem _serverInteraction = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _serverSolutions = default!;
+    [Dependency] private MobThresholdSystem _mobThresholds = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedInteractionSystem _serverInteraction = default!;
+    [Dependency] private SharedSolutionContainerSystem _serverSolutions = default!;
 
     private TimeSpan _nextAutoCheck;
 

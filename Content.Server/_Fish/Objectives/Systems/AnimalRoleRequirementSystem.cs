@@ -5,7 +5,7 @@ namespace Content.Server._Fish.Objectives.Systems;
 
 public sealed class AnimalRoleRequirementSystem : EntitySystem
 {
-    [Dependency] private readonly AnimalObjectivesSystem _animalObjectives = default!;
+    [Dependency] private AnimalObjectivesSystem _animalObjectives = default!;
 
     public override void Initialize()
     {

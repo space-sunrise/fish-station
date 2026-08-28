@@ -13,7 +13,7 @@ public sealed class PlanetWarVulpkaninRuleSystem : GameRuleSystem<PlanetWarVulpk
     [Dependency] private HumanoidProfileSystem _humanoidProfile = default!;
     [Dependency] private SharedVisualBodySystem _visualBody = default!;
     [Dependency] private SunriseHumanoidProfileSystem _sunriseProfile = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
 
     public override void Update(float frameTime)
     {

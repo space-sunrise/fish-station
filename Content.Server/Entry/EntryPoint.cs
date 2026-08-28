@@ -91,21 +91,21 @@ namespace Content.Server.Entry
         // ===== FISH EDIT START: ACHIEVEMENTS =====
         [Dependency] private AchievementManager _achievements = default!;
         // ===== FISH EDIT END: ACHIEVEMENTS =====
-        [Dependency] private readonly PlayerRateLimitManager _rateLimit = default!;
-        [Dependency] private readonly RecipeManager _recipe = default!;
-        [Dependency] private readonly RulesManager _rules = default!;
-        [Dependency] private readonly ServerApi _serverApi = default!;
-        [Dependency] private readonly ServerInfoManager _serverInfo = default!;
-        [Dependency] private readonly ServerUpdateManager _updateManager = default!;
-        [Dependency] private readonly ServerFeedbackManager _feedbackManager = null!;
-        [Dependency] private readonly ServersHubManager _serversHubManager = default!; // Sunrise-Edit
-        [Dependency] private readonly ContributorsManager _contributorsManager = default!; // Sunrise-Edit
-        [Dependency] private readonly PlayerCacheManager _playerCacheManager = default!; // Sunrise-Edit
-        [Dependency] private readonly TTSManager _ttsManager = default!; // Sunrise-Edit
-        [Dependency] private readonly NetTexturesManager _netTexturesManager = default!; // Sunrise-Edit
-        [Dependency] private readonly DiscordWebhook _discord = default!; // Sunrise-Edit
-        [Dependency] private readonly MapperSyncManager _mapperSyncManager = default!; // Sunrise-Edit
-        [Dependency] private readonly AccountCreationManager _accountCreation = default!; // Sunrise-Edit
+        [Dependency] private PlayerRateLimitManager _rateLimit = default!;
+        [Dependency] private RecipeManager _recipe = default!;
+        [Dependency] private RulesManager _rules = default!;
+        [Dependency] private ServerApi _serverApi = default!;
+        [Dependency] private ServerInfoManager _serverInfo = default!;
+        [Dependency] private ServerUpdateManager _updateManager = default!;
+        [Dependency] private ServerFeedbackManager _feedbackManager = null!;
+        [Dependency] private ServersHubManager _serversHubManager = default!; // Sunrise-Edit
+        [Dependency] private ContributorsManager _contributorsManager = default!; // Sunrise-Edit
+        [Dependency] private PlayerCacheManager _playerCacheManager = default!; // Sunrise-Edit
+        [Dependency] private TTSManager _ttsManager = default!; // Sunrise-Edit
+        [Dependency] private NetTexturesManager _netTexturesManager = default!; // Sunrise-Edit
+        [Dependency] private DiscordWebhook _discord = default!; // Sunrise-Edit
+        [Dependency] private MapperSyncManager _mapperSyncManager = default!; // Sunrise-Edit
+        [Dependency] private AccountCreationManager _accountCreation = default!; // Sunrise-Edit
         private IIPBlockingSystem? _ipBlockingSystem;
         private ITrustedProxyService? _trustedProxyService;
         private ISharedSponsorsManager? _sponsorsManager; // Sunrise-Sponsors

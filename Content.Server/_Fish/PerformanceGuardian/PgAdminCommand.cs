@@ -10,7 +10,7 @@ namespace Content.Server._Fish.PerformanceGuardian;
 [AdminCommand(AdminFlags.Debug)]
 public sealed class PgAdminCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly PerformanceGuardianSystem _guardian = default!;
+    [Dependency] private PerformanceGuardianSystem _guardian = default!;
 
     public override string Command => "perfguardian";
 
@@ -30,7 +30,7 @@ public sealed class PgAdminCommand : LocalizedEntityCommands
 [AdminCommand(AdminFlags.Debug)]
 public sealed class PgAdminCommandAlias : LocalizedEntityCommands
 {
-    [Dependency] private readonly PerformanceGuardianSystem _guardian = default!;
+    [Dependency] private PerformanceGuardianSystem _guardian = default!;
 
     public override string Command => "pg";
 

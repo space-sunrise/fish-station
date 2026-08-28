@@ -11,7 +11,7 @@ namespace Content.Server._Fish.Singularity;
 public sealed class ContainmentFieldAdminAlertSystem : EntitySystem
 {
     [Dependency] private IChatManager _chat = default!;
-    [Dependency] private readonly SharedStationSystem _station = default!;
+    [Dependency] private SharedStationSystem _station = default!;
 
     private readonly HashSet<EntityUid> _wasAboveThreshold = new();
     private readonly HashSet<EntityUid> _alertedLowCharge = new();

@@ -15,7 +15,7 @@ namespace Content.Server._Fish.Achievements;
 /// </summary>
 public sealed class AchievementBanCleanupSystem : EntitySystem
 {
-    [Dependency] private readonly IBanManager _bans = default!;
+    [Dependency] private IBanManager _bans = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly AchievementManager _achievements = default!;
     [Dependency] private readonly IPlayerManager _players = default!;
