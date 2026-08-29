@@ -1,0 +1,38 @@
+light_mode unshaded;
+
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float OverlayOpacity;
+uniform highp float OpeningWidth;
+uniform highp float OpeningHeight;
+uniform highp float EdgeSoftness;
+uniform highp float CornerRadius;
+uniform highp float Darkness;
+
+void fragment()
+{
+    highp vec4 source = zTextureSpec(SCREEN_TEXTURE, UV);
+    highp float aspectRatio = SCREEN_PIXEL_SIZE.y / SCREEN_PIXEL_SIZE.x;
+    highp vec2 visorPosition = vec2((UV.x - 0.5) * aspectRatio, UV.y - 0.5);
+    highp vec2 openingHalfSize = vec2(OpeningWidth * aspectRatio, OpeningHeight) * 0.5;
+    highp float radius = min(CornerRadius, min(openingHalfSize.x, openingHalfSize.y));
+
+    // SDF сохраняет форму рамки при любом соотношении сторон.
+    highp vec2 distanceVector = abs(visorPosition) - openingHalfSize + vec2(radius);
+    highp float signedDistance = length(max(distanceVector, vec2(0.0)))
+        + min(max(distanceVector.x, distanceVector.y), 0.0)
+        - radius;
+
+    highp float frameMask = smoothstep(-EdgeSoftness, EdgeSoftness, signedDistance);
+    highp float rim = 1.0 - smoothstep(0.0, EdgeSoftness * 0.8, abs(signedDistance));
+
+    // Виньетка и холодный оттенок добавляют маске глубину.
+    highp vec2 vignettePosition = vec2(visorPosition.x / aspectRatio, visorPosition.y);
+    highp float vignette = smoothstep(0.28, 0.72, length(vignettePosition));
+    highp float mask = clamp(max(frameMask, vignette * 0.18) + rim * 0.1, 0.0, 1.0);
+    highp float strength = mask * Darkness * OverlayOpacity;
+    highp vec3 visorTint = vec3(0.82, 0.87, 0.9);
+
+    source.rgb *= 1.0 - strength;
+    source.rgb = mix(source.rgb, source.rgb * visorTint, mask * OverlayOpacity * 0.08);
+    COLOR = source;
+}

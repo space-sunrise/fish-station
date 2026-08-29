@@ -13,6 +13,82 @@
     },
     {
       "name": "icon"
+    },
+    {
+      "name": "ghost_Blunt0",
+      "directions": 4
+    },
+    {
+      "name": "ghost_Blunt1",
+      "directions": 4
+    },
+    {
+      "name": "ghost_Blunt2",
+      "directions": 4
+    },
+    {
+      "name": "ghost_Slash0",
+      "directions": 4
+    },
+    {
+      "name": "ghost_Slash1",
+      "directions": 4
+    },
+    {
+      "name": "ghost_Slash2",
+      "directions": 4
+    },
+    {
+      "name": "ghost_Piercing0",
+      "directions": 4
+    },
+    {
+      "name": "ghost_Piercing1",
+      "directions": 4
+    },
+    {
+      "name": "ghost_Piercing2",
+      "directions": 4
+    },
+    {
+      "name": "ghost_Heat0",
+      "directions": 4
+    },
+    {
+      "name": "ghost_Cold0",
+      "directions": 4
+    },
+    {
+      "name": "ghost_Shock0",
+      "directions": 4
+    },
+    {
+      "name": "ghost_Radiation0",
+      "directions": 4
+    },
+    {
+      "name": "ghost_Cellular0",
+      "directions": 4
+    },
+    {
+      "name": "ghost_Poison0",
+      "directions": 4
+    },
+    {
+      "name": "ghost_Asphyxiation0",
+      "directions": 4
+    },
+    {
+      "name": "ghost_Explosion0",
+      "directions": 4
+    },
+    {
+      "name": "ghost_Explosion1",
+      "directions": 4
+    },
+    {
+      "name": "ghost_Explosion2",
+      "directions": 4
     }
   ]
 }

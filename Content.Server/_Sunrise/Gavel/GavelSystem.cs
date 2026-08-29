@@ -1,8 +1,11 @@
 ﻿using Content.Server.Popups;
+using Content.Server._Fish.Achievements;
+using Content.Shared._Fish.Achievements;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Sunrise.Gavel;
@@ -13,6 +16,7 @@ public sealed class GavelSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly AchievementManager _achievements = default!;
 
     public override void Initialize()
     {
@@ -32,6 +36,16 @@ public sealed class GavelSystem : EntitySystem
             comp.Counter += 1;
             _audio.PlayPvs(comp.HitSound, args.Target.Value);
             comp.PrevSound = _timing.CurTime;
+
+            if (TryComp<ActorComponent>(args.User, out var actor))
+            {
+                _ = _achievements.ContributeAsync(
+                    actor.PlayerSession,
+                    AchievementConditionKeys.GavelStrike,
+                    new AchievementTriggerContext(
+                        EntityPrototypeId: MetaData(args.Target.Value).EntityPrototype?.ID,
+                        EventKey: $"gavel:{args.Target}:{uid}:{comp.Counter}"));
+            }
         }
 
         // Дабы не спамили, звук ведь громкий и может на нервы давить.

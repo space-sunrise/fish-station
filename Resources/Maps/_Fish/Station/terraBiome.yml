@@ -72440,11 +72440,6 @@ entities:
     - type: Transform
       pos: 29.639734,37.332634
       parent: 2
-  - uid: 7801
-    components:
-    - type: Transform
-      pos: 29.420755,37.11355
-      parent: 2
   - uid: 8619
     components:
     - type: Transform

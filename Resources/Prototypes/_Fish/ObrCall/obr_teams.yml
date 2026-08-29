@@ -5,7 +5,7 @@
   name: obr-team-amber-name
   description: obr-team-amber-desc
   gameRule: FishObrShuttleAmber
-  stationCost: 50000
+  stationCost: 100000
   centCommAvailable: true
   stationAvailable: true
   account: Cargo
@@ -17,7 +17,7 @@
   name: obr-team-red-name
   description: obr-team-red-desc
   gameRule: FishObrShuttleRed
-  stationCost: 100000
+  stationCost: 200000
   centCommAvailable: true
   stationAvailable: true
   account: Cargo
@@ -40,7 +40,7 @@
   name: obr-team-cburn-name
   description: obr-team-cburn-desc
   gameRule: FishObrShuttleCburn
-  stationCost: 100000
+  stationCost: 200000
   centCommAvailable: true
   stationAvailable: true
   account: Cargo
