@@ -11,23 +11,7 @@
     - NTAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 2
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - BlueShield
-
-- type: listing
-  id: ERTUplinkWeaponShotgunCyclerBlueShield
-  productEntity: WeaponShotgunCycler
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: cycler }
-  cost:
-    Bluecrystal: 16
-  categories:
-    - NTAutoGun
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 2
+    stock: 1
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
@@ -44,7 +28,23 @@
     - NTAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 4
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkWeaponShotgunCyclerBlueShield
+  productEntity: WeaponShotgunCycler
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: cycler }
+  cost:
+    Bluecrystal: 9
+  categories:
+    - NTAutoGun
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
@@ -60,7 +60,7 @@
     - NTAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 3
+    stock: 1
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
@@ -76,7 +76,7 @@
     - NTAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 4
+    stock: 1
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
@@ -92,7 +92,7 @@
     - NTAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 4
+    stock: 1
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
@@ -108,7 +108,7 @@
     - NTAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 4
+    stock: 1
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
@@ -124,7 +124,7 @@
     - NTAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 4
+    stock: 1
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
@@ -140,7 +140,7 @@
     - NTAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 4
+    stock: 1
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
@@ -156,7 +156,7 @@
     - NTAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 4
+    stock: 1
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
@@ -172,7 +172,7 @@
     - NTAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 5
+    stock: 1
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
@@ -206,7 +206,7 @@
     - NTexplosive
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 8
+    stock: 4
 
 - type: listing
   id: ERTUplinkGrenadeStinger
@@ -218,7 +218,7 @@
     - NTexplosive
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 8
+    stock: 4
 
 # region Боеприпасы .20 Rifle (Lecter, Leikha)
 - type: listing
