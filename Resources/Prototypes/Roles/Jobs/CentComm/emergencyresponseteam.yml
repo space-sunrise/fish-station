@@ -9,7 +9,7 @@
   icon: "JobIconERTLeader"
   overrideConsoleVisibility: false # Sunrise added
   supervisors: job-supervisors-specops #Fish-edit
-  canBeAntag: false
+  # canBeAntag: false # Fish-edit
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
@@ -124,7 +124,7 @@
   icon: "JobIconERTChaplain"
   overrideConsoleVisibility: false # Sunrise added
   supervisors: job-supervisors-specops #Fish-edit
-  canBeAntag: false
+  # canBeAntag: false # Fish-edit
   accessGroups:
   - AllAccess
   access:
@@ -203,7 +203,7 @@
   icon: "JobIconERTEngineer"
   overrideConsoleVisibility: false # Sunrise added
   supervisors: job-supervisors-specops #Fish-edit
-  canBeAntag: false
+  # canBeAntag: false # Fish-edit
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
@@ -305,7 +305,7 @@
   icon: "JobIconERTSecurity"
   overrideConsoleVisibility: false # Sunrise added
   supervisors: job-supervisors-specops #Fish-edit
-  canBeAntag: false
+  # canBeAntag: false # Fish-edit
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
@@ -497,7 +497,7 @@
   icon: "JobIconERTMedic"
   overrideConsoleVisibility: false # Sunrise added
   supervisors: job-supervisors-specops #Fish-edit
-  canBeAntag: false
+  # canBeAntag: false # Fish-edit
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
@@ -605,7 +605,7 @@
   icon: "JobIconERTJanitor"
   overrideConsoleVisibility: false # Sunrise added
   supervisors: job-supervisors-specops #Fish-edit
-  canBeAntag: false
+  # canBeAntag: false # Fish-edit
   accessGroups:
   - AllAccess
   access:

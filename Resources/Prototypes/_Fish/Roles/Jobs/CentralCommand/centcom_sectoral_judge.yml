@@ -12,7 +12,6 @@
   icon: "JobIconCentcommSectoralJudge"
   overrideConsoleVisibility: false
   supervisors: job-supervisors-supremecourt
-  canBeAntag: false
   setPreference: true
   radioBold: true
   displayWeight: 75

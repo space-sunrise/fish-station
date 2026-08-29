@@ -12,7 +12,6 @@
       hypospray:
         maxVol: 20
   - type: SolutionRegeneration
-    solution: hypospray
     duration: 2
     generated:
       reagents:
@@ -57,7 +56,6 @@
       hypospray:
         maxVol: 10
   - type: SolutionRegeneration
-    solution: hypospray
     duration: 1
     generated:
       reagents:

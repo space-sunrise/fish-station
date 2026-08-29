@@ -28,7 +28,6 @@
   overrideConsoleVisibility: false # Sunrise added
   supervisors: job-supervisors-centcomhead
   radioBold: true
-  canBeAntag: false
   alwaysUseSpawner: true
   accessGroups:
   - AllAccess

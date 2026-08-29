@@ -37,7 +37,6 @@
   - type: MovementIgnoreGravity
   - type: GravityAffected
   - type: Damageable
-    damageContainer: Biological
   - type: Examiner
   - type: NoSlip
   - type: Actions
@@ -106,4 +105,15 @@
     - state: green
     - sprite: _Sunrise/Interface/Misc/antag_preview.rsi
       state: test
+
+- type: antag
+  id: Disease
+  name: disease-agent-name
+  antagonist: true
+
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: Disease
+  spawnerPrototype: SpawnPointGhostDisease
+  pickPlayer: false
 

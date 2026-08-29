@@ -14,7 +14,7 @@
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
   supervisors: job-supervisors-captain
-  canBeAntag: false # Fish-edit
+  # canBeAntag: false # Fish-edit
   radioBold: true # Sunrise-Edit
   displayWeight: 50 # Sunrise-Edit
   # Sunrise-Start

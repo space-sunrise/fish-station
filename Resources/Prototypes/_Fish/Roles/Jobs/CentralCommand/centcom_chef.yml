@@ -12,7 +12,6 @@
   icon: "JobIconCentcommChef"
   overrideConsoleVisibility: false
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   alwaysUseSpawner: true
   access:
   - Service

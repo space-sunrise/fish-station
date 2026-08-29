@@ -7,7 +7,6 @@
   weight: 2
   jobEntity: MobHumanCoreP0WMF5
   icon: "IconCoreBase"
-  canBeAntag: false
   access:
   - AssCoreBase
   alwaysUseSpawner: true
@@ -23,7 +22,6 @@
   weight: 5
   jobEntity: MobHumanCorePC0I5WMF5
   icon: "IconCorePC0I5"
-  canBeAntag: false
   access:
   - AssCoreBase
   - AssCorePC0I5
@@ -42,7 +40,6 @@
   weight: 3
   jobEntity: MobHumanCorePM1WMF5
   icon: "IconCorePM1"
-  canBeAntag: false
   access:
   - AssCoreBase
   - AssCorePM1
@@ -59,7 +56,6 @@
   weight: 4
   jobEntity: MobHumanCorePE1WMF5
   icon: "IconCorePE1"
-  canBeAntag: false
   access:
   - AssCoreBase
   - AssCorePE1
