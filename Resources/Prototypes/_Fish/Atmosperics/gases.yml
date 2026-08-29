@@ -8,8 +8,9 @@
   color: '#00FFFF'
   reagent: Zenthium
   pricePerMole: 6.5
-  gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
-  gasOverlayState: nitriumGas  
+  gasOverlaySprite:
+    sprite: /Textures/_Sunrise/Effects/atmospherics.rsi
+    state: bz 
 
 - type: gas
   id: Krypium
@@ -21,8 +22,9 @@
   color: '#82005d'
   reagent: Krypium
   pricePerMole: 8.5
-  gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
-  gasOverlayState: bz
+  gasOverlaySprite:
+    sprite: /Textures/_Sunrise/Effects/atmospherics.rsi
+    state: bz
 
 - type: gas
   id: Prallium
@@ -34,8 +36,9 @@
   color: '#a0ffff'
   reagent: Prallium
   pricePerMole: 8.0
-  gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
-  gasOverlayState: bz
+  gasOverlaySprite:
+    sprite: /Textures/_Sunrise/Effects/atmospherics.rsi
+    state: bz
 
 - type: gas
   id: Chaoson
@@ -47,8 +50,9 @@
   color: '#ff69b4'
   reagent: Chaoson
   pricePerMole: 1.5
-  gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
-  gasOverlayState: bz
+  gasOverlaySprite:
+    sprite: /Textures/_Sunrise/Effects/atmospherics.rsi
+    state: bz
 
 - type: gas
   id: Garodin
@@ -60,8 +64,9 @@
   color: '#f0bb29'
   reagent: Garodin
   pricePerMole: 1.0
-  gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
-  gasOverlayState: bz
+  gasOverlaySprite:
+    sprite: /Textures/_Sunrise/Effects/atmospherics.rsi
+    state: bz
 
 - type: gas
   id: Baratrium
@@ -73,8 +78,9 @@
   color: '#3300eb'
   reagent: Baratrium
   pricePerMole: 5.0
-  gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
-  gasOverlayState: bz
+  gasOverlaySprite:
+    sprite: /Textures/_Sunrise/Effects/atmospherics.rsi
+    state: bz
 
 - type: gas
   id: Ethylium
@@ -86,8 +92,9 @@
   color: '#ff1493'
   reagent: Ethylium
   pricePerMole: 10.0
-  gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
-  gasOverlayState: bz
+  gasOverlaySprite:
+    sprite: /Textures/_Sunrise/Effects/atmospherics.rsi
+    state: bz
 
 - type: gas
   id: Zimmera
@@ -99,8 +106,9 @@
   color: '#8a2be2'
   reagent: Zimmera
   pricePerMole: 5.0
-  gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
-  gasOverlayState: bz
+  gasOverlaySprite:
+    sprite: /Textures/_Sunrise/Effects/atmospherics.rsi
+    state: bz
 
 - type: gas
   id: Framel
@@ -112,8 +120,9 @@
   color: '#00ffaa'
   reagent: Framel
   pricePerMole: 10.0
-  gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
-  gasOverlayState: bz
+  gasOverlaySprite:
+    sprite: /Textures/_Sunrise/Effects/atmospherics.rsi
+    state: bz
 
 - type: gas
   id: Klemennon
@@ -125,8 +134,9 @@
   color: '#0062b8'
   reagent: Klemennon
   pricePerMole: 12.0
-  gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
-  gasOverlayState: bz
+  gasOverlaySprite:
+    sprite: /Textures/_Sunrise/Effects/atmospherics.rsi
+    state: bz
 
 - type: gas
   id: ProtoUltimium
@@ -138,8 +148,9 @@
   color: '#b85959'
   reagent: ProtoUltimium
   pricePerMole: 1.0
-  gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
-  gasOverlayState: bz
+  gasOverlaySprite:
+    sprite: /Textures/_Sunrise/Effects/atmospherics.rsi
+    state: bz
 
 - type: gas
   id: ZimmerousFrezonite
@@ -151,8 +162,9 @@
   color: '#5ea1b4'
   reagent: ZimmerousFrezonite
   pricePerMole: 2.0
-  gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
-  gasOverlayState: bz
+  gasOverlaySprite:
+    sprite: /Textures/_Sunrise/Effects/atmospherics.rsi
+    state: bz
 
 - type: gas
   id: AntiUltimium
@@ -164,8 +176,9 @@
   color: '#1a1a1a'
   reagent: AntiUltimium
   pricePerMole: 100.0
-  gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
-  gasOverlayState: bz
+  gasOverlaySprite:
+    sprite: /Textures/_Sunrise/Effects/atmospherics.rsi
+    state: bz
 
 - type: gas
   id: Ultimium
@@ -177,8 +190,9 @@
   color: '#62ff43'
   reagent: Ultimium
   pricePerMole: 220.0
-  gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
-  gasOverlayState: bz
+  gasOverlaySprite:
+    sprite: /Textures/_Sunrise/Effects/atmospherics.rsi
+    state: bz
 
 - type: gas
   id: Permafrost
@@ -190,8 +204,9 @@
   color: '#43ddff'
   reagent: Permafrost
   pricePerMole: 2.0
-  gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
-  gasOverlayState: bz
+  gasOverlaySprite:
+    sprite: /Textures/_Sunrise/Effects/atmospherics.rsi
+    state: bz
 
 - type: gas
   id: Riminon
@@ -203,8 +218,9 @@
   color: '#a5f2ff'
   reagent: Riminon
   pricePerMole: 6.9
-  gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
-  gasOverlayState: bz
+  gasOverlaySprite:
+    sprite: /Textures/_Sunrise/Effects/atmospherics.rsi
+    state: bz
 
 - type: gas
   id: AxoNoblium
@@ -216,5 +232,6 @@
   color: '#ff4500'
   reagent: AxoNoblium
   pricePerMole: 6.0
-  gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
-  gasOverlayState: bz
+  gasOverlaySprite:
+    sprite: /Textures/_Sunrise/Effects/atmospherics.rsi
+    state: bz

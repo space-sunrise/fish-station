@@ -43,8 +43,9 @@
   color: '#8B4513'
   reagent: Nitrium
   pricePerMole: 8 #Fish edit
-  gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
-  gasOverlayState: nitriumGas
+  gasOverlaySprite:
+    sprite: /Textures/_Sunrise/Effects/atmospherics.rsi
+    state: pluoxium
 
 - type: gas
   id: Pluoxium
