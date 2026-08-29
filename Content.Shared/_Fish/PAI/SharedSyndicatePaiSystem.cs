@@ -24,14 +24,14 @@ namespace Content.Shared._Fish.PAI;
 /// </summary>
 public abstract partial class SharedSyndicatePaiSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutions = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private TimeSpan _nextUiRefresh;
 
@@ -258,7 +258,8 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
         if (index < 0 || index >= switcher.Options.Count)
             return false;
 
-        if (!TryComp<SolutionRegenerationComponent>(hypo, out var regeneration))
+        // FIsh edit: после апстрима SolutionRegenerationComponent теперь на Solution-сущности, а не на самом hypo
+        if (!TryGetRegenSolution(hypo, out var regenSolEnt, out var regeneration) || regeneration == null)
             return false;
 
         var reagent = switcher.Options[index];
@@ -269,10 +270,10 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
             return false;
         }
 
-        if (!switcher.KeepSolution &&
-            _solutions.TryGetSolution(hypo, regeneration.SolutionName, out var solution))
+        // FIsh edit: RemoveAllSolution принимает Entity<SolutionComponent> напрямую
+        if (!switcher.KeepSolution && regenSolEnt != null)
         {
-            _solutions.RemoveAllSolution(solution.Value);
+            _solutions.RemoveAllSolution(regenSolEnt.Value);
         }
 
         regeneration.ChangeGenerated(reagent);
@@ -368,6 +369,31 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
     }
 
     /// <summary>
+    /// FIsh edit: после апстрима SolutionRegenerationComponent живёт на Solution-сущности (дочерней),
+    /// а не на самой сущности гипо. Ищем через EnumerateSolutions.
+    /// </summary>
+    protected bool TryGetRegenSolution(
+        EntityUid hypo,
+        out Entity<SolutionComponent>? solutionEnt,
+        out SolutionRegenerationComponent? regen)
+    {
+        solutionEnt = null;
+        regen = null;
+
+        foreach (var (_, solEntity) in _solutions.EnumerateSolutions(hypo))
+        {
+            if (!TryComp<SolutionRegenerationComponent>(solEntity.Owner, out var regenComp))
+                continue;
+
+            solutionEnt = solEntity;
+            regen = regenComp;
+            return true;
+        }
+
+        return false;
+    }
+
+    /// <summary>
     /// Injection/scan target is always the bound master.
     /// </summary>
     public bool TryGetOwnerTarget(Entity<SyndicatePaiComponent> ent, out EntityUid? target)
@@ -441,11 +467,11 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
 
     protected void ClearHypoReservoir(EntityUid hypo)
     {
-        if (!TryComp<SolutionRegenerationComponent>(hypo, out var regen))
+        // FIsh edit: после апстрима SolutionRegenerationComponent на Solution-сущности, SolutionName не существует
+        if (!TryGetRegenSolution(hypo, out var solEnt, out _) || solEnt == null)
             return;
 
-        if (_solutions.TryGetSolution(hypo, regen.SolutionName, out var solution))
-            _solutions.RemoveAllSolution(solution.Value);
+        _solutions.RemoveAllSolution(solEnt.Value);
     }
 
     /// <summary>
@@ -549,9 +575,11 @@ public abstract partial class SharedSyndicatePaiSystem : EntitySystem
             }
         }
 
-        if (!TryComp<SolutionRegenerationComponent>(hypo.Value, out var regen) ||
-            !_solutions.TryGetSolution(hypo.Value, regen.SolutionName, out _, out var solution))
+        // FIsh edit: после апстрима SolutionRegenerationComponent на Solution-сущности, получаем через TryGetRegenSolution
+        if (!TryGetRegenSolution(hypo.Value, out var regenSolEnt, out var regen) || regen == null || regenSolEnt == null)
             return;
+
+        var solution = regenSolEnt.Value.Comp.Solution;
 
         volume = solution.Volume.Float();
         maxVolume = solution.MaxVolume.Float();
