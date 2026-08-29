@@ -16,7 +16,6 @@
   icon: JobIconBlueShield
 
   supervisors: job-supervisors-representative
-  canBeAntag: false
   accessGroups:
   - AllAccess
   special:

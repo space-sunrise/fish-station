@@ -11,7 +11,6 @@
   icon: "JobIconSeniorResearcher"
   supervisors: job-supervisors-rd
   displayWeight: 35
-  canBeAntag: false # Fish-edit
   alternativeTitles:
   - job-alt-title-lead-researcher
   access:

@@ -21,7 +21,6 @@
   overrideConsoleVisibility: false # fish-edit
   supervisors: job-supervisors-oversightdep
   radioBold: true
-  canBeAntag: false
   alwaysUseSpawner: true
   accessGroups:
   - AllAccess

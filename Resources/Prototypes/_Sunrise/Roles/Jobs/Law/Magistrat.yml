@@ -10,7 +10,6 @@
   startingGear: MagistratGear
   icon: "JobIconMagistrat"
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   setPreference: true # fish-edit
   overrideConsoleVisibility: false # Fish-edit
   radioBold: true

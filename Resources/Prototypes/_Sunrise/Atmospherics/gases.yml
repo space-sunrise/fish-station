@@ -43,8 +43,9 @@
   color: '#8B4513'
   reagent: Nitrium
   pricePerMole: 8 #Fish edit
-  gasOverlaySprite: /Textures/_Sunrise/Effects/atmospherics.rsi
-  gasOverlayState: nitriumGas
+  gasOverlaySprite:
+    sprite: /Textures/_Sunrise/Effects/atmospherics.rsi
+    state: pluoxium
 
 - type: gas
   id: Pluoxium
@@ -177,7 +178,7 @@
   gasVisibilityFactor: 2.0
   color: '#0022ff'
   reagent: Electrovae
-  pricePerMole: 2 #Fish edit
+  pricePerMole: 2 # Fish edit
 
 - type: gas
   id: ChargedElectrovae
@@ -193,4 +194,4 @@
   gasVisibilityFactor: 3.0
   color: '#ddff00'
   reagent: ChargedElectrovae
-  pricePerMole: 5 #Fish edit
+  pricePerMole: 5 # Fish edit

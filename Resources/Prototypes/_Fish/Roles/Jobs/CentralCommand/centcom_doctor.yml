@@ -12,7 +12,6 @@
   icon: "JobIconCentcommMedicalDoctor"
   supervisors: job-supervisors-centcom
   displayWeight: 20  # Sunrise
-  canBeAntag: false
   alwaysUseSpawner: true
   access:
   - Medical
