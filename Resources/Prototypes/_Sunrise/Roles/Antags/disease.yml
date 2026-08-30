@@ -112,8 +112,8 @@
   antagonist: true
 
 - type: antagSpecifier
+  parent: RestrictedAntag
   id: Disease
   spawnerPrototype: SpawnPointGhostDisease
   pickPlayer: false
-  mindRoles:
-  - MindRoleGhostRoleSoloAntagonist
+

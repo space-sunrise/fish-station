@@ -25,7 +25,7 @@
   - type: LateJoinSpawnRule
     prototype: MobDisease
 
-# Fish-edit start - SpawnPointGhostTerminator удалён в апстриме
+# Terminator removed in upstream
 #- type: entity
 #  parent: BaseGameRule
 #  id: TerminatorSpawn
@@ -38,7 +38,6 @@
 #    duration: null
 #  - type: LateJoinSpawnRule
 #    prototype: SpawnPointGhostTerminator
-# Fish-edit end
 
 - type: entity
   id: VentbullMigration
