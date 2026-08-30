@@ -208,11 +208,12 @@ public sealed class KitsuneTransformSystem : EntitySystem
                 foxTts.VoicePrototypeId = originalTts.VoicePrototypeId;
         }
 
-        // Apply the humanoid's hair color to the colored fur layer
+        // Apply the humanoid's eye/hair color to the colored fur layers (idle and moving)
         if (TryComp<HumanoidProfileComponent>(uid, out var humanoid))
         {
             var eyeColor = _sunriseBody.GetEyeColor(uid);
             _spriteColor.SetStateColor(newUid, "nine-tail_fox_gray_color", eyeColor);
+            _spriteColor.SetStateColor(newUid, "fox-moving-color", eyeColor);
         }
 
         _popup.PopupEntity(Loc.GetString("kitsune-transform-success"), newUid, newUid, PopupType.MediumCaution);

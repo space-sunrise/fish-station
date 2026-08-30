@@ -10,14 +10,15 @@
     drawdepth: Mobs
     sprite: _Fish/nine_tailed_fox.rsi
     layers:
-    - state: fox-moving
-  #- type: SpriteMovement
-  #  movementLayers:
-  #    movement:
-  #      state: fox-moving
-  #  noMovementLayers:
-  #    movement:
-  #     state: fox
+    - map: ["movement"]
+      state: fox
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: fox-moving
+    noMovementLayers:
+      movement:
+        state: fox
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -104,8 +105,21 @@
     drawdepth: Mobs
     sprite: _Fish/nine_tailed_fox.rsi
     layers:
-    - state: nine-tail_fox_gray_color
-    - state: nine-tail_fox_gray_white
+    - map: ["movementColor"]
+      state: nine-tail_fox_gray_color
+    - map: ["movementWhite"]
+      state: nine-tail_fox_gray_white
+  - type: SpriteMovement
+    movementLayers:
+      movementColor:
+        state: fox-moving-color
+      movementWhite:
+        state: fox-moving-white
+    noMovementLayers:
+      movementColor:
+        state: nine-tail_fox_gray_color
+      movementWhite:
+        state: nine-tail_fox_gray_white
   - type: KitsuneTransform
     actions:
     - ActionKitsuneRevert

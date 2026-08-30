@@ -12,7 +12,6 @@
   id: Fox
   name: ghost-theme-fox
   color: "#fff8"
-  sponsorOnly: true
   sprite:
     sprite: Mobs/Animals/fox.rsi
     state: fox-moving
