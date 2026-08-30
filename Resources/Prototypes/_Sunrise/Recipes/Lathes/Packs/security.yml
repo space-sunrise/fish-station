@@ -310,6 +310,10 @@
   id: SecurityDynamicSunriseClothing
   recipes:
     - ClothingHeadHelmetPubg
+    # FIsh edit start - цветные варианты Алтына
+    - FishClothingHeadHelmetPubgBlack
+    - FishClothingHeadHelmetPubgGreen
+    # FIsh edit end
     - ClothingShoesBootsMagSec
     - ClothingShoesBootsMagCombat
     - VestSecUpgradePlate
