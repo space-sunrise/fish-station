@@ -54,7 +54,6 @@
   - type: Damageable
     damageModifierSet: MobRogueSilicon
   - type: Injurable
-    damageContainer: Silicon
   - type: Insulated
   - type: NpcFactionMember
     factions:
@@ -839,7 +838,6 @@
   - type: Damageable
     damageModifierSet: MobRogueSilicon
   - type: Injurable
-    damageContainer: Silicon
   - type: Insulated
   - type: NpcFactionMember
     factions:

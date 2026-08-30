@@ -108,7 +108,7 @@
 
 - type: antag
   id: Disease
-  name: disease-agent-name
+  name: roles-antag-disease-name
   antagonist: true
 
 - type: antagSpecifier

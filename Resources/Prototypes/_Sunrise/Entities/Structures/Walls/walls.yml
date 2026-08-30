@@ -65,7 +65,6 @@
   - type: Damageable
     damageModifierSet: StructuralMetallic
   - type: Injurable
-    damageContainer: StructuralInorganic
   - type: Physics
     bodyType: Static
   - type: Reflect
@@ -105,7 +104,6 @@
   - type: Damageable
     damageModifierSet: StructuralMetallicStrong
   - type: Injurable
-    damageContainer: StructuralInorganic
   - type: StaticPrice
     price: 260
   - type: RadiationBlocker

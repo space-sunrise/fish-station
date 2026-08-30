@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: JobCoreBase
   name: job-name-corebase
   description: job-description-corebase

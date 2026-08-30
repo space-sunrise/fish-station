@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: BlueShieldOperative
   name: job-name-blueshield-operative
   description: job-description-blueshield-operative
@@ -30,7 +30,7 @@
     jumpsuit: ClothingUniformJumpsuitBlueShield
     shoes: ClothingShoesBootsBlueShieldFilled
     eyes: ClothingEyesGlassesBlueShield
-    # head через BlueShieldHead loadout # Fish-edit
+    # head С‡РµСЂРµР· BlueShieldHead loadout # Fish-edit
     id: BlueShieldOperativePDA
     ears: ClothingHeadsetCentCom
     gloves: ClothingHandsGlovesCombat

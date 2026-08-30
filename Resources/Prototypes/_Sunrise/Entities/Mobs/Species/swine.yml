@@ -85,7 +85,6 @@
   - type: Damageable
     damageModifierSet: Swine
   - type: Injurable
-    damageContainer: Biological
   - type: Butcherable
     butcheringType: Spike # TODO human.
     spawned:
