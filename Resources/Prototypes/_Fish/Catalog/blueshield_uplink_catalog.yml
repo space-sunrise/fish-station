@@ -195,6 +195,152 @@
       tags:
       - BlueShield
 
+# region Лазеры
+- type: listing
+  id: ERTUplinkWeaponPulseRifleBlueShield
+  productEntity: WeaponPulseRifle
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: pulse-r }
+  cost:
+    Bluecrystal: 16
+  categories:
+    - NTLasers
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkWeaponSniperPulseCarbineBlueShield
+  productEntity: WeaponSniperPulseCarbine
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: pulse-sc }
+  cost:
+    Bluecrystal: 16
+  categories:
+    - NTLasers
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkWeaponIONRifleBlueShield
+  productEntity: WeaponIonRifle
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: ion-r }
+  cost:
+    Bluecrystal: 9
+  categories:
+    - NTLasers
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkWeaponPulseCarbineBlueShield
+  productEntity: WeaponPulseCarbine
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: pulse-c }
+  cost:
+    Bluecrystal: 9
+  categories:
+    - NTLasers
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkWeaponLaserLNT620BlueShield
+  productEntity: WeaponLaserLNT620
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: lnt620 }
+  cost:
+    Bluecrystal: 9
+  categories:
+    - NTLasers
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkWeaponGunLaserCarbineAutomaticBlueShield
+  productEntity: WeaponGunLaserCarbineAutomatic
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: ik60 }
+  cost:
+    Bluecrystal: 16
+  categories:
+    - NTLasers
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+# region Пистолеты
+- type: listing
+  id: ERTUplinkWeaponRevolverSpearheadBlueShield
+  productEntity: WeaponRevolverSpearhead
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: spearhead }
+  cost:
+    Bluecrystal: 1
+  categories:
+    - NTPistols
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkWeaponPulsePistolBlueShield
+  productEntity: WeaponPulsePistol
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: pulse-p }
+  cost:
+    Bluecrystal: 4
+  categories:
+    - NTPistols
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkWeaponPistolN1984BlueShield
+  productEntity: WeaponPistolN1984
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: n1984 }
+  cost:
+    Bluecrystal: 2
+  categories:
+    - NTPistols
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
 # region Взрывчатка (1 BC)
 - type: listing
   id: ERTUplinkGrenadeShrapnel
@@ -211,7 +357,7 @@
 - type: listing
   id: ERTUplinkGrenadeStinger
   productEntity: GrenadeStinger
-  icon: { sprite: Objects/Weapons/Grenades/projectilegrenade.rsi, state: stinger }
+  icon: { sprite: Objects/Weapons/Grenades/stingergrenade.rsi, state: icon }
   cost:
     Bluecrystal: 1
   categories:
@@ -254,8 +400,8 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineBoxRifleHP
-  productEntity: MagazineBoxRifleHP
+  id: ERTUplinkMagazineBoxRifleAP
+  productEntity: MagazineBoxRifleAP
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_rifle }
   cost:
     Crystallite: 4
@@ -272,7 +418,7 @@
 - type: listing
   id: ERTUplinkMagazineRifleSPBlueShield
   productEntity: MagazineRifleSP
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_rifle }
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: base }
   cost:
     Crystallite: 1
   categories:
@@ -288,7 +434,7 @@
 - type: listing
   id: ERTUplinkMagazineRifleFMJBlueShield
   productEntity: MagazineRifleFMJ
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_rifle }
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: base }
   cost:
     Crystallite: 1
   categories:
@@ -302,9 +448,9 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineRifleHPBlueShield
-  productEntity: MagazineRifleHP
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_rifle }
+  id: ERTUplinkMagazineRifleAPBlueShield
+  productEntity: MagazineRifleAP
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: base }
   cost:
     Crystallite: 1
   categories:
@@ -321,7 +467,7 @@
 - type: listing
   id: ERTUplinkMagazineBoxLightRifleSPBlueShield
   productEntity: MagazineBoxLightRifleSP
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_lightrifle }
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi, state: base }
   cost:
     Crystallite: 4
   categories:
@@ -337,7 +483,7 @@
 - type: listing
   id: ERTUplinkMagazineBoxLightRifleFMJBlueShield
   productEntity: MagazineBoxLightRifleFMJ
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_lightrifle }
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi, state: base }
   cost:
     Crystallite: 4
   categories:
@@ -351,9 +497,9 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineBoxLightRifleHPBlueShield
-  productEntity: MagazineBoxLightRifleHP
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_lightrifle }
+  id: ERTUplinkMagazineBoxLightRifleAPBlueShield
+  productEntity: MagazineBoxLightRifleAP
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi, state: base }
   cost:
     Crystallite: 4
   categories:
@@ -369,7 +515,7 @@
 - type: listing
   id: ERTUplinkMagazineLightRifleSPBlueShield
   productEntity: MagazineLightRifleSP
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_lightrifle }
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: base }
   cost:
     Crystallite: 1
   categories:
@@ -385,7 +531,7 @@
 - type: listing
   id: ERTUplinkMagazineLightRifleFMJBlueShield
   productEntity: MagazineLightRifleFMJ
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_lightrifle }
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: base }
   cost:
     Crystallite: 1
   categories:
@@ -399,9 +545,9 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineLightRifleHPBlueShield
-  productEntity: MagazineLightRifleHP
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_lightrifle }
+  id: ERTUplinkMagazineLightRifleAPBlueShield
+  productEntity: MagazineLightRifleAP
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: base }
   cost:
     Crystallite: 1
   categories:
@@ -418,7 +564,7 @@
 - type: listing
   id: ERTUplinkMagazineBoxHeavyRifleSPBlueShield
   productEntity: MagazineBoxHeavyRifleSP
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_heavyrifle }
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi, state: base }
   cost:
     Crystallite: 4
   categories:
@@ -434,7 +580,7 @@
 - type: listing
   id: ERTUplinkMagazineBoxHeavyRifleFMJBlueShield
   productEntity: MagazineBoxHeavyRifleFMJ
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_heavyrifle }
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi, state: base }
   cost:
     Crystallite: 4
   categories:
@@ -448,9 +594,9 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineBoxHeavyRifleHPBlueShield
-  productEntity: MagazineBoxHeavyRifleHP
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_heavyrifle }
+  id: ERTUplinkMagazineBoxHeavyRifleAPBlueShield
+  productEntity: MagazineBoxHeavyRifleAP
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi, state: base }
   cost:
     Crystallite: 4
   categories:
@@ -466,7 +612,7 @@
 - type: listing
   id: ERTUplinkMagazineRifleHeavySPBlueShield
   productEntity: MagazineRifleHeavySP
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_heavyrifle }
+  icon: { sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/rifle_heavy_mag.rsi, state: base }
   cost:
     Crystallite: 1
   categories:
@@ -482,7 +628,7 @@
 - type: listing
   id: ERTUplinkMagazineRifleHeavyFMJBlueShield
   productEntity: MagazineRifleHeavyFMJ
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_heavyrifle }
+  icon: { sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/rifle_heavy_mag.rsi, state: base }
   cost:
     Crystallite: 1
   categories:
@@ -496,9 +642,9 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineRifleHeavyHPBlueShield
-  productEntity: MagazineRifleHeavyHP
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_heavyrifle }
+  id: ERTUplinkMagazineRifleHeavyAPBlueShield
+  productEntity: MagazineRifleHeavyAP
+  icon: { sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/rifle_heavy_mag.rsi, state: base }
   cost:
     Crystallite: 1
   categories:
@@ -563,7 +709,7 @@
 - type: listing
   id: ERTUplinkMagazinePistolSMGTopMountedSPBlueShield
   productEntity: MagazinePistolSubMachineGunTopMountedSP
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_wt550 }
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi, state: base }
   cost:
     Crystallite: 1
   categories:
@@ -579,7 +725,7 @@
 - type: listing
   id: ERTUplinkMagazinePistolSMGTopMountedFMJBlueShield
   productEntity: MagazinePistolSubMachineGunTopMounted
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_wt550 }
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi, state: base }
   cost:
     Crystallite: 1
   categories:
@@ -595,7 +741,7 @@
 - type: listing
   id: ERTUplinkMagazinePistolSMGTopMountedHPBlueShield
   productEntity: MagazinePistolSubMachineGunTopMountedHP
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_wt550 }
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi, state: base }
   cost:
     Crystallite: 1
   categories:
@@ -611,7 +757,7 @@
 - type: listing
   id: ERTUplinkMagazineDrozdBlueShield
   productEntity: MagazinePistolSubMachineGunCaselessExtended
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_iar52 }
+  icon: { sprite: _Sunrise/Objects/Weapons/Guns/SMGs/iar_52.rsi, state: mag-0 }
   cost:
     Crystallite: 1
   categories:
@@ -724,7 +870,7 @@
 - type: listing
   id: ERTUplinkSpeedLoaderMagnumSPBlueShield
   productEntity: SpeedLoaderMagnumSP
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: speedloader_magnum }
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: speedloader45 }
   cost:
     Crystallite: 1
   categories:
@@ -740,7 +886,7 @@
 - type: listing
   id: ERTUplinkSpeedLoaderMagnumFMJBlueShield
   productEntity: SpeedLoaderMagnumFMJ
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: speedloader_magnum }
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: speedloader45 }
   cost:
     Crystallite: 1
   categories:
@@ -756,7 +902,7 @@
 - type: listing
   id: ERTUplinkSpeedLoaderMagnumHPBlueShield
   productEntity: SpeedLoaderMagnumHP
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: speedloader_magnum }
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: speedloader45 }
   cost:
     Crystallite: 1
   categories:
@@ -773,7 +919,7 @@
 - type: listing
   id: ERTUplinkBoxLethalshotBlueShield
   productEntity: BoxLethalshot
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_buckshot }
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_shot }
   cost:
     Crystallite: 2
   categories:
@@ -789,7 +935,7 @@
 - type: listing
   id: ERTUplinkBoxShotgunSlugBlueShield
   productEntity: BoxShotgunSlug
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_slug }
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_shot_slug }
   cost:
     Crystallite: 2
   categories:
@@ -805,7 +951,7 @@
 - type: listing
   id: ERTUplinkBoxBeanbagBlueShield
   productEntity: BoxBeanbag
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_beanbag }
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_shot }
   cost:
     Crystallite: 2
   categories:
@@ -821,7 +967,7 @@
 - type: listing
   id: ERTUplinkBoxShotgunFlareBlueShield
   productEntity: BoxShotgunFlare
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_flare }
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_shot_flare }
   cost:
     Crystallite: 2
   categories:
@@ -837,7 +983,7 @@
 - type: listing
   id: ERTUplinkSpeedLoaderShellShotgunBlueShield
   productEntity: SpeedLoaderShellShotgun
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: speedloader_buckshot }
+  icon: { sprite: _Starlight/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Shotgun/shotgun_speed_loader.rsi, state: base }
   cost:
     Crystallite: 1
   categories:
@@ -853,7 +999,7 @@
 - type: listing
   id: ERTUplinkSpeedLoaderShotgunSlugBlueShield
   productEntity: SpeedLoaderShotgunSlug
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: speedloader_slug }
+  icon: { sprite: _Starlight/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Shotgun/shotgun_speed_loader.rsi, state: base }
   cost:
     Crystallite: 1
   categories:
@@ -869,7 +1015,7 @@
 - type: listing
   id: ERTUplinkSpeedLoaderShotgunBeanbagBlueShield
   productEntity: SpeedLoaderShotgunBeanbag
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: speedloader_beanbag }
+  icon: { sprite: _Starlight/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Shotgun/shotgun_speed_loader.rsi, state: base }
   cost:
     Crystallite: 1
   categories:
@@ -930,3 +1076,53 @@
     whitelist:
       tags:
       - BlueShield
+
+# region Медицина
+- type: listing
+  id: ERTUplinkAutoMenderBruteFilledBlueShield
+  productEntity: AutoMenderBruteFilled
+  icon: { sprite: _Starlight/Objects/Specific/Medical/medical.rsi, state: mender }
+  cost:
+    Crystallite: 10
+  categories:
+    - NTMedicine
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkAutoMenderBurnFilledBlueShield
+  productEntity: AutoMenderBurnFilled
+  icon: { sprite: _Starlight/Objects/Specific/Medical/medical.rsi, state: mender }
+  cost:
+    Crystallite: 10
+  categories:
+    - NTMedicine
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkDefibrillatorBlueShield
+  productEntity: AdvancedDefibrillatorCompact
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: defib }
+  cost:
+    Crystallite: 4
+  categories:
+    - NTMedicine
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
