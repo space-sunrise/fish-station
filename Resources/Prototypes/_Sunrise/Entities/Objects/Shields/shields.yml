@@ -82,7 +82,6 @@
     - type: Appearance
     - type: Damageable
     - type: Injurable
-      damageContainer: Shield
     - type: StaticPrice
       price: 7000
     - type: BatterySelfRecharger

@@ -39,7 +39,6 @@
     - type: Damageable
       damageModifierSet: FleshHeart
     - type: Injurable
-      damageContainer: Biological
     - type: Destructible
       thresholds:
         - trigger:

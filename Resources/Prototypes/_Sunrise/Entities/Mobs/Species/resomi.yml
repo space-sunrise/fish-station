@@ -89,7 +89,6 @@
   - type: Damageable
     damageModifierSet: Resomi
   - type: Injurable
-    damageContainer: Biological
   - type: Butcherable
     butcheringType: Spike
     spawned:

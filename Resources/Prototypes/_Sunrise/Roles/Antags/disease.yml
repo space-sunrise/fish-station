@@ -37,7 +37,6 @@
   - type: MovementIgnoreGravity
   - type: GravityAffected
   - type: Damageable
-    damageContainer: Biological
   - type: Examiner
   - type: NoSlip
   - type: Actions

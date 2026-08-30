@@ -104,7 +104,6 @@
   - type: Damageable
     damageModifierSet: StructuralMetallic
   - type: Injurable
-    damageContainer: StructuralInorganic
   - type: GenericVisualizer
     visuals:
       enum.EdgeConnectionVisuals.ConnectionMask:

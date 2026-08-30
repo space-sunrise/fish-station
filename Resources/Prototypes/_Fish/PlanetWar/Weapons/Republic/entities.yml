@@ -346,7 +346,6 @@
     weightless: True
   - type: IntrinsicRadioReceiver
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: DronShockWeaknessWM
   - type: PlanetWarStunDrone
   - type: MovementSpeedModifier

@@ -17,7 +17,6 @@
   components:
   - type: Damageable
   - type: Injurable
-    damageContainer: Biological
   - type: DamageOnHighSpeedImpact
     minimumSpeed: 0.1
     damage:
@@ -216,7 +215,6 @@
         Quantity: 20
   - type: Damageable
   - type: Injurable
-    damageContainer: Biological
   - type: DamageOnHighSpeedImpact
     minimumSpeed: 0.1
     damage:
