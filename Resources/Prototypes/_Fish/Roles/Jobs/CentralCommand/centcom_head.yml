@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: CentCommHead
   name: job-name-centcomhead
   description: job-description-centcomhead
@@ -13,7 +13,6 @@
   overrideConsoleVisibility: false # Sunrise added
   supervisors: job-supervisors-centcom
   radioBold: true
-  canBeAntag: false
   alwaysUseSpawner: true
   accessGroups:
   - AllAccess

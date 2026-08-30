@@ -107,3 +107,14 @@
     - sprite: _Sunrise/Interface/Misc/antag_preview.rsi
       state: test
 
+- type: antag
+  id: Disease
+  name: roles-antag-disease-name
+  antagonist: true
+
+- type: antagSpecifier
+  id: Disease
+  spawnerPrototype: SpawnPointGhostDisease
+  pickPlayer: false
+  mindRoles:
+  - MindRoleGhostRoleSoloAntagonist

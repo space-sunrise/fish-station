@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: OversightOfficer
   name: job-name-oversightofficer
   description: job-description-oversightofficer
@@ -21,7 +21,6 @@
   overrideConsoleVisibility: false # fish-edit
   supervisors: job-supervisors-oversightdep
   radioBold: true
-  canBeAntag: false
   alwaysUseSpawner: true
   accessGroups:
   - AllAccess
