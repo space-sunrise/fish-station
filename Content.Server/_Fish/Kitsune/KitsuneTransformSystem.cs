@@ -15,6 +15,7 @@ using Content.Shared.Popups;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Content.Shared.Inventory;
+using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Damage.Prototypes;
@@ -214,6 +215,15 @@ public sealed class KitsuneTransformSystem : EntitySystem
             var eyeColor = _sunriseBody.GetEyeColor(uid);
             _spriteColor.SetStateColor(newUid, "nine-tail_fox_gray_color", eyeColor);
             _spriteColor.SetStateColor(newUid, "fox-moving-color", eyeColor);
+        }
+
+        // Transfer JobStatus icon from humanoid to fox form so role icons display for HUDs
+        if (TryComp<JobStatusComponent>(uid, out var originalJobStatus) &&
+            TryComp<JobStatusComponent>(newUid, out var foxJobStatus))
+        {
+            foxJobStatus.JobStatusIcon = originalJobStatus.JobStatusIcon;
+            foxJobStatus.IsCrew = originalJobStatus.IsCrew;
+            Dirty(newUid, foxJobStatus);
         }
 
         _popup.PopupEntity(Loc.GetString("kitsune-transform-success"), newUid, newUid, PopupType.MediumCaution);

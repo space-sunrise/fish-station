@@ -95,12 +95,17 @@
       types:
         Heat: 1.5
   - type: ToggleableNightVision
+  - type: NameIdentifier
+    group: null
 
 # Player-transformed Kitsune form with dual sprite layers for color + white parts
 - type: entity
   parent: MobKitsuneFox
   id: MobKitsunePlayerFox
   components:
+  - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,0.5
+  - type: JobStatus
   - type: Sprite
     drawdepth: Mobs
     sprite: _Fish/nine_tailed_fox.rsi
