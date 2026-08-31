@@ -670,6 +670,9 @@
       whitelist:
         tags:
           - Ore
+    - type: OreProcessorMagnet # FIsh edit - магнит для сбора руды с пола
+      range: 3
+      duration: 2
     - type: Lathe
       idleState: icon
       runningState: building
