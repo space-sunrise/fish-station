@@ -64,7 +64,7 @@
       Female: FemaleHuman
       Unsexed: FemaleHuman
   - type: Damageable
-    damageContainer: Biological
+  - type: Injurable
   - type: MeleeWeapon
     hidden: true
     soundHit:

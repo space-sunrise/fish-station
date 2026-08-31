@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: RepresentativeBlueShield
   name: job-name-blueshield-operative
   description: job-description-blueshield-operative
@@ -16,7 +16,6 @@
   icon: JobIconBlueShield
 
   supervisors: job-supervisors-representative
-  canBeAntag: false
   accessGroups:
   - AllAccess
   special:
@@ -28,7 +27,7 @@
   equipment:
    shoes: ClothingShoesBootsBlueShieldFilled
    eyes: ClothingEyesGlassesBlueShield
-   # head через BlueShieldHead loadout # Fish-edit
+   # head С‡РµСЂРµР· BlueShieldHead loadout # Fish-edit
    # outerClothing: ClothingOuterArmorBlueShield # Fish edit - commented out, managed via loadout
    id: BlueShieldOperativePDA
    ears: ClothingHeadsetCommand

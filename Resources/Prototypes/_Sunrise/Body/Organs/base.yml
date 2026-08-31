@@ -1,4 +1,60 @@
 - type: entity
+  id: SolutionSunriseOrganNutriment
+  parent: Solution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: organ
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+
+- type: entity
+  id: SolutionSunriseBrainFood
+  parent: Solution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: food
+    solution:
+      maxVol: 5
+      reagents:
+      - ReagentId: GreyMatter
+        Quantity: 5
+
+- type: entity
+  id: SolutionSunriseRawProteinFood
+  parent: Solution
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: food
+    solution:
+      maxVol: 5
+      reagents:
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 5
+
+- type: entity
+  id: SolutionSunriseStomachSmall
+  parent: SolutionStomach
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 50
+
+- type: entity
+  id: SolutionSunriseStomachLarge
+  parent: SolutionStomach
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 200
+
+- type: entity
   id: SunriseOrganHuman
   parent: OrganHuman
   abstract: true
@@ -27,7 +83,7 @@
         Radiation: 5
         Caustic: 5
   - type: Damageable
-    damageContainer: Biological
+  - type: Injurable
   - type: OrganVisualization
     layer: Eyes
     data:
@@ -49,7 +105,7 @@
         Radiation: 5
         Caustic: 5
   - type: Damageable
-    damageContainer: Biological
+  - type: Injurable
 
 - type: entity
   id: SunriseOrganBaseAppendix
@@ -65,7 +121,7 @@
         Bloodloss: 5
         Radiation: 5
   - type: Damageable
-    damageContainer: Biological
+  - type: Injurable
 
 - type: entity
   id: SunriseOrganBaseEars
@@ -75,7 +131,7 @@
   - type: OrganEars
   - type: OrganDamage
   - type: Damageable
-    damageContainer: Biological
+  - type: Injurable
 
 - type: entity
   id: SunriseOrganBaseLungs
@@ -91,7 +147,7 @@
         Bloodloss: 10
         Radiation: 15
   - type: Damageable
-    damageContainer: Biological
+  - type: Injurable
 
 - type: entity
   id: SunriseOrganBaseHeart
@@ -108,7 +164,7 @@
         Caustic: 10
         Radiation: 5
   - type: Damageable
-    damageContainer: Biological
+  - type: Injurable
 
 - type: entity
   id: SunriseOrganBaseStomach
@@ -125,7 +181,7 @@
         Caustic: 10
         Radiation: 5
   - type: Damageable
-    damageContainer: Biological
+  - type: Injurable
 
 - type: entity
   id: SunriseOrganBaseLiver
@@ -142,7 +198,7 @@
         Caustic: 10
         Radiation: 15
   - type: Damageable
-    damageContainer: Biological
+  - type: Injurable
 
 - type: entity
   id: SunriseOrganBaseKidneys
@@ -160,4 +216,4 @@
         Radiation: 5
         Cold: 60
   - type: Damageable
-    damageContainer: Biological
+  - type: Injurable

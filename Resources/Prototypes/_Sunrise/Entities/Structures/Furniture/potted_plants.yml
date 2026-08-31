@@ -39,7 +39,7 @@
     sprite: Structures/Furniture/potted_plants.rsi
     size: Huge
   - type: Damageable
-    damageContainer: StructuralInorganic # The pot. Not the plant. Or is it plastic?
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger:

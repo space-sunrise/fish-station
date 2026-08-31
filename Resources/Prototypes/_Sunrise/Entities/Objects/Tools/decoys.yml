@@ -32,7 +32,7 @@
     - NamesFakeHumanLast
     nameFormat: name-format-standard
   - type: Damageable
-    damageContainer: Inorganic
+  - type: Injurable
   - type: Foldable
     folded: true
   - type: ContainerContainer

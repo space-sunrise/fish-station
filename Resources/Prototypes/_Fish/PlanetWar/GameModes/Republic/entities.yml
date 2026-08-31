@@ -29,7 +29,6 @@
   - type: Item
     size: Huge
   - type: Damageable
-    damageContainer: Inorganic
   - type: Destructible
     thresholds:
       - trigger:

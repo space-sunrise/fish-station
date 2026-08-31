@@ -81,7 +81,7 @@
           Piercing: 1
     - type: Appearance
     - type: Damageable
-      damageContainer: Shield
+    - type: Injurable
     - type: StaticPrice
       price: 7000
     - type: BatterySelfRecharger

@@ -84,8 +84,8 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger:

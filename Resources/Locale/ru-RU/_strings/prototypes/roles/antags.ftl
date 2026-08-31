@@ -35,8 +35,6 @@ roles-antag-mothership-core-objective = Используйте своих ксе
 roles-antag-xenoborg-name = Ксеноборг
 roles-antag-xenoborg-objective = Помогайте материнскому кораблю создавать больше ксеноборгов.
 roles-antag-changeling-description = Используйте свои способности к превращению, чтобы выполнить свои задачи.
-roles-antag-terminator-name = Терминатор
-roles-antag-terminator-objective = Убейте цель любой ценой, от этого зависит будущее.
 AntagNuclearMedic = Ядерный оперативник медик
 AntagNuclearOperative = Ядерный оперативник
 AntagNuclearCommander = Командир ядерных оперативников
@@ -55,3 +53,5 @@ roles-antag-nuclear-operative-agent-name = Медик ядерных опера�
 roles-antag-nuclear-operative-agent-objective = Медик ядерных оперативников. Лечите свою команду до победы!
 
 roles-antag-pirate-name = Пират
+
+roles-antag-disease-name = Разумная болезнь

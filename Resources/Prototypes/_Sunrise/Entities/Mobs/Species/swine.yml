@@ -83,8 +83,8 @@
       Unsexed: UnisexSwine
   - type: SwineAccent
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Swine
+  - type: Injurable
   - type: Butcherable
     butcheringType: Spike # TODO human.
     spawned:

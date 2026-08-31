@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: NanoTrasenRepresentative
   name: job-name-ntrep
   description: job-description-ntrep
@@ -10,7 +10,6 @@
   joinNotifyCrew: true
   radioBold: true
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   accessGroups: # Fish-edit
   - AllAccess
   alternativeTitles:

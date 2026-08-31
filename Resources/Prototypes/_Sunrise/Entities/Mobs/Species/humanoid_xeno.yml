@@ -85,8 +85,8 @@
         Quantity: 300
   - type: ProtectedFromStepTriggers
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Xenomorph
+  - type: Injurable
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 4

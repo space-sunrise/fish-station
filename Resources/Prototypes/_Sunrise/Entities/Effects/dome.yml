@@ -22,8 +22,8 @@
   - type: Physics
     bodyType: Static
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: HardLightBarrier
+  - type: Injurable
   - type: AmbientSound
     volume: 35
     range: 5

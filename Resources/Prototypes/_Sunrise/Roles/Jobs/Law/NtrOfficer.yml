@@ -1,19 +1,18 @@
-- type: job
+﻿- type: job
   id: NtrOfficer
   name: job-name-ntrofficer
   description: job-description-ntrofficer
   playTimeTracker: JobNtrOfficer
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Command
-      time: 54000 # 15h Sunrise-RoleTime
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 36000 # 10h Sunrise-RoleTime
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 54000 # 15h Sunrise-RoleTime
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000 # 10h Sunrise-RoleTime
   startingGear: NtrOfficerGear
   icon: "JobIconNtrGuard"
   supervisors: job-supervisors-oversightdep #Fish-edit
-  canBeAntag: false
   displayWeight: 40
   access:
   - Command

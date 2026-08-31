@@ -62,8 +62,8 @@
           False: { state: unshaded }
   - type: Appearance
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger:

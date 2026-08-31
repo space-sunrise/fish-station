@@ -100,7 +100,6 @@
           Quantity: 10
         maxVol: 50
   - type: SolutionRegeneration
-    solution: tank
     generated:
       reagents:
       - ReagentId: WeldingFuel
@@ -146,7 +145,6 @@
   - type: Portal
     maxRandomRadius: 0
   - type: Damageable
-    damageContainer: Inorganic
   - type: Destructible
     thresholds:
       - trigger:
@@ -462,7 +460,6 @@
         shader: unshaded
  #тут вырезка была 
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:

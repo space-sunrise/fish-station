@@ -9,7 +9,7 @@
     layers:
     - state: nitrium
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
         Zenthium: 1871.71051 # Zenthium
@@ -20,8 +20,8 @@
         !type:DamageTrigger
         damage: 600
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 300
@@ -51,7 +51,7 @@
     layers:
     - state: nitrium
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
         Krypium: 1871.71051 # Krypium
@@ -62,8 +62,8 @@
         !type:DamageTrigger
         damage: 600
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 300
@@ -93,7 +93,7 @@
     layers:
     - state: nitrium
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
         Prallium: 1871.71051 # Prallium
@@ -104,8 +104,8 @@
         !type:DamageTrigger
         damage: 600
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 300
@@ -135,7 +135,7 @@
     layers:
     - state: nitrium
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
         Chaoson: 1871.71051 # Chaoson
@@ -146,8 +146,8 @@
         !type:DamageTrigger
         damage: 600
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 300
@@ -177,7 +177,7 @@
     layers:
     - state: nitrium
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
         Garodin: 1871.71051 # Garodin
@@ -188,8 +188,8 @@
         !type:DamageTrigger
         damage: 600
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 300
@@ -219,7 +219,7 @@
     layers:
     - state: nitrium
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
         Baratrium: 1871.71051 # Baratrium
@@ -230,8 +230,8 @@
         !type:DamageTrigger
         damage: 600
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 300
@@ -261,7 +261,7 @@
     layers:
     - state: nitrium
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
         Ethylium: 1871.71051 # Ethylium
@@ -272,8 +272,8 @@
         !type:DamageTrigger
         damage: 600
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 300
@@ -303,7 +303,7 @@
     layers:
     - state: nitrium
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
         Zimmera: 1871.71051 # Zimmera
@@ -314,8 +314,8 @@
         !type:DamageTrigger
         damage: 600
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 300
@@ -345,7 +345,7 @@
     layers:
     - state: nitrium
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
         Framel: 1871.71051 # Framel
@@ -356,8 +356,8 @@
         !type:DamageTrigger
         damage: 600
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 300
@@ -387,7 +387,7 @@
     layers:
     - state: nitrium
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
         Klemennon: 1871.71051 # Klemennon
@@ -398,8 +398,8 @@
         !type:DamageTrigger
         damage: 600
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 300
@@ -429,7 +429,7 @@
     layers:
     - state: nitrium
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
         ProtoUltimium: 1871.71051 # Proto-Ultimium
@@ -440,8 +440,8 @@
         !type:DamageTrigger
         damage: 600
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 300
@@ -471,7 +471,7 @@
     layers:
     - state: nitrium
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
         ZimmerousFrezonite: 1871.71051 # ZimmerousFrezonite
@@ -482,8 +482,8 @@
         !type:DamageTrigger
         damage: 600
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 300
@@ -513,7 +513,7 @@
     layers:
     - state: nitrium
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
         AntiUltimium: 1871.71051 # AntiUltimium
@@ -524,8 +524,8 @@
         !type:DamageTrigger
         damage: 600
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 300
@@ -555,7 +555,7 @@
     layers:
     - state: nitrium
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
         Ultimium: 1871.71051 # Ultimium
@@ -566,8 +566,8 @@
         !type:DamageTrigger
         damage: 600
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 300
@@ -597,7 +597,7 @@
     layers:
     - state: nitrium
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
         Permafrost: 1871.71051 # Permafrost
@@ -608,8 +608,8 @@
         !type:DamageTrigger
         damage: 600
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 300
@@ -639,7 +639,7 @@
     layers:
     - state: nitrium
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
         Permafrost: 1000 # Permafrost
@@ -650,8 +650,8 @@
         !type:DamageTrigger
         damage: 600
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 300
@@ -681,7 +681,7 @@
     layers:
     - state: nitrium
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
         Riminon: 1871.71051 # Riminon
@@ -692,8 +692,8 @@
         !type:DamageTrigger
         damage: 600
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 300
@@ -723,7 +723,7 @@
     layers:
     - state: nitrium
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
         AxoNoblium: 1871.71051 # AxoNoblium
@@ -734,8 +734,8 @@
         !type:DamageTrigger
         damage: 600
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 300

@@ -32,8 +32,8 @@
     containers:
     - body_container
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StrongMetallic
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger:

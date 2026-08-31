@@ -12,12 +12,12 @@ namespace Content.Server.Ninja.Systems;
 /// Server system for ninja equipment that draws power from the ninja suit's battery.
 /// Handles the actual power draw logic using the ninja suit's battery.
 /// </summary>
-public sealed class NinjaSuitDrawSystem : SharedNinjaSuitDrawSystem
+public sealed partial class NinjaSuitDrawSystem : SharedNinjaSuitDrawSystem
 {
-    [Dependency] private readonly SpaceNinjaSystem _ninja = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly BatterySystem _battery = default!; // Sunrise
+    [Dependency] private SpaceNinjaSystem _ninja = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private BatterySystem _battery = default!; // Sunrise
 
     public override void Initialize()
     {
@@ -143,7 +143,8 @@ public sealed class NinjaSuitDrawSystem : SharedNinjaSuitDrawSystem
         if (!_ninja.IsNinja(user))
             return false;
 
-        return _ninja.GetNinjaBattery(user, out _, out var battery) && _battery.GetCharge((user, battery)) > 0f;
+        return _ninja.GetNinjaBattery(user, out var batteryUid, out var battery) &&
+               _battery.GetCharge((batteryUid.Value, battery)) > 0f;
     }
 
     public override bool CanUse(Entity<NinjaSuitDrawComponent> ent)
@@ -152,8 +153,8 @@ public sealed class NinjaSuitDrawSystem : SharedNinjaSuitDrawSystem
         if (!_ninja.IsNinja(user))
             return false;
 
-        return _ninja.GetNinjaBattery(user, out _, out var battery) &&
-               (ent.Comp.UseRate <= 0f || _battery.GetCharge((user, battery)) >= ent.Comp.UseRate);
+        return _ninja.GetNinjaBattery(user, out var batteryUid, out var battery) &&
+               (ent.Comp.UseRate <= 0f || _battery.GetCharge((batteryUid.Value, battery)) >= ent.Comp.UseRate);
     }
 }
 

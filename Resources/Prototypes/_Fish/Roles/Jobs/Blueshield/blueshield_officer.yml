@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: BlueShieldOfficerFish
   name: job-name-blueshield-officer
   description: job-description-blueshield-officer
@@ -12,7 +12,6 @@
   startingGear: BlueShieldOfficerGearFish
   icon: JobIconBlueShield
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   access:
    - Command
    - Bar

@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: CentcommBlueShield
   name: job-name-centcom-blueshield
   description: job-description-centcom-blueshield
@@ -15,7 +15,6 @@
 
   overrideConsoleVisibility: false
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   alwaysUseSpawner: true
   accessGroups:
   - AllAccess
@@ -30,7 +29,7 @@
   equipment:
    shoes: ClothingShoesBootsBlueShieldFilled
    eyes: ClothingEyesGlassesBlueShield
-   # head через BlueShieldHead loadout # Fish-edit
+   # head С‡РµСЂРµР· BlueShieldHead loadout # Fish-edit
    id: BlueShieldOperativePDA
    ears: ClothingHeadsetFishCentCom
    gloves: ClothingHandsGlovesCombat
