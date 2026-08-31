@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: PermafrostCanisterCargoPurchase
+  icon:
+    sprite: _Sunrise/Structures/Storage/canister.rsi
+    state: nitrium
+  product: PermafrostCanisterCargo
+  cost: 20000
+  category: cargoproduct-category-name-engineering
+  group: market

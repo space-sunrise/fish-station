@@ -10,6 +10,7 @@ using Content.Shared.Players;
 using Robust.Server.Console;
 using Robust.Shared.Player;
 using Content.Shared.Speech.Muting;
+using Content.Shared._Fish.Achievements.Events;
 
 namespace Content.Server.Mobs;
 
@@ -45,6 +46,11 @@ public sealed class CritMobActionsSystem : EntitySystem
         // Sunrise-Edit
         if (actor.PlayerSession.GetMind() is { } mindId)
             _ghostSystem.OpenAcceptEui(mindId, actor.PlayerSession);
+
+        // Fish-Edit start: broadcast для achievements
+        var fishSuccumbEv = new FishCritSuccumbEvent(uid);
+        RaiseLocalEvent(ref fishSuccumbEv);
+        // Fish-Edit end
 
         args.Handled = true;
     }

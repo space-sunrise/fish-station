@@ -1,0 +1,4 @@
+- type: shader
+  id: FishVisorMask
+  kind: source
+  path: "/Textures/_Fish/Shaders/visor_mask.swsl"

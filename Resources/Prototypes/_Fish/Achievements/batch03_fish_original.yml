@@ -1,0 +1,36 @@
+- type: achievement
+  id: FishAch_Combat_CorridorsOfPain
+  name: achievement-fishach_combat_corridorsofpain-name
+  description: achievement-fishach_combat_corridorsofpain-desc
+  category: FishAchCombat
+  condition: kill
+  allowGenericTrigger: true
+  progressTarget: 3
+  oncePerRound: true
+  requirePlayerVictim: true
+  order: 1009
+  # source: Fish-original
+- type: achievement
+  id: FishAch_Misc_FirstShift
+  name: achievement-fishach_misc_firstshift-name
+  description: achievement-fishach_misc_firstshift-desc
+  category: FishAchMisc
+  condition: role-added
+  conditionParams:
+    job: Passenger
+  progressTarget: 3
+  oncePerRound: true
+  order: 1060
+  # source: Fish-original
+- type: achievement
+  id: FishAch_Misc_LabelMaker
+  name: achievement-fishach_misc_labelmaker-name
+  description: achievement-fishach_misc_labelmaker-desc
+  category: FishAchMisc
+  condition: craft
+  conditionParams:
+    item: Paper
+  progressTarget: 15
+  oncePerRound: true
+  order: 1069
+  # source: Fish-original

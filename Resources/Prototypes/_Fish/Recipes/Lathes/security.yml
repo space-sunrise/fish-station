@@ -1,0 +1,9 @@
+- type: latheRecipe
+  parent: ClothingHeadHelmetPubg
+  id: FishClothingHeadHelmetPubgBlack
+  result: FishClothingHeadHelmetPubgBlack
+
+- type: latheRecipe
+  parent: ClothingHeadHelmetPubg
+  id: FishClothingHeadHelmetPubgGreen
+  result: FishClothingHeadHelmetPubgGreen

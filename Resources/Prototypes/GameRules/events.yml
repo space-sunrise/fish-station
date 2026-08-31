@@ -686,7 +686,7 @@
   components:
   - type: StationEvent
     startAudio:
-      path: /Audio/_Sunrise/Announcements/ionstorm.ogg
+      path: /Audio/_Fish/Misc/i-storm.ogg # Fish-edit
       params:
         volume: -10
     weight: 8

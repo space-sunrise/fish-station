@@ -3,6 +3,7 @@ using Content.Server._Sunrise.Silicons.Laws.Components;
 using Content.Server.Administration;
 using Content.Server.Chat.Managers;
 using Content.Server.Station.Systems;
+using Content.Shared._Fish.Achievements.Events;
 using Content.Shared.Administration;
 using Content.Shared.Chat;
 using Content.Shared.Emag.Systems;
@@ -152,6 +153,10 @@ public sealed partial class SiliconLawSystem : SharedSiliconLawSystem // Sunrise
             if(_mind.TryGetMind(uid, out var mindId, out _))
                 EnsureSubvertedSiliconRole(mindId);
 
+            // Fish-Edit start: broadcast для achievements
+            var fishLawEv = new FishAiLawChangedEvent(uid, "ion-storm");
+            RaiseLocalEvent(ref fishLawEv);
+            // Fish-Edit end
         }
     }
 
@@ -186,6 +191,11 @@ public sealed partial class SiliconLawSystem : SharedSiliconLawSystem // Sunrise
         // Sunrise added start - notify and mark emagged borgs for Sunrise law systems.
         OnRegularEmagLawsAdded(uid);
         // Sunrise added end
+
+        // Fish-Edit start: broadcast для achievements
+        var fishLawEv = new FishAiLawChangedEvent(uid, "emag");
+        RaiseLocalEvent(ref fishLawEv);
+        // Fish-Edit end
     }
 
     protected override void EnsureSubvertedSiliconRole(EntityUid mindId)
@@ -326,6 +336,10 @@ public sealed partial class SiliconLawSystem : SharedSiliconLawSystem // Sunrise
                 Dirty(update, crewIconComp);
             }
             SetLaws(lawset.Laws, update, provider.LawUploadSound);
+            // Fish-Edit start: broadcast для achievements
+            var fishLawEv = new FishAiLawChangedEvent(update, "law-upload");
+            RaiseLocalEvent(ref fishLawEv);
+            // Fish-Edit end
         }
     }
 }

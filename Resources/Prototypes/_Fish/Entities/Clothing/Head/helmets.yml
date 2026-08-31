@@ -1,0 +1,45 @@
+- type: entity
+  parent: BaseAction
+  id: FishActionToggleAltynVisor
+  name: Toggle Altyn visor
+  description: Raises or lowers the helmet visor.
+  components:
+  - type: Action
+    useDelay: 0.5
+    itemIconStyle: BigItem
+  - type: InstantAction
+    event: !type:ToggleActionEvent
+
+- type: entity
+  parent: ClothingHeadHelmetPubg
+  id: FishClothingHeadHelmetPubgBlack
+  name: black Altyn
+  description: A black variant of the fortified Altyn helmet.
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Head/Helmets/tfhelm_black.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-up
+      map: [ "foldedLayer" ]
+      visible: false
+  - type: Clothing
+    sprite: _Fish/Clothing/Head/Helmets/tfhelm_black.rsi
+
+- type: entity
+  parent: ClothingHeadHelmetPubg
+  id: FishClothingHeadHelmetPubgGreen
+  name: green Altyn
+  description: A green variant of the fortified Altyn helmet.
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Head/Helmets/tfhelm_green.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-up
+      map: [ "foldedLayer" ]
+      visible: false
+  - type: Clothing
+    sprite: _Fish/Clothing/Head/Helmets/tfhelm_green.rsi

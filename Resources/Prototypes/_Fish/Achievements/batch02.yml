@@ -1,0 +1,37 @@
+- type: achievement
+  id: FishAch_BrainDamage
+  name: achievement-fishach_braindamage-name
+  description: achievement-fishach_braindamage-desc
+  category: FishAchSecret
+  condition: damage-dealt
+  allowGenericTrigger: true
+  progressTarget: 10
+  oncePerRound: true
+  order: 481
+  secret: true
+  secretDescription: achievement-fishach_braindamage-secret
+  # source: Yogstation
+- type: achievement
+  id: FishAch_ClownCourt
+  name: achievement-fishach_clowncourt-name
+  description: achievement-fishach_clowncourt-desc
+  category: FishAchFunny
+  condition: gavel-strike
+  conditionParams:
+    target: GavelBlock
+  progressTarget: 30
+  oncePerRound: true
+  order: 526
+  # source: Fish-original
+- type: achievement
+  id: FishAch_GhostTour
+  name: achievement-fishach_ghosttour-name
+  description: achievement-fishach_ghosttour-desc
+  category: FishAchSecret
+  condition: became-ghost
+  progressTarget: 1
+  oncePerRound: true
+  order: 528
+  secret: true
+  secretDescription: achievement-fishach_ghosttour-secret
+  # source: Fish-original
