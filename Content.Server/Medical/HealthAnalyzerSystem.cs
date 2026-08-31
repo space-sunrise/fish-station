@@ -1,6 +1,7 @@
 using Content.Server.Medical.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
@@ -238,6 +239,8 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         var bloodAmount = float.NaN;
         var bleeding = false;
         var unrevivable = false;
+        // FIsh edit - реагенты, отличные от базового состава крови
+        var reagents = new List<ReagentQuantity>();
 
         if (TryComp<BloodstreamComponent>(entity, out var bloodstream) &&
             _solutionContainerSystem.ResolveSolution(entity, bloodstream.BloodSolutionName,
@@ -245,6 +248,25 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         {
             bloodAmount = _bloodstreamSystem.GetBloodLevel(entity);
             bleeding = bloodstream.BleedAmount > 0;
+
+            // FIsh edit start - сбор посторонних реагентов в кровотоке
+            foreach (var reagent in bloodSolution.Contents)
+            {
+                var isBloodReagent = false;
+
+                foreach (var bloodReagent in bloodstream.BloodReferenceSolution.Contents)
+                {
+                    if (bloodReagent.Reagent.Prototype != reagent.Reagent.Prototype)
+                        continue;
+
+                    isBloodReagent = true;
+                    break;
+                }
+
+                if (!isBloodReagent)
+                    reagents.Add(new ReagentQuantity(reagent.Reagent.Prototype, reagent.Quantity));
+            }
+            // FIsh edit end
         }
 
         if (TryComp<UnrevivableComponent>(entity, out var unrevivableComp) && unrevivableComp.Analyzable)
@@ -279,7 +301,8 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             bleeding,
             unrevivable,
             hungerLevel,
-            thirstLevel
+            thirstLevel,
+            reagents
         );
         // Sunrise-Edit end
     }

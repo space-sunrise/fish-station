@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Shared.Atmos;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
@@ -53,10 +54,14 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             || !_entityManager.TryGetComponent<DamageableComponent>(target, out var damageable))
         {
             NoPatientDataText.Visible = true;
+            // FIsh edit - не оставляем показания реагентов без данных о пациенте
+            ReagentsContainer.Visible = false;
             return;
         }
 
         NoPatientDataText.Visible = false;
+        // FIsh edit - показываем реагенты только при наличии данных о пациенте
+        ReagentsContainer.Visible = true;
 
         // Scan Mode
 
@@ -116,6 +121,9 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
 
         DamageLabel.Text = _damageable.GetTotalDamage(target.Value).ToString();
 
+        // FIsh edit - отображение реагентов, переданных сервером
+        DrawReagents(state.Reagents);
+
         // Alerts
 
         var showAlerts = state.Unrevivable == true || state.Bleeding == true;
@@ -164,6 +172,52 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             _ => Loc.GetString("health-analyzer-window-entity-unknown-text"),
         };
     }
+
+    // FIsh edit start - список посторонних реагентов в кровотоке
+    private void DrawReagents(IReadOnlyList<ReagentQuantity> reagents)
+    {
+        ReagentsListContainer.RemoveAllChildren();
+
+        if (reagents.Count == 0)
+        {
+            ReagentsListContainer.AddChild(new Label
+            {
+                Text = Loc.GetString("health-analyzer-window-reagents-none"),
+                StyleClasses = { "LabelSubText" },
+            });
+            return;
+        }
+
+        var entries = new List<(ReagentPrototype Prototype, FixedPoint2 Quantity)>();
+
+        foreach (var reagent in reagents)
+        {
+            if (_prototypes.TryIndex<ReagentPrototype>(reagent.Reagent.Prototype, out var prototype))
+                entries.Add((prototype, reagent.Quantity));
+        }
+
+        entries.Sort((left, right) => string.Compare(
+            left.Prototype.LocalizedName,
+            right.Prototype.LocalizedName,
+            StringComparison.CurrentCulture));
+
+        foreach (var (prototype, quantity) in entries)
+        {
+            var message = new FormattedMessage();
+            message.PushColor(prototype.SubstanceColor);
+            message.AddText("● ");
+            message.Pop();
+            message.AddText(Loc.GetString(
+                "health-analyzer-window-reagents-entry",
+                ("reagent", prototype.LocalizedName),
+                ("amount", quantity)));
+
+            var label = new RichTextLabel();
+            label.SetMessage(message);
+            ReagentsListContainer.AddChild(label);
+        }
+    }
+    // FIsh edit end
 
     private void DrawDiagnosticGroups(
         Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> groups,

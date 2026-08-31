@@ -42,6 +42,23 @@
         </GridContainer>
     </BoxContainer>
 
+    <!-- FIsh edit start - отображение реагентов в кровотоке -->
+    <PanelContainer StyleClasses="LowDivider" />
+
+    <BoxContainer
+        Name="ReagentsContainer"
+        Margin="0 5"
+        Orientation="Vertical">
+        <Label
+            Text="{Loc 'health-analyzer-window-reagents-title'}"
+            StyleClasses="LabelHeading" />
+        <BoxContainer
+            Name="ReagentsListContainer"
+            Margin="0 3 0 0"
+            Orientation="Vertical" />
+    </BoxContainer>
+    <!-- FIsh edit end -->
+
     <PanelContainer Name="AlertsDivider" Visible="False" StyleClasses="LowDivider" />
 
     <BoxContainer Name="AlertsContainer" Visible="False" Margin="0 5" Orientation="Vertical" HorizontalAlignment="Center">
