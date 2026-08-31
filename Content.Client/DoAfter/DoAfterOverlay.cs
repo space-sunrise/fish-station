@@ -33,6 +33,11 @@ public sealed class DoAfterOverlay : Overlay
     /// </summary>
     private const float FlashTime = 0.125f;
 
+    // FIsh edit start - плавное появление индикатора действия
+    private const float EntranceDuration = 0.2f;
+    private const float EntranceDistance = 0.25f;
+    // FIsh edit end
+
     // Hardcoded width of the progress bar because it doesn't match the texture.
     private const float StartX = 2;
     private const float EndX = 22f;
@@ -109,15 +114,23 @@ public sealed class DoAfterOverlay : Overlay
 
             foreach (var doAfter in comp.DoAfters.Values)
             {
+                // FIsh edit start - подъём и проявление нового индикатора
+                var entranceRatio = Math.Clamp(
+                    (float) ((time - doAfter.StartTime).TotalSeconds / EntranceDuration),
+                    0f,
+                    1f);
+                var entranceProgress = 1f - MathF.Pow(1f - entranceRatio, 3f);
+                // FIsh edit end
+
                 // Hide some DoAfters from other players for stealthy actions (ie: thieving gloves)
-                var alpha = 1f;
+                var alpha = entranceProgress; // FIsh edit - учитываем плавное проявление
                 if (doAfter.Args.Hidden || isInContainer)
                 {
                     if (uid != localEnt)
                         continue;
 
                     // Hints to the local player that this do-after is not visible to other players.
-                    alpha = 0.5f;
+                    alpha *= 0.5f; // FIsh edit - сохраняем прозрачность скрытого действия
                 }
 
                 // Use the sprite itself if we know its bounds. This means short or tall sprites don't get overlapped
@@ -129,8 +142,11 @@ public sealed class DoAfterOverlay : Overlay
                 var position = new Vector2(-_barTexture.Width / 2f / EyeManager.PixelsPerMeter,
                     yOffset / scale + offset / EyeManager.PixelsPerMeter * scale);
 
+                // FIsh edit - начинаем ниже конечной позиции
+                position.Y -= EntranceDistance * (1f - entranceProgress);
+
                 // Draw the underlying bar texture
-                handle.DrawTexture(_barTexture, position);
+                handle.DrawTexture(_barTexture, position, Color.White.WithAlpha(entranceProgress)); // FIsh edit
 
                 Color color;
                 float elapsedRatio;
