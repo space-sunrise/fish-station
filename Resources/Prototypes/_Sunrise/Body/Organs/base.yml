@@ -84,7 +84,6 @@
         Caustic: 5
   - type: Damageable
   - type: Injurable
-    damageContainer: Biological
   - type: OrganVisualization
     layer: Eyes
     data:
@@ -107,7 +106,6 @@
         Caustic: 5
   - type: Damageable
   - type: Injurable
-    damageContainer: Biological
 
 - type: entity
   id: SunriseOrganBaseAppendix
@@ -124,7 +122,6 @@
         Radiation: 5
   - type: Damageable
   - type: Injurable
-    damageContainer: Biological
 
 - type: entity
   id: SunriseOrganBaseEars
@@ -135,7 +132,6 @@
   - type: OrganDamage
   - type: Damageable
   - type: Injurable
-    damageContainer: Biological
 
 - type: entity
   id: SunriseOrganBaseLungs
@@ -152,7 +148,6 @@
         Radiation: 15
   - type: Damageable
   - type: Injurable
-    damageContainer: Biological
 
 - type: entity
   id: SunriseOrganBaseHeart
@@ -170,7 +165,6 @@
         Radiation: 5
   - type: Damageable
   - type: Injurable
-    damageContainer: Biological
 
 - type: entity
   id: SunriseOrganBaseStomach
@@ -188,7 +182,6 @@
         Radiation: 5
   - type: Damageable
   - type: Injurable
-    damageContainer: Biological
 
 - type: entity
   id: SunriseOrganBaseLiver
@@ -206,7 +199,6 @@
         Radiation: 15
   - type: Damageable
   - type: Injurable
-    damageContainer: Biological
 
 - type: entity
   id: SunriseOrganBaseKidneys
@@ -225,4 +217,3 @@
         Cold: 60
   - type: Damageable
   - type: Injurable
-    damageContainer: Biological

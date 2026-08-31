@@ -496,7 +496,6 @@
     anchored: true
   - type: Physics
   - type: Damageable
-    damageContainer: Inorganic
   #- type: Slippery
    # launchForwardsMultiplier: 0.1
  #   requiredSlipSpeed: 1
@@ -740,7 +739,6 @@
     sprite: Objects/Tools/fulton.rsi
     state: extraction_pack
   - type: Damageable
-    damageContainer: Inorganic
   - type: Destructible
     thresholds:
       - trigger:
@@ -1493,7 +1491,6 @@
   id: DrinkMREFlaskWM
   components:
   - type: SolutionRegeneration
-    solution: drink
     generated:
       reagents:
       - ReagentId: WaterPW
@@ -1516,7 +1513,6 @@
   id: BucketWM
   components:
   - type: SolutionRegeneration
-    solution: drink
     generated:
       reagents:
       - ReagentId: WaterPW
@@ -2875,7 +2871,6 @@
   parent: BaseChemistryBottleFilled
   components:
   - type: SolutionRegeneration
-    solution: drink
     generated:
       reagents:
       - ReagentId: EpinephrinePW
@@ -2913,7 +2908,6 @@
   parent: ChemistryBottlePuncturaseWM
   components:
   - type: SolutionRegeneration
-    solution: drink
     generated:
       reagents:
       - ReagentId: BicaridinePW
@@ -2941,7 +2935,6 @@
   parent: ChemistryBottlePuncturaseWM
   components:
   - type: SolutionRegeneration
-    solution: drink
     generated:
       reagents:
       - ReagentId: TricordrazinePW
@@ -2969,7 +2962,6 @@
   parent: ChemistryBottlePuncturaseWM
   components:
   - type: SolutionRegeneration
-    solution: drink
     generated:
       reagents:
       - ReagentId: DermalinePW
@@ -2993,7 +2985,6 @@
   parent: ChemistryBottlePuncturaseWM
   components:
   - type: SolutionRegeneration
-    solution: drink
     generated:
       reagents:
       - ReagentId: EZNutrientPW
@@ -3418,7 +3409,6 @@
  #   shape: Square
  #   requireInSpace: false
   - type: Damageable
-    damageContainer: RockdamageContainer
     damageModifierSet: RockWM
   - type: Pierceable
     level: HardenedMetal
@@ -3444,7 +3434,6 @@
   parent: WallRockSnow
   components:
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: RockWM
   - type: Pierceable
     level: HardenedMetal
@@ -3459,7 +3448,6 @@
   abstract: true
   components:
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: TreeWM
   - type: Pierceable
     level: HardenedMetal
@@ -3884,7 +3872,6 @@
         enum.ResearchClientUiKey.Key:
           type: ResearchClientBoundUserInterface
     - type: Damageable
-      damageContainer: Inorganic
     - type: TimedSpawner
       chance: 1
       intervalSeconds: 9000

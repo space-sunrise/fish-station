@@ -28,7 +28,6 @@
     - type: Damageable
       damageModifierSet: FleshMob
     - type: Injurable
-      damageContainer: Biological
     - type: HTN
       rootTask:
         task: SimpleHostileCompound

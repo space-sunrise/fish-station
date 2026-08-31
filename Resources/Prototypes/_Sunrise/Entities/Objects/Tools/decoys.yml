@@ -33,7 +33,6 @@
     nameFormat: name-format-standard
   - type: Damageable
   - type: Injurable
-    damageContainer: Inorganic
   - type: Foldable
     folded: true
   - type: ContainerContainer

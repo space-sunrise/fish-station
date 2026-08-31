@@ -87,7 +87,6 @@
   - type: Damageable
     damageModifierSet: Xenomorph
   - type: Injurable
-    damageContainer: Biological
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 4

@@ -69,7 +69,6 @@
   - type: Damageable
     damageModifierSet: Predator
   - type: Injurable
-    damageContainer: Biological
   - type: Tag
     tags:
       - Predator

@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: BlueShieldEnsign
   name: job-name-blueshield-ensign
   description: job-description-blueshield-ensign
@@ -15,7 +15,6 @@
   startingGear: BlueShieldEnsignGear
   icon: JobIconBlueShield
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   accessGroups:
   - AllAccess # Fish-edit
   special:

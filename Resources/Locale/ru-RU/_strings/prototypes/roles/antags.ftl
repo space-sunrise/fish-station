@@ -53,3 +53,5 @@ roles-antag-nuclear-operative-agent-name = Медик ядерных опера�
 roles-antag-nuclear-operative-agent-objective = Медик ядерных оперативников. Лечите свою команду до победы!
 
 roles-antag-pirate-name = Пират
+
+roles-antag-disease-name = Разумная болезнь

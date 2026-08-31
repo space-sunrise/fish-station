@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: JobArmBase
   name: job-name-armbase
   description: job-description-armbase
@@ -7,7 +7,6 @@
   weight: 2
   jobEntity: MobHumanArmP0WMF5
   icon: "IconArmBase"
-  canBeAntag: false
   access:
   - AssArmBase
   alwaysUseSpawner: true
@@ -23,7 +22,6 @@
   weight: 5
   jobEntity: MobHumanArmPC0I5WMF5
   icon: "IconArmPC0I5"
-  canBeAntag: false
   access:
   - AssArmBase
   - AssArmPC0I5
@@ -42,7 +40,6 @@
   weight: 3
   jobEntity: MobHumanArmPM1WMF5
   icon: "IconArmPM1"
-  canBeAntag: false
   access:
   - AssArmBase
   - AssArmPM1
@@ -59,7 +56,6 @@
   weight: 4
   jobEntity: MobHumanArmPE1WMF5
   icon: "IconArmPE1"
-  canBeAntag: false
   access:
   - AssArmBase
   - AssArmPE1

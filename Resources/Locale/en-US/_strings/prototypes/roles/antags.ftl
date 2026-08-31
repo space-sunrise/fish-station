@@ -1,4 +1,4 @@
-﻿roles-antag-generic-solo-antagonist-name = Solo Antagonist
+roles-antag-generic-solo-antagonist-name = Solo Antagonist
 
 roles-antag-generic-free-agent-name = Free Agent
 
@@ -50,3 +50,5 @@ roles-antag-mothership-core-objective = Use your xenoborgs to create even more x
 
 roles-antag-xenoborg-name = Xenoborg
 roles-antag-xenoborg-objective = Help the mothership create more xenoborgs.
+
+roles-antag-disease-name = Sentient Disease

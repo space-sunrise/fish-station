@@ -24,7 +24,6 @@
   - type: Damageable
     damageModifierSet: HardLightBarrier
   - type: Injurable
-    damageContainer: Inorganic
   - type: AmbientSound
     volume: 35
     range: 5

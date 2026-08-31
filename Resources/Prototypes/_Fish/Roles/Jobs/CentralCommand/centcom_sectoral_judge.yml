@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: CentcommSectoralJudge
   name: job-name-centcomm-sectoral-judge
   description: job-description-centcomm-sectoral-judge
@@ -12,7 +12,6 @@
   icon: "JobIconCentcommSectoralJudge"
   overrideConsoleVisibility: false
   supervisors: job-supervisors-supremecourt
-  canBeAntag: false
   setPreference: true
   radioBold: true
   displayWeight: 75

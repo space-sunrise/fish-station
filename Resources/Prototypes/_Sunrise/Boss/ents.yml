@@ -64,7 +64,6 @@
   - type: Damageable
     damageModifierSet: HellSpawnBoss
   - type: Injurable
-    damageContainer: BiologicalMetaphysical
   - type: ExplosionResistance
     damageCoefficient: 0.25
   - type: Fixtures
