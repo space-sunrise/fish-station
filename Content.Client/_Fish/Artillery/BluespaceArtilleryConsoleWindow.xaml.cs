@@ -37,6 +37,10 @@ public sealed class ArtilleryScannerControl : BaseShuttleControl
     private Dictionary<NetEntity, List<DockingPortState>> _docks = new();
     private List<Entity<MapGridComponent>> _grids = new();
 
+    private Vector2 ScannerCenter => PixelSize / 2f;
+    private float ScannerRadius => MathF.Min(PixelWidth, PixelHeight) / 2f;
+    private float ScannerScale => WorldRange != 0 ? ScannerRadius / WorldRange : 0f;
+
     public Action<EntityCoordinates>? OnRadarClick;
 
     public bool PreviewEnabled { get; set; }
@@ -90,7 +94,42 @@ public sealed class ArtilleryScannerControl : BaseShuttleControl
 
     private Vector2 InverseScalePosition(Vector2 value)
     {
-        return (value - MidPointVector) / MinimapScale;
+        return (value - ScannerCenter) / ScannerScale;
+    }
+
+    private new void DrawCircles(DrawingHandleScreen handle)
+    {
+        var gridLines = Color.LightGray.WithAlpha(0.01f);
+        const float EquatorialMultiplier = 2f;
+
+        var minDistance = MathF.Pow(EquatorialMultiplier, EquatorialMultiplier * 1.5f);
+        var maxDistance = MathF.Pow(2f, EquatorialMultiplier * 6f);
+        var cornerDistance = MathF.Sqrt(WorldRange * WorldRange + WorldRange * WorldRange);
+
+        var origin = ScannerCenter;
+
+        for (var radius = minDistance; radius <= maxDistance; radius *= EquatorialMultiplier)
+        {
+            if (radius > cornerDistance)
+                continue;
+
+            var color = Color.ToSrgb(gridLines).WithAlpha(0.05f);
+            var scaledRadius = ScannerScale * radius;
+            var text = $"{radius:0}m";
+            var textDimensions = handle.GetDimensions(Font, text, UIScale);
+
+            handle.DrawCircle(origin, scaledRadius, color, false);
+            handle.DrawString(Font, origin + new Vector2(0f, -scaledRadius) - new Vector2(0f, textDimensions.Y), text, UIScale, color);
+        }
+
+        const int gridLinesRadial = 8;
+        for (var i = 0; i < gridLinesRadial; i++)
+        {
+            Angle angle = (Math.PI / gridLinesRadial) * i;
+            var aExtent = angle.ToVec() * ScannerRadius * 1.42f;
+            var lineColor = Color.MediumSpringGreen.WithAlpha(0.02f);
+            handle.DrawLine(origin - aExtent, origin + aExtent, lineColor);
+        }
     }
 
     protected override void Draw(DrawingHandleScreen handle)
@@ -123,7 +162,7 @@ public sealed class ArtilleryScannerControl : BaseShuttleControl
         var ourEntMatrix = Matrix3Helpers.CreateTransform(_transform.GetWorldPosition(xform), ourEntRot);
         var centerToWorld = Matrix3x2.Multiply(posMatrix, ourEntMatrix);
         Matrix3x2.Invert(centerToWorld, out var worldToCenter);
-        var centerToView = Matrix3x2.CreateScale(new Vector2(MinimapScale, -MinimapScale)) * Matrix3x2.CreateTranslation(MidPointVector);
+        var centerToView = Matrix3x2.CreateScale(new Vector2(ScannerScale, -ScannerScale)) * Matrix3x2.CreateTranslation(ScannerCenter);
 
         var rot = ourEntRot + _rotation.Value;
         var viewBounds = new Box2Rotated(new Box2(-WorldRange, -WorldRange, WorldRange, WorldRange).Translated(mapPos.Position), rot, mapPos.Position);
@@ -161,7 +200,7 @@ public sealed class ArtilleryScannerControl : BaseShuttleControl
 
                 var labelDimensions = handle.GetDimensions(Font, labelText, 1f);
                 var coordsDimensions = handle.GetDimensions(Font, coordsText, 0.7f);
-                var yOffset = Math.Max(gridBounds.Height, gridBounds.Width) * MinimapScale / 1.8f;
+                var yOffset = Math.Max(gridBounds.Height, gridBounds.Width) * ScannerScale / 1.8f;
                 var gridScaledPosition = gridCentre - new Vector2(0, -yOffset);
 
                 var gridOffset = gridScaledPosition / PixelSize - new Vector2(0.5f, 0.5f);
@@ -196,9 +235,9 @@ public sealed class ArtilleryScannerControl : BaseShuttleControl
         // Draw preview explosion radius if enabled
         if (PreviewEnabled && PreviewRadius > 0f)
         {
-            var screenRadius = PreviewRadius * MinimapScale;
-            handle.DrawCircle(MidPointVector, screenRadius, new Color(255, 60, 60, 40), true);
-            handle.DrawCircle(MidPointVector, screenRadius, new Color(255, 80, 80, 180), false);
+            var screenRadius = PreviewRadius * ScannerScale;
+            handle.DrawCircle(ScannerCenter, screenRadius, new Color(255, 60, 60, 40), true);
+            handle.DrawCircle(ScannerCenter, screenRadius, new Color(255, 80, 80, 180), false);
         }
     }
 
@@ -248,9 +287,8 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
     private readonly Button _applyCoordinates;
     private readonly Label _currentCoords;
     private readonly Label _statusLabel;
-    private readonly LayoutContainer _scannerContainer;
+    private readonly BoxContainer _scannerContainer;
     private readonly ArtilleryScannerControl _scannerControl;
-    private readonly TextureRect _crosshair;
     private readonly OptionButton _explosionType;
     private readonly LineEdit _intensity;
     private readonly LineEdit _slope;
@@ -286,10 +324,8 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
         _applyCoordinates = this.FindControl<Button>("ApplyCoordinates");
         _currentCoords = this.FindControl<Label>("CurrentCoords");
         _statusLabel = this.FindControl<Label>("StatusLabel");
-        _scannerContainer = this.FindControl<LayoutContainer>("ScannerContainer");
+        _scannerContainer = this.FindControl<BoxContainer>("ScannerContainer");
         _scannerControl = this.FindControl<ArtilleryScannerControl>("ScannerControl");
-        _crosshair = this.FindControl<TextureRect>("Crosshair");
-        _crosshair.MinSize = new Vector2(24, 24);
         _explosionType = this.FindControl<OptionButton>("ExplosionType");
         _intensity = this.FindControl<LineEdit>("Intensity");
         _slope = this.FindControl<LineEdit>("Slope");
@@ -306,17 +342,6 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
 
         foreach (var type in _explosionTypes)
             _explosionType.AddItem(type);
-
-        var resCache = IoCManager.Resolve<IResourceCache>();
-        if (resCache.TryGetResource<RSIResource>(new ResPath("/Textures/Interface/Misc/crosshair_pointers.rsi"), out var rsi))
-        {
-            var state = rsi.RSI["gun_sight"];
-            if (state != null)
-            {
-                _crosshair.Texture = state.Frame0;
-                _crosshair.Visible = true;
-            }
-        }
 
         _stationSelector.OnItemSelected += args =>
         {
@@ -364,9 +389,6 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
 
         _targetCoords = ArtilleryVector2.Zero;
         UpdateCoordFields();
-
-        _scannerContainer.OnResized += UpdateCrosshairPosition;
-        UpdateCrosshairPosition();
     }
 
     private void UpdatePreviewRadius()
@@ -402,17 +424,6 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
         _coordinateX.Text = _targetCoords.X.ToString("F1");
         _coordinateY.Text = _targetCoords.Y.ToString("F1");
         _currentCoords.Text = $"X: {_targetCoords.X:F1}, Y: {_targetCoords.Y:F1}";
-    }
-
-    private void UpdateCrosshairPosition()
-    {
-        var containerSize = _scannerContainer.Size;
-        if (containerSize.X <= 0 || containerSize.Y <= 0)
-            return;
-
-        var center = containerSize / 2f;
-        var crossSize = _crosshair.Size;
-        LayoutContainer.SetPosition(_crosshair, center - crossSize / 2f);
     }
 
     private void SendParams()
@@ -475,7 +486,6 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
     {
         _targetCoords = state.TargetCoordinates;
         UpdateCoordFields();
-        UpdateCrosshairPosition();
 
         _stationSelector.Clear();
         _stationEntities.Clear();

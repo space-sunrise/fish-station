@@ -22,10 +22,19 @@
             <Button Name="FireButton" Text="{Loc 'bluespace-artillery-fire'}"
                     StyleClasses="DangerButton" HorizontalExpand="True" />
         </BoxContainer>
-		<LayoutContainer Name="ScannerContainer" VerticalExpand="True" HorizontalExpand="True" MinSize="600 600">
-			<artillery:ArtilleryScannerControl Name="ScannerControl" VerticalExpand="True" HorizontalExpand="True" />
-			<TextureRect Name="Crosshair" Visible="False" MouseFilter="Ignore" />
-		</LayoutContainer>
+		<BoxContainer Name="ScannerContainer"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch"
+                      HorizontalExpand="True"
+                      VerticalExpand="True"
+                      MinSize="500 500"
+                      Margin="5">
+			<artillery:ArtilleryScannerControl Name="ScannerControl"
+                                               HorizontalAlignment="Stretch"
+                                               VerticalAlignment="Stretch"
+                                               HorizontalExpand="True"
+                                               VerticalExpand="True" />
+		</BoxContainer>
         <BoxContainer Orientation="Vertical" MinWidth="240" Margin="5">
             <Label Text="{Loc 'bluespace-artillery-explosion-params'}" />
             <Label Text="{Loc 'bluespace-artillery-explosion-type'}" />
