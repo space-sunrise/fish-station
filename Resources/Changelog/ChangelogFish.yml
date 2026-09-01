@@ -199,7 +199,7 @@
   - type: Fix
     message: Те хвосты которые должны вилятся у вульп - виляются.
   - type: Fix
-    message: Баги со слепотой пофикшены.
+    message: Баги со слепотой пофикшены. 
   id: 21
   url: https://github.com/makura-games/sunrise-station/pull/4751
 - author: KaiserMaus
