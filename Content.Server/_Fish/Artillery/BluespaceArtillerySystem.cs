@@ -164,12 +164,27 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
 		
         _audio.PlayGlobal(artillery.SectorChargeSound, uid, AudioParams.Default.WithVolume(1f));
 
-        var station = _stationSystem.GetOwningStation(uid);
-        var message = Loc.GetString(
-            "bluespace-artillery-station-announcement",
-            ("coords", $"{console.TargetCoordinates.X:F1}, {console.TargetCoordinates.Y:F1}"));
-        if (station != null)
-            _chat.DispatchStationAnnouncement(station.Value, message, sender: Loc.GetString("bluespace-artillery-cc-sender"));
+		var message = Loc.GetString(
+			"bluespace-artillery-station-announcement",
+			("coords", $"{console.TargetCoordinates.X:F1}, {console.TargetCoordinates.Y:F1}"));
+
+		EntityUid? targetStation = null;
+		if (console.TargetMapId != null)
+		{
+			foreach (var station in _stationSystem.GetStations())
+			{
+				if (Transform(station).MapID == console.TargetMapId)
+				{
+					targetStation = station;
+					break;
+				}
+			}
+		}
+
+		if (targetStation != null)
+			_chat.DispatchStationAnnouncement(targetStation.Value, message, sender: Loc.GetString("bluespace-artillery-cc-sender"));
+		else
+		_chat.DispatchGlobalAnnouncement(message, sender: Loc.GetString("bluespace-artillery-cc-sender"));
 
         _audio.PlayPvs(artillery.ChargeSound, console.LinkedArtillery.Value,
             AudioParams.Default.WithVolume(10f).WithMaxDistance(50f));
