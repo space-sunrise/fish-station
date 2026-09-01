@@ -20,6 +20,7 @@
           nodeGroupID: HVPower
     - type: PowerConsumer
       voltage: High
+      drawRate: 50000
     - type: DeviceNetwork
     - type: DeviceList
     - type: DeviceLinkSink
