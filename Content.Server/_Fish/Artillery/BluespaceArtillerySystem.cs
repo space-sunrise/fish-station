@@ -12,6 +12,8 @@ using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.UserInterface;
+using Content.Shared.Power.EntitySystems;
+using Content.Shared.Power;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -34,6 +36,7 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+	[Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
 
     public override void Initialize()
     {
@@ -123,6 +126,13 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
         if (artillery.IsCharging)
             return;
 
+		if (!_powerReceiver.IsPowered(uid) ||
+			!_powerReceiver.IsPowered(console.LinkedArtillery.Value))
+		{
+			_popup.PopupEntity(Loc.GetString("bluespace-artillery-no-power"), uid, uid);
+			return;
+		}
+		
         if (_timing.CurTime < artillery.NextFireTime)
         {
             _popup.PopupEntity(Loc.GetString("bluespace-artillery-on-cooldown"), uid, uid);
