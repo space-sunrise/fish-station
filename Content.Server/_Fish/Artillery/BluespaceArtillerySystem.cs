@@ -15,6 +15,9 @@ using Content.Shared.DeviceLinking.Events;
 using Content.Shared.UserInterface;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Power;
+using Content.Shared.Maps;
+using Content.Shared.GameTicking;
+using Content.Shared.Station.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -65,6 +68,23 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
 	private void SetArtilleryVisualState(EntityUid uid, BluespaceArtilleryVisualState state)
 	{
 		_appearance.SetData(uid, BluespaceArtilleryVisuals.VisualState, state);
+	}
+
+	private void OnConsoleMapInit(EntityUid uid, BluespaceArtilleryConsoleComponent comp, ref MapInitEvent args)
+	{
+		var ownMapId = Transform(uid).MapID;
+
+		foreach (var station in EntityQuery<StationMemberComponent>())
+		{
+			var stationUid = station.Owner;
+			var stationMapId = Transform(stationUid).MapID;
+
+			if (stationMapId != ownMapId)
+			{
+				comp.TargetMapId = stationMapId;
+				break;
+			}
+		}
 	}
 
     private void OnArtilleryNewLink(EntityUid uid, BluespaceArtilleryComponent comp, ref NewLinkEvent args)
@@ -201,7 +221,7 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
             return;
 
 		SetArtilleryVisualState(console.LinkedArtillery.Value, BluespaceArtilleryVisualState.Fire);
-		Timer.Spawn(TimeSpan.FromSeconds(0.5), () =>
+		Timer.Spawn(TimeSpan.FromSeconds(4.0), () =>
 		{
 			if (!Deleted(console.LinkedArtillery.Value))
 				SetArtilleryVisualState(console.LinkedArtillery.Value, BluespaceArtilleryVisualState.Idle);
