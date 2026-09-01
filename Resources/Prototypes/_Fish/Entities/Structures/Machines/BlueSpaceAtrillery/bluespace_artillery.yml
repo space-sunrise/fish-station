@@ -12,6 +12,12 @@
       sprite: _Fish/Structures/Machines/bluespace_artillery.rsi
       state: idle
       noRot: true
+    - type: NodeContainer
+      examinable: true
+      nodes:
+        input:
+          !type:CableDeviceNode
+          nodeGroupID: HVPower
     - type: PowerConsumer
       voltage: High
     - type: DeviceNetwork
