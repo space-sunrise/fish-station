@@ -1,0 +1,15 @@
+bluespace-artillery-linked = Устройства связаны.
+bluespace-artillery-out-of-range = Цель вне радиуса действия.
+bluespace-artillery-station-announcement = Внимание! Зафиксирован огонь блюспейс артиллерии. Приготовиться к удару.
+bluespace-artillery-cc-sender = Центральное Командование
+bluespace-artillery-console-title = Консоль БСА
+bluespace-artillery-coordinates = Координаты выстрела:
+bluespace-artillery-apply = Применить
+bluespace-artillery-fire = ВЫСТРЕЛ
+bluespace-artillery-explosion-params = Параметры взрыва
+bluespace-artillery-explosion-type = Тип взрыва:
+bluespace-artillery-total-intensity = Общая интенсивность:
+bluespace-artillery-slope = Наклон интенсивности:
+bluespace-artillery-max-intensity = Максимальная интенсивность:
+bluespace-artillery-preview = Предпросмотр взрыва
+access-level-bsa-operator = Оператор БСА
