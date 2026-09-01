@@ -28,7 +28,6 @@ public sealed class BluespaceArtilleryConsoleBoundUserInterface : BoundUserInter
             });
         _window.OnPreviewToggled += enabled => SendMessage(new BluespaceArtilleryPreviewMessage { Enabled = enabled });
 
-        // Fish edit - DefaultWindow открывается через OpenCentered(), а не WindowRoot.AddChild()
         _window.OpenCentered();
     }
 

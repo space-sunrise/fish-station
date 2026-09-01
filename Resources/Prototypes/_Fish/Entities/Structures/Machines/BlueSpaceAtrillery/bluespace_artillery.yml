@@ -15,13 +15,12 @@
     - type: IconSmooth
     - type: PowerConsumer
       voltage: High
+    - type: ApcPowerReceiver
+      needsPower: true
       powerLoad: 50000
     - type: DeviceNetwork
     - type: DeviceList
     - type: DeviceLinkSink
-      port: Artillery
-    - type: Rotatable
-      canRotate: false
     - type: BluespaceArtillery
       chargeDuration: 8.0
       flightDuration: 12.0
@@ -36,3 +35,4 @@
         path: /Audio/_Fish/Machines/BlueSpaceArtillery/bluespace_shot_alt.ogg
       chargingState: charging
       fireState: fire
+      linkingPort: Artillery
