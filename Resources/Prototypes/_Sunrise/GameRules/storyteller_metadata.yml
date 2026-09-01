@@ -495,14 +495,6 @@
   weightModifier: 1.5
 
 - type: storytellerMetadata
-  id: TerminatorSpawn
-  threatType: MinorAntag
-  threatCost: 40
-  maxStress: 80
-  minStationStrength: 10
-  weightModifier: 1.5
-
-- type: storytellerMetadata
   id: SpiderClownSpawnHorde
   threatType: MinorAntag
   threatCost: 60
