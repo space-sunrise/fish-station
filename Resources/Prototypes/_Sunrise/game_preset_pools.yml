@@ -37,7 +37,7 @@
   presets:
     Nukeops: { min: 35, max: 200 }
     Traitor: { min: 5, max: 200 }
-    Zombie: { min: 20, max: 200 }
+    Zombie: { min: 35, max: 200 }
     Survival: { min: 5, max: 200 }
     Revolutionary: { min: 35, max: 200 }
     Wizard: { min: 10, max: 200 }
@@ -49,6 +49,6 @@
 - type: gamePresetPool
   id: StorytellerPresetPool
   presets:
-    StorytellerClassic: { min: 40, max: 300 }
+    StorytellerClassic: { min: 60, max: 300 }
     StorytellerCalm: { min: 0, max: 300 }
     StorytellerInsane: { min: 80, max: 300 }
