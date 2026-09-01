@@ -12,6 +12,7 @@
       sprite: _Fish/Structures/Machines/bluespace_artillery.rsi
       state: idle
       noRot: true
+    - type: Appearance
     - type: NodeContainer
       examinable: true
       nodes:
@@ -24,8 +25,10 @@
     - type: DeviceNetwork
     - type: DeviceList
     - type: DeviceLinkSink
+      ports:
+        - Artillery
     - type: BluespaceArtillery
-      chargeDuration: 8.0
+      chargeDuration: 8.5
       flightDuration: 12.0
       cooldownDuration: 60.0
       sectorChargeSound:
@@ -38,4 +41,3 @@
         path: /Audio/_Fish/Machines/BlueSpaceArtillery/bluespace_shot_alt.ogg
       chargingState: charging
       fireState: fire
-      linkingPort: Artillery

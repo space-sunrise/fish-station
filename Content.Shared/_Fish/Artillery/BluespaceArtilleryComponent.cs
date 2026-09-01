@@ -12,7 +12,7 @@ namespace Content.Shared._Fish.Artillery;
 public sealed partial class BluespaceArtilleryComponent : Component
 {
     [DataField("chargeDuration")]
-    public float ChargeDuration = 8.0f;
+    public float ChargeDuration = 8.5f;
 	
 	[DataField("flightDuration")]
 	public float FlightDuration = 12.0f;
@@ -52,4 +52,7 @@ public sealed partial class BluespaceArtilleryComponent : Component
 	
 	[ViewVariables]
 	public TimeSpan NextFireTime;
+	
+	[ViewVariables]
+	public MapId? TargetMapId = null;
 }
