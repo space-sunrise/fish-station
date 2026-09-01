@@ -284,3 +284,18 @@
     message: Моли больше не могут съесть металлический шлем «Алтын».
   id: 29
   url: https://github.com/makura-games/fish-station/pull/398
+- author: Pifagor
+  time: '2026-09-01T21:54:05.0000000+00:00'
+  changes:
+  - type: Tweak
+    message: Перебалансирован Рассказчик — Classic и Insane доступны раньше, Calm больше не кидает тяжёлые режимы вроде нюкеров и культов.
+  - type: Tweak
+    message: Рассказчик учитывает пороги игроков midround и больше не спамит спящими агентами, ворами и боевыми шаттлами.
+  - type: Tweak
+    message: В Secret снова чаще выпадают предатели; убраны Xenoborgs из весов Secret, добавлены маг и выживание с малым шансом.
+  - type: Fix
+    message: Убраны дубли roundstart/midround событий у Рассказчика и параллельный планировщик шаттлов на его пресетах.
+  - type: Fix
+    message: Вкладка истории Рассказчика показывается только если в раунде был рассказчик; Kitsune снова может попасть в культ плоти.
+  id: 30
+  url: https://github.com/makura-games/fish-station/pull/373
