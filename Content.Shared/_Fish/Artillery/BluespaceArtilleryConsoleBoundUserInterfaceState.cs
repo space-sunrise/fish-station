@@ -1,3 +1,4 @@
+using Content.Shared.Shuttles.BUIStates;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Fish.Artillery;
@@ -15,6 +16,9 @@ public sealed class BluespaceArtilleryConsoleBoundUserInterfaceState : BoundUser
     public bool IsCharging;
     public bool IsOnCooldown;
     public float CooldownRemaining;
+    public Dictionary<NetEntity, string> AvailableStations;
+    public NetEntity? SelectedStation;
+    public NavInterfaceState? NavState;
 
     public BluespaceArtilleryConsoleBoundUserInterfaceState(
         ArtilleryVector2 targetCoordinates,
@@ -26,7 +30,10 @@ public sealed class BluespaceArtilleryConsoleBoundUserInterfaceState : BoundUser
         bool isLinked,
         bool isCharging,
         bool isOnCooldown,
-        float cooldownRemaining)
+        float cooldownRemaining,
+        Dictionary<NetEntity, string> availableStations,
+        NetEntity? selectedStation,
+        NavInterfaceState? navState)
     {
         TargetCoordinates = targetCoordinates;
         ExplosionType = explosionType;
@@ -38,5 +45,8 @@ public sealed class BluespaceArtilleryConsoleBoundUserInterfaceState : BoundUser
         IsCharging = isCharging;
         IsOnCooldown = isOnCooldown;
         CooldownRemaining = cooldownRemaining;
+        AvailableStations = availableStations;
+        SelectedStation = selectedStation;
+        NavState = navState;
     }
 }

@@ -1,78 +1,248 @@
 using System;
 using System.Collections.Generic;
 using System.Numerics;
+using Content.Client.Shuttles.UI;
 using Content.Shared._Fish.Artillery;
+using Content.Shared.Explosion;
+using Content.Shared.Shuttles.BUIStates;
+using Content.Shared.Shuttles.Components;
+using Content.Shared.Shuttles.Systems;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
+using Robust.Shared.Collections;
+using Robust.Shared.Input;
 using Robust.Shared.IoC;
-using Robust.Shared.Utility;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
-using Content.Shared.Explosion;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Client._Fish.Artillery;
 
-public sealed class ArtilleryScannerControl : Control
+public sealed class ArtilleryScannerControl : BaseShuttleControl
 {
-    private const float ScannerMaxOffset = 16384f;
-    private const float TileSize = 32f;
+    [Dependency] private readonly IMapManager _mapManager = default!;
+    private readonly SharedShuttleSystem _shuttles;
+    private readonly SharedTransformSystem _transform;
 
-    private ArtilleryVector2 _targetCoords;
+    private EntityCoordinates? _coordinates;
+    private Angle? _rotation;
+    private Dictionary<NetEntity, List<DockingPortState>> _docks = new();
+    private List<Entity<MapGridComponent>> _grids = new();
 
-    public ArtilleryVector2 TargetCoords
+    public Action<EntityCoordinates>? OnRadarClick;
+
+    public bool PreviewEnabled { get; set; }
+    public float PreviewRadius { get; set; }
+
+    public ArtilleryScannerControl() : base(64f, 1024f, 256f)
     {
-        get => _targetCoords;
-        set
+        _shuttles = EntManager.System<SharedShuttleSystem>();
+        _transform = EntManager.System<SharedTransformSystem>();
+    }
+
+    public void UpdateNavState(NavInterfaceState? state, ArtilleryVector2 targetCoords)
+    {
+        if (state == null || state.Coordinates == null)
         {
-            if (_targetCoords.Equals(value))
-                return;
-            _targetCoords = value;
-            InvalidateMeasure();
+            _coordinates = null;
+            _rotation = null;
+            _docks.Clear();
+            return;
         }
+
+        _coordinates = EntManager.GetCoordinates(state.Coordinates);
+        _rotation = state.Angle ?? Angle.Zero;
+        _docks = state.Docks;
+
+        WorldMaxRange = state.MaxRange;
+        if (WorldMaxRange < WorldRange)
+            ActualRadarRange = WorldMaxRange;
+        if (WorldMaxRange < WorldMinRange)
+            WorldMinRange = WorldMaxRange;
+
+        ActualRadarRange = Math.Clamp(ActualRadarRange, WorldMinRange, WorldMaxRange);
+    }
+
+    protected override void KeyBindUp(GUIBoundKeyEventArgs args)
+    {
+        base.KeyBindUp(args);
+
+        if (_coordinates == null || _rotation == null || args.Function != EngineKeyFunctions.UIClick ||
+            OnRadarClick == null)
+        {
+            return;
+        }
+
+        var a = InverseScalePosition(args.RelativePosition);
+        var relativeWorldPos = new Vector2(a.X, -a.Y);
+        relativeWorldPos = _rotation.Value.RotateVec(relativeWorldPos);
+        var coords = _coordinates.Value.Offset(relativeWorldPos);
+        OnRadarClick?.Invoke(coords);
+    }
+
+    private Vector2 InverseScalePosition(Vector2 value)
+    {
+        return (value - MidPointVector) / MinimapScale;
     }
 
     protected override void Draw(DrawingHandleScreen handle)
     {
         base.Draw(handle);
 
-        var rect = new UIBox2(Vector2.Zero, Size);
-        if (rect.Width <= 0 || rect.Height <= 0)
-            return;
+        DrawBacking(handle);
+        DrawCircles(handle);
 
-        handle.DrawRect(rect, new Color(20, 20, 30, 255));
-
-        float halfSize = MathF.Min(rect.Width, rect.Height) / 2f;
-        float metersPerPixel = ScannerMaxOffset / halfSize;
-        var center = rect.Center;
-
-        int tileSizeMeters = (int)TileSize;
-        float leftM = TargetCoords.X - halfSize * metersPerPixel;
-        float rightM = TargetCoords.X + halfSize * metersPerPixel;
-        float topM = TargetCoords.Y + halfSize * metersPerPixel;
-        float bottomM = TargetCoords.Y - halfSize * metersPerPixel;
-
-        int startX = (int)MathF.Floor(leftM / tileSizeMeters) * tileSizeMeters;
-        for (int x = startX; x <= rightM; x += tileSizeMeters)
+        if (_coordinates == null || _rotation == null)
         {
-            float screenX = center.X + (x - TargetCoords.X) / metersPerPixel;
-            handle.DrawLine(new Vector2(screenX, rect.Top), new Vector2(screenX, rect.Bottom), new Color(60, 60, 80, 100));
+            DrawNoSignal(handle);
+            return;
         }
 
-        int startY = (int)MathF.Floor(bottomM / tileSizeMeters) * tileSizeMeters;
-        for (int y = startY; y <= topM; y += tileSizeMeters)
+        var xformQuery = EntManager.GetEntityQuery<TransformComponent>();
+        var fixturesQuery = EntManager.GetEntityQuery<FixturesComponent>();
+        var bodyQuery = EntManager.GetEntityQuery<PhysicsComponent>();
+
+        if (!xformQuery.TryGetComponent(_coordinates.Value.EntityId, out var xform)
+            || xform.MapID == MapId.Nullspace)
         {
-            float screenY = center.Y - (y - TargetCoords.Y) / metersPerPixel;
-            handle.DrawLine(new Vector2(rect.Left, screenY), new Vector2(rect.Right, screenY), new Color(60, 60, 80, 100));
+            DrawNoSignal(handle);
+            return;
+        }
+
+        var mapPos = _transform.ToMapCoordinates(_coordinates.Value);
+        var posMatrix = Matrix3Helpers.CreateTransform(_coordinates.Value.Position, _rotation.Value);
+        var ourEntRot = _rotation.Value;
+        var ourEntMatrix = Matrix3Helpers.CreateTransform(_transform.GetWorldPosition(xform), ourEntRot);
+        var centerToWorld = Matrix3x2.Multiply(posMatrix, ourEntMatrix);
+        Matrix3x2.Invert(centerToWorld, out var worldToCenter);
+        var centerToView = Matrix3x2.CreateScale(new Vector2(MinimapScale, -MinimapScale)) * Matrix3x2.CreateTranslation(MidPointVector);
+
+        var rot = ourEntRot + _rotation.Value;
+        var viewBounds = new Box2Rotated(new Box2(-WorldRange, -WorldRange, WorldRange, WorldRange).Translated(mapPos.Position), rot, mapPos.Position);
+        var viewAABB = viewBounds.CalcBoundingBox();
+
+        _grids.Clear();
+        _mapManager.FindGridsIntersecting(xform.MapID, new Box2(mapPos.Position - MaxRadarRangeVector, mapPos.Position + MaxRadarRangeVector), ref _grids, approx: true, includeMap: false);
+
+        foreach (var grid in _grids)
+        {
+            var gUid = grid.Owner;
+            if (!fixturesQuery.HasComponent(gUid))
+                continue;
+
+            var gridBody = bodyQuery.GetComponent(gUid);
+            EntManager.TryGetComponent<IFFComponent>(gUid, out var iff);
+
+            if (!_shuttles.CanDraw(gUid, gridBody, iff))
+                continue;
+
+            var curGridToWorld = _transform.GetWorldMatrix(gUid);
+            var curGridToView = curGridToWorld * worldToCenter * centerToView;
+            var labelColor = _shuttles.GetIFFColor(grid, self: false, iff);
+            var coordColor = new Color(labelColor.R * 0.8f, labelColor.G * 0.8f, labelColor.B * 0.8f, 0.5f);
+            var labelName = _shuttles.GetIFFLabel(grid, self: false, iff);
+
+            if (labelName != null)
+            {
+                var gridBounds = grid.Comp.LocalAABB;
+                var gridCentre = Vector2.Transform(gridBody.LocalCenter, curGridToView);
+                var gridDistance = (gridBody.LocalCenter - xform.LocalPosition).Length();
+                var labelText = Loc.GetString("shuttle-console-iff-label", ("name", labelName), ("distance", $"{gridDistance:0.0}"));
+                var mapCoords = _transform.GetWorldPosition(gUid);
+                var coordsText = $"({mapCoords.X:0.0}, {mapCoords.Y:0.0})";
+
+                var labelDimensions = handle.GetDimensions(Font, labelText, 1f);
+                var coordsDimensions = handle.GetDimensions(Font, coordsText, 0.7f);
+                var yOffset = Math.Max(gridBounds.Height, gridBounds.Width) * MinimapScale / 1.8f;
+                var gridScaledPosition = gridCentre - new Vector2(0, -yOffset);
+
+                var gridOffset = gridScaledPosition / PixelSize - new Vector2(0.5f, 0.5f);
+                var offsetMax = Math.Max(Math.Abs(gridOffset.X), Math.Abs(gridOffset.Y)) * 2f;
+                if (offsetMax > 1)
+                {
+                    gridOffset = new Vector2(gridOffset.X / offsetMax, gridOffset.Y / offsetMax);
+                    gridScaledPosition = (gridOffset + new Vector2(0.5f, 0.5f)) * PixelSize;
+                }
+
+                var labelUiPosition = gridScaledPosition - new Vector2(labelDimensions.X / 2f, 0);
+                var coordUiPosition = gridScaledPosition - new Vector2(coordsDimensions.X / 2f, -labelDimensions.Y);
+                var controlExtents = PixelSize - new Vector2(labelDimensions.X, labelDimensions.Y);
+                labelUiPosition = Vector2.Clamp(labelUiPosition, Vector2.Zero, controlExtents);
+
+                handle.DrawString(Font, labelUiPosition, labelText, labelColor);
+
+                if (offsetMax < 1)
+                {
+                    handle.DrawString(Font, coordUiPosition, coordsText, 0.7f, coordColor);
+                }
+            }
+
+            var gridAABB = curGridToWorld.TransformBox(grid.Comp.LocalAABB);
+            if (!gridAABB.Intersects(viewAABB))
+                continue;
+
+            DrawGrid(handle, curGridToView, grid, labelColor);
+            DrawDocks(handle, gUid, curGridToView);
+        }
+
+        // Draw preview explosion radius if enabled
+        if (PreviewEnabled && PreviewRadius > 0f)
+        {
+            var screenRadius = PreviewRadius * MinimapScale;
+            handle.DrawCircle(MidPointVector, screenRadius, new Color(255, 60, 60, 40), true);
+            handle.DrawCircle(MidPointVector, screenRadius, new Color(255, 80, 80, 180), false);
+        }
+    }
+
+    private void DrawDocks(DrawingHandleScreen handle, EntityUid uid, Matrix3x2 gridToView)
+    {
+        const float DockScale = 0.6f;
+        var nent = EntManager.GetNetEntity(uid);
+
+        const float sqrt2 = 1.41421356f;
+        const float dockRadius = DockScale * sqrt2;
+        Box2 viewBounds = new Box2(
+            -dockRadius * UIScale,
+            -dockRadius * UIScale,
+            (Size.X + dockRadius) * UIScale,
+            (Size.Y + dockRadius) * UIScale);
+
+        if (_docks.TryGetValue(nent, out var docks))
+        {
+            foreach (var state in docks)
+            {
+                var position = state.Coordinates.Position;
+                var positionInView = Vector2.Transform(position, gridToView);
+                if (!viewBounds.Contains(positionInView))
+                    continue;
+
+                var color = Color.ToSrgb(state.HighlightedColor);
+                var verts = new[]
+                {
+                    Vector2.Transform(position + new Vector2(-DockScale, -DockScale), gridToView),
+                    Vector2.Transform(position + new Vector2(DockScale, -DockScale), gridToView),
+                    Vector2.Transform(position + new Vector2(DockScale, DockScale), gridToView),
+                    Vector2.Transform(position + new Vector2(-DockScale, DockScale), gridToView),
+                };
+
+                handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, verts, color.WithAlpha(0.8f));
+                handle.DrawPrimitives(DrawPrimitiveTopology.LineStrip, verts, color);
+            }
         }
     }
 }
 
 public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
 {
+    private readonly OptionButton _stationSelector;
     private readonly LineEdit _coordinateX;
     private readonly LineEdit _coordinateY;
     private readonly Button _applyCoordinates;
@@ -98,8 +268,10 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
     private const float ScannerMaxOffset = 16384f;
 
     private readonly List<string> _explosionTypes = new();
+    private readonly List<NetEntity> _stationEntities = new();
 
     public event Action? OnFire;
+    public event Action<NetEntity>? OnStationSelected;
     public event Action<ArtilleryVector2>? OnCoordsChanged;
     public event Action<string, float, float, float>? OnParamsChanged;
     public event Action<bool>? OnPreviewToggled;
@@ -108,6 +280,7 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
     {
         RobustXamlLoader.Load(this);
 
+        _stationSelector = this.FindControl<OptionButton>("StationSelector");
         _coordinateX = this.FindControl<LineEdit>("CoordinateX");
         _coordinateY = this.FindControl<LineEdit>("CoordinateY");
         _applyCoordinates = this.FindControl<Button>("ApplyCoordinates");
@@ -116,7 +289,7 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
         _scannerContainer = this.FindControl<LayoutContainer>("ScannerContainer");
         _scannerControl = this.FindControl<ArtilleryScannerControl>("ScannerControl");
         _crosshair = this.FindControl<TextureRect>("Crosshair");
-        _crosshair.MinSize = new Vector2(16, 16);
+        _crosshair.MinSize = new Vector2(24, 24);
         _explosionType = this.FindControl<OptionButton>("ExplosionType");
         _intensity = this.FindControl<LineEdit>("Intensity");
         _slope = this.FindControl<LineEdit>("Slope");
@@ -145,21 +318,65 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
             }
         }
 
+        _stationSelector.OnItemSelected += args =>
+        {
+            if (args.Id >= 0 && args.Id < _stationEntities.Count)
+                OnStationSelected?.Invoke(_stationEntities[args.Id]);
+        };
+
         _applyCoordinates.OnPressed += _ => ApplyManualCoordinates();
         _fireButton.OnPressed += _ => OnFire?.Invoke();
-        _previewToggle.OnToggled += args => OnPreviewToggled?.Invoke(args.Pressed);
+        _previewToggle.OnToggled += args =>
+        {
+            _scannerControl.PreviewEnabled = args.Pressed;
+            UpdatePreviewRadius();
+            OnPreviewToggled?.Invoke(args.Pressed);
+        };
 
-        _explosionType.OnItemSelected += _ => SendParams();
-        _intensity.OnTextEntered += _ => SendParams();
-        _slope.OnTextEntered += _ => SendParams();
-        _maxIntensity.OnTextEntered += _ => SendParams();
+        _explosionType.OnItemSelected += _ =>
+        {
+            UpdatePreviewRadius();
+            SendParams();
+        };
+        _intensity.OnTextEntered += _ =>
+        {
+            UpdatePreviewRadius();
+            SendParams();
+        };
+        _slope.OnTextEntered += _ =>
+        {
+            UpdatePreviewRadius();
+            SendParams();
+        };
+        _maxIntensity.OnTextEntered += _ =>
+        {
+            UpdatePreviewRadius();
+            SendParams();
+        };
+
+        _scannerControl.OnRadarClick += coords =>
+        {
+            _targetCoords = new ArtilleryVector2(coords.Position.X, coords.Position.Y);
+            ClampCoordinates();
+            UpdateCoordFields();
+            OnCoordsChanged?.Invoke(_targetCoords);
+        };
 
         _targetCoords = ArtilleryVector2.Zero;
-        _scannerControl.TargetCoords = _targetCoords;
         UpdateCoordFields();
 
         _scannerContainer.OnResized += UpdateCrosshairPosition;
         UpdateCrosshairPosition();
+    }
+
+    private void UpdatePreviewRadius()
+    {
+        if (float.TryParse(_intensity.Text, out var intensity) &&
+            float.TryParse(_slope.Text, out var slope) &&
+            slope > 0)
+        {
+            _scannerControl.PreviewRadius = MathF.Sqrt(intensity / slope);
+        }
     }
 
     private void ApplyManualCoordinates()
@@ -169,7 +386,6 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
         {
             _targetCoords = new ArtilleryVector2(x, y);
             ClampCoordinates();
-            _scannerControl.TargetCoords = _targetCoords;
             UpdateCoordFields();
             OnCoordsChanged?.Invoke(_targetCoords);
         }
@@ -258,9 +474,27 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
     public void UpdateState(BluespaceArtilleryConsoleBoundUserInterfaceState state)
     {
         _targetCoords = state.TargetCoordinates;
-        _scannerControl.TargetCoords = _targetCoords;
         UpdateCoordFields();
         UpdateCrosshairPosition();
+
+        _stationSelector.Clear();
+        _stationEntities.Clear();
+        int selectedIndex = 0;
+        int index = 0;
+        foreach (var (stationEnt, name) in state.AvailableStations)
+        {
+            _stationEntities.Add(stationEnt);
+            _stationSelector.AddItem(name);
+            if (state.SelectedStation != null && stationEnt == state.SelectedStation.Value)
+                selectedIndex = index;
+            index++;
+        }
+
+        if (_stationEntities.Count > 0)
+            _stationSelector.SelectId(selectedIndex);
+
+        _scannerControl.PreviewEnabled = state.PreviewEnabled;
+        _scannerControl.UpdateNavState(state.NavState, _targetCoords);
 
         var typeIndex = _explosionTypes.IndexOf(state.ExplosionType);
         if (_explosionTypes.Count > 0)
@@ -270,6 +504,7 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
         _slope.Text = state.Slope.ToString();
         _maxIntensity.Text = state.MaxIntensity.ToString();
         _previewToggle.Pressed = state.PreviewEnabled;
+        UpdatePreviewRadius();
 
         _isLinked = state.IsLinked;
         _isCharging = state.IsCharging;

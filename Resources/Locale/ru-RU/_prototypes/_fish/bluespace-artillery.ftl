@@ -4,6 +4,7 @@ bluespace-artillery-on-cooldown = Блюспейс артиллерия пере
 bluespace-artillery-station-announcement = Внимание! Зафиксирован огонь блюспейс артиллерии. Приготовиться к удару.
 bluespace-artillery-cc-sender = Центральное Командование
 bluespace-artillery-console-title = Консоль БСА
+bluespace-artillery-target-station = Целевая станция:
 bluespace-artillery-coordinates = Координаты выстрела:
 bluespace-artillery-apply = Применить
 bluespace-artillery-fire = ВЫСТРЕЛ

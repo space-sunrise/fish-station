@@ -21,6 +21,9 @@ public sealed partial class BluespaceArtilleryConsoleComponent : Component
 	[ViewVariables]
 	public MapId? TargetMapId = null;
 
+	[ViewVariables]
+	public EntityUid? TargetStation = null;
+
     [ViewVariables] 
 	public ArtilleryVector2 TargetCoordinates;
 	

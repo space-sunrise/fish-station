@@ -5,6 +5,7 @@ bluespace-artillery-on-cooldown = Bluespace artillery is recharging.
 bluespace-artillery-station-announcement = Attention! Bluespace artillery fire detected. Prepare for impact.
 bluespace-artillery-cc-sender = Central Command
 bluespace-artillery-console-title = BSA Console
+bluespace-artillery-target-station = Target Station:
 bluespace-artillery-coordinates = Target Coordinates:
 bluespace-artillery-apply = Apply
 bluespace-artillery-fire = FIRE

@@ -1,4 +1,4 @@
 - type: sinkPort
   id: Artillery
-  name: Artillery
-  description: Port for bluespace artillery.
+  name: signal-port-name-artillery
+  description: signal-port-description-artillery

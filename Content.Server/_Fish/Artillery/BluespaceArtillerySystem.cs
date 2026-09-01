@@ -2,6 +2,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.DeviceNetwork;
 using Content.Server.DeviceLinking.Systems;
+using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared._Fish.Artillery;
 using Content.Shared.Explosion;
@@ -18,11 +19,13 @@ using Content.Shared.Power;
 using Content.Shared.Maps;
 using Content.Shared.GameTicking;
 using Content.Shared.Station.Components;
+using Content.Shared.Shuttles.BUIStates;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Maths;
@@ -41,6 +44,10 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly ShuttleConsoleSystem _shuttleConsole = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -58,6 +65,7 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
         SubscribeLocalEvent<BluespaceArtilleryConsoleComponent, BluespaceArtillerySetCoordsMessage>(OnSetCoordsMessage);
         SubscribeLocalEvent<BluespaceArtilleryConsoleComponent, BluespaceArtillerySetParamsMessage>(OnSetParamsMessage);
         SubscribeLocalEvent<BluespaceArtilleryConsoleComponent, BluespaceArtilleryPreviewMessage>(OnPreviewMessage);
+        SubscribeLocalEvent<BluespaceArtilleryConsoleComponent, BluespaceArtillerySelectTargetStationMessage>(OnSelectTargetStationMessage);
         SubscribeLocalEvent<BluespaceArtilleryConsoleComponent, AfterActivatableUIOpenEvent>(OnAfterActivatableUIOpen);
 
         SubscribeLocalEvent<BluespaceArtilleryConsoleComponent, ComponentShutdown>(OnConsoleShutdown);
@@ -71,17 +79,34 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
 
 	private void OnConsoleMapInit(EntityUid uid, BluespaceArtilleryConsoleComponent comp, ref MapInitEvent args)
 	{
+		InitTargetStation(uid, comp);
+	}
+
+	private void InitTargetStation(EntityUid uid, BluespaceArtilleryConsoleComponent comp)
+	{
 		var ownMapId = Transform(uid).MapID;
 
-		foreach (var station in EntityQuery<StationMemberComponent>())
+		foreach (var station in _station.GetStations())
 		{
-			var stationUid = station.Owner;
-			var stationMapId = Transform(stationUid).MapID;
-
-			if (stationMapId != ownMapId)
+			if (TryComp<StationDataComponent>(station, out var data))
 			{
-				comp.TargetMapId = stationMapId;
-				break;
+				var mainGrid = _station.GetLargestGrid((station, data));
+				if (mainGrid != null)
+				{
+					var xform = Transform(mainGrid.Value);
+					if (xform.MapID != ownMapId || comp.TargetMapId == null)
+					{
+						comp.TargetStation = station;
+						comp.TargetMapId = xform.MapID;
+						if (comp.TargetCoordinates.Equals(ArtilleryVector2.Zero))
+						{
+							var pos = _transform.GetWorldPosition(mainGrid.Value);
+							comp.TargetCoordinates = new ArtilleryVector2(pos.X, pos.Y);
+						}
+						if (xform.MapID != ownMapId)
+							break;
+					}
+				}
 			}
 		}
 	}
@@ -274,6 +299,24 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
         return ExplosionSystem.DefaultExplosionPrototypeId;
     }
 
+    private void OnSelectTargetStationMessage(EntityUid uid, BluespaceArtilleryConsoleComponent console, BluespaceArtillerySelectTargetStationMessage args)
+    {
+        if (TryGetEntity(args.Station, out var stationUid) &&
+            TryComp<StationDataComponent>(stationUid, out var data))
+        {
+            console.TargetStation = stationUid;
+            var mainGrid = _station.GetLargestGrid((stationUid.Value, data));
+            if (mainGrid != null)
+            {
+                var xform = Transform(mainGrid.Value);
+                console.TargetMapId = xform.MapID;
+                var pos = _transform.GetWorldPosition(mainGrid.Value);
+                console.TargetCoordinates = new ArtilleryVector2(pos.X, pos.Y);
+            }
+            UpdateUI(uid, console);
+        }
+    }
+
     private void OnSetCoordsMessage(EntityUid uid, BluespaceArtilleryConsoleComponent console, BluespaceArtillerySetCoordsMessage args)
     {
         console.TargetCoordinates = args.Coordinates;
@@ -297,6 +340,8 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
 
     private void OnAfterActivatableUIOpen(EntityUid uid, BluespaceArtilleryConsoleComponent console, AfterActivatableUIOpenEvent args)
     {
+        if (console.TargetStation == null || console.TargetMapId == null)
+            InitTargetStation(uid, console);
         UpdateUI(uid, console);
     }
 
@@ -335,6 +380,29 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
 			}
 		}
 
+		var availableStations = new Dictionary<NetEntity, string>();
+		foreach (var stationUid in _station.GetStations())
+		{
+			var name = MetaData(stationUid).EntityName;
+			if (string.IsNullOrWhiteSpace(name))
+				name = Loc.GetString("station-name-default");
+			availableStations[GetNetEntity(stationUid)] = name;
+		}
+
+		NetEntity? selectedStation = console.TargetStation != null ? GetNetEntity(console.TargetStation.Value) : null;
+
+		NavInterfaceState? navState = null;
+		var targetMapId = console.TargetMapId ?? Transform(consoleUid).MapID;
+		var mapUid = _mapManager.GetMapEntityId(targetMapId);
+
+		if (mapUid != EntityUid.Invalid)
+		{
+			var centerCoords = new EntityCoordinates(mapUid, new Vector2(console.TargetCoordinates.X, console.TargetCoordinates.Y));
+			var docks = _shuttleConsole.GetAllDocks();
+			navState = new NavInterfaceState(512f, GetNetCoordinates(centerCoords), Angle.Zero, docks);
+			navState.RotateWithEntity = false;
+		}
+
 		var state = new BluespaceArtilleryConsoleBoundUserInterfaceState(
 			console.TargetCoordinates,
 			console.ExplosionType,
@@ -345,7 +413,10 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
 			isLinked,
 			isCharging,
 			isOnCooldown,
-			cooldownRemaining
+			cooldownRemaining,
+			availableStations,
+			selectedStation,
+			navState
 		);
 
 		_ui.SetUiState(consoleUid, BluespaceArtilleryConsoleUiKey.Key, state);

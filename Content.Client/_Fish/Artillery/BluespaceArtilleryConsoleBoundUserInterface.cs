@@ -18,6 +18,7 @@ public sealed class BluespaceArtilleryConsoleBoundUserInterface : BoundUserInter
         _window = new BluespaceArtilleryConsoleWindow();
         _window.OnClose += Close;
         _window.OnFire += () => SendMessage(new BluespaceArtilleryFireMessage());
+        _window.OnStationSelected += station => SendMessage(new BluespaceArtillerySelectTargetStationMessage(station));
         _window.OnCoordsChanged += coords => SendMessage(new BluespaceArtillerySetCoordsMessage { Coordinates = coords });
         _window.OnParamsChanged += (type, total, slope, max) =>
             SendMessage(new BluespaceArtillerySetParamsMessage
