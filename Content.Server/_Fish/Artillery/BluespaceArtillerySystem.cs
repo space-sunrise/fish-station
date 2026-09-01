@@ -25,6 +25,7 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Maths;
 using System.Numerics;
 
 namespace Content.Server._Fish.Artillery;
@@ -34,13 +35,11 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 	[Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 	[Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
 	[Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
@@ -167,44 +166,37 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
             return;
         }
 
-        var consoleMapCoords = _transform.GetMapCoordinates(uid);
-        float dx = consoleMapCoords.X - console.TargetCoordinates.X;
-        float dy = consoleMapCoords.Y - console.TargetCoordinates.Y;
-        float dist = MathF.Sqrt(dx * dx + dy * dy);
-        if (dist > 16384f)
-        {
-            _popup.PopupEntity(Loc.GetString("bluespace-artillery-out-of-range"), uid, uid);
-            return;
-        }
-
         artillery.IsCharging = true;
         UpdateUI(uid, console);
 		
 		SetArtilleryVisualState(console.LinkedArtillery.Value, BluespaceArtilleryVisualState.Charging);
-		
-        _audio.PlayGlobal(artillery.SectorChargeSound, uid, AudioParams.Default.WithVolume(1f));
-
-		var message = Loc.GetString(
-			"bluespace-artillery-station-announcement",
-			("coords", $"{console.TargetCoordinates.X:F1}, {console.TargetCoordinates.Y:F1}"));
 
 		EntityUid? targetStation = null;
 		if (console.TargetMapId != null)
 		{
-			foreach (var station in _stationSystem.GetStations())
+			foreach (var station in EntityQuery<StationMemberComponent>())
 			{
-				if (Transform(station).MapID == console.TargetMapId)
+				if (Transform(station.Owner).MapID == console.TargetMapId)
 				{
-					targetStation = station;
+					targetStation = station.Owner;
 					break;
 				}
 			}
 		}
 
+		_audio.PlayGlobal(artillery.SectorChargeSound, uid, AudioParams.Default.WithVolume(1f));
+
+		var message = Loc.GetString(
+			"bluespace-artillery-station-announcement",
+			("coords", $"{console.TargetCoordinates.X:F1}, {console.TargetCoordinates.Y:F1}"));
+
+		var announcementColor = new Color(194, 37, 50); // #c22532
+		var announcementSound = new SoundPathSpecifier("/Audio/_Sunrise/Announcements/sunrise_artillery.ogg");
+
 		if (targetStation != null)
-			_chat.DispatchStationAnnouncement(targetStation.Value, message, sender: Loc.GetString("bluespace-artillery-cc-sender"));
+			_chat.DispatchStationAnnouncement(targetStation.Value, message, sender: Loc.GetString("bluespace-artillery-cc-sender"), playDefaultSound: true, colorOverride: announcementColor, announcementSound: announcementSound);
 		else
-		_chat.DispatchGlobalAnnouncement(message, sender: Loc.GetString("bluespace-artillery-cc-sender"));
+			_chat.DispatchGlobalAnnouncement(message, sender: Loc.GetString("bluespace-artillery-cc-sender"), colorOverride: announcementColor, announcementSound: announcementSound);
 
         _audio.PlayPvs(artillery.ChargeSound, console.LinkedArtillery.Value,
             AudioParams.Default.WithVolume(10f).WithMaxDistance(50f));
@@ -228,7 +220,20 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
 		});
 		
         _audio.PlayPvs(artillery.FireSound, console.LinkedArtillery.Value, AudioParams.Default.WithVolume(5f));
-        _audio.PlayGlobal(artillery.ImpactSound, consoleUid, AudioParams.Default.WithVolume(5f));
+        EntityUid? targetStation = null;
+		if (console.TargetMapId != null)
+		{
+			foreach (var station in EntityQuery<StationMemberComponent>())
+			{
+				if (Transform(station.Owner).MapID == console.TargetMapId)
+				{
+					targetStation = station.Owner;
+					break;
+				}
+			}
+		}
+
+		_audio.PlayGlobal(artillery.SectorChargeSound, console.LinkedArtillery.Value, AudioParams.Default.WithVolume(1f));
 
         Timer.Spawn(TimeSpan.FromSeconds(artillery.FlightDuration), () =>
         {
@@ -310,31 +315,39 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
         }
     }
 
-    private void UpdateUI(EntityUid consoleUid, BluespaceArtilleryConsoleComponent console)
-    {
-        bool isLinked = false;
-        bool isCharging = false;
-        bool isOnCooldown = false;
+	private void UpdateUI(EntityUid consoleUid, BluespaceArtilleryConsoleComponent console)
+	{
+		bool isLinked = false;
+		bool isCharging = false;
+		bool isOnCooldown = false;
+		float cooldownRemaining = 0f;
 
-        if (console.LinkedArtillery != null && TryComp<BluespaceArtilleryComponent>(console.LinkedArtillery.Value, out var artillery))
-        {
-            isLinked = true;
-            isCharging = artillery.IsCharging;
-            isOnCooldown = !artillery.IsCharging && _timing.CurTime < artillery.NextFireTime;
-        }
+		if (console.LinkedArtillery != null && TryComp<BluespaceArtilleryComponent>(console.LinkedArtillery.Value, out var artillery))
+		{
+			isLinked = true;
+			isCharging = artillery.IsCharging;
+			isOnCooldown = !artillery.IsCharging && _timing.CurTime < artillery.NextFireTime;
 
-        var state = new BluespaceArtilleryConsoleBoundUserInterfaceState(
-            console.TargetCoordinates,
-            console.ExplosionType,
-            console.TotalIntensity,
-            console.Slope,
-            console.MaxIntensity,
-            console.PreviewEnabled,
-            isLinked,
-            isCharging,
-            isOnCooldown
-        );
+			if (isOnCooldown)
+			{
+				var diff = artillery.NextFireTime - _timing.CurTime;
+				cooldownRemaining = (float)diff.TotalSeconds;
+			}
+		}
 
-        _ui.SetUiState(consoleUid, BluespaceArtilleryConsoleUiKey.Key, state);
-    }
+		var state = new BluespaceArtilleryConsoleBoundUserInterfaceState(
+			console.TargetCoordinates,
+			console.ExplosionType,
+			console.TotalIntensity,
+			console.Slope,
+			console.MaxIntensity,
+			console.PreviewEnabled,
+			isLinked,
+			isCharging,
+			isOnCooldown,
+			cooldownRemaining
+		);
+
+		_ui.SetUiState(consoleUid, BluespaceArtilleryConsoleUiKey.Key, state);
+	}
 }

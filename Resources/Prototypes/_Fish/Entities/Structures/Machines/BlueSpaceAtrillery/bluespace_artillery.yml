@@ -41,3 +41,19 @@
         path: /Audio/_Fish/Machines/BlueSpaceArtillery/bluespace_shot_alt.ogg
       chargingState: charging
       fireState: fire
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PolygonShape
+            vertices:
+              - "-1.5,-6"
+              - "1.5,-6"
+              - "1.5,6"
+              - "-1.5,6"
+          hard: true
+          density: 100
+          mask:
+            - MachineMask
+          layer:
+            - WallLayer

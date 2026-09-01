@@ -1,3 +1,4 @@
+using Content.Client.Camera;
 using Content.Shared._Fish.Artillery;
 using Content.Shared.Eye;
 using Content.Shared.Eye.Blinding.Systems;
@@ -15,14 +16,11 @@ namespace Content.Client._Fish.Artillery;
 public sealed class BluespaceArtilleryVisualizerSystem : VisualizerSystem<BluespaceArtilleryComponent>
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedEyeSystem _eyeSystem = default!;
+    [Dependency] private readonly CameraRecoilSystem _cameraRecoil = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
 
-    private const float ShakeRadius = 5.0f;
-    private const float ShakeDuration = 0.3f;
-    private const float ShakeAmplitude = 4.0f;
+    private const float ShakeRadius = 1.0f;
+    private const float RecoilStrength = 8.0f;
 
     protected override void OnAppearanceChange(EntityUid uid, BluespaceArtilleryComponent component, ref AppearanceChangeEvent args)
     {
@@ -40,47 +38,29 @@ public sealed class BluespaceArtilleryVisualizerSystem : VisualizerSystem<Bluesp
                         break;
                     case BluespaceArtilleryVisualState.Fire:
                         sprite.LayerSetState(0, "fire");
-                        TriggerScreenShake(uid);
+                        TriggerRecoilIfNearby(uid);
                         break;
                 }
             }
         }
     }
 
-    private void TriggerScreenShake(EntityUid artillery)
+    private void TriggerRecoilIfNearby(EntityUid artillery)
     {
         var player = _playerManager.LocalPlayer?.ControlledEntity;
         if (player == null)
             return;
 
-        if (!TryComp<EyeComponent>(player, out var eye))
-            return;
-
         var artilleryXform = Transform(artillery).MapPosition;
         var playerXform = Transform(player.Value).MapPosition;
-        if (artilleryXform.MapId != playerXform.MapId ||
-            (artilleryXform.Position - playerXform.Position).Length() > ShakeRadius)
+
+        if (artilleryXform.MapId != playerXform.MapId)
             return;
 
-        var startTime = _timing.CurTime;
-        var endTime = startTime + TimeSpan.FromSeconds(ShakeDuration);
-
-        void ShakeStep()
+        float dist = (artilleryXform.Position - playerXform.Position).Length();
+        if (dist <= ShakeRadius)
         {
-            if (_timing.CurTime >= endTime)
-            {
-                _eyeSystem.SetOffset(player.Value, Vector2.Zero, eye);
-                return;
-            }
-
-            var offset = new Vector2(
-                _random.NextFloat(-ShakeAmplitude, ShakeAmplitude),
-                _random.NextFloat(-ShakeAmplitude, ShakeAmplitude)
-            );
-            _eyeSystem.SetOffset(player.Value, offset, eye);
-            Timer.Spawn(TimeSpan.FromSeconds(0.05), ShakeStep);
+            _cameraRecoil.KickCamera(player.Value, new Vector2(RecoilStrength, 0f));
         }
-
-        ShakeStep();
     }
 }

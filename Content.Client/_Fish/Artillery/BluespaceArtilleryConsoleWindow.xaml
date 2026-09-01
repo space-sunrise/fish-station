@@ -1,4 +1,5 @@
 <DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:artillery="clr-namespace:Content.Client._Fish.Artillery"
                Title="{Loc 'bluespace-artillery-console-title'}"
                MinSize="1000 700">
     <BoxContainer Orientation="Horizontal" VerticalExpand="True" HorizontalExpand="True" Margin="5">
@@ -19,11 +20,10 @@
             <Button Name="FireButton" Text="{Loc 'bluespace-artillery-fire'}"
                     StyleClasses="DangerButton" HorizontalExpand="True" />
         </BoxContainer>
-        <LayoutContainer Name="ScannerContainer" VerticalExpand="True" HorizontalExpand="True"
-                         MinSize="600 600">
-            <Control Name="ScannerControl" VerticalExpand="True" HorizontalExpand="True" />
-            <TextureRect Name="Crosshair" Visible="False" MouseFilter="Ignore" />
-        </LayoutContainer>
+		<LayoutContainer Name="ScannerContainer" VerticalExpand="True" HorizontalExpand="True" MinSize="600 600">
+			<artillery:ArtilleryScannerControl Name="ScannerControl" VerticalExpand="True" HorizontalExpand="True" />
+			<TextureRect Name="Crosshair" Visible="False" MouseFilter="Ignore" />
+		</LayoutContainer>
         <BoxContainer Orientation="Vertical" MinWidth="240" Margin="5">
             <Label Text="{Loc 'bluespace-artillery-explosion-params'}" />
             <Label Text="{Loc 'bluespace-artillery-explosion-type'}" />
