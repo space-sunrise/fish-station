@@ -24,6 +24,10 @@
     - type: DeviceLinkSource
     - type: ActivatableUI
       key: enum.BluespaceArtilleryConsoleUiKey.Key
+    - type: UserInterface
+      interfaces:
+        enum.BluespaceArtilleryConsoleUiKey.Key:
+          type: BluespaceArtilleryConsoleBoundUserInterface
     - type: BluespaceArtilleryConsole
       linkingPort: Artillery
     - type: AccessReader

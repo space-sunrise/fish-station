@@ -16,6 +16,7 @@ public sealed class BluespaceArtilleryConsoleBoundUserInterface : BoundUserInter
         base.Open();
 
         _window = new BluespaceArtilleryConsoleWindow();
+        _window.OnClose += Close;
         _window.OnFire += () => SendMessage(new BluespaceArtilleryFireMessage());
         _window.OnCoordsChanged += coords => SendMessage(new BluespaceArtillerySetCoordsMessage { Coordinates = coords });
         _window.OnParamsChanged += (type, total, slope, max) =>
@@ -41,9 +42,13 @@ public sealed class BluespaceArtilleryConsoleBoundUserInterface : BoundUserInter
     protected override void Dispose(bool disposing)
     {
         base.Dispose(disposing);
-        if (disposing && _window != null)
+        if (!disposing)
+            return;
+
+        if (_window != null)
         {
-            _window.Dispose();
+            _window.OnClose -= Close;
+            _window.Close();
             _window = null;
         }
     }

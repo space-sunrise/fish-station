@@ -11,6 +11,7 @@ using Content.Shared.Tools;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
+using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -49,6 +50,7 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
         SubscribeLocalEvent<BluespaceArtilleryConsoleComponent, BluespaceArtillerySetCoordsMessage>(OnSetCoordsMessage);
         SubscribeLocalEvent<BluespaceArtilleryConsoleComponent, BluespaceArtillerySetParamsMessage>(OnSetParamsMessage);
         SubscribeLocalEvent<BluespaceArtilleryConsoleComponent, BluespaceArtilleryPreviewMessage>(OnPreviewMessage);
+        SubscribeLocalEvent<BluespaceArtilleryConsoleComponent, AfterActivatableUIOpenEvent>(OnAfterActivatableUIOpen);
 
         SubscribeLocalEvent<BluespaceArtilleryConsoleComponent, ComponentShutdown>(OnConsoleShutdown);
         SubscribeLocalEvent<BluespaceArtilleryComponent, ComponentShutdown>(OnArtilleryShutdown);
@@ -225,6 +227,11 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
         UpdateUI(uid, console);
     }
 
+    private void OnAfterActivatableUIOpen(EntityUid uid, BluespaceArtilleryConsoleComponent console, AfterActivatableUIOpenEvent args)
+    {
+        UpdateUI(uid, console);
+    }
+
     private void OnConsoleShutdown(EntityUid uid, BluespaceArtilleryConsoleComponent console, ComponentShutdown args)
     {
         if (console.LinkedArtillery != null && TryComp<BluespaceArtilleryComponent>(console.LinkedArtillery.Value, out var artillery))
@@ -234,16 +241,24 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
     private void OnArtilleryShutdown(EntityUid uid, BluespaceArtilleryComponent artillery, ComponentShutdown args)
     {
         if (artillery.LinkedConsole != null && TryComp<BluespaceArtilleryConsoleComponent>(artillery.LinkedConsole.Value, out var console))
+        {
             console.LinkedArtillery = null;
+            UpdateUI(artillery.LinkedConsole.Value, console);
+        }
     }
 
     private void UpdateUI(EntityUid consoleUid, BluespaceArtilleryConsoleComponent console)
     {
-        if (console.LinkedArtillery == null)
-            return;
+        bool isLinked = false;
+        bool isCharging = false;
+        bool isOnCooldown = false;
 
-        var artillery = Comp<BluespaceArtilleryComponent>(console.LinkedArtillery.Value);
-        var isOnCooldown = !artillery.IsCharging && _timing.CurTime < artillery.NextFireTime;
+        if (console.LinkedArtillery != null && TryComp<BluespaceArtilleryComponent>(console.LinkedArtillery.Value, out var artillery))
+        {
+            isLinked = true;
+            isCharging = artillery.IsCharging;
+            isOnCooldown = !artillery.IsCharging && _timing.CurTime < artillery.NextFireTime;
+        }
 
         var state = new BluespaceArtilleryConsoleBoundUserInterfaceState(
             console.TargetCoordinates,
@@ -252,8 +267,8 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
             console.Slope,
             console.MaxIntensity,
             console.PreviewEnabled,
-            true,
-            artillery.IsCharging,
+            isLinked,
+            isCharging,
             isOnCooldown
         );
 
