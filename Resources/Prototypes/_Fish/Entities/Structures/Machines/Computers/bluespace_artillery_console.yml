@@ -19,9 +19,12 @@
           state: bluespace_artillery_keys
         - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
           state: generic_panel_open
+    - type: Appearance
     - type: DeviceList
     - type: DeviceNetwork
     - type: DeviceLinkSource
+      ports:
+        - Artillery
     - type: ActivatableUI
       key: enum.BluespaceArtilleryConsoleUiKey.Key
     - type: UserInterface
@@ -29,9 +32,5 @@
         enum.BluespaceArtilleryConsoleUiKey.Key:
           type: BluespaceArtilleryConsoleBoundUserInterface
     - type: BluespaceArtilleryConsole
-      linkingPort: Artillery
     - type: AccessReader
       access: [["BluespaceArtilleryOperator"]]
-    - type: ApcPowerReceiver
-      needsPower: true
-      powerLoad: 1000

@@ -53,6 +53,7 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
         _statusLabel = this.FindControl<Label>("StatusLabel");
         _scannerControl = this.FindControl<Control>("ScannerControl");
         _crosshair = this.FindControl<TextureRect>("Crosshair");
+        _crosshair.MinSize = new Vector2(32, 32);
         _explosionType = this.FindControl<OptionButton>("ExplosionType");
         _intensity = this.FindControl<LineEdit>("Intensity");
         _slope = this.FindControl<LineEdit>("Slope");
@@ -92,7 +93,9 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
 
         _targetCoords = ArtilleryVector2.Zero;
         UpdateCoordFields();
+
         _scannerControl.OnResized += UpdateCrosshairPosition;
+        UpdateCrosshairPosition();
     }
 
     protected override void Draw(DrawingHandleScreen handle)
@@ -158,12 +161,12 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
 
     private void UpdateCrosshairPosition()
     {
-        var rect = _scannerControl.GlobalRect;
-        if (rect.Width <= 0 || rect.Height <= 0)
+        var containerSize = _scannerControl.Size;
+        if (containerSize.X <= 0 || containerSize.Y <= 0)
             return;
 
+        var center = containerSize / 2f;
         var crossSize = _crosshair.Size;
-        var center = rect.Center;
         LayoutContainer.SetPosition(_crosshair, center - crossSize / 2f);
     }
 

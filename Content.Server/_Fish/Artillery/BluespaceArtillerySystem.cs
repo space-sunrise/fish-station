@@ -8,10 +8,13 @@ using Content.Shared.Explosion;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Tools;
+using Content.Shared.Sprite;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.UserInterface;
+using Content.Shared.Power.EntitySystems;
+using Content.Shared.Power;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -25,11 +28,13 @@ namespace Content.Server._Fish.Artillery;
 
 public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+	[Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+	[Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
+	[Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
@@ -40,11 +45,12 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
         base.Initialize();
 
         SubscribeLocalEvent<BluespaceArtilleryComponent, NewLinkEvent>(OnArtilleryNewLink);
-        SubscribeLocalEvent<BluespaceArtilleryConsoleComponent, NewLinkEvent>(OnConsoleNewLink);
+        SubscribeLocalEvent<BluespaceArtilleryComponent, PortDisconnectedEvent>(OnArtilleryPortDisconnected);
         SubscribeLocalEvent<BluespaceArtilleryComponent, LinkAttemptEvent>(OnArtilleryLinkAttempt);
         SubscribeLocalEvent<BluespaceArtilleryConsoleComponent, LinkAttemptEvent>(OnConsoleLinkAttempt);
-        SubscribeLocalEvent<BluespaceArtilleryComponent, PortDisconnectedEvent>(OnArtilleryPortDisconnected);
         SubscribeLocalEvent<BluespaceArtilleryConsoleComponent, PortDisconnectedEvent>(OnConsolePortDisconnected);
+		SubscribeLocalEvent<BluespaceArtilleryConsoleComponent, MapInitEvent>(OnConsoleMapInit);
+        SubscribeLocalEvent<BluespaceArtilleryConsoleComponent, NewLinkEvent>(OnConsoleNewLink);
 
         SubscribeLocalEvent<BluespaceArtilleryConsoleComponent, BluespaceArtilleryFireMessage>(OnFireMessage);
         SubscribeLocalEvent<BluespaceArtilleryConsoleComponent, BluespaceArtillerySetCoordsMessage>(OnSetCoordsMessage);
@@ -55,6 +61,11 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
         SubscribeLocalEvent<BluespaceArtilleryConsoleComponent, ComponentShutdown>(OnConsoleShutdown);
         SubscribeLocalEvent<BluespaceArtilleryComponent, ComponentShutdown>(OnArtilleryShutdown);
     }
+
+	private void SetArtilleryVisualState(EntityUid uid, BluespaceArtilleryVisualState state)
+	{
+		_appearance.SetData(uid, BluespaceArtilleryVisuals.VisualState, state);
+	}
 
     private void OnArtilleryNewLink(EntityUid uid, BluespaceArtilleryComponent comp, ref NewLinkEvent args)
     {
@@ -123,6 +134,13 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
         if (artillery.IsCharging)
             return;
 
+		if (!_powerReceiver.IsPowered(uid) ||
+			!_powerReceiver.IsPowered(console.LinkedArtillery.Value))
+		{
+			_popup.PopupEntity(Loc.GetString("bluespace-artillery-no-power"), uid, uid);
+			return;
+		}
+		
         if (_timing.CurTime < artillery.NextFireTime)
         {
             _popup.PopupEntity(Loc.GetString("bluespace-artillery-on-cooldown"), uid, uid);
@@ -141,8 +159,10 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
 
         artillery.IsCharging = true;
         UpdateUI(uid, console);
-
-        _audio.PlayGlobal(artillery.SectorChargeSound, uid, AudioParams.Default.WithVolume(-5f));
+		
+		SetArtilleryVisualState(console.LinkedArtillery.Value, BluespaceArtilleryVisualState.Charging);
+		
+        _audio.PlayGlobal(artillery.SectorChargeSound, uid, AudioParams.Default.WithVolume(1f));
 
         var station = _stationSystem.GetOwningStation(uid);
         var message = Loc.GetString(
@@ -152,7 +172,7 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
             _chat.DispatchStationAnnouncement(station.Value, message, sender: Loc.GetString("bluespace-artillery-cc-sender"));
 
         _audio.PlayPvs(artillery.ChargeSound, console.LinkedArtillery.Value,
-            AudioParams.Default.WithVolume(-10f).WithMaxDistance(30f));
+            AudioParams.Default.WithVolume(10f).WithMaxDistance(50f));
 
         Timer.Spawn(TimeSpan.FromSeconds(artillery.ChargeDuration), () =>
         {
@@ -165,8 +185,15 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
         if (console.LinkedArtillery == null)
             return;
 
-        _audio.PlayPvs(artillery.FireSound, console.LinkedArtillery.Value, AudioParams.Default.WithVolume(0f));
-        _audio.PlayGlobal(artillery.ImpactSound, consoleUid, AudioParams.Default.WithVolume(0f));
+		SetArtilleryVisualState(console.LinkedArtillery.Value, BluespaceArtilleryVisualState.Fire);
+		Timer.Spawn(TimeSpan.FromSeconds(0.5), () =>
+		{
+			if (!Deleted(console.LinkedArtillery.Value))
+				SetArtilleryVisualState(console.LinkedArtillery.Value, BluespaceArtilleryVisualState.Idle);
+		});
+		
+        _audio.PlayPvs(artillery.FireSound, console.LinkedArtillery.Value, AudioParams.Default.WithVolume(5f));
+        _audio.PlayGlobal(artillery.ImpactSound, consoleUid, AudioParams.Default.WithVolume(5f));
 
         Timer.Spawn(TimeSpan.FromSeconds(artillery.FlightDuration), () =>
         {
@@ -179,9 +206,10 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
         if (console.LinkedArtillery == null)
             return;
 
-        var mapCoords = new MapCoordinates(
-            new Vector2(console.TargetCoordinates.X, console.TargetCoordinates.Y),
-            Transform(consoleUid).MapID);
+        var mapId = console.TargetMapId ?? Transform(consoleUid).MapID;
+		var mapCoords = new MapCoordinates(
+			new Vector2(console.TargetCoordinates.X, console.TargetCoordinates.Y),
+			mapId);
 
         var explosionProto = GetExplosionPrototype(console.ExplosionType);
 
