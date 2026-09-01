@@ -78,7 +78,7 @@
         conditions:
         - !type:ReagentCondition
           reagent: Krypium
-          min: 1.5  
+          min: 1.5
 
 - type: reagent
   id: Prallium
@@ -739,7 +739,7 @@
           min: 0.1
         type: Local
         visualType: Large
-        messages: 
+        messages:
           [
           "Вы словили ОЧЕНЬ сильный трип",
           "Робастность покидает вас...",
@@ -760,3 +760,4 @@
           "Вы словили ОЧЕНЬ сильный трип"
           ]
         probability: 1
+ 
