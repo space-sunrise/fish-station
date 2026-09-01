@@ -248,7 +248,7 @@
   id: DiseaseSpawn
   threatType: MinorCalm
   threatCost: 25
-  minStationStrength: 15
+  minStationStrength: 25
   maxStress: 80
 
 - type: storytellerMetadata
