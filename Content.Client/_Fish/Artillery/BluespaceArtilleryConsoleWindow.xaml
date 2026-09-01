@@ -1,47 +1,40 @@
-<Control xmlns="https://spacestation14.io"
-         MinSize="1000 700"
-         MouseFilter="Stop">
-    <PanelContainer StyleClasses="windowBackground" VerticalExpand="True" HorizontalExpand="True">
-        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="5">
-            <PanelContainer Name="TitleBar" StyleClasses="windowTitle" MouseFilter="Stop">
-                <Label Text="{Loc 'bluespace-artillery-console-title'}" />
-            </PanelContainer>
-            <BoxContainer Orientation="Horizontal" VerticalExpand="True" HorizontalExpand="True" Margin="5">
-                <BoxContainer Orientation="Vertical" MinWidth="220" Margin="5">
-                    <Label Text="{Loc 'bluespace-artillery-coordinates'}" />
-                    <BoxContainer Orientation="Horizontal">
-                        <Label Text="X:" MinWidth="25" />
-                        <LineEdit Name="CoordinateX" HorizontalExpand="True" />
-                    </BoxContainer>
-                    <BoxContainer Orientation="Horizontal">
-                        <Label Text="Y:" MinWidth="25" />
-                        <LineEdit Name="CoordinateY" HorizontalExpand="True" />
-                    </BoxContainer>
-                    <Button Name="ApplyCoordinates" Text="{Loc 'bluespace-artillery-apply'}" />
-                    <Label Name="CurrentCoords" Text="X: 0, Y: 0" />
-                    <Control VerticalExpand="True" />
-                    <Label Name="StatusLabel" Text="{Loc 'bluespace-artillery-status-no-link'}" />
-                    <Button Name="FireButton" Text="{Loc 'bluespace-artillery-fire'}"
-                            StyleClasses="DangerButton" HorizontalExpand="True" />
-                </BoxContainer>
-                <LayoutContainer Name="ScannerContainer" VerticalExpand="True" HorizontalExpand="True"
-                                 MinSize="600 600">
-                    <Control Name="ScannerControl" VerticalExpand="True" HorizontalExpand="True" />
-                    <TextureRect Name="Crosshair" Visible="False" MouseFilter="Ignore" />
-                </LayoutContainer>
-                <BoxContainer Orientation="Vertical" MinWidth="240" Margin="5">
-                    <Label Text="{Loc 'bluespace-artillery-explosion-params'}" />
-                    <Label Text="{Loc 'bluespace-artillery-explosion-type'}" />
-                    <OptionButton Name="ExplosionType" />
-                    <Label Text="{Loc 'bluespace-artillery-intensity'}" />
-                    <LineEdit Name="Intensity" Text="100" />
-                    <Label Text="{Loc 'bluespace-artillery-slope'}" />
-                    <LineEdit Name="Slope" Text="5" />
-                    <Label Text="{Loc 'bluespace-artillery-max-intensity'}" />
-                    <LineEdit Name="MaxIntensity" Text="100" />
-                    <CheckBox Name="PreviewToggle" Text="{Loc 'bluespace-artillery-preview'}" />
-                </BoxContainer>
+<DefaultWindow xmlns="https://spacestation14.io"
+               Title="{Loc 'bluespace-artillery-console-title'}"
+               MinSize="1000 700">
+    <BoxContainer Orientation="Horizontal" VerticalExpand="True" HorizontalExpand="True" Margin="5">
+        <BoxContainer Orientation="Vertical" MinWidth="220" Margin="5">
+            <Label Text="{Loc 'bluespace-artillery-coordinates'}" />
+            <BoxContainer Orientation="Horizontal">
+                <Label Text="X:" MinWidth="25" />
+                <LineEdit Name="CoordinateX" HorizontalExpand="True" />
             </BoxContainer>
+            <BoxContainer Orientation="Horizontal">
+                <Label Text="Y:" MinWidth="25" />
+                <LineEdit Name="CoordinateY" HorizontalExpand="True" />
+            </BoxContainer>
+            <Button Name="ApplyCoordinates" Text="{Loc 'bluespace-artillery-apply'}" />
+            <Label Name="CurrentCoords" Text="X: 0, Y: 0" />
+            <Control VerticalExpand="True" />
+            <Label Name="StatusLabel" Text="{Loc 'bluespace-artillery-status-no-link'}" />
+            <Button Name="FireButton" Text="{Loc 'bluespace-artillery-fire'}"
+                    StyleClasses="DangerButton" HorizontalExpand="True" />
         </BoxContainer>
-    </PanelContainer>
-</Control>
+        <LayoutContainer Name="ScannerContainer" VerticalExpand="True" HorizontalExpand="True"
+                         MinSize="600 600">
+            <Control Name="ScannerControl" VerticalExpand="True" HorizontalExpand="True" />
+            <TextureRect Name="Crosshair" Visible="False" MouseFilter="Ignore" />
+        </LayoutContainer>
+        <BoxContainer Orientation="Vertical" MinWidth="240" Margin="5">
+            <Label Text="{Loc 'bluespace-artillery-explosion-params'}" />
+            <Label Text="{Loc 'bluespace-artillery-explosion-type'}" />
+            <OptionButton Name="ExplosionType" />
+            <Label Text="{Loc 'bluespace-artillery-intensity'}" />
+            <LineEdit Name="Intensity" Text="100" />
+            <Label Text="{Loc 'bluespace-artillery-slope'}" />
+            <LineEdit Name="Slope" Text="5" />
+            <Label Text="{Loc 'bluespace-artillery-max-intensity'}" />
+            <LineEdit Name="MaxIntensity" Text="100" />
+            <CheckBox Name="PreviewToggle" Text="{Loc 'bluespace-artillery-preview'}" />
+        </BoxContainer>
+    </BoxContainer>
+</DefaultWindow>

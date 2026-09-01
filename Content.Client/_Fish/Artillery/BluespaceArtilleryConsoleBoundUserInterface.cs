@@ -1,6 +1,5 @@
 using Content.Shared._Fish.Artillery;
 using Robust.Client.UserInterface;
-using Robust.Shared.IoC;
 
 namespace Content.Client._Fish.Artillery;
 
@@ -29,8 +28,8 @@ public sealed class BluespaceArtilleryConsoleBoundUserInterface : BoundUserInter
             });
         _window.OnPreviewToggled += enabled => SendMessage(new BluespaceArtilleryPreviewMessage { Enabled = enabled });
 
-        var uiManager = IoCManager.Resolve<IUserInterfaceManager>();
-        uiManager.WindowRoot.AddChild(_window);
+        // Fish edit - DefaultWindow открывается через OpenCentered(), а не WindowRoot.AddChild()
+        _window.OpenCentered();
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

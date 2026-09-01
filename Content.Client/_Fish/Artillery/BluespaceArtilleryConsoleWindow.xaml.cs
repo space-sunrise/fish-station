@@ -6,6 +6,7 @@ using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.IoC;
 using Robust.Shared.Utility;
@@ -14,7 +15,8 @@ using Content.Shared.Explosion;
 
 namespace Content.Client._Fish.Artillery;
 
-public sealed class BluespaceArtilleryConsoleWindow : Control
+// Fish edit - BluespaceArtillery UI window (DefaultWindow вместо Control, исправлены баги с индексом и позицией прицела)
+public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
 {
     private readonly LineEdit _coordinateX;
     private readonly LineEdit _coordinateY;
@@ -91,7 +93,8 @@ public sealed class BluespaceArtilleryConsoleWindow : Control
 
         _targetCoords = ArtilleryVector2.Zero;
         UpdateCoordFields();
-        UpdateCrosshairPosition();
+        // Fish edit - позиционируем прицел после layout pass, а не в конструкторе (rect = 0 до отрисовки)
+        _scannerControl.OnResized += UpdateCrosshairPosition;
     }
 
     protected override void Draw(DrawingHandleScreen handle)
@@ -168,6 +171,10 @@ public sealed class BluespaceArtilleryConsoleWindow : Control
 
     private void SendParams()
     {
+        // Fish edit - защита от IndexOutOfRangeException: SelectedId = -1 если ничего не выбрано или список пуст
+        if (_explosionType.SelectedId < 0 || _explosionType.SelectedId >= _explosionTypes.Count)
+            return;
+
         if (float.TryParse(_intensity.Text, out var intensity) &&
             float.TryParse(_slope.Text, out var slope) &&
             float.TryParse(_maxIntensity.Text, out var max))
@@ -184,7 +191,9 @@ public sealed class BluespaceArtilleryConsoleWindow : Control
         UpdateCrosshairPosition();
 
         var typeIndex = _explosionTypes.IndexOf(state.ExplosionType);
-        _explosionType.SelectId(typeIndex >= 0 ? typeIndex : 0);
+        // Fish edit - не вызывать SelectId если список пуст (иначе ArgumentOutOfRangeException)
+        if (_explosionTypes.Count > 0)
+            _explosionType.SelectId(typeIndex >= 0 ? typeIndex : 0);
 
         _intensity.Text = state.TotalIntensity.ToString();
         _slope.Text = state.Slope.ToString();
