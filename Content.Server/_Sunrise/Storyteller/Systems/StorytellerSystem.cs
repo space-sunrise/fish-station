@@ -1117,9 +1117,21 @@ public sealed partial class StorytellerSystem : GameRuleSystem<StorytellerRuleCo
             if (isMajor != isEventMajor)
                 continue;
 
-            // Fish-edit: Calm не крутит MajorAntag — бюджет слишком мал для дорогих режимов
+            // Fish-edit: Calm не крутит MajorAntag (крупные антагонисты исключены, MajorCalm разрешен)
             if (comp.StorytellerType == StorytellerType.Calm &&
                 metadata.ThreatType == StorytellerThreatType.MajorAntag)
+                continue;
+
+            // Fish-edit: Calm не вызывает MinorAntag в течение первого часа раунда
+            if (comp.StorytellerType == StorytellerType.Calm &&
+                metadata.ThreatType == StorytellerThreatType.MinorAntag &&
+                currentDuration < TimeSpan.FromHours(1))
+                continue;
+
+            // Fish-edit: Classic не вызывает MajorAntag в течение первого часа раунда
+            if (comp.StorytellerType == StorytellerType.Classic &&
+                metadata.ThreatType == StorytellerThreatType.MajorAntag &&
+                currentDuration < TimeSpan.FromHours(1))
                 continue;
 
             if (metadata.ThreatType == StorytellerThreatType.Helpful)
