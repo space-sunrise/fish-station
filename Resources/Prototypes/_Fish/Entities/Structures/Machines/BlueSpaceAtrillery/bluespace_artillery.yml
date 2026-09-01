@@ -13,11 +13,19 @@
       state: idle
       noRot: true
     - type: IconSmooth
+    # Fish edit - подключение к HV-кабелям через NodeContainer (без него PowerConsumer не видит сеть)
+    - type: NodeContainer
+      examinable: true
+      nodes:
+        input:
+          !type:CableDeviceNode
+          nodeGroupID: HVPower
     - type: PowerConsumer
       voltage: High
+      drawRate: 50000
     - type: ApcPowerReceiver
       needsPower: true
-      powerLoad: 50000
+      powerLoad: 1000 # Fish edit - 1000 вместо 50000 (APC только для базовой электроники)
     - type: DeviceNetwork
     - type: DeviceList
     - type: DeviceLinkSink
