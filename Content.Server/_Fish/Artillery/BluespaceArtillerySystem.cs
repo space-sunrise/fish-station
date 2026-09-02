@@ -238,7 +238,7 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
             return;
 
 		SetArtilleryVisualState(console.LinkedArtillery.Value, BluespaceArtilleryVisualState.Fire);
-		Timer.Spawn(TimeSpan.FromSeconds(4.0), () =>
+		Timer.Spawn(TimeSpan.FromSeconds(3.9), () =>
 		{
 			if (!Deleted(console.LinkedArtillery.Value))
 				SetArtilleryVisualState(console.LinkedArtillery.Value, BluespaceArtilleryVisualState.Idle);

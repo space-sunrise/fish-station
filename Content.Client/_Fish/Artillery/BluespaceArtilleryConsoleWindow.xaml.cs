@@ -7,6 +7,7 @@ using Content.Shared.Explosion;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
+using Content.Shared.Explosion;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
@@ -232,7 +233,6 @@ public sealed class ArtilleryScannerControl : BaseShuttleControl
             DrawDocks(handle, gUid, curGridToView);
         }
 
-        // Draw preview explosion radius if enabled
         if (PreviewEnabled && PreviewRadius > 0f)
         {
             var screenRadius = PreviewRadius * ScannerScale;
@@ -296,12 +296,6 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
     private readonly CheckBox _previewToggle;
     private readonly Button _fireButton;
 
-    private bool _isLinked;
-    private bool _isCharging;
-    private bool _isOnCooldown;
-    private float _cooldownRemaining;
-    private bool _cooldownTickActive;
-
     private ArtilleryVector2 _targetCoords;
     private const float ScannerMaxOffset = 16384f;
 
@@ -326,6 +320,8 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
         _statusLabel = this.FindControl<Label>("StatusLabel");
         _scannerContainer = this.FindControl<BoxContainer>("ScannerContainer");
         _scannerControl = this.FindControl<ArtilleryScannerControl>("ScannerControl");
+        _crosshair = this.FindControl<TextureRect>("Crosshair");
+        _crosshair.SetSize = new Vector2(16, 16);
         _explosionType = this.FindControl<OptionButton>("ExplosionType");
         _intensity = this.FindControl<LineEdit>("Intensity");
         _slope = this.FindControl<LineEdit>("Slope");
@@ -399,6 +395,20 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
         {
             _scannerControl.PreviewRadius = MathF.Sqrt(intensity / slope);
         }
+        _scannerContainer.OnResized += UpdateScannerLayout;
+        UpdateScannerLayout();
+    }
+
+    private void UpdateScannerLayout()
+    {
+        var containerSize = _scannerContainer.Size;
+        if (containerSize.X <= 0 || containerSize.Y <= 0)
+            return;
+
+        LayoutContainer.SetSize(_scannerControl, containerSize);
+        _scannerControl.InvalidateMeasure();
+
+        UpdateCrosshairPosition();
     }
 
     private void ApplyManualCoordinates()
@@ -440,48 +450,6 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
         }
     }
 
-    private void StartCooldownTick()
-    {
-        _cooldownTickActive = true;
-        TickCooldown();
-    }
-
-    private void StopCooldownTick()
-    {
-        _cooldownTickActive = false;
-    }
-
-    private void TickCooldown()
-    {
-        if (!_cooldownTickActive)
-            return;
-
-        _cooldownRemaining -= 0.1f;
-        if (_cooldownRemaining <= 0f)
-        {
-            _cooldownRemaining = 0f;
-            _isOnCooldown = false;
-            UpdateStatusLabel();
-            _cooldownTickActive = false;
-            return;
-        }
-
-        UpdateStatusLabel();
-        Timer.Spawn(TimeSpan.FromSeconds(0.1), TickCooldown);
-    }
-
-    private void UpdateStatusLabel()
-    {
-        if (!_isLinked)
-            _statusLabel.Text = Loc.GetString("bluespace-artillery-status-no-link");
-        else if (_isCharging)
-            _statusLabel.Text = Loc.GetString("bluespace-artillery-status-charging");
-        else if (_isOnCooldown)
-            _statusLabel.Text = $"{Loc.GetString("bluespace-artillery-status-cooldown")} {_cooldownRemaining:F1} с";
-        else
-            _statusLabel.Text = Loc.GetString("bluespace-artillery-status-ready");
-    }
-
     public void UpdateState(BluespaceArtilleryConsoleBoundUserInterfaceState state)
     {
         _targetCoords = state.TargetCoordinates;
@@ -516,17 +484,14 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
         _previewToggle.Pressed = state.PreviewEnabled;
         UpdatePreviewRadius();
 
-        _isLinked = state.IsLinked;
-        _isCharging = state.IsCharging;
-        _isOnCooldown = state.IsOnCooldown;
-        _cooldownRemaining = state.CooldownRemaining;
-
-        UpdateStatusLabel();
-
-        if (state.IsOnCooldown)
-            StartCooldownTick();
+        if (!state.IsLinked)
+            _statusLabel.Text = Loc.GetString("bluespace-artillery-status-no-link");
+        else if (state.IsCharging)
+            _statusLabel.Text = Loc.GetString("bluespace-artillery-status-charging");
+        else if (state.IsOnCooldown)
+            _statusLabel.Text = Loc.GetString("bluespace-artillery-status-cooldown");
         else
-            StopCooldownTick();
+            _statusLabel.Text = Loc.GetString("bluespace-artillery-status-ready");
 
         _fireButton.Disabled = !state.IsLinked || state.IsCharging || state.IsOnCooldown;
     }
