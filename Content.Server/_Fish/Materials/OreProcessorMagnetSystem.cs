@@ -1,5 +1,7 @@
 using Content.Server.Materials;
 using Content.Server.Power.EntitySystems;
+using Content.Shared.ActionBlocker;
+using Content.Shared.Interaction;
 using Content.Shared.Materials;
 using Content.Shared.Popups;
 using Content.Shared.Storage.EntitySystems;
@@ -15,6 +17,8 @@ namespace Content.Server._Fish.Materials;
 /// </summary>
 public sealed partial class OreProcessorMagnetSystem : EntitySystem
 {
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private MaterialStorageSystem _materialStorage = default!;
     [Dependency] private PowerReceiverSystem _power = default!;
@@ -79,6 +83,9 @@ public sealed partial class OreProcessorMagnetSystem : EntitySystem
     private bool CanActivateMagnet(Entity<OreProcessorMagnetComponent> ent, EntityUid user)
     {
         if (!Exists(user))
+            return false;
+
+        if (!_actionBlocker.CanInteract(user, ent) || !_interaction.InRangeAndAccessible(user, ent.Owner))
             return false;
 
         if (_activeQuery.HasComp(ent))

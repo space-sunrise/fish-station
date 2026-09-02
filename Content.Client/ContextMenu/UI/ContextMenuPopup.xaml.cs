@@ -72,6 +72,9 @@ namespace Content.Client.ContextMenu.UI
 
         protected override void Dispose(bool disposing)
         {
+            if (disposing && Visible)
+                Close(); // FIsh edit - закрываем модальное меню до удаления его дочерних элементов
+
             MenuBody.OnChildRemoved -= ctrl => _uiController.OnRemoveElement(this, ctrl);
             ParentElement = null;
             base.Dispose(disposing);
