@@ -15,14 +15,21 @@ bluespace-artillery-total-intensity = Общая интенсивность:
 bluespace-artillery-slope = Наклон интенсивности:
 bluespace-artillery-max-intensity = Максимальная интенсивность:
 bluespace-artillery-preview = Предпросмотр взрыва
-access-level-bsa-operator = Оператор БСА
-
-# Fish edit - статусы консоли БСА
+bluespace-artillery-linker-set = Теперь используйте мультитул на другой структуре.
+bluespace-artillery-status-cooldown = Перезарядка...
+bluespace-artillery-no-power = Недостаточно энергии для выстрела.
 bluespace-artillery-status-no-link = Статус: нет связи с пушкой
-bluespace-artillery-status-charging = Статус: заряжается...
-bluespace-artillery-status-cooldown = Статус: перезарядка...
+bluespace-artillery-status-charging = Статус: заряжается
+bluespace-artillery-status-cooldown = Статус: перезарядка
 bluespace-artillery-status-ready = Статус: готов к выстрелу
 
-# Fish edit - порты DeviceLink для системы артиллерии
 signal-port-name-artillery = Артиллерия
 signal-port-description-artillery = Канал управления блюспейс артиллерией
+
+access-level-bsa-operator = Оператор БСА
+
+ent-BluespaceArtilleryConsole = консоль блюспейс артиллерии
+ent-BluespaceArtilleryConsole-desc = Центр управления блюспейс артиллерией. Требует связи с пушкой.
+
+ent-BluespaceArtillery = блюспейс артиллерия
+ent-BluespaceArtillery-desc = Мощное оружие для дальних ударов. Требует подключения к консоли и высоковольтному кабелю.
