@@ -289,7 +289,7 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
     private readonly BoxContainer _scannerContainer;
     private readonly ArtilleryScannerControl _scannerControl;
     private readonly OptionButton _explosionType;
-    private readonly LineEdit _intensity;
+    private readonly LineEdit _intensity = null!;
     private readonly LineEdit _slope;
     private readonly LineEdit _maxIntensity;
     private readonly CheckBox _previewToggle;
@@ -317,20 +317,21 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
     {
         RobustXamlLoader.Load(this);
 
-        _stationSelector = this.FindControl<OptionButton>("StationSelector");
-        _coordinateX = this.FindControl<LineEdit>("CoordinateX");
-        _coordinateY = this.FindControl<LineEdit>("CoordinateY");
-        _applyCoordinates = this.FindControl<Button>("ApplyCoordinates");
-        _currentCoords = this.FindControl<Label>("CurrentCoords");
-        _statusLabel = this.FindControl<Label>("StatusLabel");
-        _scannerContainer = this.FindControl<BoxContainer>("ScannerContainer");
-        _scannerControl = this.FindControl<ArtilleryScannerControl>("ScannerControl");
-        _explosionType = this.FindControl<OptionButton>("ExplosionType");
-        _intensity = this.FindControl<LineEdit>("Intensity");
-        _slope = this.FindControl<LineEdit>("Slope");
-        _maxIntensity = this.FindControl<LineEdit>("MaxIntensity");
-        _previewToggle = this.FindControl<CheckBox>("PreviewToggle");
-        _fireButton = this.FindControl<Button>("FireButton");
+        _stationSelector = this.FindControl<OptionButton>("StationSelector")!;
+        _coordinateX = this.FindControl<LineEdit>("CoordinateX")!;
+        _coordinateY = this.FindControl<LineEdit>("CoordinateY")!;
+        _applyCoordinates = this.FindControl<Button>("ApplyCoordinates")!;
+        _currentCoords = this.FindControl<Label>("CurrentCoords")!;
+        _statusLabel = this.FindControl<Label>("StatusLabel")!;
+        _scannerContainer = this.FindControl<BoxContainer>("ScannerContainer")!;
+        _scannerControl = this.FindControl<ArtilleryScannerControl>("ScannerControl")!;
+		_explosionType!.OnItemSelected += _ => SendParams();
+        _explosionType = this.FindControl<OptionButton>("ExplosionType")!;
+        _intensity = this.FindControl<LineEdit>("Intensity")!;
+        _slope = this.FindControl<LineEdit>("Slope")!;
+        _maxIntensity = this.FindControl<LineEdit>("MaxIntensity")!;
+        _previewToggle = this.FindControl<CheckBox>("PreviewToggle")!;
+        _fireButton = this.FindControl<Button>("FireButton")!;
 
         var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
         foreach (var proto in prototypeManager.EnumeratePrototypes<ExplosionPrototype>())
