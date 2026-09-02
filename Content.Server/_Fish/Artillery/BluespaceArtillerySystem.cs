@@ -44,13 +44,14 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 	[Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
 	[Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+	[Dependency] private readonly SharedDeviceLinkSystem _deviceLink = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly ShuttleConsoleSystem _shuttleConsole = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -59,6 +60,7 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
         SubscribeLocalEvent<BluespaceArtilleryComponent, NewLinkEvent>(OnArtilleryNewLink);
         SubscribeLocalEvent<BluespaceArtilleryComponent, PortDisconnectedEvent>(OnArtilleryPortDisconnected);
         SubscribeLocalEvent<BluespaceArtilleryComponent, LinkAttemptEvent>(OnArtilleryLinkAttempt);
+		SubscribeLocalEvent<BluespaceArtilleryComponent, MapInitEvent>(OnArtilleryMapInit);
         SubscribeLocalEvent<BluespaceArtilleryConsoleComponent, LinkAttemptEvent>(OnConsoleLinkAttempt);
         SubscribeLocalEvent<BluespaceArtilleryConsoleComponent, PortDisconnectedEvent>(OnConsolePortDisconnected);
 		SubscribeLocalEvent<BluespaceArtilleryConsoleComponent, MapInitEvent>(OnConsoleMapInit);
@@ -82,7 +84,42 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
 
 	private void OnConsoleMapInit(EntityUid uid, BluespaceArtilleryConsoleComponent comp, ref MapInitEvent args)
 	{
-		InitTargetStation(uid, comp);
+		if (!TryComp<DeviceLinkSourceComponent>(uid, out var source))
+			return;
+
+		var linkedSinks = _deviceLink.GetLinkedSinks((uid, source), comp.LinkingPort);
+		foreach (var sink in linkedSinks)
+		{
+			if (TryComp<BluespaceArtilleryComponent>(sink, out var artillery))
+			{
+				artillery.LinkedConsole = uid;
+				comp.LinkedArtillery = sink;
+				UpdateUI(uid, comp);
+				break;
+			}
+		}
+	}
+
+	private void OnArtilleryMapInit(EntityUid uid, BluespaceArtilleryComponent comp, ref MapInitEvent args)
+	{
+		if (!TryComp<DeviceLinkSinkComponent>(uid, out var sink))
+			return;
+
+		var query = EntityQueryEnumerator<DeviceLinkSourceComponent>();
+		while (query.MoveNext(out var sourceUid, out var sourceComp))
+		{
+			var linkedSinks = _deviceLink.GetLinkedSinks((sourceUid, sourceComp), comp.LinkingPort);
+			if (!linkedSinks.Contains(uid))
+				continue;
+
+			if (TryComp<BluespaceArtilleryConsoleComponent>(sourceUid, out var console))
+			{
+				console.LinkedArtillery = uid;
+				comp.LinkedConsole = sourceUid;
+				UpdateUI(sourceUid, console);
+				break;
+			}
+		}
 	}
 
 	private void InitTargetStation(EntityUid uid, BluespaceArtilleryConsoleComponent comp)

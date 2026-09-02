@@ -16,7 +16,6 @@ bluespace-artillery-slope = Наклон интенсивности:
 bluespace-artillery-max-intensity = Максимальная интенсивность:
 bluespace-artillery-preview = Предпросмотр взрыва
 bluespace-artillery-linker-set = Теперь используйте мультитул на другой структуре.
-bluespace-artillery-status-cooldown = Перезарядка...
 bluespace-artillery-no-power = Недостаточно энергии для выстрела.
 bluespace-artillery-status-no-link = Статус: нет связи с пушкой
 bluespace-artillery-status-charging = Статус: заряжается
