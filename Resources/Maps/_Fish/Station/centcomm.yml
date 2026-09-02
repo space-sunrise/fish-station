@@ -8970,14 +8970,14 @@ entities:
     - type: Transform
       pos: 5.5,-54.5
       parent: 2
-- proto: BluespaceArtillery
+- proto: FishBluespaceArtillery
   entities:
   - uid: 10104
     components:
     - type: Transform
       pos: 7.5,-93.5
       parent: 2
-- proto: BluespaceArtilleryConsole
+- proto: FishBluespaceArtilleryConsole
   entities:
   - uid: 10586
     components:
