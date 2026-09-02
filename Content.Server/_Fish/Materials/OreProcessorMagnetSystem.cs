@@ -13,15 +13,15 @@ namespace Content.Server._Fish.Materials;
 /// <summary>
 /// Добавляет переработчику ПКМ-действие для сбора руды с пола.
 /// </summary>
-public sealed class OreProcessorMagnetSystem : EntitySystem
+public sealed partial class OreProcessorMagnetSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly MaterialStorageSystem _materialStorage = default!;
-    [Dependency] private readonly PowerReceiverSystem _power = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStorageSystem _storage = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private MaterialStorageSystem _materialStorage = default!;
+    [Dependency] private PowerReceiverSystem _power = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStorageSystem _storage = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private readonly HashSet<EntityUid> _nearby = [];
     private EntityQuery<ActiveOreProcessorMagnetComponent> _activeQuery;
