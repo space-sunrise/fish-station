@@ -439,35 +439,41 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
         }
     }
 
-    private void StartCooldownTick()
-    {
-        _cooldownTickActive = true;
-        TickCooldown();
-    }
+	private void StartCooldownTick()
+	{
+		if (_cooldownTickActive)
+			return;
+
+		_cooldownTickActive = true;
+		TickCooldown();
+	}
 
     private void StopCooldownTick()
     {
         _cooldownTickActive = false;
     }
 
-    private void TickCooldown()
-    {
-        if (!_cooldownTickActive)
-            return;
+	private void TickCooldown()
+	{
+		if (!_cooldownTickActive)
+			return;
 
-        _cooldownRemaining -= 0.1f;
-        if (_cooldownRemaining <= 0f)
-        {
-            _cooldownRemaining = 0f;
-            _isOnCooldown = false;
-            UpdateStatusLabel();
-            _cooldownTickActive = false;
-            return;
-        }
+		_cooldownRemaining -= 0.1f;
+		if (_cooldownRemaining <= 0f)
+		{
+			_cooldownRemaining = 0f;
+			_isOnCooldown = false;
+			_cooldownTickActive = false;
 
-        UpdateStatusLabel();
-        Timer.Spawn(TimeSpan.FromSeconds(0.1), TickCooldown);
-    }
+			UpdateStatusLabel();
+			_fireButton.Disabled = !_isLinked || _isCharging;
+
+			return;
+		}
+
+		UpdateStatusLabel();
+		Timer.Spawn(TimeSpan.FromSeconds(0.1), TickCooldown);
+	}
 
     private void UpdateStatusLabel()
     {

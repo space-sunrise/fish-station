@@ -1,5 +1,5 @@
 - type: entity
-  id: BluespaceArtilleryConsole
+  id: FishBluespaceArtilleryConsole
   parent: BaseComputerAiAccess
   name: console bluespace artillery
   description: Bluespace artillery control center. Requires a link to a cannon.

@@ -1,5 +1,5 @@
 - type: entity
-  id: BluespaceArtillery
+  id: FishBluespaceArtillery
   parent: BaseMachine
   name: bluespace artillery
   description: A powerful weapon for long-range strikes. Requires a connection to a console and a high-voltage cable.

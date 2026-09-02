@@ -14,34 +14,34 @@ namespace Content.Shared._Fish.Artillery;
 [Access(typeof(SharedBluespaceArtillerySystem))]
 public sealed partial class BluespaceArtilleryComponent : Component
 {
-    [DataField("chargeDuration")]
-    public float ChargeDuration = 8.5f;
-	
-	[DataField("flightDuration")]
+    [DataField]
+	public float ChargeDuration = 8.5f;
+
+	[DataField]
 	public float FlightDuration = 12.0f;
-	
-	[DataField("cooldownDuration")]
+
+	[DataField]
 	public float CooldownDuration = 60.0f;
 
-    [DataField("sectorChargeSound")]
-    public SoundSpecifier SectorChargeSound = default!;
+	[DataField]
+	public SoundSpecifier SectorChargeSound = default!;
 
-    [DataField("chargeSound")]
-    public SoundSpecifier ChargeSound = default!;
+	[DataField]
+	public SoundSpecifier ChargeSound = default!;
 
-    [DataField("fireSound")]
-    public SoundSpecifier FireSound = default!;
+	[DataField]
+	public SoundSpecifier FireSound = default!;
 
-    [DataField("impactSound")]
-    public SoundSpecifier ImpactSound = default!;
+	[DataField]
+	public SoundSpecifier ImpactSound = default!;
 
-    [DataField("chargingState")]
-    public string ChargingState = "charging";
+	[DataField]
+	public string ChargingState = "charging";
 
-    [DataField("fireState")]
-    public string FireState = "fire";
-	
-	[DataField("linkingPort")]
+	[DataField]
+	public string FireState = "fire";
+
+	[DataField]
 	public string LinkingPort = "Artillery";
 	
     [ViewVariables, AutoNetworkedField]

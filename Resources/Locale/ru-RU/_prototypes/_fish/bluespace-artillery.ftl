@@ -27,8 +27,8 @@ signal-port-description-artillery = Канал управления блюспе
 
 access-level-bsa-operator = Оператор БСА
 
-ent-BluespaceArtilleryConsole = консоль блюспейс артиллерии
-ent-BluespaceArtilleryConsole-desc = Центр управления блюспейс артиллерией. Требует связи с пушкой.
+ent-FishBluespaceArtilleryConsole = консоль блюспейс артиллерии
+ent-FishBluespaceArtilleryConsole-desc = Центр управления блюспейс артиллерией. Требует связи с пушкой.
 
-ent-BluespaceArtillery = блюспейс артиллерия
-ent-BluespaceArtillery-desc = Мощное оружие для дальних ударов. Требует подключения к консоли и высоковольтному кабелю.
+ent-FishBluespaceArtillery = блюспейс артиллерия
+ent-FishBluespaceArtillery-desc = Мощное оружие для дальних ударов. Требует подключения к консоли и высоковольтному кабелю.
