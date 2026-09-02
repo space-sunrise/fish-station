@@ -299,3 +299,16 @@
     message: Вкладка истории Рассказчика показывается только если в раунде был рассказчик; Kitsune снова может попасть в культ плоти.
   id: 30
   url: https://github.com/makura-games/fish-station/pull/373
+- author: Endennsss
+  time: '2026-09-02T08:53:56.0000000+00:00'
+  changes:
+  - type: Add
+    message: В автолат добавлен рецепт пустой пластиковой бутылки.
+  - type: Add
+    message: В принтер униформы добавлен белый берет старшего инженера.
+  - type: Fix
+    message: В описании ящика плазмы теперь указано правильное количество — 30 единиц.
+  - type: Tweak
+    message: Обновлены текстуры чёрного и зелёного шлемов «Алтын».
+  id: 31
+  url: https://github.com/makura-games/fish-station/pull/420
