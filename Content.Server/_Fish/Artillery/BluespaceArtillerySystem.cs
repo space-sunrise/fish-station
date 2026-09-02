@@ -21,6 +21,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Station.Components;
 using Content.Shared.Shuttles.BUIStates;
 using Robust.Server.GameObjects;
+using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameObjects;
@@ -29,12 +30,14 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Maths;
+using Robust.Shared.Player;
 using System.Numerics;
 
 namespace Content.Server._Fish.Artillery;
 
 public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
 {
+	[Dependency] private readonly AudioSystem _audioServer = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 	[Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -209,19 +212,23 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
 			}
 		}
 
-		_audio.PlayGlobal(artillery.SectorChargeSound, uid, AudioParams.Default.WithVolume(1f));
+		_audio.PlayPvs(artillery.SectorChargeSound, console.LinkedArtillery.Value, 
+			AudioParams.Default.WithVolume(1f).WithMaxDistance(10000f));
 
 		var message = Loc.GetString(
 			"bluespace-artillery-station-announcement",
 			("coords", $"{console.TargetCoordinates.X:F1}, {console.TargetCoordinates.Y:F1}"));
 
 		var announcementColor = new Color(194, 37, 50); // #c22532
-		var announcementSound = new SoundPathSpecifier("/Audio/_Sunrise/Announcements/sunrise_artillery.ogg");
-
-		if (targetStation != null)
-			_chat.DispatchStationAnnouncement(targetStation.Value, message, sender: Loc.GetString("bluespace-artillery-cc-sender"), playDefaultSound: true, colorOverride: announcementColor, announcementSound: announcementSound);
-		else
-			_chat.DispatchGlobalAnnouncement(message, sender: Loc.GetString("bluespace-artillery-cc-sender"), colorOverride: announcementColor, announcementSound: announcementSound);
+		var announcementSound = _audio.ResolveSound(new SoundPathSpecifier("/Audio/_Sunrise/Announcements/sunrise_artillery.ogg"));
+		if (announcementSound != null)
+			_audioServer.PlayGlobal(announcementSound, Filter.Broadcast(), false, AudioParams.Default.WithVolume(1f));
+		
+		
+		_chat.DispatchGlobalAnnouncement(
+			message,
+			sender: Loc.GetString("bluespace-artillery-cc-sender"),
+			colorOverride: announcementColor);
 
         _audio.PlayPvs(artillery.ChargeSound, console.LinkedArtillery.Value,
             AudioParams.Default.WithVolume(10f).WithMaxDistance(50f));
@@ -232,10 +239,10 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
         });
     }
 
-    private void OnChargeCompleted(EntityUid consoleUid, BluespaceArtilleryConsoleComponent console, BluespaceArtilleryComponent artillery)
-    {
-        if (console.LinkedArtillery == null)
-            return;
+	private void OnChargeCompleted(EntityUid consoleUid, BluespaceArtilleryConsoleComponent console, BluespaceArtilleryComponent artillery)
+	{
+		if (console.LinkedArtillery == null)
+			return;
 
 		SetArtilleryVisualState(console.LinkedArtillery.Value, BluespaceArtilleryVisualState.Fire);
 		Timer.Spawn(TimeSpan.FromSeconds(3.9), () =>
@@ -243,28 +250,18 @@ public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
 			if (!Deleted(console.LinkedArtillery.Value))
 				SetArtilleryVisualState(console.LinkedArtillery.Value, BluespaceArtilleryVisualState.Idle);
 		});
+
+		_audio.PlayPvs(artillery.FireSound, console.LinkedArtillery.Value, AudioParams.Default.WithVolume(5f));
 		
-        _audio.PlayPvs(artillery.FireSound, console.LinkedArtillery.Value, AudioParams.Default.WithVolume(5f));
-        EntityUid? targetStation = null;
-		if (console.TargetMapId != null)
+		var impactSound = _audio.ResolveSound(artillery.ImpactSound);
+		if (impactSound != null)
+			_audioServer.PlayGlobal(impactSound, Filter.Broadcast(), false, AudioParams.Default.WithVolume(1f));
+
+		Timer.Spawn(TimeSpan.FromSeconds(artillery.FlightDuration), () =>
 		{
-			foreach (var station in EntityQuery<StationMemberComponent>())
-			{
-				if (Transform(station.Owner).MapID == console.TargetMapId)
-				{
-					targetStation = station.Owner;
-					break;
-				}
-			}
-		}
-
-		_audio.PlayGlobal(artillery.SectorChargeSound, console.LinkedArtillery.Value, AudioParams.Default.WithVolume(1f));
-
-        Timer.Spawn(TimeSpan.FromSeconds(artillery.FlightDuration), () =>
-        {
-            OnImpact(consoleUid, console, artillery);
-        });
-    }
+			OnImpact(consoleUid, console, artillery);
+		});
+	}
 
     private void OnImpact(EntityUid consoleUid, BluespaceArtilleryConsoleComponent console, BluespaceArtilleryComponent artillery)
     {

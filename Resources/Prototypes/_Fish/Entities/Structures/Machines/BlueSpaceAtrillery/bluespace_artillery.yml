@@ -41,6 +41,12 @@
         path: /Audio/_Fish/Machines/BlueSpaceArtillery/bluespace_shot_alt.ogg
       chargingState: charging
       fireState: fire
+    - type: PointLight
+      enabled: false
+      radius: 15.0
+      color: "#bb4ccf"
+      energy: 10.0
+      offset: 6, 0
     - type: Fixtures
       fixtures:
         fix1:

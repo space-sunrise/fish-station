@@ -1,13 +1,9 @@
 using Content.Client.Camera;
 using Content.Shared._Fish.Artillery;
-using Content.Shared.Eye;
-using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.Eye.Blinding.Components;
-using Robust.Client.GameObjects;
 using Robust.Client.Player;
+using Robust.Client.GameObjects;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
-using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Numerics;
 
@@ -18,9 +14,11 @@ public sealed class BluespaceArtilleryVisualizerSystem : VisualizerSystem<Bluesp
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly CameraRecoilSystem _cameraRecoil = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly PointLightSystem _pointLight = default!;
 
-    private const float ShakeRadius = 1.0f;
-    private const float RecoilStrength = 8.0f;
+    private const float ShakeRadius = 35.0f;
+    private const float RecoilStrength = 20.0f;
+    private const float FlashDuration = 0.3f;
 
     protected override void OnAppearanceChange(EntityUid uid, BluespaceArtilleryComponent component, ref AppearanceChangeEvent args)
     {
@@ -39,6 +37,7 @@ public sealed class BluespaceArtilleryVisualizerSystem : VisualizerSystem<Bluesp
                     case BluespaceArtilleryVisualState.Fire:
                         sprite.LayerSetState(0, "fire");
                         TriggerRecoilIfNearby(uid);
+                        TriggerMuzzleFlash(uid);
                         break;
                 }
             }
@@ -61,6 +60,25 @@ public sealed class BluespaceArtilleryVisualizerSystem : VisualizerSystem<Bluesp
         if (dist <= ShakeRadius)
         {
             _cameraRecoil.KickCamera(player.Value, new Vector2(RecoilStrength, 0f));
+        }
+    }
+
+    private void TriggerMuzzleFlash(EntityUid artillery)
+    {
+        if (_pointLight == null)
+        {
+            Log.Error("PointLightSystem is null!");
+            return;
+        }
+
+        if (TryComp<PointLightComponent>(artillery, out var light))
+        {
+            _pointLight.SetEnabled(artillery, true, light);
+            Timer.Spawn(TimeSpan.FromSeconds(FlashDuration), () =>
+            {
+                if (!Deleted(artillery) && TryComp<PointLightComponent>(artillery, out var lightAfter))
+                    _pointLight.SetEnabled(artillery, false, lightAfter);
+            });
         }
     }
 }
