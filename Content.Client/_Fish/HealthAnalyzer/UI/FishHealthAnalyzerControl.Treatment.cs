@@ -113,38 +113,19 @@ public sealed partial class FishHealthAnalyzerControl
 
         foreach (var (damageGroup, damageAmount) in damageGroups)
         {
-            if (damageAmount <= 0 || !BasicTreatments.TryGetValue(damageGroup, out var reagent))
-                continue;
-
-            var needsMedication = false;
-            foreach (var type in _prototypes.Index(damageGroup).DamageTypes)
+            foreach (var (damageType, reagent) in GetDamageTreatments(
+                         damageGroup,
+                         damageAmount,
+                         _prototypes.Index(damageGroup).DamageTypes,
+                         damageTypes,
+                         coveredDamage))
             {
-                if (damageTypes.GetValueOrDefault(type) > 0 && !coveredDamage.Contains(type))
-                {
-                    needsMedication = true;
-                    break;
-                }
-            }
-
-            if (!needsMedication)
-                continue;
-
-            var condition = Loc.GetString(
-                "health-analyzer-window-treatment-damage",
-                ("damage", _prototypes.Index<DamageGroupPrototype>(damageGroup).LocalizedName),
-                ("amount", damageAmount));
-
-            if (damageAmount >= SevereDamageThreshold &&
-                TryGetAdvancedTreatment(damageGroup, damageTypes, out var damageType, out var advancedReagent))
-            {
-                reagent = advancedReagent;
-                condition = Loc.GetString(
+                var condition = Loc.GetString(
                     "health-analyzer-window-treatment-damage",
-                    ("damage", _prototypes.Index<DamageTypePrototype>(damageType).LocalizedName),
+                    ("damage", _prototypes.Index(damageType).LocalizedName),
                     ("amount", damageTypes[damageType]));
+                AddRecommendation(recommendations, addedReagents, reagent, condition);
             }
-
-            AddRecommendation(recommendations, addedReagents, reagent, condition);
         }
 
         if (recommendations.Count == 0)
@@ -328,42 +309,51 @@ public sealed partial class FishHealthAnalyzerControl
             ("damage", _prototypes.Index(damageType).LocalizedName));
     }
 
-    private bool TryGetAdvancedTreatment(
+    internal static IEnumerable<(ProtoId<DamageTypePrototype> DamageType, ProtoId<ReagentPrototype> Reagent)> GetDamageTreatments(
         ProtoId<DamageGroupPrototype> damageGroup,
+        FixedPoint2 groupDamage,
+        IEnumerable<ProtoId<DamageTypePrototype>> groupTypes,
         IReadOnlyDictionary<ProtoId<DamageTypePrototype>, FixedPoint2> damageTypes,
-        out ProtoId<DamageTypePrototype> selectedDamageType,
-        out ProtoId<ReagentPrototype> reagent)
+        IReadOnlySet<ProtoId<DamageTypePrototype>> coveredDamage)
     {
-        selectedDamageType = default;
-        reagent = default;
-        var highestDamage = FixedPoint2.Zero;
-        var group = _prototypes.Index<DamageGroupPrototype>(damageGroup);
+        if (groupDamage <= 0 || !BasicTreatments.TryGetValue(damageGroup, out var basicReagent))
+            yield break;
 
-        foreach (var damageType in group.DamageTypes)
+        // Учитываем каждый повреждённый тип, а не только наибольший урон в группе.
+        foreach (var damageType in groupTypes)
         {
-            if (!AdvancedTreatments.TryGetValue(damageType, out var candidateReagent) ||
-                !damageTypes.TryGetValue(damageType, out var damageAmount) ||
-                damageAmount <= highestDamage)
-            {
+            if (damageTypes.GetValueOrDefault(damageType) <= 0 || coveredDamage.Contains(damageType))
                 continue;
-            }
 
-            highestDamage = damageAmount;
-            selectedDamageType = damageType;
-            reagent = candidateReagent;
+            var reagent = groupDamage >= SevereDamageThreshold &&
+                          AdvancedTreatments.TryGetValue(damageType, out var advancedReagent)
+                ? advancedReagent
+                : basicReagent;
+            yield return (damageType, reagent);
         }
-
-        return highestDamage > 0;
     }
 
-    private static void AddRecommendation(
+    internal static void AddRecommendation(
         List<TreatmentRecommendation> recommendations,
         HashSet<ProtoId<ReagentPrototype>> addedReagents,
         ProtoId<ReagentPrototype> reagent,
         string condition)
     {
         if (addedReagents.Add(reagent))
+        {
             recommendations.Add(new TreatmentRecommendation(reagent, condition));
+            return;
+        }
+
+        for (var i = 0; i < recommendations.Count; i++)
+        {
+            var recommendation = recommendations[i];
+            if (recommendation.Reagent != reagent)
+                continue;
+
+            recommendations[i] = recommendation with { Condition = recommendation.Condition + "\n" + condition };
+            return;
+        }
     }
 
     private void DrawTreatmentRecommendation(TreatmentRecommendation recommendation)
@@ -456,7 +446,7 @@ public sealed partial class FishHealthAnalyzerControl
         TreatmentListContainer.AddChild(label);
     }
 
-    private readonly record struct TreatmentRecommendation(
+    internal readonly record struct TreatmentRecommendation(
         ProtoId<ReagentPrototype> Reagent,
         string Condition);
 }

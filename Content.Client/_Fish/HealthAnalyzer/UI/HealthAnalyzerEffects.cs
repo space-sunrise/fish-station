@@ -11,7 +11,7 @@ namespace Content.Client.HealthAnalyzer.UI;
 /// </summary>
 public sealed class HealthAnalyzerEffects : Control
 {
-    private const float ScanDuration = 0.72f;
+    private const float ScanDuration = 2.5f;
     private const float ScanlineSpacing = 5f;
 
     private float _elapsed;
@@ -41,6 +41,10 @@ public sealed class HealthAnalyzerEffects : Control
 
     public void TriggerScan()
     {
+        // Частые обновления данных не должны прерывать текущий проход полосы.
+        if (!_scanActive || _scanVisible)
+            return;
+
         _scanElapsed = 0f;
         _scanVisible = true;
     }
@@ -89,8 +93,7 @@ public sealed class HealthAnalyzerEffects : Control
     private void DrawScan(DrawingHandleScreen handle, float width, float height)
     {
         var progress = Math.Clamp(_scanElapsed / ScanDuration, 0f, 1f);
-        var easedProgress = 1f - MathF.Pow(1f - progress, 2f);
-        var y = easedProgress * height;
+        var y = progress * height;
         var accent = _accentColor;
 
         handle.DrawRect(new UIBox2(0f, y - 10f, width, y + 10f), accent.WithAlpha(0.018f));
