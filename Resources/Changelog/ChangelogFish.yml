@@ -312,3 +312,10 @@
     message: Обновлены текстуры чёрного и зелёного шлемов «Алтын».
   id: 31
   url: https://github.com/makura-games/fish-station/pull/420
+- author: Kaiten
+  time: '2026-09-03T08:50:44.0000000+00:00'
+  changes:
+  - type: Tweak
+    message: После абильного нытья от игроков в ахелп. Вещи ведущих ролей добавлены другим должностям в отделе после и доступны после открытия ведущей роли.
+  id: 32
+  url: https://github.com/makura-games/fish-station/pull/400
