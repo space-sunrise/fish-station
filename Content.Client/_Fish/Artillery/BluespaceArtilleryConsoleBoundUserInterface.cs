@@ -3,7 +3,7 @@ using Robust.Client.UserInterface;
 
 namespace Content.Client._Fish.Artillery;
 
-public sealed class BluespaceArtilleryConsoleBoundUserInterface : BoundUserInterface
+public sealed partial class BluespaceArtilleryConsoleBoundUserInterface : BoundUserInterface
 {
     private BluespaceArtilleryConsoleWindow? _window;
 

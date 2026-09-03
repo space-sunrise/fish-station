@@ -26,11 +26,11 @@ using Robust.Shared.Utility;
 
 namespace Content.Client._Fish.Artillery;
 
-public sealed class ArtilleryScannerControl : BaseShuttleControl
+public sealed partial class ArtilleryScannerControl : BaseShuttleControl
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    private readonly SharedShuttleSystem _shuttles;
-    private readonly SharedTransformSystem _transform;
+    [Dependency] private IMapManager _mapManager = default!;
+    private SharedShuttleSystem _shuttles;
+    private SharedTransformSystem _transform;
 
     private EntityCoordinates? _coordinates;
     private Angle? _rotation;
@@ -278,7 +278,7 @@ public sealed class ArtilleryScannerControl : BaseShuttleControl
     }
 }
 
-public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
+public sealed partial class BluespaceArtilleryConsoleWindow : DefaultWindow
 {
     private readonly OptionButton _stationSelector;
     private readonly LineEdit _coordinateX;
@@ -289,12 +289,12 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
     private readonly BoxContainer _scannerContainer;
     private readonly ArtilleryScannerControl _scannerControl;
     private readonly OptionButton _explosionType;
-    private readonly LineEdit _intensity = null!;
+    private readonly LineEdit _intensity;
     private readonly LineEdit _slope;
     private readonly LineEdit _maxIntensity;
     private readonly CheckBox _previewToggle;
     private readonly Button _fireButton;
-	
+
     private bool _isLinked;
     private bool _isCharging;
     private bool _isOnCooldown;
@@ -325,7 +325,6 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
         _statusLabel = this.FindControl<Label>("StatusLabel")!;
         _scannerContainer = this.FindControl<BoxContainer>("ScannerContainer")!;
         _scannerControl = this.FindControl<ArtilleryScannerControl>("ScannerControl")!;
-		_explosionType!.OnItemSelected += _ => SendParams();
         _explosionType = this.FindControl<OptionButton>("ExplosionType")!;
         _intensity = this.FindControl<LineEdit>("Intensity")!;
         _slope = this.FindControl<LineEdit>("Slope")!;
@@ -350,7 +349,13 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
         };
 
         _applyCoordinates.OnPressed += _ => ApplyManualCoordinates();
-        _fireButton.OnPressed += _ => OnFire?.Invoke();
+
+        _fireButton.OnPressed += _ =>
+        {
+            SendParams();
+            OnFire?.Invoke();
+        };
+
         _previewToggle.OnToggled += args =>
         {
             _scannerControl.PreviewEnabled = args.Pressed;
@@ -363,6 +368,7 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
             UpdatePreviewRadius();
             SendParams();
         };
+
         _intensity.OnTextEntered += _ =>
         {
             UpdatePreviewRadius();
@@ -440,41 +446,41 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
         }
     }
 
-	private void StartCooldownTick()
-	{
-		if (_cooldownTickActive)
-			return;
+    private void StartCooldownTick()
+    {
+        if (_cooldownTickActive)
+            return;
 
-		_cooldownTickActive = true;
-		TickCooldown();
-	}
+        _cooldownTickActive = true;
+        TickCooldown();
+    }
 
     private void StopCooldownTick()
     {
         _cooldownTickActive = false;
     }
 
-	private void TickCooldown()
-	{
-		if (!_cooldownTickActive)
-			return;
+    private void TickCooldown()
+    {
+        if (!_cooldownTickActive)
+            return;
 
-		_cooldownRemaining -= 0.1f;
-		if (_cooldownRemaining <= 0f)
-		{
-			_cooldownRemaining = 0f;
-			_isOnCooldown = false;
-			_cooldownTickActive = false;
+        _cooldownRemaining -= 0.1f;
+        if (_cooldownRemaining <= 0f)
+        {
+            _cooldownRemaining = 0f;
+            _isOnCooldown = false;
+            _cooldownTickActive = false;
 
-			UpdateStatusLabel();
-			_fireButton.Disabled = !_isLinked || _isCharging;
+            UpdateStatusLabel();
+            _fireButton.Disabled = !_isLinked || _isCharging;
 
-			return;
-		}
+            return;
+        }
 
-		UpdateStatusLabel();
-		Timer.Spawn(TimeSpan.FromSeconds(0.1), TickCooldown);
-	}
+        UpdateStatusLabel();
+        Timer.Spawn(TimeSpan.FromSeconds(0.1), TickCooldown);
+    }
 
     private void UpdateStatusLabel()
     {
@@ -521,18 +527,31 @@ public sealed class BluespaceArtilleryConsoleWindow : DefaultWindow
         _maxIntensity.Text = state.MaxIntensity.ToString();
         _previewToggle.Pressed = state.PreviewEnabled;
         UpdatePreviewRadius();
-		
+
         _isLinked = state.IsLinked;
         _isCharging = state.IsCharging;
         _isOnCooldown = state.IsOnCooldown;
         _cooldownRemaining = state.CooldownRemaining;
+		
+		bool lockAll = state.IsCharging;
+
+		_coordinateX.Editable = !lockAll;
+		_coordinateY.Editable = !lockAll;
+		_applyCoordinates.Disabled = lockAll;
+		_explosionType.Disabled = lockAll;
+		_intensity.Editable = !lockAll;
+		_slope.Editable = !lockAll;
+		_maxIntensity.Editable = !lockAll;
+		_previewToggle.Disabled = lockAll;
+		_stationSelector.Disabled = lockAll;
+		_scannerControl.MouseFilter = lockAll ? MouseFilterMode.Ignore : MouseFilterMode.Stop;
 
         UpdateStatusLabel();
 
         if (state.IsOnCooldown)
             StartCooldownTick();
-		else
-			StopCooldownTick();
+        else
+            StopCooldownTick();
 
         _fireButton.Disabled = !state.IsLinked || state.IsCharging || state.IsOnCooldown;
     }

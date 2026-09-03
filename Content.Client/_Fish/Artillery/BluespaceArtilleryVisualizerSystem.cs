@@ -9,12 +9,12 @@ using System.Numerics;
 
 namespace Content.Client._Fish.Artillery;
 
-public sealed class BluespaceArtilleryVisualizerSystem : VisualizerSystem<BluespaceArtilleryComponent>
+public sealed partial class BluespaceArtilleryVisualizerSystem : VisualizerSystem<BluespaceArtilleryComponent>
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly CameraRecoilSystem _cameraRecoil = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly PointLightSystem _pointLight = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private CameraRecoilSystem _cameraRecoil = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private PointLightSystem _pointLight = default!;
 
     private const float ShakeRadius = 35.0f;
     private const float RecoilStrength = 20.0f;

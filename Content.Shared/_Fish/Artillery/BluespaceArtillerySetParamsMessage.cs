@@ -3,7 +3,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._Fish.Artillery;
 
 [Serializable, NetSerializable]
-public sealed class BluespaceArtillerySetParamsMessage : BoundUserInterfaceMessage
+public sealed partial class BluespaceArtillerySetParamsMessage : BoundUserInterfaceMessage
 {
     public string ExplosionType { get; set; } = "Default";
     public float TotalIntensity { get; set; } = 100f;

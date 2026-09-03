@@ -4,7 +4,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._Fish.Artillery;
 
 [Serializable, NetSerializable]
-public sealed class BluespaceArtilleryConsoleBoundUserInterfaceState : BoundUserInterfaceState
+public sealed partial class BluespaceArtilleryConsoleBoundUserInterfaceState : BoundUserInterfaceState
 {
     public ArtilleryVector2 TargetCoordinates;
     public string ExplosionType;

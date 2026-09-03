@@ -1,5 +1,5 @@
 namespace Content.Shared._Fish.Artillery;
 
-public abstract class SharedBluespaceArtillerySystem : EntitySystem
+public abstract partial class SharedBluespaceArtillerySystem : EntitySystem
 {
 }

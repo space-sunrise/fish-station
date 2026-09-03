@@ -35,23 +35,23 @@ using System.Numerics;
 
 namespace Content.Server._Fish.Artillery;
 
-public sealed class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
+public sealed partial class BluespaceArtillerySystem : SharedBluespaceArtillerySystem
 {
-	[Dependency] private readonly AudioSystem _audioServer = default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-	[Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-	[Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
-	[Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-	[Dependency] private readonly SharedDeviceLinkSystem _deviceLink = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly ShuttleConsoleSystem _shuttleConsole = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+	[Dependency] private AudioSystem _audioServer = default!;
+    [Dependency] private ExplosionSystem _explosion = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+	[Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+	[Dependency] private SharedPowerReceiverSystem _powerReceiver = default!;
+	[Dependency] private SharedAppearanceSystem _appearance = default!;
+	[Dependency] private SharedDeviceLinkSystem _deviceLink = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private ShuttleConsoleSystem _shuttleConsole = default!;
+    [Dependency] private IMapManager _mapManager = default!;
 
     public override void Initialize()
     {
