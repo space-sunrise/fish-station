@@ -31,19 +31,21 @@
     Secret: { min: 50, max: 200 }
     Extra: { min: 50, max: 100 }
 
+# Fish-edit: пороги совпадают с GameRule.minPlayers пресетов
 - type: gamePresetPool
   id: AllPresetPool
   presets:
-    Nukeops: { min: 30, max: 200 }
+    Nukeops: { min: 35, max: 200 }
     Traitor: { min: 5, max: 200 }
-    Zombie: { min: 10, max: 200 }
+    Zombie: { min: 35, max: 200 }
     Survival: { min: 5, max: 200 }
-    Revolutionary: { min: 10, max: 200 }
-    Wizard: { min: 30, max: 200 }
-    BloodCult: { min: 30, max: 200 }
-    AssaultOps: { min: 10, max: 200 }
-    FleshCult: { min: 30, max: 200 }
+    Revolutionary: { min: 35, max: 200 }
+    Wizard: { min: 10, max: 200 }
+    BloodCult: { min: 35, max: 200 }
+    AssaultOps: { min: 35, max: 200 }
+    FleshCult: { min: 35, max: 200 }
 
+# Fish-edit: Classic/Insane доступны на типичном онлайне
 - type: gamePresetPool
   id: StorytellerPresetPool
   presets:

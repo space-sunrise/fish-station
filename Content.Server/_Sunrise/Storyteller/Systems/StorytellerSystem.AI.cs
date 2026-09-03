@@ -152,6 +152,32 @@ public sealed partial class StorytellerSystem
             {
                 if (_protoManager.TryIndex<StorytellerMetadataPrototype>(proto.ID, out var metadata))
                 {
+                    // Fish-edit: Calm не запускает MajorAntag даже по AI рекомендации (MajorCalm разрешен)
+                    if (entity.Comp.StorytellerType == StorytellerType.Calm &&
+                        metadata.ThreatType == StorytellerThreatType.MajorAntag)
+                    {
+                        Log.Warning($"AI Storyteller recommended MajorAntag '{decision.SpawnEvent}' but storyteller type is Calm. Skipping.");
+                        return;
+                    }
+
+                    // Fish-edit: Calm не запускает MinorAntag в течение первого часа раунда
+                    if (entity.Comp.StorytellerType == StorytellerType.Calm &&
+                        metadata.ThreatType == StorytellerThreatType.MinorAntag &&
+                        GameTicker.RoundDuration() < TimeSpan.FromHours(1))
+                    {
+                        Log.Warning($"AI Storyteller recommended MinorAntag '{decision.SpawnEvent}' during first hour of Calm storyteller. Skipping.");
+                        return;
+                    }
+
+                    // Fish-edit: Classic не запускает MajorAntag в течение первого часа раунда
+                    if (entity.Comp.StorytellerType == StorytellerType.Classic &&
+                        metadata.ThreatType == StorytellerThreatType.MajorAntag &&
+                        GameTicker.RoundDuration() < TimeSpan.FromHours(1))
+                    {
+                        Log.Warning($"AI Storyteller recommended MajorAntag '{decision.SpawnEvent}' during first hour of Classic storyteller. Skipping.");
+                        return;
+                    }
+
                     TriggerEvent(entity, proto, metadata);
                     return;
                 }
