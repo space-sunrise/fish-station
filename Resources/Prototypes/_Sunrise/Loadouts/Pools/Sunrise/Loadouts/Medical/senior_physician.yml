@@ -40,11 +40,17 @@
       time: 216000 # 60 hrs
 
 - type: loadout
-  id: BeretSeniorPhysician # Fish-edit
+  id: BeretSeniorPhysician # Fish-edit - Возврат требования
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorPhysicianClothingTimer
   equipment:
     head: ClothingHeadHatBeretSeniorPhysician
 
 - type: loadout
-  id: CoatLabSeniorPhysician # Fish-edit
+  id: CoatLabSeniorPhysician # Fish-edit - Возврат требования
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorPhysicianClothingTimer
   equipment:
     outerClothing: ClothingOuterCoatLabSeniorPhysician

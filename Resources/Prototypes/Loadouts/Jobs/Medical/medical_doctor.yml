@@ -1,6 +1,9 @@
 # Head
 - type: loadout
-  id: SeniorPhysicianBeret # Fish-edit
+  id: SeniorPhysicianBeret # Fish-edit - Возврат требования старшего врача
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorPhysician
   equipment:
     head: ClothingHeadHatBeretSeniorPhysician
 
@@ -49,12 +52,18 @@
     jumpsuit: ClothingUniformJumpskirtMedicalDoctor
 
 - type: loadout
-  id: SeniorPhysicianJumpsuit # Fish-edit
+  id: SeniorPhysicianJumpsuit # Fish-edit - Возврат требования старшего врача
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorPhysician
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorPhysician
 
 - type: loadout
-  id: SeniorPhysicianJumpskirt # Fish-edit
+  id: SeniorPhysicianJumpskirt # Fish-edit - Возврат требования старшего врача
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorPhysician
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorPhysician
 
@@ -96,7 +105,10 @@
     outerClothing: ClothingOuterWinterMed
 
 - type: loadout
-  id: SeniorPhysicianLabCoat # Fish-edit
+  id: SeniorPhysicianLabCoat # Fish-edit - Возврат требования старшего врача
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorPhysician
   equipment:
     outerClothing: ClothingOuterCoatLabSeniorPhysician
 
@@ -113,7 +125,10 @@
     id: MedicalPDA
 
 - type: loadout
-  id: SeniorPhysicianPDA # Fish-edit
+  id: SeniorPhysicianPDA # Fish-edit - Возврат требования старшего врача
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorPhysician
   equipment:
     id: SeniorPhysicianPDA
 
