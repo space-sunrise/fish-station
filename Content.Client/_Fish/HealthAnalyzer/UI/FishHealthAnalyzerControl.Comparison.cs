@@ -1,3 +1,4 @@
+using Content.Client.HealthAnalyzer.UI;
 using Content.Client.Stylesheets;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
@@ -5,11 +6,9 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Prototypes;
 
-#pragma warning disable IDE0130
-namespace Content.Client.HealthAnalyzer.UI;
-#pragma warning restore IDE0130
+namespace Content.Client._Fish.HealthAnalyzer.UI;
 
-public sealed partial class HealthAnalyzerControl
+public sealed partial class FishHealthAnalyzerControl
 {
     private EntityUid? _previousPatient;
     private bool _hasPreviousScan;

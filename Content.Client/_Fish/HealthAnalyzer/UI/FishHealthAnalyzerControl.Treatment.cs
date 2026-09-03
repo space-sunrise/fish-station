@@ -1,3 +1,4 @@
+using Content.Client.HealthAnalyzer.UI;
 using Content.Shared.Atmos;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage.Prototypes;
@@ -11,11 +12,9 @@ using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-#pragma warning disable IDE0130
-namespace Content.Client.HealthAnalyzer.UI;
-#pragma warning restore IDE0130
+namespace Content.Client._Fish.HealthAnalyzer.UI;
 
-public sealed partial class HealthAnalyzerControl
+public sealed partial class FishHealthAnalyzerControl
 {
     /* Формирует подсказки по лечению для данных, уже полученных анализатором. */
     private const float LowBloodLevel = 0.85f;
@@ -45,10 +44,10 @@ public sealed partial class HealthAnalyzerControl
         ["Heat"] = "Pyrazine",
         ["Shock"] = "Insuzine",
         ["Cold"] = "Leporazine",
-        ["Caustic"] = "Siderlac",
+        ["Caustic"] = "Sigynate",
         ["Asphyxiation"] = "DexalinPlus",
         ["Bloodloss"] = "DexalinPlus",
-        ["Poison"] = "Stellibinin",
+        ["Poison"] = "Diphenhydramine",
         ["Radiation"] = "Arithrazine",
         ["Cellular"] = "Doxarubixadone",
     };
@@ -157,7 +156,7 @@ public sealed partial class HealthAnalyzerControl
 
         foreach (var recommendation in recommendations)
         {
-            DrawTreatmentRecommendation(recommendation, state.Reagents);
+            DrawTreatmentRecommendation(recommendation);
         }
 
         if (addedReagents.Contains("Doxarubixadone") &&
@@ -279,31 +278,21 @@ public sealed partial class HealthAnalyzerControl
             AddRecommendation(
                 recommendations,
                 addedReagents,
-                "Aloxadone",
+                "Arcryox",
                 _prototypes.Index(BurnDamageGroup).LocalizedName);
         }
 
-        AddDeadDamageTreatment(recommendations, addedReagents, damageTypes, "Poison", "Antidon");
         AddDeadDamageTreatment(recommendations, addedReagents, damageTypes, "Radiation", "H-32");
-
-        var cellularDamage = damageTypes.GetValueOrDefault(CellularDamage);
-        var manglenessDamage = damageTypes.GetValueOrDefault(ManglenessDamage);
-        if (cellularDamage > 0 || manglenessDamage > 0)
-        {
-            var damageType = cellularDamage >= manglenessDamage
-                ? CellularDamage
-                : ManglenessDamage;
-            AddRecommendation(
-                recommendations,
-                addedReagents,
-                "Celliminol",
-                _prototypes.Index<DamageTypePrototype>(damageType).LocalizedName);
-        }
 
         foreach (var recommendation in recommendations)
         {
-            DrawTreatmentRecommendation(recommendation, state.Reagents);
+            DrawTreatmentRecommendation(recommendation);
         }
+
+        // Антидон и целлиминол требуют несинтезируемых ингредиентов; обычные аналоги не работают на мёртвом.
+        AddSpecializedTreatmentNotice(damageTypes, "Poison");
+        AddSpecializedTreatmentNotice(damageTypes, CellularDamage);
+        AddSpecializedTreatmentNotice(damageTypes, ManglenessDamage);
 
         AddTreatmentText("health-analyzer-window-treatment-dead-next");
         AddTreatmentText("health-analyzer-window-treatment-warning", "LabelSubText");
@@ -324,6 +313,19 @@ public sealed partial class HealthAnalyzerControl
             addedReagents,
             reagent,
             _prototypes.Index<DamageTypePrototype>(damageType).LocalizedName);
+    }
+
+    private void AddSpecializedTreatmentNotice(
+        IReadOnlyDictionary<ProtoId<DamageTypePrototype>, FixedPoint2> damageTypes,
+        ProtoId<DamageTypePrototype> damageType)
+    {
+        if (damageTypes.GetValueOrDefault(damageType) <= 0)
+            return;
+
+        AddTreatmentText(
+            "health-analyzer-window-treatment-dead-specialized",
+            "LabelSubText",
+            ("damage", _prototypes.Index(damageType).LocalizedName));
     }
 
     private bool TryGetAdvancedTreatment(
@@ -364,29 +366,26 @@ public sealed partial class HealthAnalyzerControl
             recommendations.Add(new TreatmentRecommendation(reagent, condition));
     }
 
-    private void DrawTreatmentRecommendation(
-        TreatmentRecommendation recommendation,
-        IReadOnlyList<ReagentQuantity> activeReagents)
+    private void DrawTreatmentRecommendation(TreatmentRecommendation recommendation)
     {
         if (!_prototypes.TryIndex<ReagentPrototype>(recommendation.Reagent, out var prototype))
             return;
 
-        var activeAmount = FixedPoint2.Zero;
-        foreach (var reagent in activeReagents)
-        {
-            if (reagent.Reagent.Prototype == recommendation.Reagent)
-                activeAmount += reagent.Quantity;
-        }
+        var activeAmount = _medicationAmounts.GetValueOrDefault(recommendation.Reagent);
 
         var message = new FormattedMessage();
         message.PushColor(prototype.SubstanceColor);
         message.AddText("● ");
         message.Pop();
         message.AddText(prototype.LocalizedName);
-        DrawRecommendation(message, recommendation.Condition, activeAmount);
+        DrawRecommendation(message, recommendation.Condition, activeAmount, prototype);
     }
 
-    private void DrawRecommendation(FormattedMessage name, string condition, FixedPoint2 activeAmount = default)
+    private void DrawRecommendation(
+        FormattedMessage name,
+        string condition,
+        FixedPoint2 activeAmount = default,
+        ReagentPrototype? reagent = null)
     {
         var panel = new PanelContainer
         {
@@ -422,19 +421,23 @@ public sealed partial class HealthAnalyzerControl
                 StyleClasses =
                 {
                     HealthAnalyzerSheetlet.ReagentAmount,
-                    "status-good",
                 },
             });
         }
 
         body.AddChild(medicine);
-        var conditionLabel = new RichTextLabel
+        var details = new BoxContainer
         {
+            Orientation = LayoutOrientation.Vertical,
             HorizontalExpand = true,
-            StyleClasses = { HealthAnalyzerSheetlet.DamageType },
+            SeparationOverride = 3,
         };
-        conditionLabel.SetMessage(condition, HealthAnalyzerSheetlet.SecondaryText);
-        body.AddChild(conditionLabel);
+        details.AddChild(CreateMedicationText(condition));
+        if (activeAmount > 0)
+            details.AddChild(CreateMedicationText(Loc.GetString("health-analyzer-window-medication-present")));
+        if (reagent != null)
+            AddMedicationSafety(details, reagent, activeAmount);
+        body.AddChild(details);
         panel.AddChild(body);
         TreatmentListContainer.AddChild(panel);
     }
