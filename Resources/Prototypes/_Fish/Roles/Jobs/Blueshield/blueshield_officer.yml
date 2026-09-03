@@ -50,4 +50,4 @@
   storage:
    back:
    - HandheldBSOCrewMonitor
-   - UplinkNTERTBlueShieldFish
+   - FishUplinkNTERTBlueShield

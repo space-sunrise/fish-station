@@ -1,4 +1,4 @@
-# Оружие Синего Щита (базовые версии)
+﻿# Оружие Синего Щита (базовые версии)
 
 # region Тяжёлое оружие (16 BC)
 - type: listing
@@ -8,7 +8,7 @@
   cost:
     Bluecrystal: 16
   categories:
-    - NTAutoGun
+    - BlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -25,7 +25,7 @@
   cost:
     Bluecrystal: 9
   categories:
-    - NTAutoGun
+    - BlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -41,7 +41,7 @@
   cost:
     Bluecrystal: 9
   categories:
-    - NTAutoGun
+    - BlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -57,7 +57,7 @@
   cost:
     Bluecrystal: 9
   categories:
-    - NTAutoGun
+    - BlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -73,7 +73,7 @@
   cost:
     Bluecrystal: 9
   categories:
-    - NTAutoGun
+    - BlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -89,7 +89,7 @@
   cost:
     Bluecrystal: 9
   categories:
-    - NTAutoGun
+    - BlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -105,7 +105,7 @@
   cost:
     Bluecrystal: 9
   categories:
-    - NTAutoGun
+    - BlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -117,11 +117,11 @@
 - type: listing
   id: ERTUplinkWeaponRifleLecterXL8
   productEntity: WeaponRifleLecterXL8
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: lecter }
+  icon: { sprite: Objects/Weapons/Guns/Rifles/XL8.rsi, state: base }
   cost:
     Bluecrystal: 9
   categories:
-    - NTAutoGun
+    - BlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -133,11 +133,11 @@
 - type: listing
   id: ERTUplinkWeaponSubMachineGunWt550b
   productEntity: WeaponSubMachineGunWt550b
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: wt550 }
+  icon: { sprite: _Starlight/Objects/Weapons/Guns/SMGs/wt550b.rsi, state: base }
   cost:
     Bluecrystal: 9
   categories:
-    - NTAutoGun
+    - BlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -153,7 +153,7 @@
   cost:
     Bluecrystal: 9
   categories:
-    - NTAutoGun
+    - BlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -169,7 +169,7 @@
   cost:
     Bluecrystal: 9
   categories:
-    - NTAutoGun
+    - BlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -186,7 +186,7 @@
   cost:
     Bluecrystal: 2
   categories:
-    - NTAutoGun
+    - BlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 5
@@ -196,30 +196,15 @@
       - BlueShield
 
 # region Лазеры
+# Fish edit start - убраны пульсовое оружие, добавлены энергодробовик, гибридный тазер, Доминатор
 - type: listing
-  id: ERTUplinkWeaponPulseRifleBlueShield
-  productEntity: WeaponPulseRifle
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: pulse-r }
+  id: ERTUplinkWeaponEnergyShotgunBlueShield
+  productEntity: WeaponEnergyShotgun
+  icon: { sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi, state: base }
   cost:
     Bluecrystal: 16
   categories:
-    - NTLasers
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - BlueShield
-
-- type: listing
-  id: ERTUplinkWeaponSniperPulseCarbineBlueShield
-  productEntity: WeaponSniperPulseCarbine
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: pulse-sc }
-  cost:
-    Bluecrystal: 16
-  categories:
-    - NTLasers
+    - BlueShieldLasers
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 2
@@ -235,26 +220,10 @@
   cost:
     Bluecrystal: 9
   categories:
-    - NTLasers
+    - BlueShieldLasers
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 3
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - BlueShield
-
-- type: listing
-  id: ERTUplinkWeaponPulseCarbineBlueShield
-  productEntity: WeaponPulseCarbine
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: pulse-c }
-  cost:
-    Bluecrystal: 9
-  categories:
-    - NTLasers
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 6
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
@@ -267,7 +236,7 @@
   cost:
     Bluecrystal: 9
   categories:
-    - NTLasers
+    - BlueShieldLasers
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 6
@@ -283,7 +252,7 @@
   cost:
     Bluecrystal: 16
   categories:
-    - NTLasers
+    - BlueShieldLasers
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 6
@@ -291,6 +260,40 @@
     whitelist:
       tags:
       - BlueShield
+
+- type: listing
+  id: ERTUplinkWeaponAdvancedTaserBlueShield
+  productEntity: WeaponAdvancedTaser
+  icon: { sprite: _Starlight/Objects/Weapons/Guns/Battery/adv_taser.rsi, state: base }
+  cost:
+    Bluecrystal: 2
+  categories:
+    - BlueShieldLasers
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkWeaponMiniEnergyGunBlueShield
+  productEntity: WeaponMiniEnergyGun
+  icon: { sprite: _Starlight/Objects/Weapons/Guns/Battery/mini.rsi, state: base }
+  cost:
+    Bluecrystal: 2
+  categories:
+    - BlueShieldLasers
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+# Fish edit end
+
 
 # region Пистолеты
 - type: listing
@@ -300,7 +303,7 @@
   cost:
     Bluecrystal: 1
   categories:
-    - NTPistols
+    - BlueShieldPistols
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4
@@ -316,7 +319,7 @@
   cost:
     Bluecrystal: 4
   categories:
-    - NTPistols
+    - BlueShieldPistols
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4
@@ -332,7 +335,7 @@
   cost:
     Bluecrystal: 2
   categories:
-    - NTPistols
+    - BlueShieldPistols
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4
@@ -341,6 +344,7 @@
       tags:
       - BlueShield
 
+# Fish edit start - категории взрывчатки изменены на общую NTexplosive
 # region Взрывчатка (1 BC)
 - type: listing
   id: ERTUplinkGrenadeShrapnel
@@ -365,10 +369,13 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4
+# Fish edit end
 
+# Fish edit start - боеприпасы переведены в NTAmmo с конкретными названиями калибров
 # region Боеприпасы .20 Rifle (Lecter, Leikha)
 - type: listing
   id: ERTUplinkMagazineBoxRifleSP
+  name: "Коробка патронов (.20 винтовочные SP)"
   productEntity: MagazineBoxRifleSP
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_rifle }
   cost:
@@ -385,6 +392,7 @@
 
 - type: listing
   id: ERTUplinkMagazineBoxRifleFMJ
+  name: "Коробка патронов (.20 винтовочные FMJ)"
   productEntity: MagazineBoxRifleFMJ
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_rifle }
   cost:
@@ -400,23 +408,8 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineBoxRifleAP
-  productEntity: MagazineBoxRifleAP
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_rifle }
-  cost:
-    Crystallite: 4
-  categories:
-    - NTAmmo
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 6
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - BlueShield
-
-- type: listing
   id: ERTUplinkMagazineRifleSPBlueShield
+  name: "Магазин (.20 винтовочные SP)"
   productEntity: MagazineRifleSP
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: base }
   cost:
@@ -433,23 +426,8 @@
 
 - type: listing
   id: ERTUplinkMagazineRifleFMJBlueShield
+  name: "Магазин (.20 винтовочные FMJ)"
   productEntity: MagazineRifleFMJ
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: base }
-  cost:
-    Crystallite: 1
-  categories:
-    - NTAmmo
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 8
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - BlueShield
-
-- type: listing
-  id: ERTUplinkMagazineRifleAPBlueShield
-  productEntity: MagazineRifleAP
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: base }
   cost:
     Crystallite: 1
@@ -466,6 +444,7 @@
 # region Боеприпасы .30 Light Rifle (SKM-24)
 - type: listing
   id: ERTUplinkMagazineBoxLightRifleSPBlueShield
+  name: "Коробка патронов (.30 винтовочные SP)"
   productEntity: MagazineBoxLightRifleSP
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi, state: base }
   cost:
@@ -482,6 +461,7 @@
 
 - type: listing
   id: ERTUplinkMagazineBoxLightRifleFMJBlueShield
+  name: "Коробка патронов (.30 винтовочные FMJ)"
   productEntity: MagazineBoxLightRifleFMJ
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi, state: base }
   cost:
@@ -497,23 +477,8 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineBoxLightRifleAPBlueShield
-  productEntity: MagazineBoxLightRifleAP
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi, state: base }
-  cost:
-    Crystallite: 4
-  categories:
-    - NTAmmo
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 6
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - BlueShield
-
-- type: listing
   id: ERTUplinkMagazineLightRifleSPBlueShield
+  name: "Магазин (.30 винтовочные SP)"
   productEntity: MagazineLightRifleSP
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: base }
   cost:
@@ -530,23 +495,8 @@
 
 - type: listing
   id: ERTUplinkMagazineLightRifleFMJBlueShield
+  name: "Магазин (.30 винтовочные FMJ)"
   productEntity: MagazineLightRifleFMJ
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: base }
-  cost:
-    Crystallite: 1
-  categories:
-    - NTAmmo
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 8
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - BlueShield
-
-- type: listing
-  id: ERTUplinkMagazineLightRifleAPBlueShield
-  productEntity: MagazineLightRifleAP
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: base }
   cost:
     Crystallite: 1
@@ -563,6 +513,7 @@
 # region Боеприпасы .308 Heavy Rifle (SKM-28)
 - type: listing
   id: ERTUplinkMagazineBoxHeavyRifleSPBlueShield
+  name: "Коробка патронов (.308 винтовочные SP)"
   productEntity: MagazineBoxHeavyRifleSP
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi, state: base }
   cost:
@@ -579,6 +530,7 @@
 
 - type: listing
   id: ERTUplinkMagazineBoxHeavyRifleFMJBlueShield
+  name: "Коробка патронов (.308 винтовочные FMJ)"
   productEntity: MagazineBoxHeavyRifleFMJ
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi, state: base }
   cost:
@@ -594,23 +546,8 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineBoxHeavyRifleAPBlueShield
-  productEntity: MagazineBoxHeavyRifleAP
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi, state: base }
-  cost:
-    Crystallite: 4
-  categories:
-    - NTAmmo
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 6
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - BlueShield
-
-- type: listing
   id: ERTUplinkMagazineRifleHeavySPBlueShield
+  name: "Магазин (.308 винтовочные SP)"
   productEntity: MagazineRifleHeavySP
   icon: { sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/rifle_heavy_mag.rsi, state: base }
   cost:
@@ -627,23 +564,8 @@
 
 - type: listing
   id: ERTUplinkMagazineRifleHeavyFMJBlueShield
+  name: "Магазин (.308 винтовочные FMJ)"
   productEntity: MagazineRifleHeavyFMJ
-  icon: { sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/rifle_heavy_mag.rsi, state: base }
-  cost:
-    Crystallite: 1
-  categories:
-    - NTAmmo
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 8
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - BlueShield
-
-- type: listing
-  id: ERTUplinkMagazineRifleHeavyAPBlueShield
-  productEntity: MagazineRifleHeavyAP
   icon: { sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/rifle_heavy_mag.rsi, state: base }
   cost:
     Crystallite: 1
@@ -660,6 +582,7 @@
 # region Боеприпасы .35 Auto (WT550 Blue, Drozd Mk2)
 - type: listing
   id: ERTUplinkMagazineBoxPistolSP
+  name: "Коробка патронов (.35 авто SP)"
   productEntity: MagazineBoxPistolSP
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_smg }
   cost:
@@ -676,6 +599,7 @@
 
 - type: listing
   id: ERTUplinkMagazineBoxPistolFMJ
+  name: "Коробка патронов (.35 авто FMJ)"
   productEntity: MagazineBoxPistolFMJ
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_smg }
   cost:
@@ -692,6 +616,7 @@
 
 - type: listing
   id: ERTUplinkMagazineBoxPistolHP
+  name: "Коробка патронов (.35 авто HP)"
   productEntity: MagazineBoxPistolHP
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_smg }
   cost:
@@ -708,6 +633,7 @@
 
 - type: listing
   id: ERTUplinkMagazinePistolSMGTopMountedSPBlueShield
+  name: "Магазин (.35 авто SP)"
   productEntity: MagazinePistolSubMachineGunTopMountedSP
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi, state: base }
   cost:
@@ -724,6 +650,7 @@
 
 - type: listing
   id: ERTUplinkMagazinePistolSMGTopMountedFMJBlueShield
+  name: "Магазин (.35 авто FMJ)"
   productEntity: MagazinePistolSubMachineGunTopMounted
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi, state: base }
   cost:
@@ -740,6 +667,7 @@
 
 - type: listing
   id: ERTUplinkMagazinePistolSMGTopMountedHPBlueShield
+  name: "Магазин (.35 авто HP)"
   productEntity: MagazinePistolSubMachineGunTopMountedHP
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi, state: base }
   cost:
@@ -756,6 +684,7 @@
 
 - type: listing
   id: ERTUplinkMagazineDrozdBlueShield
+  name: "Магазин Дрозд (.35 авто)"
   productEntity: MagazinePistolSubMachineGunCaselessExtended
   icon: { sprite: _Sunrise/Objects/Weapons/Guns/SMGs/iar_52.rsi, state: mag-0 }
   cost:
@@ -773,6 +702,7 @@
 # region Боеприпасы .45 Magnum (N1984, Spearhead)
 - type: listing
   id: ERTUplinkMagazineBoxMagnumSPBlueShield
+  name: "Коробка патронов (.45 Магнум SP)"
   productEntity: MagazineBoxMagnumSP
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_40_sp }
   cost:
@@ -789,6 +719,7 @@
 
 - type: listing
   id: ERTUplinkMagazineBoxMagnumFMJBlueShield
+  name: "Коробка патронов (.45 Магнум FMJ)"
   productEntity: MagazineBoxMagnumFMJ
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_40_fmj }
   cost:
@@ -805,6 +736,7 @@
 
 - type: listing
   id: ERTUplinkMagazineBoxMagnumHPBlueShield
+  name: "Коробка патронов (.45 Магнум HP)"
   productEntity: MagazineBoxMagnumHP
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_40 }
   cost:
@@ -821,6 +753,7 @@
 
 - type: listing
   id: ERTUplinkMagazineMagnumSPBlueShield
+  name: "Магазин (.45 Магнум SP)"
   productEntity: MagazineMagnum
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_magnum }
   cost:
@@ -837,6 +770,7 @@
 
 - type: listing
   id: ERTUplinkMagazineMagnumFMJBlueShield
+  name: "Магазин (.45 Магнум FMJ)"
   productEntity: MagazineMagnumFMJ
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_magnum }
   cost:
@@ -853,6 +787,7 @@
 
 - type: listing
   id: ERTUplinkMagazineMagnumHPBlueShield
+  name: "Магазин (.45 Магнум HP)"
   productEntity: MagazineMagnumHP
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_magnum }
   cost:
@@ -869,6 +804,7 @@
 
 - type: listing
   id: ERTUplinkSpeedLoaderMagnumSPBlueShield
+  name: "Спидлоадер (.45 Магнум SP)"
   productEntity: SpeedLoaderMagnumSP
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: speedloader45 }
   cost:
@@ -885,6 +821,7 @@
 
 - type: listing
   id: ERTUplinkSpeedLoaderMagnumFMJBlueShield
+  name: "Спидлоадер (.45 Магнум FMJ)"
   productEntity: SpeedLoaderMagnumFMJ
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: speedloader45 }
   cost:
@@ -901,6 +838,7 @@
 
 - type: listing
   id: ERTUplinkSpeedLoaderMagnumHPBlueShield
+  name: "Спидлоадер (.45 Магнум HP)"
   productEntity: SpeedLoaderMagnumHP
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: speedloader45 }
   cost:
@@ -918,6 +856,7 @@
 # region Боеприпасы 12 калибра (Дробовики: SPAS-12, Cycler, L-4034)
 - type: listing
   id: ERTUplinkBoxLethalshotBlueShield
+  name: "Коробка патронов (12 калибр дробь)"
   productEntity: BoxLethalshot
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_shot }
   cost:
@@ -934,6 +873,7 @@
 
 - type: listing
   id: ERTUplinkBoxShotgunSlugBlueShield
+  name: "Коробка патронов (12 калибр пули)"
   productEntity: BoxShotgunSlug
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_shot_slug }
   cost:
@@ -950,6 +890,7 @@
 
 - type: listing
   id: ERTUplinkBoxBeanbagBlueShield
+  name: "Коробка патронов (12 калибр травматические)"
   productEntity: BoxBeanbag
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_shot }
   cost:
@@ -966,6 +907,7 @@
 
 - type: listing
   id: ERTUplinkBoxShotgunFlareBlueShield
+  name: "Коробка патронов (12 калибр сигнальные)"
   productEntity: BoxShotgunFlare
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_shot_flare }
   cost:
@@ -982,6 +924,7 @@
 
 - type: listing
   id: ERTUplinkSpeedLoaderShellShotgunBlueShield
+  name: "Спидлоадер (12 калибр дробь)"
   productEntity: SpeedLoaderShellShotgun
   icon: { sprite: _Starlight/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Shotgun/shotgun_speed_loader.rsi, state: base }
   cost:
@@ -998,6 +941,7 @@
 
 - type: listing
   id: ERTUplinkSpeedLoaderShotgunSlugBlueShield
+  name: "Спидлоадер (12 калибр пули)"
   productEntity: SpeedLoaderShotgunSlug
   icon: { sprite: _Starlight/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Shotgun/shotgun_speed_loader.rsi, state: base }
   cost:
@@ -1014,6 +958,7 @@
 
 - type: listing
   id: ERTUplinkSpeedLoaderShotgunBeanbagBlueShield
+  name: "Спидлоадер (12 калибр травматические)"
   productEntity: SpeedLoaderShotgunBeanbag
   icon: { sprite: _Starlight/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Shotgun/shotgun_speed_loader.rsi, state: base }
   cost:
@@ -1031,6 +976,7 @@
 # region Боеприпасы АШ-12 (12.7×55 мм)
 - type: listing
   id: ERTUplinkMagazineAsh12Slug
+  name: "Магазин АШ-12 (Пули)"
   productEntity: MagazineAsh12Slug
   icon: { sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/ash12.rsi, state: base }
   cost:
@@ -1047,6 +993,7 @@
 
 - type: listing
   id: ERTUplinkMagazineAsh12Beanbag
+  name: "Магазин АШ-12 (Травматические)"
   productEntity: MagazineAsh12Beanbag
   icon: { sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/ash12.rsi, state: base }
   cost:
@@ -1063,6 +1010,7 @@
 
 - type: listing
   id: ERTUplinkMagazineAsh12Flare
+  name: "Магазин АШ-12 (Сигнальные)"
   productEntity: MagazineAsh12Flare
   icon: { sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/ash12.rsi, state: base }
   cost:
@@ -1076,14 +1024,16 @@
     whitelist:
       tags:
       - BlueShield
+# Fish edit end
 
+# Fish edit start - медицина переведена в NTMedicine, цена automender снижена до 8C
 # region Медицина
 - type: listing
   id: ERTUplinkAutoMenderBruteFilledBlueShield
   productEntity: AutoMenderBruteFilled
   icon: { sprite: _Starlight/Objects/Specific/Medical/medical.rsi, state: mender }
   cost:
-    Crystallite: 10
+    Crystallite: 8
   categories:
     - NTMedicine
   conditions:
@@ -1099,7 +1049,7 @@
   productEntity: AutoMenderBurnFilled
   icon: { sprite: _Starlight/Objects/Specific/Medical/medical.rsi, state: mender }
   cost:
-    Crystallite: 10
+    Crystallite: 8
   categories:
     - NTMedicine
   conditions:
@@ -1113,7 +1063,7 @@
 - type: listing
   id: ERTUplinkDefibrillatorBlueShield
   productEntity: AdvancedDefibrillatorCompact
-  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: defib }
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: comp_defib }
   cost:
     Crystallite: 4
   categories:
@@ -1125,4 +1075,4 @@
     whitelist:
       tags:
       - BlueShield
-
+# Fish edit end

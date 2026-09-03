@@ -1,0 +1,15 @@
+- type: storeCategory
+  id: BlueShieldAutoGun
+  name: store-category-blueshield-autogun
+  priority: 0
+
+- type: storeCategory
+  id: BlueShieldLasers
+  name: store-category-blueshield-lasers
+  priority: 1
+
+- type: storeCategory
+  id: BlueShieldPistols
+  name: store-category-blueshield-pistols
+  priority: 2
+
