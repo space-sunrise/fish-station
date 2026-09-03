@@ -1,9 +1,9 @@
 health-analyzer-window-vitals-title = Основные показатели
 health-analyzer-window-damage-title = Повреждения
 
-health-analyzer-window-treatment-title = Помощник лечения
-health-analyzer-window-treatment-none = Медикаментозное лечение сейчас не требуется.
-health-analyzer-window-treatment-unsupported = Для этого пациента нет рекомендаций по химическому лечению.
+health-analyzer-window-treatment-title = Рекомендации по лечению
+health-analyzer-window-treatment-none = Лечение сейчас не требуется.
+health-analyzer-window-treatment-unsupported = Для этого пациента нет рекомендаций по лечению.
 health-analyzer-window-treatment-entry = { $condition }: { $reagent }
 health-analyzer-window-treatment-entry-present = { $condition }: { $reagent } (уже в крови: { $amount } ед.)
 health-analyzer-window-treatment-damage = { $damage } ({ $amount } урона)
@@ -22,3 +22,10 @@ health-analyzer-window-reagents-title = Активные реагенты
 health-analyzer-window-reagents-none = Посторонние реагенты не обнаружены.
 health-analyzer-window-reagents-entry = { $reagent }: { $amount } ед.
 health-analyzer-window-reagents-amount = { $amount } ед.
+
+health-analyzer-window-section-expanded = ▾ { $title }
+health-analyzer-window-section-collapsed = ▸ { $title }
+health-analyzer-window-trend-improving = ↓ { $amount }
+health-analyzer-window-trend-worsening = ↑ { $amount }
+health-analyzer-window-trend-unchanged = →
+health-analyzer-window-trend-tooltip = Изменение урона с предыдущего активного сканирования этого пациента.

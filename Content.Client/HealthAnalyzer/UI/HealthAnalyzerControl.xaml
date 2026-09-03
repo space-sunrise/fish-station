@@ -1,5 +1,6 @@
 <BoxContainer
     xmlns="https://spacestation14.io"
+    HorizontalExpand="True"
     VerticalExpand="True"
     MinWidth="360"
     Orientation="Vertical"
@@ -48,34 +49,44 @@
                     HorizontalExpand="True"
                     VerticalAlignment="Center"
                     SeparationOverride="2">
-                    <Label
-                        Name="NameLabel"
-                        HorizontalExpand="True"
-                        MaxWidth="185"
-                        StyleClasses="HealthAnalyzerPatientName" />
-                    <Label
-                        Name="SpeciesLabel"
-                        StyleClasses="LabelSubText" />
-                </BoxContainer>
+                    <!-- FIsh edit start - гибкая правая колонка данных пациента -->
+                    <BoxContainer
+                        Orientation="Horizontal"
+                        SeparationOverride="8">
+                        <Label
+                            Name="NameLabel"
+                            ClipText="True"
+                            HorizontalExpand="True"
+                            StyleClasses="HealthAnalyzerPatientName" />
+                        <Label
+                            Name="StatusLabel"
+                            HorizontalAlignment="Right"
+                            StyleClasses="HealthAnalyzerStatus" />
+                    </BoxContainer>
 
-                <BoxContainer
-                    Orientation="Vertical"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center"
-                    SeparationOverride="2">
-                    <Label
-                        Name="StatusLabel"
-                        HorizontalAlignment="Right"
-                        StyleClasses="HealthAnalyzerStatus" />
-                    <Label
-                        Text="{Loc 'health-analyzer-window-scan-mode-text'}"
-                        HorizontalAlignment="Right"
-                        StyleClasses="HealthAnalyzerMetricKey" />
-                    <Label
-                        Name="ScanModeLabel"
-                        Text="{Loc 'health-analyzer-window-entity-unknown-text'}"
-                        HorizontalAlignment="Right"
-                        StyleClasses="HealthAnalyzerScanMode" />
+                    <BoxContainer
+                        Orientation="Horizontal"
+                        SeparationOverride="8">
+                        <Label
+                            Name="SpeciesLabel"
+                            ClipText="True"
+                            HorizontalExpand="True"
+                            StyleClasses="LabelSubText" />
+                        <BoxContainer
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            SeparationOverride="4">
+                            <Label
+                                Text="{Loc 'health-analyzer-window-scan-mode-text'}"
+                                StyleClasses="HealthAnalyzerMetricKey" />
+                            <Label
+                                Name="ScanModeLabel"
+                                Text="{Loc 'health-analyzer-window-entity-unknown-text'}"
+                                HorizontalAlignment="Right"
+                                StyleClasses="HealthAnalyzerScanMode" />
+                        </BoxContainer>
+                    </BoxContainer>
+                    <!-- FIsh edit end -->
                 </BoxContainer>
             </BoxContainer>
         </PanelContainer>
@@ -115,9 +126,12 @@
                     <Label
                         Text="{Loc 'health-analyzer-window-entity-damage-total-text'}"
                         StyleClasses="HealthAnalyzerMetricKey" />
-                    <Label
-                        Name="DamageLabel"
-                        StyleClasses="HealthAnalyzerMetricValue" />
+                    <!-- FIsh edit start - динамика общего урона -->
+                    <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+                        <Label Name="DamageLabel" StyleClasses="HealthAnalyzerMetricValue" />
+                        <Label Name="DamageTrendLabel" Visible="False" StyleClasses="HealthAnalyzerDamageTrend" />
+                    </BoxContainer>
+                    <!-- FIsh edit end -->
                 </BoxContainer>
             </PanelContainer>
 
@@ -163,17 +177,19 @@
         Name="DamageContainer"
         Visible="False"
         StyleClasses="HealthAnalyzerCard">
-        <BoxContainer
+        <!-- FIsh edit start - сворачиваемый раздел повреждений -->
+        <Collapsible
             Margin="9 7"
-            Orientation="Vertical"
+            BodyVisible="True"
             SeparationOverride="3">
-            <Label
-                Text="{Loc 'health-analyzer-window-damage-title'}"
-                StyleClasses="HealthAnalyzerSectionTitle" />
+            <CollapsibleHeading Name="DamageHeading" ChevronVisible="False"
+                Title="{Loc 'health-analyzer-window-damage-title'}"
+                StyleClasses="HealthAnalyzerSectionHeading" />
             <BoxContainer
                 Name="GroupsContainer"
                 Orientation="Vertical" />
-        </BoxContainer>
+        </Collapsible>
+        <!-- FIsh edit end -->
     </PanelContainer>
 
     <!-- FIsh edit start - помощник лечения и реагенты в кровотоке -->
@@ -181,36 +197,36 @@
         Name="TreatmentContainer"
         Visible="False"
         StyleClasses="HealthAnalyzerTreatmentCard">
-        <BoxContainer
+        <Collapsible
             Margin="9 7"
-            Orientation="Vertical"
+            BodyVisible="True"
             SeparationOverride="4">
-            <Label
-                Text="{Loc 'health-analyzer-window-treatment-title'}"
-                StyleClasses="HealthAnalyzerSectionTitle" />
+            <CollapsibleHeading Name="TreatmentHeading" ChevronVisible="False"
+                Title="{Loc 'health-analyzer-window-treatment-title'}"
+                StyleClasses="HealthAnalyzerSectionHeading" />
             <BoxContainer
                 Name="TreatmentListContainer"
                 Orientation="Vertical"
                 SeparationOverride="4" />
-        </BoxContainer>
+        </Collapsible>
     </PanelContainer>
 
     <PanelContainer
         Name="ReagentsContainer"
         Visible="False"
         StyleClasses="HealthAnalyzerCard">
-        <BoxContainer
+        <Collapsible
             Margin="9 7"
-            Orientation="Vertical"
+            BodyVisible="True"
             SeparationOverride="4">
-            <Label
-                Text="{Loc 'health-analyzer-window-reagents-title'}"
-                StyleClasses="HealthAnalyzerSectionTitle" />
+            <CollapsibleHeading Name="ReagentsHeading" ChevronVisible="False"
+                Title="{Loc 'health-analyzer-window-reagents-title'}"
+                StyleClasses="HealthAnalyzerSectionHeading" />
             <BoxContainer
                 Name="ReagentsListContainer"
                 Orientation="Vertical"
                 SeparationOverride="2" />
-        </BoxContainer>
+        </Collapsible>
     </PanelContainer>
     <!-- FIsh edit end -->
 </BoxContainer>

@@ -5,15 +5,30 @@
     StyleClasses="HealthAnalyzerWindow"
     HeaderClass="HealthAnalyzerWindowHeader"
     TitleClass="HealthAnalyzerWindowTitle"
-    SetSize="420 560"
-    MinSize="400 500"
-    MaxHeight="680">
-    <ScrollContainer
-        Margin="5 5 5 5"
-        ReturnMeasure="True"
+    SetSize="520 680"
+    MinSize="420 520"
+    MaxHeight="800">
+    <!-- FIsh edit start - декоративные эффекты интерфейса сканера -->
+    <LayoutContainer
+        Name="AnalyzerLayout"
+        HorizontalExpand="True"
         VerticalExpand="True">
 
-        <ui:HealthAnalyzerControl
-            Name="HealthAnalyzer"/>
-    </ScrollContainer>
+        <ScrollContainer
+            Name="AnalyzerScroll"
+            Margin="5 5 5 5"
+            HScrollEnabled="False"
+            ReserveScrollbarSpace="True"
+            VerticalExpand="True">
+
+            <ui:HealthAnalyzerControl
+                Name="HealthAnalyzer"
+                HorizontalExpand="True"/>
+        </ScrollContainer>
+
+        <ui:HealthAnalyzerEffects
+            Name="EffectsLayer"
+            RectClipContent="True"/>
+    </LayoutContainer>
+    <!-- FIsh edit end -->
 </controls:FancyWindow>

@@ -1,8 +1,10 @@
 using Content.Shared.Atmos;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.MedicalScanner;
+using Content.Shared.Medical.Healing;
 using Content.Shared.Mobs;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface;
@@ -18,11 +20,13 @@ public sealed partial class HealthAnalyzerControl
     /* Формирует подсказки по лечению для данных, уже полученных анализатором. */
     private const float LowBloodLevel = 0.85f;
     private const float CryogenicMedicineMaxTemperature = 213f;
-    private static readonly FixedPoint2 SevereDamageThreshold = 25;
+    private static readonly FixedPoint2 MinorDamageThreshold = 10;
+    private static readonly FixedPoint2 SevereDamageThreshold = 30;
     private static readonly ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
     private static readonly ProtoId<DamageGroupPrototype> BurnDamageGroup = "Burn";
     private static readonly ProtoId<DamageTypePrototype> CellularDamage = "Cellular";
     private static readonly ProtoId<DamageTypePrototype> ManglenessDamage = "Mangleness";
+    private static readonly EntProtoId[] MinorInjuryTreatments = ["Gauze", "Brutepack", "Ointment"];
 
     private static readonly Dictionary<ProtoId<DamageGroupPrototype>, ProtoId<ReagentPrototype>> BasicTreatments = new()
     {
@@ -74,6 +78,11 @@ public sealed partial class HealthAnalyzerControl
         var recommendations = new List<TreatmentRecommendation>();
         var addedReagents = new HashSet<ProtoId<ReagentPrototype>>();
 
+        var coveredDamage = new HashSet<ProtoId<DamageTypePrototype>>();
+        var bleedingCovered = false;
+        if (mobState == MobState.Alive && totalDamage <= MinorDamageThreshold && state.BloodLevel >= LowBloodLevel)
+            bleedingCovered = DrawMinorInjuryTreatments(target, damageTypes, state.Bleeding == true, coveredDamage);
+
         if (mobState == MobState.Critical)
         {
             AddRecommendation(
@@ -83,7 +92,7 @@ public sealed partial class HealthAnalyzerControl
                 Loc.GetString("health-analyzer-window-treatment-critical"));
         }
 
-        if (state.Bleeding == true)
+        if (state.Bleeding == true && !bleedingCovered)
         {
             AddRecommendation(
                 recommendations,
@@ -108,6 +117,19 @@ public sealed partial class HealthAnalyzerControl
             if (damageAmount <= 0 || !BasicTreatments.TryGetValue(damageGroup, out var reagent))
                 continue;
 
+            var needsMedication = false;
+            foreach (var type in _prototypes.Index(damageGroup).DamageTypes)
+            {
+                if (damageTypes.GetValueOrDefault(type) > 0 && !coveredDamage.Contains(type))
+                {
+                    needsMedication = true;
+                    break;
+                }
+            }
+
+            if (!needsMedication)
+                continue;
+
             var condition = Loc.GetString(
                 "health-analyzer-window-treatment-damage",
                 ("damage", _prototypes.Index<DamageGroupPrototype>(damageGroup).LocalizedName),
@@ -128,7 +150,8 @@ public sealed partial class HealthAnalyzerControl
 
         if (recommendations.Count == 0)
         {
-            AddTreatmentText("health-analyzer-window-treatment-none");
+            if (TreatmentListContainer.ChildCount == 0)
+                AddTreatmentText("health-analyzer-window-treatment-none");
             return;
         }
 
@@ -147,6 +170,56 @@ public sealed partial class HealthAnalyzerControl
         }
 
         AddTreatmentText("health-analyzer-window-treatment-warning", "LabelSubText");
+    }
+
+    private bool DrawMinorInjuryTreatments(
+        EntityUid target,
+        IReadOnlyDictionary<ProtoId<DamageTypePrototype>, FixedPoint2> damageTypes,
+        bool bleeding,
+        HashSet<ProtoId<DamageTypePrototype>> coveredDamage)
+    {
+        if (!_entityManager.TryGetComponent<DamageableComponent>(target, out var damageable))
+            return false;
+
+        var bleedingCovered = false;
+        foreach (var item in MinorInjuryTreatments)
+        {
+            if (!_prototypes.TryIndex(item, out var prototype) ||
+                !prototype.TryGetComponent<HealingComponent>(out var healing, _entityManager.ComponentFactory))
+                continue;
+
+            if (healing.DamageContainers != null && damageable.DamageContainerID is { } container &&
+                !healing.DamageContainers.Contains(container))
+                continue;
+
+            var conditions = new List<string>();
+            foreach (var (type, amount) in healing.Damage.DamageDict)
+            {
+                var damage = damageTypes.GetValueOrDefault(type);
+                if (amount >= 0 || damage <= 0 || !coveredDamage.Add(type))
+                    continue;
+
+                conditions.Add(Loc.GetString(
+                    "health-analyzer-window-treatment-damage",
+                    ("damage", _prototypes.Index(type).LocalizedName),
+                    ("amount", damage)));
+            }
+
+            if (bleeding && !bleedingCovered && healing.BloodlossModifier < 0)
+            {
+                conditions.Add(Loc.GetString("health-analyzer-window-treatment-bleeding"));
+                bleedingCovered = true;
+            }
+
+            if (conditions.Count == 0)
+                continue;
+
+            var name = new FormattedMessage();
+            name.AddText(prototype.Name);
+            DrawRecommendation(name, string.Join("\n", conditions));
+        }
+
+        return bleedingCovered;
     }
 
     private void DrawDeadTreatment(
@@ -305,6 +378,16 @@ public sealed partial class HealthAnalyzerControl
                 activeAmount += reagent.Quantity;
         }
 
+        var message = new FormattedMessage();
+        message.PushColor(prototype.SubstanceColor);
+        message.AddText("● ");
+        message.Pop();
+        message.AddText(prototype.LocalizedName);
+        DrawRecommendation(message, recommendation.Condition, activeAmount);
+    }
+
+    private void DrawRecommendation(FormattedMessage name, string condition, FixedPoint2 activeAmount = default)
+    {
         var panel = new PanelContainer
         {
             StyleClasses = { HealthAnalyzerSheetlet.Recommendation },
@@ -312,35 +395,30 @@ public sealed partial class HealthAnalyzerControl
         var body = new BoxContainer
         {
             Margin = new Thickness(7, 5),
-            Orientation = LayoutOrientation.Vertical,
-        };
-        var header = new BoxContainer
-        {
             Orientation = LayoutOrientation.Horizontal,
-            HorizontalExpand = true,
+            SeparationOverride = 12,
         };
-
-        var message = new FormattedMessage();
-        message.PushColor(prototype.SubstanceColor);
-        message.AddText("● ");
-        message.Pop();
-        message.AddText(prototype.LocalizedName);
+        var medicine = new BoxContainer
+        {
+            Orientation = LayoutOrientation.Vertical,
+            MinWidth = 125,
+            MaxWidth = 145,
+        };
 
         var reagentLabel = new RichTextLabel
         {
             HorizontalExpand = true,
         };
-        reagentLabel.SetMessage(message);
-        header.AddChild(reagentLabel);
+        reagentLabel.SetMessage(name);
+        medicine.AddChild(reagentLabel);
 
         if (activeAmount > 0)
         {
-            header.AddChild(new Label
+            medicine.AddChild(new Label
             {
                 Text = Loc.GetString(
                     "health-analyzer-window-treatment-active-amount",
                     ("amount", activeAmount)),
-                HorizontalAlignment = HAlignment.Right,
                 StyleClasses =
                 {
                     HealthAnalyzerSheetlet.ReagentAmount,
@@ -349,13 +427,13 @@ public sealed partial class HealthAnalyzerControl
             });
         }
 
-        body.AddChild(header);
+        body.AddChild(medicine);
         var conditionLabel = new RichTextLabel
         {
-            MaxWidth = 320,
+            HorizontalExpand = true,
             StyleClasses = { HealthAnalyzerSheetlet.DamageType },
         };
-        conditionLabel.SetMessage(recommendation.Condition, HealthAnalyzerSheetlet.SecondaryText);
+        conditionLabel.SetMessage(condition, HealthAnalyzerSheetlet.SecondaryText);
         body.AddChild(conditionLabel);
         panel.AddChild(body);
         TreatmentListContainer.AddChild(panel);
@@ -366,7 +444,7 @@ public sealed partial class HealthAnalyzerControl
         var label = new RichTextLabel
         {
             Text = Loc.GetString(locId, args),
-            MaxWidth = 330,
+            HorizontalExpand = true,
         };
 
         if (styleClass != null)

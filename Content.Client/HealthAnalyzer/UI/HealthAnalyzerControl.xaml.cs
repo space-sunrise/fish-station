@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.Stylesheets;
+using Content.Client.Stylesheets.Palette;
 using Content.Shared.Atmos;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage.Components;
@@ -22,6 +23,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 namespace Content.Client.HealthAnalyzer.UI;
 
@@ -31,12 +33,19 @@ namespace Content.Client.HealthAnalyzer.UI;
 [GenerateTypedNameReferences]
 public sealed partial class HealthAnalyzerControl : BoxContainer
 {
+    private const float StatusColorTransitionDuration = 0.18f;
+
     private readonly IEntityManager _entityManager;
     private readonly SpriteSystem _spriteSystem;
     private readonly IPrototypeManager _prototypes;
     private readonly IResourceCache _cache;
     private readonly DamageableSystem _damageable;
     private readonly MobThresholdSystem _mobThresholds;
+    private readonly Dictionary<Label, StatusColorTransition> _statusColorTransitions = new();
+    private readonly List<Label> _completedColorTransitions = new();
+
+    public bool IsScanActive { get; private set; }
+    public MobState PatientState { get; private set; } = MobState.Invalid;
 
     public HealthAnalyzerControl()
     {
@@ -49,6 +58,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         _cache = dependencies.Resolve<IResourceCache>();
         _damageable = _entityManager.System<DamageableSystem>();
         _mobThresholds = _entityManager.System<MobThresholdSystem>();
+        InitializeSections(); // FIsh edit - независимое сворачивание разделов
     }
 
     public void Populate(HealthAnalyzerUiState state)
@@ -58,6 +68,9 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         if (target == null
             || !_entityManager.TryGetComponent<DamageableComponent>(target, out var damageable))
         {
+            IsScanActive = false;
+            BeginDamageComparison(null, false); // FIsh edit - сброс истории без пациента
+            PatientState = MobState.Invalid;
             NoPatientDataPanel.Visible = true;
             PatientDataContainer.Visible = false;
             AlertsContainer.Visible = false;
@@ -75,6 +88,9 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         TreatmentContainer.Visible = true;
         ReagentsContainer.Visible = true;
 
+        IsScanActive = state.ScanMode == true;
+        BeginDamageComparison(target, IsScanActive); // FIsh edit - сравнение только замеров одного пациента
+
         // Scan Mode
 
         ScanModeLabel.Text = state.ScanMode.HasValue
@@ -85,9 +101,9 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
 
         SetStatusStyle(
             ScanModeLabel,
-            state.ScanMode.HasValue && state.ScanMode.Value
+            state.ScanMode == true
                 ? StyleClass.StatusGood
-                : StyleClass.StatusCritical);
+                : StyleClass.LabelWeak);
 
         // Patient Information
 
@@ -133,11 +149,13 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             ? mobStateComponent.CurrentState
             : MobState.Invalid;
 
+        PatientState = mobState;
+
         StatusLabel.Text = GetStatus(mobState);
         SetStatusStyle(StatusLabel, mobState switch
         {
             MobState.Alive => StyleClass.StatusGood,
-            MobState.Critical => StyleClass.StatusBad,
+            MobState.Critical => StyleClass.StatusWarning,
             MobState.Dead => StyleClass.StatusCritical,
             _ => StyleClass.LabelWeak,
         });
@@ -146,6 +164,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
 
         var totalDamage = _damageable.GetTotalDamage((target.Value, damageable));
         DamageLabel.Text = totalDamage.ToString();
+        UpdateDamageTrend(DamageTrendLabel, totalDamage - _previousTotalDamage); // FIsh edit
         SetDamageStyle(totalDamage, mobState);
 
         // Alerts
@@ -162,7 +181,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             {
                 Text = Loc.GetString("health-analyzer-window-entity-unrevivable-text"),
                 Margin = new Thickness(0, 4),
-                MaxWidth = 330,
+                HorizontalExpand = true,
             });
 
         if (state.Bleeding == true)
@@ -170,7 +189,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             {
                 Text = Loc.GetString("health-analyzer-window-entity-bleeding-text"),
                 Margin = new Thickness(0, 4),
-                MaxWidth = 330,
+                HorizontalExpand = true,
             });
 
         // Damage Groups
@@ -193,6 +212,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             damagePerType,
             state);
         DrawReagents(state.Reagents);
+        SaveDamageComparison(totalDamage, damageSortedGroups, damagePerType);
         // FIsh edit end
     }
 
@@ -225,7 +245,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         SetStatusStyle(TemperatureLabel, style);
     }
 
-    private static void SetPercentageStyle(Label label, float? percentage)
+    private void SetPercentageStyle(Label label, float? percentage)
     {
         if (!percentage.HasValue || float.IsNaN(percentage.Value))
         {
@@ -257,16 +277,85 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         SetStatusStyle(DamageLabel, style);
     }
 
-    private static void SetStatusStyle(Control control, string style)
+    private void SetStatusStyle(Label label, string style)
     {
-        control.RemoveStyleClass(StyleClass.StatusGood);
-        control.RemoveStyleClass(StyleClass.StatusOkay);
-        control.RemoveStyleClass(StyleClass.StatusWarning);
-        control.RemoveStyleClass(StyleClass.StatusBad);
-        control.RemoveStyleClass(StyleClass.StatusCritical);
-        control.RemoveStyleClass(StyleClass.LabelWeak);
-        control.AddStyleClass(style);
+        label.RemoveStyleClass(StyleClass.StatusGood);
+        label.RemoveStyleClass(StyleClass.StatusOkay);
+        label.RemoveStyleClass(StyleClass.StatusWarning);
+        label.RemoveStyleClass(StyleClass.StatusBad);
+        label.RemoveStyleClass(StyleClass.StatusCritical);
+        label.RemoveStyleClass(StyleClass.LabelWeak);
+        label.AddStyleClass(style);
+
+        var targetColor = IsScanActive
+            ? GetStatusColor(style)
+            : HealthAnalyzerSheetlet.InactiveTextColor;
+        if (!label.FontColorOverride.HasValue)
+        {
+            label.FontColorOverride = targetColor;
+            return;
+        }
+
+        if (_statusColorTransitions.TryGetValue(label, out var currentTransition)
+            && currentTransition.Target == targetColor)
+        {
+            return;
+        }
+
+        var currentColor = label.FontColorOverride.Value;
+        if (currentColor == targetColor)
+        {
+            _statusColorTransitions.Remove(label);
+            return;
+        }
+
+        _statusColorTransitions[label] = new StatusColorTransition(currentColor, targetColor);
     }
+
+    // FIsh edit start - плавная смена цветов основных показателей
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+
+        _completedColorTransitions.Clear();
+        foreach (var (label, transition) in _statusColorTransitions)
+        {
+            transition.Elapsed += args.DeltaSeconds;
+            var progress = Math.Clamp(transition.Elapsed / StatusColorTransitionDuration, 0f, 1f);
+            var easedProgress = 1f - MathF.Pow(1f - progress, 3f);
+            label.FontColorOverride = Color.InterpolateBetween(
+                transition.Start,
+                transition.Target,
+                easedProgress);
+
+            if (progress >= 1f)
+                _completedColorTransitions.Add(label);
+        }
+
+        foreach (var label in _completedColorTransitions)
+            _statusColorTransitions.Remove(label);
+    }
+
+    private static Color GetStatusColor(string style)
+    {
+        return style switch
+        {
+            StyleClass.StatusGood => Palettes.Status.Good,
+            StyleClass.StatusOkay => Palettes.Status.Okay,
+            StyleClass.StatusWarning => Palettes.Status.Warning,
+            StyleClass.StatusBad => Palettes.Status.Bad,
+            StyleClass.StatusCritical => Palettes.Status.Critical,
+            _ => Color.DarkGray,
+        };
+    }
+
+    private sealed class StatusColorTransition(Color start, Color target)
+    {
+        public readonly Color Start = start;
+        public readonly Color Target = target;
+        public float Elapsed;
+    }
+    // FIsh edit end
 
     // FIsh edit start - список посторонних реагентов в кровотоке
     private void DrawReagents(IReadOnlyList<ReagentQuantity> reagents)
@@ -334,7 +423,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
 
         foreach (var (damageGroupId, damageAmount) in groups)
         {
-            if (damageAmount == 0)
+            if (damageAmount == 0 && (!_canCompareDamage || _previousDamageGroups.GetValueOrDefault(damageGroupId) == 0)) // FIsh edit
                 continue;
 
             var groupTitleText = $"{Loc.GetString(
@@ -355,7 +444,11 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
                 Margin = new Thickness(7, 4),
             };
 
-            groupContainer.AddChild(CreateDiagnosticGroupTitle(groupTitleText, damageGroupId));
+            // FIsh edit start - изменение группы относительно предыдущего замера
+            var groupTitle = CreateDiagnosticGroupTitle(groupTitleText, damageGroupId);
+            AddDamageTrend(groupTitle, damageAmount - _previousDamageGroups.GetValueOrDefault(damageGroupId));
+            groupContainer.AddChild(groupTitle);
+            // FIsh edit end
             groupPanel.AddChild(groupContainer);
             GroupsContainer.AddChild(groupPanel);
 
@@ -364,7 +457,8 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
 
             foreach (var type in group.DamageTypes)
             {
-                if (!damageDict.TryGetValue(type, out var typeAmount) || typeAmount <= 0)
+                var typeAmount = damageDict.GetValueOrDefault(type); // FIsh edit
+                if (typeAmount <= 0 && (!_canCompareDamage || _previousDamageTypes.GetValueOrDefault(type) <= 0)) // FIsh edit
                     continue;
 
                 var damageString = Loc.GetString(
@@ -374,9 +468,15 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
                 );
 
                 var label = CreateDiagnosticItemLabel(damageString.Insert(0, "· "));
-                label.Margin = new Thickness(34, 0, 0, 1);
                 label.StyleClasses.Add(HealthAnalyzerSheetlet.DamageType);
-                groupContainer.AddChild(label);
+                // FIsh edit start - отдельная стрелка для типа повреждений
+                var row = new BoxContainer { Margin = new Thickness(34, 0, 0, 1) };
+                label.HorizontalExpand = true;
+                label.ClipText = true;
+                row.AddChild(label);
+                AddDamageTrend(row, typeAmount - _previousDamageTypes.GetValueOrDefault(type));
+                groupContainer.AddChild(row);
+                // FIsh edit end
             }
         }
     }
@@ -418,7 +518,13 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             Texture = GetTexture(id.ToLower())
         });
 
-        rootContainer.AddChild(CreateDiagnosticItemLabel(text));
+        // FIsh edit start - оставляем место для стрелки при узком окне
+        var title = CreateDiagnosticItemLabel(text);
+        title.HorizontalExpand = true;
+        title.ClipText = true;
+        title.ToolTip = text;
+        rootContainer.AddChild(title);
+        // FIsh edit end
 
         return rootContainer;
     }
