@@ -1,76 +1,216 @@
 <BoxContainer
     xmlns="https://spacestation14.io"
     VerticalExpand="True"
-    Orientation="Vertical">
-    <Label
-        Name="NoPatientDataText"
-        Text="{Loc health-analyzer-window-no-patient-data-text}" />
+    MinWidth="360"
+    Orientation="Vertical"
+    SeparationOverride="8">
+    <PanelContainer
+        Name="NoPatientDataPanel"
+        StyleClasses="HealthAnalyzerEmptyCard">
+        <Label
+            Name="NoPatientDataText"
+            Margin="10"
+            HorizontalAlignment="Center"
+            Text="{Loc health-analyzer-window-no-patient-data-text}"
+            StyleClasses="LabelSubText" />
+    </PanelContainer>
 
     <BoxContainer
         Name="PatientDataContainer"
-        Margin="0 0 0 5"
-        Orientation="Vertical">
-        <BoxContainer Orientation="Horizontal" Margin="0 0 0 5">
-            <SpriteView OverrideDirection="South" Scale="2 2" Name="SpriteView" Access="Public" SetSize="64 64" />
-            <TextureRect Name="NoDataTex" Access="Public" SetSize="64 64" Visible="false" Stretch="KeepAspectCentered" TexturePath="/Textures/Interface/Misc/health_analyzer_out_of_range.png"/>
-            <BoxContainer Margin="5 0 0 0" Orientation="Vertical" VerticalAlignment="Top">
-                <RichTextLabel Name="NameLabel" SetWidth="150" />
-                <Label Name="SpeciesLabel" VerticalAlignment="Top" StyleClasses="LabelSubText" />
+        Visible="False"
+        Orientation="Vertical"
+        SeparationOverride="8">
+        <PanelContainer StyleClasses="HealthAnalyzerHeaderCard">
+            <BoxContainer
+                Margin="10 8"
+                Orientation="Horizontal"
+                SeparationOverride="10">
+                <PanelContainer StyleClasses="HealthAnalyzerPortraitFrame">
+                    <Control SetSize="64 64">
+                        <SpriteView
+                            Name="SpriteView"
+                            Access="Public"
+                            OverrideDirection="South"
+                            Scale="2 2"
+                            SetSize="64 64" />
+                        <TextureRect
+                            Name="NoDataTex"
+                            Access="Public"
+                            Visible="False"
+                            SetSize="64 64"
+                            Stretch="KeepAspectCentered"
+                            TexturePath="/Textures/Interface/Misc/health_analyzer_out_of_range.png" />
+                    </Control>
+                </PanelContainer>
+
+                <BoxContainer
+                    Orientation="Vertical"
+                    HorizontalExpand="True"
+                    VerticalAlignment="Center"
+                    SeparationOverride="2">
+                    <Label
+                        Name="NameLabel"
+                        HorizontalExpand="True"
+                        MaxWidth="185"
+                        StyleClasses="HealthAnalyzerPatientName" />
+                    <Label
+                        Name="SpeciesLabel"
+                        StyleClasses="LabelSubText" />
+                </BoxContainer>
+
+                <BoxContainer
+                    Orientation="Vertical"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    SeparationOverride="2">
+                    <Label
+                        Name="StatusLabel"
+                        HorizontalAlignment="Right"
+                        StyleClasses="HealthAnalyzerStatus" />
+                    <Label
+                        Text="{Loc 'health-analyzer-window-scan-mode-text'}"
+                        HorizontalAlignment="Right"
+                        StyleClasses="HealthAnalyzerMetricKey" />
+                    <Label
+                        Name="ScanModeLabel"
+                        Text="{Loc 'health-analyzer-window-entity-unknown-text'}"
+                        HorizontalAlignment="Right"
+                        StyleClasses="HealthAnalyzerScanMode" />
+                </BoxContainer>
             </BoxContainer>
-            <Label Margin="0 0 5 0" HorizontalExpand="True" HorizontalAlignment="Right" VerticalExpand="True"
-                   VerticalAlignment="Top" Name="ScanModeLabel"
-                   Text="{Loc 'health-analyzer-window-entity-unknown-text'}" />
-        </BoxContainer>
+        </PanelContainer>
 
-        <PanelContainer StyleClasses="LowDivider" />
+        <Label
+            Text="{Loc 'health-analyzer-window-vitals-title'}"
+            StyleClasses="HealthAnalyzerSectionTitle" />
 
-        <GridContainer Margin="0 5 0 0" Columns="2">
-            <Label Text="{Loc 'health-analyzer-window-entity-status-text'}" />
-            <Label Name="StatusLabel" />
-            <Label Text="{Loc 'health-analyzer-window-entity-temperature-text'}" />
-            <Label Name="TemperatureLabel" />
-            <Label Text="{Loc 'health-analyzer-window-entity-blood-level-text'}" />
-            <Label Name="BloodLabel" />
+        <GridContainer
+            Columns="2"
+            HSeparationOverride="6"
+            VSeparationOverride="6">
+            <PanelContainer HorizontalExpand="True" StyleClasses="HealthAnalyzerMetricCard">
+                <BoxContainer Margin="8 5" Orientation="Vertical">
+                    <Label
+                        Text="{Loc 'health-analyzer-window-entity-temperature-text'}"
+                        StyleClasses="HealthAnalyzerMetricKey" />
+                    <Label
+                        Name="TemperatureLabel"
+                        StyleClasses="HealthAnalyzerMetricValue" />
+                </BoxContainer>
+            </PanelContainer>
+
+            <PanelContainer HorizontalExpand="True" StyleClasses="HealthAnalyzerMetricCard">
+                <BoxContainer Margin="8 5" Orientation="Vertical">
+                    <Label
+                        Text="{Loc 'health-analyzer-window-entity-blood-level-text'}"
+                        StyleClasses="HealthAnalyzerMetricKey" />
+                    <Label
+                        Name="BloodLabel"
+                        StyleClasses="HealthAnalyzerMetricValue" />
+                </BoxContainer>
+            </PanelContainer>
+
+            <PanelContainer HorizontalExpand="True" StyleClasses="HealthAnalyzerMetricCard">
+                <BoxContainer Margin="8 5" Orientation="Vertical">
+                    <Label
+                        Text="{Loc 'health-analyzer-window-entity-damage-total-text'}"
+                        StyleClasses="HealthAnalyzerMetricKey" />
+                    <Label
+                        Name="DamageLabel"
+                        StyleClasses="HealthAnalyzerMetricValue" />
+                </BoxContainer>
+            </PanelContainer>
+
             <!-- Sunrise-Edit start - hunger and thirst labels -->
-            <Label Text="{Loc 'health-analyzer-window-entity-hunger-level-text'}" />
-            <Label Name="HungerLabel" />
-            <Label Text="{Loc 'health-analyzer-window-entity-thirst-level-text'}" />
-            <Label Name="ThirstLabel" />
+            <PanelContainer HorizontalExpand="True" StyleClasses="HealthAnalyzerMetricCard">
+                <BoxContainer
+                    Margin="8 5"
+                    Orientation="Horizontal"
+                    SeparationOverride="10">
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                        <Label
+                            Text="{Loc 'health-analyzer-window-entity-hunger-level-text'}"
+                            StyleClasses="HealthAnalyzerMetricKey" />
+                        <Label
+                            Name="HungerLabel"
+                            StyleClasses="HealthAnalyzerMetricValue" />
+                    </BoxContainer>
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                        <Label
+                            Text="{Loc 'health-analyzer-window-entity-thirst-level-text'}"
+                            StyleClasses="HealthAnalyzerMetricKey" />
+                        <Label
+                            Name="ThirstLabel"
+                            StyleClasses="HealthAnalyzerMetricValue" />
+                    </BoxContainer>
+                </BoxContainer>
+            </PanelContainer>
             <!-- Sunrise-Edit end -->
-            <Label Text="{Loc 'health-analyzer-window-entity-damage-total-text'}" />
-            <Label Name="DamageLabel" />
         </GridContainer>
     </BoxContainer>
 
-    <!-- FIsh edit start - отображение реагентов в кровотоке -->
-    <PanelContainer StyleClasses="LowDivider" />
-
-    <BoxContainer
-        Name="ReagentsContainer"
-        Margin="0 5"
-        Orientation="Vertical">
-        <Label
-            Text="{Loc 'health-analyzer-window-reagents-title'}"
-            StyleClasses="LabelHeading" />
+    <PanelContainer
+        Name="AlertsContainer"
+        Visible="False"
+        StyleClasses="HealthAnalyzerAlertCard">
         <BoxContainer
-            Name="ReagentsListContainer"
-            Margin="0 3 0 0"
+            Name="AlertsListContainer"
+            Margin="9 5"
             Orientation="Vertical" />
-    </BoxContainer>
+    </PanelContainer>
+
+    <PanelContainer
+        Name="DamageContainer"
+        Visible="False"
+        StyleClasses="HealthAnalyzerCard">
+        <BoxContainer
+            Margin="9 7"
+            Orientation="Vertical"
+            SeparationOverride="3">
+            <Label
+                Text="{Loc 'health-analyzer-window-damage-title'}"
+                StyleClasses="HealthAnalyzerSectionTitle" />
+            <BoxContainer
+                Name="GroupsContainer"
+                Orientation="Vertical" />
+        </BoxContainer>
+    </PanelContainer>
+
+    <!-- FIsh edit start - помощник лечения и реагенты в кровотоке -->
+    <PanelContainer
+        Name="TreatmentContainer"
+        Visible="False"
+        StyleClasses="HealthAnalyzerTreatmentCard">
+        <BoxContainer
+            Margin="9 7"
+            Orientation="Vertical"
+            SeparationOverride="4">
+            <Label
+                Text="{Loc 'health-analyzer-window-treatment-title'}"
+                StyleClasses="HealthAnalyzerSectionTitle" />
+            <BoxContainer
+                Name="TreatmentListContainer"
+                Orientation="Vertical"
+                SeparationOverride="4" />
+        </BoxContainer>
+    </PanelContainer>
+
+    <PanelContainer
+        Name="ReagentsContainer"
+        Visible="False"
+        StyleClasses="HealthAnalyzerCard">
+        <BoxContainer
+            Margin="9 7"
+            Orientation="Vertical"
+            SeparationOverride="4">
+            <Label
+                Text="{Loc 'health-analyzer-window-reagents-title'}"
+                StyleClasses="HealthAnalyzerSectionTitle" />
+            <BoxContainer
+                Name="ReagentsListContainer"
+                Orientation="Vertical"
+                SeparationOverride="2" />
+        </BoxContainer>
+    </PanelContainer>
     <!-- FIsh edit end -->
-
-    <PanelContainer Name="AlertsDivider" Visible="False" StyleClasses="LowDivider" />
-
-    <BoxContainer Name="AlertsContainer" Visible="False" Margin="0 5" Orientation="Vertical" HorizontalAlignment="Center">
-
-    </BoxContainer>
-
-    <PanelContainer StyleClasses="LowDivider" />
-
-    <BoxContainer
-        Name="GroupsContainer"
-        Margin="0 5 0 5"
-        Orientation="Vertical">
-    </BoxContainer>
-
 </BoxContainer>
