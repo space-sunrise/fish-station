@@ -10,6 +10,7 @@ namespace Content.Client._Fish.HealthAnalyzer.UI;
 
 public sealed partial class FishHealthAnalyzerControl
 {
+    /* Сравнение последовательных активных замеров одного пациента и состояние разделов. */
     private EntityUid? _previousPatient;
     private bool _hasPreviousScan;
     private bool _canCompareDamage;
@@ -35,6 +36,9 @@ public sealed partial class FishHealthAnalyzerControl
             ("title", Loc.GetString(title)));
     }
 
+    /// <summary>
+    /// Resets the baseline when the patient changes and hides trends while readings are stale.
+    /// </summary>
     private void BeginDamageComparison(EntityUid? patient, bool active)
     {
         if (_previousPatient != patient)

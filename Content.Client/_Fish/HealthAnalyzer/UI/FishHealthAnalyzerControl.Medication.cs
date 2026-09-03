@@ -17,6 +17,10 @@ public sealed partial class FishHealthAnalyzerControl
         _medicationAmounts = HealthAnalyzerMedicationSafety.GetAmounts(reagents);
     }
 
+    /// <summary>
+    /// Only bloodstream effects apply to the quantities reported by this scanner.
+    /// Unknown thresholds remain unknown rather than implying a safe dose.
+    /// </summary>
     private static FixedPoint2? GetMedicationThreshold(ReagentPrototype reagent)
     {
         if (reagent.Metabolisms == null ||

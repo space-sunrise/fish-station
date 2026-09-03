@@ -25,7 +25,7 @@ using Content.Shared._Sunrise.Research.Artifact;
 
 namespace Content.Server.Medical;
 
-public sealed class HealthAnalyzerSystem : EntitySystem
+public sealed partial class HealthAnalyzerSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly PowerCellSystem _cell = default!;
@@ -249,24 +249,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             bloodAmount = _bloodstreamSystem.GetBloodLevel(entity);
             bleeding = bloodstream.BleedAmount > 0;
 
-            // FIsh edit start - сбор посторонних реагентов в кровотоке
-            foreach (var reagent in bloodSolution.Contents)
-            {
-                var isBloodReagent = false;
-
-                foreach (var bloodReagent in bloodstream.BloodReferenceSolution.Contents)
-                {
-                    if (bloodReagent.Reagent.Prototype != reagent.Reagent.Prototype)
-                        continue;
-
-                    isBloodReagent = true;
-                    break;
-                }
-
-                if (!isBloodReagent)
-                    reagents.Add(new ReagentQuantity(reagent.Reagent.Prototype, reagent.Quantity));
-            }
-            // FIsh edit end
+            CollectForeignReagents(bloodSolution, bloodstream.BloodReferenceSolution, reagents); // FIsh edit - состав для сканера
         }
 
         if (TryComp<UnrevivableComponent>(entity, out var unrevivableComp) && unrevivableComp.Analyzable)
@@ -302,7 +285,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             unrevivable,
             hungerLevel,
             thirstLevel,
-            reagents
+            reagents // FIsh edit - посторонние реагенты в показаниях
         );
         // Sunrise-Edit end
     }

@@ -152,6 +152,10 @@ public sealed partial class FishHealthAnalyzerControl
         AddTreatmentText("health-analyzer-window-treatment-warning", "LabelSubText");
     }
 
+    /// <summary>
+    /// Uses the item's healing prototype to avoid recommending dressings for unsupported damage containers.
+    /// Covered damage types are excluded from subsequent medication recommendations.
+    /// </summary>
     private bool DrawMinorInjuryTreatments(
         EntityUid target,
         IReadOnlyDictionary<ProtoId<DamageTypePrototype>, FixedPoint2> damageTypes,
@@ -202,6 +206,10 @@ public sealed partial class FishHealthAnalyzerControl
         return bleedingCovered;
     }
 
+    /// <summary>
+    /// Uses a separate treatment path because ordinary medicines may not metabolize after death.
+    /// Reports the patient's revival threshold without promising that medication alone can revive them.
+    /// </summary>
     private void DrawDeadTreatment(
         EntityUid target,
         FixedPoint2 totalDamage,
@@ -309,6 +317,10 @@ public sealed partial class FishHealthAnalyzerControl
             ("damage", _prototypes.Index(damageType).LocalizedName));
     }
 
+    /// <summary>
+    /// Selects a treatment for each uncovered damage type. Escalation uses total damage in the group,
+    /// not the largest individual injury; multiple reasons for the same medicine are merged by the caller.
+    /// </summary>
     internal static IEnumerable<(ProtoId<DamageTypePrototype> DamageType, ProtoId<ReagentPrototype> Reagent)> GetDamageTreatments(
         ProtoId<DamageGroupPrototype> damageGroup,
         FixedPoint2 groupDamage,

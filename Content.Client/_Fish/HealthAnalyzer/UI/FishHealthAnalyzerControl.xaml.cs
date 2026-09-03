@@ -58,7 +58,7 @@ public sealed partial class FishHealthAnalyzerControl : BoxContainer
         _cache = dependencies.Resolve<IResourceCache>();
         _damageable = _entityManager.System<DamageableSystem>();
         _mobThresholds = _entityManager.System<MobThresholdSystem>();
-        InitializeSections(); // FIsh edit - независимое сворачивание разделов
+        InitializeSections(); // независимое сворачивание разделов
     }
 
     public void Populate(HealthAnalyzerUiState state)
@@ -69,14 +69,14 @@ public sealed partial class FishHealthAnalyzerControl : BoxContainer
             || !_entityManager.TryGetComponent<DamageableComponent>(target, out var damageable))
         {
             IsScanActive = false;
-            _medicationAmounts.Clear(); // FIsh edit - не удерживаем данные предыдущего пациента
-            BeginDamageComparison(null, false); // FIsh edit - сброс истории без пациента
+            _medicationAmounts.Clear(); // не удерживаем данные предыдущего пациента
+            BeginDamageComparison(null, false); // сброс истории без пациента
             PatientState = MobState.Invalid;
             NoPatientDataPanel.Visible = true;
             PatientDataContainer.Visible = false;
             AlertsContainer.Visible = false;
             DamageContainer.Visible = false;
-            // FIsh edit - не оставляем подсказки и показания реагентов без данных о пациенте
+            // не оставляем подсказки и показания реагентов без данных о пациенте
             TreatmentContainer.Visible = false;
             ReagentsContainer.Visible = false;
             return;
@@ -85,13 +85,13 @@ public sealed partial class FishHealthAnalyzerControl : BoxContainer
         NoPatientDataPanel.Visible = false;
         PatientDataContainer.Visible = true;
         DamageContainer.Visible = true;
-        // FIsh edit - показываем помощник и реагенты только при наличии данных о пациенте
+        // показываем помощник и реагенты только при наличии данных о пациенте
         TreatmentContainer.Visible = true;
         ReagentsContainer.Visible = true;
 
         IsScanActive = state.ScanMode == true;
-        UpdateMedicationAmounts(state.Reagents); // FIsh edit - общий объём каждого введённого препарата
-        BeginDamageComparison(target, IsScanActive); // FIsh edit - сравнение только замеров одного пациента
+        UpdateMedicationAmounts(state.Reagents); // общий объём каждого введённого препарата
+        BeginDamageComparison(target, IsScanActive); // сравнение только замеров одного пациента
 
         // Scan Mode
 
@@ -135,7 +135,7 @@ public sealed partial class FishHealthAnalyzerControl : BoxContainer
             : Loc.GetString("health-analyzer-window-entity-unknown-value-text");
         SetPercentageStyle(BloodLabel, state.BloodLevel * 100f);
 
-        // Sunrise-Edit start - hunger and thirst label updates
+        // обновление показателей голода и жажды
         HungerLabel.Text = state.HungerLevel.HasValue && !float.IsNaN(state.HungerLevel.Value)
             ? $"{state.HungerLevel.Value:F1} %"
             : Loc.GetString("health-analyzer-window-entity-unknown-value-text");
@@ -145,7 +145,6 @@ public sealed partial class FishHealthAnalyzerControl : BoxContainer
             ? $"{state.ThirstLevel.Value:F1} %"
             : Loc.GetString("health-analyzer-window-entity-unknown-value-text");
         SetPercentageStyle(ThirstLabel, state.ThirstLevel);
-        // Sunrise-Edit end
 
         var mobState = _entityManager.TryGetComponent<MobStateComponent>(target.Value, out var mobStateComponent)
             ? mobStateComponent.CurrentState
@@ -166,7 +165,7 @@ public sealed partial class FishHealthAnalyzerControl : BoxContainer
 
         var totalDamage = _damageable.GetTotalDamage((target.Value, damageable));
         DamageLabel.Text = totalDamage.ToString();
-        UpdateDamageTrend(DamageTrendLabel, totalDamage - _previousTotalDamage); // FIsh edit
+        UpdateDamageTrend(DamageTrendLabel, totalDamage - _previousTotalDamage);
         SetDamageStyle(totalDamage, mobState);
 
         // Alerts
@@ -175,7 +174,7 @@ public sealed partial class FishHealthAnalyzerControl : BoxContainer
 
         AlertsContainer.Visible = showAlerts;
 
-        AlertsListContainer.RemoveAllChildren(); // FIsh edit - убираем также устаревшие предупреждения о дозировках
+        AlertsListContainer.RemoveAllChildren(); // убираем также устаревшие предупреждения о дозировках
 
         if (state.Unrevivable == true)
             AlertsListContainer.AddChild(new RichTextLabel
@@ -193,7 +192,7 @@ public sealed partial class FishHealthAnalyzerControl : BoxContainer
                 HorizontalExpand = true,
             });
 
-        DrawMedicationAlerts(); // FIsh edit - предупреждения видны даже при свёрнутом разделе реагентов
+        DrawMedicationAlerts(); // предупреждения видны даже при свёрнутом разделе реагентов
 
         // Damage Groups
 
@@ -206,7 +205,7 @@ public sealed partial class FishHealthAnalyzerControl : BoxContainer
 
         DrawDiagnosticGroups(damageSortedGroups, damagePerType);
 
-        // FIsh edit start - помощник лечения и реагенты находятся после списка повреждений
+        // помощник лечения и реагенты находятся после списка повреждений
         DrawTreatmentAssistant(
             target.Value,
             mobState,
@@ -216,7 +215,6 @@ public sealed partial class FishHealthAnalyzerControl : BoxContainer
             state);
         DrawReagents();
         SaveDamageComparison(totalDamage, damageSortedGroups, damagePerType);
-        // FIsh edit end
     }
 
     private static string GetStatus(MobState mobState)
@@ -315,7 +313,7 @@ public sealed partial class FishHealthAnalyzerControl : BoxContainer
         _statusColorTransitions[label] = new StatusColorTransition(currentColor, targetColor);
     }
 
-    // FIsh edit start - плавная смена цветов основных показателей
+    // плавная смена цветов основных показателей
     protected override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
@@ -358,9 +356,8 @@ public sealed partial class FishHealthAnalyzerControl : BoxContainer
         public readonly Color Target = target;
         public float Elapsed;
     }
-    // FIsh edit end
 
-    // FIsh edit start - список посторонних реагентов в кровотоке
+    // список посторонних реагентов в кровотоке
     private void DrawReagents()
     {
         ReagentsListContainer.RemoveAllChildren();
@@ -416,7 +413,6 @@ public sealed partial class FishHealthAnalyzerControl : BoxContainer
             AddReagentSafetyRow(row, prototype, quantity);
         }
     }
-    // FIsh edit end
 
     private void DrawDiagnosticGroups(
         Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> groups,
@@ -426,7 +422,7 @@ public sealed partial class FishHealthAnalyzerControl : BoxContainer
 
         foreach (var (damageGroupId, damageAmount) in groups)
         {
-            if (damageAmount == 0 && (!_canCompareDamage || _previousDamageGroups.GetValueOrDefault(damageGroupId) == 0)) // FIsh edit
+            if (damageAmount == 0 && (!_canCompareDamage || _previousDamageGroups.GetValueOrDefault(damageGroupId) == 0))
                 continue;
 
             var groupTitleText = $"{Loc.GetString(
@@ -447,11 +443,10 @@ public sealed partial class FishHealthAnalyzerControl : BoxContainer
                 Margin = new Thickness(7, 4),
             };
 
-            // FIsh edit start - изменение группы относительно предыдущего замера
+            // изменение группы относительно предыдущего замера
             var groupTitle = CreateDiagnosticGroupTitle(groupTitleText, damageGroupId);
             AddDamageTrend(groupTitle, damageAmount - _previousDamageGroups.GetValueOrDefault(damageGroupId));
             groupContainer.AddChild(groupTitle);
-            // FIsh edit end
             groupPanel.AddChild(groupContainer);
             GroupsContainer.AddChild(groupPanel);
 
@@ -460,8 +455,8 @@ public sealed partial class FishHealthAnalyzerControl : BoxContainer
 
             foreach (var type in group.DamageTypes)
             {
-                var typeAmount = damageDict.GetValueOrDefault(type); // FIsh edit
-                if (typeAmount <= 0 && (!_canCompareDamage || _previousDamageTypes.GetValueOrDefault(type) <= 0)) // FIsh edit
+                var typeAmount = damageDict.GetValueOrDefault(type);
+                if (typeAmount <= 0 && (!_canCompareDamage || _previousDamageTypes.GetValueOrDefault(type) <= 0))
                     continue;
 
                 var damageString = Loc.GetString(
@@ -472,14 +467,13 @@ public sealed partial class FishHealthAnalyzerControl : BoxContainer
 
                 var label = CreateDiagnosticItemLabel(damageString.Insert(0, "· "));
                 label.StyleClasses.Add(HealthAnalyzerSheetlet.DamageType);
-                // FIsh edit start - отдельная стрелка для типа повреждений
+                // отдельная стрелка для типа повреждений
                 var row = new BoxContainer { Margin = new Thickness(34, 0, 0, 1) };
                 label.HorizontalExpand = true;
                 label.ClipText = true;
                 row.AddChild(label);
                 AddDamageTrend(row, typeAmount - _previousDamageTypes.GetValueOrDefault(type));
                 groupContainer.AddChild(row);
-                // FIsh edit end
             }
         }
     }
@@ -521,13 +515,12 @@ public sealed partial class FishHealthAnalyzerControl : BoxContainer
             Texture = GetTexture(id.ToLower())
         });
 
-        // FIsh edit start - оставляем место для стрелки при узком окне
+        // оставляем место для стрелки при узком окне
         var title = CreateDiagnosticItemLabel(text);
         title.HorizontalExpand = true;
         title.ClipText = true;
         title.ToolTip = text;
         rootContainer.AddChild(title);
-        // FIsh edit end
 
         return rootContainer;
     }

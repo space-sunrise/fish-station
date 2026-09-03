@@ -49,7 +49,7 @@
                     HorizontalExpand="True"
                     VerticalAlignment="Center"
                     SeparationOverride="2">
-                    <!-- FIsh edit start - гибкая правая колонка данных пациента -->
+                    <!-- гибкая правая колонка данных пациента -->
                     <BoxContainer
                         Orientation="Horizontal"
                         SeparationOverride="8">
@@ -86,7 +86,6 @@
                                 StyleClasses="HealthAnalyzerScanMode" />
                         </BoxContainer>
                     </BoxContainer>
-                    <!-- FIsh edit end -->
                 </BoxContainer>
             </BoxContainer>
         </PanelContainer>
@@ -126,16 +125,15 @@
                     <Label
                         Text="{Loc 'health-analyzer-window-entity-damage-total-text'}"
                         StyleClasses="HealthAnalyzerMetricKey" />
-                    <!-- FIsh edit start - динамика общего урона -->
+                    <!-- динамика общего урона -->
                     <BoxContainer Orientation="Horizontal" SeparationOverride="8">
                         <Label Name="DamageLabel" StyleClasses="HealthAnalyzerMetricValue" />
                         <Label Name="DamageTrendLabel" Visible="False" StyleClasses="HealthAnalyzerDamageTrend" />
                     </BoxContainer>
-                    <!-- FIsh edit end -->
                 </BoxContainer>
             </PanelContainer>
 
-            <!-- Sunrise-Edit start - hunger and thirst labels -->
+            <!-- показатели голода и жажды -->
             <PanelContainer HorizontalExpand="True" StyleClasses="HealthAnalyzerMetricCard">
                 <BoxContainer
                     Margin="8 5"
@@ -159,7 +157,6 @@
                     </BoxContainer>
                 </BoxContainer>
             </PanelContainer>
-            <!-- Sunrise-Edit end -->
         </GridContainer>
     </BoxContainer>
 
@@ -177,7 +174,7 @@
         Name="DamageContainer"
         Visible="False"
         StyleClasses="HealthAnalyzerCard">
-        <!-- FIsh edit start - сворачиваемый раздел повреждений -->
+        <!-- сворачиваемый раздел повреждений -->
         <Collapsible
             Margin="9 7"
             BodyVisible="True"
@@ -189,10 +186,9 @@
                 Name="GroupsContainer"
                 Orientation="Vertical" />
         </Collapsible>
-        <!-- FIsh edit end -->
     </PanelContainer>
 
-    <!-- FIsh edit start - помощник лечения и реагенты в кровотоке -->
+    <!-- помощник лечения и реагенты в кровотоке -->
     <PanelContainer
         Name="TreatmentContainer"
         Visible="False"
@@ -228,5 +224,4 @@
                 SeparationOverride="2" />
         </Collapsible>
     </PanelContainer>
-    <!-- FIsh edit end -->
 </BoxContainer>
