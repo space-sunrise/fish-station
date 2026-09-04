@@ -35,10 +35,11 @@ public sealed partial class FishHealthAnalyzerControl : BoxContainer
 {
     private const float StatusColorTransitionDuration = 0.18f;
 
-    private readonly IEntityManager _entityManager;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private readonly IResourceCache _cache = default!;
+
     private readonly SpriteSystem _spriteSystem;
-    private readonly IPrototypeManager _prototypes;
-    private readonly IResourceCache _cache;
     private readonly DamageableSystem _damageable;
     private readonly MobThresholdSystem _mobThresholds;
     private readonly Dictionary<Label, StatusColorTransition> _statusColorTransitions = new();
@@ -50,12 +51,9 @@ public sealed partial class FishHealthAnalyzerControl : BoxContainer
     public FishHealthAnalyzerControl()
     {
         RobustXamlLoader.Load(this);
+        IoCManager.InjectDependencies(this);
 
-        var dependencies = IoCManager.Instance!;
-        _entityManager = dependencies.Resolve<IEntityManager>();
         _spriteSystem = _entityManager.System<SpriteSystem>();
-        _prototypes = dependencies.Resolve<IPrototypeManager>();
-        _cache = dependencies.Resolve<IResourceCache>();
         _damageable = _entityManager.System<DamageableSystem>();
         _mobThresholds = _entityManager.System<MobThresholdSystem>();
         InitializeSections(); // независимое сворачивание разделов
