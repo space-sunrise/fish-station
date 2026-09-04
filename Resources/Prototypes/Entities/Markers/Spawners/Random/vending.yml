@@ -43,7 +43,7 @@
       weight: 4
     - id: VendingMachineWinter
       weight: 4
-    - id: VendingMachinePride
+    # - id: VendingMachinePride # Fish edit
     - id: VendingMachineTheater
 
 - type: entity

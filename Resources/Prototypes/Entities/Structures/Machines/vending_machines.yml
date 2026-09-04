@@ -2177,11 +2177,12 @@
 - type: entity
   parent: VendingMachine
   id: VendingMachinePride
+  categories: [ HideSpawnMenu ] # Fish edit - скрыть из меню спавна
   name: Pride-O-Mat
   description: A vending machine containing pride.
   components:
   - type: VendingMachine
-    pack: PrideDrobeInventory
+    # pack: PrideDrobeInventory # Fish edit - очистить инвентарь
     offState: off
     brokenState: broken
     normalState: normal-unshaded
