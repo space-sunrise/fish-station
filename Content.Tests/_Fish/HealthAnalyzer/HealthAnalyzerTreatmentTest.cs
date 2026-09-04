@@ -101,4 +101,39 @@ public sealed class HealthAnalyzerTreatmentTest
         Assert.That(recommendations[0].Condition, Is.EqualTo("Asphyxiation: 30\nBloodloss: 10"));
         Assert.That(addedReagents, Has.Count.EqualTo(1));
     }
+
+    [Test]
+    public void MultipleRecommendedBruteMedicinesWarnAboutRazorium()
+    {
+        var recommendations = new HashSet<ProtoId<ReagentPrototype>> { "Bruizine", "Lacerinol" };
+
+        Assert.That(FishHealthAnalyzerControl.HasRazoriumInteraction(
+            recommendations,
+            new Dictionary<ProtoId<ReagentPrototype>, FixedPoint2>()), Is.True);
+    }
+
+    [Test]
+    public void ActiveConflictingMedicineWarnsAboutRazorium()
+    {
+        var recommendations = new HashSet<ProtoId<ReagentPrototype>> { "Puncturase" };
+        var activeReagents = new Dictionary<ProtoId<ReagentPrototype>, FixedPoint2>
+        {
+            ["Bicaridine"] = 5,
+        };
+
+        Assert.That(FishHealthAnalyzerControl.HasRazoriumInteraction(recommendations, activeReagents), Is.True);
+    }
+
+    [Test]
+    public void SameOrUnrelatedMedicineDoesNotWarnAboutRazorium()
+    {
+        var recommendations = new HashSet<ProtoId<ReagentPrototype>> { "Bicaridine", "Kelotane" };
+        var activeReagents = new Dictionary<ProtoId<ReagentPrototype>, FixedPoint2>
+        {
+            ["Bicaridine"] = 5,
+            ["Lacerinol"] = 0,
+        };
+
+        Assert.That(FishHealthAnalyzerControl.HasRazoriumInteraction(recommendations, activeReagents), Is.False);
+    }
 }

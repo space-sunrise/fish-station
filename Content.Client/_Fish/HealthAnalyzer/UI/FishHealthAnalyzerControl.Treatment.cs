@@ -1,4 +1,5 @@
 using Content.Client.HealthAnalyzer.UI;
+using Content.Client.Stylesheets;
 using Content.Shared.Atmos;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage.Prototypes;
@@ -26,6 +27,13 @@ public sealed partial class FishHealthAnalyzerControl
     private static readonly ProtoId<DamageTypePrototype> CellularDamage = "Cellular";
     private static readonly ProtoId<DamageTypePrototype> ManglenessDamage = "Mangleness";
     private static readonly EntProtoId[] MinorInjuryTreatments = ["Gauze", "Brutepack", "Ointment"];
+    private static readonly HashSet<ProtoId<ReagentPrototype>> RazoriumReactants =
+    [
+        "Bicaridine",
+        "Lacerinol",
+        "Bruizine",
+        "Puncturase",
+    ];
 
     private static readonly Dictionary<ProtoId<DamageGroupPrototype>, ProtoId<ReagentPrototype>> BasicTreatments = new()
     {
@@ -135,6 +143,13 @@ public sealed partial class FishHealthAnalyzerControl
             return;
         }
 
+        if (HasRazoriumInteraction(addedReagents, _medicationAmounts))
+        {
+            TreatmentListContainer.AddChild(CreateMedicationText(
+                Loc.GetString("health-analyzer-window-treatment-razorium-warning"),
+                StyleClass.StatusCritical));
+        }
+
         foreach (var recommendation in recommendations)
         {
             DrawTreatmentRecommendation(recommendation);
@@ -150,6 +165,41 @@ public sealed partial class FishHealthAnalyzerControl
         }
 
         AddTreatmentText("health-analyzer-window-treatment-warning", "LabelSubText");
+    }
+
+    /// <summary>
+    /// Returns true when following the recommendations would combine two brute medicines
+    /// whose reaction produces razorium.
+    /// </summary>
+    internal static bool HasRazoriumInteraction(
+        IReadOnlySet<ProtoId<ReagentPrototype>> recommendations,
+        IReadOnlyDictionary<ProtoId<ReagentPrototype>, FixedPoint2> activeReagents)
+    {
+        ProtoId<ReagentPrototype>? firstReactant = null;
+
+        foreach (var (reagent, amount) in activeReagents)
+        {
+            if (amount <= 0 || !RazoriumReactants.Contains(reagent))
+                continue;
+
+            if (firstReactant is { } first && first != reagent)
+                return true;
+
+            firstReactant = reagent;
+        }
+
+        foreach (var reagent in recommendations)
+        {
+            if (!RazoriumReactants.Contains(reagent))
+                continue;
+
+            if (firstReactant is { } first && first != reagent)
+                return true;
+
+            firstReactant = reagent;
+        }
+
+        return false;
     }
 
     /// <summary>

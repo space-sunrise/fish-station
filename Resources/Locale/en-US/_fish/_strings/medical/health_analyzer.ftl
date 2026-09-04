@@ -17,6 +17,7 @@ health-analyzer-window-treatment-dead-brute-burn = Brute and burn damage
 health-analyzer-window-treatment-dead-next = Use a defibrillator after reducing the damage below the revival threshold.
 health-analyzer-window-treatment-dead-specialized = { $damage }: treatment before resuscitation requires specialized supplies. No suitable medicine made with ordinary chemistry is available in these recommendations.
 health-analyzer-window-treatment-warning = Check active reagents and overdose limits before administering medicine.
+health-analyzer-window-treatment-razorium-warning = OOC: Do not combine bicaridine, lacerinol, bruizine, or puncturase. Mixing any two produces dangerous razorium.
 health-analyzer-window-treatment-active-amount = In blood: { $amount } u
 
 health-analyzer-window-reagents-title = Active reagents
