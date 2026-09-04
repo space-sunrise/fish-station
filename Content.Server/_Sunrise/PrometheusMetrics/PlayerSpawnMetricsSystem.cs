@@ -1,4 +1,4 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 using Content.Server.Roles.Jobs;
 using Content.Shared._Sunrise;
 using Content.Shared.GameTicking;
@@ -21,9 +21,9 @@ namespace Content.Server._Sunrise.PrometheusMetrics;
 /// <see cref="PlayerTraits"/>, <see cref="PlayerMarkings"/>
 /// </para>
 /// </remarks>
-public sealed class PlayerSpawnMetricsSystem : EntitySystem
+public sealed partial class PlayerSpawnMetricsSystem : EntitySystem
 {
-    [Dependency] private readonly JobSystem _job = default!;
+    [Dependency] private JobSystem _job = default!;
 
     private const string NotFound = "not_found";
     private const string RoundStart = "roundstart";
