@@ -330,3 +330,13 @@
     message: У Кицунэ в форме лисы теперь более яркий мех, который больше походит на выбранный игроком цвет глаз.
   id: 33
   url: https://github.com/makura-games/fish-station/pull/418
+- author: НейроЕрик
+  time: '2026-09-04T17:24:45.0000000+00:00'
+  changes:
+  - type: Tweak
+    message: Вернул сабы, если все сломается, то бить по попе его.
+  id: 34
+  url: https://github.com/makura-games/fish-station/pull/411
+  media:
+  - url: https://github.com/makura-games/sunrise-station/blob/master/Tools/_sunrise/changelog/README.md
+    description: '**Changelog** <!-- === КАК ПИСАТЬ ЧЕЙНЖЛОГ ==='
