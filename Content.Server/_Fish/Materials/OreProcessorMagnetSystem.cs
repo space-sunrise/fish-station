@@ -62,7 +62,7 @@ public sealed partial class OreProcessorMagnetSystem : EntitySystem
             Text = Loc.GetString("ore-processor-magnet-verb"),
             Disabled = !powered || active,
             Message = message,
-            Act = () => TryActivateMagnet((ent.Owner, null), user),
+            Act = () => TryActivateMagnet(ent.AsNullable(), user),
         });
     }
 
@@ -180,7 +180,7 @@ public sealed partial class OreProcessorMagnetSystem : EntitySystem
             if (!_materialStorage.TryInsertMaterialEntity(user, ore, ent, materialStorage))
                 continue;
 
-            _storage.PlayPickupAnimation(ore, initialCoordinates, finalCoordinates, initialRotation, user);
+            _storage.PlayPickupAnimation(ore, initialCoordinates, finalCoordinates, initialRotation);
             inserted = true;
         }
 
