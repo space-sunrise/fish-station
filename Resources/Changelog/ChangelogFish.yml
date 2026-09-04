@@ -312,3 +312,31 @@
     message: Обновлены текстуры чёрного и зелёного шлемов «Алтын».
   id: 31
   url: https://github.com/makura-games/fish-station/pull/420
+- author: Kaiten
+  time: '2026-09-03T08:50:44.0000000+00:00'
+  changes:
+  - type: Tweak
+    message: После абильного нытья от игроков в ахелп. Вещи ведущих ролей добавлены другим должностям в отделе после и доступны после открытия ведущей роли.
+  id: 32
+  url: https://github.com/makura-games/fish-station/pull/400
+- author: Kaiten
+  time: '2026-09-03T21:34:28.0000000+00:00'
+  changes:
+  - type: Add
+    message: Сплик так и не одобрил скин лисы для призраков, так что теперь он общедоступен.
+  - type: Tweak
+    message: У Кицунэ теперь есть анимация ходьбы в форме лисы.
+  - type: Tweak
+    message: У Кицунэ в форме лисы теперь более яркий мех, который больше походит на выбранный игроком цвет глаз.
+  id: 33
+  url: https://github.com/makura-games/fish-station/pull/418
+- author: НейроЕрик
+  time: '2026-09-04T17:24:45.0000000+00:00'
+  changes:
+  - type: Tweak
+    message: Вернул сабы, если все сломается, то бить по попе его.
+  id: 34
+  url: https://github.com/makura-games/fish-station/pull/411
+  media:
+  - url: https://github.com/makura-games/sunrise-station/blob/master/Tools/_sunrise/changelog/README.md
+    description: '**Changelog** <!-- === КАК ПИСАТЬ ЧЕЙНЖЛОГ ==='
