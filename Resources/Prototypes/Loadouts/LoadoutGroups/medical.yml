@@ -137,6 +137,10 @@
   loadouts:
   - WhiteJumpsuit
   - WhiteJumpskirt
+  # Fish-start - Вещи ведущего врача
+  - SeniorPhysicianJumpsuit
+  - SeniorPhysicianJumpskirt
+  # Fish-end
 
 #- type: loadoutGroup
 #  id: MedicalInternJobTrinkets
@@ -152,6 +156,10 @@
   loadouts:
   - ChemistJumpsuit
   - ChemistJumpskirt
+  # Fish-start - Вещи ведущего врача
+  - SeniorPhysicianJumpsuit
+  - SeniorPhysicianJumpskirt
+  # Fish-end
 
 - type: loadoutGroup
   id: ChemistOuterClothing
@@ -161,6 +169,9 @@
   - RegularLabCoat
   - ChemistLabCoat
   - ChemistWintercoat
+  # Fish-start - Вещи ведущего врача
+  - SeniorPhysicianLabCoat
+  # Fish-end
 
 - type: loadoutGroup
   id: ChemistBackpack
@@ -191,6 +202,10 @@
   loadouts:
   - ParamedicJumpsuit
   - ParamedicJumpskirt
+  # Fish-start - Вещи ведущего врача
+  - SeniorPhysicianJumpsuit
+  - SeniorPhysicianJumpskirt
+  # Fish-end
 
 - type: loadoutGroup
   id: ParamedicOuterClothing

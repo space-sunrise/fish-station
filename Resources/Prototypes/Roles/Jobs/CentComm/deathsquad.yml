@@ -7,6 +7,12 @@
   startingGear: DeathSquadGear
   icon: "JobIconDeathSquad"
   supervisors: job-supervisors-centcom
+  # Fish added start - requirements
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 360000 # 100 hours
+  # Fish added end
   accessGroups:
   - AllAccess
   access:

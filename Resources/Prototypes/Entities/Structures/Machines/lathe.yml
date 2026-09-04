@@ -593,6 +593,7 @@
     - Carpets
     - Bedsheets
     - UniformStaticSunrise # Sunrise-Add
+    - UniformStaticFish # FIsh edit - белый берет СИ в принтере униформы
   - type: EmagLatheRecipes
     emagStaticPacks:
     - ClothingCentComm

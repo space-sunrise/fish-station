@@ -1,0 +1,9 @@
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHatBeretCE
+  result: ClothingHeadHatBeretCE
+
+- type: latheRecipePack
+  id: UniformStaticFish
+  recipes:
+  - ClothingHeadHatBeretCE
