@@ -3,11 +3,9 @@ using Content.Shared.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Console;
-// #Fish edit start
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using System.Linq;
-// #Fish edit end
 
 namespace Content.Server.Audio;
 
@@ -17,7 +15,7 @@ public sealed class ServerGlobalSoundSystem : SharedGlobalSoundSystem
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
-    // #Fish edit start: хранилище звуков для каждого игрока
+    // #Fish edit start
     private readonly Dictionary<NetUserId, List<EntityUid>> _playerAdminSounds = new();
     // #Fish edit end
 
@@ -28,9 +26,27 @@ public sealed class ServerGlobalSoundSystem : SharedGlobalSoundSystem
         _conHost.UnregisterCommand("playglobalsound");
     }
 
-    // #Fish edit start: воспроизведение с очисткой мёртвых сущностей
+    // #Fish edit start: периодическая очистка мёртвых сущностей
+    private void CleanupDeadEntities()
+    {
+        var deadKeys = new List<NetUserId>();
+        foreach (var kvp in _playerAdminSounds)
+        {
+            kvp.Value.RemoveAll(entity => !Exists(entity));
+            if (kvp.Value.Count == 0)
+                deadKeys.Add(kvp.Key);
+        }
+        foreach (var key in deadKeys)
+            _playerAdminSounds.Remove(key);
+    }
+    // #Fish edit end
+
     public void PlayAdminGlobal(Filter playerFilter, ResolvedSoundSpecifier specifier, AudioParams? audioParams = null, bool replay = true)
     {
+        // #Fish edit start: очищаем все списки перед добавлением
+        CleanupDeadEntities();
+        // #Fish edit end
+
         var sessions = playerFilter.Recipients;
         if (sessions == null || !sessions.Any())
             return;
@@ -38,16 +54,7 @@ public sealed class ServerGlobalSoundSystem : SharedGlobalSoundSystem
         foreach (var session in sessions)
         {
             var userId = session.UserId;
-
-            // Очищаем список от мёртвых сущностей перед добавлением
-            if (_playerAdminSounds.TryGetValue(userId, out var list))
-            {
-                list.RemoveAll(entity => !Exists(entity));
-                if (list.Count == 0)
-                    _playerAdminSounds.Remove(userId);
-            }
-
-            // Используем перегрузку с ICommonSession (без создания Filter)
+            // Используем перегрузку с ICommonSession
             var result = _audio.PlayGlobal(specifier, session, audioParams);
             if (result != null)
             {
@@ -57,27 +64,28 @@ public sealed class ServerGlobalSoundSystem : SharedGlobalSoundSystem
             }
         }
     }
-    // #Fish edit end
 
-    // #Fish edit start: методы остановки
     public void StopAllAdminSounds()
     {
+        // #Fish edit start: удаляем только валидные сущности, затем очищаем словарь
         foreach (var kvp in _playerAdminSounds.ToList())
         {
-            var list = kvp.Value;
-            foreach (var entity in list)
+            foreach (var entity in kvp.Value)
             {
                 if (Exists(entity))
                     Del(entity);
             }
         }
         _playerAdminSounds.Clear();
+        // #Fish edit end
     }
 
     public void StopPlayerAdminSounds(NetUserId userId)
     {
+        // #Fish edit start: сначала очищаем список от мёртвых, затем удаляем валидные
         if (_playerAdminSounds.TryGetValue(userId, out var list))
         {
+            list.RemoveAll(entity => !Exists(entity));
             foreach (var entity in list)
             {
                 if (Exists(entity))
@@ -85,10 +93,10 @@ public sealed class ServerGlobalSoundSystem : SharedGlobalSoundSystem
             }
             _playerAdminSounds.Remove(userId);
         }
+        // #Fish edit end
     }
-    // #Fish edit end
 
-    // --- Остальной код без изменений ---
+    // --- Остальные методы без изменений ---
 
     private Filter GetStationAndPvs(EntityUid source)
     {
