@@ -68,6 +68,7 @@ public sealed partial class DoAfterOverlay : Overlay
         var rotationMatrix = Matrix3Helpers.CreateRotation(-rotation);
 
         var curTime = _timing.CurTime;
+        BeginEntranceFrame(); // FIsh edit - отслеживаем появление DoAfter на клиенте
 
         var bounds = args.WorldAABB.Enlarged(5f);
         var localEnt = _player.LocalSession?.AttachedEntity;
@@ -76,6 +77,8 @@ public sealed partial class DoAfterOverlay : Overlay
         var enumerator = _entManager.AllEntityQueryEnumerator<ActiveDoAfterComponent, DoAfterComponent, SpriteComponent, TransformComponent>();
         while (enumerator.MoveNext(out var uid, out _, out var comp, out var sprite, out var xform))
         {
+            TrackActiveDoAfters(comp); // FIsh edit - сохраняем активные индикаторы для очистки кеша
+
             if (xform.MapID != args.MapId)
                 continue;
 
@@ -115,7 +118,7 @@ public sealed partial class DoAfterOverlay : Overlay
                 if (hidden && uid != localEnt)
                     continue;
 
-                var entranceProgress = GetEntranceProgress(time - doAfter.StartTime); // FIsh edit - плавное появление
+                var entranceProgress = GetEntranceProgress(doAfter.Id, time); // FIsh edit - проявление с момента получения клиентом
                 var alpha = entranceProgress; // FIsh edit - учитываем плавное проявление
                 if (hidden)
                 {
@@ -165,6 +168,7 @@ public sealed partial class DoAfterOverlay : Overlay
             }
         }
 
+        EndEntranceFrame(); // FIsh edit - удаляем завершённые DoAfter из кеша анимации
         handle.UseShader(null);
         handle.SetTransform(Matrix3x2.Identity);
     }
