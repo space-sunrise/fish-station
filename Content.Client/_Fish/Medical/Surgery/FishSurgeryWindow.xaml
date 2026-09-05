@@ -1,0 +1,56 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:fish="clr-namespace:Content.Client._Fish.Medical.Surgery"
+    Title="{Loc 'surgery-window-name'}" SetSize="860 650" MinSize="760 560"
+    HeaderClass="FishSurgeryHeader" TitleClass="FishSurgeryHeading">
+    <PanelContainer StyleClasses="FishSurgeryBackground">
+        <BoxContainer Orientation="Horizontal" SeparationOverride="18" Margin="16">
+            <BoxContainer Orientation="Vertical" SeparationOverride="12" SetWidth="220">
+                <Label Name="PatientName" StyleClasses="FishSurgeryHeading" ClipText="True" />
+                <fish:FishSurgeryBodyDiagram Name="BodyDiagram" MinHeight="320" VerticalExpand="True" HorizontalExpand="True" />
+                <Label Name="HoverName" ClipText="True" StyleClasses="FishSurgeryMuted"
+                    Text="{Loc 'fish-surgery-hover-hint'}" Align="Center" />
+                <OptionButton Name="AdditionalParts" Visible="False" />
+                <RichTextLabel Text="{Loc 'fish-surgery-body-legend'}" StyleClasses="FishSurgeryMuted" />
+            </BoxContainer>
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="10">
+                <BoxContainer Name="AreaHeader" Orientation="Horizontal" SeparationOverride="8" Visible="False">
+                    <RichTextLabel Name="SelectedPart" StyleClasses="FishSurgeryHeading" HorizontalExpand="True" />
+                    <Label Name="IncisionStatus" Text="│" StyleClasses="FishSurgeryIndicator" MinWidth="24" Align="Center" />
+                    <Label Name="RetractionStatus" Text="↔" StyleClasses="FishSurgeryIndicator" MinWidth="24" Align="Center" Visible="False" />
+                    <Label Name="ClampStatus" Text="×" StyleClasses="FishSurgeryIndicator" MinWidth="24" Align="Center" Visible="False" />
+                </BoxContainer>
+                <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                    <Button Name="PartsButton" Access="Public" StyleClasses="FishSurgeryButton" />
+                    <Button Name="SurgeriesButton" Access="Public" StyleClasses="FishSurgeryButton" />
+                    <Button Name="StepsButton" Access="Public" StyleClasses="FishSurgeryButton" />
+                </BoxContainer>
+                <Control VerticalExpand="True">
+                    <ScrollContainer HScrollEnabled="False" VerticalExpand="True" HorizontalExpand="True">
+                        <BoxContainer Orientation="Vertical" SeparationOverride="8">
+                            <Label Name="StageTitle" StyleClasses="FishSurgeryHeading" />
+                            <RichTextLabel Name="EmptySelection" Text="{Loc 'fish-surgery-empty-selection'}" />
+                            <RichTextLabel Name="NoOperations" Visible="False" Text="{Loc 'fish-surgery-no-operations'}" />
+                            <BoxContainer Name="Surgeries" Access="Public" Orientation="Vertical" SeparationOverride="6" Visible="False" />
+                            <BoxContainer Name="Steps" Access="Public" Orientation="Vertical" SeparationOverride="6" Visible="False" />
+                        </BoxContainer>
+                    </ScrollContainer>
+                </Control>
+                <PanelContainer Name="ConfirmationPanel" StyleClasses="FishSurgeryDangerPanel" Visible="False">
+                    <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="12">
+                        <Label Text="{Loc 'fish-surgery-danger-heading'}" StyleClasses="FishSurgeryHeading" />
+                        <RichTextLabel Name="ConfirmationText" />
+                        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+                            <Button Name="CancelAction" Text="{Loc 'fish-surgery-cancel'}" StyleClasses="FishSurgeryButton" HorizontalExpand="True" />
+                            <Button Name="ConfirmAction" Text="{Loc 'fish-surgery-confirm'}" StyleClasses="FishSurgeryDangerButton" HorizontalExpand="True" />
+                        </BoxContainer>
+                    </BoxContainer>
+                </PanelContainer>
+                <BoxContainer Name="ActionDock" Orientation="Vertical" SeparationOverride="6" Visible="False">
+                    <Label Name="ActionCaption" Text="{Loc 'fish-surgery-idle'}" StyleClasses="FishSurgeryMuted" ClipText="True" />
+                    <ProgressBar Name="ActionProgress" StyleClasses="FishSurgeryProgress" MinHeight="3" MaxHeight="3" MinValue="0" MaxValue="1" Value="0" />
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+</controls:FancyWindow>
