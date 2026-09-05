@@ -17,7 +17,7 @@ health-analyzer-window-treatment-dead-brute-burn = Механические и �
 health-analyzer-window-treatment-dead-next = После снижения урона ниже порога реанимации используйте дефибриллятор.
 health-analyzer-window-treatment-dead-specialized = { $damage }: для лечения до реанимации нужны специальные средства. Подходящего препарата из обычной химии в рекомендациях нет.
 health-analyzer-window-treatment-warning = Перед введением препарата проверьте активные реагенты и порог передозировки.
-health-analyzer-window-treatment-razorium-warning = OOC: Не смешивайте бикаридин, лацеринол, бруизин и пунктураз. Любая пара этих препаратов образует опасный разориум.
+health-analyzer-window-treatment-razorium-warning = Не смешивайте бикаридин, лацеринол, бруизин и пунктураз. Любая пара этих препаратов образует опасный разориум.
 health-analyzer-window-treatment-active-amount = В крови: { $amount } ед.
 
 health-analyzer-window-reagents-title = Активные реагенты
