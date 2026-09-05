@@ -12,7 +12,8 @@ using Robust.Shared.Containers;
 
 namespace Content.Client.DoAfter;
 
-public sealed class DoAfterOverlay : Overlay
+// FIsh edit - расширение анимации вынесено в _Fish
+public sealed partial class DoAfterOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> UnshadedShader = "unshaded";
 
@@ -32,11 +33,6 @@ public sealed class DoAfterOverlay : Overlay
     ///     Flash time for cancelled DoAfters
     /// </summary>
     private const float FlashTime = 0.125f;
-
-    // FIsh edit start - плавное появление индикатора действия
-    private const float EntranceDuration = 0.2f;
-    private const float EntranceDistance = 0.25f;
-    // FIsh edit end
 
     // Hardcoded width of the progress bar because it doesn't match the texture.
     private const float StartX = 2;
@@ -114,21 +110,15 @@ public sealed class DoAfterOverlay : Overlay
 
             foreach (var doAfter in comp.DoAfters.Values)
             {
-                // FIsh edit start - подъём и проявление нового индикатора
-                var entranceRatio = Math.Clamp(
-                    (float) ((time - doAfter.StartTime).TotalSeconds / EntranceDuration),
-                    0f,
-                    1f);
-                var entranceProgress = 1f - MathF.Pow(1f - entranceRatio, 3f);
-                // FIsh edit end
-
                 // Hide some DoAfters from other players for stealthy actions (ie: thieving gloves)
-                var alpha = entranceProgress; // FIsh edit - учитываем плавное проявление
-                if (doAfter.Args.Hidden || isInContainer)
-                {
-                    if (uid != localEnt)
-                        continue;
+                var hidden = doAfter.Args.Hidden || isInContainer;
+                if (hidden && uid != localEnt)
+                    continue;
 
+                var entranceProgress = GetEntranceProgress(time - doAfter.StartTime); // FIsh edit - плавное появление
+                var alpha = entranceProgress; // FIsh edit - учитываем плавное проявление
+                if (hidden)
+                {
                     // Hints to the local player that this do-after is not visible to other players.
                     alpha *= 0.5f; // FIsh edit - сохраняем прозрачность скрытого действия
                 }
@@ -143,7 +133,7 @@ public sealed class DoAfterOverlay : Overlay
                     yOffset / scale + offset / EyeManager.PixelsPerMeter * scale);
 
                 // FIsh edit - начинаем ниже конечной позиции
-                position.Y -= EntranceDistance * (1f - entranceProgress);
+                position = GetEntrancePosition(position, entranceProgress);
 
                 // Draw the underlying bar texture
                 handle.DrawTexture(_barTexture, position, Color.White.WithAlpha(entranceProgress)); // FIsh edit
