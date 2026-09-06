@@ -349,3 +349,10 @@
   url: https://github.com/makura-games/fish-station/pull/426
   media:
   - url: https://github.com/user-attachments/assets/d2cf51d4-d64e-436c-b321-7b874a833f0c
+- author: Endennsss
+  time: '2026-09-06T12:34:09.0000000+00:00'
+  changes:
+  - type: Tweak
+    message: Плавное появление плашки действия
+  id: 36
+  url: https://github.com/makura-games/fish-station/pull/429
