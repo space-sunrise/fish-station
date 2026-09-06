@@ -213,6 +213,7 @@ public sealed partial class SurgeryBui : BoundUserInterface // FIsh edit - вы�
         // stepButton.Button.OnPressed += _ => SendMessage(new SurgeryStepChosenBuiMsg
         // { Step = stepId, Part = netPart, Surgery = surgeryId });
         ConfigureFishChoice(stepButton);
+        _window.RegisterStep(stepButton);
         stepButton.Button.OnPressed += _ => RequestFishStep(netPart, surgeryId, stepId);
         // FIsh edit end
 
@@ -360,6 +361,10 @@ public sealed partial class SurgeryBui : BoundUserInterface // FIsh edit - вы�
             {
                 status = StepStatus.Complete;
             }
+
+            // FIsh edit - промежуточный серверный снимок не должен снимать уже показанное завершение шага
+            if (_window.KeepStepCompleted(stepButton, status == StepStatus.Complete))
+                status = StepStatus.Complete;
 
             // FIsh edit start - неизменившийся шаг не требует повторной разметки текста и применения стилей
             if (!ShouldRefreshFishStep(stepButton, status))

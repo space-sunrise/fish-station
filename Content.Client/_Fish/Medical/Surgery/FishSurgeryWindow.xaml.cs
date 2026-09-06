@@ -39,6 +39,8 @@ public sealed partial class FishSurgeryWindow : FancyWindow
     private EntityUid? _step;
     private bool _showingSteps;
     private readonly Dictionary<SurgeryStepButton, (bool Current, bool Completed)> _stepStates = new();
+    private readonly Dictionary<SurgeryStepButton, ProgressBar> _stepProgress = new();
+    private ProgressBar? _activeProgress;
     private Action? _confirmAction;
     private readonly List<EntityUid> _additionalParts = new();
     private readonly List<(EntityUid Part, string Name)> _shownParts = new();
@@ -119,7 +121,6 @@ public sealed partial class FishSurgeryWindow : FancyWindow
         BodyDiagram.SelectedPart = part;
         AreaHeader.Visible = !choosingPart;
         _showingSteps = showingSteps;
-        ActionDock.Visible = showingSteps;
         var selection = (part, choosingPart, showingSteps);
         if (_selection != selection)
         {
@@ -157,15 +158,11 @@ public sealed partial class FishSurgeryWindow : FancyWindow
         UpdateAreaHeading();
     }
 
-    /// <summary>Shows known incision state as compact indicators with descriptive tooltips.</summary>
-    public void SetAreaStatus(bool incision, bool retracted, bool clamped)
+    /// <summary>Показывает активные состояния области компактными текстовыми статусами.</summary>
+    public void SetAreaStatus(bool incision, bool retracted)
     {
-        IncisionStatus.ToolTip = _loc.GetString(incision ? "fish-surgery-incision-open" : "fish-surgery-incision-closed");
-        SetLabelText(IncisionStatus, incision ? "│" : "—");
+        IncisionStatus.Visible = incision;
         RetractionStatus.Visible = retracted;
-        RetractionStatus.ToolTip = _loc.GetString("fish-surgery-skin-retracted");
-        ClampStatus.Visible = clamped;
-        ClampStatus.ToolTip = _loc.GetString("fish-surgery-bleeders-clamped");
     }
 
     private void UpdateAreaHeading()
@@ -180,8 +177,15 @@ public sealed partial class FishSurgeryWindow : FancyWindow
     /// <summary>Clears row animation state before changing operations.</summary>
     public void ResetStepHistory()
     {
+        DismissConfirmation();
         _stepStates.Clear();
+        _stepProgress.Clear();
+        _activeProgress = null;
     }
+
+    /// <summary>Сохраняет завершённый этап до выбора другой операции.</summary>
+    public bool KeepStepCompleted(SurgeryStepButton step, bool completed)
+        => completed || _stepStates.TryGetValue(step, out var previous) && previous.Completed;
 
     /// <summary>Animates actual step transitions without hiding rows or changing their layout.</summary>
     public void SetStepPresentation(SurgeryStepButton step, bool current, bool completed)
@@ -196,32 +200,79 @@ public sealed partial class FishSurgeryWindow : FancyWindow
         _stepStates[step] = state;
     }
 
-    /// <summary>Updates the actual action fraction; a full bar alone does not imply surgical success.</summary>
-    public void SetActionProgress(string caption, float progress, bool warning = false)
+    /// <summary>Добавляет полосу прогресса внутрь этапа, не меняя расположение строки.</summary>
+    public void RegisterStep(SurgeryStepButton step)
     {
-        SetLabelText(ActionCaption, caption);
-        ActionCaption.ToolTip = caption;
-        SetActionFraction(progress);
-        if (warning != ActionProgress.HasStyleClass("FishSurgeryProgressDanger"))
+        var progress = new ProgressBar
         {
-            if (warning)
-                ActionProgress.AddStyleClass("FishSurgeryProgressDanger");
-            else
-                ActionProgress.RemoveStyleClass("FishSurgeryProgressDanger");
+            Name = "FishSurgeryStepProgress",
+            MinHeight = 3,
+            MaxHeight = 3,
+            MinValue = 0,
+            MaxValue = 1,
+            Value = 0,
+            Visible = false,
+            HorizontalAlignment = HAlignment.Stretch,
+            VerticalAlignment = VAlignment.Bottom,
+            MouseFilter = MouseFilterMode.Ignore,
+        };
+        progress.AddStyleClass("FishSurgeryProgress");
+        step.Button.AddChild(progress);
+        _stepProgress[step] = progress;
+    }
+
+    /// <summary>Обновляет полосу прогресса выполняемого этапа.</summary>
+    public void SetActionProgress(EntityUid? step, string caption, float progress, bool warning = false)
+    {
+        if (!TryGetStepProgress(step ?? _step, out var bar))
+        {
+            ClearActionProgress();
+            return;
         }
+
+        if (_activeProgress != bar)
+        {
+            if (_activeProgress != null)
+                _activeProgress.Visible = false;
+            _activeProgress = bar;
+        }
+
+        bar.Visible = true;
+        bar.ToolTip = caption;
+        bar.Value = Math.Clamp(progress, 0f, 1f);
+        if (warning == bar.HasStyleClass("FishSurgeryProgressDanger"))
+            return;
+        if (warning)
+            bar.AddStyleClass("FishSurgeryProgressDanger");
+        else
+            bar.RemoveStyleClass("FishSurgeryProgressDanger");
     }
 
-    /// <summary>Moves the bar without rewriting text or invalidating window layout.</summary>
-    public void SetActionFraction(float progress)
+    /// <summary>Обновляет прогресс без перезаписи подсказки и перестроения строки.</summary>
+    public void SetActionFraction(EntityUid? step, float progress)
     {
-        ActionProgress.Value = Math.Clamp(progress, 0f, 1f);
+        if (TryGetStepProgress(step ?? _step, out var bar) && bar == _activeProgress)
+            bar.Value = Math.Clamp(progress, 0f, 1f);
     }
 
-    /// <summary>Requires a separate explicit click before invoking an irreversible step request.</summary>
-    public void RequestConfirmation(string description, Action confirmed)
+    public void ClearActionProgress()
     {
+        if (_activeProgress != null)
+            _activeProgress.Visible = false;
+        _activeProgress = null;
+    }
+
+    /// <summary>Размещает подтверждение необратимого действия сразу под его этапом.</summary>
+    public void RequestConfirmation(EntityUid step, string description, Action confirmed)
+    {
+        if (!TryGetStepButton(step, out var row))
+            return;
+
         _confirmAction = confirmed;
         ConfirmationText.SetMessage(description);
+        ConfirmationPanel.Orphan();
+        Steps.AddChild(ConfirmationPanel);
+        ConfirmationPanel.SetPositionInParent(row.GetPositionInParent() + 1);
         ConfirmationPanel.Visible = true;
     }
 
@@ -230,6 +281,11 @@ public sealed partial class FishSurgeryWindow : FancyWindow
     {
         _confirmAction = null;
         ConfirmationPanel.Visible = false;
+        if (ConfirmationPanel.Parent != ConfirmationParking)
+        {
+            ConfirmationPanel.Orphan();
+            ConfirmationParking.AddChild(ConfirmationPanel);
+        }
     }
 
     internal void ConfirmPendingAction()
@@ -248,6 +304,33 @@ public sealed partial class FishSurgeryWindow : FancyWindow
         choice.Texture.SetSize = new(24, 24);
         choice.Texture.Stretch = TextureRect.StretchMode.KeepAspectCentered;
         choice.NameLabel.HorizontalExpand = true;
+    }
+
+    private bool TryGetStepButton(EntityUid? step, out SurgeryStepButton button)
+    {
+        SurgeryStepButton? fallback = null;
+        foreach (var candidate in _stepProgress.Keys)
+        {
+            if (candidate.Step != step)
+                continue;
+            if (_stepStates.TryGetValue(candidate, out var state) && state.Current)
+            {
+                button = candidate;
+                return true;
+            }
+            fallback ??= candidate;
+        }
+
+        button = fallback!;
+        return fallback != null;
+    }
+
+    private bool TryGetStepProgress(EntityUid? step, out ProgressBar progress)
+    {
+        if (TryGetStepButton(step, out var button))
+            return _stepProgress.TryGetValue(button, out progress!);
+        progress = null!;
+        return false;
     }
 
     protected override void Opened()
@@ -311,6 +394,8 @@ public sealed partial class FishSurgeryWindow : FancyWindow
             RefreshRequested = null;
             ProgressRequested = null;
             _stepStates.Clear();
+            _stepProgress.Clear();
+            _activeProgress = null;
         }
 
         base.Dispose(disposing);

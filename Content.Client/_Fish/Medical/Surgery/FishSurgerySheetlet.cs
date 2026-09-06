@@ -39,7 +39,17 @@ public sealed class FishSurgerySheetlet : Sheetlet<PalettedStylesheet>
                 .Font(sheet.BaseFont.GetFont(13, FontKind.Bold)).FontColor(Palette.Text),
             E<RichTextLabel>().Class("FishSurgeryHeading")
                 .Font(sheet.BaseFont.GetFont(13, FontKind.Bold)).FontColor(Palette.Text),
-            E<Label>().Class("FishSurgeryIndicator").FontColor(Palette.Element),
+            E<PanelContainer>().Class("FishSurgeryStatusChip").Panel(new StyleBoxFlat
+            {
+                BackgroundColor = Palette.BackgroundLight,
+                BorderColor = Palette.Element,
+                BorderThickness = new Thickness(1),
+                ContentMarginLeftOverride = 6,
+                ContentMarginRightOverride = 6,
+                ContentMarginTopOverride = 2,
+                ContentMarginBottomOverride = 2,
+            }),
+            E<Label>().Class("FishSurgeryStatusText").FontColor(Palette.Element),
             E<Label>().Class("FishSurgeryMuted").FontColor(Palette.TextDark),
             E<RichTextLabel>().Class("FishSurgeryMuted").FontColor(Palette.TextDark),
             E<PanelContainer>().Class("FishSurgeryInset").Panel(Box(Palette.BackgroundLight, Palette.BackgroundLight)),

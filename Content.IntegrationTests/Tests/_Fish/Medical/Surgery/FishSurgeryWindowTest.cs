@@ -116,8 +116,10 @@ public sealed class FishSurgeryWindowTest
             window.OpenCentered();
             window.ShowSelection(null, "Left hand", false, true);
             window.SetOperation("Implant extraction");
-            current = new SurgeryStepButton();
-            future = new SurgeryStepButton();
+            current = new SurgeryStepButton { Step = new EntityUid(41) };
+            future = new SurgeryStepButton { Step = new EntityUid(42) };
+            window.RegisterStep(current);
+            window.RegisterStep(future);
             window.Steps.AddChild(current);
             window.Steps.AddChild(future);
             window.SetStepPresentation(current, true, false);
@@ -125,6 +127,8 @@ public sealed class FishSurgeryWindowTest
             window.Steps.Visible = true;
             window.SetStepPresentation(current, false, true);
             window.SetStepPresentation(future, true, false);
+            Assert.That(window.KeepStepCompleted(current, false), Is.True,
+                "A stale snapshot must not roll a completed step back.");
         });
         await client.WaitAssertion(() =>
         {
@@ -149,41 +153,48 @@ public sealed class FishSurgeryWindowTest
         await pair.CleanReturnAsync();
     }
 
-    /// <summary>Idle updates and moving progress must not remeasure the action caption each frame.</summary>
+    /// <summary>Прогресс остаётся внутри этапа и обновляется без повторного измерения подписи.</summary>
     [Test, Repeat(3)]
-    public async Task ActionProgressPreservesTextLayout()
+    public async Task ActionProgressStaysInsideStep()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true });
         var client = pair.Client;
         FishSurgeryWindow window = null;
+        SurgeryStepButton step = null;
+        ProgressBar progress = null;
         var layoutPreserved = false;
         await client.WaitPost(() =>
         {
             window = new FishSurgeryWindow();
             window.OpenCentered();
-            window.SetActionProgress("Cutting", 0f);
-            var caption = window.FindControl<Label>("ActionCaption");
-            caption.Measure(new Vector2(400, 40));
+            step = new SurgeryStepButton { Step = new EntityUid(43) };
+            window.RegisterStep(step);
+            window.Steps.AddChild(step);
+            window.SetStepPresentation(step, true, false);
+            progress = step.Button.Children.OfType<ProgressBar>().Single();
+            step.NameLabel.Measure(new Vector2(400, 40));
+            window.SetActionProgress(step.Step, "Cutting", 0f);
             for (var i = 0; i <= 100; i++)
-            {
-                window.SetActionProgress("Cutting", i / 100f);
-                window.SetActionFraction(i / 100f);
-            }
-            layoutPreserved = caption.IsMeasureValid;
+                window.SetActionFraction(step.Step, i / 100f);
+            layoutPreserved = step.NameLabel.IsMeasureValid;
         });
         await client.WaitAssertion(() =>
         {
-            Assert.That(layoutPreserved, Is.True, "Progress must not invalidate the caption's layout.");
-            Assert.That(window.FindControl<ProgressBar>("ActionProgress").Value, Is.EqualTo(1f));
-            Assert.That(window.FindControl<ProgressBar>("ActionProgress").HasStyleClass("FishSurgeryProgressDanger"), Is.False);
+            Assert.That(layoutPreserved, Is.True, "Progress must not invalidate the step label's layout.");
+            Assert.That(progress.Parent, Is.EqualTo(step.Button));
+            Assert.That(progress.Visible, Is.True);
+            Assert.That(progress.Value, Is.EqualTo(1f));
+            Assert.That(progress.HasStyleClass("FishSurgeryProgressDanger"), Is.False);
         });
-        await client.WaitPost(() => window.SetActionProgress("Interrupted", 0.4f, true));
+        await client.WaitPost(() => window.SetActionProgress(step.Step, "Interrupted", 0.4f, true));
         await client.WaitAssertion(() =>
         {
-            Assert.That(window.FindControl<Label>("ActionCaption").Text, Is.EqualTo("Interrupted"));
-            Assert.That(window.FindControl<ProgressBar>("ActionProgress").Value, Is.EqualTo(0.4f));
-            Assert.That(window.FindControl<ProgressBar>("ActionProgress").HasStyleClass("FishSurgeryProgressDanger"), Is.True);
+            Assert.That(progress.ToolTip, Is.EqualTo("Interrupted"));
+            Assert.That(progress.Value, Is.EqualTo(0.4f));
+            Assert.That(progress.HasStyleClass("FishSurgeryProgressDanger"), Is.True);
         });
+        await client.WaitPost(window.ClearActionProgress);
+        await client.WaitAssertion(() => Assert.That(progress.Visible, Is.False));
         await client.WaitPost(() => window.Dispose());
         await pair.CleanReturnAsync();
     }
@@ -206,17 +217,21 @@ public sealed class FishSurgeryWindowTest
             part = (hand, client.EntMan.GetComponent<OrganComponent>(hand));
             window = new FishSurgeryWindow();
             window.SetParts(new[] { (part, "Test hand") });
-            window.ShowSelection(hand, "Test hand", false, false);
-            window.SetAreaStatus(false, false, false);
+            var step = new SurgeryStepButton { Step = new EntityUid(44) };
+            window.RegisterStep(step);
+            window.Steps.AddChild(step);
+            window.SetStepPresentation(step, true, false);
+            window.ShowSelection(hand, "Test hand", false, true);
+            window.SetAreaStatus(false, false);
             window.SetOperation(null);
-            window.RequestConfirmation("Dangerous step", () => { });
+            window.RequestConfirmation(step.Step, "Dangerous step", () => { });
             window.OpenCentered();
             diagram = window.FindControl<FishSurgeryBodyDiagram>("BodyDiagram");
 
             var stateLabel = window.FindControl<RichTextLabel>("SelectedPart");
             stateLabel.Measure(new Vector2(400, 80));
             window.SetParts(new[] { (part, "Test hand") });
-            window.ShowSelection(hand, "Test hand", false, false);
+            window.ShowSelection(hand, "Test hand", false, true);
             window.SetOperation(null);
             layoutPreserved = stateLabel.IsMeasureValid;
         });
@@ -224,6 +239,7 @@ public sealed class FishSurgeryWindowTest
         {
             Assert.That(diagram.SelectedPart, Is.EqualTo(hand));
             Assert.That(window.FindControl<PanelContainer>("ConfirmationPanel").Visible, Is.True);
+            Assert.That(window.FindControl<PanelContainer>("ConfirmationPanel").Parent, Is.EqualTo(window.Steps));
             Assert.That(layoutPreserved, Is.True, "Identical text must not invalidate layout.");
         });
 
@@ -322,6 +338,10 @@ public sealed class FishSurgeryWindowTest
             window = new FishSurgeryWindow();
             window.SetPatient("Test patient");
             window.AddPart((hand, client.EntMan.GetComponent<OrganComponent>(hand)), "Test part");
+            var step = new SurgeryStepButton { Step = new EntityUid(45) };
+            window.RegisterStep(step);
+            window.Steps.AddChild(step);
+            window.SetStepPresentation(step, true, false);
             window.PartSelected += part => selected = part;
             window.OpenCentered();
             window.Measure(new Vector2(820, 620));
@@ -356,7 +376,7 @@ public sealed class FishSurgeryWindowTest
 
         // Подтверждение нельзя повторно использовать или перенести на другую область.
         var confirmations = 0;
-        await client.WaitPost(() => window.RequestConfirmation("Dangerous step", () => confirmations++));
+        await client.WaitPost(() => window.RequestConfirmation(new EntityUid(45), "Dangerous step", () => confirmations++));
         await client.WaitAssertion(() => Assert.That(confirmations, Is.Zero));
         await client.WaitPost(() =>
         {
@@ -366,7 +386,7 @@ public sealed class FishSurgeryWindowTest
         await client.WaitAssertion(() => Assert.That(confirmations, Is.EqualTo(1)));
         await client.WaitPost(() =>
         {
-            window.RequestConfirmation("Dangerous step", () => confirmations++);
+            window.RequestConfirmation(new EntityUid(45), "Dangerous step", () => confirmations++);
             window.ShowSelection(null, null, true, false);
             window.ConfirmPendingAction();
         });

@@ -11,14 +11,16 @@
                 <Label Name="HoverName" ClipText="True" StyleClasses="FishSurgeryMuted"
                     Text="{Loc 'fish-surgery-hover-hint'}" Align="Center" />
                 <OptionButton Name="AdditionalParts" Visible="False" />
-                <RichTextLabel Text="{Loc 'fish-surgery-body-legend'}" StyleClasses="FishSurgeryMuted" />
             </BoxContainer>
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="10">
                 <BoxContainer Name="AreaHeader" Orientation="Horizontal" SeparationOverride="8" Visible="False">
                     <RichTextLabel Name="SelectedPart" StyleClasses="FishSurgeryHeading" HorizontalExpand="True" />
-                    <Label Name="IncisionStatus" Text="│" StyleClasses="FishSurgeryIndicator" MinWidth="24" Align="Center" />
-                    <Label Name="RetractionStatus" Text="↔" StyleClasses="FishSurgeryIndicator" MinWidth="24" Align="Center" Visible="False" />
-                    <Label Name="ClampStatus" Text="×" StyleClasses="FishSurgeryIndicator" MinWidth="24" Align="Center" Visible="False" />
+                    <PanelContainer Name="IncisionStatus" StyleClasses="FishSurgeryStatusChip" Visible="False">
+                        <Label Text="{Loc 'fish-surgery-incision-open'}" StyleClasses="FishSurgeryStatusText" />
+                    </PanelContainer>
+                    <PanelContainer Name="RetractionStatus" StyleClasses="FishSurgeryStatusChip" Visible="False">
+                        <Label Text="{Loc 'fish-surgery-skin-retracted'}" StyleClasses="FishSurgeryStatusText" />
+                    </PanelContainer>
                 </BoxContainer>
                 <BoxContainer Orientation="Horizontal" SeparationOverride="6">
                     <Button Name="PartsButton" Access="Public" StyleClasses="FishSurgeryButton" />
@@ -36,20 +38,18 @@
                         </BoxContainer>
                     </ScrollContainer>
                 </Control>
-                <PanelContainer Name="ConfirmationPanel" StyleClasses="FishSurgeryDangerPanel" Visible="False">
-                    <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="12">
-                        <Label Text="{Loc 'fish-surgery-danger-heading'}" StyleClasses="FishSurgeryHeading" />
-                        <RichTextLabel Name="ConfirmationText" />
-                        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
-                            <Button Name="CancelAction" Text="{Loc 'fish-surgery-cancel'}" StyleClasses="FishSurgeryButton" HorizontalExpand="True" />
-                            <Button Name="ConfirmAction" Text="{Loc 'fish-surgery-confirm'}" StyleClasses="FishSurgeryDangerButton" HorizontalExpand="True" />
+                <Control Name="ConfirmationParking" Visible="False">
+                    <PanelContainer Name="ConfirmationPanel" StyleClasses="FishSurgeryDangerPanel" Visible="False">
+                        <BoxContainer Orientation="Vertical" SeparationOverride="5" Margin="8">
+                            <Label Text="{Loc 'fish-surgery-danger-heading'}" StyleClasses="FishSurgeryHeading" />
+                            <RichTextLabel Name="ConfirmationText" />
+                            <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                                <Button Name="CancelAction" Text="{Loc 'fish-surgery-cancel'}" StyleClasses="FishSurgeryButton" HorizontalExpand="True" />
+                                <Button Name="ConfirmAction" Text="{Loc 'fish-surgery-confirm'}" StyleClasses="FishSurgeryDangerButton" HorizontalExpand="True" />
+                            </BoxContainer>
                         </BoxContainer>
-                    </BoxContainer>
-                </PanelContainer>
-                <BoxContainer Name="ActionDock" Orientation="Vertical" SeparationOverride="6" Visible="False">
-                    <Label Name="ActionCaption" Text="{Loc 'fish-surgery-idle'}" StyleClasses="FishSurgeryMuted" ClipText="True" />
-                    <ProgressBar Name="ActionProgress" StyleClasses="FishSurgeryProgress" MinHeight="3" MaxHeight="3" MinValue="0" MaxValue="1" Value="0" />
-                </BoxContainer>
+                    </PanelContainer>
+                </Control>
             </BoxContainer>
         </BoxContainer>
     </PanelContainer>

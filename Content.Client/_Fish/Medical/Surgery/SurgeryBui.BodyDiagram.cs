@@ -55,8 +55,7 @@ public sealed partial class SurgeryBui
 
         _window.SetAreaStatus(
             _entities.HasComponent<IncisionOpenComponent>(part),
-            _entities.HasComponent<SkinRetractedComponent>(part),
-            _entities.HasComponent<BleedersClampedComponent>(part));
+            _entities.HasComponent<SkinRetractedComponent>(part));
 
         if (_surgery is not { } surgery || !_entities.TryGetComponent<MetaDataComponent>(surgery.Ent, out var meta))
         {
@@ -123,7 +122,7 @@ public sealed partial class SurgeryBui
             var description = _loc.GetString("fish-surgery-danger-description",
                 ("part", GetSelectedPartName() ?? string.Empty),
                 ("step", _entities.GetComponent<MetaDataComponent>(step).EntityName));
-            _window?.RequestConfirmation(description, () => TrySendFishStep(netPart, surgeryId, stepId));
+            _window?.RequestConfirmation(step, description, () => TrySendFishStep(netPart, surgeryId, stepId));
             return;
         }
 
@@ -197,7 +196,7 @@ public sealed partial class SurgeryBui
         var action = FindFishAction();
         if (action != null && _game.CurTime < _fishRequestUntil && action.Id == _fishPreviousActionId)
         {
-            _window.SetActionProgress(_loc.GetString("fish-surgery-waiting"), 0);
+            _window.SetActionProgress(null, _loc.GetString("fish-surgery-waiting"), 0);
             return;
         }
 
@@ -205,17 +204,18 @@ public sealed partial class SurgeryBui
         {
             if (_fishAction != null)
             {
+                var finishedStep = GetFishActionStep(_fishAction);
                 if (!_fishAction.Cancelled)
-                    _window.SetActionProgress(_loc.GetString("fish-surgery-action-updated"), 0);
+                    _window.SetActionProgress(finishedStep, _loc.GetString("fish-surgery-action-updated"), 1);
                 _fishResultUntil = _game.CurTime + TimeSpan.FromSeconds(2);
                 _fishAction = null;
                 _fishProgressKey = null;
             }
 
             if (_game.CurTime < _fishRequestUntil)
-                _window.SetActionProgress(_loc.GetString("fish-surgery-waiting"), 0);
+                _window.SetActionProgress(null, _loc.GetString("fish-surgery-waiting"), 0);
             else if (_game.CurTime >= _fishResultUntil)
-                _window.SetActionProgress(_loc.GetString("fish-surgery-idle"), 0);
+                _window.ClearActionProgress();
             return;
         }
 
@@ -226,7 +226,8 @@ public sealed partial class SurgeryBui
             now -= _entities.System<MetaDataSystem>().GetPauseTime(user);
 
         var fraction = GetFishProgress(action, now);
-        _window.SetActionFraction(fraction);
+        var actionStep = GetFishActionStep(action);
+        _window.SetActionFraction(actionStep, fraction);
         var key = (action.Index, action.Cancelled, action.Completed);
         if (_fishProgressKey == key)
             return;
@@ -241,9 +242,15 @@ public sealed partial class SurgeryBui
         var caption = _loc.GetString(action.Cancelled ? "fish-surgery-action-cancelled" :
             action.Completed ? "fish-surgery-action-finished" : "fish-surgery-action-running",
             ("step", name), ("part", partName));
-        _window.SetActionProgress(caption, fraction, action.Cancelled);
+        _window.SetActionProgress(actionStep, caption, fraction, action.Cancelled);
         if (!action.Cancelled && !action.Completed)
             _window.DismissConfirmation();
+    }
+
+    private EntityUid? GetFishActionStep(SurgeryAction action)
+    {
+        var ev = (SurgeryDoAfterEvent) action.Args.Event;
+        return _entitySystem.TryGetSingleton(ev.Step, out var step) ? step : null;
     }
 
     /// <summary>Matches only this patient's surgical actions, excluding unrelated do-afters.</summary>
