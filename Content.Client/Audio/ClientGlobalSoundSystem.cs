@@ -1,4 +1,4 @@
-﻿using Content.Shared.Audio;
+using Content.Shared.Audio;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Robust.Shared.Audio;
@@ -8,10 +8,12 @@ using Robust.Shared.Player;
 
 namespace Content.Client.Audio;
 
-public sealed class ClientGlobalSoundSystem : SharedGlobalSoundSystem
+// FIsh edit start - делаем класс partial для выноса Fish-логики
+public sealed partial class ClientGlobalSoundSystem : SharedGlobalSoundSystem
+// FIsh edit end
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     // Admin music
     private bool _adminAudioEnabled = true;
@@ -24,6 +26,9 @@ public sealed class ClientGlobalSoundSystem : SharedGlobalSoundSystem
     public override void Initialize()
     {
         base.Initialize();
+        // FIsh edit start - инициализация логики форка
+        InitializeFishAudio();
+        // FIsh edit end
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
         SubscribeNetworkEvent<AdminSoundEvent>(PlayAdminSound);
         Subs.CVar(_cfg, CCVars.AdminSoundsEnabled, ToggleAdminSound, true);
@@ -67,6 +72,9 @@ public sealed class ClientGlobalSoundSystem : SharedGlobalSoundSystem
         if(!_adminAudioEnabled) return;
 
         var stream = _audio.PlayGlobal(soundEvent.Specifier, Filter.Local(), false, soundEvent.AudioParams);
+        // FIsh edit start - очистка мёртвых/завершённых аудиопотоков
+        CleanupAdminAudioStreams();
+        // FIsh edit end
         _adminAudio.Add(stream?.Entity);
     }
 
