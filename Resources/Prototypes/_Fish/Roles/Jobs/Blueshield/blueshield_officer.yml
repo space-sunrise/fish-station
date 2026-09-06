@@ -35,7 +35,7 @@
    - BlueShield
   special:
    - !type:AddImplantSpecial
-     implants: [ MindShieldImplant ]
+     implants: [ MindShieldImplant, BluespaceImplant ]
 
 - type: startingGear
   id: BlueShieldOfficerGearFish
@@ -50,3 +50,4 @@
   storage:
    back:
    - HandheldBSOCrewMonitor
+   - FishUplinkNTERTBlueShield

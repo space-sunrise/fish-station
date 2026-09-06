@@ -110,6 +110,7 @@
             Musician: [ 1, 1 ]
             #blueshield
             BlueShieldOfficer: [ 1, 1 ]
+            RepresentativeBlueShield: [ 1, 1 ]
             #law
             Magistrat: [ 1, 1 ]
             IAA: [ 1, 1 ]

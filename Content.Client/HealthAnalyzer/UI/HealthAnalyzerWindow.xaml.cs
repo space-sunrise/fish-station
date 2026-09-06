@@ -11,10 +11,12 @@ public sealed partial class HealthAnalyzerWindow : FancyWindow
     public HealthAnalyzerWindow()
     {
         RobustXamlLoader.Load(this);
+        InitializeFishInterface(); // FIsh edit - настройка слоёв интерфейса
     }
 
     public void Populate(HealthAnalyzerScannedUserMessage msg)
     {
         HealthAnalyzer.Populate(msg.State);
+        UpdateFishInterface(); // FIsh edit - обновление палитры и эффекта сканирования
     }
 }

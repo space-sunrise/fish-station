@@ -111,7 +111,7 @@
   id: 2LatheMechArm
   result: MechNormalArmFlatpack
   icon:
-    sprite: Objects/Specific/Mech/durand.rsi
+    sprite: _Sunrise/Objects/Specific/Mech/durand.rsi
     state: darkdurand-open
   completetime: 40
   materials:

@@ -37,6 +37,7 @@
     back:
     - HandheldBSOCrewMonitor
     - RubberStampCommanderBlueShield
+    - FishUplinkNTERTBlueShield # Fish edit
 
 - type: chameleonOutfit
   id: BlueShieldEnsignChameleonOutfit

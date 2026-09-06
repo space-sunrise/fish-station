@@ -5,3 +5,8 @@
   maxArrivalDistance: 2500
   attemptsPerRadius: 16
   clearancePadding: 4
+  earliestCallTime: 1800
+  centCommArrivalDistance: 100
+  centCommDistanceStep: 10
+  centCommMaxArrivalDistance: 300
+  centCommAttemptsPerRadius: 24

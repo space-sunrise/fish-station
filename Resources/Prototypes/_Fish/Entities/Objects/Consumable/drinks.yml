@@ -1,0 +1,10 @@
+- type: entity
+  parent: [DrinkBottleBaseSmallEmpty, DrinkWaterBottleFull]
+  id: FishDrinkWaterBottleEmpty
+  name: empty water bottle
+  description: A reusable plastic bottle with no contents.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30

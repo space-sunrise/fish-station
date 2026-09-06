@@ -95,7 +95,7 @@
   - BlueShieldJumpsuit
   - BlueShieldBackpack
   - BlueShieldBelt
-  - BlueshieldGun
+  # - BlueshieldGun # Fish-Edit
   - Bra # Fish-Edit
   - Pants # Fish-Edit
 # - BlueShieldBra # Fish-Edit
@@ -115,7 +115,7 @@
   - BlueShieldJumpsuit
   - BlueShieldBackpack
   - BlueShieldBelt
-  - BlueshieldGun
+  # - BlueshieldGun # Fish-Edit
   - Bra # Fish-Edit
   - Pants # Fish-Edit
 # - BlueShieldBra # Fish-Edit
@@ -137,7 +137,7 @@
   - BlueShieldNeck
   - BlueShieldOuterClothing
   - Trinkets
-  - BlueshieldGun
+  # - BlueshieldGun # Fish-Edit
   - SunriseTrinkets
   - SurvivalSecurity
   - GroupSpeciesBreathTool

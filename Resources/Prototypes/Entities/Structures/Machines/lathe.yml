@@ -149,7 +149,7 @@
     emagStaticPacks:
     - SecurityStaticSunrise # Sunrise-Add
     - SyndicateAmmoStatic
-    - SyndicateBorgModulesEmagSunrise # Sunrise-Add
+    # - SyndicateBorgModulesEmagSunrise # Sunrise-Add # Fish edit - убрано в техфаб СБ
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -589,6 +589,7 @@
     - Carpets
     - Bedsheets
     - UniformStaticSunrise # Sunrise-Add
+    - UniformStaticFish # FIsh edit - белый берет СИ в принтере униформы
   - type: EmagLatheRecipes
     emagStaticPacks:
     - ClothingCentComm
@@ -670,6 +671,11 @@
       whitelist:
         tags:
           - Ore
+    # Fish added start - добавлен магнит для сбора руды с пола
+    - type: OreProcessorMagnet
+      range: 3
+      duration: 2
+    # Fish added end
     - type: Lathe
       idleState: icon
       runningState: building

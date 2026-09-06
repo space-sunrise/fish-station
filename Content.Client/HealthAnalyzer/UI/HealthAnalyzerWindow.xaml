@@ -2,14 +2,35 @@
     xmlns="https://spacestation14.io"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     xmlns:ui="clr-namespace:Content.Client.HealthAnalyzer.UI"
-    MaxHeight="525"
-    MinWidth="300">
-    <ScrollContainer
-        Margin="5 5 5 5"
-        ReturnMeasure="True"
+    xmlns:fishHealth="clr-namespace:Content.Client._Fish.HealthAnalyzer.UI"
+    StyleClasses="HealthAnalyzerWindow"
+    HeaderClass="HealthAnalyzerWindowHeader"
+    TitleClass="HealthAnalyzerWindowTitle"
+    SetSize="520 680"
+    MinSize="420 520"
+    MaxHeight="800">
+    <!-- FIsh edit start - декоративные эффекты интерфейса сканера -->
+    <LayoutContainer
+        Name="AnalyzerLayout"
+        HorizontalExpand="True"
         VerticalExpand="True">
 
-        <ui:HealthAnalyzerControl
-            Name="HealthAnalyzer"/>
-    </ScrollContainer>
+        <ScrollContainer
+            Name="AnalyzerScroll"
+            Margin="5 5 5 5"
+            HScrollEnabled="False"
+            ReserveScrollbarSpace="True"
+            VerticalExpand="True">
+
+            <!-- FIsh edit - расширенная панель только для ручного анализатора -->
+            <fishHealth:FishHealthAnalyzerControl
+                Name="HealthAnalyzer"
+                HorizontalExpand="True"/>
+        </ScrollContainer>
+
+        <ui:HealthAnalyzerEffects
+            Name="EffectsLayer"
+            RectClipContent="True"/>
+    </LayoutContainer>
+    <!-- FIsh edit end -->
 </controls:FancyWindow>

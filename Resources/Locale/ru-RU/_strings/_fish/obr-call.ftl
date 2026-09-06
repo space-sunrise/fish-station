@@ -19,12 +19,17 @@ obr-team-cburn-name = РХБЗЗ
 obr-team-cburn-desc = Отряд радиационной, химической и биологической защиты.
 
 obr-call-success = {$team} направлен к станции.
+obr-call-announcement-station = Внимание: Запрос поддержки {$team} одобрен. Отряд будет укомплектован и вызван к вам в течение {$duration}.
+obr-call-pending-success = {$team} заказан. Ожидаемое время развёртывания: {$duration}.
+obr-call-error-early-round = Вызов отрядов недоступен в первые {$minutes} минут смены. Оставшееся время: {$timeLeft}.
+obr-call-error-pending = Заказ этого отряда уже обрабатывается.
 obr-call-error-access = Доступ запрещён.
 obr-call-error-busy = Вызов уже выполняется. Подождите.
 obr-call-error-unknown-team = Неизвестный отряд.
 obr-call-error-team-unavailable = Этот отряд недоступен на этой консоли.
 obr-call-error-already-active = Этот отряд уже вызван или активен.
 obr-call-error-no-station = Не найдена подходящая станция.
+obr-call-error-no-centcomm = Не найдена станция Центрального Командования.
 obr-call-error-no-grid = У станции нет стыковочной сетки.
 obr-call-error-no-bank = Банковский счёт станции не найден.
 obr-call-error-insufficient-funds = Недостаточно средств станции.

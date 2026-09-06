@@ -1,4 +1,4 @@
-﻿using Content.Server.Station.Systems;
+using Content.Server.Station.Systems;
 using Content.Shared.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -7,14 +7,19 @@ using Robust.Shared.Player;
 
 namespace Content.Server.Audio;
 
-public sealed class ServerGlobalSoundSystem : SharedGlobalSoundSystem
+// FIsh edit start - делаем класс partial для выноса Fish-логики
+public sealed partial class ServerGlobalSoundSystem : SharedGlobalSoundSystem
+// FIsh edit end
 {
-    [Dependency] private readonly IConsoleHost _conHost = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private IConsoleHost _conHost = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Shutdown()
     {
+        // FIsh edit start - остановка звуков при выключении системы
+        ShutdownFishAdminSounds();
+        // FIsh edit end
         base.Shutdown();
         _conHost.UnregisterCommand("playglobalsound");
     }
