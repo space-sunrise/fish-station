@@ -20,9 +20,9 @@
   - type: Store
     name: store-preset-name-ntuplink
     categories:
-    - BlueShieldAutoGun
-    - BlueShieldLasers
-    - BlueShieldPistols
+    - FishBlueShieldAutoGun
+    - FishBlueShieldLasers
+    - FishBlueShieldPistols
     - NTAmmo
     - NTMedicine
     - NTAdditional

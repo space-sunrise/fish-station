@@ -1,15 +1,15 @@
-# Оружие Синего Щита (наборы: оружие + 2 магазина (1 FMJ, 1 HP))
+﻿# РћСЂСѓР¶РёРµ РЎРёРЅРµРіРѕ Р©РёС‚Р° (РЅР°Р±РѕСЂС‹: РѕСЂСѓР¶РёРµ + 2 РјР°РіР°Р·РёРЅР° (1 FMJ, 1 HP))
 
-# region Тяжёлое оружие (18 BC)
+# region РўСЏР¶С‘Р»РѕРµ РѕСЂСѓР¶РёРµ (18 BC)
 - type: listing
-  id: ERTUplinkWeaponAsh12Box
+  id: FishERTUplinkWeaponAsh12Box
   name: blueshield-gun-bundle-ash12-name
-  productEntity: ClothingBackpackDuffelWeaponAsh12BlueShield
+  productEntity: FishClothingBackpackDuffelWeaponAsh12BlueShield
   icon: { sprite: _Sunrise/Objects/Weapons/Guns/Rifles/ash12/big.rsi, state: base }
   cost:
     Bluecrystal: 18
   categories:
-    - BlueShieldAutoGun
+    - FishBlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -18,16 +18,16 @@
       tags:
       - BlueShield
 
-# region Среднее оружие (9 BC)
+# region РЎСЂРµРґРЅРµРµ РѕСЂСѓР¶РёРµ (9 BC)
 - type: listing
-  id: ERTUplinkWeaponRifleSKM24BlueShield
+  id: FishERTUplinkWeaponRifleSKM24BlueShield
   name: blueshield-gun-bundle-skm24-name
-  productEntity: ClothingBackpackDuffelWeaponRifleSKM24BlueShield
+  productEntity: FishClothingBackpackDuffelWeaponRifleSKM24BlueShield
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: skm24nano }
   cost:
     Bluecrystal: 9
   categories:
-    - BlueShieldAutoGun
+    - FishBlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -37,14 +37,14 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkWeaponShotgunCyclerBlueShield
+  id: FishERTUplinkWeaponShotgunCyclerBlueShield
   name: blueshield-gun-bundle-cycler-name
-  productEntity: ClothingBackpackDuffelWeaponShotgunCyclerBlueShield
+  productEntity: FishClothingBackpackDuffelWeaponShotgunCyclerBlueShield
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: cycler }
   cost:
     Bluecrystal: 9
   categories:
-    - BlueShieldAutoGun
+    - FishBlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -54,14 +54,14 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkWeaponRifleSKM28BlueShield
+  id: FishERTUplinkWeaponRifleSKM28BlueShield
   name: blueshield-gun-bundle-skm28-name
-  productEntity: ClothingBackpackDuffelWeaponRifleSKM28BlueShield
+  productEntity: FishClothingBackpackDuffelWeaponRifleSKM28BlueShield
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: skm28nano }
   cost:
     Bluecrystal: 9
   categories:
-    - BlueShieldAutoGun
+    - FishBlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -71,14 +71,14 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkWeaponRifleLeikhaBlueShield
+  id: FishERTUplinkWeaponRifleLeikhaBlueShield
   name: blueshield-gun-bundle-leikha-name
-  productEntity: ClothingBackpackDuffelWeaponRifleLeikhaBlueShield
+  productEntity: FishClothingBackpackDuffelWeaponRifleLeikhaBlueShield
   icon: { sprite: _Starlight/Objects/Weapons/Guns/Rifles/m16a4.rsi, state: base }
   cost:
     Bluecrystal: 9
   categories:
-    - BlueShieldAutoGun
+    - FishBlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -88,14 +88,14 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkWeaponRifleLecterMk2
+  id: FishERTUplinkWeaponRifleLecterMk2
   name: blueshield-gun-bundle-lecter-mk2-name
-  productEntity: ClothingBackpackDuffelWeaponRifleLecterMk2BlueShield
+  productEntity: FishClothingBackpackDuffelWeaponRifleLecterMk2BlueShield
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: lecter }
   cost:
     Bluecrystal: 9
   categories:
-    - BlueShieldAutoGun
+    - FishBlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -105,14 +105,14 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkWeaponLecterMk3BlueShield
+  id: FishERTUplinkWeaponLecterMk3BlueShield
   name: blueshield-gun-bundle-lecter-mk3-name
-  productEntity: ClothingBackpackDuffelWeaponLecterMk3BlueShield
+  productEntity: FishClothingBackpackDuffelWeaponLecterMk3BlueShield
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: lecter_mk3 }
   cost:
     Bluecrystal: 9
   categories:
-    - BlueShieldAutoGun
+    - FishBlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -122,14 +122,14 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkWeaponRifleLecterXL8
+  id: FishERTUplinkWeaponRifleLecterXL8
   name: blueshield-gun-bundle-lecter-xl8-name
-  productEntity: ClothingBackpackDuffelWeaponRifleLecterXL8BlueShield
+  productEntity: FishClothingBackpackDuffelWeaponRifleLecterXL8BlueShield
   icon: { sprite: Objects/Weapons/Guns/Rifles/XL8.rsi, state: base }
   cost:
     Bluecrystal: 9
   categories:
-    - BlueShieldAutoGun
+    - FishBlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -139,14 +139,14 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkWeaponSubMachineGunWt550b
+  id: FishERTUplinkWeaponSubMachineGunWt550b
   name: blueshield-gun-bundle-wt550b-name
-  productEntity: ClothingBackpackDuffelWeaponSubMachineGunWt550bBlueShield
+  productEntity: FishClothingBackpackDuffelWeaponSubMachineGunWt550bBlueShield
   icon: { sprite: _Starlight/Objects/Weapons/Guns/SMGs/wt550b.rsi, state: base }
   cost:
     Bluecrystal: 9
   categories:
-    - BlueShieldAutoGun
+    - FishBlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -156,14 +156,14 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkWeaponSubMachineGunDrozdMk2BlueShield
+  id: FishERTUplinkWeaponSubMachineGunDrozdMk2BlueShield
   name: blueshield-gun-bundle-drozd-mk2-name
-  productEntity: ClothingBackpackDuffelWeaponSubMachineGunDrozdMk2BlueShield
+  productEntity: FishClothingBackpackDuffelWeaponSubMachineGunDrozdMk2BlueShield
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: drozd }
   cost:
     Bluecrystal: 9
   categories:
-    - BlueShieldAutoGun
+    - FishBlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -173,14 +173,14 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkWeaponShotgun12BlueShield
+  id: FishERTUplinkWeaponShotgun12BlueShield
   name: blueshield-gun-bundle-shotgun12-name
-  productEntity: ClothingBackpackDuffelWeaponShotgun12BlueShield
+  productEntity: FishClothingBackpackDuffelWeaponShotgun12BlueShield
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: spas12 }
   cost:
     Bluecrystal: 9
   categories:
-    - BlueShieldAutoGun
+    - FishBlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -189,16 +189,16 @@
       tags:
       - BlueShield
 
-# region Вторичное оружие (2 BC)
+# region Р’С‚РѕСЂРёС‡РЅРѕРµ РѕСЂСѓР¶РёРµ (2 BC)
 - type: listing
-  id: ERTUplinkWeaponShotgun4034BlueShield
+  id: FishERTUplinkWeaponShotgun4034BlueShield
   name: blueshield-gun-bundle-shotgun4034-name
-  productEntity: ClothingBackpackDuffelWeaponShotgun4034BlueShield
+  productEntity: FishClothingBackpackDuffelWeaponShotgun4034BlueShield
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: shot4034 }
   cost:
     Bluecrystal: 2
   categories:
-    - BlueShieldAutoGun
+    - FishBlueShieldAutoGun
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 5
@@ -207,16 +207,16 @@
       tags:
       - BlueShield
 
-# region Лазеры
-# Fish edit start - убраны пульсовое оружие, добавлены энергодробовик, гибридный тазер, Доминатор
+# region Р›Р°Р·РµСЂС‹
+# Fish edit start - СѓР±СЂР°РЅС‹ РїСѓР»СЊСЃРѕРІРѕРµ РѕСЂСѓР¶РёРµ, РґРѕР±Р°РІР»РµРЅС‹ СЌРЅРµСЂРіРѕРґСЂРѕР±РѕРІРёРє, РіРёР±СЂРёРґРЅС‹Р№ С‚Р°Р·РµСЂ, Р”РѕРјРёРЅР°С‚РѕСЂ
 - type: listing
-  id: ERTUplinkWeaponEnergyShotgunBlueShield
+  id: FishERTUplinkWeaponEnergyShotgunBlueShield
   productEntity: WeaponEnergyShotgun
   icon: { sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi, state: base }
   cost:
     Bluecrystal: 18
   categories:
-    - BlueShieldLasers
+    - FishBlueShieldLasers
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 2
@@ -226,13 +226,13 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkWeaponIONRifleBlueShield
+  id: FishERTUplinkWeaponIONRifleBlueShield
   productEntity: WeaponIonRifle
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: ion-r }
   cost:
     Bluecrystal: 9
   categories:
-    - BlueShieldLasers
+    - FishBlueShieldLasers
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 3
@@ -242,14 +242,14 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkWeaponLaserLNT620BlueShield
+  id: FishERTUplinkWeaponLaserLNT620BlueShield
   name: blueshield-gun-bundle-lnt620-name
-  productEntity: ClothingBackpackDuffelWeaponLaserLNT620BlueShield
+  productEntity: FishClothingBackpackDuffelWeaponLaserLNT620BlueShield
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: lnt620 }
   cost:
     Bluecrystal: 9
   categories:
-    - BlueShieldLasers
+    - FishBlueShieldLasers
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 6
@@ -259,14 +259,14 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkWeaponGunLaserCarbineAutomaticBlueShield
+  id: FishERTUplinkWeaponGunLaserCarbineAutomaticBlueShield
   name: blueshield-gun-bundle-ik60-name
-  productEntity: ClothingBackpackDuffelWeaponGunLaserCarbineAutomaticBlueShield
+  productEntity: FishClothingBackpackDuffelWeaponGunLaserCarbineAutomaticBlueShield
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: ik60 }
   cost:
     Bluecrystal: 18
   categories:
-    - BlueShieldLasers
+    - FishBlueShieldLasers
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 6
@@ -276,13 +276,13 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkWeaponAdvancedTaserBlueShield
+  id: FishERTUplinkWeaponAdvancedTaserBlueShield
   productEntity: WeaponAdvancedTaser
   icon: { sprite: _Starlight/Objects/Weapons/Guns/Battery/adv_taser.rsi, state: base }
   cost:
     Bluecrystal: 2
   categories:
-    - BlueShieldLasers
+    - FishBlueShieldLasers
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4
@@ -292,13 +292,13 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkWeaponMiniEnergyGunBlueShield
+  id: FishERTUplinkWeaponMiniEnergyGunBlueShield
   productEntity: WeaponMiniEnergyGun
   icon: { sprite: _Starlight/Objects/Weapons/Guns/Battery/mini.rsi, state: base }
   cost:
     Bluecrystal: 2
   categories:
-    - BlueShieldLasers
+    - FishBlueShieldLasers
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4
@@ -309,15 +309,15 @@
 # Fish edit end
 
 
-# region Пистолеты
+# region РџРёСЃС‚РѕР»РµС‚С‹
 - type: listing
-  id: ERTUplinkWeaponRevolverSpearheadBlueShield
+  id: FishERTUplinkWeaponRevolverSpearheadBlueShield
   productEntity: WeaponRevolverSpearhead
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: spearhead }
   cost:
     Bluecrystal: 1
   categories:
-    - BlueShieldPistols
+    - FishBlueShieldPistols
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4
@@ -327,13 +327,13 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkWeaponPulsePistolBlueShield
+  id: FishERTUplinkWeaponPulsePistolBlueShield
   productEntity: WeaponPulsePistol
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: pulse-p }
   cost:
     Bluecrystal: 4
   categories:
-    - BlueShieldPistols
+    - FishBlueShieldPistols
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4
@@ -343,13 +343,13 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkWeaponPistolN1984BlueShield
+  id: FishERTUplinkWeaponPistolN1984BlueShield
   productEntity: WeaponPistolN1984
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: n1984 }
   cost:
     Bluecrystal: 2
   categories:
-    - BlueShieldPistols
+    - FishBlueShieldPistols
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4
@@ -358,10 +358,10 @@
       tags:
       - BlueShield
 
-# Fish edit start - категории взрывчатки изменены на общую NTexplosive
-# region Взрывчатка (1 BC)
+# Fish edit start - РєР°С‚РµРіРѕСЂРёРё РІР·СЂС‹РІС‡Р°С‚РєРё РёР·РјРµРЅРµРЅС‹ РЅР° РѕР±С‰СѓСЋ NTexplosive
+# region Р’Р·СЂС‹РІС‡Р°С‚РєР° (1 BC)
 - type: listing
-  id: ERTUplinkGrenadeShrapnel
+  id: FishERTUplinkGrenadeShrapnel
   productEntity: GrenadeShrapnel
   icon: { sprite: Objects/Weapons/Grenades/shrapnelgrenade.rsi, state: icon }
   cost:
@@ -377,7 +377,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkGrenadeStinger
+  id: FishERTUplinkGrenadeStinger
   productEntity: GrenadeStinger
   icon: { sprite: Objects/Weapons/Grenades/stingergrenade.rsi, state: icon }
   cost:
@@ -393,10 +393,10 @@
       - BlueShield
 # Fish edit end
 
-# Fish edit start - боеприпасы переведены в NTAmmo с конкретными названиями калибров
-# region Боеприпасы .20 Rifle (Lecter, Leikha)
+# Fish edit start - Р±РѕРµРїСЂРёРїР°СЃС‹ РїРµСЂРµРІРµРґРµРЅС‹ РІ NTAmmo СЃ РєРѕРЅРєСЂРµС‚РЅС‹РјРё РЅР°Р·РІР°РЅРёСЏРјРё РєР°Р»РёР±СЂРѕРІ
+# region Р‘РѕРµРїСЂРёРїР°СЃС‹ .20 Rifle (Lecter, Leikha)
 - type: listing
-  id: ERTUplinkMagazineBoxRifleSP
+  id: FishERTUplinkMagazineBoxRifleSP
   name: blueshield-ammo-box-rifle-sp-name
   productEntity: MagazineBoxRifleSP
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_rifle }
@@ -413,7 +413,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineBoxRifleFMJ
+  id: FishERTUplinkMagazineBoxRifleFMJ
   name: blueshield-ammo-box-rifle-fmj-name
   productEntity: MagazineBoxRifleFMJ
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_rifle }
@@ -430,7 +430,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineRifleSPBlueShield
+  id: FishERTUplinkMagazineRifleSPBlueShield
   name: blueshield-ammo-mag-rifle-sp-name
   productEntity: MagazineRifleSP
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: base }
@@ -447,7 +447,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineRifleFMJBlueShield
+  id: FishERTUplinkMagazineRifleFMJBlueShield
   name: blueshield-ammo-mag-rifle-fmj-name
   productEntity: MagazineRifleFMJ
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: base }
@@ -463,9 +463,9 @@
       tags:
       - BlueShield
 
-# region Боеприпасы .30 Light Rifle (SKM-24)
+# region Р‘РѕРµРїСЂРёРїР°СЃС‹ .30 Light Rifle (SKM-24)
 - type: listing
-  id: ERTUplinkMagazineBoxLightRifleSPBlueShield
+  id: FishERTUplinkMagazineBoxLightRifleSPBlueShield
   name: blueshield-ammo-box-light-rifle-sp-name
   productEntity: MagazineBoxLightRifleSP
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi, state: base }
@@ -482,7 +482,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineBoxLightRifleFMJBlueShield
+  id: FishERTUplinkMagazineBoxLightRifleFMJBlueShield
   name: blueshield-ammo-box-light-rifle-fmj-name
   productEntity: MagazineBoxLightRifleFMJ
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi, state: base }
@@ -499,7 +499,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineLightRifleSPBlueShield
+  id: FishERTUplinkMagazineLightRifleSPBlueShield
   name: blueshield-ammo-mag-light-rifle-sp-name
   productEntity: MagazineLightRifleSP
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: base }
@@ -516,7 +516,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineLightRifleFMJBlueShield
+  id: FishERTUplinkMagazineLightRifleFMJBlueShield
   name: blueshield-ammo-mag-light-rifle-fmj-name
   productEntity: MagazineLightRifleFMJ
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: base }
@@ -532,9 +532,9 @@
       tags:
       - BlueShield
 
-# region Боеприпасы .308 Heavy Rifle (SKM-28)
+# region Р‘РѕРµРїСЂРёРїР°СЃС‹ .308 Heavy Rifle (SKM-28)
 - type: listing
-  id: ERTUplinkMagazineBoxHeavyRifleSPBlueShield
+  id: FishERTUplinkMagazineBoxHeavyRifleSPBlueShield
   name: blueshield-ammo-box-heavy-rifle-sp-name
   productEntity: MagazineBoxHeavyRifleSP
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi, state: base }
@@ -551,7 +551,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineBoxHeavyRifleFMJBlueShield
+  id: FishERTUplinkMagazineBoxHeavyRifleFMJBlueShield
   name: blueshield-ammo-box-heavy-rifle-fmj-name
   productEntity: MagazineBoxHeavyRifleFMJ
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi, state: base }
@@ -568,7 +568,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineRifleHeavySPBlueShield
+  id: FishERTUplinkMagazineRifleHeavySPBlueShield
   name: blueshield-ammo-mag-heavy-rifle-sp-name
   productEntity: MagazineRifleHeavySP
   icon: { sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/rifle_heavy_mag.rsi, state: base }
@@ -585,7 +585,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineRifleHeavyFMJBlueShield
+  id: FishERTUplinkMagazineRifleHeavyFMJBlueShield
   name: blueshield-ammo-mag-heavy-rifle-fmj-name
   productEntity: MagazineRifleHeavyFMJ
   icon: { sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/rifle_heavy_mag.rsi, state: base }
@@ -601,9 +601,9 @@
       tags:
       - BlueShield
 
-# region Боеприпасы .35 Auto (WT550 Blue, Drozd Mk2)
+# region Р‘РѕРµРїСЂРёРїР°СЃС‹ .35 Auto (WT550 Blue, Drozd Mk2)
 - type: listing
-  id: ERTUplinkMagazineBoxPistolSP
+  id: FishERTUplinkMagazineBoxPistolSP
   name: blueshield-ammo-box-pistol-sp-name
   productEntity: MagazineBoxPistolSP
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_smg }
@@ -620,7 +620,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineBoxPistolFMJ
+  id: FishERTUplinkMagazineBoxPistolFMJ
   name: blueshield-ammo-box-pistol-fmj-name
   productEntity: MagazineBoxPistolFMJ
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_smg }
@@ -637,7 +637,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineBoxPistolHP
+  id: FishERTUplinkMagazineBoxPistolHP
   name: blueshield-ammo-box-pistol-hp-name
   productEntity: MagazineBoxPistolHP
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_smg }
@@ -654,7 +654,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazinePistolSMGTopMountedSPBlueShield
+  id: FishERTUplinkMagazinePistolSMGTopMountedSPBlueShield
   name: blueshield-ammo-mag-pistol-smg-top-sp-name
   productEntity: MagazinePistolSubMachineGunTopMountedSP
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi, state: base }
@@ -671,7 +671,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazinePistolSMGTopMountedFMJBlueShield
+  id: FishERTUplinkMagazinePistolSMGTopMountedFMJBlueShield
   name: blueshield-ammo-mag-pistol-smg-top-fmj-name
   productEntity: MagazinePistolSubMachineGunTopMounted
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi, state: base }
@@ -688,7 +688,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazinePistolSMGTopMountedHPBlueShield
+  id: FishERTUplinkMagazinePistolSMGTopMountedHPBlueShield
   name: blueshield-ammo-mag-pistol-smg-top-hp-name
   productEntity: MagazinePistolSubMachineGunTopMountedHP
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi, state: base }
@@ -705,7 +705,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineDrozdBlueShield
+  id: FishERTUplinkMagazineDrozdBlueShield
   name: blueshield-ammo-mag-drozd-name
   productEntity: MagazinePistolSubMachineGunCaselessExtended
   icon: { sprite: _Sunrise/Objects/Weapons/Guns/SMGs/iar_52.rsi, state: mag-0 }
@@ -721,9 +721,9 @@
       tags:
       - BlueShield
 
-# region Боеприпасы .45 Magnum (N1984, Spearhead)
+# region Р‘РѕРµРїСЂРёРїР°СЃС‹ .45 Magnum (N1984, Spearhead)
 - type: listing
-  id: ERTUplinkMagazineBoxMagnumSPBlueShield
+  id: FishERTUplinkMagazineBoxMagnumSPBlueShield
   name: blueshield-ammo-box-magnum-sp-name
   productEntity: MagazineBoxMagnumSP
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_40_sp }
@@ -740,7 +740,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineBoxMagnumFMJBlueShield
+  id: FishERTUplinkMagazineBoxMagnumFMJBlueShield
   name: blueshield-ammo-box-magnum-fmj-name
   productEntity: MagazineBoxMagnumFMJ
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_40_fmj }
@@ -757,7 +757,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineBoxMagnumHPBlueShield
+  id: FishERTUplinkMagazineBoxMagnumHPBlueShield
   name: blueshield-ammo-box-magnum-hp-name
   productEntity: MagazineBoxMagnumHP
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_40 }
@@ -774,7 +774,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineMagnumSPBlueShield
+  id: FishERTUplinkMagazineMagnumSPBlueShield
   name: blueshield-ammo-mag-magnum-sp-name
   productEntity: MagazineMagnum
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_magnum }
@@ -791,7 +791,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineMagnumFMJBlueShield
+  id: FishERTUplinkMagazineMagnumFMJBlueShield
   name: blueshield-ammo-mag-magnum-fmj-name
   productEntity: MagazineMagnumFMJ
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_magnum }
@@ -808,7 +808,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineMagnumHPBlueShield
+  id: FishERTUplinkMagazineMagnumHPBlueShield
   name: blueshield-ammo-mag-magnum-hp-name
   productEntity: MagazineMagnumHP
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_magnum }
@@ -825,7 +825,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkSpeedLoaderMagnumSPBlueShield
+  id: FishERTUplinkSpeedLoaderMagnumSPBlueShield
   name: blueshield-ammo-speedloader-magnum-sp-name
   productEntity: SpeedLoaderMagnumSP
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: speedloader45 }
@@ -842,7 +842,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkSpeedLoaderMagnumFMJBlueShield
+  id: FishERTUplinkSpeedLoaderMagnumFMJBlueShield
   name: blueshield-ammo-speedloader-magnum-fmj-name
   productEntity: SpeedLoaderMagnumFMJ
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: speedloader45 }
@@ -859,7 +859,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkSpeedLoaderMagnumHPBlueShield
+  id: FishERTUplinkSpeedLoaderMagnumHPBlueShield
   name: blueshield-ammo-speedloader-magnum-hp-name
   productEntity: SpeedLoaderMagnumHP
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: speedloader45 }
@@ -875,9 +875,9 @@
       tags:
       - BlueShield
 
-# region Боеприпасы 12 калибра (Дробовики: SPAS-12, Cycler, L-4034)
+# region Р‘РѕРµРїСЂРёРїР°СЃС‹ 12 РєР°Р»РёР±СЂР° (Р”СЂРѕР±РѕРІРёРєРё: SPAS-12, Cycler, L-4034)
 - type: listing
-  id: ERTUplinkBoxLethalshotBlueShield
+  id: FishERTUplinkBoxLethalshotBlueShield
   name: blueshield-ammo-box-shotgun-lethal-name
   productEntity: BoxLethalshot
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_shot }
@@ -894,7 +894,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkBoxShotgunSlugBlueShield
+  id: FishERTUplinkBoxShotgunSlugBlueShield
   name: blueshield-ammo-box-shotgun-slug-name
   productEntity: BoxShotgunSlug
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_shot_slug }
@@ -911,7 +911,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkBoxBeanbagBlueShield
+  id: FishERTUplinkBoxBeanbagBlueShield
   name: blueshield-ammo-box-shotgun-beanbag-name
   productEntity: BoxBeanbag
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_shot }
@@ -928,7 +928,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkBoxShotgunFlareBlueShield
+  id: FishERTUplinkBoxShotgunFlareBlueShield
   name: blueshield-ammo-box-shotgun-flare-name
   productEntity: BoxShotgunFlare
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_shot_flare }
@@ -945,7 +945,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkSpeedLoaderShellShotgunBlueShield
+  id: FishERTUplinkSpeedLoaderShellShotgunBlueShield
   name: blueshield-ammo-speedloader-shotgun-buckshot-name
   productEntity: SpeedLoaderShellShotgun
   icon: { sprite: _Starlight/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Shotgun/shotgun_speed_loader.rsi, state: base }
@@ -962,7 +962,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkSpeedLoaderShotgunSlugBlueShield
+  id: FishERTUplinkSpeedLoaderShotgunSlugBlueShield
   name: blueshield-ammo-speedloader-shotgun-slug-name
   productEntity: SpeedLoaderShotgunSlug
   icon: { sprite: _Starlight/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Shotgun/shotgun_speed_loader.rsi, state: base }
@@ -979,7 +979,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkSpeedLoaderShotgunBeanbagBlueShield
+  id: FishERTUplinkSpeedLoaderShotgunBeanbagBlueShield
   name: blueshield-ammo-speedloader-shotgun-beanbag-name
   productEntity: SpeedLoaderShotgunBeanbag
   icon: { sprite: _Starlight/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Shotgun/shotgun_speed_loader.rsi, state: base }
@@ -995,9 +995,9 @@
       tags:
       - BlueShield
 
-# region Боеприпасы АШ-12 (12.7×55 мм)
+# region Р‘РѕРµРїСЂРёРїР°СЃС‹ РђРЁ-12 (12.7Г—55 РјРј)
 - type: listing
-  id: ERTUplinkMagazineAsh12Slug
+  id: FishERTUplinkMagazineAsh12Slug
   name: blueshield-ammo-mag-ash12-slug-name
   productEntity: MagazineAsh12Slug
   icon: { sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/ash12.rsi, state: base }
@@ -1014,7 +1014,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineAsh12Beanbag
+  id: FishERTUplinkMagazineAsh12Beanbag
   name: blueshield-ammo-mag-ash12-beanbag-name
   productEntity: MagazineAsh12Beanbag
   icon: { sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/ash12.rsi, state: base }
@@ -1031,7 +1031,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkMagazineAsh12Flare
+  id: FishERTUplinkMagazineAsh12Flare
   name: blueshield-ammo-mag-ash12-flare-name
   productEntity: MagazineAsh12Flare
   icon: { sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/ash12.rsi, state: base }
@@ -1048,10 +1048,10 @@
       - BlueShield
 # Fish edit end
 
-# Fish edit start - медицина переведена в NTMedicine, цена automender снижена до 8C
-# region Медицина
+# Fish edit start - РјРµРґРёС†РёРЅР° РїРµСЂРµРІРµРґРµРЅР° РІ NTMedicine, С†РµРЅР° automender СЃРЅРёР¶РµРЅР° РґРѕ 8C
+# region РњРµРґРёС†РёРЅР°
 - type: listing
-  id: ERTUplinkAutoMenderBruteFilledBlueShield
+  id: FishERTUplinkAutoMenderBruteFilledBlueShield
   productEntity: AutoMenderBruteFilled
   icon: { sprite: _Starlight/Objects/Specific/Medical/medical.rsi, state: mender }
   cost:
@@ -1067,7 +1067,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkAutoMenderBurnFilledBlueShield
+  id: FishERTUplinkAutoMenderBurnFilledBlueShield
   productEntity: AutoMenderBurnFilled
   icon: { sprite: _Starlight/Objects/Specific/Medical/medical.rsi, state: mender }
   cost:
@@ -1083,7 +1083,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkDefibrillatorBlueShield
+  id: FishERTUplinkDefibrillatorBlueShield
   productEntity: AdvancedDefibrillatorCompact
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: comp_defib }
   cost:
@@ -1098,9 +1098,9 @@
       tags:
       - BlueShield
 
-# region Экипировка
+# region Р­РєРёРїРёСЂРѕРІРєР°
 - type: listing
-  id: ERTUplinkClothingShoesBootsMagERTBlueShield
+  id: FishERTUplinkClothingShoesBootsMagERTBlueShield
   productEntity: ClothingShoesBootsMagERT
   icon: { sprite: Clothing/Shoes/Boots/magboots-ert.rsi, state: icon }
   cost:
@@ -1116,7 +1116,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkClothingOuterArmorBlueShield
+  id: FishERTUplinkClothingOuterArmorBlueShield
   productEntity: ClothingOuterArmorBlueShield
   icon: { sprite: _Sunrise/Clothing/OuterClothing/Armor/blueshield.rsi, state: icon }
   cost:
@@ -1132,7 +1132,7 @@
       - BlueShield
 
 - type: listing
-  id: ERTUplinkClothingOuterHardsuitBlueShield
+  id: FishERTUplinkClothingOuterHardsuitBlueShield
   productEntity: ClothingOuterHardsuitBlueShield
   icon: { sprite: _Sunrise/Clothing/OuterClothing/Hardsuits/blueshield.rsi, state: icon }
   cost:
@@ -1147,4 +1147,18 @@
       tags:
       - BlueShield
 
-
+- type: listing
+  id: FishERTUplinkClothingOuterHardsuitBlueShieldMark2
+  productEntity: ClothingOuterHardsuitBlueShieldMark2
+  icon: { sprite: _Fish/Clothing/OuterClothing/Hardsuits/blueshield_mk2.rsi, state: icon }
+  cost:
+    Crystallite: 10
+  categories:
+    - NTEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield

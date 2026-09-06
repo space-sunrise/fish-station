@@ -1,8 +1,8 @@
-﻿# Наборы оружия оперативников Синий Щит
+# Наборы оружия оперативников Синий Щит
 
 # Набор АШ-12 (Пули + Травматические)
 - type: entity
-  id: ClothingBackpackDuffelWeaponAsh12BlueShield
+  id: FishClothingBackpackDuffelWeaponAsh12BlueShield
   parent: ClothingBackpackDuffelMilitary
   name: Bundle ASH-12
   description: ASH-12 with 1 Slug magazine and 1 Beanbag magazine.
@@ -17,7 +17,7 @@
 
 # Набор СКМ-24
 - type: entity
-  id: ClothingBackpackDuffelWeaponRifleSKM24BlueShield
+  id: FishClothingBackpackDuffelWeaponRifleSKM24BlueShield
   parent: ClothingBackpackDuffelMilitary
   name: Bundle SKM-24
   description: SKM-24 with 1 FMJ magazine and 1 SP magazine.
@@ -32,7 +32,7 @@
 
 # Набор Cycler
 - type: entity
-  id: ClothingBackpackDuffelWeaponShotgunCyclerBlueShield
+  id: FishClothingBackpackDuffelWeaponShotgunCyclerBlueShield
   parent: ClothingBackpackDuffelMilitary
   name: Bundle Assault Shotgun
   description: Assault Shotgun with 1 Slug speedloader and 1 Beanbag speedloader.
@@ -47,7 +47,7 @@
 
 # Набор СКМ-28
 - type: entity
-  id: ClothingBackpackDuffelWeaponRifleSKM28BlueShield
+  id: FishClothingBackpackDuffelWeaponRifleSKM28BlueShield
   parent: ClothingBackpackDuffelMilitary
   name: Bundle SKM-28
   description: SKM-28 with 1 FMJ magazine and 1 SP magazine.
@@ -62,7 +62,7 @@
 
 # Набор Лейха
 - type: entity
-  id: ClothingBackpackDuffelWeaponRifleLeikhaBlueShield
+  id: FishClothingBackpackDuffelWeaponRifleLeikhaBlueShield
   parent: ClothingBackpackDuffelMilitary
   name: Bundle Leikha
   description: Leikha with 1 FMJ magazine and 1 SP magazine.
@@ -77,7 +77,7 @@
 
 # Набор Лектер Мк2
 - type: entity
-  id: ClothingBackpackDuffelWeaponRifleLecterMk2BlueShield
+  id: FishClothingBackpackDuffelWeaponRifleLecterMk2BlueShield
   parent: ClothingBackpackDuffelMilitary
   name: Bundle Lecter Mk2
   description: Lecter Mk2 with 1 FMJ magazine and 1 SP magazine.
@@ -92,7 +92,7 @@
 
 # Набор Лектер Мк3
 - type: entity
-  id: ClothingBackpackDuffelWeaponLecterMk3BlueShield
+  id: FishClothingBackpackDuffelWeaponLecterMk3BlueShield
   parent: ClothingBackpackDuffelMilitary
   name: Bundle Lecter Mk3
   description: Lecter Mk3 with 1 FMJ magazine and 1 SP magazine.
@@ -107,7 +107,7 @@
 
 # Набор Лектер XL8
 - type: entity
-  id: ClothingBackpackDuffelWeaponRifleLecterXL8BlueShield
+  id: FishClothingBackpackDuffelWeaponRifleLecterXL8BlueShield
   parent: ClothingBackpackDuffelMilitary
   name: Bundle Lecter XL8
   description: Lecter XL8 with 1 FMJ magazine and 1 SP magazine.
@@ -122,7 +122,7 @@
 
 # Набор WT550b
 - type: entity
-  id: ClothingBackpackDuffelWeaponSubMachineGunWt550bBlueShield
+  id: FishClothingBackpackDuffelWeaponSubMachineGunWt550bBlueShield
   parent: ClothingBackpackDuffelMilitary
   name: Bundle WT550b
   description: WT550b with 1 FMJ magazine and 1 HP magazine.
@@ -137,7 +137,7 @@
 
 # Набор Дрозд Мк2
 - type: entity
-  id: ClothingBackpackDuffelWeaponSubMachineGunDrozdMk2BlueShield
+  id: FishClothingBackpackDuffelWeaponSubMachineGunDrozdMk2BlueShield
   parent: ClothingBackpackDuffelMilitary
   name: Bundle Drozd Mk2
   description: Drozd Mk2 with 1 FMJ magazine and 1 HP magazine.
@@ -152,7 +152,7 @@
 
 # Набор Боевой дробовик (SPAS-12)
 - type: entity
-  id: ClothingBackpackDuffelWeaponShotgun12BlueShield
+  id: FishClothingBackpackDuffelWeaponShotgun12BlueShield
   parent: ClothingBackpackDuffelMilitary
   name: Combat shotgun bundle
   description: Combat shotgun with 1 Slug box and 1 Beanbag box.
@@ -167,7 +167,7 @@
 
 # Набор Окопный дробовик 4034
 - type: entity
-  id: ClothingBackpackDuffelWeaponShotgun4034BlueShield
+  id: FishClothingBackpackDuffelWeaponShotgun4034BlueShield
   parent: ClothingBackpackDuffelMilitary
   name: Bundle Trenchgun 4034
   description: Trenchgun 4034 with 1 Slug box and 1 Beanbag box.
@@ -182,7 +182,7 @@
 
 # Набор LNT620 (с 2 батареями PowerCellHigh)
 - type: entity
-  id: ClothingBackpackDuffelWeaponLaserLNT620BlueShield
+  id: FishClothingBackpackDuffelWeaponLaserLNT620BlueShield
   parent: ClothingBackpackDuffelMilitary
   name: Bundle LNT620 Spark
   description: LNT620 with 2 high-capacity power cells.
@@ -197,7 +197,7 @@
 
 # Набор ИК-60 (с 2 батареями-магазинами MagazineBatteryLr60)
 - type: entity
-  id: ClothingBackpackDuffelWeaponGunLaserCarbineAutomaticBlueShield
+  id: FishClothingBackpackDuffelWeaponGunLaserCarbineAutomaticBlueShield
   parent: ClothingBackpackDuffelMilitary
   name: Bundle IK-60
   description: IK-60 with 2 LR-60 battery magazines.
