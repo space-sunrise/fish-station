@@ -850,6 +850,10 @@
   loadouts:
   - YellowJumpsuit
   - YellowJumpskirt
+  # Fish-start - Вещи ведущего инженера
+  - SeniorEngineerJumpsuit
+  - SeniorEngineerJumpskirt
+  # Fish-end
 
 #- type: loadoutGroup
 #  id: TechnicalAssistantJobTrinkets
@@ -873,6 +877,10 @@
   - StationEngineerJumpsuit
   - StationEngineerJumpskirt
   - StationEngineerHazardsuit
+  # Fish-start - Вещи ведущего инженера
+  - SeniorEngineerJumpsuit
+  - SeniorEngineerJumpskirt
+  # Fish-end
 
 - type: loadoutGroup
   id: StationEngineerBackpack
@@ -916,6 +924,10 @@
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianJumpskirt
   - AtmosphericTechnicianJumpsuitCasual
+  # Fish-start - Вещи ведущего инженера
+  - SeniorEngineerJumpsuit
+  - SeniorEngineerJumpskirt
+  # Fish-end
 
 - type: loadoutGroup
   id: AtmosphericTechnicianOuterClothing
@@ -1014,6 +1026,10 @@
   loadouts:
   - ScientistJumpsuit
   - ScientistJumpskirt
+  # Fish-start - Вещи ведущего учёного
+  - SeniorResearcherJumpsuit
+  - SeniorResearcherJumpskirt
+  # Fish-end
 
 - type: loadoutGroup
   id: ScientistBackpack
@@ -1031,6 +1047,9 @@
   - RegularLabCoat
   - ScienceLabCoat
   - ScienceWintercoat
+  # Fish-start - Вещи ведущего учёного
+  - SeniorResearcherLabCoat
+  # Fish-end
 
 - type: loadoutGroup
   id: ScientistShoes
@@ -1067,6 +1086,10 @@
   loadouts:
   - WhiteJumpsuit
   - WhiteJumpskirt
+  # Fish-start - Вещи ведущего учёного
+  - SeniorResearcherJumpsuit
+  - SeniorResearcherJumpskirt
+  # Fish-end
 
 #- type: loadoutGroup
 #  id: ResearchAssistantJobTrinkets
@@ -1130,6 +1153,10 @@
   loadouts:
   - WardenJumpsuit
   - WardenJumpskirt
+  # Fish-start - Вещи старшего офицера
+  - SeniorOfficerJumpsuit
+  - SeniorOfficerJumpskirt
+  # Fish-end
 
 - type: loadoutGroup
   id: WardenOuterClothing
@@ -1163,6 +1190,10 @@
   - SecurityJumpsuitGrey
   - SecurityJumpskirtGrey
   - TrooperUniform
+  # Fish-start - Вещи старшего офицера
+  - SeniorOfficerJumpsuit
+  - SeniorOfficerJumpskirt
+  # Fish-end
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1231,6 +1262,10 @@
   - DetectiveJumpskirt
   - NoirJumpsuit
   - NoirJumpskirt
+  # Fish-start - Вещи старшего офицера
+  - SeniorOfficerJumpsuit
+  - SeniorOfficerJumpskirt
+  # Fish-end
 
 - type: loadoutGroup
   id: DetectiveOuterClothing
@@ -1253,6 +1288,10 @@
   loadouts:
   - RedJumpsuit
   - RedJumpskirt
+  # Fish-start - Вещи старшего офицера
+  - SeniorOfficerJumpsuit
+  - SeniorOfficerJumpskirt
+  # Fish-end
 
 #- type: loadoutGroup
 #  id: SecurityCadetJobTrinkets

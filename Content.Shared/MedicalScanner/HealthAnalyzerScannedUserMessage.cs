@@ -1,3 +1,4 @@
+using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.MedicalScanner;
@@ -28,6 +29,9 @@ public struct HealthAnalyzerUiState
     public bool? ScanMode;
     public bool? Bleeding;
     public bool? Unrevivable;
+    // FIsh edit start - передача реагентов в интерфейс анализатора
+    public List<ReagentQuantity> Reagents = [];
+    // FIsh edit end
     // Sunrise-Edit start - add hunger and thirst levels to UI state
     public float? HungerLevel;
     public float? ThirstLevel;
@@ -35,7 +39,16 @@ public struct HealthAnalyzerUiState
 
     public HealthAnalyzerUiState() {}
 
-    public HealthAnalyzerUiState(NetEntity? targetEntity, float temperature, float bloodLevel, bool? scanMode, bool? bleeding, bool? unrevivable, float? hungerLevel = null, float? thirstLevel = null)
+    public HealthAnalyzerUiState(
+        NetEntity? targetEntity,
+        float temperature,
+        float bloodLevel,
+        bool? scanMode,
+        bool? bleeding,
+        bool? unrevivable,
+        float? hungerLevel = null,
+        float? thirstLevel = null,
+        List<ReagentQuantity>? reagents = null)
     {
         TargetEntity = targetEntity;
         Temperature = temperature;
@@ -43,6 +56,9 @@ public struct HealthAnalyzerUiState
         ScanMode = scanMode;
         Bleeding = bleeding;
         Unrevivable = unrevivable;
+        // FIsh edit start - сохранение реагентов в состоянии интерфейса
+        Reagents = reagents ?? [];
+        // FIsh edit end
         // Sunrise-Edit start - assign hunger and thirst
         HungerLevel = hungerLevel;
         ThirstLevel = thirstLevel;

@@ -1,0 +1,75 @@
+- type: construction
+  id: GasRangeTemperatureFilter
+  graph: FishGasFilterGraph
+  startNode: start
+  targetNode: rangefilter
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  mirror: GasRangeTemperatureFilterFlipped
+  conditions:
+    - !type:NoUnstackableInTile
+
+- type: construction
+  id: GasRangeTemperatureFilterFlipped
+  hide: true
+  graph: FishGasFilterGraph
+  startNode: start
+  targetNode: rangefilterflipped
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  mirror: GasRangeTemperatureFilter
+  conditions:
+    - !type:NoUnstackableInTile
+
+- type: constructionGraph
+  id: FishGasFilterGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+
+    - to: rangefilter
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
+    - to: rangefilterflipped
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
+  - node: rangefilter
+    entity: GasRangeTemperatureFilter
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: rangefilterflipped
+    entity: GasRangeTemperatureFilterFlipped
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1

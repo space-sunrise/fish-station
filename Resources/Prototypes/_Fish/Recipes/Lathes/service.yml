@@ -1,0 +1,6 @@
+- type: latheRecipe
+  id: FishDrinkWaterBottleEmpty
+  result: FishDrinkWaterBottleEmpty
+  completetime: 1
+  materials:
+    Plastic: 50

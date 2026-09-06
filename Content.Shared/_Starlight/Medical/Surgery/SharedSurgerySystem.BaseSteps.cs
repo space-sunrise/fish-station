@@ -6,6 +6,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Popups;
+using Content.Shared._Fish.Achievements.Events;
 using Content.Shared.Starlight.Medical.Surgery.Effects.Step;
 using Content.Shared.Starlight.Medical.Surgery.Events;
 using Content.Shared.Starlight.Medical.Surgery.Steps;
@@ -115,6 +116,17 @@ public abstract partial class SharedSurgerySystem
                 progress.StartedSurgeries.Add(args.SurgeryProto);
             AddComp(args.Part, progress);
         }
+
+        // Fish-Edit start: broadcast для achievements (без duplicate SurgeryStepComponent subscription)
+        var fishAchEv = new FishSurgeryStepCompleteEvent(args.User, args.Body, args.Part)
+        {
+            StepProto = args.StepProto,
+            SurgeryProto = args.SurgeryProto,
+            IsFinal = args.IsFinal,
+        };
+        RaiseLocalEvent(ref fishAchEv);
+        // Fish-Edit end
+
         if (args.IsFinal)
             progress.CompletedSurgeries.Add(args.SurgeryProto);
 

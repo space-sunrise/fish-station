@@ -1,0 +1,16 @@
+[
+  {
+    "id": "FishAch_ClownCourt",
+    "source": "Fish-original (mock trial with judge gavel)",
+    "sourceTrigger": "GavelHammer AfterInteract on GavelBlock ×30",
+    "sourceCondition": "Hold public mock trial — strike gavel block 30 times",
+    "fishEquivalent": "GavelSystem + GavelHammer/GavelBlock (Sunrise) + FishJudgeGavel parent",
+    "fishTrigger": "GavelSystem.OnHit → AchievementConditionKeys.GavelStrike",
+    "condition": "gavel-strike",
+    "conditionParams": {
+      "target": "GavelBlock"
+    },
+    "progressTarget": 30,
+    "status": "fully_specific"
+  }
+]
