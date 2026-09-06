@@ -1,0 +1,211 @@
+﻿# Наборы оружия оперативников Синий Щит
+
+# Набор АШ-12 (Пули + Травматические)
+- type: entity
+  id: ClothingBackpackDuffelWeaponAsh12BlueShield
+  parent: ClothingBackpackDuffelMilitary
+  name: Bundle ASH-12
+  description: ASH-12 with 1 Slug magazine and 1 Beanbag magazine.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRifleAsh12
+        - id: MagazineAsh12Slug
+        - id: MagazineAsh12Beanbag
+
+# Набор СКМ-24
+- type: entity
+  id: ClothingBackpackDuffelWeaponRifleSKM24BlueShield
+  parent: ClothingBackpackDuffelMilitary
+  name: Bundle SKM-24
+  description: SKM-24 with 1 FMJ magazine and 1 SP magazine.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRifleSKM24Nano
+        - id: MagazineLightRifleFMJ
+        - id: MagazineLightRifleSP
+
+# Набор Cycler
+- type: entity
+  id: ClothingBackpackDuffelWeaponShotgunCyclerBlueShield
+  parent: ClothingBackpackDuffelMilitary
+  name: Bundle Assault Shotgun
+  description: Assault Shotgun with 1 Slug speedloader and 1 Beanbag speedloader.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponShotgunCycler
+        - id: SpeedLoaderShotgunSlug
+        - id: SpeedLoaderShotgunBeanbag
+
+# Набор СКМ-28
+- type: entity
+  id: ClothingBackpackDuffelWeaponRifleSKM28BlueShield
+  parent: ClothingBackpackDuffelMilitary
+  name: Bundle SKM-28
+  description: SKM-28 with 1 FMJ magazine and 1 SP magazine.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRifleSKM28Nano
+        - id: MagazineRifleHeavyFMJ
+        - id: MagazineRifleHeavySP
+
+# Набор Лейха
+- type: entity
+  id: ClothingBackpackDuffelWeaponRifleLeikhaBlueShield
+  parent: ClothingBackpackDuffelMilitary
+  name: Bundle Leikha
+  description: Leikha with 1 FMJ magazine and 1 SP magazine.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRifleLeikha
+        - id: MagazineRifleFMJ
+        - id: MagazineRifleSP
+
+# Набор Лектер Мк2
+- type: entity
+  id: ClothingBackpackDuffelWeaponRifleLecterMk2BlueShield
+  parent: ClothingBackpackDuffelMilitary
+  name: Bundle Lecter Mk2
+  description: Lecter Mk2 with 1 FMJ magazine and 1 SP magazine.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRifleLecterMk2
+        - id: MagazineRifleFMJ
+        - id: MagazineRifleSP
+
+# Набор Лектер Мк3
+- type: entity
+  id: ClothingBackpackDuffelWeaponLecterMk3BlueShield
+  parent: ClothingBackpackDuffelMilitary
+  name: Bundle Lecter Mk3
+  description: Lecter Mk3 with 1 FMJ magazine and 1 SP magazine.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRifleLecterMk3
+        - id: MagazineRifleFMJ
+        - id: MagazineRifleSP
+
+# Набор Лектер XL8
+- type: entity
+  id: ClothingBackpackDuffelWeaponRifleLecterXL8BlueShield
+  parent: ClothingBackpackDuffelMilitary
+  name: Bundle Lecter XL8
+  description: Lecter XL8 with 1 FMJ magazine and 1 SP magazine.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRifleLecterXL8
+        - id: MagazineRifleFMJ
+        - id: MagazineRifleSP
+
+# Набор WT550b
+- type: entity
+  id: ClothingBackpackDuffelWeaponSubMachineGunWt550bBlueShield
+  parent: ClothingBackpackDuffelMilitary
+  name: Bundle WT550b
+  description: WT550b with 1 FMJ magazine and 1 HP magazine.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponSubMachineGunWt550b
+        - id: MagazinePistolSubMachineGunTopMounted
+        - id: MagazinePistolSubMachineGunTopMountedHP
+
+# Набор Дрозд Мк2
+- type: entity
+  id: ClothingBackpackDuffelWeaponSubMachineGunDrozdMk2BlueShield
+  parent: ClothingBackpackDuffelMilitary
+  name: Bundle Drozd Mk2
+  description: Drozd Mk2 with 1 FMJ magazine and 1 HP magazine.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponSubMachineGunDrozdMk2
+        - id: MagazinePistolSubMachineGunFMJ
+        - id: MagazinePistolSubMachineGunHP
+
+# Набор Боевой дробовик (SPAS-12)
+- type: entity
+  id: ClothingBackpackDuffelWeaponShotgun12BlueShield
+  parent: ClothingBackpackDuffelMilitary
+  name: Combat shotgun bundle
+  description: Combat shotgun with 1 Slug box and 1 Beanbag box.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponShotgunCombat
+        - id: BoxShotgunSlug
+        - id: BoxBeanbag
+
+# Набор Окопный дробовик 4034
+- type: entity
+  id: ClothingBackpackDuffelWeaponShotgun4034BlueShield
+  parent: ClothingBackpackDuffelMilitary
+  name: Bundle Trenchgun 4034
+  description: Trenchgun 4034 with 1 Slug box and 1 Beanbag box.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponShotgunTrenchgun4034
+        - id: BoxShotgunSlug
+        - id: BoxBeanbag
+
+# Набор LNT620 (с 2 батареями PowerCellHigh)
+- type: entity
+  id: ClothingBackpackDuffelWeaponLaserLNT620BlueShield
+  parent: ClothingBackpackDuffelMilitary
+  name: Bundle LNT620 Spark
+  description: LNT620 with 2 high-capacity power cells.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponLaserLNT620
+        - id: PowerCellHigh
+          amount: 2
+
+# Набор ИК-60 (с 2 батареями-магазинами MagazineBatteryLr60)
+- type: entity
+  id: ClothingBackpackDuffelWeaponGunLaserCarbineAutomaticBlueShield
+  parent: ClothingBackpackDuffelMilitary
+  name: Bundle IK-60
+  description: IK-60 with 2 LR-60 battery magazines.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponGunLaserCarbineAutomatic
+        - id: MagazineBatteryLr60
+          amount: 2
