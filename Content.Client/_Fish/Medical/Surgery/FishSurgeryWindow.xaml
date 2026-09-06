@@ -39,6 +39,8 @@
                     </ScrollContainer>
                 </Control>
                 <Control Name="ConfirmationParking" Visible="False">
+                    <!-- Совместимый контейнер для исходной реализации SurgeryBui; схема тела его не отображает. -->
+                    <BoxContainer Name="Parts" Access="Public" />
                     <PanelContainer Name="ConfirmationPanel" StyleClasses="FishSurgeryDangerPanel" Visible="False">
                         <BoxContainer Orientation="Vertical" SeparationOverride="5" Margin="8">
                             <Label Text="{Loc 'fish-surgery-danger-heading'}" StyleClasses="FishSurgeryHeading" />

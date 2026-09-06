@@ -22,6 +22,52 @@ namespace Content.IntegrationTests.Tests._Fish.Medical.Surgery;
 [TestFixture]
 public sealed class FishSurgeryWindowTest
 {
+    /// <summary>Исходный путь обновления Sunrise остаётся совместимым с Fish-окном.</summary>
+    [Test]
+    public async Task UpstreamUpdatePathRemainsCompatible()
+    {
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true });
+        var client = pair.Client;
+        SurgeryBui bui = null;
+        FishSurgeryWindow window = null;
+        EntityUid patient = default;
+        var flags = BindingFlags.Instance | BindingFlags.NonPublic;
+
+        await client.WaitPost(() =>
+        {
+            patient = client.EntMan.SpawnEntity("AppearanceHuman", MapCoordinates.Nullspace);
+            var body = client.EntMan.GetComponent<BodyComponent>(patient);
+            var hand = body.Organs!.ContainedEntities.First(uid =>
+                client.EntMan.GetComponent<MetaDataComponent>(uid).EntityPrototype?.ID == "OrganHumanHandLeft");
+            var state = new SurgeryBuiState
+            {
+                Choices = new() { [client.EntMan.GetNetEntity(hand)] = new() },
+            };
+
+            bui = new SurgeryBui(patient, SurgeryUIKey.Key);
+            var update = typeof(SurgeryBui).GetMethod(
+                "Update",
+                flags,
+                null,
+                new[] { typeof(SurgeryBuiState) },
+                null)!;
+            update.Invoke(bui, new object[] { state });
+            window = (FishSurgeryWindow) typeof(SurgeryBui).GetField("_window", flags)!.GetValue(bui)!;
+        });
+        await client.WaitAssertion(() =>
+        {
+            Assert.That(window.Parts.Children.Count(), Is.EqualTo(1));
+            Assert.That(window.Parts.Parent?.Visible, Is.False,
+                "The compatibility list must remain outside the visible Fish interface.");
+        });
+        await client.WaitPost(() =>
+        {
+            bui.Dispose();
+            client.EntMan.DeleteEntity(patient);
+        });
+        await pair.CleanReturnAsync();
+    }
+
     /// <summary>Changing available operations after an incision must not navigate away from the active operation.</summary>
     [TestCase(false)]
     [TestCase(true)]
