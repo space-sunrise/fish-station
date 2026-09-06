@@ -363,23 +363,24 @@ public sealed partial class BluespaceArtilleryConsoleWindow : DefaultWindow
             OnPreviewToggled?.Invoke(args.Pressed);
         };
 
-        _explosionType.OnItemSelected += _ =>
+        _explosionType.OnItemSelected += args =>
         {
+            _explosionType.SelectId(args.Id);
             UpdatePreviewRadius();
             SendParams();
         };
 
-        _intensity.OnTextEntered += _ =>
+        _intensity.OnTextChanged += _ =>
         {
             UpdatePreviewRadius();
             SendParams();
         };
-        _slope.OnTextEntered += _ =>
+        _slope.OnTextChanged += _ =>
         {
             UpdatePreviewRadius();
             SendParams();
         };
-        _maxIntensity.OnTextEntered += _ =>
+        _maxIntensity.OnTextChanged += _ =>
         {
             UpdatePreviewRadius();
             SendParams();
