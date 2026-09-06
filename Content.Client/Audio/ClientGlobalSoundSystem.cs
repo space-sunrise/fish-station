@@ -1,5 +1,8 @@
-﻿using Content.Shared.Audio;
+using Content.Shared.Audio;
 using Content.Shared.CCVar;
+// FIsh edit start - импорт события остановки админских звуков
+using Content.Shared._Fish.Audio;
+// FIsh edit end
 using Content.Shared.GameTicking;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -26,6 +29,9 @@ public sealed class ClientGlobalSoundSystem : SharedGlobalSoundSystem
         base.Initialize();
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
         SubscribeNetworkEvent<AdminSoundEvent>(PlayAdminSound);
+        // FIsh edit start - подписка на остановку админских звуков
+        SubscribeNetworkEvent<StopAdminSoundEvent>(OnStopAdminSound);
+        // FIsh edit end
         Subs.CVar(_cfg, CCVars.AdminSoundsEnabled, ToggleAdminSound, true);
 
         SubscribeNetworkEvent<StationEventMusicEvent>(PlayStationEventMusic);
@@ -69,6 +75,17 @@ public sealed class ClientGlobalSoundSystem : SharedGlobalSoundSystem
         var stream = _audio.PlayGlobal(soundEvent.Specifier, Filter.Local(), false, soundEvent.AudioParams);
         _adminAudio.Add(stream?.Entity);
     }
+
+    // FIsh edit start - обработчик остановки всех админских звуков у клиента
+    private void OnStopAdminSound(StopAdminSoundEvent ev)
+    {
+        foreach (var stream in _adminAudio)
+        {
+            _audio.Stop(stream);
+        }
+        _adminAudio.Clear();
+    }
+    // FIsh edit end
 
     private void PlayStationEventMusic(StationEventMusicEvent soundEvent)
     {

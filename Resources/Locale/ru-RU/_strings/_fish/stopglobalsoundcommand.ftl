@@ -1,4 +1,4 @@
-stop-global-admin-sound-command-description = Останавливает административные глобальные звуки нахер задолбали
+stop-global-admin-sound-command-description = Останавливает административные глобальные звуки.
 stop-global-admin-sound-command-help = Использование: stopglobaladminsound [имя_игрока] (без аргументов — для всех).
 stop-global-admin-sound-all-stopped = Все административные звуки остановлены.
 stop-global-admin-sound-player-stopped = Административные звуки для игрока { $username } остановлены.

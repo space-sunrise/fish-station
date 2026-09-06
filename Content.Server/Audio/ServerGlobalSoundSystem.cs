@@ -1,11 +1,14 @@
-﻿using Content.Server.Station.Systems;
+using Content.Server.Station.Systems;
 using Content.Shared.Audio;
+// FIsh edit start - импорт для остановки админских звуков
+using Content.Shared._Fish.Audio;
+using Robust.Server.Player;
+using Robust.Shared.Network;
+// FIsh edit end
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Console;
-using Robust.Shared.Network;
 using Robust.Shared.Player;
-using System.Linq;
 
 namespace Content.Server.Audio;
 
@@ -14,89 +17,37 @@ public sealed class ServerGlobalSoundSystem : SharedGlobalSoundSystem
     [Dependency] private readonly IConsoleHost _conHost = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-
-    // #Fish edit start
-    private readonly Dictionary<NetUserId, List<EntityUid>> _playerAdminSounds = new();
-    // #Fish edit end
+    // FIsh edit start - внедрение менеджера игроков для точечной остановки звуков
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    // FIsh edit end
 
     public override void Shutdown()
     {
+        // FIsh edit start - остановка звуков при выключении системы
         StopAllAdminSounds();
+        // FIsh edit end
         base.Shutdown();
         _conHost.UnregisterCommand("playglobalsound");
     }
 
-    // #Fish edit start: периодическая очистка мёртвых сущностей
-    private void CleanupDeadEntities()
-    {
-        var deadKeys = new List<NetUserId>();
-        foreach (var kvp in _playerAdminSounds)
-        {
-            kvp.Value.RemoveAll(entity => !Exists(entity));
-            if (kvp.Value.Count == 0)
-                deadKeys.Add(kvp.Key);
-        }
-        foreach (var key in deadKeys)
-            _playerAdminSounds.Remove(key);
-    }
-    // #Fish edit end
-
     public void PlayAdminGlobal(Filter playerFilter, ResolvedSoundSpecifier specifier, AudioParams? audioParams = null, bool replay = true)
     {
-        // #Fish edit start: очищаем все списки перед добавлением
-        CleanupDeadEntities();
-        // #Fish edit end
-
-        var sessions = playerFilter.Recipients;
-        if (sessions == null || !sessions.Any())
-            return;
-
-        foreach (var session in sessions)
-        {
-            var userId = session.UserId;
-            // Используем перегрузку с ICommonSession
-            var result = _audio.PlayGlobal(specifier, session, audioParams);
-            if (result != null)
-            {
-                if (!_playerAdminSounds.ContainsKey(userId))
-                    _playerAdminSounds[userId] = new List<EntityUid>();
-                _playerAdminSounds[userId].Add(result.Value.Entity);
-            }
-        }
+        var msg = new AdminSoundEvent(specifier, audioParams);
+        RaiseNetworkEvent(msg, playerFilter, recordReplay: replay);
     }
 
+    // FIsh edit start - методы остановки глобальных звуков через сетевое событие
     public void StopAllAdminSounds()
     {
-        // #Fish edit start: удаляем только валидные сущности, затем очищаем словарь
-        foreach (var kvp in _playerAdminSounds.ToList())
-        {
-            foreach (var entity in kvp.Value)
-            {
-                if (Exists(entity))
-                    Del(entity);
-            }
-        }
-        _playerAdminSounds.Clear();
-        // #Fish edit end
+        RaiseNetworkEvent(new StopAdminSoundEvent());
     }
 
     public void StopPlayerAdminSounds(NetUserId userId)
     {
-        // #Fish edit start: сначала очищаем список от мёртвых, затем удаляем валидные
-        if (_playerAdminSounds.TryGetValue(userId, out var list))
-        {
-            list.RemoveAll(entity => !Exists(entity));
-            foreach (var entity in list)
-            {
-                if (Exists(entity))
-                    Del(entity);
-            }
-            _playerAdminSounds.Remove(userId);
-        }
-        // #Fish edit end
+        if (_playerManager.TryGetSessionById(userId, out var session))
+            RaiseNetworkEvent(new StopAdminSoundEvent(), session);
     }
-
-    // --- Остальные методы без изменений ---
+    // FIsh edit end
 
     private Filter GetStationAndPvs(EntityUid source)
     {
@@ -114,6 +65,10 @@ public sealed class ServerGlobalSoundSystem : SharedGlobalSoundSystem
 
     public void StopStationEventMusic(EntityUid source, StationEventMusicType type)
     {
+        // TODO REPLAYS
+        // these start & stop events are gonna be a PITA
+        // theres probably some nice way of handling them. Maybe it just needs dedicated replay data (in which case these events should NOT get recorded).
+
         var msg = new StopStationEventMusic(type);
         var filter = GetStationAndPvs(source);
         RaiseNetworkEvent(msg, filter);
@@ -128,6 +83,7 @@ public sealed class ServerGlobalSoundSystem : SharedGlobalSoundSystem
     {
         var audio = AudioParams.Default.WithVolume(-8);
         var msg = new StationEventMusicEvent(specifier, type, audio);
+
         var filter = GetStationAndPvs(source);
         RaiseNetworkEvent(msg, filter);
     }
