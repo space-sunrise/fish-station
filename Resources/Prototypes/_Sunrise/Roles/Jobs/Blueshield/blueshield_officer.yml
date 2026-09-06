@@ -43,7 +43,7 @@
     - Mining
   special:
     - !type:AddImplantSpecial
-      implants: [ MindShieldImplant ]
+      implants: [ MindShieldImplant, BluespaceImplant ] # Fish edit
 
 - type: startingGear
   id: BlueShieldOfficerGear
@@ -56,6 +56,7 @@
     gloves: ClothingHandsGlovesCombat
   storage:
     back:
+    - FishUplinkNTERTBlueShield # Fish edit
     # - HandheldBSOCrewMonitor
 
 - type: chameleonOutfit

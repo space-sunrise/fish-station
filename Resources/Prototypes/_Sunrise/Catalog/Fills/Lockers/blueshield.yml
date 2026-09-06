@@ -10,9 +10,10 @@
         - id: CigarGoldCase
           prob: 0.25
         - id: ClothingMaskGasBlueShield
-        - id: ClothingHeadsetAltCommand
+        - id: ClothingHeadsetBlueShield # Fish edit
         - id: HandheldBSOCrewMonitor
         - id: WeaponMultiphaseGun
+        - id: MedkitCombatFilled # Fish edit
 
 - type: entity
   id: LockerBlueshieldFilledHardsuit
@@ -26,8 +27,9 @@
         - id: CigarGoldCase
           prob: 0.25
         - id: ClothingMaskGasBlueShield
-        - id: ClothingHeadsetAltCommand
+        - id: ClothingHeadsetBlueShield # Fish edit
         - id: HandheldBSOCrewMonitor
         - id: WeaponMultiphaseGun
+        - id: MedkitCombatFilled # Fish edit
         - id: ClothingOuterHardsuitBlueShield
         - id: OxygenTankFilled
