@@ -1,7 +1,7 @@
-﻿# BlueShield Weapon Bundles
+# BlueShield Weapon Bundles
 blueshield-gun-bundle-ash12-name = Набор АШ-12
 blueshield-gun-bundle-skm24-name = Набор СКМ-24
-blueshield-gun-bundle-cycler-name = Набор Штурмовой дробовик
+blueshield-gun-bundle-cycler-name = Набор штурмового дробовика
 blueshield-gun-bundle-skm28-name = Набор СКМ-28
 blueshield-gun-bundle-leikha-name = Набор Лейха
 blueshield-gun-bundle-lecter-mk2-name = Набор Лектер Мк2
@@ -9,8 +9,8 @@ blueshield-gun-bundle-lecter-mk3-name = Набор Лектер Мк3
 blueshield-gun-bundle-lecter-xl8-name = Набор Лектер XL8
 blueshield-gun-bundle-wt550b-name = Набор WT550b
 blueshield-gun-bundle-drozd-mk2-name = Набор Дрозд Мк2
-blueshield-gun-bundle-shotgun12-name = Набор Боевой дробовик
-blueshield-gun-bundle-shotgun4034-name = Набор Окопный дробовик 4034
+blueshield-gun-bundle-shotgun12-name = Набор боевого дробовика
+blueshield-gun-bundle-shotgun4034-name = Набор окопного дробовика 4034
 blueshield-gun-bundle-lnt620-name = Набор LNT620 «Искра»
 blueshield-gun-bundle-ik60-name = Набор ИК-60
 

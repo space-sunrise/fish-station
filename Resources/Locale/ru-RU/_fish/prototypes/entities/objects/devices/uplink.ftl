@@ -1,12 +1,12 @@
-﻿ent-FishUplinkNTERTBlueShield = аплинк "Синий щит"
+ent-FishUplinkNTERTBlueShield = аплинк "Синий щит"
     .desc = Новейший аплинк для заказа снаряжения оперативникам "Синий щит", на обратной стороне видна надпись "Выклянчивание дополнительных кристаллов карается понижением до Службы Безопасности"
 
 ent-ClothingBackpackDuffelWeaponAsh12BlueShield = вещмешок с АШ-12
-    .desc = Вещмешок, содержащий тяжёлый автомат АШ-12, один магазин с пулями и один травматический.
+    .desc = Вещмешок, содержащий тяжёлый автомат АШ-12, один магазин с пулями и один магазин с травматическими патронами.
 ent-ClothingBackpackDuffelWeaponRifleSKM24BlueShield = вещмешок с СКМ-24
     .desc = Вещмешок, содержащий автомат СКМ-24 и два магазина (1 FMJ, 1 HP).
 ent-ClothingBackpackDuffelWeaponShotgunCyclerBlueShield = вещмешок со штурмовым дробовиком
-    .desc = Вещмешок, содержащий штурмовой дробовик Cycler и два спидлоадера (пули и травматические).
+    .desc = Вещмешок, содержащий штурмовой дробовик Cycler и два спидлоадера (спидлоадер с пулями и спидлоадер с травматическими патронами).
 ent-ClothingBackpackDuffelWeaponRifleSKM28BlueShield = вещмешок с СКМ-28
     .desc = Вещмешок, содержащий винтовку СКМ-28 и два магазина (1 FMJ, 1 HP).
 ent-ClothingBackpackDuffelWeaponRifleLeikhaBlueShield = вещмешок с Лейхой
@@ -22,9 +22,9 @@ ent-ClothingBackpackDuffelWeaponSubMachineGunWt550bBlueShield = вещмешок
 ent-ClothingBackpackDuffelWeaponSubMachineGunDrozdMk2BlueShield = вещмешок с Дрозд Мк2
     .desc = Вещмешок, содержащий пистолет-пулемёт Дрозд Мк2 и два магазина (1 FMJ, 1 HP).
 ent-ClothingBackpackDuffelWeaponShotgun12BlueShield = вещмешок с боевым дробовиком
-    .desc = Вещмешок, содержащий боевой дробовик SPAS-12 и две коробки патронов (пули и травматические).
+    .desc = Вещмешок, содержащий боевой дробовик SPAS-12 и две коробки патронов (коробка с пулями и коробка с травматическими патронами).
 ent-ClothingBackpackDuffelWeaponShotgun4034BlueShield = вещмешок с окопным дробовиком
-    .desc = Вещмешок, содержащий окопный дробовик 4034 и две коробки патронов (пули и травматические).
+    .desc = Вещмешок, содержащий окопный дробовик 4034 и две коробки патронов (коробка с пулями и коробка с травматическими патронами).
 ent-ClothingBackpackDuffelWeaponLaserLNT620BlueShield = вещмешок с LNT620 «Искра»
     .desc = Вещмешок, содержащий автоматический лазер LNT620 и две батареи повышенной ёмкости.
 ent-ClothingBackpackDuffelWeaponGunLaserCarbineAutomaticBlueShield = вещмешок с лазерным карабином ИК-60
