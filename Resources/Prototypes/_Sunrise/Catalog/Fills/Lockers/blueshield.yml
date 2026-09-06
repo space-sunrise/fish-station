@@ -13,7 +13,7 @@
         - id: ClothingHeadsetBlueShield # Fish edit
         - id: HandheldBSOCrewMonitor
         - id: WeaponMultiphaseGun
-        - id: MedkitCombatFilled # Fish edit
+        - id: MedipenCaseBlueShield
 
 - type: entity
   id: LockerBlueshieldFilledHardsuit
@@ -30,6 +30,6 @@
         - id: ClothingHeadsetBlueShield # Fish edit
         - id: HandheldBSOCrewMonitor
         - id: WeaponMultiphaseGun
-        - id: MedkitCombatFilled # Fish edit
         - id: ClothingOuterHardsuitBlueShield
         - id: OxygenTankFilled
+        - id: MedipenCaseBlueShield
