@@ -340,3 +340,12 @@
   media:
   - url: https://github.com/makura-games/sunrise-station/blob/master/Tools/_sunrise/changelog/README.md
     description: '**Changelog** <!-- === КАК ПИСАТЬ ЧЕЙНЖЛОГ ==='
+- author: Endennsss
+  time: '2026-09-06T07:04:09.0000000+00:00'
+  changes:
+  - type: Add
+    message: Добавлен магнит для руды в переработчик руды
+  id: 35
+  url: https://github.com/makura-games/fish-station/pull/426
+  media:
+  - url: https://github.com/user-attachments/assets/d2cf51d4-d64e-436c-b321-7b874a833f0c
