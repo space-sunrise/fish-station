@@ -430,3 +430,10 @@
     message: ОБР покупной на станции теперь имеет общий анонс какой отряд был вызвван и задержку 15 минут до прилета отряда.
   id: 42
   url: https://github.com/makura-games/fish-station/pull/435
+- author: Erikundel и 10 тысяч нейронок
+  time: '2026-09-06T20:34:22.0000000+00:00'
+  changes:
+  - type: Add
+    message: Консольная команда stopglobaladminsound, что отключает проигрыш любых админ звуков на сервере для всех.
+  id: 43
+  url: https://github.com/makura-games/fish-station/pull/407
