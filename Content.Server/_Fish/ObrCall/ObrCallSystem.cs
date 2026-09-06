@@ -271,6 +271,7 @@ public sealed partial class ObrCallSystem : EntitySystem
             var pendingCall = new PendingStationObrCall
             {
                 TeamId = team.ID,
+                Account = team.Account,
                 Mission = sanitizedMission,
                 StationUid = station,
                 Cost = cost,
@@ -287,16 +288,20 @@ public sealed partial class ObrCallSystem : EntitySystem
                 LogImpact.High,
                 $"{ToPrettyString(actor)} scheduled OBR team {team.ID} via {ToPrettyString(console)} for {cost} (delay {delay.TotalMinutes}m){missionNote}");
 
-            // Анонс на станцию о вызове отряда через 15 минут
-            var announcement = Loc.GetString("obr-call-announcement-station", ("team", teamName));
+            var formattedDuration = delay.TotalMinutes >= 1 && delay.Seconds == 0
+                ? $"{(int)delay.TotalMinutes} минут"
+                : $"{(int)delay.TotalMinutes:D2}:{delay.Seconds:D2}";
+
+            // Анонс на станцию о вызове отряда с настроенной задержкой
+            var announcement = Loc.GetString("obr-call-announcement-station", ("team", teamName), ("duration", formattedDuration));
             _chat.DispatchStationAnnouncement(
                 station,
                 announcement,
-                sender: Loc.GetString("chat-manager-sender-centcom"),
+                sender: Loc.GetString("chat-manager-sender-announcement"),
                 playDefaultSound: true,
                 colorOverride: Color.Gold);
 
-            var successStatus = Loc.GetString("obr-call-pending-success", ("team", teamName));
+            var successStatus = Loc.GetString("obr-call-pending-success", ("team", teamName), ("duration", formattedDuration));
             _popup.PopupEntity(successStatus, console, actor, PopupType.Medium);
             UpdateUi(console, purchaseMode: true, actor, successStatus);
             return;
@@ -310,20 +315,20 @@ public sealed partial class ObrCallSystem : EntitySystem
     {
         if (!_prototypes.TryIndex<ObrTeamPrototype>(call.TeamId, out var team))
         {
-            Refund(call.StationUid, call.TeamId, call.Cost);
+            Refund(call.StationUid, call.Account, call.Cost, call.TeamId);
             return;
         }
 
         if (IsTeamAlreadyActive(team.ID))
         {
-            Refund(call.StationUid, team, call.Cost);
+            Refund(call.StationUid, call.Account, call.Cost, call.TeamId);
             _sawmill.Warning($"Pending OBR call {call.TeamId} cancelled because team is already active. Refunded {call.Cost}.");
             return;
         }
 
         if (!TryGetCentCommGrid(out var centcommGrid))
         {
-            Refund(call.StationUid, team, call.Cost);
+            Refund(call.StationUid, call.Account, call.Cost, call.TeamId);
             _sawmill.Warning($"Pending OBR call {call.TeamId} failed: CentComm grid not found. Refunded {call.Cost}.");
             return;
         }
@@ -496,11 +501,7 @@ public sealed partial class ObrCallSystem : EntitySystem
 
     private void Refund(EntityUid station, ObrTeamPrototype team, int cost)
     {
-        if (!TryComp<StationBankAccountComponent>(station, out var bank))
-            return;
-
-        _cargo.UpdateBankAccount((station, bank), cost, team.Account);
-        _sawmill.Info($"Refunded {cost} to {team.Account} after failed OBR call {team.ID}");
+        Refund(station, team.Account, cost, team.ID);
     }
 
     private void Fail(EntityUid console, EntityUid actor, string message, bool purchaseMode)
@@ -711,10 +712,13 @@ public sealed partial class ObrCallSystem : EntitySystem
     /// </summary>
     public bool IsTeamActive(string teamId) => IsTeamAlreadyActive(teamId);
 
-    private void Refund(EntityUid station, string teamId, int cost)
+    private void Refund(EntityUid station, ProtoId<CargoAccountPrototype> account, int cost, string? teamId = null)
     {
-        if (_prototypes.TryIndex<ObrTeamPrototype>(teamId, out var team))
-            Refund(station, team, cost);
+        if (!TryComp<StationBankAccountComponent>(station, out var bank))
+            return;
+
+        _cargo.UpdateBankAccount((station, bank), cost, account);
+        _sawmill.Info($"Refunded {cost} to {account} after failed OBR call{(teamId != null ? $" {teamId}" : "")}");
     }
 }
 
@@ -724,6 +728,7 @@ public sealed partial class ObrCallSystem : EntitySystem
 public sealed class PendingStationObrCall
 {
     public string TeamId = string.Empty;
+    public ProtoId<CargoAccountPrototype> Account = "Cargo";
     public string Mission = string.Empty;
     public EntityUid StationUid;
     public int Cost;

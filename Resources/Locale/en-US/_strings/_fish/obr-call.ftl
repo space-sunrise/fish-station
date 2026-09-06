@@ -19,8 +19,8 @@ obr-team-cburn-name = CBURN
 obr-team-cburn-desc = Biological / chemical hazard response team.
 
 obr-call-success = {$team} has been dispatched.
-obr-call-announcement-station = Attention: Request for {$team} support approved. The team will be assembled and dispatched to you within 15 minutes.
-obr-call-pending-success = {$team} ordered. Expected deployment time: 15 minutes.
+obr-call-announcement-station = Attention: Request for {$team} support approved. The team will be assembled and dispatched to you within {$duration}.
+obr-call-pending-success = {$team} ordered. Expected deployment time: {$duration}.
 obr-call-error-early-round = Response teams cannot be deployed during the first {$minutes} minutes of the shift. Time remaining: {$timeLeft}.
 obr-call-error-pending = An order for this team is already being processed.
 obr-call-error-access = Access denied.

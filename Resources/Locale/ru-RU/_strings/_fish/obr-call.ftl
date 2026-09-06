@@ -19,8 +19,8 @@ obr-team-cburn-name = РХБЗЗ
 obr-team-cburn-desc = Отряд радиационной, химической и биологической защиты.
 
 obr-call-success = {$team} направлен к станции.
-obr-call-announcement-station = Внимание: Запрос поддержки {$team} одобрен. Отряд будет укомплектован и вызван к вам в течении 15 минут.
-obr-call-pending-success = {$team} заказан. Ожидаемое время развёртывания: 15 минут.
+obr-call-announcement-station = Внимание: Запрос поддержки {$team} одобрен. Отряд будет укомплектован и вызван к вам в течении {$duration}.
+obr-call-pending-success = {$team} заказан. Ожидаемое время развёртывания: {$duration}.
 obr-call-error-early-round = Вызов отрядов недоступен в первые {$minutes} минут смены. Оставшееся время: {$timeLeft}.
 obr-call-error-pending = Заказ этого отряда уже обрабатывается.
 obr-call-error-access = Доступ запрещён.
