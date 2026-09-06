@@ -12,7 +12,8 @@ using Robust.Shared.Containers;
 
 namespace Content.Client.DoAfter;
 
-public sealed class DoAfterOverlay : Overlay
+// FIsh edit - расширение анимации вынесено в _Fish
+public sealed partial class DoAfterOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> UnshadedShader = "unshaded";
 
@@ -67,6 +68,7 @@ public sealed class DoAfterOverlay : Overlay
         var rotationMatrix = Matrix3Helpers.CreateRotation(-rotation);
 
         var curTime = _timing.CurTime;
+        BeginEntranceFrame(); // FIsh edit - отслеживаем появление DoAfter на клиенте
 
         var bounds = args.WorldAABB.Enlarged(5f);
         var localEnt = _player.LocalSession?.AttachedEntity;
@@ -75,6 +77,8 @@ public sealed class DoAfterOverlay : Overlay
         var enumerator = _entManager.AllEntityQueryEnumerator<ActiveDoAfterComponent, DoAfterComponent, SpriteComponent, TransformComponent>();
         while (enumerator.MoveNext(out var uid, out _, out var comp, out var sprite, out var xform))
         {
+            TrackActiveDoAfters(comp); // FIsh edit - сохраняем активные индикаторы для очистки кеша
+
             if (xform.MapID != args.MapId)
                 continue;
 
@@ -110,14 +114,16 @@ public sealed class DoAfterOverlay : Overlay
             foreach (var doAfter in comp.DoAfters.Values)
             {
                 // Hide some DoAfters from other players for stealthy actions (ie: thieving gloves)
-                var alpha = 1f;
-                if (doAfter.Args.Hidden || isInContainer)
-                {
-                    if (uid != localEnt)
-                        continue;
+                var hidden = doAfter.Args.Hidden || isInContainer;
+                if (hidden && uid != localEnt)
+                    continue;
 
+                var entranceProgress = GetEntranceProgress(doAfter.Id, time); // FIsh edit - проявление с момента получения клиентом
+                var alpha = entranceProgress; // FIsh edit - учитываем плавное проявление
+                if (hidden)
+                {
                     // Hints to the local player that this do-after is not visible to other players.
-                    alpha = 0.5f;
+                    alpha *= 0.5f; // FIsh edit - сохраняем прозрачность скрытого действия
                 }
 
                 // Use the sprite itself if we know its bounds. This means short or tall sprites don't get overlapped
@@ -129,8 +135,11 @@ public sealed class DoAfterOverlay : Overlay
                 var position = new Vector2(-_barTexture.Width / 2f / EyeManager.PixelsPerMeter,
                     yOffset / scale + offset / EyeManager.PixelsPerMeter * scale);
 
+                // FIsh edit - начинаем ниже конечной позиции
+                position = GetEntrancePosition(position, entranceProgress);
+
                 // Draw the underlying bar texture
-                handle.DrawTexture(_barTexture, position);
+                handle.DrawTexture(_barTexture, position, Color.White.WithAlpha(entranceProgress)); // FIsh edit
 
                 Color color;
                 float elapsedRatio;
@@ -159,6 +168,7 @@ public sealed class DoAfterOverlay : Overlay
             }
         }
 
+        EndEntranceFrame(); // FIsh edit - удаляем завершённые DoAfter из кеша анимации
         handle.UseShader(null);
         handle.SetTransform(Matrix3x2.Identity);
     }

@@ -284,3 +284,68 @@
     message: Моли больше не могут съесть металлический шлем «Алтын».
   id: 29
   url: https://github.com/makura-games/fish-station/pull/398
+- author: Pifagor
+  time: '2026-09-01T21:54:05.0000000+00:00'
+  changes:
+  - type: Tweak
+    message: Перебалансирован Рассказчик — Classic и Insane доступны раньше, Calm больше не кидает тяжёлые режимы вроде нюкеров и культов.
+  - type: Tweak
+    message: Рассказчик учитывает пороги игроков midround и больше не спамит спящими агентами, ворами и боевыми шаттлами.
+  - type: Tweak
+    message: В Secret снова чаще выпадают предатели; убраны Xenoborgs из весов Secret, добавлены маг и выживание с малым шансом.
+  - type: Fix
+    message: Убраны дубли roundstart/midround событий у Рассказчика и параллельный планировщик шаттлов на его пресетах.
+  - type: Fix
+    message: Вкладка истории Рассказчика показывается только если в раунде был рассказчик; Kitsune снова может попасть в культ плоти.
+  id: 30
+  url: https://github.com/makura-games/fish-station/pull/373
+- author: Endennsss
+  time: '2026-09-02T08:53:56.0000000+00:00'
+  changes:
+  - type: Add
+    message: В автолат добавлен рецепт пустой пластиковой бутылки.
+  - type: Add
+    message: В принтер униформы добавлен белый берет старшего инженера.
+  - type: Fix
+    message: В описании ящика плазмы теперь указано правильное количество — 30 единиц.
+  - type: Tweak
+    message: Обновлены текстуры чёрного и зелёного шлемов «Алтын».
+  id: 31
+  url: https://github.com/makura-games/fish-station/pull/420
+- author: Kaiten
+  time: '2026-09-03T08:50:44.0000000+00:00'
+  changes:
+  - type: Tweak
+    message: После абильного нытья от игроков в ахелп. Вещи ведущих ролей добавлены другим должностям в отделе после и доступны после открытия ведущей роли.
+  id: 32
+  url: https://github.com/makura-games/fish-station/pull/400
+- author: Kaiten
+  time: '2026-09-03T21:34:28.0000000+00:00'
+  changes:
+  - type: Add
+    message: Сплик так и не одобрил скин лисы для призраков, так что теперь он общедоступен.
+  - type: Tweak
+    message: У Кицунэ теперь есть анимация ходьбы в форме лисы.
+  - type: Tweak
+    message: У Кицунэ в форме лисы теперь более яркий мех, который больше походит на выбранный игроком цвет глаз.
+  id: 33
+  url: https://github.com/makura-games/fish-station/pull/418
+- author: НейроЕрик
+  time: '2026-09-04T17:24:45.0000000+00:00'
+  changes:
+  - type: Tweak
+    message: Вернул сабы, если все сломается, то бить по попе его.
+  id: 34
+  url: https://github.com/makura-games/fish-station/pull/411
+  media:
+  - url: https://github.com/makura-games/sunrise-station/blob/master/Tools/_sunrise/changelog/README.md
+    description: '**Changelog** <!-- === КАК ПИСАТЬ ЧЕЙНЖЛОГ ==='
+- author: Endennsss
+  time: '2026-09-06T07:04:09.0000000+00:00'
+  changes:
+  - type: Add
+    message: Добавлен магнит для руды в переработчик руды
+  id: 35
+  url: https://github.com/makura-games/fish-station/pull/426
+  media:
+  - url: https://github.com/user-attachments/assets/d2cf51d4-d64e-436c-b321-7b874a833f0c

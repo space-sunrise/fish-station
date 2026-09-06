@@ -54,7 +54,7 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
         {
             if (!filter.Enabled
                 || !_nodeContainer.TryGetNodes(uid, filter.InletName, filter.FilterName, filter.OutletName, out PipeNode? inletNode, out PipeNode? filterNode, out PipeNode? outletNode)
-                || (outletNode.Air.Pressure >= Atmospherics.MaxOutputPressure)) // No need to transfer if targets are full. Fish edit. Реанимируем сабфреймы
+                || outletNode.Air.Pressure >= Atmospherics.MaxOutputPressure) // Я СКАЗАЛ МЫ РЕАНИМИРУЕМ САБЫ. Fish edit
             {
                 _ambientSoundSystem.SetAmbience(uid, false);
                 return;
@@ -72,32 +72,18 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
             var removed = inletNode.Air.RemoveVolume(transferVol);
 
             if (filter.FilteredGas.HasValue)
-            {
-                // Make sure we don't pump over the pressure limit.
-                var limitMolesFilter =
-                    AtmosphereSystem.MolesToMaxPressure(removed, filterNode.Air, Atmospherics.MaxOutputPressure);
+            {  // Fish edit start
+                var filteredOut = new GasMixture() { Temperature = removed.Temperature };
 
-                var availableMoles = removed.GetMoles(filter.FilteredGas.Value);
-                var filteredMoles = Math.Max(Math.Min(limitMolesFilter, availableMoles), 0);
-                var filteredGasMixture = new GasMixture { Temperature = removed.Temperature };
+                filteredOut.SetMoles(filter.FilteredGas.Value, removed.GetMoles(filter.FilteredGas.Value));
+                removed.SetMoles(filter.FilteredGas.Value, 0f);
 
-                filteredGasMixture.SetMoles(filter.FilteredGas.Value, filteredMoles);
-                removed.AdjustMoles(filter.FilteredGas.Value, -filteredMoles);
-
-                _atmosphereSystem.Merge(filterNode.Air, filteredGasMixture);
-
-                _ambientSoundSystem.SetAmbience(uid, filteredMoles > 0f);
+                var target = filterNode.Air.Pressure < Atmospherics.MaxOutputPressure ? filterNode : inletNode;
+                _atmosphereSystem.Merge(target.Air, filteredOut);
+                _ambientSoundSystem.SetAmbience(uid, filteredOut.TotalMoles > 0f);
             }
 
-            // Fraction of `removed` that can be sent to outlet without exceeding max pressure.
-            var limitRatioOutlet =
-                AtmosphereSystem.FractionToMaxPressure(removed, outletNode.Air, Atmospherics.MaxOutputPressure);
-
-            // This might end up negative, but such cases are handled correctly by the `RemoveRatio` method
-            var passthrough = removed.RemoveRatio(limitRatioOutlet);
-
-            _atmosphereSystem.Merge(outletNode.Air, passthrough);
-            _atmosphereSystem.Merge(inletNode.Air, removed);
+            _atmosphereSystem.Merge(outletNode.Air, removed);  // Fish edit end
         }
 
         private void OnFilterLeaveAtmosphere(EntityUid uid, GasFilterComponent filter, ref AtmosDeviceDisabledEvent args)
