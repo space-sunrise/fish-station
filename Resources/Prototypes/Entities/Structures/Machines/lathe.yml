@@ -671,6 +671,11 @@
       whitelist:
         tags:
           - Ore
+    # Fish added start - добавлен магнит для сбора руды с пола
+    - type: OreProcessorMagnet
+      range: 3
+      duration: 2
+    # Fish added end
     - type: Lathe
       idleState: icon
       runningState: building
