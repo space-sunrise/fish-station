@@ -1,0 +1,1164 @@
+﻿# РћСЂСѓР¶РёРµ РЎРёРЅРµРіРѕ Р©РёС‚Р° (РЅР°Р±РѕСЂС‹: РѕСЂСѓР¶РёРµ + 2 РјР°РіР°Р·РёРЅР° (1 FMJ, 1 HP))
+
+# region РўСЏР¶С‘Р»РѕРµ РѕСЂСѓР¶РёРµ (18 BC)
+- type: listing
+  id: FishERTUplinkWeaponAsh12Box
+  name: blueshield-gun-bundle-ash12-name
+  productEntity: FishClothingBackpackDuffelWeaponAsh12BlueShield
+  icon: { sprite: _Sunrise/Objects/Weapons/Guns/Rifles/ash12/big.rsi, state: base }
+  cost:
+    Bluecrystal: 18
+  categories:
+    - FishBlueShieldAutoGun
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+# region РЎСЂРµРґРЅРµРµ РѕСЂСѓР¶РёРµ (9 BC)
+- type: listing
+  id: FishERTUplinkWeaponRifleSKM24BlueShield
+  name: blueshield-gun-bundle-skm24-name
+  productEntity: FishClothingBackpackDuffelWeaponRifleSKM24BlueShield
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: skm24nano }
+  cost:
+    Bluecrystal: 9
+  categories:
+    - FishBlueShieldAutoGun
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkWeaponShotgunCyclerBlueShield
+  name: blueshield-gun-bundle-cycler-name
+  productEntity: FishClothingBackpackDuffelWeaponShotgunCyclerBlueShield
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: cycler }
+  cost:
+    Bluecrystal: 9
+  categories:
+    - FishBlueShieldAutoGun
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkWeaponRifleSKM28BlueShield
+  name: blueshield-gun-bundle-skm28-name
+  productEntity: FishClothingBackpackDuffelWeaponRifleSKM28BlueShield
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: skm28nano }
+  cost:
+    Bluecrystal: 9
+  categories:
+    - FishBlueShieldAutoGun
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkWeaponRifleLeikhaBlueShield
+  name: blueshield-gun-bundle-leikha-name
+  productEntity: FishClothingBackpackDuffelWeaponRifleLeikhaBlueShield
+  icon: { sprite: _Starlight/Objects/Weapons/Guns/Rifles/m16a4.rsi, state: base }
+  cost:
+    Bluecrystal: 9
+  categories:
+    - FishBlueShieldAutoGun
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkWeaponRifleLecterMk2
+  name: blueshield-gun-bundle-lecter-mk2-name
+  productEntity: FishClothingBackpackDuffelWeaponRifleLecterMk2BlueShield
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: lecter }
+  cost:
+    Bluecrystal: 9
+  categories:
+    - FishBlueShieldAutoGun
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkWeaponLecterMk3BlueShield
+  name: blueshield-gun-bundle-lecter-mk3-name
+  productEntity: FishClothingBackpackDuffelWeaponLecterMk3BlueShield
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: lecter_mk3 }
+  cost:
+    Bluecrystal: 9
+  categories:
+    - FishBlueShieldAutoGun
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkWeaponRifleLecterXL8
+  name: blueshield-gun-bundle-lecter-xl8-name
+  productEntity: FishClothingBackpackDuffelWeaponRifleLecterXL8BlueShield
+  icon: { sprite: Objects/Weapons/Guns/Rifles/XL8.rsi, state: base }
+  cost:
+    Bluecrystal: 9
+  categories:
+    - FishBlueShieldAutoGun
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkWeaponSubMachineGunWt550b
+  name: blueshield-gun-bundle-wt550b-name
+  productEntity: FishClothingBackpackDuffelWeaponSubMachineGunWt550bBlueShield
+  icon: { sprite: _Starlight/Objects/Weapons/Guns/SMGs/wt550b.rsi, state: base }
+  cost:
+    Bluecrystal: 9
+  categories:
+    - FishBlueShieldAutoGun
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkWeaponSubMachineGunDrozdMk2BlueShield
+  name: blueshield-gun-bundle-drozd-mk2-name
+  productEntity: FishClothingBackpackDuffelWeaponSubMachineGunDrozdMk2BlueShield
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: drozd }
+  cost:
+    Bluecrystal: 9
+  categories:
+    - FishBlueShieldAutoGun
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkWeaponShotgun12BlueShield
+  name: blueshield-gun-bundle-shotgun12-name
+  productEntity: FishClothingBackpackDuffelWeaponShotgun12BlueShield
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: spas12 }
+  cost:
+    Bluecrystal: 9
+  categories:
+    - FishBlueShieldAutoGun
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+# region Р’С‚РѕСЂРёС‡РЅРѕРµ РѕСЂСѓР¶РёРµ (2 BC)
+- type: listing
+  id: FishERTUplinkWeaponShotgun4034BlueShield
+  name: blueshield-gun-bundle-shotgun4034-name
+  productEntity: FishClothingBackpackDuffelWeaponShotgun4034BlueShield
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: shot4034 }
+  cost:
+    Bluecrystal: 2
+  categories:
+    - FishBlueShieldAutoGun
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 5
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+# region Р›Р°Р·РµСЂС‹
+# Fish edit start - СѓР±СЂР°РЅС‹ РїСѓР»СЊСЃРѕРІРѕРµ РѕСЂСѓР¶РёРµ, РґРѕР±Р°РІР»РµРЅС‹ СЌРЅРµСЂРіРѕРґСЂРѕР±РѕРІРёРє, РіРёР±СЂРёРґРЅС‹Р№ С‚Р°Р·РµСЂ, Р”РѕРјРёРЅР°С‚РѕСЂ
+- type: listing
+  id: FishERTUplinkWeaponEnergyShotgunBlueShield
+  productEntity: WeaponEnergyShotgun
+  icon: { sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi, state: base }
+  cost:
+    Bluecrystal: 18
+  categories:
+    - FishBlueShieldLasers
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkWeaponIONRifleBlueShield
+  productEntity: WeaponIonRifle
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: ion-r }
+  cost:
+    Bluecrystal: 9
+  categories:
+    - FishBlueShieldLasers
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkWeaponLaserLNT620BlueShield
+  name: blueshield-gun-bundle-lnt620-name
+  productEntity: FishClothingBackpackDuffelWeaponLaserLNT620BlueShield
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: lnt620 }
+  cost:
+    Bluecrystal: 9
+  categories:
+    - FishBlueShieldLasers
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkWeaponGunLaserCarbineAutomaticBlueShield
+  name: blueshield-gun-bundle-ik60-name
+  productEntity: FishClothingBackpackDuffelWeaponGunLaserCarbineAutomaticBlueShield
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: ik60 }
+  cost:
+    Bluecrystal: 18
+  categories:
+    - FishBlueShieldLasers
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkWeaponAdvancedTaserBlueShield
+  productEntity: WeaponAdvancedTaser
+  icon: { sprite: _Starlight/Objects/Weapons/Guns/Battery/adv_taser.rsi, state: base }
+  cost:
+    Bluecrystal: 2
+  categories:
+    - FishBlueShieldLasers
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkWeaponMiniEnergyGunBlueShield
+  productEntity: WeaponMiniEnergyGun
+  icon: { sprite: _Starlight/Objects/Weapons/Guns/Battery/mini.rsi, state: base }
+  cost:
+    Bluecrystal: 2
+  categories:
+    - FishBlueShieldLasers
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+# Fish edit end
+
+
+# region РџРёСЃС‚РѕР»РµС‚С‹
+- type: listing
+  id: FishERTUplinkWeaponRevolverSpearheadBlueShield
+  productEntity: WeaponRevolverSpearhead
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: spearhead }
+  cost:
+    Bluecrystal: 1
+  categories:
+    - FishBlueShieldPistols
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkWeaponPulsePistolBlueShield
+  productEntity: WeaponPulsePistol
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: pulse-p }
+  cost:
+    Bluecrystal: 4
+  categories:
+    - FishBlueShieldPistols
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkWeaponPistolN1984BlueShield
+  productEntity: WeaponPistolN1984
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: n1984 }
+  cost:
+    Bluecrystal: 2
+  categories:
+    - FishBlueShieldPistols
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+# Fish edit start - РєР°С‚РµРіРѕСЂРёРё РІР·СЂС‹РІС‡Р°С‚РєРё РёР·РјРµРЅРµРЅС‹ РЅР° РѕР±С‰СѓСЋ NTexplosive
+# region Р’Р·СЂС‹РІС‡Р°С‚РєР° (1 BC)
+- type: listing
+  id: FishERTUplinkGrenadeShrapnel
+  productEntity: GrenadeShrapnel
+  icon: { sprite: Objects/Weapons/Grenades/shrapnelgrenade.rsi, state: icon }
+  cost:
+    Bluecrystal: 1
+  categories:
+    - NTexplosive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkGrenadeStinger
+  productEntity: GrenadeStinger
+  icon: { sprite: Objects/Weapons/Grenades/stingergrenade.rsi, state: icon }
+  cost:
+    Bluecrystal: 1
+  categories:
+    - NTexplosive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+# Fish edit end
+
+# Fish edit start - Р±РѕРµРїСЂРёРїР°СЃС‹ РїРµСЂРµРІРµРґРµРЅС‹ РІ NTAmmo СЃ РєРѕРЅРєСЂРµС‚РЅС‹РјРё РЅР°Р·РІР°РЅРёСЏРјРё РєР°Р»РёР±СЂРѕРІ
+# region Р‘РѕРµРїСЂРёРїР°СЃС‹ .20 Rifle (Lecter, Leikha)
+- type: listing
+  id: FishERTUplinkMagazineBoxRifleSP
+  name: blueshield-ammo-box-rifle-sp-name
+  productEntity: MagazineBoxRifleSP
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_rifle }
+  cost:
+    Crystallite: 4
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkMagazineBoxRifleFMJ
+  name: blueshield-ammo-box-rifle-fmj-name
+  productEntity: MagazineBoxRifleFMJ
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_rifle }
+  cost:
+    Crystallite: 4
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkMagazineRifleSPBlueShield
+  name: blueshield-ammo-mag-rifle-sp-name
+  productEntity: MagazineRifleSP
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: base }
+  cost:
+    Crystallite: 1
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkMagazineRifleFMJBlueShield
+  name: blueshield-ammo-mag-rifle-fmj-name
+  productEntity: MagazineRifleFMJ
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: base }
+  cost:
+    Crystallite: 1
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+# region Р‘РѕРµРїСЂРёРїР°СЃС‹ .30 Light Rifle (SKM-24)
+- type: listing
+  id: FishERTUplinkMagazineBoxLightRifleSPBlueShield
+  name: blueshield-ammo-box-light-rifle-sp-name
+  productEntity: MagazineBoxLightRifleSP
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi, state: base }
+  cost:
+    Crystallite: 4
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkMagazineBoxLightRifleFMJBlueShield
+  name: blueshield-ammo-box-light-rifle-fmj-name
+  productEntity: MagazineBoxLightRifleFMJ
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi, state: base }
+  cost:
+    Crystallite: 4
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkMagazineLightRifleSPBlueShield
+  name: blueshield-ammo-mag-light-rifle-sp-name
+  productEntity: MagazineLightRifleSP
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: base }
+  cost:
+    Crystallite: 1
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkMagazineLightRifleFMJBlueShield
+  name: blueshield-ammo-mag-light-rifle-fmj-name
+  productEntity: MagazineLightRifleFMJ
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: base }
+  cost:
+    Crystallite: 1
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+# region Р‘РѕРµРїСЂРёРїР°СЃС‹ .308 Heavy Rifle (SKM-28)
+- type: listing
+  id: FishERTUplinkMagazineBoxHeavyRifleSPBlueShield
+  name: blueshield-ammo-box-heavy-rifle-sp-name
+  productEntity: MagazineBoxHeavyRifleSP
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi, state: base }
+  cost:
+    Crystallite: 4
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkMagazineBoxHeavyRifleFMJBlueShield
+  name: blueshield-ammo-box-heavy-rifle-fmj-name
+  productEntity: MagazineBoxHeavyRifleFMJ
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi, state: base }
+  cost:
+    Crystallite: 4
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkMagazineRifleHeavySPBlueShield
+  name: blueshield-ammo-mag-heavy-rifle-sp-name
+  productEntity: MagazineRifleHeavySP
+  icon: { sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/rifle_heavy_mag.rsi, state: base }
+  cost:
+    Crystallite: 1
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkMagazineRifleHeavyFMJBlueShield
+  name: blueshield-ammo-mag-heavy-rifle-fmj-name
+  productEntity: MagazineRifleHeavyFMJ
+  icon: { sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/rifle_heavy_mag.rsi, state: base }
+  cost:
+    Crystallite: 1
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+# region Р‘РѕРµРїСЂРёРїР°СЃС‹ .35 Auto (WT550 Blue, Drozd Mk2)
+- type: listing
+  id: FishERTUplinkMagazineBoxPistolSP
+  name: blueshield-ammo-box-pistol-sp-name
+  productEntity: MagazineBoxPistolSP
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_smg }
+  cost:
+    Crystallite: 3
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkMagazineBoxPistolFMJ
+  name: blueshield-ammo-box-pistol-fmj-name
+  productEntity: MagazineBoxPistolFMJ
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_smg }
+  cost:
+    Crystallite: 3
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkMagazineBoxPistolHP
+  name: blueshield-ammo-box-pistol-hp-name
+  productEntity: MagazineBoxPistolHP
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_smg }
+  cost:
+    Crystallite: 3
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkMagazinePistolSMGTopMountedSPBlueShield
+  name: blueshield-ammo-mag-pistol-smg-top-sp-name
+  productEntity: MagazinePistolSubMachineGunTopMountedSP
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi, state: base }
+  cost:
+    Crystallite: 1
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkMagazinePistolSMGTopMountedFMJBlueShield
+  name: blueshield-ammo-mag-pistol-smg-top-fmj-name
+  productEntity: MagazinePistolSubMachineGunTopMounted
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi, state: base }
+  cost:
+    Crystallite: 1
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkMagazinePistolSMGTopMountedHPBlueShield
+  name: blueshield-ammo-mag-pistol-smg-top-hp-name
+  productEntity: MagazinePistolSubMachineGunTopMountedHP
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi, state: base }
+  cost:
+    Crystallite: 1
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkMagazineDrozdBlueShield
+  name: blueshield-ammo-mag-drozd-name
+  productEntity: MagazinePistolSubMachineGunCaselessExtended
+  icon: { sprite: _Sunrise/Objects/Weapons/Guns/SMGs/iar_52.rsi, state: mag-0 }
+  cost:
+    Crystallite: 1
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+# region Р‘РѕРµРїСЂРёРїР°СЃС‹ .45 Magnum (N1984, Spearhead)
+- type: listing
+  id: FishERTUplinkMagazineBoxMagnumSPBlueShield
+  name: blueshield-ammo-box-magnum-sp-name
+  productEntity: MagazineBoxMagnumSP
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_40_sp }
+  cost:
+    Crystallite: 2
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkMagazineBoxMagnumFMJBlueShield
+  name: blueshield-ammo-box-magnum-fmj-name
+  productEntity: MagazineBoxMagnumFMJ
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_40_fmj }
+  cost:
+    Crystallite: 2
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkMagazineBoxMagnumHPBlueShield
+  name: blueshield-ammo-box-magnum-hp-name
+  productEntity: MagazineBoxMagnumHP
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_40 }
+  cost:
+    Crystallite: 2
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkMagazineMagnumSPBlueShield
+  name: blueshield-ammo-mag-magnum-sp-name
+  productEntity: MagazineMagnum
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_magnum }
+  cost:
+    Crystallite: 1
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkMagazineMagnumFMJBlueShield
+  name: blueshield-ammo-mag-magnum-fmj-name
+  productEntity: MagazineMagnumFMJ
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_magnum }
+  cost:
+    Crystallite: 1
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkMagazineMagnumHPBlueShield
+  name: blueshield-ammo-mag-magnum-hp-name
+  productEntity: MagazineMagnumHP
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mag_magnum }
+  cost:
+    Crystallite: 1
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkSpeedLoaderMagnumSPBlueShield
+  name: blueshield-ammo-speedloader-magnum-sp-name
+  productEntity: SpeedLoaderMagnumSP
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: speedloader45 }
+  cost:
+    Crystallite: 1
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkSpeedLoaderMagnumFMJBlueShield
+  name: blueshield-ammo-speedloader-magnum-fmj-name
+  productEntity: SpeedLoaderMagnumFMJ
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: speedloader45 }
+  cost:
+    Crystallite: 1
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkSpeedLoaderMagnumHPBlueShield
+  name: blueshield-ammo-speedloader-magnum-hp-name
+  productEntity: SpeedLoaderMagnumHP
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: speedloader45 }
+  cost:
+    Crystallite: 1
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+# region Р‘РѕРµРїСЂРёРїР°СЃС‹ 12 РєР°Р»РёР±СЂР° (Р”СЂРѕР±РѕРІРёРєРё: SPAS-12, Cycler, L-4034)
+- type: listing
+  id: FishERTUplinkBoxLethalshotBlueShield
+  name: blueshield-ammo-box-shotgun-lethal-name
+  productEntity: BoxLethalshot
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_shot }
+  cost:
+    Crystallite: 2
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkBoxShotgunSlugBlueShield
+  name: blueshield-ammo-box-shotgun-slug-name
+  productEntity: BoxShotgunSlug
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_shot_slug }
+  cost:
+    Crystallite: 2
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkBoxBeanbagBlueShield
+  name: blueshield-ammo-box-shotgun-beanbag-name
+  productEntity: BoxBeanbag
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_shot }
+  cost:
+    Crystallite: 2
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkBoxShotgunFlareBlueShield
+  name: blueshield-ammo-box-shotgun-flare-name
+  productEntity: BoxShotgunFlare
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: box_shot_flare }
+  cost:
+    Crystallite: 2
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkSpeedLoaderShellShotgunBlueShield
+  name: blueshield-ammo-speedloader-shotgun-buckshot-name
+  productEntity: SpeedLoaderShellShotgun
+  icon: { sprite: _Starlight/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Shotgun/shotgun_speed_loader.rsi, state: base }
+  cost:
+    Crystallite: 1
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkSpeedLoaderShotgunSlugBlueShield
+  name: blueshield-ammo-speedloader-shotgun-slug-name
+  productEntity: SpeedLoaderShotgunSlug
+  icon: { sprite: _Starlight/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Shotgun/shotgun_speed_loader.rsi, state: base }
+  cost:
+    Crystallite: 1
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkSpeedLoaderShotgunBeanbagBlueShield
+  name: blueshield-ammo-speedloader-shotgun-beanbag-name
+  productEntity: SpeedLoaderShotgunBeanbag
+  icon: { sprite: _Starlight/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Shotgun/shotgun_speed_loader.rsi, state: base }
+  cost:
+    Crystallite: 1
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+# region Р‘РѕРµРїСЂРёРїР°СЃС‹ РђРЁ-12 (12.7Г—55 РјРј)
+- type: listing
+  id: FishERTUplinkMagazineAsh12Slug
+  name: blueshield-ammo-mag-ash12-slug-name
+  productEntity: MagazineAsh12Slug
+  icon: { sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/ash12.rsi, state: base }
+  cost:
+    Crystallite: 4
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkMagazineAsh12Beanbag
+  name: blueshield-ammo-mag-ash12-beanbag-name
+  productEntity: MagazineAsh12Beanbag
+  icon: { sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/ash12.rsi, state: base }
+  cost:
+    Crystallite: 3
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkMagazineAsh12Flare
+  name: blueshield-ammo-mag-ash12-flare-name
+  productEntity: MagazineAsh12Flare
+  icon: { sprite: _Sunrise/Objects/Weapons/Guns/Ammunition/Magazines/ash12.rsi, state: base }
+  cost:
+    Crystallite: 2
+  categories:
+    - NTAmmo
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+# Fish edit end
+
+# Fish edit start - РјРµРґРёС†РёРЅР° РїРµСЂРµРІРµРґРµРЅР° РІ NTMedicine, С†РµРЅР° automender СЃРЅРёР¶РµРЅР° РґРѕ 8C
+# region РњРµРґРёС†РёРЅР°
+- type: listing
+  id: FishERTUplinkAutoMenderBruteFilledBlueShield
+  productEntity: AutoMenderBruteFilled
+  icon: { sprite: _Starlight/Objects/Specific/Medical/medical.rsi, state: mender }
+  cost:
+    Crystallite: 8
+  categories:
+    - NTMedicine
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkAutoMenderBurnFilledBlueShield
+  productEntity: AutoMenderBurnFilled
+  icon: { sprite: _Starlight/Objects/Specific/Medical/medical.rsi, state: mender }
+  cost:
+    Crystallite: 8
+  categories:
+    - NTMedicine
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkDefibrillatorBlueShield
+  productEntity: AdvancedDefibrillatorCompact
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: comp_defib }
+  cost:
+    Crystallite: 4
+  categories:
+    - NTMedicine
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+# region Р­РєРёРїРёСЂРѕРІРєР°
+- type: listing
+  id: FishERTUplinkClothingShoesBootsMagERTBlueShield
+  productEntity: ClothingShoesBootsMagERT
+  icon: { sprite: Clothing/Shoes/Boots/magboots-ert.rsi, state: icon }
+  cost:
+    Crystallite: 12
+  categories:
+    - NTEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkClothingOuterArmorBlueShield
+  productEntity: ClothingOuterArmorBlueShield
+  icon: { sprite: _Sunrise/Clothing/OuterClothing/Armor/blueshield.rsi, state: icon }
+  cost:
+    Crystallite: 10
+  categories:
+    - NTEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkClothingOuterHardsuitBlueShield
+  productEntity: ClothingOuterHardsuitBlueShield
+  icon: { sprite: _Sunrise/Clothing/OuterClothing/Hardsuits/blueshield.rsi, state: icon }
+  cost:
+    Crystallite: 10
+  categories:
+    - NTEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: FishERTUplinkClothingOuterHardsuitBlueShieldMark2
+  productEntity: ClothingOuterHardsuitBlueShieldMark2
+  icon: { sprite: _Fish/Clothing/OuterClothing/Hardsuits/blueshield_mk2.rsi, state: icon }
+  cost:
+    Crystallite: 10
+  categories:
+    - NTEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
