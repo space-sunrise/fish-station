@@ -149,7 +149,7 @@
     emagStaticPacks:
     - SecurityStaticSunrise # Sunrise-Add
     - SyndicateAmmoStatic
-    - SyndicateBorgModulesEmagSunrise # Sunrise-Add
+    # - SyndicateBorgModulesEmagSunrise # Sunrise-Add # Fish edit - убрано в техфаб СБ
   - type: BlueprintReceiver
     whitelist:
       tags:
