@@ -136,18 +136,18 @@ public sealed partial class FishHealthAnalyzerControl
             }
         }
 
-        if (recommendations.Count == 0)
-        {
-            if (TreatmentListContainer.ChildCount == 0)
-                AddTreatmentText("health-analyzer-window-treatment-none");
-            return;
-        }
-
         if (HasRazoriumInteraction(addedReagents, _medicationAmounts))
         {
             TreatmentListContainer.AddChild(CreateMedicationText(
                 Loc.GetString("health-analyzer-window-treatment-razorium-warning"),
                 StyleClass.StatusCritical));
+        }
+
+        if (recommendations.Count == 0)
+        {
+            if (TreatmentListContainer.ChildCount == 0)
+                AddTreatmentText("health-analyzer-window-treatment-none");
+            return;
         }
 
         foreach (var recommendation in recommendations)
