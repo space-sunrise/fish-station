@@ -1114,6 +1114,37 @@
     whitelist:
       tags:
       - BlueShield
-# Fish edit end
+
+- type: listing
+  id: ERTUplinkClothingOuterArmorBlueShield
+  productEntity: ClothingOuterArmorBlueShield
+  icon: { sprite: _Sunrise/Clothing/OuterClothing/Armor/blueshield.rsi, state: icon }
+  cost:
+    Crystallite: 10
+  categories:
+    - NTEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
+
+- type: listing
+  id: ERTUplinkClothingOuterHardsuitBlueShield
+  productEntity: ClothingOuterHardsuitBlueShield
+  icon: { sprite: _Sunrise/Clothing/OuterClothing/Hardsuits/blueshield.rsi, state: icon }
+  cost:
+    Crystallite: 10
+  categories:
+    - NTEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - BlueShield
 
 

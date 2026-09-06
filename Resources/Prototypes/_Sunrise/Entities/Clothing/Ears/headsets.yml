@@ -142,6 +142,7 @@
     containers:
       key_slots:
       - EncryptionKeyBlueShield
+      - EncryptionKeyStationMaster # Fish edit
       - EncryptionKeyCommon
   - type: Sprite
     sprite: _Sunrise/Clothing/Ears/Headsets/command.rsi
