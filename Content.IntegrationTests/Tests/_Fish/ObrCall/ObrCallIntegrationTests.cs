@@ -39,6 +39,8 @@ public sealed class ObrCallIntegrationTests
             Assert.That(proto.HasIndex(MissionRoleId), Is.True);
             Assert.That(proto.HasIndex(SettingsId), Is.True);
             Assert.That(proto.Index(SettingsId).ArrivalDistance, Is.EqualTo(1500f));
+            Assert.That(proto.Index(SettingsId).CentCommArrivalDistance, Is.EqualTo(100f));
+            Assert.That(proto.Index(SettingsId).EarliestCallTime, Is.EqualTo(TimeSpan.FromMinutes(30)));
 
             var gamma = proto.Index(GammaId);
             Assert.That(gamma.StationAvailable, Is.False);

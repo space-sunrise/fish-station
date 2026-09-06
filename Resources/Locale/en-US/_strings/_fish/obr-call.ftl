@@ -19,12 +19,17 @@ obr-team-cburn-name = CBURN
 obr-team-cburn-desc = Biological / chemical hazard response team.
 
 obr-call-success = {$team} has been dispatched.
+obr-call-announcement-station = Attention: Request for {$team} support approved. The team will be assembled and dispatched to you within 15 minutes.
+obr-call-pending-success = {$team} ordered. Expected deployment time: 15 minutes.
+obr-call-error-early-round = Response teams cannot be deployed during the first {$minutes} minutes of the shift. Time remaining: {$timeLeft}.
+obr-call-error-pending = An order for this team is already being processed.
 obr-call-error-access = Access denied.
 obr-call-error-busy = Call already in progress. Wait a moment.
 obr-call-error-unknown-team = Unknown response team.
 obr-call-error-team-unavailable = This team is not available on this console.
 obr-call-error-already-active = This team is already en route or active.
 obr-call-error-no-station = No valid station found.
+obr-call-error-no-centcomm = Central Command station not found.
 obr-call-error-no-grid = Station has no dockable grid.
 obr-call-error-no-bank = Station bank account not found.
 obr-call-error-insufficient-funds = Insufficient station funds.

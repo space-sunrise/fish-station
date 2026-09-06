@@ -13,4 +13,10 @@ public sealed partial class ObrStationConsoleComponent : Component
     /// </summary>
     [DataField]
     public int MaxMissionLength = 512;
+
+    /// <summary>
+    /// Задержка между покупкой и развертыванием отряда ОБР.
+    /// </summary>
+    [DataField]
+    public TimeSpan CallDelay = TimeSpan.FromMinutes(15);
 }

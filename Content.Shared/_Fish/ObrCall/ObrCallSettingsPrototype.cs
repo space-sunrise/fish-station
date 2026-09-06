@@ -40,4 +40,34 @@ public sealed partial class ObrCallSettingsPrototype : IPrototype
     /// </summary>
     [DataField]
     public float ClearancePadding = 4f;
+
+    /// <summary>
+    /// Минимальное время с начала раунда, до которого вызов ОБР заблокирован.
+    /// </summary>
+    [DataField]
+    public TimeSpan EarliestCallTime = TimeSpan.FromMinutes(30);
+
+    /// <summary>
+    /// Целевая дистанция прибытия в секторе ЦК от центра станции ЦК (метры / тайлы).
+    /// </summary>
+    [DataField]
+    public float CentCommArrivalDistance = 100f;
+
+    /// <summary>
+    /// Шаг увеличения дистанции поиска в секторе ЦК, если на текущем радиусе нет безопасной точки.
+    /// </summary>
+    [DataField]
+    public float CentCommDistanceStep = 10f;
+
+    /// <summary>
+    /// Максимальная дистанция поиска точки прибытия в секторе ЦК.
+    /// </summary>
+    [DataField]
+    public float CentCommMaxArrivalDistance = 300f;
+
+    /// <summary>
+    /// Количество случайных направлений поиска на каждом радиусе в секторе ЦК.
+    /// </summary>
+    [DataField]
+    public int CentCommAttemptsPerRadius = 24;
 }

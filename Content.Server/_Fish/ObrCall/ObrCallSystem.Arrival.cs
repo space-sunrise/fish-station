@@ -93,6 +93,70 @@ public sealed partial class ObrCallSystem
         return _transform.GetWorldPosition(gridUid);
     }
 
+    /// <summary>
+    /// Ищет безопасную точку в секторе ЦК на расстоянии ~100 от станции ЦК и отправляет шаттл туда через FTL (без стыковки).
+    /// </summary>
+    private bool TryFtlObrToCentCommDistantPoint(EntityUid shuttleUid, ShuttleComponent shuttle, EntityUid centcommGrid)
+    {
+        if (!TryFindSafeCentCommArrivalCoordinates(shuttleUid, centcommGrid, out var coords, out var angle))
+            return false;
+
+        _shuttles.FTLToCoordinates(shuttleUid, shuttle, coords, angle);
+        return true;
+    }
+
+    /// <summary>
+    /// Подбирает безопасную точку в секторе ЦК на расстоянии ~100 без столкновений.
+    /// </summary>
+    public bool TryFindSafeCentCommArrivalCoordinates(
+        EntityUid shuttleUid,
+        EntityUid centcommGrid,
+        out EntityCoordinates coordinates,
+        out Angle angle)
+    {
+        coordinates = default;
+        angle = Angle.Zero;
+
+        if (!TryComp(centcommGrid, out TransformComponent? centcommXform) ||
+            centcommXform.MapUid is not { } mapUid ||
+            !TryComp(shuttleUid, out MapGridComponent? shuttleGrid))
+        {
+            return false;
+        }
+
+        var settings = _prototypes.Index(DefaultSettingsId);
+        var centcommWorld = GetGridWorldCenter(centcommGrid);
+        var mapId = centcommXform.MapID;
+        var shuttleLocalAabb = shuttleGrid.LocalAABB;
+        var size = new Vector2(
+            shuttleLocalAabb.Width + settings.ClearancePadding * 2f,
+            shuttleLocalAabb.Height + settings.ClearancePadding * 2f);
+
+        for (var distance = settings.CentCommArrivalDistance;
+             distance <= settings.CentCommMaxArrivalDistance + 0.01f;
+             distance += settings.CentCommDistanceStep)
+        {
+            for (var attempt = 0; attempt < settings.CentCommAttemptsPerRadius; attempt++)
+            {
+                var dir = _random.NextAngle();
+                var candidateWorld = centcommWorld + dir.ToWorldVec() * distance;
+                var candidateBox = Box2.CenteredAround(candidateWorld, size);
+
+                if (!IsArrivalBoxClear(mapId, shuttleUid, candidateBox))
+                    continue;
+
+                coordinates = new EntityCoordinates(mapUid, candidateWorld);
+                // Ориентируем шаттл лицом к станции ЦК.
+                angle = (centcommWorld - candidateWorld).ToWorldAngle();
+                return true;
+            }
+        }
+
+        _sawmill.Warning(
+            $"Failed to find safe OBR arrival point near CentComm {ToPrettyString(centcommGrid)} within {settings.CentCommMaxArrivalDistance}m");
+        return false;
+    }
+
     private bool IsArrivalBoxClear(MapId mapId, EntityUid shuttleUid, Box2 worldBox)
     {
         // Другие сетки (станция, астероиды, шаттлы) — пересечение запрещено.
@@ -112,3 +176,4 @@ public sealed partial class ObrCallSystem
         return meteors.Count == 0;
     }
 }
+

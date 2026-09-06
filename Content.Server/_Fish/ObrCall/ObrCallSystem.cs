@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.Cargo.Systems;
+using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Popups;
@@ -9,6 +10,7 @@ using Content.Server.Roles;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
+using Content.Server._Sunrise.StationCentComm;
 using Content.Server._Sunrise.Storyteller.Components;
 using Content.Shared._Fish.ObrCall;
 using Content.Shared.Cargo.Prototypes;
@@ -23,6 +25,7 @@ using Content.Shared.Popups;
 using Content.Shared.Roles;
 using Content.Shared.Station.Components;
 using Robust.Server.GameObjects;
+using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -42,6 +45,7 @@ public sealed partial class ObrCallSystem : EntitySystem
     [Dependency] private readonly AccessReaderSystem _access = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly CargoSystem _cargo = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -57,6 +61,11 @@ public sealed partial class ObrCallSystem : EntitySystem
     /// Активные вызовы: teamId → rule entity.
     /// </summary>
     private readonly Dictionary<string, EntityUid> _activeCalls = new();
+
+    /// <summary>
+    /// Очередь отложенных вызовов со станционной консоли (15-минутная задержка).
+    /// </summary>
+    private readonly List<PendingStationObrCall> _pendingCalls = new();
 
     /// <summary>
     /// Блокировка от двойных кликов.
@@ -87,7 +96,27 @@ public sealed partial class ObrCallSystem : EntitySystem
     private void OnRoundRestart(RoundRestartCleanupEvent ev)
     {
         _activeCalls.Clear();
+        _pendingCalls.Clear();
         _callLockUntil = TimeSpan.Zero;
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        if (_pendingCalls.Count == 0)
+            return;
+
+        var now = _timing.CurTime;
+        for (var i = _pendingCalls.Count - 1; i >= 0; i--)
+        {
+            var call = _pendingCalls[i];
+            if (now < call.ExecuteTime)
+                continue;
+
+            _pendingCalls.RemoveAt(i);
+            ExecutePendingCall(call);
+        }
     }
 
     private void OnGameRuleEnded(ref GameRuleEndedEvent args)
@@ -159,6 +188,17 @@ public sealed partial class ObrCallSystem : EntitySystem
 
         _callLockUntil = _timing.CurTime + CallLockDuration;
 
+        var settings = _prototypes.Index(DefaultSettingsId);
+        var roundDuration = _gameTicker.RoundDuration();
+        if (roundDuration < settings.EarliestCallTime)
+        {
+            var remaining = settings.EarliestCallTime - roundDuration;
+            var minutes = (int)settings.EarliestCallTime.TotalMinutes;
+            var timeLeft = $"{(int)remaining.TotalMinutes:D2}:{remaining.Seconds:D2}";
+            Fail(console, actor, Loc.GetString("obr-call-error-early-round", ("minutes", minutes), ("timeLeft", timeLeft)), purchaseMode);
+            return;
+        }
+
         if (!_prototypes.TryIndex<ObrTeamPrototype>(teamId, out var team))
         {
             Fail(console, actor, Loc.GetString("obr-call-error-unknown-team"), purchaseMode);
@@ -199,15 +239,13 @@ public sealed partial class ObrCallSystem : EntitySystem
             return;
         }
 
-        var targetGrid = _station.GetLargestGrid((station, stationData));
-        if (targetGrid == null)
+        if (!TryGetCentCommGrid(out var centcommGrid))
         {
-            Fail(console, actor, Loc.GetString("obr-call-error-no-grid"), purchaseMode);
+            Fail(console, actor, Loc.GetString("obr-call-error-no-centcomm"), purchaseMode);
             return;
         }
 
         var cost = 0;
-        var charged = false;
         if (purchaseMode)
         {
             cost = team.StationCost!.Value;
@@ -224,10 +262,86 @@ public sealed partial class ObrCallSystem : EntitySystem
                 return;
             }
 
-            // Списание до старта rule; при провале — возврат.
+            // Списание средств сразу при заказе отряда со станции.
             _cargo.UpdateBankAccount((station, bank), -cost, team.Account);
-            charged = true;
+
+            var delay = CompOrNull<ObrStationConsoleComponent>(console)?.CallDelay ?? TimeSpan.FromMinutes(15);
+            var executeTime = _timing.CurTime + delay;
+
+            var pendingCall = new PendingStationObrCall
+            {
+                TeamId = team.ID,
+                Mission = sanitizedMission,
+                StationUid = station,
+                Cost = cost,
+                Actor = actor,
+                Console = console,
+                ExecuteTime = executeTime
+            };
+            _pendingCalls.Add(pendingCall);
+
+            var teamName = Loc.GetString(team.Name);
+            var missionNote = string.IsNullOrWhiteSpace(sanitizedMission) ? string.Empty : $"; mission: {sanitizedMission}";
+            _adminLog.Add(
+                LogType.Action,
+                LogImpact.High,
+                $"{ToPrettyString(actor)} scheduled OBR team {team.ID} via {ToPrettyString(console)} for {cost} (delay {delay.TotalMinutes}m){missionNote}");
+
+            // Анонс на станцию о вызове отряда через 15 минут
+            var announcement = Loc.GetString("obr-call-announcement-station", ("team", teamName));
+            _chat.DispatchStationAnnouncement(
+                station,
+                announcement,
+                sender: Loc.GetString("chat-manager-sender-centcom"),
+                playDefaultSound: true,
+                colorOverride: Color.Gold);
+
+            var successStatus = Loc.GetString("obr-call-pending-success", ("team", teamName));
+            _popup.PopupEntity(successStatus, console, actor, PopupType.Medium);
+            UpdateUi(console, purchaseMode: true, actor, successStatus);
+            return;
         }
+
+        // CentComm: мгновенный вызов
+        SpawnAndFtlObrShuttle(team, sanitizedMission, station, centcommGrid, actor, console, purchaseMode: false, cost: 0);
+    }
+
+    private void ExecutePendingCall(PendingStationObrCall call)
+    {
+        if (!_prototypes.TryIndex<ObrTeamPrototype>(call.TeamId, out var team))
+        {
+            Refund(call.StationUid, call.TeamId, call.Cost);
+            return;
+        }
+
+        if (IsTeamAlreadyActive(team.ID))
+        {
+            Refund(call.StationUid, team, call.Cost);
+            _sawmill.Warning($"Pending OBR call {call.TeamId} cancelled because team is already active. Refunded {call.Cost}.");
+            return;
+        }
+
+        if (!TryGetCentCommGrid(out var centcommGrid))
+        {
+            Refund(call.StationUid, team, call.Cost);
+            _sawmill.Warning($"Pending OBR call {call.TeamId} failed: CentComm grid not found. Refunded {call.Cost}.");
+            return;
+        }
+
+        SpawnAndFtlObrShuttle(team, call.Mission, call.StationUid, centcommGrid, call.Actor, call.Console, purchaseMode: true, cost: call.Cost);
+    }
+
+    private bool SpawnAndFtlObrShuttle(
+        ObrTeamPrototype team,
+        string mission,
+        EntityUid station,
+        EntityUid centcommGrid,
+        EntityUid actor,
+        EntityUid console,
+        bool purchaseMode,
+        int cost)
+    {
+        var charged = purchaseMode && cost > 0;
 
         if (!_gameTicker.StartGameRule(team.GameRule, out var ruleUid))
         {
@@ -235,7 +349,7 @@ public sealed partial class ObrCallSystem : EntitySystem
                 Refund(station, team, cost);
 
             Fail(console, actor, Loc.GetString("obr-call-error-rule-failed"), purchaseMode);
-            return;
+            return false;
         }
 
         if (!TryComp<RuleGridsComponent>(ruleUid, out var ruleGrids) || ruleGrids.MapGrids.Count == 0)
@@ -245,7 +359,7 @@ public sealed partial class ObrCallSystem : EntitySystem
                 Refund(station, team, cost);
 
             Fail(console, actor, Loc.GetString("obr-call-error-shuttle-failed"), purchaseMode);
-            return;
+            return false;
         }
 
         var anyShuttle = false;
@@ -256,14 +370,14 @@ public sealed partial class ObrCallSystem : EntitySystem
 
             var called = EnsureComp<ObrCalledShuttleComponent>(grid);
             called.TeamId = team.ID;
-            called.Mission = sanitizedMission;
+            called.Mission = mission;
             called.RuleUid = ruleUid;
 
             MarkMissionTargetsOnGrid(grid);
 
-            if (!TryFtlObrToDistantPoint(grid, shuttle, targetGrid.Value))
+            if (!TryFtlObrToCentCommDistantPoint(grid, shuttle, centcommGrid))
             {
-                _sawmill.Warning($"OBR shuttle {ToPrettyString(grid)} could not FTL to a safe distant point");
+                _sawmill.Warning($"OBR shuttle {ToPrettyString(grid)} could not FTL to CentComm safe distant point");
                 continue;
             }
 
@@ -277,27 +391,63 @@ public sealed partial class ObrCallSystem : EntitySystem
                 Refund(station, team, cost);
 
             Fail(console, actor, Loc.GetString("obr-call-error-shuttle-failed"), purchaseMode);
-            return;
+            return false;
         }
 
         _activeCalls[team.ID] = ruleUid;
 
         var teamName = Loc.GetString(team.Name);
         var purchaseNote = charged ? $" for {cost}" : " (CentComm)";
-        var missionNote = string.IsNullOrWhiteSpace(sanitizedMission) ? string.Empty : $"; mission: {sanitizedMission}";
+        var missionNote = string.IsNullOrWhiteSpace(mission) ? string.Empty : $"; mission: {mission}";
         _adminLog.Add(
             LogType.Action,
             LogImpact.High,
-            $"{ToPrettyString(actor)} called OBR team {team.ID} via {ToPrettyString(console)}{purchaseNote}{missionNote}");
+            $"{ToPrettyString(actor)} spawned OBR team {team.ID} via {ToPrettyString(console)}{purchaseNote}{missionNote}");
 
-        _popup.PopupEntity(
-            Loc.GetString("obr-call-success", ("team", teamName)),
-            console,
-            actor,
-            PopupType.Medium);
+        if (console.Valid && !Deleted(console))
+        {
+            _popup.PopupEntity(
+                Loc.GetString("obr-call-success", ("team", teamName)),
+                console,
+                actor,
+                PopupType.Medium);
 
-        DeliverMissionToActiveMembers(ruleGrids.MapGrids, sanitizedMission);
-        UpdateUi(console, purchaseMode, actor, Loc.GetString("obr-call-success", ("team", teamName)));
+            UpdateUi(console, purchaseMode, actor, Loc.GetString("obr-call-success", ("team", teamName)));
+        }
+
+        DeliverMissionToActiveMembers(ruleGrids.MapGrids, mission);
+        return true;
+    }
+
+    /// <summary>
+    /// Находит сетку сектора Центрального Командования.
+    /// </summary>
+    public bool TryGetCentCommGrid(out EntityUid centcommGrid)
+    {
+        centcommGrid = EntityUid.Invalid;
+        var query = EntityQueryEnumerator<StationCentCommComponent>();
+        while (query.MoveNext(out var uid, out var centcommComp))
+        {
+            if (centcommComp.Entity.Valid && !Deleted(centcommComp.Entity))
+            {
+                centcommGrid = centcommComp.Entity;
+                return true;
+            }
+
+            if (centcommComp.MapId != MapId.Nullspace && _mapManager.MapExists(centcommComp.MapId))
+            {
+                foreach (var grid in _mapManager.GetAllGrids(centcommComp.MapId))
+                {
+                    if (grid.Owner.Valid && !Deleted(grid.Owner))
+                    {
+                        centcommGrid = grid.Owner;
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
     }
 
     /// <summary>
@@ -367,6 +517,18 @@ public sealed partial class ObrCallSystem : EntitySystem
         if (station.Valid && TryComp<StationBankAccountComponent>(station, out var bank))
             balance = _cargo.GetBalanceFromAccount((station, bank), bank.PrimaryAccount);
 
+        var settings = _prototypes.Index(DefaultSettingsId);
+        var roundDuration = _gameTicker.RoundDuration();
+        var isEarlyRound = roundDuration < settings.EarliestCallTime;
+        string? earlyRoundReason = null;
+        if (isEarlyRound)
+        {
+            var remaining = settings.EarliestCallTime - roundDuration;
+            var minutes = (int)settings.EarliestCallTime.TotalMinutes;
+            var timeLeft = $"{(int)remaining.TotalMinutes:D2}:{remaining.Seconds:D2}";
+            earlyRoundReason = Loc.GetString("obr-call-error-early-round", ("minutes", minutes), ("timeLeft", timeLeft));
+        }
+
         var teams = new List<ObrCallTeamEntry>();
         foreach (var team in _prototypes.EnumeratePrototypes<ObrTeamPrototype>().OrderBy(t => t.SortOrder).ThenBy(t => t.ID))
         {
@@ -383,7 +545,17 @@ public sealed partial class ObrCallSystem : EntitySystem
             var available = true;
             string? reason = null;
 
-            if (IsTeamAlreadyActive(team.ID))
+            if (isEarlyRound)
+            {
+                available = false;
+                reason = earlyRoundReason;
+            }
+            else if (_pendingCalls.Any(p => p.TeamId == team.ID))
+            {
+                available = false;
+                reason = Loc.GetString("obr-call-error-pending");
+            }
+            else if (IsTeamAlreadyActive(team.ID))
             {
                 available = false;
                 reason = Loc.GetString("obr-call-error-already-active");
@@ -513,6 +685,9 @@ public sealed partial class ObrCallSystem : EntitySystem
 
     private bool IsTeamAlreadyActive(string teamId)
     {
+        if (_pendingCalls.Any(p => p.TeamId == teamId))
+            return true;
+
         if (_activeCalls.TryGetValue(teamId, out var rule) &&
             Exists(rule) &&
             _gameTicker.IsGameRuleActive(rule))
@@ -535,4 +710,24 @@ public sealed partial class ObrCallSystem : EntitySystem
     /// Публичный API для тестов.
     /// </summary>
     public bool IsTeamActive(string teamId) => IsTeamAlreadyActive(teamId);
+
+    private void Refund(EntityUid station, string teamId, int cost)
+    {
+        if (_prototypes.TryIndex<ObrTeamPrototype>(teamId, out var team))
+            Refund(station, team, cost);
+    }
+}
+
+/// <summary>
+/// Информация об ожидающем прибытия отряде ОБР со станции.
+/// </summary>
+public sealed class PendingStationObrCall
+{
+    public string TeamId = string.Empty;
+    public string Mission = string.Empty;
+    public EntityUid StationUid;
+    public int Cost;
+    public EntityUid Actor;
+    public EntityUid Console;
+    public TimeSpan ExecuteTime;
 }
