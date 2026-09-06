@@ -75,14 +75,13 @@
   - type: Sprite
     drawdepth: Effects
     noRot: true
-    sprite: Objects/Devices/pinpointer.rsi
+    sprite: _Sunrise/Effects/bluespace_artillery_target.rsi
     layers:
-    - state: pinpointer
-      color: "#FF0000"
+    - state: laser_target
       shader: unshaded
-      scale: 1.25, 1.25
+      scale: 0.5, 0.5
   - type: TimedDespawn
-    lifetime: 12
+    lifetime: 9
   - type: Tag
     tags:
     - HideContextMenu
