@@ -21,6 +21,11 @@ public sealed class ObrCallSettingsPrototypeTests : ContentUnitTest
   maxArrivalDistance: 2500
   attemptsPerRadius: 16
   clearancePadding: 4
+  earliestCallTime: 1800
+  centCommArrivalDistance: 100
+  centCommDistanceStep: 10
+  centCommMaxArrivalDistance: 300
+  centCommAttemptsPerRadius: 24
 ";
 
     [OneTimeSetUp]
@@ -41,5 +46,8 @@ public sealed class ObrCallSettingsPrototypeTests : ContentUnitTest
         Assert.That(settings.DistanceStep, Is.EqualTo(100f));
         Assert.That(settings.MaxArrivalDistance, Is.GreaterThanOrEqualTo(settings.ArrivalDistance));
         Assert.That(settings.AttemptsPerRadius, Is.GreaterThan(0));
+        Assert.That(settings.EarliestCallTime, Is.EqualTo(System.TimeSpan.FromMinutes(30)));
+        Assert.That(settings.CentCommArrivalDistance, Is.EqualTo(100f));
+        Assert.That(settings.CentCommMaxArrivalDistance, Is.EqualTo(300f));
     }
 }
