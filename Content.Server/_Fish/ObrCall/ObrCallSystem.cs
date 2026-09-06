@@ -68,6 +68,11 @@ public sealed partial class ObrCallSystem : EntitySystem
     private readonly List<PendingStationObrCall> _pendingCalls = new();
 
     /// <summary>
+    /// Очередь отложенных возвратов средств при сбое вызова.
+    /// </summary>
+    private readonly List<PendingObrRefund> _pendingRefunds = new();
+
+    /// <summary>
     /// Блокировка от двойных кликов.
     /// </summary>
     private TimeSpan _callLockUntil;
@@ -97,12 +102,23 @@ public sealed partial class ObrCallSystem : EntitySystem
     {
         _activeCalls.Clear();
         _pendingCalls.Clear();
+        _pendingRefunds.Clear();
         _callLockUntil = TimeSpan.Zero;
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
+        if (_pendingRefunds.Count > 0)
+        {
+            for (var i = _pendingRefunds.Count - 1; i >= 0; i--)
+            {
+                var refund = _pendingRefunds[i];
+                if (TryProcessRefund(refund))
+                    _pendingRefunds.RemoveAt(i);
+            }
+        }
 
         if (_pendingCalls.Count == 0)
             return;
@@ -714,12 +730,59 @@ public sealed partial class ObrCallSystem : EntitySystem
 
     private void Refund(EntityUid station, ProtoId<CargoAccountPrototype> account, int cost, string? teamId = null)
     {
-        if (!TryComp<StationBankAccountComponent>(station, out var bank))
+        if (cost <= 0)
             return;
 
-        _cargo.UpdateBankAccount((station, bank), cost, account);
-        _sawmill.Info($"Refunded {cost} to {account} after failed OBR call{(teamId != null ? $" {teamId}" : "")}");
+        var pending = new PendingObrRefund
+        {
+            Station = station,
+            Account = account,
+            Cost = cost,
+            TeamId = teamId,
+        };
+
+        if (!TryProcessRefund(pending))
+        {
+            _pendingRefunds.Add(pending);
+        }
     }
+
+    private bool TryProcessRefund(PendingObrRefund refund)
+    {
+        var targetStation = refund.Station;
+
+        if (!targetStation.Valid || !Exists(targetStation))
+        {
+            if (!TryGetTargetStation(EntityUid.Invalid, purchaseMode: true, out targetStation))
+            {
+                _sawmill.Warning($"Cannot process refund of {refund.Cost} to {refund.Account} for {refund.TeamId}: station entity {refund.Station} is invalid and no fallback station found.");
+                return false;
+            }
+
+            refund.Station = targetStation;
+        }
+
+        if (!TryComp<StationBankAccountComponent>(targetStation, out var bank))
+        {
+            _sawmill.Warning($"StationBankAccountComponent missing on station {ToPrettyString(targetStation)} for refund of {refund.Cost} to {refund.Account}. Retrying later.");
+            return false;
+        }
+
+        _cargo.UpdateBankAccount((targetStation, bank), refund.Cost, refund.Account);
+        _sawmill.Info($"Refunded {refund.Cost} to {refund.Account} on station {ToPrettyString(targetStation)} after failed OBR call{(refund.TeamId != null ? $" {refund.TeamId}" : "")}");
+        return true;
+    }
+}
+
+/// <summary>
+/// Информация об ожидающем возврате средств.
+/// </summary>
+public sealed class PendingObrRefund
+{
+    public EntityUid Station;
+    public ProtoId<CargoAccountPrototype> Account = "Cargo";
+    public int Cost;
+    public string? TeamId;
 }
 
 /// <summary>
