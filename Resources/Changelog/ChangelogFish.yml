@@ -412,3 +412,10 @@
     message: Различные улучшения карт.
   id: 40
   url: https://github.com/makura-games/fish-station/pull/433
+- author: pifagor
+  time: '2026-09-06T19:55:54.0000000+00:00'
+  changes:
+  - type: Add
+    message: Лазерный целеуказатель блюспейс артиллерии для ОБР лидеров и админов.
+  id: 41
+  url: https://github.com/makura-games/fish-station/pull/432
