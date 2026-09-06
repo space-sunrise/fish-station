@@ -1,8 +1,5 @@
 using Content.Shared.Audio;
 using Content.Shared.CCVar;
-// FIsh edit start - импорт события остановки админских звуков
-using Content.Shared._Fish.Audio;
-// FIsh edit end
 using Content.Shared.GameTicking;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -11,10 +8,12 @@ using Robust.Shared.Player;
 
 namespace Content.Client.Audio;
 
-public sealed class ClientGlobalSoundSystem : SharedGlobalSoundSystem
+// FIsh edit start - делаем класс partial для выноса Fish-логики
+public sealed partial class ClientGlobalSoundSystem : SharedGlobalSoundSystem
+// FIsh edit end
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     // Admin music
     private bool _adminAudioEnabled = true;
@@ -27,11 +26,11 @@ public sealed class ClientGlobalSoundSystem : SharedGlobalSoundSystem
     public override void Initialize()
     {
         base.Initialize();
+        // FIsh edit start - инициализация логики форка
+        InitializeFishAudio();
+        // FIsh edit end
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
         SubscribeNetworkEvent<AdminSoundEvent>(PlayAdminSound);
-        // FIsh edit start - подписка на остановку админских звуков
-        SubscribeNetworkEvent<StopAdminSoundEvent>(OnStopAdminSound);
-        // FIsh edit end
         Subs.CVar(_cfg, CCVars.AdminSoundsEnabled, ToggleAdminSound, true);
 
         SubscribeNetworkEvent<StationEventMusicEvent>(PlayStationEventMusic);
@@ -73,19 +72,11 @@ public sealed class ClientGlobalSoundSystem : SharedGlobalSoundSystem
         if(!_adminAudioEnabled) return;
 
         var stream = _audio.PlayGlobal(soundEvent.Specifier, Filter.Local(), false, soundEvent.AudioParams);
+        // FIsh edit start - очистка мёртвых/завершённых аудиопотоков
+        CleanupAdminAudioStreams();
+        // FIsh edit end
         _adminAudio.Add(stream?.Entity);
     }
-
-    // FIsh edit start - обработчик остановки всех админских звуков у клиента
-    private void OnStopAdminSound(StopAdminSoundEvent ev)
-    {
-        foreach (var stream in _adminAudio)
-        {
-            _audio.Stop(stream);
-        }
-        _adminAudio.Clear();
-    }
-    // FIsh edit end
 
     private void PlayStationEventMusic(StationEventMusicEvent soundEvent)
     {

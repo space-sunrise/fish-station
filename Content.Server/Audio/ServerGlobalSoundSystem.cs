@@ -1,10 +1,5 @@
 using Content.Server.Station.Systems;
 using Content.Shared.Audio;
-// FIsh edit start - импорт для остановки админских звуков
-using Content.Shared._Fish.Audio;
-using Robust.Server.Player;
-using Robust.Shared.Network;
-// FIsh edit end
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Console;
@@ -12,19 +7,18 @@ using Robust.Shared.Player;
 
 namespace Content.Server.Audio;
 
-public sealed class ServerGlobalSoundSystem : SharedGlobalSoundSystem
+// FIsh edit start - делаем класс partial для выноса Fish-логики
+public sealed partial class ServerGlobalSoundSystem : SharedGlobalSoundSystem
+// FIsh edit end
 {
-    [Dependency] private readonly IConsoleHost _conHost = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    // FIsh edit start - внедрение менеджера игроков для точечной остановки звуков
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    // FIsh edit end
+    [Dependency] private IConsoleHost _conHost = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Shutdown()
     {
         // FIsh edit start - остановка звуков при выключении системы
-        StopAllAdminSounds();
+        ShutdownFishAdminSounds();
         // FIsh edit end
         base.Shutdown();
         _conHost.UnregisterCommand("playglobalsound");
@@ -35,19 +29,6 @@ public sealed class ServerGlobalSoundSystem : SharedGlobalSoundSystem
         var msg = new AdminSoundEvent(specifier, audioParams);
         RaiseNetworkEvent(msg, playerFilter, recordReplay: replay);
     }
-
-    // FIsh edit start - методы остановки глобальных звуков через сетевое событие
-    public void StopAllAdminSounds()
-    {
-        RaiseNetworkEvent(new StopAdminSoundEvent());
-    }
-
-    public void StopPlayerAdminSounds(NetUserId userId)
-    {
-        if (_playerManager.TryGetSessionById(userId, out var session))
-            RaiseNetworkEvent(new StopAdminSoundEvent(), session);
-    }
-    // FIsh edit end
 
     private Filter GetStationAndPvs(EntityUid source)
     {
